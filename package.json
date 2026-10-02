@@ -26,8 +26,12 @@
     "@astrojs/check": "^0.9.10",
     "@fontsource/fraunces": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
+    "d3-geo": "^3.1.1",
     "opentype.js": "^2.0.0",
-    "typescript": "^6.0.3"
+    "topojson-client": "^3.1.0",
+    "topojson-simplify": "^3.0.3",
+    "typescript": "^6.0.3",
+    "us-atlas": "^3.0.1"
   },
   "overrides": {
     "uuid": "^11.1.1"

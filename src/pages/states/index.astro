@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import Faq from '../../components/Faq.astro';
+import StateTiles from '../../components/StateTiles.astro';
 import { loadData, imageFor } from '../../lib/core.mjs';
 import { fmtNum } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
@@ -32,9 +33,7 @@ const schema = [
   </PageHero>
   <section class="wrap section-sm">
     <h2>All States</h2>
-    <ul class="tile-list">
-      {states.map((s) => <li><a href={s.url}><span>{s.name}</span><span class="count">{s.listings.length}</span></a></li>)}
-    </ul>
+    <StateTiles states={states} />
   </section>
   <section class="bg-mist section-sm">
     <div class="wrap narrow prose">

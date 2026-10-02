@@ -1,0 +1,35 @@
+---
+// Grid of state tiles with a simple drawn outline of each state (US Census boundaries).
+import shapes from '../data/state-shapes.json';
+interface Props { states: { name: string; url: string; slug: string; listings: unknown[] }[] }
+const { states } = Astro.props;
+---
+<ul class="state-tiles">
+  {states.map((s) => (
+    <li>
+      <a href={s.url}>
+        {shapes[s.slug] && (
+          <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d={shapes[s.slug]} /></svg>
+        )}
+        <span class="st-name">{s.name}</span>
+        <span class="st-count">{s.listings.length} waterfall{s.listings.length === 1 ? '' : 's'}</span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .state-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .state-tiles a { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 16px 12px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; text-decoration: none; color: var(--slate-dark); text-align: center; height: 100%; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
+  .state-tiles a:hover { border-color: var(--forest); box-shadow: var(--shadow); transform: translateY(-2px); }
+  .state-tiles svg { width: 76px; height: 76px; margin-bottom: 6px; overflow: visible; }
+  .state-tiles path { fill: var(--mist); stroke: var(--slate); stroke-width: 2.2; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: fill 0.15s, stroke 0.15s; }
+  .state-tiles svg path { stroke-width: 1.4; }
+  .state-tiles a:hover path { fill: #dbe8e1; stroke: var(--forest); }
+  .st-name { font-weight: 600; font-size: 0.97rem; line-height: 1.25; }
+  .st-count { font-size: 0.85rem; color: var(--slate-soft); }
+  @media (max-width: 560px) {
+    .state-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .state-tiles svg { width: 64px; height: 64px; }
+  }
+</style>
