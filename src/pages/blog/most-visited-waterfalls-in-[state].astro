@@ -1,0 +1,8 @@
+---
+import StateListPost from '../../components/StateListPost.astro';
+import { getStateLists } from '../../lib/bestof.mjs';
+export function getStaticPaths() {
+  return getStateLists().filter((p) => p.kind === 'most-visited').map((p) => ({ params: { state: p.state.slug }, props: { url: p.url } }));
+}
+---
+<StateListPost url={Astro.props.url} />

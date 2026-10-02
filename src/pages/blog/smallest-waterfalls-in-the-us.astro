@@ -4,7 +4,7 @@ import Icon from '../../components/Icon.astro';
 import Faq from '../../components/Faq.astro';
 import { getSmallest, BEST_YEAR } from '../../lib/bestof.mjs';
 import { imageFor } from '../../lib/core.mjs';
-import { listingImage, listingImageAlt, imgFallback, directionsUrl, fmtNum, stars, listJoin, nearText } from '../../lib/format.mjs';
+import { listingImage, listingImageAlt, imgFallback, directionsUrl, fmtNum, stars, listJoin, nearText, displayName } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
 import Photo from '../../components/Photo.astro';
 import { pagePhoto, listingPhoto } from '../../lib/photos.mjs';
@@ -42,13 +42,13 @@ const schema = [
         <p>Most named waterfalls have no official height on record. We searched the USGS Geographic Names Information System and Google listing descriptions for every waterfall in our directory and found an explicit height for {post.measured} of them. These ten are the smallest of that group, excluding falls recorded on private land. Heights are approximate and describe the drop, not the width.</p>
         <table>
           <thead><tr><th>#</th><th>Waterfall</th><th>State</th><th>Height</th></tr></thead>
-          <tbody>{items.map((i, n) => <tr><td>{n + 1}</td><td><a href={i.listing.url}>{i.listing.name}</a></td><td><a href={`/states/${i.listing.stateSlug}`}>{i.listing.state}</a></td><td>About {i.h.feet} ft</td></tr>)}</tbody>
+          <tbody>{items.map((i, n) => <tr><td>{n + 1}</td><td><a href={i.listing.url}>{displayName(i.listing)}</a></td><td><a href={`/states/${i.listing.stateSlug}`}>{i.listing.state}</a></td><td>About {i.h.feet} ft</td></tr>)}</tbody>
         </table>
       </div>
       <ol class="best-list">
         {items.map(({ listing: l, h }, n) => (
           <li id={`w${n + 1}`}>
-            <h2><span class="best-num">{n + 1}.</span> <a href={l.url}>{l.name}</a>, {l.state}</h2>
+            <h2><span class="best-num">{n + 1}.</span> <a href={l.url}>{displayName(l)}</a>, {l.state}</h2>
             <p class="muted small">About {h.feet} feet · {l.county ? `${l.county} County · ` : ''}near {l.city.name}</p>
             <Photo photo={listingPhoto(l)} eager={n < 2} />
             {l.os?.rating && <p class="rating"><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span>{l.os.rating.toFixed(1)} <span class="count">({fmtNum(l.os.reviews)} Google reviews)</span></p>}

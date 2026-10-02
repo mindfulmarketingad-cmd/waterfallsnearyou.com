@@ -2,14 +2,16 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import { getPosts } from '../../lib/blog.mjs';
-import { getStateLists, getSmallest } from '../../lib/bestof.mjs';
+import { getStateLists, getSmallest, getRoadside } from '../../lib/bestof.mjs';
 const families = [
   ['best', 'Best Waterfalls by State', 'Ranked by visitor ratings and review volume.'],
   ['beautiful', 'Most Beautiful Waterfalls by State', 'Ranked by visitor photos, five-star reviews and scenery.'],
   ['must-see', 'Must-See Waterfalls by State', 'The five most visited falls in each state, with a route between them.'],
   ['hiking', 'Best Waterfall Hikes by State', 'Trail-reached falls ranked by the hikers who reviewed them.'],
+  ['most-visited', 'Most Visited Waterfalls by State', 'The five busiest waterfalls in each state by Google review volume.'],
 ];
 const smallest = getSmallest();
+const roadside = getRoadside();
 import Photo from '../../components/Photo.astro';
 import { featuredPhoto } from '../../lib/photos.mjs';
 import { imageFor } from '../../lib/core.mjs';
@@ -46,7 +48,7 @@ const fmt = (d) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long
     <div class="wrap">
       <span class="eyebrow">State guides</span>
       <h2>Waterfall Lists by State</h2>
-      <p class="muted">Ranked lists for every state with more than 10 named waterfalls, updated for {new Date().getFullYear()}. Also see <a href={smallest.url}>{smallest.title}</a>.</p>
+      <p class="muted">Ranked lists for every state with more than 10 named waterfalls, updated for {new Date().getFullYear()}. Also see <a href={roadside.url}>{roadside.title}</a> and <a href={smallest.url}>{smallest.title}</a>.</p>
       {families.map(([kind, heading, blurb]) => (
         <>
           <h3 style="margin-top:28px">{heading}</h3>

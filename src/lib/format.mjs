@@ -95,3 +95,24 @@ export function relativeSummary(l, ctx) {
   else if (l.city.name !== from) parts.push(`Its own nearest town is ${l.city.name}.`);
   return parts.join(' ');
 }
+
+// Official USGS name plus the popular Google Maps name when they clearly differ,
+// e.g. "Upper Falls (Tahquamenon Falls)".
+const nameKey = (n) => String(n).normalize('NFKD').replace(/[\u0300-\u036f\u02bb\u2018\u2019']/g, '').toLowerCase().replace(/\b(the|falls?|waterfalls?|of|upper|lower|middle)\b|[^a-z]/g, '');
+export function displayName(l) {
+  const g = l.os?.name;
+  if (!g || l.source !== 'gnis' || !/[a-z]/i.test(g)) return l.name;
+  if (/squaw/i.test(g)) return l.name; // retired derogatory name; USGS replaced it
+  if (/state park|natural area|conservation|wildlife|scenic site|\bin california\b|,/i.test(g)) return l.name;
+  const a = nameKey(l.name), b = nameKey(g);
+  if (!b || a === b) return l.name;
+  if (a && (a.includes(b) || b.includes(a) || dice(a, b) > 0.5)) return l.name; // same name, different spelling
+  return `${l.name} (${g})`;
+}
+function dice(x, y) {
+  const grams = (t) => { const m = new Map(); for (let i = 0; i < t.length - 1; i++) { const g = t.slice(i, i + 2); m.set(g, (m.get(g) || 0) + 1); } return m; };
+  const gx = grams(x), gy = grams(y);
+  let inter = 0;
+  for (const [g, n] of gx) inter += Math.min(n, gy.get(g) || 0);
+  return (2 * inter) / Math.max(1, x.length - 1 + y.length - 1);
+}

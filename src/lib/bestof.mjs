@@ -30,7 +30,7 @@ export function getStateLists() {
   cache = [];
   for (const state of states.filter((s) => s.listings.length > MIN_LISTINGS)) {
     const ctx = context(state);
-    for (const kind of ['best', 'beautiful', 'must-see', 'hiking']) {
+    for (const kind of ['best', 'beautiful', 'must-see', 'hiking', 'most-visited']) {
       const post = BUILDERS[kind](state, ctx);
       if (post) cache.push(post);
     }
@@ -55,7 +55,7 @@ function context(state) {
 }
 
 function post(kind, state, ctx, items, meta) {
-  const slugs = { best: 'best-waterfalls-in', beautiful: 'most-beautiful-waterfalls-in', 'must-see': 'must-see-waterfalls-in', hiking: 'best-waterfall-hikes-in' };
+  const slugs = { best: 'best-waterfalls-in', beautiful: 'most-beautiful-waterfalls-in', 'must-see': 'must-see-waterfalls-in', hiking: 'best-waterfall-hikes-in', 'most-visited': 'most-visited-waterfalls-in' };
   const slug = `${slugs[kind]}-${state.slug}`;
   return {
     kind, slug, url: `/blog/${slug}`, state, content: ctx.content, items,
@@ -171,7 +171,13 @@ function buildBeautiful(state, ctx) {
 
 // ---------- Must-See ----------
 function buildMustSee(state, ctx) {
-  const cands = ctx.byReviews.filter((l) => l.os.rating >= 4.2);
+  // Weighted rating among popular falls (heavy prior), so this list differs from "Most Visited".
+  const popular = ctx.rated.filter((l) => l.os.reviews >= 50).length >= 5 ? ctx.rated.filter((l) => l.os.reviews >= 50) : ctx.rated.filter((l) => l.os.reviews >= 10);
+  const M = 150;
+  const bayes = (l) => (l.os.reviews / (l.os.reviews + M)) * l.os.rating + (M / (l.os.reviews + M)) * ctx.C;
+  // Iconic = consistently loved AND widely visited: weighted rating plus a popularity term.
+  const iconic = (l) => bayes(l) + 0.2 * Math.log10(l.os.reviews);
+  const cands = [...popular].filter((l) => l.os.rating >= 4.3).sort((a, b) => iconic(b) - iconic(a));
   if (cands.length < 5) return null;
   const picks = [];
   for (const l of cands) {
@@ -191,7 +197,7 @@ function buildMustSee(state, ctx) {
     const pos = ctx.byReviews.indexOf(l) + 1;
     const cluster = (l.nearby || []).filter((n) => n.miles <= 15);
     return item(l, state, [
-      `With ${fmt(l.os.reviews)} Google reviews it is the ${pos === 1 ? 'single most visited' : `${ordinal(pos)} most visited`} waterfall in ${state.name}, and it holds ${l.os.rating.toFixed(1)} stars.`,
+      `It holds ${l.os.rating.toFixed(1)} stars across ${fmt(l.os.reviews)} Google reviews${pos <= 10 ? `, the ${ordinal(pos)} most reviewed waterfall in ${state.name}` : ''}.`,
       l.os.description ? `In short: "${l.os.description.replace(/\.$/, '')}."` : null,
       l.os.reviewTags?.length ? `Expect ${listJoin(l.os.reviewTags.slice(0, 3))}, the topics reviewers bring up most.` : null,
       ...usgsLines(l).slice(0, 1),
@@ -204,8 +210,8 @@ function buildMustSee(state, ctx) {
   return post('must-see', state, ctx, items, {
     short: 'Must-See Waterfalls',
     title: `5 Must-See Waterfalls in ${state.name} (${BEST_YEAR})`,
-    description: `The 5 must-see waterfalls in ${state.name}: ${listJoin(items.map((i) => i.listing.name).slice(0, 3))} and more, plus a route linking all five.`.slice(0, 160),
-    method: `These are the five most visited ${state.name} waterfalls rated 4.2 stars or higher, measured by Google review count, with no two picks within 8 miles of each other so the list covers more of the state.`,
+    description: `The 5 must-see waterfalls in ${state.name}, chosen for consistently top ratings and spread across the state: ${listJoin(items.map((i) => i.listing.name).slice(0, 2))} and more, plus a route.`.slice(0, 160),
+    method: `We ranked popular ${state.name} waterfalls (${popular[0]?.os.reviews >= 50 ? 'at least 50' : 'at least 10'} Google reviews) by a score that combines a weighted rating with how widely visited each one is, then kept no two picks within 8 miles of each other so the five cover more of the state.`,
     whyHeading: 'Why it is a must-see',
     route: { legs, total },
   });
@@ -248,7 +254,84 @@ function buildHiking(state, ctx) {
   });
 }
 
-const BUILDERS = { best: buildBest, beautiful: buildBeautiful, 'must-see': buildMustSee, hiking: buildHiking };
+// ---------- Most Visited ----------
+function buildMostVisited(state, ctx) {
+  const picks = ctx.byReviews.slice(0, 5);
+  if (picks.length < 5) return null;
+  const stateReviews = ctx.rated.reduce((s, l) => s + l.os.reviews, 0);
+  const topShare = Math.round((picks.reduce((s, l) => s + l.os.reviews, 0) / stateReviews) * 100);
+  const items = picks.map((l, i) => {
+    const share = fiveShare(l);
+    const next = picks[i + 1];
+    return item(l, state, [
+      `${fmt(l.os.reviews)} Google reviews make it ${i === 0 ? `the most visited waterfall in ${state.name}` : `number ${i + 1} in ${state.name}`}, about ${Math.max(1, Math.round((l.os.reviews / stateReviews) * 100))}% of all reviews of the state's waterfalls.`,
+      i === 0 && next ? `That is ${(l.os.reviews / next.os.reviews).toFixed(1)} times as many as ${next.name} in second place.` : null,
+      l.os.photosCount ? `Visitors have shared ${fmt(l.os.photosCount)} photos of it.` : null,
+      `It averages ${l.os.rating.toFixed(1)} stars${share != null ? `, with ${Math.round(share * 100)}% five-star reviews` : ''}.`,
+      l.os.description ? `"${l.os.description.replace(/\.$/, '')}."` : null,
+      l.os.reviewTags?.length ? `Reviews most often mention ${listJoin(l.os.reviewTags.slice(0, 3))}.` : null,
+      l.os.reviews >= 500 ? 'Expect company: arrive early on weekends and holidays, when parking fills first.' : null,
+      townLine(l),
+    ]);
+  });
+  return post('most-visited', state, ctx, items, {
+    short: 'Most Visited Waterfalls',
+    title: `5 Most Visited Waterfalls in ${state.name} (${BEST_YEAR})`,
+    description: `The 5 most visited waterfalls in ${state.name} by Google review count, led by ${items[0].listing.name} with ${fmt(items[0].listing.os.reviews)} reviews. Ratings, photos and crowd tips.`.slice(0, 160),
+    method: `Ranked purely by the number of Google reviews, the best public signal of how many people visit. Together these five account for ${topShare}% of all Google reviews of ${state.name} waterfalls.`,
+    whyHeading: 'Visitor numbers',
+  });
+}
+
+// ---------- Easy roadside access (national) ----------
+const ACCESS_TAG = /^(easy access|roadside|parking|parking lot|short walk|walk to falls|paved|paved trail|wheelchair|wheelchair accessible|accessible|boardwalk|easy walk|close to parking|observation deck|viewing platform)$/i;
+const ACCESS_DESC = /roadside|close to the highway|from the road|next to the road|along (the )?(road|highway)|parking (lot|area)|short(,)? (flat )?(walk|path|stroll)|paved (path|trail|walkway|pathway)|wheelchair|boardwalk|easily accessible|drive-up|by driving/i;
+const HIKE_WORDS = /hik|moderate|strenuous|\d+(\.\d+)?[- ]mi\b|mile|steep|staircase|stairs|rock steps/i;
+const HARD_TAGS = /steep|strenuous|elevation|rocky trail|climb|difficult|incline/i;
+export function accessEvidence(l) {
+  const tags = (l.os?.reviewTags || []).filter((t) => ACCESS_TAG.test(t));
+  const desc = l.os?.description || '';
+  const descHit = ACCESS_DESC.test(desc);
+  const strongDesc = /roadside|highway|from the road|accessible from the parking|paved|wheelchair|drive-up|by driving/i.test(desc);
+  if (!tags.length && !descHit) return null;
+  if ((l.os?.reviewTags || []).some((t) => HARD_TAGS.test(t))) return null;
+  if (HIKE_WORDS.test(desc) && !strongDesc) return null;
+  return { tags, desc: descHit ? desc : '', stairs: /stair|steps/i.test(desc) };
+}
+let roadCache = null;
+export function getRoadside() {
+  if (roadCache) return roadCache;
+  const { listings } = loadData();
+  const cands = listings.filter((l) => !isPrivate(l) && l.os?.reviews >= 10 && l.os.rating >= 4.3 && accessEvidence(l));
+  const votes = cands.reduce((s, l) => s + l.os.reviews, 0);
+  const C = cands.reduce((s, l) => s + l.os.rating * l.os.reviews, 0) / votes;
+  const M = 50;
+  const bayes = (l) => (l.os.reviews / (l.os.reviews + M)) * l.os.rating + (M / (l.os.reviews + M)) * C;
+  const items = cands.sort((a, b) => bayes(b) - bayes(a)).slice(0, 25).map((l) => {
+    const ev = accessEvidence(l);
+    return {
+      listing: l,
+      why: [
+        ev.desc ? `Access: "${ev.desc.replace(/\.$/, '')}."` : null,
+        ev.tags.length ? `Reviewers describe it with ${listJoin(ev.tags.map((t) => `"${t}"`))}.` : null,
+        ev.stairs ? 'Note that the route includes stairs or steps.' : null,
+        `Rated ${l.os.rating.toFixed(1)} stars by ${fmt(l.os.reviews)} Google reviewers.`,
+        townLine(l),
+      ].filter(Boolean),
+    };
+  });
+  roadCache = {
+    slug: 'best-waterfalls-with-easy-roadside-access',
+    url: '/blog/best-waterfalls-with-easy-roadside-access',
+    title: `${items.length} Best Waterfalls with Easy Roadside Access (${BEST_YEAR})`,
+    description: `${items.length} top-rated US waterfalls you can see with little or no hiking: roadside viewpoints, paved paths and short walks from parking, from ${items[0].listing.name} to ${items[1].listing.name}.`.slice(0, 160),
+    imageAlt: 'Waterfall close to a road and parking area',
+    items, candidates: cands.length, states: [...new Set(items.map((i) => i.listing.state))],
+  };
+  return roadCache;
+}
+
+const BUILDERS = { best: buildBest, beautiful: buildBeautiful, 'must-see': buildMustSee, hiking: buildHiking, 'most-visited': buildMostVisited };
 
 // ---------- Smallest documented waterfalls (national) ----------
 // Heights come only from explicit height phrases in USGS gazetteer or Google listing descriptions.

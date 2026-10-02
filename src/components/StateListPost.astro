@@ -4,7 +4,7 @@ import Icon from './Icon.astro';
 import Faq from './Faq.astro';
 import { getStateLists, listsForState, BEST_YEAR } from '../lib/bestof.mjs';
 import { imageFor } from '../lib/core.mjs';
-import { listingImage, listingImageAlt, imgFallback, directionsUrl, fmtNum, fmtMiles, stars, listJoin } from '../lib/format.mjs';
+import { displayName, listingImage, listingImageAlt, imgFallback, directionsUrl, fmtNum, fmtMiles, stars, listJoin } from '../lib/format.mjs';
 import { SITE } from '../config.mjs';
 import Photo from './Photo.astro';
 import { pagePhoto, listingPhoto } from '../lib/photos.mjs';
@@ -21,7 +21,7 @@ const first = items[0].listing;
 const towns = [...new Set(items.map((i) => i.listing.city))].slice(0, 8);
 const siblings = listsForState(state).filter((p) => p !== post);
 const others = getStateLists().filter((p) => p.kind === post.kind && p !== post).sort((a, b) => Math.hypot(a.state.center.lat - state.center.lat, a.state.center.lng - state.center.lng) - Math.hypot(b.state.center.lat - state.center.lat, b.state.center.lng - state.center.lng)).slice(0, 6);
-const label = { best: 'best', beautiful: 'most beautiful', 'must-see': 'must-see', hiking: 'best hiking' }[post.kind];
+const label = { best: 'best', beautiful: 'most beautiful', 'must-see': 'must-see', hiking: 'best hiking', 'most-visited': 'most visited' }[post.kind];
 const faqs = [
   { q: `What is the ${label === 'must-see' ? 'number one must-see' : label} waterfall in ${state.name}?`, a: `${first.name} tops our ${BEST_YEAR} list${first.os?.rating ? `, with a ${first.os.rating.toFixed(1)}-star rating from ${fmtNum(first.os.reviews)} Google reviews` : ''}. It is near <a href="${first.city.url}">${first.city.name}</a>${first.county ? ` in ${first.county} County` : ''}.` },
   { q: `How was this list made?`, a: post.method },
@@ -55,8 +55,9 @@ const schema = [
         {post.kind === 'best' && `Of the ${state.listings.length} named waterfalls in ${state.name}, these ${items.length} earn the strongest visitor ratings, led by ${listJoin(items.slice(0, 3).map((i) => i.listing.name))}.`}
         {post.kind === 'beautiful' && `Ranked by what visitors photograph and rate five stars, these are the ${items.length} most beautiful of ${state.name}'s ${state.listings.length} named waterfalls, starting with ${items[0].listing.name}.`}
         {post.kind === 'must-see' && `If you only have time for five ${state.name} waterfalls, make it these: the state's most visited falls, spread out so the list covers ${post.regionsUsed.length > 1 ? `the ${listJoin(post.regionsUsed.slice(0, 3))}` : 'more ground'}.`}
+        {post.kind === 'most-visited' && `These are the ${state.name} waterfalls that draw the biggest crowds, measured by Google review volume, led by ${items[0].listing.name}. Popular does not have to mean packed if you time it right; tips below.`}
         {post.kind === 'hiking' && `These ${items.length} ${state.name} waterfalls are reached on foot and rated highly by the people who hiked them, led by ${listJoin(items.slice(0, 3).map((i) => i.listing.name))}.`}
-        {post.kind !== 'must-see' && post.regionsUsed.length > 1 ? ` The list spans the ${listJoin(post.regionsUsed.slice(0, 3))}.` : ''}
+        {post.kind !== 'must-see' && post.kind !== 'most-visited' && post.regionsUsed.length > 1 ? ` The list spans the ${listJoin(post.regionsUsed.slice(0, 3))}.` : ''}
       </p>
       <div style="margin:18px 0 8px"><Photo photo={photo} class="feature" priority /></div>
     </header>
@@ -64,7 +65,7 @@ const schema = [
     <div class="wrap narrow">
       <nav class="panel" aria-label="The list" style="margin:20px 0">
         <h2 style="font-size:1.05rem">The {items.length} {label} waterfalls in {state.name}</h2>
-        <ol style="margin:0;padding-left:1.3em;columns:2 220px">{items.map((i, n) => <li><a href={`#w${n + 1}`}>{i.listing.name}</a></li>)}</ol>
+        <ol style="margin:0;padding-left:1.3em;columns:2 220px">{items.map((i, n) => <li><a href={`#w${n + 1}`}>{displayName(i.listing)}</a></li>)}</ol>
       </nav>
 
       <div class="prose">
@@ -75,7 +76,7 @@ const schema = [
       <ol class="best-list">
         {items.map(({ listing: l, why, region }, n) => (
           <li id={`w${n + 1}`}>
-            <h2><span class="best-num">{n + 1}.</span> <a href={l.url}>{l.name}</a></h2>
+            <h2><span class="best-num">{n + 1}.</span> <a href={l.url}>{displayName(l)}</a></h2>
             <p class="muted small">{l.city.name}, {state.code}{l.county ? ` · ${l.county} County` : ''}{region ? ` · ${region.name}` : ''}</p>
             <Photo photo={listingPhoto(l)} eager={n < 2} />
             {l.os?.rating && <p class="rating"><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span>{l.os.rating.toFixed(1)} <span class="count">({fmtNum(l.os.reviews)} Google reviews)</span></p>}
