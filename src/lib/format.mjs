@@ -57,14 +57,22 @@ export function listJoin(arr) {
   return `${arr.slice(0, -1).join(', ')}${arr.length > 2 ? ',' : ''} and ${arr[arr.length - 1]}`;
 }
 
+export function addressText(l) {
+  const a = l.os?.fullAddress || '';
+  if (a.includes(',')) return a;
+  const zip = l.os?.postalCode ? ` ${l.os.postalCode}` : '';
+  return `${l.county ? `${l.county} County, ` : ''}${l.stateCode}${zip} (GPS ${l.lat.toFixed(4)}, ${l.lng.toFixed(4)})`;
+}
+
 export function listingFacts(l) {
   const f = [];
   if (l.os?.rating) f.push(['Rating', `${l.os.rating.toFixed(1)} (${fmtNum(l.os.reviews)} Google reviews)`]);
   const h = hoursSummary(l.os);
   if (h) f.push(['Hours', h]);
-  f.push(['Address', l.os?.fullAddress || `${l.county ? `${l.county} County, ` : ''}${l.stateCode} (GPS ${l.lat.toFixed(4)}, ${l.lng.toFixed(4)})`]);
+  f.push(['Address', addressText(l)]);
   if (l.os?.phone) f.push(['Phone', l.os.phone]);
   if (l.os?.site) f.push(['Website', new URL(l.os.site).hostname.replace(/^www\./, '')]);
+  if (l.os?.reviewTags?.length) f.push(['Known for', l.os.reviewTags.slice(0, 5).join(', ')]);
   f.push(['Nearest town', `${l.city.name}, ${l.stateCode} (${fmtMiles(l.cityMiles)})`]);
   if (l.topoMap) f.push(['USGS topo', `${l.topoMap} quad`]);
   return f;

@@ -22,7 +22,10 @@ const STATE_CODES = {
 };
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-const str = (v) => (v === undefined || v === null ? '' : String(v).trim());
+const str = (v) => {
+  const s = v === undefined || v === null ? '' : String(v).trim();
+  return /^(none|null|nan|undefined)$/i.test(s) ? '' : s;
+};
 const num = (v) => {
   const n = parseFloat(str(v).replace(/,/g, ''));
   return Number.isFinite(n) ? n : null;
@@ -88,7 +91,7 @@ function normalize(r) {
   if (cc && !['US', 'USA', 'UNITED STATES', 'UNITED STATES OF AMERICA'].includes(cc)) return null;
   if (/CLOSED_PERMANENTLY/i.test(str(r.business_status))) return null;
   const stateRaw = str(r.us_state || r.state);
-  const stateCode = stateRaw.length === 2 ? stateRaw.toUpperCase() : STATE_CODES[stateRaw.toLowerCase()] || '';
+  const stateCode = str(r.state_code).toUpperCase() || (stateRaw.length === 2 ? stateRaw.toUpperCase() : STATE_CODES[stateRaw.toLowerCase()] || '');
   const perScore = {};
   const ps = json(r.reviews_per_score);
   for (let i = 1; i <= 5; i++) {
@@ -103,6 +106,8 @@ function normalize(r) {
     name,
     lat, lng,
     fullAddress: str(r.full_address || r.address),
+    reviewTags: str(r.reviews_tags).split(',').map((t) => t.trim()).filter(Boolean).slice(0, 12),
+    kgmid: str(r.kgmid),
     street: str(r.street),
     city: str(r.city),
     postalCode: str(r.postal_code),
@@ -116,7 +121,7 @@ function normalize(r) {
     reviewsPerScore: Object.keys(perScore).length ? perScore : null,
     photosCount: num(r.photos_count) ?? 0,
     photo,
-    photos: [...new Set([photo, ...photos].filter(Boolean))].slice(0, 8),
+    photos: [...new Set([photo, ...photos, safeUrl(r.street_view)].filter(Boolean))].slice(0, 8),
     streetView: safeUrl(r.street_view),
     logo: safeUrl(r.logo),
     category: str(r.category || r.type),

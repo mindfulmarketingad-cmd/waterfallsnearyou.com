@@ -72,7 +72,7 @@ function nameScore(a, b) {
   if (!ta.size || !tb.size) return slugify(a) === slugify(b) ? 1 : 0;
   let inter = 0;
   for (const t of ta) if (tb.has(t)) inter++;
-  return inter / Math.min(ta.size, tb.size);
+  return inter / (ta.size + tb.size - inter);
 }
 
 const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -109,22 +109,42 @@ export function loadData() {
   }));
 
   // ---- Merge Outscraper records (match to GNIS waterfall, else add as new listing) ----
-  for (const rec of outscraper) {
-    if (typeof rec.lat !== 'number' || typeof rec.lng !== 'number') continue;
-    const stateName = CODE_TO_STATE[rec.stateCode] || rec.state;
-    let best = null, bestScore = 0;
-    for (const l of listings) {
-      if (Math.abs(l.lat - rec.lat) > 0.05 || Math.abs(l.lng - rec.lng) > 0.06) continue;
+  // Score every nearby (record, waterfall) pair, then assign best pairs first so near-identical
+  // names at the same spot (e.g. "Salmon Falls" vs "Upper Salmon Falls") pair up correctly.
+  const pairs = [];
+  outscraper.forEach((rec, ri) => {
+    if (typeof rec.lat !== 'number' || typeof rec.lng !== 'number') return;
+    listings.forEach((l, li) => {
+      if (Math.abs(l.lat - rec.lat) > 0.02 || Math.abs(l.lng - rec.lng) > 0.025) return;
       const d = miles(l, rec);
       const ns = nameScore(l.name, rec.name);
-      const score = d < 0.12 ? 1 + ns : d < 0.9 && ns >= 0.5 ? ns + (0.9 - d) : 0;
-      if (score > bestScore && !l.os) { best = l; bestScore = score; }
-    }
-    if (best) {
-      best.os = rec;
+      const score = d < 0.05 ? 1 + ns : ns >= 0.5 && d < 0.9 ? ns + (0.9 - d) / 0.9 : ns === 1 && d < 1.2 ? 0.5 : 0;
+      if (score > 0) pairs.push({ ri, li, score });
+    });
+  });
+  pairs.sort((a, b) => b.score - a.score);
+  const usedRec = new Set();
+  for (const { ri, li } of pairs) {
+    if (usedRec.has(ri) || listings[li].os) continue;
+    listings[li].os = outscraper[ri];
+    usedRec.add(ri);
+  }
+  // Unmatched records become new listings, skipping duplicate Google pins of an already-listed
+  // waterfall, names with no Latin letters and places that are not waterfalls.
+  const NOT_FALLS = /\b(dam|adit|viewpoint|portage|water ?wheel)\b/i;
+  const baseName = (n) => slugify(n).replace(/(^|-)(upper|lower|middle)(-|$)/g, '$1$3').replace(/-?(water)?falls?-?/g, '');
+  const unmatched = outscraper
+    .filter((rec, ri) => !usedRec.has(ri) && typeof rec.lat === 'number')
+    .sort((a, b) => (b.reviews || 0) - (a.reviews || 0));
+  for (const rec of unmatched) {
+    const stateName = CODE_TO_STATE[rec.stateCode] || rec.state;
+    if (!STATE_CODES[stateName] || !/[a-z]/i.test(rec.name) || NOT_FALLS.test(rec.name)) continue;
+    const twin = listings.find((l) => l.state === stateName && Math.abs(l.lat - rec.lat) < 0.03 && slugify(l.name) === slugify(rec.name) && miles(l, rec) < 1.5);
+    if (twin) {
+      if (!twin.os) twin.os = rec;
       continue;
     }
-    if (!STATE_CODES[stateName]) continue;
+    if (listings.some((l) => l.source === 'outscraper' && l.state === stateName && baseName(l.name) === baseName(rec.name) && slugify(l.name) === slugify(rec.name) && miles(l, rec) < 1.5)) continue;
     listings.push({
       source: 'outscraper', gnisId: null, name: rec.name, state: stateName, stateCode: STATE_CODES[stateName],
       county: rec.county || '', lat: rec.lat, lng: rec.lng, latText: decToDms(rec.lat, true), lngText: decToDms(rec.lng, false),

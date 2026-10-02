@@ -6,7 +6,7 @@ import ListingCard from '../../../components/ListingCard.astro';
 import { loadData, imageFor, hoursSummary } from '../../../lib/core.mjs';
 import {
   fmtMiles, fmtNum, stars, gnisUrl, directionsUrl, appleMapsUrl, osmUrl, osmEmbed, topoUrl,
-  listingImage, listingImageAlt, imgFallback, longSummary, nearText, listJoin,
+  listingImage, listingImageAlt, imgFallback, addressText, longSummary, nearText, listJoin,
 } from '../../../lib/format.mjs';
 import { SITE } from '../../../config.mjs';
 
@@ -30,7 +30,7 @@ const crumbs = [
   { name: l.name, url: l.url },
 ];
 const dupName = l.city.assigned.some((x) => x !== l && x.name === l.name);
-const baseTitle = dupName ? `${l.name}, ${fmtMiles(l.cityMiles)} ${l.cityDirection || 'from'} of ${l.city.name}, ${l.stateCode}`.replace(' from of ', ' from ') : `${l.name} near ${l.city.name}, ${l.stateCode}`;
+const baseTitle = dupName ? `${l.name}, ${l.cityMiles.toFixed(1)} mi ${l.cityDirection || 'from'} of ${l.city.name}, ${l.stateCode}`.replace(' from of ', ' from ') : `${l.name} near ${l.city.name}, ${l.stateCode}`;
 const title = baseTitle.length <= 44 ? `${baseTitle} | Map & Directions` : baseTitle.length <= 54 ? `${baseTitle} | Directions` : baseTitle;
 const description = os?.rating
   ? `${l.name} near ${l.city.name}, ${l.stateCode}: rated ${os.rating.toFixed(1)} from ${fmtNum(os.reviews)} reviews. Hours, directions, GPS coordinates, map and nearby waterfalls.`
@@ -111,12 +111,21 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
       {l.gnisDescription && <p><strong>USGS gazetteer description:</strong> {l.gnisDescription}</p>}
       {l.gnisHistory && <p><strong>Name history:</strong> {l.gnisHistory}</p>}
 
+      {os?.reviewTags?.length > 0 && (
+        <>
+          <h2>What Visitors Mention</h2>
+          <p>Topics that come up most often in Google reviews of {l.name}:</p>
+          <p>{os.reviewTags.map((t) => <span class="tag">{t}</span>)}</p>
+        </>
+      )}
+
       {os?.photos?.length > 1 && (
         <>
-          <h2>Photos</h2>
+          <h2>More Photos</h2>
           <div class="gallery">
-            {os.photos.slice(0, 8).map((p, i) => <img src={p} alt={`${l.name} photo ${i + 1}`} width="400" height="300" loading="lazy" decoding="async" referrerpolicy="no-referrer" />)}
+            {os.photos.slice(1, 8).map((p) => <img src={p} alt={/streetview|=w1600-h1000/.test(p) ? `Street-level view near ${l.name}` : `Visitor photo of ${l.name}`} width="400" height="300" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()" />)}
           </div>
+          {os.photosCount > 2 && <p class="small muted" style="margin-top:8px">{fmtNum(os.photosCount)} visitor photos are available on <a href={os.locationLink} rel="nofollow noopener" target="_blank">the Google Maps listing</a>.</p>}
         </>
       )}
 
@@ -126,6 +135,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
       <div class="li-actions" style="margin-top:14px">
         <a class="btn btn-outline" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Google Maps</a>
         <a class="btn btn-outline" href={appleMapsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="pin" />Apple Maps</a>
+        {os?.locationLink && <a class="btn btn-outline" href={os.locationLink} rel="nofollow noopener" target="_blank"><Icon name="pin" />Google Maps listing</a>}
         <a class="btn btn-outline" href={osmUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="map" />OpenStreetMap</a>
         <a class="btn btn-outline" href={topoUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="mountain" />USGS topo viewer</a>
       </div>
@@ -195,7 +205,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <h2>Quick Facts</h2>
         <dl class="facts">
           <div><dt>Type</dt><dd>{os?.category || 'Waterfall'}</dd></div>
-          {os?.fullAddress && <div><dt>Address</dt><dd>{os.fullAddress}</dd></div>}
+          {os && <div><dt>Address</dt><dd>{addressText(l)}</dd></div>}
           <div><dt>County</dt><dd>{l.county ? `${l.county} County` : 'Not recorded'}</dd></div>
           <div><dt>State</dt><dd><a href={state.url}>{l.state}</a></dd></div>
           <div><dt>Nearest town</dt><dd><a href={l.city.url}>{l.city.name}</a> ({fmtMiles(l.cityMiles)})</dd></div>
