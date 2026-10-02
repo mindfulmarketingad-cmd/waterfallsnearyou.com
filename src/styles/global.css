@@ -242,8 +242,7 @@ p { margin: 0 0 1em; }
 .tile-list span.tile a { display: inline; padding: 0; border: 0; font-weight: 400; color: var(--forest); text-decoration: underline; }
 @media (max-width: 560px) { .tile-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tile-list a { padding: 10px 12px; font-size: 0.92rem; } }
 .prose .nearby-list { padding-left: 0; }
-.glance { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 0; }
-.glance div { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: #fff; }
-.glance dt { font-size: 0.82rem; color: var(--slate-soft); text-transform: uppercase; letter-spacing: 0.06em; }
-.glance dd { margin: 4px 0 0; font-family: var(--font-head); font-size: 1.7rem; font-weight: 600; color: var(--slate-dark); }
 .ranked { padding-left: 1.3em; margin: 0 0 8px; } .ranked li { margin-bottom: 6px; }
+.photo { position: relative; margin: 0; }
+.photo-cap { position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px); background: rgba(30, 34, 37, 0.74); color: #fff; font-size: 0.74rem; line-height: 1.3; padding: 4px 9px; border-radius: 6px; }
+.card .photo-cap { left: 8px; bottom: 8px; font-size: 0.7rem; }

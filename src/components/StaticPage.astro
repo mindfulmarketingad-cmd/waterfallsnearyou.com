@@ -1,14 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from './PageHero.astro';
-import { imageFor } from '../lib/core.mjs';
+import { featuredPhoto } from '../lib/photos.mjs';
 interface Props { title: string; h1: string; description: string; eyebrow?: string; intro?: string; schema?: object[]; updated?: string }
 const { title, h1, description, eyebrow, intro, schema = [], updated } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '');
-const image = imageFor(path);
+const photo = featuredPhoto(path);
 ---
-<Base title={title} description={description} image={image} breadcrumbs={[{ name: 'Home', url: '/' }, { name: h1, url: path }]} schema={schema} preloadImage={image}>
-  <PageHero title={h1} image={image} imageAlt={`Illustrated waterfall landscape for the ${h1} page`} eyebrow={eyebrow}>
+<Base title={title} description={description} image={photo.src} imageAlt={photo.alt} breadcrumbs={[{ name: 'Home', url: '/' }, { name: h1, url: path }]} schema={schema} preloadImage={photo.src}>
+  <PageHero title={h1} photo={photo} eyebrow={eyebrow}>
     {intro && <p class="sub">{intro}</p>}
     {updated && <p class="muted small">Last updated {updated}</p>}
   </PageHero>

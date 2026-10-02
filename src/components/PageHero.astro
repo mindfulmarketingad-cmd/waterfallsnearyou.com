@@ -1,6 +1,7 @@
 ---
-interface Props { title: string; image: string; imageAlt: string; eyebrow?: string }
-const { title, image, imageAlt, eyebrow } = Astro.props;
+import Photo from './Photo.astro';
+interface Props { title: string; photo: { src: string; alt: string; caption?: string | null; fallback?: string | null }; eyebrow?: string }
+const { title, photo, eyebrow } = Astro.props;
 ---
 <section class="page-hero">
   <div class="wrap grid">
@@ -9,8 +10,6 @@ const { title, image, imageAlt, eyebrow } = Astro.props;
       <h1>{title}</h1>
       <slot />
     </div>
-    <figure>
-      <img class="feature" src={image} alt={imageAlt} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" />
-    </figure>
+    <Photo photo={photo} class="feature" priority />
   </div>
 </section>

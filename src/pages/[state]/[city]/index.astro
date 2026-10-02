@@ -7,6 +7,8 @@ import Faq from '../../../components/Faq.astro';
 import { loadData, imageFor } from '../../../lib/core.mjs';
 import { fmtMiles, listJoin, listingImage, listingImageAlt, imgFallback } from '../../../lib/format.mjs';
 import { cityInsights, vary } from '../../../lib/insights.mjs';
+import Photo from '../../../components/Photo.astro';
+import { pagePhoto, cityFeatured, listingPhoto } from '../../../lib/photos.mjs';
 import { SITE } from '../../../config.mjs';
 
 export function getStaticPaths() {
@@ -54,7 +56,8 @@ const chips = [
   ...city.nearbyCities.map(({ city: c }) => ({ url: c.url, label: c.name, count: c.nearby.filter((x) => x.miles <= 30).length })),
   { url: state.url, label: `All ${state.name}`, count: state.listings.length },
 ];
-const image = imageFor(city.url);
+const photo = pagePhoto(city.url, cityFeatured(city));
+const image = photo.src;
 const title = `Waterfalls Near ${place} | ${within30 || items.length} Scenic Falls`;
 const description = [
   within30 ? `${within30} waterfalls within 30 miles of ${place}` : `The closest waterfalls to ${place}`,
@@ -81,19 +84,12 @@ const schema = [
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---
-<Base title={title} description={description} image={image} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
-  <PageHero title={`Waterfalls Near ${place}`} image={image} imageAlt={`Illustration of a waterfall in the hills near ${city.name}, ${state.name}`} eyebrow={`${city.county ? `${city.county} County, ` : ''}${state.name}`}>
+<Base title={title} description={description} image={image} imageAlt={photo.alt} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
+  <PageHero title={`Waterfalls Near ${place}`} photo={photo} eyebrow={`${city.county ? `${city.county} County, ` : ''}${state.name}`}>
     <p class="sub">{intro.join(' ')}</p>
     <p class="muted small">Distances are straight-line from the town center. Driving routes are longer.</p>
   </PageHero>
 
-  <section class="wrap section-sm">
-    <dl class="glance">
-      {ins.bands.map((b) => <div><dt>{b.label}</dt><dd>{b.items.length}</dd></div>)}
-      {ins.ratedCount > 0 && <div><dt>Average Google rating</dt><dd>{ins.avgRating.toFixed(1)}</dd></div>}
-      {within30 > 0 && <div><dt>Rank in {state.name}</dt><dd>{ord(ins.townRank)} of {ins.townTotal}</dd></div>}
-    </dl>
-  </section>
 
   {ins.picks.length > 1 && (
     <section class="wrap section-sm" aria-labelledby="picks">
@@ -101,7 +97,7 @@ const schema = [
       <div class="grid-3">
         {ins.picks.slice(0, 6).map((p) => (
           <article class="card">
-            <img src={listingImage(p.n.listing)} onerror={imgFallback(p.n.listing)} alt={listingImageAlt(p.n.listing)} width="1200" height="630" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+            <Photo photo={listingPhoto(p.n.listing)} />
             <div class="body">
               <span class="eyebrow">{p.label}</span>
               <h3><a href={p.n.listing.url}>{p.n.listing.name}</a></h3>

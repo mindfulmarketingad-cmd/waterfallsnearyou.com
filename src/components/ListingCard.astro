@@ -1,10 +1,12 @@
 ---
-import { imgFallback, listingImage, listingImageAlt, fmtMiles, stars } from '../lib/format.mjs';
+import Photo from './Photo.astro';
+import { listingPhoto } from '../lib/photos.mjs';
+import { fmtMiles, stars } from '../lib/format.mjs';
 interface Props { listing: any; miles?: number; direction?: string }
 const { listing: l, miles, direction } = Astro.props;
 ---
 <article class="card">
-  <img src={listingImage(l)} onerror={imgFallback(l)} alt={listingImageAlt(l)} width="1200" height="630" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+  <Photo photo={listingPhoto(l)} />
   <div class="body">
     <h3><a href={l.url}>{l.name}</a></h3>
     <div class="meta">{l.city.name}, {l.stateCode}{typeof miles === 'number' ? ` · ${fmtMiles(miles)}${direction ? ` ${direction}` : ''}` : l.county ? ` · ${l.county} County` : ''}</div>

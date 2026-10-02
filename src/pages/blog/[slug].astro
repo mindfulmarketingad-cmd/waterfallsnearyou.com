@@ -5,6 +5,8 @@ import SearchForm from '../../components/SearchForm.astro';
 import { getPosts } from '../../lib/blog.mjs';
 import { imageFor, loadData } from '../../lib/core.mjs';
 import { SITE } from '../../config.mjs';
+import Photo from '../../components/Photo.astro';
+import { featuredPhoto } from '../../lib/photos.mjs';
 
 export function getStaticPaths() {
   return getPosts().map((p) => ({ params: { slug: p.slug }, props: { slug: p.slug } }));
@@ -13,7 +15,8 @@ const posts = getPosts();
 const post = posts.find((p) => p.slug === Astro.props.slug);
 const related = posts.filter((p) => p !== post).sort((a, b) => (b.category === post.category) - (a.category === post.category)).slice(0, 3);
 const topStates = [...loadData().states].sort((a, b) => b.listings.length - a.listings.length).slice(0, 8);
-const image = imageFor(post.url);
+const photo = featuredPhoto(post.url);
+const image = photo.src;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: post.title, url: post.url }];
 const fmt = (d) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 const schema = [
@@ -33,14 +36,14 @@ const schema = [
   ...(post.faqs.length ? [{ '@type': 'FAQPage', mainEntity: post.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
 ];
 ---
-<Base title={post.title} description={post.description} image={image} imageAlt={post.imageAlt} type="article" published={post.date.toISOString()} modified={post.updated.toISOString()} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
+<Base title={post.title} description={post.description} image={image} imageAlt={photo.alt} type="article" published={post.date.toISOString()} modified={post.updated.toISOString()} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
   <article>
     <header class="wrap narrow" style="padding-top:22px">
       <span class="eyebrow">{post.category}</span>
       <h1>{post.title}</h1>
       <p class="lead">{post.description}</p>
       <p class="muted small">By the WaterfallsNearYou Editorial Team · <time datetime={post.date.toISOString()}>{fmt(post.date)}</time> · {post.minutes} min read</p>
-      <img class="feature" src={image} alt={post.imageAlt} width="1200" height="630" fetchpriority="high" style="border-radius:14px;margin:18px 0 8px;aspect-ratio:1200/630;width:100%" />
+      <div style="margin:18px 0 8px"><Photo photo={photo} class="feature" priority /></div>
     </header>
     <div class="wrap narrow">
       {post.headings.length > 2 && (
@@ -65,7 +68,7 @@ const schema = [
       <div class="grid-3">
         {related.map((p) => (
           <article class="card">
-            <img src={imageFor(p.url)} alt={p.imageAlt} width="1200" height="630" loading="lazy" />
+            <Photo photo={featuredPhoto(p.url)} />
             <div class="body"><span class="eyebrow">{p.category}</span><h3><a href={p.url}>{p.title}</a></h3><p>{p.description}</p></div>
           </article>
         ))}

@@ -1,0 +1,11 @@
+---
+// Renders a chosen photo with an optional "Pictured:" label. If a remote Google photo fails to load,
+// it swaps to the page's generated illustration and removes the label.
+interface Props { photo: { src: string; alt: string; caption?: string | null; fallback?: string | null }; class?: string; eager?: boolean; priority?: boolean; alt?: string }
+const { photo, class: cls, eager = false, priority = false, alt } = Astro.props;
+const onerror = photo.fallback ? `this.onerror=null;this.src='${photo.fallback}';var c=this.nextElementSibling;if(c)c.remove()` : undefined;
+---
+<figure class="photo">
+  <img class={cls} src={photo.src} alt={alt || photo.alt} width="1200" height="630" loading={eager || priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" referrerpolicy="no-referrer" onerror={onerror} />
+  {photo.caption && <figcaption class="photo-cap">{photo.caption}</figcaption>}
+</figure>

@@ -8,6 +8,9 @@ import { loadData, imageFor } from '../lib/core.mjs';
 import { getPosts } from '../lib/blog.mjs';
 import { fmtNum } from '../lib/format.mjs';
 import { SITE } from '../config.mjs';
+import Photo from '../components/Photo.astro';
+import { featuredPhoto, pagePhoto } from '../lib/photos.mjs';
+const splitPhoto = pagePhoto('/states', [...loadData().listings].filter((l) => l.os?.photo).sort((a, b) => b.os.reviews - a.os.reviews).slice(3));
 
 const { listings, states, cities } = loadData();
 const featured = [...listings].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name)).slice(0, 12);
@@ -16,11 +19,11 @@ const posts = getPosts();
 const pick = (slug) => posts.find((p) => p.slug === slug) || posts[0];
 const trio = [pick('waterfall-safety-tips'), pick('best-time-to-visit-waterfalls'), pick('waterfall-photography-tips')];
 const title = 'Waterfalls Near Me | Hidden Locations For Scenic Hikes';
-const description = `Find waterfalls near you. Browse ${fmtNum(listings.length)} named waterfalls in ${states.length - 1} states plus DC, with maps, GPS coordinates, directions and nearby towns.`;
+const description = `Find waterfalls near you. Browse ${fmtNum(listings.length)} waterfalls in ${states.length - 1} states plus DC, with maps, GPS coordinates, directions and nearby towns.`;
 const faqs = [
   { q: 'How do I find waterfalls near me?', a: `Allow location access on this page and we will list the closest named waterfalls to you, or type your town into the search bar. You can also browse <a href="/states">waterfalls by state</a> and open your nearest town to see every waterfall ranked by distance.` },
-  { q: 'How many waterfalls are listed on WaterfallsNearYou?', a: `We list ${fmtNum(listings.length)} officially named waterfalls from the USGS Geographic Names Information System, grouped around ${fmtNum(cities.length)} towns in ${states.length - 1} states and the District of Columbia.` },
-  { q: 'Which state has the most waterfalls?', a: `${ranked[0].name} has the most officially named waterfalls (${ranked[0].listings.length}), followed by ${ranked[1].name} (${ranked[1].listings.length}) and ${ranked[2].name} (${ranked[2].listings.length}). Read <a href="/blog/states-with-the-most-waterfalls">states with the most named waterfalls</a>.` },
+  { q: 'How many waterfalls are listed on WaterfallsNearYou?', a: `We list ${fmtNum(listings.length)} waterfalls: ${fmtNum(listings.filter((l) => l.source === 'gnis').length)} officially named falls from the USGS Geographic Names Information System plus ${fmtNum(listings.filter((l) => l.source === 'outscraper').length)} added from Google Maps listings, grouped around ${fmtNum(cities.length)} towns in ${states.length - 1} states and the District of Columbia.` },
+  { q: 'Which state has the most waterfalls?', a: `${ranked[0].name} has the most waterfalls in our directory (${ranked[0].listings.length}), followed by ${ranked[1].name} (${ranked[1].listings.length}) and ${ranked[2].name} (${ranked[2].listings.length}). Read <a href="/blog/states-with-the-most-waterfalls">states with the most named waterfalls</a>.` },
   { q: 'When is the best time to visit a waterfall?', a: 'Most waterfalls flow strongest in spring during snowmelt and after a few days of steady rain. Late summer and drought periods can reduce some falls to a trickle. See <a href="/blog/best-time-to-visit-waterfalls">the best time to visit waterfalls</a>.' },
   { q: 'Is it safe to swim at waterfalls?', a: 'Often it is not. Cold water, hidden rocks, strong recirculating currents and slick ledges cause injuries every year. Read <a href="/blog/swimming-at-waterfalls">is it safe to swim at waterfalls</a> before getting in the water.' },
   { q: 'Are the waterfalls on this site free to visit?', a: 'Many are on public land, but some sit inside parks with entrance fees and some are on private property with no public access. Each listing links to maps and directions; always confirm access with the land manager.' },
@@ -36,7 +39,7 @@ const schema = [
     <div class="hero-shade"></div>
     <div class="wrap hero-inner">
       <h1><span class="h1-main">Waterfalls Near Me</span> <span class="h1-sub">| Hidden Locations For Scenic Hikes</span></h1>
-      <p class="hero-lead">Search {fmtNum(listings.length)} named waterfalls across the United States, from roadside cascades to backcountry plunges.</p>
+      <p class="hero-lead">Search {fmtNum(listings.length)} waterfalls across the United States, from roadside cascades to backcountry plunges.</p>
       <SearchForm id="home-q" />
       <p class="hero-links">Popular: {ranked.slice(0, 5).map((s, i) => <>{i ? ' · ' : ''}<a href={s.url}>{s.name}</a></>)}</p>
     </div>
@@ -69,7 +72,7 @@ const schema = [
     </div>
   </section>
 
-  <section class="split split-image" style={`--bg:url(${imageFor('/states')})`}>
+  <section class="split split-image" style={`--bg:url(${splitPhoto.src})`}>
     <div class="wrap split-inner">
       <div class="split-copy">
         <span class="eyebrow light">Explore the directory</span>
@@ -84,15 +87,15 @@ const schema = [
     <div class="wrap">
       <div class="grid-3">
         <article class="card">
-          <img src={imageFor(trio[0].url)} alt={trio[0].imageAlt} width="1200" height="630" loading="lazy" />
+          <Photo photo={featuredPhoto(trio[0].url)} />
           <div class="body"><h3><a href={trio[0].url}>Stay safe around falling water.</a></h3><p>Slick rock, cold water and strong currents catch visitors off guard every year. Learn the rules experienced hikers follow.</p></div>
         </article>
         <article class="card">
-          <img src={imageFor(trio[1].url)} alt={trio[1].imageAlt} width="1200" height="630" loading="lazy" />
+          <Photo photo={featuredPhoto(trio[1].url)} />
           <div class="body"><h3><a href={trio[1].url}>Time your visit for peak flow.</a></h3><p>Snowmelt, rainfall and season decide whether a waterfall roars or trickles. Here is how to plan around it.</p></div>
         </article>
         <article class="card">
-          <img src={imageFor(trio[2].url)} alt={trio[2].imageAlt} width="1200" height="630" loading="lazy" />
+          <Photo photo={featuredPhoto(trio[2].url)} />
           <div class="body"><h3><a href={trio[2].url}>Photograph silky water.</a></h3><p>Shutter speed, filters and overcast light make the difference between a snapshot and a frame worth printing.</p></div>
         </article>
       </div>
@@ -127,7 +130,7 @@ const schema = [
   <section class="bg-slate section">
     <div class="wrap">
       <div class="stats">
-        <div><strong>{fmtNum(listings.length)}</strong><span>named waterfalls</span></div>
+        <div><strong>{fmtNum(listings.length)}</strong><span>waterfalls listed</span></div>
         <div><strong>{states.length - 1}</strong><span>states plus DC</span></div>
         <div><strong>{fmtNum(cities.length)}</strong><span>town guides</span></div>
         <div><strong>{ranked[0].listings.length}</strong><span>waterfalls in {ranked[0].name}</span></div>
@@ -142,7 +145,7 @@ const schema = [
       <div class="grid-3">
         {posts.slice(0, 6).map((p) => (
           <article class="card">
-            <img src={imageFor(p.url)} alt={p.imageAlt} width="1200" height="630" loading="lazy" />
+            <Photo photo={featuredPhoto(p.url)} />
             <div class="body"><span class="eyebrow">{p.category}</span><h3><a href={p.url}>{p.title}</a></h3><p>{p.description}</p></div>
           </article>
         ))}
@@ -218,10 +221,16 @@ const schema = [
   );
 
   const fmt = (d) => (d < 10 ? d.toFixed(1) : Math.round(d).toString());
+  const photoEl = (row) => {
+    const img = el('img', { src: imageOf(row), alt: row[12] ? `Photo of a waterfall near ${row[0]}` : `${row[0]} near ${row[2]}, ${row[3]}`, width: '1200', height: '630', loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer' });
+    const fig = el('figure', { class: 'photo' }, img, row[12] ? el('figcaption', { class: 'photo-cap' }, row[12]) : null);
+    img.addEventListener('error', () => { img.src = `/images/gen${row[1]}.webp`; fig.querySelector('figcaption')?.remove(); }, { once: true });
+    return fig;
+  };
   const card = ({ row, d }) =>
     el('div', { class: 'slide' },
       el('article', { class: 'card' },
-        el('img', { src: imageOf(row), alt: `${row[0]} near ${row[2]}, ${row[3]}`, width: '1200', height: '630', loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer' }),
+        photoEl(row),
         el('div', { class: 'body' },
           el('h3', {}, el('a', { href: row[1] }, row[0])),
           el('div', { class: 'meta' }, `${row[2]}, ${row[3]} · ${fmt(d)} mi away`),

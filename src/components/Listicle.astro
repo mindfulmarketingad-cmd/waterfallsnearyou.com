@@ -1,5 +1,7 @@
 ---
 import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+import { listingPhoto } from '../lib/photos.mjs';
 import { imgFallback, listingImage, listingImageAlt, shortSummary, relativeSummary, listingFacts, directionsUrl, fmtMiles, stars, fmtNum } from '../lib/format.mjs';
 interface Props { items: { listing: any; miles?: number; direction?: string }[]; from?: string; start?: number }
 const { items, from, start = 1 } = Astro.props;
@@ -15,7 +17,7 @@ const facts = (x) => {
     <li class="li-item" id={`n${start + i}`}>
       <div class="li-num" aria-hidden="true">{start + i}</div>
       <a class="li-img" href={l.url} tabindex="-1" aria-hidden="true">
-        <img src={listingImage(l)} onerror={imgFallback(l)} alt={listingImageAlt(l)} width="1200" height="630" loading={i < 2 ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" />
+        <Photo photo={listingPhoto(l)} eager={i < 2} />
       </a>
       <div class="li-body">
         <h3><a href={l.url}>{l.name}</a></h3>

@@ -3,6 +3,8 @@ import Base from '../../../layouts/Base.astro';
 import Icon from '../../../components/Icon.astro';
 import Faq from '../../../components/Faq.astro';
 import ListingCard from '../../../components/ListingCard.astro';
+import Photo from '../../../components/Photo.astro';
+import { listingPhoto } from '../../../lib/photos.mjs';
 import { loadData, imageFor, hoursSummary } from '../../../lib/core.mjs';
 import {
   fmtMiles, fmtNum, stars, gnisUrl, directionsUrl, appleMapsUrl, osmUrl, osmEmbed, topoUrl,
@@ -35,8 +37,8 @@ const title = baseTitle.length <= 44 ? `${baseTitle} | Map & Directions` : baseT
 const description = os?.rating
   ? `${l.name} near ${l.city.name}, ${l.stateCode}: rated ${os.rating.toFixed(1)} from ${fmtNum(os.reviews)} reviews. Hours, directions, GPS coordinates, map and nearby waterfalls.`
   : `${l.name} is a waterfall ${nearText(l)}, ${l.state}. GPS coordinates, USGS topo map, directions, map and ${l.nearby.length} nearby waterfalls.`;
-const heroImg = listingImage(l);
-const ownImage = imageFor(l.url);
+const photo = listingPhoto(l);
+const ownImage = photo.own ? photo.src : imageFor(l.url);
 const nearest = l.nearby[0];
 
 const faqs = [
@@ -54,7 +56,7 @@ const schema = [
     name: l.name,
     description: longSummary(l),
     url: `${SITE.url}${l.url}`,
-    image: os?.photo ? [os.photo, `${SITE.url}${ownImage}`] : `${SITE.url}${ownImage}`,
+    image: os?.photo ? [os.photo, `${SITE.url}${imageFor(l.url)}`] : `${SITE.url}${imageFor(l.url)}`,
     ...(l.variants?.length ? { alternateName: l.variants } : {}),
     geo: { '@type': 'GeoCoordinates', latitude: l.lat, longitude: l.lng },
     address: {
@@ -80,7 +82,7 @@ const schema = [
 ];
 const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerScore) as number[]) : 0;
 ---
-<Base title={title} description={description} image={ownImage} imageAlt={listingImageAlt(l)} breadcrumbs={crumbs} schema={schema} preloadImage={heroImg}>
+<Base title={title} description={description} image={ownImage} imageAlt={photo.own ? photo.alt : listingImageAlt(l)} breadcrumbs={crumbs} schema={schema} preloadImage={photo.src}>
   <section class="page-hero">
     <div class="wrap grid">
       <div>
@@ -96,10 +98,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
           {os?.site && <a class="btn btn-outline" href={os.site} rel="nofollow noopener ugc" target="_blank"><Icon name="globe" />Website</a>}
         </div>
       </div>
-      <figure>
-        <img class="feature" src={heroImg} onerror={imgFallback(l)} alt={listingImageAlt(l)} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" />
-        {os?.photo && <figcaption class="small muted">Photo via Google Maps listing data.</figcaption>}
-      </figure>
+      <Photo photo={photo} class="feature" priority />
     </div>
   </section>
 

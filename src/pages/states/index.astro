@@ -5,15 +5,18 @@ import Faq from '../../components/Faq.astro';
 import { loadData, imageFor } from '../../lib/core.mjs';
 import { fmtNum } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
+import { pagePhoto } from '../../lib/photos.mjs';
 
 const { states, listings, cities } = loadData();
 const ranked = [...states].sort((a, b) => b.listings.length - a.listings.length);
-const image = imageFor('/states');
+const updatedText = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const photo = pagePhoto('/states', [...listings].filter((l) => l.os?.photo).sort((a, b) => b.os.reviews - a.os.reviews));
+const image = photo.src;
 const title = 'Waterfalls by State | Find Waterfalls Near You in the US';
-const description = `Browse ${fmtNum(listings.length)} named waterfalls in ${states.length - 1} states and DC. Choose a state to find waterfalls near your town with maps and directions.`;
+const description = `Browse ${fmtNum(listings.length)} waterfalls in ${states.length - 1} states and DC. Choose a state to find waterfalls near your town with maps and directions.`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'States', url: '/states' }];
 const faqs = [
-  { q: 'Which state has the most waterfalls?', a: `By count of officially named falls in the USGS gazetteer, ${ranked[0].name} leads with ${ranked[0].listings.length}, followed by ${ranked[1].name} (${ranked[1].listings.length}) and ${ranked[2].name} (${ranked[2].listings.length}). See <a href="/blog/states-with-the-most-waterfalls">states with the most named waterfalls</a> for the full analysis.` },
+  { q: 'Which state has the most waterfalls?', a: `In our directory, ${ranked[0].name} leads with ${ranked[0].listings.length} waterfalls, followed by ${ranked[1].name} (${ranked[1].listings.length}) and ${ranked[2].name} (${ranked[2].listings.length}). See <a href="/blog/states-with-the-most-waterfalls">states with the most named waterfalls</a> for the full analysis.` },
   { q: 'Where does this waterfall data come from?', a: 'Every waterfall location starts from the U.S. Geological Survey Geographic Names Information System (GNIS), the federal standard for geographic names, and is enriched with business and visitor details where available.' },
   { q: 'Why is my favorite waterfall missing?', a: 'GNIS includes officially named falls only. If you know a public waterfall we should add, <a href="/contact">contact us</a> with its name and location.' },
 ];
@@ -24,8 +27,8 @@ const schema = [
 ];
 ---
 <Base title={title} description={description} image={image} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
-  <PageHero title="Waterfalls by State" image={image} imageAlt="Illustration of a waterfall between forested ridges" eyebrow="Browse the directory">
-    <p class="sub">{fmtNum(listings.length)} named waterfalls in {states.length - 1} states and the District of Columbia, grouped around {fmtNum(cities.length)} towns. Choose a state to start.</p>
+  <PageHero title="Waterfalls by State" photo={photo} eyebrow="Browse the directory">
+    <p class="sub">{fmtNum(listings.length)} waterfalls in {states.length - 1} states and the District of Columbia, grouped around {fmtNum(cities.length)} towns. Choose a state to start.</p>
   </PageHero>
   <section class="wrap section-sm">
     <h2>All States</h2>
@@ -35,12 +38,14 @@ const schema = [
   </section>
   <section class="bg-mist section-sm">
     <div class="wrap narrow prose">
-      <h2>States Ranked by Number of Named Waterfalls</h2>
+      <h2>States Ranked by Number of Waterfalls</h2>
+      <p class="small muted">Totals combine officially named USGS waterfalls with waterfalls added from Google Maps listings. "With visitor data" counts listings that have Google ratings, reviews or photos. Updated {updatedText}.</p>
       <table>
-        <thead><tr><th>Rank</th><th>State</th><th>Named waterfalls</th><th>Counties with falls</th><th>Most in one county</th></tr></thead>
+        <thead><tr><th>Rank</th><th>State</th><th>Waterfalls listed</th><th>USGS named</th><th>Added from Google Maps</th><th>With visitor data</th><th>Most in one county</th></tr></thead>
         <tbody>
-          {ranked.map((s, i) => <tr><td>{i + 1}</td><td><a href={s.url}>{s.name}</a></td><td>{s.listings.length}</td><td>{s.counties.length}</td><td>{s.counties[0] ? `${s.counties[0].name} (${s.counties[0].listings.length})` : '—'}</td></tr>)}
+          {ranked.map((s, i) => <tr><td>{i + 1}</td><td><a href={s.url}>{s.name}</a></td><td>{s.listings.length}</td><td>{s.listings.filter((l) => l.source === 'gnis').length}</td><td>{s.listings.filter((l) => l.source === 'outscraper').length}</td><td>{s.listings.filter((l) => l.os).length}</td><td>{s.counties[0] ? `${s.counties[0].name} (${s.counties[0].listings.length})` : '—'}</td></tr>)}
         </tbody>
+        <tfoot><tr><td></td><td><strong>Total</strong></td><td><strong>{fmtNum(listings.length)}</strong></td><td>{fmtNum(listings.filter((l) => l.source === 'gnis').length)}</td><td>{fmtNum(listings.filter((l) => l.source === 'outscraper').length)}</td><td>{fmtNum(listings.filter((l) => l.os).length)}</td><td></td></tr></tfoot>
       </table>
     </div>
   </section>

@@ -6,10 +6,13 @@ import { getSmallest, BEST_YEAR } from '../../lib/bestof.mjs';
 import { imageFor } from '../../lib/core.mjs';
 import { listingImage, listingImageAlt, imgFallback, directionsUrl, fmtNum, stars, listJoin, nearText } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
+import Photo from '../../components/Photo.astro';
+import { pagePhoto, listingPhoto } from '../../lib/photos.mjs';
 
 const post = getSmallest();
 const { items } = post;
-const image = imageFor(post.url);
+const photo = pagePhoto(post.url, items.map((i) => i.listing));
+const image = photo.src;
 const updated = new Date();
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: 'Smallest Waterfalls in the US', url: post.url }];
 const states = [...new Set(items.map((i) => i.listing.state))];
@@ -25,13 +28,13 @@ const schema = [
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---
-<Base title={post.title} description={post.description} image={image} imageAlt={post.imageAlt} type="article" modified={updated.toISOString()} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
+<Base title={post.title} description={post.description} image={image} imageAlt={photo.alt} type="article" modified={updated.toISOString()} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
   <article>
     <header class="wrap narrow" style="padding-top:22px">
       <span class="eyebrow">Data · Updated {updated.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</span>
       <h1>{post.title}</h1>
       <p class="lead">Lists of record-breaking waterfalls usually chase height. This one goes the other way: the ten smallest named waterfalls in the United States that have a recorded height, from {items[0].h.feet}-foot ledges to {items[items.length - 1].h.feet}-foot drops across {listJoin(states)}.</p>
-      <img class="feature" src={image} alt={post.imageAlt} width="1200" height="630" fetchpriority="high" style="border-radius:14px;margin:18px 0 8px;aspect-ratio:1200/630;width:100%" />
+      <div style="margin:18px 0 8px"><Photo photo={photo} class="feature" priority /></div>
     </header>
     <div class="wrap narrow">
       <div class="prose">
@@ -47,7 +50,7 @@ const schema = [
           <li id={`w${n + 1}`}>
             <h2><span class="best-num">{n + 1}.</span> <a href={l.url}>{l.name}</a>, {l.state}</h2>
             <p class="muted small">About {h.feet} feet · {l.county ? `${l.county} County · ` : ''}near {l.city.name}</p>
-            <img src={listingImage(l)} onerror={imgFallback(l)} alt={listingImageAlt(l)} width="1200" height="630" loading={n < 2 ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" />
+            <Photo photo={listingPhoto(l)} eager={n < 2} />
             {l.os?.rating && <p class="rating"><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span>{l.os.rating.toFixed(1)} <span class="count">({fmtNum(l.os.reviews)} Google reviews)</span></p>}
             <p>{l.name} is a waterfall {nearText(l)}, {l.state}. The {h.source} records it as: "{h.text.replace(/\s+/g, ' ').trim()}"{l.nearby?.[0] ? ` The nearest other named waterfall is ${l.nearby[0].listing.name}, about ${l.nearby[0].miles.toFixed(1)} miles to the ${l.nearby[0].direction}.` : ''}</p>
             <div class="li-actions">

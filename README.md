@@ -46,6 +46,13 @@ Every imported record also gets `/partners/[business-name]`, which redirects to 
 - `src/lib/bestof.mjs`: the programmatic state list posts. They are generated only for states with more than 10 listings, and only where the data supports the list. Waterfalls flagged as private property are excluded.
 - Neighboring towns under 2.5 miles apart, or under 5 miles apart with near-identical names, are merged into one hub so their pages don't duplicate each other.
 
+## Images
+
+Pages use Outscraper (Google Maps) photos via `src/lib/photos.mjs`:
+- A waterfall page uses its own photo. If it has none, it uses the closest photographed waterfall within 10 miles, labeled "Pictured: nearby ...".
+- Hub, blog and static pages use a labeled photo of a real waterfall from their content.
+- The generated illustrations in `public/images/gen/` are only a fallback: no photo nearby, or a Google photo that fails to load.
+
 ## Data sources
 
 - Waterfalls: USGS Geographic Names Information System, feature class "Falls" (public domain). Includes descriptions, name history, variant names and named landmarks within 2 miles.

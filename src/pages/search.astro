@@ -9,10 +9,11 @@ const { listings, states, cities } = loadData();
 const topStates = [...states].sort((a, b) => b.listings.length - a.listings.length).slice(0, 12);
 const topTowns = [...cities].sort((a, b) => b.nearby.filter((n) => n.miles <= 30).length - a.nearby.filter((n) => n.miles <= 30).length).slice(0, 18);
 const posts = getPosts().slice(0, 4);
-const image = imageFor('/search');
+import { featuredPhoto } from '../lib/photos.mjs';
+const image = featuredPhoto('/search').src;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }];
 ---
-<Base title="Search Waterfalls Near Me | Find Waterfalls by Name or Town" description={`Search ${fmtNum(listings.length)} named waterfalls by name, nearby town, county or state, or use your location to find the waterfalls closest to you.`} image={image} breadcrumbs={crumbs}>
+<Base title="Search Waterfalls Near Me | Find Waterfalls by Name or Town" description={`Search ${fmtNum(listings.length)} waterfalls by name, nearby town, county or state, or use your location to find the waterfalls closest to you.`} image={image} breadcrumbs={crumbs}>
   <section class="wrap section-sm narrow">
     <span class="eyebrow">Search the directory</span>
     <h1>Search Waterfalls</h1>
