@@ -10,7 +10,7 @@ const csp = [
   "img-src 'self' data: https:",
   "font-src 'self' https://*.gstatic.com",
   "frame-src https://www.openstreetmap.org https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.adtrafficquality.google",
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://*.adtrafficquality.google https://*.gstatic.com",
+  "connect-src 'self' https://api.weather.gov https://api.waterdata.usgs.gov https://epqs.nationalmap.gov https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://*.adtrafficquality.google https://*.gstatic.com",
   "media-src 'self'",
   "worker-src 'self'",
   "object-src 'none'",

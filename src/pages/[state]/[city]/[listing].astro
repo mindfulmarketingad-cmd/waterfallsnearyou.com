@@ -4,6 +4,8 @@ import Icon from '../../../components/Icon.astro';
 import Faq from '../../../components/Faq.astro';
 import ListingCard from '../../../components/ListingCard.astro';
 import Photo from '../../../components/Photo.astro';
+import Weather from '../../../components/Weather.astro';
+import Conditions from '../../../components/Conditions.astro';
 import { listingPhoto } from '../../../lib/photos.mjs';
 import { loadData, imageFor, hoursSummary } from '../../../lib/core.mjs';
 import {
@@ -95,6 +97,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <div class="li-actions">
           <a class="btn btn-green" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Get directions</a>
           <a class="btn btn-outline" href="#map"><Icon name="map" />View map</a>
+          <a class="btn btn-outline" href="#weather"><Icon name="clock" />Weather</a>
           {os?.site && <a class="btn btn-outline" href={os.site} rel="nofollow noopener ugc" target="_blank"><Icon name="globe" />Website</a>}
         </div>
       </div>
@@ -127,6 +130,9 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
           {os.photosCount > 2 && <p class="small muted" style="margin-top:8px">{fmtNum(os.photosCount)} visitor photos are available on <a href={os.locationLink} rel="nofollow noopener" target="_blank">the Google Maps listing</a>.</p>}
         </>
       )}
+
+      <Weather lat={l.lat} lng={l.lng} name={l.name} />
+      <Conditions listing={l} />
 
       <h2 id="map">Map and Directions</h2>
       <p>The marker shows the USGS-recorded position of {l.name}. Trailheads and parking can be some distance from the falls themselves, so plan your route with an up-to-date trail map.</p>

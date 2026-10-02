@@ -1,0 +1,170 @@
+---
+// Free environmental data for planning a visit: today's sun times (computed in the browser),
+// elevation (USGS 3DEP Elevation Point Query Service) and live flow at the nearest USGS stream gauge
+// (USGS Water Data API). Remote lookups run only when the panel scrolls into view.
+import { timeZoneFor } from '../lib/timezone.mjs';
+interface Props { listing: any }
+const { listing: l } = Astro.props;
+const tz = timeZoneFor(l);
+---
+<section class="cond" id="conditions" aria-labelledby="cond-h" data-lat={l.lat.toFixed(5)} data-lng={l.lng.toFixed(5)} data-tz={tz}>
+  <h2 id="cond-h">Conditions at {l.name}</h2>
+  <div class="cond-grid">
+    <div class="cond-card">
+      <h3>Sun and Daylight Today</h3>
+      <dl class="cond-dl" data-sun>
+        <div><dt>Sunrise</dt><dd>—</dd></div>
+        <div><dt>Sunset</dt><dd>—</dd></div>
+        <div><dt>Daylight</dt><dd>—</dd></div>
+        <div><dt>Golden hour</dt><dd>—</dd></div>
+      </dl>
+      <p class="small muted">Times in {tz.split('/').pop().replace(/_/g, ' ')} time. Canyons and steep valleys lose direct sun earlier.</p>
+    </div>
+    <div class="cond-card">
+      <h3>Elevation</h3>
+      <p class="cond-big" data-elev>—</p>
+      <p class="small muted">At the mapped waterfall point, from the USGS 3D Elevation Program. Expect cooler temperatures than in nearby towns at lower elevation.</p>
+    </div>
+    <div class="cond-card">
+      <h3>Nearest Stream Gauge</h3>
+      <div data-flow><p class="small muted">Checking for USGS gauges within about 8 miles...</p></div>
+      <p class="small muted">Live discharge in cubic feet per second (ft³/s). The gauge may be on a different stream than the falls; use the trend as a rough guide to how much water is running in the area.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cond { margin: 1.6em 0; }
+  .cond h2 { margin-bottom: 12px; }
+  .cond-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 900px) { .cond-grid { grid-template-columns: 1fr; } }
+  .cond-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; background: #fff; }
+  .cond-card h3 { font-size: 1.02rem; margin: 0 0 10px; }
+  .cond-dl { margin: 0 0 8px; display: grid; gap: 6px; font-size: 0.94rem; }
+  .cond-dl div { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px dashed var(--line); padding-bottom: 5px; }
+  .cond-dl dt { color: var(--slate-soft); }
+  .cond-dl dd { margin: 0; font-weight: 600; color: var(--ink); text-align: right; }
+  .cond-big { font-family: var(--font-head); font-size: 1.5rem; font-weight: 600; color: var(--slate-dark); margin: 0 0 6px; }
+  .cond :global(.flow-val) { font-family: var(--font-head); font-size: 1.6rem; font-weight: 600; color: var(--slate-dark); line-height: 1.1; }
+  .cond :global(.flow-meta) { font-size: 0.88rem; color: var(--slate); margin: 4px 0 8px; }
+</style>
+
+<script>
+  import { el } from '../scripts/directory.js';
+
+  const box = document.querySelector<HTMLElement>('.cond');
+
+  // ---- Sun times (NOAA solar position approximation) ----
+  const rad = Math.PI / 180;
+  function sunTimes(date: Date, lat: number, lng: number, altitude: number) {
+    const J1970 = 2440588, J2000 = 2451545, dayMs = 86400000;
+    const toJulian = (d: Date) => d.valueOf() / dayMs - 0.5 + J1970;
+    const fromJulian = (j: number) => new Date((j + 0.5 - J1970) * dayMs);
+    const d = toJulian(date) - J2000;
+    const lw = -lng * rad, phi = lat * rad;
+    const n = Math.round(d - 0.0009 - lw / (2 * Math.PI));
+    const ds = 0.0009 + lw / (2 * Math.PI) + n;
+    const M = rad * (357.5291 + 0.98560028 * ds);
+    const C = rad * (1.9148 * Math.sin(M) + 0.02 * Math.sin(2 * M) + 0.0003 * Math.sin(3 * M));
+    const L = M + C + rad * 102.9372 + Math.PI;
+    const dec = Math.asin(Math.sin(L) * Math.sin(rad * 23.4397));
+    const Jnoon = J2000 + ds + 0.0053 * Math.sin(M) - 0.0069 * Math.sin(2 * L);
+    const cosH = (Math.sin(altitude * rad) - Math.sin(phi) * Math.sin(dec)) / (Math.cos(phi) * Math.cos(dec));
+    if (cosH < -1 || cosH > 1) return null;
+    const w = Math.acos(cosH);
+    const Jset = J2000 + 0.0009 + (w + lw) / (2 * Math.PI) + n + 0.0053 * Math.sin(M) - 0.0069 * Math.sin(2 * L);
+    const Jrise = Jnoon - (Jset - Jnoon);
+    return { rise: fromJulian(Jrise), set: fromJulian(Jset) };
+  }
+
+  function fillSun(lat: number, lng: number, tz: string) {
+    const dds = box.querySelectorAll<HTMLElement>('[data-sun] dd');
+    let fmt: Intl.DateTimeFormat;
+    try { fmt = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: tz }); }
+    catch { fmt = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }); }
+    // Use local noon at the site so the date is "today" there.
+    const now = new Date();
+    const noon = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 12 - Math.round(lng / 15)));
+    const sun = sunTimes(noon, lat, lng, -0.833);
+    const golden = sunTimes(noon, lat, lng, 6);
+    if (!sun) { dds[0].textContent = 'No sunrise today'; return; }
+    dds[0].textContent = fmt.format(sun.rise);
+    dds[1].textContent = fmt.format(sun.set);
+    const mins = Math.round((sun.set.valueOf() - sun.rise.valueOf()) / 60000);
+    dds[2].textContent = `${Math.floor(mins / 60)} h ${mins % 60} min`;
+    dds[3].textContent = golden ? `until ${fmt.format(golden.rise)}, from ${fmt.format(golden.set)}` : 'All day';
+  }
+
+  async function getJson(url: string) {
+    const r = await fetch(url, { headers: { Accept: 'application/json' } });
+    if (!r.ok) throw new Error(String(r.status));
+    return r.json();
+  }
+
+  async function fillElevation(lat: number, lng: number) {
+    const out = box.querySelector<HTMLElement>('[data-elev]');
+    try {
+      const j = await getJson(`https://epqs.nationalmap.gov/v1/json?x=${lng}&y=${lat}&wkid=4326&units=Feet&includeDate=false`);
+      const ft = Number(j.value);
+      if (!Number.isFinite(ft) || ft < -1000) throw new Error('no value');
+      out.textContent = `${Math.round(ft).toLocaleString('en-US')} ft (${Math.round(ft * 0.3048).toLocaleString('en-US')} m)`;
+    } catch {
+      out.textContent = 'Unavailable';
+    }
+  }
+
+  const miles = (a, b) => {
+    const dLat = (b.lat - a.lat) * rad, dLng = (b.lng - a.lng) * rad;
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLng / 2) ** 2;
+    return 2 * 3958.8 * Math.asin(Math.sqrt(h));
+  };
+
+  async function fillFlow(lat: number, lng: number, tz: string) {
+    const out = box.querySelector<HTMLElement>('[data-flow]');
+    const base = 'https://api.waterdata.usgs.gov/ogcapi/v0/collections';
+    const bbox = [lng - 0.16, lat - 0.12, lng + 0.16, lat + 0.12].map((v) => v.toFixed(4)).join(',');
+    try {
+      const j = await getJson(`${base}/latest-continuous/items?f=json&bbox=${bbox}&parameter_code=00060&limit=50`);
+      const feats = (j.features || [])
+        .filter((f) => f.geometry?.coordinates && f.properties?.value != null && Number.isFinite(Number(f.properties.value)))
+        .map((f) => ({ f, d: miles({ lat, lng }, { lat: f.geometry.coordinates[1], lng: f.geometry.coordinates[0] }) }))
+        .filter((x) => x.d <= 9)
+        .sort((a, b) => a.d - b.d);
+      if (!feats.length) {
+        out.replaceChildren(el('p', { class: 'small' }, 'No active USGS stream gauge within about 8 miles of this waterfall.'));
+        return;
+      }
+      const { f, d } = feats[0];
+      const p = f.properties;
+      const id = String(p.monitoring_location_id || '');
+      let name = id;
+      if (/^USGS-[\w-]+$/.test(id)) {
+        try {
+          const loc = await getJson(`${base}/monitoring-locations/items/${encodeURIComponent(id)}?f=json`);
+          name = loc.properties?.monitoring_location_name || id;
+          if (name === name.toUpperCase()) name = name.toLowerCase().replace(/\b([a-z])/g, (m) => m.toUpperCase()).replace(/\b(Nr|Near|At|Ab|Abv|Bl|Blw|Of|The)\b/g, (m) => m.toLowerCase()).replace(/,\s*([a-z]{2})$/i, (m, st) => `, ${st.toUpperCase()}`);
+        } catch { /* keep id */ }
+      }
+      let when = '';
+      try { when = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: tz }).format(new Date(p.time)); } catch { /* ignore */ }
+      const link = /^USGS-[\w-]+$/.test(id) ? `https://waterdata.usgs.gov/monitoring-location/${id}/` : null;
+      out.replaceChildren(
+        el('div', { class: 'flow-val' }, `${Number(p.value).toLocaleString('en-US')} ft³/s`),
+        el('p', { class: 'flow-meta' }, `${name}, ${d.toFixed(1)} mi away${when ? ` · as of ${when}` : ''}`),
+        ...(link ? [el('p', { class: 'small' }, el('a', { href: link, rel: 'noopener', target: '_blank' }, 'See the gauge history and normal range'))] : []),
+      );
+    } catch {
+      out.replaceChildren(el('p', { class: 'small' }, 'Stream gauge data is unavailable right now.'));
+    }
+  }
+
+  if (box) {
+    const lat = Number(box.dataset.lat), lng = Number(box.dataset.lng), tz = box.dataset.tz;
+    fillSun(lat, lng, tz);
+    const start = () => { fillElevation(lat, lng); fillFlow(lat, lng, tz); };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((e) => { if (e.some((x) => x.isIntersecting)) { io.disconnect(); start(); } }, { rootMargin: '400px' });
+      io.observe(box);
+    } else start();
+  }
+</script>

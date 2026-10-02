@@ -1,0 +1,146 @@
+---
+// 7-day forecast and active alerts for the waterfall's exact coordinates, from the National Weather
+// Service API (api.weather.gov: free, no key, public domain). Loads only when scrolled into view.
+interface Props { lat: number; lng: number; name: string }
+const { lat, lng, name } = Astro.props;
+const nwsPage = `https://forecast.weather.gov/MapClick.php?lat=${lat.toFixed(4)}&lon=${lng.toFixed(4)}`;
+---
+<section class="wx" id="weather" aria-labelledby="wx-h" data-lat={lat.toFixed(4)} data-lng={lng.toFixed(4)}>
+  <div class="wx-head">
+    <h2 id="wx-h">Weather at {name}</h2>
+    <a class="small" href={nwsPage} rel="noopener" target="_blank">Full NWS forecast</a>
+  </div>
+  <p class="small muted wx-sub">Forecast for the waterfall's exact location, not the nearest town. Mountain weather can change quickly.</p>
+  <div class="wx-alerts" role="alert" hidden></div>
+  <div class="wx-now" hidden></div>
+  <ol class="wx-days" hidden></ol>
+  <p class="wx-status small muted" role="status">Loading the forecast...</p>
+  <noscript><p class="small"><a href={nwsPage} rel="noopener" target="_blank">View the National Weather Service forecast for {name}</a>.</p></noscript>
+  <p class="small muted wx-credit">Source: National Weather Service.</p>
+</section>
+
+<style>
+  .wx { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--mist-2); margin: 1.6em 0; }
+  .wx-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .wx-head h2 { margin: 0; }
+  .wx-sub { margin: 4px 0 14px; }
+  .wx-alerts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .wx :global(.wx-alert) { border-left: 4px solid #b4432c; background: #fbefec; border-radius: 8px; padding: 10px 14px; font-size: 0.93rem; }
+  .wx :global(.wx-alert strong) { color: #8a2f1d; }
+  .wx-now { display: flex; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
+  .wx :global(.wx-now img) { width: 64px; height: 64px; border-radius: 10px; flex: none; }
+  .wx :global(.wx-temp) { font-family: var(--font-head); font-size: 2.2rem; font-weight: 600; color: var(--slate-dark); line-height: 1; }
+  .wx-days { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+  .wx :global(.wx-day) { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 6px; text-align: center; font-size: 0.85rem; }
+  .wx :global(.wx-day img) { width: 44px; height: 44px; border-radius: 8px; margin: 6px auto; }
+  .wx :global(.wx-day .hi) { font-weight: 700; color: var(--ink); }
+  .wx :global(.wx-day .lo) { color: var(--slate-soft); }
+  .wx :global(.wx-day .pop) { color: #2f6a8a; font-size: 0.8rem; }
+  .wx :global(.wx-day .sf) { color: var(--slate); font-size: 0.78rem; line-height: 1.3; margin-top: 4px; }
+  .wx-credit { margin: 12px 0 0; }
+  @media (max-width: 760px) {
+    .wx-days { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 112px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+    .wx :global(.wx-day) { scroll-snap-align: start; }
+  }
+</style>
+
+<script>
+  import { el } from '../scripts/directory.js';
+
+  const box = document.querySelector<HTMLElement>('.wx');
+  const status = box?.querySelector<HTMLElement>('.wx-status');
+  const CACHE_MIN = 30;
+
+  async function getJson(url: string) {
+    const r = await fetch(url, { headers: { Accept: 'application/geo+json' } });
+    if (!r.ok) throw new Error(String(r.status));
+    return r.json();
+  }
+
+  function cached(key: string) {
+    try {
+      const v = JSON.parse(sessionStorage.getItem(key) || 'null');
+      return v && Date.now() - v.t < CACHE_MIN * 60000 ? v.d : null;
+    } catch { return null; }
+  }
+  function store(key: string, d: unknown) {
+    try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d })); } catch { /* storage unavailable */ }
+  }
+
+  // Only accept icon URLs served by the NWS API.
+  const safeIcon = (u: string) => (typeof u === 'string' && u.startsWith('https://api.weather.gov/icons/') ? u : '');
+
+  function render(periods: any[], alerts: any[]) {
+    const alertBox = box.querySelector<HTMLElement>('.wx-alerts');
+    if (alerts.length) {
+      alertBox.replaceChildren(...alerts.slice(0, 3).map((a) =>
+        el('div', { class: 'wx-alert' }, el('strong', {}, a.event || 'Weather alert'),
+          a.headline ? ` ${String(a.headline).replace(new RegExp(`^${String(a.event || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`, 'i'), '')}` : '')));
+      alertBox.hidden = false;
+    }
+    const now = periods[0];
+    if (now) {
+      const nowBox = box.querySelector<HTMLElement>('.wx-now');
+      const icon = safeIcon(now.icon);
+      nowBox.replaceChildren(
+        ...(icon ? [el('img', { src: icon, alt: '', width: '64', height: '64', loading: 'lazy' })] : []),
+        el('div', {},
+          el('div', { class: 'wx-temp' }, `${now.temperature}°${now.temperatureUnit || 'F'}`),
+          el('div', {}, el('strong', {}, now.name), ` · ${now.shortForecast || ''}`),
+          el('div', { class: 'small muted' }, [now.windSpeed && `Wind ${now.windDirection || ''} ${now.windSpeed}`.trim(), now.probabilityOfPrecipitation?.value != null && `${now.probabilityOfPrecipitation.value}% chance of precipitation`].filter(Boolean).join(' · ')),
+        ),
+      );
+      nowBox.hidden = false;
+    }
+    // Pair daytime periods with the following night for a 7-day strip.
+    const days = [];
+    for (let i = 0; i < periods.length && days.length < 7; i++) {
+      const p = periods[i];
+      if (!p.isDaytime && i !== 0) continue;
+      const night = p.isDaytime ? periods[i + 1] : null;
+      days.push({ name: p.isDaytime ? p.name.replace(/^This /, '') : p.name, hi: p.isDaytime ? p.temperature : null, lo: night && !night.isDaytime ? night.temperature : p.isDaytime ? null : p.temperature, icon: safeIcon(p.icon), pop: Math.max(p.probabilityOfPrecipitation?.value ?? 0, night?.probabilityOfPrecipitation?.value ?? 0), sf: p.shortForecast || '' });
+    }
+    const list = box.querySelector<HTMLElement>('.wx-days');
+    list.replaceChildren(...days.map((d) => el('li', { class: 'wx-day' },
+      el('div', {}, el('strong', {}, d.name.slice(0, 9))),
+      ...(d.icon ? [el('img', { src: d.icon, alt: '', width: '44', height: '44', loading: 'lazy' })] : []),
+      el('div', {}, d.hi != null ? el('span', { class: 'hi' }, `${d.hi}°`) : null, d.hi != null && d.lo != null ? ' / ' : '', d.lo != null ? el('span', { class: 'lo' }, `${d.lo}°`) : null),
+      d.pop ? el('div', { class: 'pop' }, `${d.pop}% precip`) : null,
+      el('div', { class: 'sf' }, d.sf),
+    )));
+    list.hidden = false;
+    status.remove();
+  }
+
+  async function load() {
+    const { lat, lng } = box.dataset;
+    const key = `wny-wx-${lat},${lng}`;
+    const hit = cached(key);
+    if (hit) return render(hit.periods, hit.alerts);
+    try {
+      const point = await getJson(`https://api.weather.gov/points/${lat},${lng}`);
+      const forecastUrl = point.properties?.forecast;
+      if (typeof forecastUrl !== 'string' || !forecastUrl.startsWith('https://api.weather.gov/')) throw new Error('forecast url');
+      const [fc, al] = await Promise.all([
+        getJson(forecastUrl),
+        getJson(`https://api.weather.gov/alerts/active?point=${lat},${lng}`).catch(() => ({ features: [] })),
+      ]);
+      const periods = fc.properties?.periods || [];
+      const alerts = (al.features || []).map((f) => f.properties).filter(Boolean);
+      if (!periods.length) throw new Error('empty');
+      store(key, { periods, alerts });
+      render(periods, alerts);
+    } catch {
+      status.textContent = 'The forecast is unavailable right now. Use the full NWS forecast link above.';
+    }
+  }
+
+  if (box) {
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { io.disconnect(); load(); }
+      }, { rootMargin: '400px' });
+      io.observe(box);
+    } else load();
+  }
+</script>
