@@ -88,6 +88,14 @@ const isProd = import.meta.env.PROD;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={ld} />
+    {isProd && <script async src="https://www.googletagmanager.com/gtag/js?id=G-26DN17F33R"></script>}
+    {isProd && <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-26DN17F33R');
+    </script>}
     {isProd && <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}`} crossorigin="anonymous"></script>}
   </head>
   <body>
