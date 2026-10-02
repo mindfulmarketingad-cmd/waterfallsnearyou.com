@@ -1,0 +1,36 @@
+{
+  "state": "Vermont",
+  "overview": [
+    "Vermont's waterfalls trace the spine of the Green Mountains, which run the length of the state from Massachusetts to Quebec. These mountains are built of old, tough metamorphic rock, mostly schist, gneiss and quartzite, and during the Ice Age a continental glacier ground over them, deepening valleys and leaving tributary streams to drop steeply into them. Heavy snowfall in the high country and reliable rain through the year keep brooks running, and many have cut narrow gorges and potholes into the bedrock. Our directory lists 29 named falls in Vermont, ranking it 24th nationally, spread across the state rather than concentrated in a single county.",
+    "Windsor County leads with six, followed by Addison and Windham with five each. On the western flank of the Green Mountains, streams in Addison and Rutland counties fall toward the Champlain Valley, through country tied to the state's marble quarrying history. On the eastern side, rivers such as the Black, Williams and Saxtons descend toward the Connecticut River, where the town of Bellows Falls grew up beside a major drop on the main river. In the north, the Mount Mansfield area around Stowe holds two of the most visited falls in the state. Many Vermont falls are close to roads and villages, making them easy additions to a scenic drive."
+  ],
+  "regions": [
+    {
+      "name": "Northern Green Mountains and Northeast Kingdom",
+      "counties": ["Lamoille", "Washington", "Chittenden", "Franklin", "Orleans", "Essex"],
+      "text": "The northern Green Mountains around Mount Mansfield, the state's highest peak, hold Vermont's two most reviewed falls. Moss Glen Falls near Stowe drops through a narrow gorge with pools below, and Bingham Falls, in Mount Mansfield State Forest, tumbles through potholes and a deep chasm. To the west, the Winooski River cuts through the mountains, with Bolton Falls and Winooski Falls marking drops along its course. In the remote Northeast Kingdom, Big Falls in Orleans County is a powerful drop on the Missisquoi River in a quiet rural setting. Essex County adds a falls along the upper Connecticut River."
+    },
+    {
+      "name": "Central Green Mountains and Champlain Slope",
+      "counties": ["Addison", "Rutland"],
+      "text": "West of the main ridge, streams fall from the mountains toward Otter Creek and Lake Champlain. In Addison County, Texas Falls drops through a narrow, sculpted gorge in the Green Mountain National Forest, and a second Moss Glen Falls, in Granville, is a tall, fan-shaped cascade visible from a short path along Route 100. The Falls of Lana, near Lake Dunmore in the Moosalamoo area, is a series of drops in a steep ravine. In Rutland County, Sutherland Falls in Proctor and Center Rutland Falls are tied to the marble industry and historic waterpower along Otter Creek."
+    },
+    {
+      "name": "Southern Vermont and Connecticut River Tributaries",
+      "counties": ["Windsor", "Windham"],
+      "text": "In southern Vermont, the Black, Williams, Saxtons and West rivers descend through rolling hills to the Connecticut River, and their falls are often close to villages and covered bridges. Buttermilk Falls in Windsor County, near Ludlow, is a cluster of cascades with swimming holes, and Black River Falls lies on the river of the same name. Windham County holds several small falls on the Saxtons River, recorded by USGS at heights under 20 feet, and Bellows Falls marks a historic drop on the Connecticut River itself. Many of these falls are swimming spots in summer and are easy to reach from local roads."
+    }
+  ],
+  "bestTime": "Spring snowmelt dominates Vermont's waterfall calendar. Flows usually peak from April into May, but that period coincides with mud season, when unpaved roads turn to mud and higher-elevation trails are vulnerable to damage, so many visitors focus on roadside falls in spring. By late May and June, trails dry out and falls still run well. Midsummer brings lower flows on smaller brooks, though summer thunderstorms can bring brief surges and swimming holes draw crowds. Fall foliage, generally from late September through mid October, is Vermont's busiest season, especially along Route 100 and around Stowe. Late autumn rains often revive the falls. Winter turns many falls into ice formations, but snow-covered approaches and short days require caution.",
+  "planning": "Vermont waterfalls are a mix of public and private land. The Green Mountain National Forest manages several in the central and southern mountains, and state forests and parks, such as Mount Mansfield State Forest, hold others. Many smaller falls are in towns, on private land with long-standing public use, or along rivers where access is informal; respect posted signs and parking rules. Roadside pullouts along Route 100 fill during foliage season. Hazards include cold water even in summer, strong currents and deep pools in narrow gorges, and slippery, moss-covered ledges. Gorge swimming holes have been the site of drownings and serious falls. Major floods in 2011 and 2023 reshaped some streams and trails, so conditions can differ from older descriptions.",
+  "faqs": [
+    {
+      "q": "Why are there two Moss Glen Falls in Vermont?",
+      "a": "The name is used for two separate falls: one near Stowe in Lamoille County and one in Granville in Addison County. Both are in our directory and both are among the state's most reviewed."
+    },
+    {
+      "q": "Should I avoid Vermont hiking trails in mud season?",
+      "a": "Higher-elevation trails are often discouraged or closed during spring mud season, roughly April into late May, to prevent erosion. Roadside and low-elevation falls are better choices then."
+    }
+  ]
+}

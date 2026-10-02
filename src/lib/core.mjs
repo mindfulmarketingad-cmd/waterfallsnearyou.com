@@ -172,6 +172,25 @@ export function loadData() {
     l.cityMiles = bestD;
     if (!l.county && best) l.county = best.county;
   }
+  // Merge twin places (e.g. "Browning" / "South Browning", "Grand Canyon" / "Grand Canyon Village")
+  // into one hub so neighboring towns never produce near-duplicate pages. The busier hub wins.
+  const hubCount = new Map();
+  for (const l of listings) hubCount.set(l.cityRef, (hubCount.get(l.cityRef) || 0) + 1);
+  const hubs = [...hubCount.keys()].sort((x, y) => hubCount.get(y) - hubCount.get(x) || x.name.length - y.name.length);
+  const mergeInto = new Map();
+  const core = (n) => slugify(n).replace(/(^|-)(north|south|east|west|village|city|town|heights|center|centre)(-|$)/g, '-').replace(/^-+|-+$/g, '');
+  for (const h of hubs) {
+    if (mergeInto.has(h)) continue;
+    for (const o of hubs) {
+      if (o === h || mergeInto.has(o) || o.state !== h.state) continue;
+      const d = miles(h, o);
+      if (d < 2.5 || (d < 5 && (core(o.name) === core(h.name) || slugify(o.name).includes(slugify(h.name)) || slugify(h.name).includes(slugify(o.name))))) mergeInto.set(o, h);
+    }
+  }
+  for (const l of listings) {
+    const target = mergeInto.get(l.cityRef);
+    if (target) { l.cityRef = target; l.cityMiles = miles(l, target); }
+  }
 
   // ---- States ----
   const stateMap = new Map();
@@ -258,6 +277,7 @@ export function loadData() {
   for (const city of cityMap.values()) {
     city.nearby = within(city, 30, null);
     if (city.nearby.length < 6) city.nearby = within(city, 60, null).slice(0, Math.max(city.nearby.length, 12));
+    if (!city.nearby.length) city.nearby = within(city, 600, null).slice(0, 6);
     city.nearbyCities = [];
   }
   // Nearby city hubs (same state) for internal linking

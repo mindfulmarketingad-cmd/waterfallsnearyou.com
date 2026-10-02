@@ -1,0 +1,31 @@
+{
+  "state": "Kansas",
+  "overview": [
+    "Kansas rises gradually from east to west, from under 1,000 feet near the Missouri border to over 4,000 feet at the Colorado line, but that climb is spread across roughly 400 miles of plains. With so little local relief and a semi-arid western half, the state has few places where water can drop over a ledge. Our directory lists just four named waterfalls in Kansas, placing it 44th nationally. All of them are in the eastern third of the state, where rainfall is higher and streams have cut down into layered bedrock.",
+    "Eastern Kansas is underlain by alternating beds of limestone, shale and sandstone that tilt gently to the west. Where a creek crosses a hard limestone or sandstone layer sitting on top of softer shale, the shale erodes back and leaves a ledge that the water spills over. The Chautauqua Hills, a belt of sandstone-capped hills and oak woodland in the southeast, contain most of these falls, while the Flint Hills to the north, with their thick limestone layers and tallgrass prairie, account for the rest. These are small falls, but they stand out in a landscape where moving water over rock is uncommon."
+  ],
+  "regions": [
+    {
+      "name": "Chautauqua Hills",
+      "counties": ["Chautauqua", "Elk"],
+      "text": "This narrow band of wooded sandstone hills reaches into Kansas from Oklahoma and is unlike most of the state, with oak and hickory forest rather than open prairie. Chautauqua County, around Sedan, has two of the state's four listed falls. Butcher Falls is the most reviewed waterfall in Kansas, and Osro Falls is another ledge drop rated highly by visitors. In neighboring Elk County, Wildcat Creek has a small set of falls of its own. All of these are low drops where creeks spill over sandstone or limestone shelves, and all depend heavily on recent rain."
+    },
+    {
+      "name": "Flint Hills",
+      "counties": ["Geary"],
+      "text": "The Flint Hills form the largest remaining expanse of tallgrass prairie in North America, a landscape of rolling hills underlain by chert-bearing limestone. In Geary County, where the Smoky Hill and Republican rivers join to form the Kansas River, Kansas Falls is a small drop on the edge of this region. Streams in the Flint Hills often run over limestone benches and through rocky draws, producing riffles and short ledges rather than tall plunges. The open prairie setting, with long views over grassland, gives these falls a character quite different from the wooded hollows of the Chautauqua Hills."
+    }
+  ],
+  "bestTime": "Late spring and early summer bring the most reliable flow to Kansas waterfalls. May and June are typically the wettest months in eastern Kansas, and heavy thunderstorms during that period can turn small ledges into impressive pour-overs for a few days. By July and August, high heat and evaporation reduce many creeks to pools or dry beds, and the falls may stop flowing entirely. Autumn rains sometimes revive them, and the oak woodlands of the Chautauqua Hills add color in late October. Winter is usually dry, with occasional ice storms. Spring is also severe weather season in Kansas, so watch forecasts for thunderstorms, hail and tornado warnings before heading out on rural roads, especially in the late afternoon and evening.",
+  "planning": "Kansas has very little public land, and much of the countryside around these falls is privately owned ranch and farm land. Before visiting any site, confirm that it is on a public road, a public park or other open area, or that the landowner allows access; never cross fences or gates without permission. Several sites are reached by unpaved county roads that become slick or impassable after heavy rain. Ticks and chiggers are abundant in grass and woodland from spring through fall, and poison ivy is common along creek banks. Summer heat can be intense. Flash flooding along small creeks is a real risk during strong thunderstorms, and low-water crossings should never be driven through when water is moving over them.",
+  "faqs": [
+    {
+      "q": "Where are the waterfalls in Kansas?",
+      "a": "All four named waterfalls in our directory are in eastern Kansas, mainly in Chautauqua County near Sedan, with others in Elk County and Geary County."
+    },
+    {
+      "q": "When is the best time to see Kansas waterfalls flowing?",
+      "a": "Late spring and early summer, especially after a few days of heavy rain, offer the best chance. In hot, dry midsummer many of these falls slow to a trickle or stop."
+    }
+  ]
+}

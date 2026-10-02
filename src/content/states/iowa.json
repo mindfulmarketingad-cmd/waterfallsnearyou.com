@@ -1,0 +1,28 @@
+{
+  "state": "Iowa",
+  "overview": [
+    "Most of Iowa is a gently rolling plain of deep glacial till and windblown loess, ideal for farming and poor for waterfalls. Successive ice sheets smoothed the land and buried the bedrock under thick layers of sediment, so streams flow through soft soils rather than over hard ledges. As a result, our directory lists just 1 named waterfall in Iowa, ranking the state 49th nationally. That single listing, Black Falls, is in Winneshiek County in the far northeastern corner of the state, near the Minnesota border, and its location is no accident.",
+    "Northeast Iowa is part of the Driftless Area, a region spanning parts of Iowa, Minnesota, Wisconsin and Illinois that escaped the most recent glaciations and was left without the thick blanket of glacial drift found elsewhere. Here, rivers like the Upper Iowa have cut deep valleys into Paleozoic limestone and dolomite, leaving steep bluffs, springs, sinkholes and cold-water trout streams. Small seasonal falls form where creeks and springs spill over these carbonate ledges on their way to the valley floors. The landscape around Decorah looks more like the hill country of southwest Wisconsin than the cornfields most people associate with Iowa, and it is the only part of the state where waterfalls are a realistic goal."
+  ],
+  "regions": [
+    {
+      "name": "Driftless Area of Northeast Iowa",
+      "counties": [
+        "Winneshiek"
+      ],
+      "text": "Winneshiek County, with Decorah as its hub, sits in the heart of Iowa's Driftless Area. Limestone and dolomite bluffs line the Upper Iowa River and its tributaries, and springs emerge from the rock to feed cold creeks. Black Falls is the county's listed waterfall, a little-known local site that suits visitors already exploring the region's bluffs, trout streams and paddling routes. The appeal of waterfall hunting here lies in the setting: wooded ravines, rock outcrops and clear spring-fed water in a state otherwise defined by open farmland. Expect a quiet, local character rather than crowds."
+    }
+  ],
+  "bestTime": "Spring is the most reliable season for flowing water in northeast Iowa. Snowmelt in March and April, followed by rain from April through June, keeps creeks and springs running strongly, and the bluffs green up quickly in May. Summer can bring heavy thunderstorms that briefly boost flows, but extended dry spells in July and August can leave small falls weak. Fall color in the Driftless Area typically peaks in early to mid October and is one of the region's main draws, even if waterfalls are running low. Winter is cold, and seeps and small falls on limestone ledges can freeze into icicles and ice curtains, though trails may be icy and roads snow-covered.",
+  "planning": "Iowa has very little public land compared with most states, and much of the countryside is privately owned, so access depends on the specific site. In the Driftless Area, public options include city parks around Decorah, county parks run by local conservation boards, state preserves and wildlife areas. Verify that a waterfall sits on public land before visiting and respect posted private property. Limestone ledges and clay banks become slick after rain, and bluff edges can be undercut. Ticks are common from spring through fall, and poison ivy grows along many wooded trails. Rural gravel roads can turn muddy in spring. Paddling the Upper Iowa River is a popular way to see the bluffs, and it combines well with short hikes.",
+  "faqs": [
+    {
+      "q": "Why is northeast Iowa so different from the rest of the state?",
+      "a": "It lies in the Driftless Area, which escaped the thick glacial deposits that flattened most of Iowa. Rivers there have cut into exposed limestone, creating bluffs, springs and small falls."
+    },
+    {
+      "q": "Is Black Falls a major destination?",
+      "a": "Not really. It draws far fewer visitors than waterfalls in neighboring states and is best visited as part of a broader trip to the Decorah area."
+    }
+  ]
+}

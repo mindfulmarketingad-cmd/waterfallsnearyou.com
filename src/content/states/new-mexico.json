@@ -1,0 +1,36 @@
+{
+  "state": "New Mexico",
+  "overview": [
+    "New Mexico's waterfalls are scattered thinly across a dry, high landscape, and nearly every one owes its existence to mountains that wring moisture from passing storms. The southern Rocky Mountains extend into the north-central part of the state as the Sangre de Cristo Range and the volcanic Jemez Mountains, and these ranges receive enough winter snow and summer rain to keep streams flowing for at least part of the year. Our directory lists 14 named waterfalls in New Mexico, ranking it 34th nationally, with Sandoval and Rio Arriba counties in the north holding the largest share.",
+    "Geology adds variety. In the Jemez Mountains, streams cut through layers of volcanic tuff and lava left by the eruptions that formed the Valles Caldera, creating canyon falls over soft, pale rock and harder flows. In the Sangre de Cristos, falls drop over granite and older metamorphic rock. In the southeast, the Guadalupe Mountains are a vast fossil reef of limestone, and spring-fed streams there deposit travertine, building terraces and pools. Across the rest of the state, desert plains and mesas leave little room for falling water outside rare canyons and spring sites."
+  ],
+  "regions": [
+    {
+      "name": "Jemez and Sangre de Cristo Mountains",
+      "counties": ["Sandoval", "Rio Arriba", "Santa Fe", "Mora"],
+      "text": "The mountains of north-central New Mexico hold most of the state's falls. In Sandoval County, Jemez Falls is a popular stop in the Santa Fe National Forest, and Upper Frijoles Falls lies in Frijoles Canyon in the Bandelier area, cut into volcanic tuff. Nambe Falls in Santa Fe County is on Nambe Pueblo land, where access is controlled by the Pueblo. Petrero Waterfall and Rio Quemado Falls in Rio Arriba County lie in the high country of the north, and Pecos Falls in Mora County is deep in the Pecos Wilderness, reached only by a long backcountry trip."
+    },
+    {
+      "name": "Guadalupe Mountains and the Pecos Valley",
+      "counties": ["Eddy", "Guadalupe"],
+      "text": "Southeastern New Mexico is limestone country. Sitting Bull Falls in Eddy County, in the Lincoln National Forest west of Carlsbad, is the most reviewed waterfall in the state. A spring-fed creek pours over a travertine-coated cliff into clear pools, with a picnic area and trails above. The Guadalupe Mountains are an ancient reef, the same formation that hosts Carlsbad Caverns. Guadalupe County, centered on Santa Rosa, a town known for karst springs and sinkhole lakes such as the Blue Hole, holds one more listed fall along the Pecos River country."
+    },
+    {
+      "name": "Northeastern Plains and Western Plateaus",
+      "counties": ["Union", "McKinley", "Cibola", "Socorro"],
+      "text": "Beyond the mountain core, falls are isolated features. Folsom Falls in Union County, in the northeast, lies in a region of volcanic cones and lava flows, the Raton-Clayton volcanic field. In the west, McKinley and Cibola counties sit on the Colorado Plateau with sandstone mesas and lava fields, where small falls appear after rain or snowmelt. Socorro County includes one listed fall in the central Rio Grande region. These sites are best treated as seasonal and occasional, and they can look very different from one visit to the next."
+    }
+  ],
+  "bestTime": "Two seasons matter in New Mexico. Snowmelt from the Sangre de Cristo and Jemez mountains usually brings peak flow from roughly April to June, with higher-elevation falls like Pecos Falls peaking later and access trails sometimes holding snow into late spring. The North American monsoon then arrives, typically in early July and lasting into September, bringing afternoon thunderstorms that can revive streams but also create dangerous flash floods and lightning above treeline. Autumn is often dry and clear, with golden aspens in the northern mountains from late September into early October, though flows are low. Sitting Bull Falls is spring-fed and runs year-round, but summer heat in the Guadalupe foothills can be intense. Winter brings cold and snow in the mountains and closures of some forest roads.",
+  "planning": "New Mexico's falls are managed by a patchwork of agencies and communities. Jemez and Pecos falls are in the Santa Fe National Forest, Sitting Bull Falls is a Lincoln National Forest day-use area with a fee, and Frijoles Canyon is in Bandelier National Monument. Nambe Falls is on Nambe Pueblo land; access and hours are set by the Pueblo and may change, so confirm before visiting and follow tribal rules, including any restrictions on photography. Hazards include altitude, intense sun and dehydration, monsoon flash floods in narrow canyons, lightning on exposed ridges, and slick volcanic tuff or travertine near falls. Many forest roads are unpaved and can become impassable after heavy rain. Wildfire seasons occasionally bring forest closures in late spring and early summer.",
+  "faqs": [
+    {
+      "q": "What is the most popular waterfall in New Mexico?",
+      "a": "Sitting Bull Falls in Eddy County, in the Lincoln National Forest west of Carlsbad, has the most reviews in our directory. It is a spring-fed fall with pools and picnic areas."
+    },
+    {
+      "q": "Can visitors go to Nambe Falls?",
+      "a": "Nambe Falls is on Nambe Pueblo land, and access is controlled by the Pueblo. Hours and availability can change, so check with the Pueblo before planning a visit."
+    }
+  ]
+}

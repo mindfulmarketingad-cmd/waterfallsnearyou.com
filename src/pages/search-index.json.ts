@@ -1,5 +1,6 @@
 import { loadData } from '../lib/core.mjs';
 import { getPosts } from '../lib/blog.mjs';
+import { getStateLists, getSmallest } from '../lib/bestof.mjs';
 
 export function GET() {
   const { listings, cities, states } = loadData();
@@ -7,7 +8,7 @@ export function GET() {
     l: listings.map((l) => [l.name, l.url, l.city.name, l.stateCode, +l.lat.toFixed(4), +l.lng.toFixed(4), l.county || '', l.os?.photo || '', l.os?.rating || 0, l.os?.reviews || 0, (l.variants || []).join('|'), Math.round(l.score * 10) / 10]),
     c: cities.map((c) => [c.name, c.url, c.stateCode, c.nearby.filter((n) => n.miles <= 30).length]),
     s: states.map((s) => [s.name, s.url, s.code, s.listings.length]),
-    b: getPosts().map((p) => [p.title, p.url, p.description]),
+    b: [...getPosts().map((p) => [p.title, p.url, p.description]), ...[getSmallest(), ...getStateLists()].map((p) => [p.title, p.url, p.description])],
   };
   return new Response(JSON.stringify(body), { headers: { 'Content-Type': 'application/json; charset=utf-8' } });
 }

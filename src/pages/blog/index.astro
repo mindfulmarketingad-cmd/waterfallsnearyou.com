@@ -2,6 +2,14 @@
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
 import { getPosts } from '../../lib/blog.mjs';
+import { getStateLists, getSmallest } from '../../lib/bestof.mjs';
+const families = [
+  ['best', 'Best Waterfalls by State', 'Ranked by visitor ratings and review volume.'],
+  ['beautiful', 'Most Beautiful Waterfalls by State', 'Ranked by visitor photos, five-star reviews and scenery.'],
+  ['must-see', 'Must-See Waterfalls by State', 'The five most visited falls in each state, with a route between them.'],
+  ['hiking', 'Best Waterfall Hikes by State', 'Trail-reached falls ranked by the hikers who reviewed them.'],
+];
+const smallest = getSmallest();
 import { imageFor } from '../../lib/core.mjs';
 import { SITE } from '../../config.mjs';
 const posts = getPosts();
@@ -28,6 +36,20 @@ const fmt = (d) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long
             <div class="meta"><time datetime={p.date.toISOString()}>{fmt(p.date)}</time> · {p.minutes} min read</div>
           </div>
         </article>
+      ))}
+    </div>
+  </section>
+  <section class="bg-mist section-sm">
+    <div class="wrap">
+      <span class="eyebrow">State guides</span>
+      <h2>Waterfall Lists by State</h2>
+      <p class="muted">Ranked lists for every state with more than 10 named waterfalls, updated for {new Date().getFullYear()}. Also see <a href={smallest.url}>{smallest.title}</a>.</p>
+      {families.map(([kind, heading, blurb]) => (
+        <>
+          <h3 style="margin-top:28px">{heading}</h3>
+          <p class="muted small">{blurb}</p>
+          <ul class="tile-list">{getStateLists().filter((p) => p.kind === kind).map((p) => <li><a href={p.url}><span>{p.state.name}</span><span class="count">{p.items.length}</span></a></li>)}</ul>
+        </>
       ))}
     </div>
   </section>

@@ -1,0 +1,36 @@
+{
+  "state": "Alabama",
+  "overview": [
+    "Alabama sits where the southern end of the Appalachian system finally runs out, and that tail end is where nearly all of its waterfalls are found. The northeast corner is dominated by long, flat-topped ridges such as Lookout Mountain and Sand Mountain, part of the Cumberland Plateau. These plateaus are capped by hard Pennsylvanian sandstone that resists erosion while the softer shale beneath it wears away, so creeks running off the plateau edge tend to pour over abrupt ledges and into box canyons. Our directory lists 37 named waterfalls in the state, ranking it 20th nationally, and DeKalb and Marshall counties alone account for ten of them.",
+    "Further west, the same sandstone layers form the deeply cut hollows of the Bankhead National Forest in Lawrence and Winston counties, where small streams spill over overhangs and rock shelters. A second, smaller cluster sits in the folded ridges south of Birmingham in Shelby and Talladega counties. Below the fall line, which crosses the state roughly through Tuscaloosa, Elmore and Lee counties, the land flattens into coastal plain and natural drops become rare. Alabama's heavy rainfall, among the higher totals in the eastern United States, keeps plateau streams running for much of the year, though many of the smaller falls depend on recent storms."
+  ],
+  "regions": [
+    {
+      "name": "Lookout Mountain and Sand Mountain",
+      "counties": ["DeKalb", "Marshall", "Jackson", "Etowah"],
+      "text": "The plateau country of northeast Alabama holds the state's best-known falls. On Lookout Mountain in DeKalb County, the Little River cuts a canyon into the plateau, and Little River Falls, De Soto Falls on the river's West Fork, High Falls and Griffin Falls all lie within a short drive of Fort Payne. At the southern tip of the mountain, Noccalula Falls drops about 90 feet into a gorge on the edge of Gadsden and is surrounded by a large city park. Across the Tennessee River valley, Sand Mountain in Marshall County has smaller tiered cascades such as Thompson Falls and Short Creek Falls, which run best after rain."
+    },
+    {
+      "name": "Bankhead and the Northwest Hills",
+      "counties": ["Lawrence", "Winston", "Morgan", "Franklin", "Colbert"],
+      "text": "Northwest Alabama is a landscape of sandstone bluffs, hemlock-shaded hollows and rock overhangs, much of it within the Bankhead National Forest and its Sipsey Wilderness. Waterfalls here are usually short, wide pour-overs where a creek drops off a resistant ledge into a sandy pool. Kinlock Falls in Lawrence County is one of the most visited, and Parker Falls near Haleyville is another local favorite. Closer to the Tennessee River, Georgia Falls in Colbert County is unusual: water from Wilson Lake seeps through the bedrock below Wilson Dam and runs down a cut rock face."
+    },
+    {
+      "name": "Birmingham Ridges and the Fall Line",
+      "counties": ["Shelby", "Talladega", "Jefferson", "Randolph", "Elmore", "Lee", "Tuscaloosa"],
+      "text": "South and east of Birmingham, the Appalachians break into parallel folded ridges before giving way to the Piedmont and then the coastal plain. Peavine Falls in Shelby County, a spring-fed drop of about 65 feet reached by a steep trail, is the standout here. Talladega County's falls lie along the ridges of the Talladega National Forest, while Great Falls in Lee County and the drops in Elmore and Tuscaloosa counties sit near the fall line, where rivers leave harder Piedmont rock for the softer sediments of the coastal plain. One historical waterfall near Tuscaloosa, University Falls, now lies beneath a reservoir."
+    }
+  ],
+  "bestTime": "Late winter through spring is the most reliable period for Alabama waterfalls. Frequent frontal storms between roughly December and April keep plateau creeks full, and many of the smaller drops in DeKalb, Marshall and the Bankhead area only run well within a few days of solid rain. Spring also brings wildflowers and mountain laurel to the canyon rims. Summer is hot and humid, flow often drops off by midsummer, and afternoon thunderstorms can cause fast rises in narrow hollows. Late summer and early fall are typically the driest stretch, when some falls shrink to a trickle. Fall color on Lookout Mountain usually peaks in late October or early November, and a wet autumn can make that an excellent time to visit. Hard freezes are occasional, so ice is rarely a factor.",
+  "planning": "Alabama's waterfalls are spread across an unusual mix of managers. Little River Canyon is a National Park Service preserve, Bankhead and Talladega falls lie in national forest land, and Peavine Falls is inside Oak Mountain State Park, which charges a day-use fee. Noccalula Falls is run by the City of Gadsden, and several smaller falls in Marshall and DeKalb counties sit on or next to private property, so check that a site is publicly accessible before going. Forest roads in the Bankhead can be rough and muddy after storms. The main hazards are slick sandstone ledges at the tops of falls, undercut bluffs, and fast-rising water in narrow canyons after heavy rain. Swimming holes such as those at Little River Falls are popular in summer, and currents there can be strong at higher flows.",
+  "faqs": [
+    {
+      "q": "Where are the most waterfalls in Alabama?",
+      "a": "The northeast corner, especially DeKalb County on Lookout Mountain, has the highest concentration. Little River Canyon, De Soto Falls and Noccalula Falls in nearby Gadsden can all be visited in a single trip."
+    },
+    {
+      "q": "Why do so many Alabama waterfalls dry up in late summer?",
+      "a": "Most of the state's falls are on small plateau streams with limited drainage areas, so their flow depends on recent rainfall. Late summer and early fall are usually the driest months, while winter and spring storms bring them back to life."
+    }
+  ]
+}

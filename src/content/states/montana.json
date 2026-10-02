@@ -1,0 +1,41 @@
+{
+  "state": "Montana",
+  "overview": [
+    "Montana's waterfalls are concentrated almost entirely in its western third, where the northern Rocky Mountains break into dozens of ranges separated by deep valleys. Pleistocene glaciers sculpted much of this terrain into cirques, hanging valleys and U-shaped troughs, and heavy winter snowpack feeds the streams that pour out of them each summer. Glacier National Park is the clearest example, with sedimentary rock layers of red and green argillite and limestone stepped into ledges that create falls on almost every creek. Our directory lists 120 named falls in Montana, sixth in the nation.",
+    "Glacier and Flathead counties, which together cover Glacier National Park and the country around Columbia Falls, account for 47 of those falls. A second cluster lies in southwest Montana, especially Gallatin County near Bozeman and Big Sky, where Hyalite Canyon and the Gallatin Range hold several popular falls. Lincoln County in the far northwest adds the big river falls of the Kootenai and Yaak. East of the mountains the land flattens into the Great Plains, and falls become rare, the notable exception being the series of Missouri River falls that gave the city of Great Falls its name."
+  ],
+  "regions": [
+    {
+      "name": "Glacier National Park and the Flathead",
+      "counties": ["Glacier", "Flathead", "Lake"],
+      "text": "Glacier National Park holds Montana's richest waterfall country. On the east side, in Glacier County, Virginia Falls and Baring Falls lie on trails near St. Mary Lake, Redrock Falls sits in the Many Glacier valley, and Running Eagle Falls in the Two Medicine area is reached by an easy trail with a stream crossing. Bird Woman Falls can be seen across the valley from the Going-to-the-Sun Road. West of the Continental Divide, McDonald Falls lies along McDonald Creek in Flathead County above Lake McDonald. The park's colorful layered rock and glacier-fed streams give these falls a distinctive look, and many are close to the road."
+    },
+    {
+      "name": "Southwest Montana: Gallatin, Absaroka and Beartooth",
+      "counties": ["Gallatin", "Park", "Carbon", "Madison", "Sweet Grass", "Stillwater", "Beaverhead", "Jefferson"],
+      "text": "The ranges around Bozeman and the Yellowstone country of southern Montana form the state's second major cluster. South of Bozeman, Hyalite Canyon holds several falls, including Grotto Falls on an easy forest trail and Palisade Falls, which pours over a wall of columnar basalt. Champagne Falls and Silken Skein Falls lie in the same drainage. Ousel Falls, near Big Sky, is reached by a popular trail from the town. Farther east, Park and Carbon counties include the Absaroka and Beartooth mountains around Livingston and Red Lodge, where high granite plateaus shed meltwater into steep canyons with falls that are often reached only by longer hikes."
+    },
+    {
+      "name": "Northwest Montana and the Bitterroot",
+      "counties": ["Lincoln", "Sanders", "Mineral", "Missoula", "Ravalli", "Powell", "Lewis and Clark"],
+      "text": "Northwest Montana's waterfalls tend to be larger rivers dropping through rocky gorges in thick conifer forest. Kootenai Falls, between Libby and Troy, is a wide, powerful series of cascades on the Kootenai River, with a swinging footbridge across the river nearby. Yaak Falls sits along the Yaak River near the Canadian border, a short stop from the road. To the south, the Bitterroot Valley's Skalkaho Falls drops right beside the Skalkaho Highway, a mountain road east of Hamilton. Around Seeley Lake and Lincoln, the Swan and Blackfoot country holds smaller falls in glacier-scoured valleys within the national forests."
+    },
+    {
+      "name": "Rocky Mountain Front and the Missouri",
+      "counties": ["Cascade", "Teton", "Fergus"],
+      "text": "Where the Rockies give way to the plains, Montana's falls change character. The Missouri River at Great Falls once descended a series of five falls that forced the Lewis and Clark expedition into a long overland portage in 1805; most have since been altered or submerged by hydroelectric dams, though Black Eagle Falls and others remain visible from riverside parks and overlooks. Teton County, along the Rocky Mountain Front west of Choteau, has falls on streams that leave the mountains abruptly. Fergus County in central Montana adds an isolated example in one of the island ranges rising from the prairie."
+    }
+  ],
+  "bestTime": "Montana's falls follow the mountain snowpack. Peak flows usually arrive from late May through June, when warm weather melts high-elevation snow, and some falls can be dangerously powerful then. July offers the best combination of strong water and open high-country access; in Glacier National Park, the full Going-to-the-Sun Road often does not open until late June or July because of the time needed to clear snow. By late August and September, flows decline, but larch and aspen color in late September is a strong draw. Winter closes many mountain roads, including the Skalkaho Highway, and falls in Hyalite Canyon and elsewhere freeze into ice climbing routes.",
+  "planning": "Most of Montana's falls lie in Glacier National Park or in national forests such as the Flathead, Kootenai, Bitterroot, Lolo and Custer Gallatin, with a few in state parks and city parks. Glacier National Park has used a seasonal vehicle reservation system for some areas in recent summers, so checking current entry rules is essential. Popular trailheads in Glacier and Hyalite Canyon fill early on summer days. Grizzly and black bears are present across western Montana; carrying bear spray, hiking in groups and making noise are standard. Snowmelt streams are cold and swift, and rocks near falls are slick. Mountain weather changes quickly, with afternoon thunderstorms in summer and snow possible in any month at higher elevations.",
+  "faqs": [
+    {
+      "q": "Where are the most waterfalls in Montana?",
+      "a": "Glacier National Park and the surrounding Flathead area hold the largest share, with Glacier and Flathead counties accounting for 47 of the state's 120 named falls in our directory. The Bozeman and Big Sky area is the next largest cluster."
+    },
+    {
+      "q": "How did the city of Great Falls get its name?",
+      "a": "It is named for the series of Missouri River falls that Lewis and Clark had to portage around in 1805. Several of those falls have since been altered by hydroelectric dams, but they can still be viewed from riverside parks."
+    }
+  ]
+}

@@ -79,3 +79,19 @@ export function listingFacts(l) {
 }
 
 export { hoursSummary };
+
+// Town-relative summary for listicles on town pages, so neighboring towns that share
+// waterfalls still describe each one from their own vantage point.
+export function relativeSummary(l, ctx) {
+  const { from, miles: m, direction, index, reviewRank, total } = ctx;
+  const parts = [];
+  const where = l.county ? ` in ${l.county} County` : '';
+  parts.push(index === 0
+    ? `${l.name} is the closest named waterfall to ${from}, ${fmtMiles(m).replace(' mi', ' miles')} to the ${direction}${where}.`
+    : `${l.name} lies ${fmtMiles(m).replace(' mi', ' miles')} ${direction} of ${from}${where}, number ${index + 1} of ${total} by distance.`);
+  if (reviewRank) parts.push(reviewRank === 1 ? `It draws more Google reviews than any other waterfall near ${from}.` : `It ranks ${reviewRank}${['th', 'st', 'nd', 'rd'][reviewRank % 10 > 3 || [11, 12, 13].includes(reviewRank % 100) ? 0 : reviewRank % 10]} for review count among waterfalls near ${from}.`);
+  if (l.os?.description) parts.push(l.os.description);
+  else if (l.gnisDescription && !isPlss(l.gnisDescription)) parts.push(`USGS notes: ${l.gnisDescription}`);
+  else if (l.city.name !== from) parts.push(`Its own nearest town is ${l.city.name}.`);
+  return parts.join(' ');
+}

@@ -1,0 +1,31 @@
+{
+  "state": "West Virginia",
+  "overview": [
+    "West Virginia is the only state that lies entirely within the Appalachian region, and almost all of it is steep. Most of the state sits on the Allegheny Plateau, a high tableland of nearly flat sandstone, shale and coal beds that rivers have dissected into a maze of narrow valleys and gorges. Where a stream crosses a resistant sandstone layer, it forms a ledge, and the softer rock below wears back to create a drop. That pattern produces many broad, step-like falls rather than tall, thin plunges. Our directory lists 16 named waterfalls in the state, ranking it 32nd nationally, though the true number of unnamed cascades in its hollows is far larger.",
+    "The falls cluster in two areas. In the south, the New River, one of the oldest rivers on the continent, has carved a deep gorge through the plateau, and its tributaries drop into it over sandstone ledges in Raleigh, Fayette and Summers counties. In the east, the Allegheny Highlands rise to the state's highest ground, catching heavy rain and snow that feed falls in Tucker, Randolph, Pocahontas and Webster counties, where red spruce, hemlock and rhododendron shade the streams. The rivers here often carry tea-colored water stained by tannins from the forests and bogs upstream. A lone listing in Hampshire County represents the Ridge and Valley country of the Eastern Panhandle."
+  ],
+  "regions": [
+    {
+      "name": "New River Gorge and Southern Coalfields",
+      "counties": ["Raleigh", "Summers", "Fayette", "Kanawha"],
+      "text": "The New River and its neighbors carve the deepest gorges in the state. Sandstone Falls spans the full width of the New River near Hinton, a wide, powerful series of ledges viewed from boardwalks and an island trail within New River Gorge National Park and Preserve. Downstream, Kanawha Falls drops across the Kanawha River at Glen Ferris in Fayette County, and Brooks Falls adds another river-wide ledge on the New. Summers County, around Hinton, holds several more listings, including Bull Falls and Harvey Falls, and Kanawha County's Upper Falls lies on the Coal River near Tornado. Big rivers, wide ledges and strong currents define this region."
+    },
+    {
+      "name": "Allegheny Highlands",
+      "counties": ["Tucker", "Randolph", "Pocahontas", "Webster", "Pendleton"],
+      "text": "The high, forested mountains of eastern West Virginia hold the state's most celebrated falls. Blackwater Falls, in Tucker County, pours amber-tinted water into a rugged canyon and is viewed from a boardwalk and stairway in the state park that bears its name. High Falls in Randolph County spans the Shavers Fork of the Cheat River in remote national forest country. In Pocahontas County, the Falls of Hills Creek is a series of three falls in a narrow gorge reached by a trail and boardwalk. Webster County, around Webster Springs, adds Whitaker Falls and Tecumseh Falls, and Pendleton County contributes one listing in the mountains near Franklin."
+    }
+  ],
+  "bestTime": "West Virginia's falls are fullest from late winter through spring, typically March through May, when snowmelt in the highlands and frequent rain swell streams. The Allegheny Highlands receive heavy snowfall, and winter visits to Blackwater Falls can reveal dramatic ice formations, though stairways and trails may be icy and some roads challenging. Summer brings lush green gorges, warm swimming weather and occasional heavy thunderstorms, but smaller falls can weaken by August. Fall color usually arrives in the high country in early October and moves to lower elevations later in the month, drawing crowds to the New River Gorge and Canaan Valley areas. The big river falls, like Sandstone Falls and Kanawha Falls, flow year-round, with appearance varying by river level.",
+  "planning": "Public land holds most of the state's well-known falls. New River Gorge National Park and Preserve manages Sandstone Falls and other gorge sites, the Monongahela National Forest covers much of the Allegheny Highlands, including the Falls of Hills Creek and High Falls, and state parks protect Blackwater Falls and others. Many smaller falls in the southern counties are on private or industrial land. Expect winding mountain roads, limited cell service and long drives between sites. The biggest hazards are moving water and wet rock: the New and Kanawha rivers have powerful currents and hidden hazards around ledges, and sandstone near falls is slick when wet. Winter travel in the highlands can be difficult in snow. Remote trails require self-reliance and good maps.",
+  "faqs": [
+    {
+      "q": "Why is the water at Blackwater Falls dark?",
+      "a": "The Blackwater River is stained amber by tannins leached from the hemlock and red spruce forests and boggy soils it drains. The color is natural and gives the river and falls their name."
+    },
+    {
+      "q": "What is Sandstone Falls?",
+      "a": "It is a wide series of ledges spanning the New River near Hinton, within New River Gorge National Park and Preserve. It is the largest waterfall on the New River."
+    }
+  ]
+}

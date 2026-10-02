@@ -1,0 +1,36 @@
+{
+  "state": "South Carolina",
+  "overview": [
+    "South Carolina's waterfalls are crowded into its far northwestern corner, where the Blue Ridge Mountains break off abruptly along a feature known as the Blue Ridge Escarpment. Here the land drops steeply from the mountains of North Carolina to the Piedmont over a remarkably short distance, and every stream crossing that edge must descend in a hurry. The resulting falls slide and plunge over hard granite and gneiss. Greenville, Oconee and Pickens counties together hold most of the 27 named waterfalls in our directory, which ranks the state 26th nationally.",
+    "This corner of the state, sometimes called the Upstate or the mountain region, is also very wet. Moist air from the Gulf and Atlantic rises against the escarpment, and the Jocassee Gorges area receives some of the highest rainfall totals in the eastern United States, keeping streams lively for much of the year. Southeast of the mountains, the Piedmont rolls gently to the fall line, where rivers such as the Catawba once dropped over rocky shoals onto the coastal plain. Beyond that, flat sandhills and coastal lowlands leave little room for waterfalls."
+  ],
+  "regions": [
+    {
+      "name": "Oconee Escarpment and Jocassee Gorges",
+      "counties": ["Oconee"],
+      "text": "Oconee County, in the state's westernmost corner, contains many of the most visited falls. Isaqueena Falls near Walhalla is a cascading fall with an observation deck, and Lower Whitewater Falls is reached by a trail of about 1.9 miles to a viewing platform facing the Whitewater River's dramatic cascade. Kings Creek Falls and Spoonauger Falls lie in the Sumter National Forest near the Chattooga River, and Hidden Falls is tucked on a stream near Oconee State Park. The Jocassee Gorges, where several rivers cut deep valleys into the escarpment on their way into Lake Jocassee, hold many more remote falls."
+    },
+    {
+      "name": "Mountain Bridge and the Greenville Highlands",
+      "counties": ["Greenville", "Pickens"],
+      "text": "North of Greenville, the Mountain Bridge Wilderness Area links Caesars Head and Jones Gap state parks across rugged, forested terrain. Raven Cliff Falls, one of the tallest in the state, plunges off a cliff and is viewed from a platform reached by a wooded trail. Rainbow Falls and Wildcat Branch Lower Falls are also in Greenville County, which holds more falls than any other county in South Carolina. In Pickens County, Reedy Cove Falls is a twin waterfall reached by a short, flat walk, making it one of the most accessible in the region."
+    },
+    {
+      "name": "Piedmont and the Fall Line",
+      "counties": ["Laurens", "Chester", "Union", "Kershaw", "Chesterfield", "Darlington", "Marion"],
+      "text": "Away from the mountains, South Carolina's falls are mostly river shoals and small drops along the Piedmont and fall line. The Great Falls of the Catawba in Chester County was once a significant series of rapids on the Catawba River, now heavily altered by hydroelectric development. Laurens County has a Great Falls of its own, and Union, Kershaw and Chesterfield counties each have one listed fall. Darlington and Marion counties, on the coastal plain, each have one listed fall, an unusual feature in such low country. These sites are modest but reflect the state's geologic transition from mountains to coast."
+    }
+  ],
+  "bestTime": "Upstate South Carolina has a long waterfall season. Late winter through spring, roughly February to May, typically brings the strongest flow and the most consistent rainfall, along with wildflowers in the coves and blooming mountain laurel and rhododendron along streams from late spring into early summer. Summer is hot and humid, but frequent afternoon thunderstorms keep many escarpment falls running, and popular trailheads see heavy weekend traffic. Fall foliage usually peaks from late October into early November and draws crowds to Caesars Head and Table Rock. Dry spells in late summer and fall can reduce smaller falls. Winters are generally mild, though occasional cold snaps can leave ice on rocks and trails at higher elevations. Tropical systems occasionally bring flooding in late summer and fall.",
+  "planning": "Most Upstate falls are on public land in the Sumter National Forest, state parks such as Oconee, Caesars Head, Jones Gap and Devils Fork, and state-managed lands in the Jocassee Gorges. South Carolina State Parks charge admission at many parks. Trailheads can be at the end of narrow, winding roads, and parking at the most popular falls fills early on weekends. The escarpment's hazards are serious: wet granite near falls is extremely slick, and people climbing on or above falls have been seriously injured or killed. Stay on trails and behind railings. Streams can rise quickly after storms, and some falls require stream crossings that become dangerous in high water.",
+  "faqs": [
+    {
+      "q": "Where are most of South Carolina's waterfalls?",
+      "a": "Most are in Greenville, Oconee and Pickens counties along the Blue Ridge Escarpment in the state's northwestern corner. Greenville County has the most, followed by Oconee County."
+    },
+    {
+      "q": "Which South Carolina waterfall is easiest to reach?",
+      "a": "Reedy Cove Falls in Pickens County is reached by a short, flat walk to a viewing platform, and Isaqueena Falls near Walhalla has an observation deck overlooking the cascade."
+    }
+  ]
+}

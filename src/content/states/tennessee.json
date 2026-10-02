@@ -1,0 +1,36 @@
+{
+  "state": "Tennessee",
+  "overview": [
+    "Tennessee's 88 named waterfalls, which place it 12th in our directory, are tied above all to the Cumberland Plateau, a broad tableland that crosses the state from Kentucky to Alabama. The plateau is capped by hard sandstone and conglomerate that resist erosion, while beneath lie softer shales and limestones. Where streams flow off the plateau edge or cut down into it, the soft rock below wears back faster than the caprock, leaving overhanging ledges, plunge pools and amphitheater-shaped gorges. Fall Creek Falls, one of the tallest waterfalls in the eastern United States, is the classic example, and plateau counties such as Van Buren, Rhea and Hamilton hold many listings.",
+    "Two other landscapes add to the count. West of the plateau, the Highland Rim is a lower limestone upland where rivers drop into gorges at its edges; Burgess Falls and Cummins Falls are spectacular Highland Rim falls, and Coffee County, which leads the state with 11 listings, sits on this rim around Manchester and Tullahoma. In the east, the Blue Ridge province, including the Great Smoky Mountains and the Unaka Mountains, holds falls over much older metamorphic rock, fed by some of the highest rainfall in the Southeast. Limestone also produces an unusual entry: Ruby Falls, an underground waterfall inside Lookout Mountain near Chattanooga."
+  ],
+  "regions": [
+    {
+      "name": "Cumberland Plateau and Escarpment",
+      "counties": ["Van Buren", "Rhea", "Hamilton", "Grundy", "Marion", "Cumberland", "Bledsoe", "Morgan", "Fentress", "Scott", "White"],
+      "text": "The plateau is Tennessee's waterfall heartland. Fall Creek Falls drops into a deep, forested gorge in one of the state's largest parks, with an overlook above and a trail down to the plunge pool. Foster Falls, in Marion County, falls over a sandstone rim into a cliff-lined amphitheater, and Ozone Falls in Cumberland County plunges off a ledge close to the highway. Along the escarpment above the Tennessee River valley, Rhea and Hamilton counties hold numerous gorge falls, including Falling Water Falls near Chattanooga. Ruby Falls, inside Lookout Mountain, offers a cave tour to an underground waterfall rather than a hike."
+    },
+    {
+      "name": "Highland Rim and Central Basin Edge",
+      "counties": ["Coffee", "Jackson", "Putnam", "Maury", "Hickman", "Lawrence", "Lewis", "Warren", "DeKalb", "Cannon", "Lincoln", "Hardin"],
+      "text": "Below and west of the plateau, the Highland Rim is a limestone upland whose edges are notched by gorges. Burgess Falls in Putnam County spills into a sheer-walled limestone gorge, and Cummins Falls in Jackson County drops into a broad pool surrounded by rocky ledges that draw swimmers. Coffee County, around Manchester and Tullahoma, holds the most listings in the state, including Machine Falls, a wide cascade in a protected natural area. On the western Highland Rim, Stillhouse Hollow Falls in Maury County and falls in Hickman, Lewis and Lawrence counties are smaller drops in quiet, wooded hollows."
+    },
+    {
+      "name": "Great Smoky Mountains and Unaka Range",
+      "counties": ["Sevier", "Carter", "Unicoi", "Monroe", "Polk", "Blount", "Cocke", "Johnson"],
+      "text": "Along the North Carolina line, the mountains of the Blue Ridge province rise far above the rest of the state and catch abundant rain. In Great Smoky Mountains National Park, Laurel Falls near Gatlinburg is among the park's most visited destinations, and Hen Wallow Falls, reached from the Cosby area in Cocke County, fans out over a rock face in rhododendron forest. Benton Falls in Polk County lies in the Cherokee National Forest, while Carter, Unicoi and Johnson counties hold falls in the Roan Mountain area and the high country of northeast Tennessee. These falls flow over ancient, hard rock and often sit in lush, moss-covered settings."
+    }
+  ],
+  "bestTime": "Tennessee's wettest months generally run from winter into spring, so falls are usually fullest from about January through May. Spring also brings wildflowers in the Smokies and on the plateau's gorge slopes, and it is the favorite season for many visitors. Summer is hot and humid, with thunderstorms that can briefly swell creeks; it is also the main swimming season at sites like Cummins Falls and Foster Falls. By late summer and early fall, many plateau falls, including the big ones, can thin dramatically during dry spells. October brings fall color and heavy crowds, especially in the Smokies around Gatlinburg. Winter offers solitude and occasional ice formations on north-facing ledges, though mountain roads may close for snow.",
+  "planning": "Tennessee's state park system manages many signature falls, including Fall Creek Falls, Burgess Falls, Cummins Falls and the South Cumberland area that includes Foster Falls, along with numerous state natural areas. In the east, Great Smoky Mountains National Park and the Cherokee National Forest hold most falls; check the national park's current parking requirements before visiting. Ruby Falls is a private commercial attraction with ticketed cave tours. Some popular state park gorges use permits or capacity limits in busy seasons, so check ahead. Flash floods are a serious hazard in narrow gorges, which can rise rapidly after storms upstream. Wet sandstone and limestone ledges are slippery, and cliff edges at the plateau rim are often unfenced. Ticks and copperheads are common in warm months.",
+  "faqs": [
+    {
+      "q": "Why does the Cumberland Plateau have so many waterfalls?",
+      "a": "Its hard sandstone caprock sits on top of softer shale and limestone. Streams erode the soft layers faster than the caprock, leaving ledges that water plunges over into deep gorges."
+    },
+    {
+      "q": "Is Ruby Falls a natural waterfall?",
+      "a": "Yes, it is a natural underground waterfall inside a limestone cave in Lookout Mountain near Chattanooga. It is reached by guided tour as part of a commercial attraction."
+    }
+  ]
+}

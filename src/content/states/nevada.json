@@ -1,0 +1,31 @@
+{
+  "state": "Nevada",
+  "overview": [
+    "Nevada is the driest state in the country, and most of it lies within the Great Basin, a region where rivers never reach the sea. The landscape is a sequence of north-south mountain ranges separated by broad desert valleys, the classic Basin and Range topography created as the earth's crust stretched and broke into tilted blocks. Waterfalls require persistent flow and a steep drop, and in Nevada the steep drops are plentiful but the water is not. Our directory lists eight named waterfalls in the state, ranking it 38th nationally.",
+    "The falls that do exist are tied to mountains high enough to catch winter snow. The Spring Mountains west of Las Vegas, which rise to nearly 12,000 feet at Charleston Peak, account for the largest cluster, all in Clark County. Elsewhere, scattered falls appear in the ranges of northern and central Nevada and in the Sierra-adjacent country of Washoe County, where snowmelt feeds small streams. Most of these falls are seasonal, swelling in spring and dwindling by late summer, and some are better known for their winter ice than their summer flow."
+  ],
+  "regions": [
+    {
+      "name": "Spring Mountains",
+      "counties": ["Clark"],
+      "text": "Rising abruptly above the Mojave Desert, the Spring Mountains form a forested island of pine and fir within an hour of Las Vegas. Kyle Canyon, on the eastern side of the range, holds the three most visited falls in Nevada. Mary Jane Falls drops from a limestone cliff high on the canyon wall and is reached by a steep trail; in winter it often becomes an ice column. Little Falls and Big Falls are nearby, fed mainly by snowmelt and springs. These are modest by national standards but remarkable for southern Nevada, where they offer cool shade and running water just above the desert."
+    },
+    {
+      "name": "Great Basin Ranges",
+      "counties": ["Washoe", "Churchill", "Lander", "Nye", "Lincoln"],
+      "text": "Across the rest of the state, waterfalls are isolated and often obscure. Jumbo Falls in Washoe County lies in far western Nevada, where storms coming over the Sierra Nevada deliver more precipitation than the interior receives. Lander and Nye counties include falls in remote central Nevada ranges, while Lincoln County has a site named Water and Ice Falls. Twenty Six Foot Drop in Churchill County is highly rated but sees few visitors. Many of these require long drives on dirt roads, and their flow varies greatly from year to year depending on snowpack."
+    }
+  ],
+  "bestTime": "Timing matters more in Nevada than in most states. In the Spring Mountains, snowmelt typically drives peak flow in late spring, with water reliable roughly from April into June depending on the winter's snowpack; by late summer flow is low. Summer thunderstorms during the monsoon season, usually from July through September, can briefly revive streams but also bring flash flood risk. Winter at Mary Jane Falls brings snow, ice and the chance of seeing the fall frozen, but the trail can be icy and steep and traction devices are useful. In northern and central Nevada, falls follow snowmelt in late spring and early summer, while access roads at higher elevations may be snowbound well into spring. Desert heat in the valleys can be extreme from June through September.",
+  "planning": "Much of Nevada is federal land, managed by the Bureau of Land Management and the Humboldt-Toiyabe National Forest, which includes the Spring Mountains National Recreation Area. Mount Charleston trails can be busy on weekends, especially when Las Vegas residents head for cooler temperatures, and parking can fill. Remote falls elsewhere in the state often require high-clearance vehicles, long stretches without services or cell coverage, and careful fuel and water planning. Hazards include altitude (Kyle Canyon trailheads sit well above 7,000 feet), sun exposure, loose rock and rockfall below cliffs, icy trails in winter and spring, and flash floods in canyons during summer storms. Carry more water than seems necessary, even on short hikes.",
+  "faqs": [
+    {
+      "q": "Are there waterfalls near Las Vegas?",
+      "a": "Yes. Mary Jane Falls, Little Falls and Big Falls are in Kyle Canyon in the Spring Mountains, about an hour's drive from Las Vegas. They flow best during spring snowmelt."
+    },
+    {
+      "q": "Do Nevada waterfalls freeze in winter?",
+      "a": "The higher falls often do. Mary Jane Falls in the Spring Mountains commonly turns to ice during winter, and Lincoln County's Water and Ice Falls is named for its cold-season appearance."
+    }
+  ]
+}

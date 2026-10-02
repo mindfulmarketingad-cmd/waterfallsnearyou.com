@@ -1,0 +1,36 @@
+{
+  "state": "Massachusetts",
+  "overview": [
+    "Massachusetts owes its waterfalls largely to the western third of the state. The Berkshire Hills and the Taconic Range along the New York border are made of hard, ancient metamorphic rock such as schist, gneiss and quartzite, and during the last Ice Age, glaciers scraped these uplands and left streams perched above steepened valleys. As brooks drop off the edges of these highlands toward the Housatonic, Hoosic, Westfield and Deerfield rivers, they form cascades and plunges in narrow ravines. Our directory lists 27 named falls in the state, ranking it 25th nationally, and Berkshire County alone accounts for 12 of them.",
+    "East of the Berkshires, the land gradually lowers toward the coast, and waterfalls become sparser. The hill towns of Franklin and Hampshire counties still have steep, rocky brooks, while the North Quabbin area of Worcester County holds a cluster of falls around Royalston. Farther east, many falls sit on rivers that powered the mills of the Industrial Revolution, and towns such as Turners Falls and Holyoke grew up around them. Abundant precipitation spread through the year keeps most streams flowing, while spring snowmelt from the higher hills produces the biggest flows. The coastal plain of Cape Cod and the southeast, built of glacial sand, has essentially none."
+  ],
+  "regions": [
+    {
+      "name": "Berkshire Hills and Taconic Range",
+      "counties": ["Berkshire"],
+      "text": "The Berkshires hold the state's most dramatic falls. Bash Bish Falls, in the southwest corner near the New York line, drops through a rugged gorge in two streams around a central boulder and is often described as the most impressive waterfall in Massachusetts. Nearby on the slopes of the Taconics, Race Brook Falls tumbles in several tiers, and Campbell Falls and Umpachene Falls lie in the quiet hills of New Marlborough. To the north, Money Brook Falls drops in a deep ravine on Mount Greylock, the state's highest peak. Tannery Falls and Wahconah Falls add forested cascades in state forest and park land."
+    },
+    {
+      "name": "Hilltowns and Connecticut Valley",
+      "counties": ["Franklin", "Hampshire", "Hampden"],
+      "text": "Between the Berkshires and the Connecticut River, the hilltowns are a rolling plateau cut by steep brooks. Chapel Falls in Ashfield is a series of drops on Chapel Brook in a shaded, rocky ravine, and Glendale Falls in Middlefield is a long cascade over bedrock ledges that runs strongest in spring. Along the Connecticut River itself, the village of Turners Falls and the city of Holyoke grew around falls that once powered industry and are now largely controlled by dams. This region mixes natural ravine falls with historic river falls, offering both woodland walks and glimpses of New England's industrial past."
+    },
+    {
+      "name": "North Quabbin and Eastern Massachusetts",
+      "counties": ["Worcester", "Middlesex", "Essex"],
+      "text": "In northern Worcester County, the town of Royalston has two of the best-known falls outside the Berkshires. Doane Falls is a series of cascades on Lawrence Brook through a forested preserve, and Royalston Falls drops into a deep, narrow gorge on Falls Brook. Both are in quiet, wooded country with few crowds. Farther east, in Middlesex and Essex counties, falls are smaller and often tucked into town conservation land or along mill rivers. Danforth Falls in Hudson is a small cascade near local trails. These eastern falls are easy to reach from the Boston area and suit short outings."
+    }
+  ],
+  "bestTime": "Spring is the prime waterfall season in Massachusetts. Snowmelt and rain typically push flows highest from late March through May, with the Berkshires and hilltowns melting out a bit later than the lowlands. Summer usually brings lower water, and by August many smaller brooks, including some ravine falls, can thin to a trickle in dry years, though thunderstorms can temporarily revive them. Fall foliage, usually peaking in the Berkshires in early to mid October, draws heavy weekend traffic, especially around Bash Bish Falls and Mount Greylock. Autumn rains sometimes restore good flows by late October or November. Winter brings ice formations, but trails into ravines can be icy and some access roads are not plowed.",
+  "planning": "Most Massachusetts waterfalls are on state land managed by the Department of Conservation and Recreation, including state parks and forests in the Berkshires, or on reservations owned by the Trustees, a statewide land conservation nonprofit that protects several falls in Royalston, Ashfield and Middlefield. Others sit on town conservation land or private property open to the public. Parking areas are often small and fill quickly on fall weekends; arriving early helps. Hazards include steep, wet rock on gorge rims, slippery stairs and roots, and sudden drop-offs at the top of falls. Swimming and climbing around falls have caused serious injuries, so follow posted rules. Ticks are common in warm months, and some trailheads in the hill towns have no cell coverage.",
+  "faqs": [
+    {
+      "q": "Where are the most waterfalls in Massachusetts?",
+      "a": "Berkshire County in the far west holds 12 of the 27 falls in our directory. The steep slopes of the Taconic Range and Berkshire Hills create far more drops than the gentler terrain to the east."
+    },
+    {
+      "q": "Is Bash Bish Falls in Massachusetts or New York?",
+      "a": "The falls themselves are in the town of Mount Washington, Massachusetts, very close to the New York state line. They can be approached from trailheads in either state."
+    }
+  ]
+}

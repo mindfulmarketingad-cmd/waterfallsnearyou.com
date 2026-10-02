@@ -1,0 +1,51 @@
+{
+  "state": "Ohio",
+  "overview": [
+    "Ohio is mostly gentle terrain, and with 19 named falls in our directory it ranks 30th nationally. Glaciers covered roughly the northern two thirds of the state, smoothing the land and filling old valleys with sediment. Waterfalls appear where streams have since cut down through that cover into layered sandstone and shale, especially along the edge of the Allegheny Plateau. There, a hard sandstone or conglomerate caprock, such as the Berea sandstone or Sharon conglomerate in the northeast, overlies softer shale that erodes back beneath it, leaving a ledge for the water to pour over.",
+    "The falls are concentrated in northeastern Ohio. Cuyahoga, Summit and Portage counties hold nine of them, many in the Cuyahoga Valley and the metroparks around Cleveland and Akron, where tributaries descend sharply into the deep Cuyahoga River valley. A second group lies in the unglaciated hill country of the southeast, where the Hocking Hills' Blackhand sandstone forms gorges and recess caves. Scattered falls elsewhere include Greenville Falls in the Miami Valley and a few in north-central Ohio near Mohican State Park. Most are modest in height and depend heavily on recent rain."
+  ],
+  "regions": [
+    {
+      "name": "Cuyahoga Valley and Northeast Ohio",
+      "counties": [
+        "Cuyahoga",
+        "Summit",
+        "Portage",
+        "Geauga",
+        "Lake"
+      ],
+      "text": "Northeast Ohio is the state's waterfall hub. In Cuyahoga Valley National Park, Brandywine Falls, the most reviewed fall in Ohio in our directory and described by the USGS as 86 feet high, cascades over layered sandstone and shale beside a boardwalk. Blue Hen Falls and Buttermilk Falls lie on quieter trails near Boston. In the Cleveland Metroparks' Bedford Reservation, Bridal Veil Falls and the Great Falls of Tinkers Creek drop into a deep gorge, and Mill Creek Falls lies within the city of Cleveland. Portage County's Cascade Falls is set among the sandstone ledges near Garrettsville, and the village of Chagrin Falls grew up around its namesake falls."
+    },
+    {
+      "name": "Hocking Hills and the Mohican Country",
+      "counties": [
+        "Hocking",
+        "Ashland",
+        "Knox",
+        "Tuscarawas"
+      ],
+      "text": "Southeast and central Ohio offer a different look: sandstone gorges, recess caves and hemlock-shaded ravines in hill country that lies at or beyond the glacial boundary. In the Hocking Hills near Logan, Cedar Falls pours into a shallow pool framed by cliffs and grottos carved in Blackhand sandstone. Ashland County's falls, near Loudonville, lie in the Mohican area, where the Clear Fork of the Mohican River runs through a forested gorge. Grove Falls in Knox County and a fall in Tuscarawas County round out this group. These falls tend to be modest in volume, heavily shaded and at their best after soaking rains."
+    },
+    {
+      "name": "Western Ohio and Lake Erie",
+      "counties": [
+        "Miami",
+        "Adams",
+        "Erie"
+      ],
+      "text": "Away from the plateau, Ohio's falls are few but varied. Greenville Falls, near Covington in Miami County, drops over a limestone ledge in a small nature preserve along Greenville Creek, an unusual sight in the flat farmland of western Ohio. In Adams County, along the Ohio River hills of the far south, Cedar Falls lies in rugged, unglaciated country known for its dolomite and limestone landscapes and rare plants. Sandusky Falls lies in Erie County in the Lake Erie region. These are local destinations rather than major attractions, best visited after rain when their small streams carry enough water to make an impression."
+    }
+  ],
+  "bestTime": "Ohio's falls are rain-fed, so late winter and spring, roughly February through May, are the most reliable months. In the Cuyahoga Valley and Hocking Hills, falls run fullest after a few days of steady rain or a thaw, and early spring adds wildflowers to the ravines. Summer often reduces smaller falls such as Buttermilk and Blue Hen to a trickle, while Brandywine Falls usually keeps some flow. Autumn color peaks around mid to late October, and fall rains can restore flows. Prolonged cold in January and February sometimes freezes Brandywine and the Hocking Hills falls into dramatic ice formations, though trails and stairs become slippery.",
+  "planning": "Most of Ohio's notable falls are on public land: Cuyahoga Valley National Park, Cleveland Metroparks and Summit Metro Parks, Ohio state parks and state nature preserves. Hocking Hills State Park is extremely popular, and its lots fill on autumn weekends and holidays, so early arrival helps. Some nature preserves prohibit pets and require staying on trails. Hazards are mainly cliffs and slick sandstone: falls from gorge rims in the Hocking Hills cause injuries and deaths, and climbing on wet ledges near falls is dangerous. Rock-walled gorges can flood quickly during heavy rain. A few smaller falls are on private property or near roads, so check access before visiting.",
+  "faqs": [
+    {
+      "q": "What is the most visited waterfall in Ohio?",
+      "a": "Brandywine Falls in Cuyahoga Valley National Park is the most reviewed in our directory, followed by Blue Hen Falls in the same park and Cedar Falls in the Hocking Hills."
+    },
+    {
+      "q": "When do Ohio waterfalls have the most water?",
+      "a": "Late winter and spring, especially a day or two after heavy rain or a thaw. Many smaller falls slow to a trickle during dry summer weather."
+    }
+  ]
+}

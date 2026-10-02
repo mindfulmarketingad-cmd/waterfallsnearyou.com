@@ -1,0 +1,36 @@
+{
+  "state": "Wyoming",
+  "overview": [
+    "Wyoming's waterfalls belong to its mountain ranges, which rise like islands out of high, semi-arid basins. The Yellowstone Plateau, the Tetons, the Wind River Range, the Absarokas and the Bighorns all collect deep winter snowpack, and the meltwater rushes down through canyons cut into volcanic rock, granite and layered sedimentary formations. Glaciers carved many of these ranges into steep valleys with hanging side canyons, while in Yellowstone, rivers cross thick volcanic flows and drop where hard rock meets weaker, altered rock. Our directory lists 89 named falls in Wyoming, ranking it 11th in the country.",
+    "The distribution is strikingly lopsided. Teton County holds 46 of the state's named falls, because it includes Grand Teton National Park and much of southwestern Yellowstone, including the Firehole River country and the Bechler area, a remote corner of the park often called Cascade Corner for its abundance of waterfalls. Park County, which takes in the rest of Yellowstone and the country around Cody, adds 15, among them the Upper and Lower Falls of the Yellowstone River. Smaller clusters lie in the Wind River Range near Pinedale and Lander and in the Bighorn Mountains."
+  ],
+  "regions": [
+    {
+      "name": "Yellowstone and Grand Teton",
+      "counties": ["Teton", "Park"],
+      "text": "Northwest Wyoming holds the great majority of the state's falls. In Yellowstone's Grand Canyon, the Upper and Lower Falls of the Yellowstone River plunge over hard volcanic rock into a canyon of yellow and orange rhyolite, viewed from rim trails and overlooks. Along the Grand Loop Road, Undine Falls steps down in three tiers and Wraith Falls lies at the end of a short walk. In the southwest, Mystic Falls drops along the Little Firehole River near the geyser basins, Firehole Falls pours through a volcanic canyon, and Moose Falls sits near the South Entrance. In Grand Teton, Hidden Falls is usually reached by boat shuttle across Jenny Lake plus a short hike."
+    },
+    {
+      "name": "Wind River and Wyoming Ranges",
+      "counties": ["Sublette", "Fremont", "Lincoln"],
+      "text": "The Wind River Range is a long granite spine with hundreds of lakes and glacier-carved valleys, and its falls are mostly in rugged backcountry. On the eastern side, Popo Agie Falls lies above Sinks Canyon near Lander, reached by a steady climbing trail in the Shoshone National Forest. On the western side, Sublette County's falls are found near Pinedale and the Green River Lakes area, including Clear Creek Falls near the Green River. The Wyoming Range to the west, around Afton and the Middle Piney Lake area, adds falls in less-visited forest country. Long approaches and high elevations make many of these summer-only destinations."
+    },
+    {
+      "name": "Bighorn Mountains and Central Wyoming",
+      "counties": ["Big Horn", "Natrona", "Converse", "Platte", "Albany"],
+      "text": "The Bighorn Mountains rise sharply above the Bighorn Basin, and their western canyons expose layered limestone and ancient granite. Shell Falls, along the scenic highway through Shell Canyon in the Bighorn National Forest, is viewed from an interpretive site beside the road, and Porcupine Falls lies farther north in the same range. In central Wyoming, Garden Creek Waterfall in Casper's Rotary Park tumbles down the face of Casper Mountain and is viewed from a nearby trail. Converse, Platte and Albany counties add a few scattered falls in the Laramie Range and nearby uplands, near Glenrock, Douglas and Wheatland."
+    }
+  ],
+  "bestTime": "Wyoming's falls run highest with mountain snowmelt, generally from late May through early July, with peak flows a little later at higher elevations. Yellowstone's interior roads usually open to cars in spring and close in early November, so late May through October is the practical window for most park falls; in winter, the interior is reached mainly by snowcoach or snowmobile tours. The Bechler area is often wet and buggy in early summer, and river fords there are more manageable later in the season. Wind River backcountry falls are best visited from July into September, once trails melt out. September brings fewer crowds and golden aspens, though snow can arrive early at elevation.",
+  "planning": "Most of Wyoming's falls lie in Yellowstone and Grand Teton national parks or in national forests such as the Bridger-Teton, Shoshone and Bighorn, which brings entrance fees for the parks and busy summer parking at popular stops such as the Grand Canyon of the Yellowstone and Jenny Lake. Grizzly and black bears inhabit the northwest and the Wind Rivers, so bear spray and good food storage are standard. In Yellowstone, stay on boardwalks and trails near thermal areas and keep well away from bison and elk. Canyon rims and wet rock around falls are dangerous, and snowmelt rivers are cold and swift. Afternoon thunderstorms and lightning are common in summer at high elevations.",
+  "faqs": [
+    {
+      "q": "Why does Teton County have so many waterfalls?",
+      "a": "Teton County includes Grand Teton National Park and a large part of southwestern Yellowstone, including the Firehole River country and the Bechler area known as Cascade Corner. Together they account for 46 of Wyoming's 89 named falls in our directory."
+    },
+    {
+      "q": "How is Hidden Falls in Grand Teton usually reached?",
+      "a": "Most visitors take the seasonal boat shuttle across Jenny Lake and then walk a short trail to the falls. It can also be reached by hiking around the lake, which takes considerably longer."
+    }
+  ]
+}

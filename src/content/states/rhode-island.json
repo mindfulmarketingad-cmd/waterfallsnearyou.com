@@ -1,0 +1,35 @@
+{
+  "state": "Rhode Island",
+  "overview": [
+    "The smallest state has modest terrain to match. Rhode Island's bedrock is old granite and metamorphic rock, but its highest ground, in the western hills along the Connecticut border, rises only to about 800 feet, and much of the state is blanketed by sand, gravel and boulders left by retreating glaciers. Streams therefore have little elevation to lose, and most waterfalls here are low ledges or rapids rather than tall plunges. Our directory lists 5 named waterfalls in Rhode Island, ranking it 43rd nationally, and they fall into two groups that reflect two very different sides of the state.",
+    "In the north, the Blackstone River drops over ledges on its way to Narragansett Bay, and those drops shaped American history. Pawtucket Falls, where the Blackstone meets tidewater and becomes the Seekonk River, powered Slater Mill, widely regarded as the birthplace of the American factory system, and the valley upstream filled with mills built at every usable drop. In the rural southwest, by contrast, the falls are woodland features in the large forested management areas of Washington County, where streams spill over granite slabs and glacial boulders. Rain and snowmelt spread through the year keep both areas flowing more reliably than their size might suggest."
+  ],
+  "regions": [
+    {
+      "name": "Blackstone River Valley",
+      "counties": [
+        "Providence"
+      ],
+      "text": "Providence County's falls are steeped in industrial history. Pawtucket Falls, in the heart of Pawtucket, drops over a ledge beside Slater Mill, part of the Blackstone River Valley National Historical Park, and is best seen from nearby bridges and riverside paths. Upstream, Albion Falls is another listed site in the valley, and further falls and dams punctuate the river around Woonsocket. These are urban and village falls, often partly shaped by dams and mill races, and they appeal as much to visitors interested in the Industrial Revolution as to waterfall seekers."
+    },
+    {
+      "name": "South County Woodlands",
+      "counties": [
+        "Washington"
+      ],
+      "text": "Southwestern Rhode Island is the state's most forested corner, with large tracts of public land, pine and oak woods, and clear, tea-colored streams. Stepstone Falls is the highlight, a series of gentle cascades over broad granite ledges on the Falls River, set in quiet woods in the Arcadia area of western Rhode Island. Horseshoe Falls, in the village of Shannock on the Pawcatuck River, is a curving drop at a historic mill site. Falls here are low, but the settings are peaceful and the hiking among glacial boulders and stone walls is pleasant in any season."
+    }
+  ],
+  "bestTime": "Rhode Island's falls run best from late winter through spring, typically March through May, when snowmelt and steady coastal storms keep rivers and brooks full. The Blackstone River flows year-round, so Pawtucket Falls and Albion Falls are worth seeing in any season, though they are most powerful after heavy rain. Smaller woodland streams like the Falls River can drop to a gentle trickle in late summer, especially in dry years. Autumn brings colorful oak and maple foliage, usually from mid to late October, and pleasant hiking temperatures. Winter is mild compared with northern New England, but ice can coat ledges, and nor'easters occasionally bring heavy snow. Summer weekends are busier near the coast than at these inland sites.",
+  "planning": "The woodland falls in Washington County sit on large state management areas, such as the Arcadia Management Area, managed by the Rhode Island Department of Environmental Management. Hunting is permitted in these areas in season, so wearing blaze orange during fall and winter is a sensible precaution, and posted rules may require it. Parking at trailheads is informal and fills on nice weekends. In the Blackstone Valley, falls are in city and village settings, many associated with the national historical park, with street parking and nearby amenities. Hazards are modest but real: slick granite ledges, swift water at dams, and ticks in brushy woods from spring through fall. Avoid wading near mill dams, where currents can be strong.",
+  "faqs": [
+    {
+      "q": "What is the most scenic natural waterfall in Rhode Island?",
+      "a": "Stepstone Falls in Washington County is the most reviewed natural fall in our directory for the state. It is a series of gentle cascades over broad granite ledges in a wooded setting."
+    },
+    {
+      "q": "Why is Pawtucket Falls historically important?",
+      "a": "Its water power drove Slater Mill, an early cotton-spinning mill widely regarded as the start of the American factory system. The falls also mark the point where the Blackstone River becomes the tidal Seekonk River."
+    }
+  ]
+}

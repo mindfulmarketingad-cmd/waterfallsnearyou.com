@@ -1,0 +1,48 @@
+{
+  "state": "Indiana",
+  "overview": [
+    "Indiana is not usually thought of as waterfall country, and with 21 named falls in our directory it ranks 29th nationally. The reason is largely glacial. Ice sheets flattened most of the northern and central parts of the state, burying older valleys under thick deposits of till and leaving a gentle landscape where streams have little drop to work with. Falls appear where rivers and creeks have cut down through that cover into layered bedrock, especially limestone and shale, and where a resistant ledge sits above softer rock that erodes back beneath it.",
+    "The strongest concentration is along the Ohio River in the southeast. Jefferson County alone holds 12 of the state's named falls, because short, steep tributaries plunge from the upland toward the river through narrow canyons near Madison and Hanover. West-central Indiana adds a few more, including the twin cascades at Cataract Falls on Mill Creek in Owen County. Scattered falls in the Whitewater Valley, near Richmond and along the Wabash complete the list, most of them modest drops that depend on recent rain. Southern Indiana's unglaciated hills, with their sharper relief, hold most of the rest."
+  ],
+  "regions": [
+    {
+      "name": "Ohio River Bluffs",
+      "counties": [
+        "Jefferson",
+        "Clark"
+      ],
+      "text": "The canyons above the Ohio River near Madison are the heart of Indiana waterfall country. Clifty Falls State Park protects a deep gorge where Clifty Creek and its tributaries drop over layered limestone and shale, producing Clifty Falls, Tunnel Falls, Horseshoe Falls and several smaller cascades within a few miles. Tunnel Falls takes its name from an unfinished railroad tunnel nearby. Other named falls in Jefferson County sit on similar ravines near Hanover. Downstream at Clarksville, the Falls of the Ohio is a set of river rapids over ancient fossil-rich limestone beds, best known today for the exposed fossil beds visible at low water."
+    },
+    {
+      "name": "West-Central Hills",
+      "counties": [
+        "Owen",
+        "Putnam",
+        "Parke",
+        "Martin"
+      ],
+      "text": "West-central Indiana's falls are wider and lower than the Ohio River cascades but often carry more water. Cataract Falls, with an upper and lower fall on Mill Creek in Owen County, is the state's most reviewed waterfall, set in a recreation area with a historic covered bridge. Putnam County, around Cloverdale and Greencastle, holds another, and Parke County, known for its covered bridges and sandstone ravines, adds one more. To the south, Hindostan Falls in Martin County is a broad, low ledge across the East Fork of the White River near Shoals, popular with anglers and once the site of an early settlement."
+    },
+    {
+      "name": "Eastern Indiana and the Wabash Valley",
+      "counties": [
+        "Franklin",
+        "Wayne",
+        "Wabash"
+      ],
+      "text": "A few small falls are scattered across eastern and northern Indiana. Derbyshire Falls in Franklin County lies in the Whitewater Valley near Brookville, where the river has cut into the till plain. Elkhorn Falls lies near Richmond in Wayne County, and Shanty Falls is in Wabash County near the city of Wabash. These are modest features that can be impressive after heavy rain and nearly dry in late summer. Review ratings for this group are mixed, and access details, including parking and private property boundaries, are worth checking locally before a visit."
+    }
+  ],
+  "bestTime": "Indiana's falls are rain-driven, so timing matters a great deal. Late winter and spring, roughly March through May, usually bring the most reliable flow, when soils are saturated and storms are frequent. The Clifty Falls canyons in particular can run dramatically after spring rains yet slow to a trickle or dry rock faces in late summer and early autumn. Cataract Falls, on a larger stream, holds water better through the year. A day or two after a soaking rain is the best window in any season. Autumn color in the southern Indiana hills peaks around mid to late October. Hard freezes occasionally produce ice formations in Clifty's ravines, though footing then becomes dangerous.",
+  "planning": "Most of Indiana's notable falls are on public land managed by the Department of Natural Resources, including state parks, state recreation areas and fish and wildlife areas, while a few smaller falls sit near roads or on private land where access may not be permitted. State parks charge entrance fees and post their own trail rules. In the Clifty Falls canyons, trails follow rocky creek beds and include steep stairs, rock hopping and stream crossings, and several routes are notably rugged. Wet shale and limestone are extremely slippery, and loose rock falls from canyon walls. Climbing on the falls and cliff edges is unsafe. Creek beds can flood quickly in heavy storms, so avoid gorge trails during downpours.",
+  "faqs": [
+    {
+      "q": "Where are the best waterfalls in Indiana?",
+      "a": "Clifty Falls State Park near Madison has the greatest concentration, with several named falls in one canyon system, and Cataract Falls in Owen County is the most reviewed single site in our directory. Both are best after rain."
+    },
+    {
+      "q": "Why do Clifty Falls sometimes have no water?",
+      "a": "The creeks that feed them drain small, steep watersheds, so flow drops quickly during dry weather. In late summer and early autumn the falls can be reduced to wet rock faces until rain returns."
+    }
+  ]
+}

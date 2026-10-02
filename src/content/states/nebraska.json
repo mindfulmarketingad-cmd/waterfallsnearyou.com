@@ -1,0 +1,26 @@
+{
+  "state": "Nebraska",
+  "overview": [
+    "Few people picture waterfalls in Nebraska, and statewide the numbers back that up: our directory lists 8 named falls, ranking the state 37th. Yet nearly all of them cluster in one remarkable place, the Niobrara River valley in Cherry County near Valentine, which holds 7 of the 8. The reason is groundwater. North-central Nebraska is dominated by the Sandhills, a vast grass-covered dune field that soaks up rain and snowmelt like a sponge and feeds the enormous High Plains aquifer below. That stored water seeps out wherever a river cuts deep enough to expose it.",
+    "The Niobrara has done exactly that, carving a canyon through layers of soft sandstone and siltstone on its way east across the state. Along the canyon walls, springs emerge and run down short side drainages, spilling over sandstone ledges into the river. Because they are spring-fed, these falls are steadier than rain-fed falls in many states, running through dry spells and even into winter. The canyon is also a biological crossroads, where eastern deciduous forest, northern boreal species such as paper birch, and western ponderosa pine overlap in shaded side canyons. Smith Falls, the state's highest waterfall, lies in this corridor, along with Fort Falls and several smaller drops."
+  ],
+  "regions": [
+    {
+      "name": "Niobrara River Valley",
+      "counties": ["Cherry", "Holt"],
+      "text": "East of Valentine, the Niobrara flows through a forested canyon designated as a National Scenic River, and spring-fed falls spill from the canyon walls. Smith Falls, at a state park of the same name, is reached by crossing a footbridge over the river and following a gentle trail and steps to the base of the falls, which USGS records as Nebraska's highest. Fort Falls is in Fort Niobrara National Wildlife Refuge, reached by a short wooded path. Snake River Falls, on a Niobrara tributary southwest of Valentine, is a broad drop over a rock ledge. Holt County, farther east along the river, has one additional listed fall, Rock Falls."
+    }
+  ],
+  "bestTime": "The Niobrara's spring-fed falls flow year-round, so timing a visit is less about water levels than about weather and crowds. Late May through early September is the main season, when canoe, kayak and tube outfitters in Valentine operate and many visitors float the river, often stopping at waterfalls along the way. Summer weekends are busy on the water, and July can be hot with strong afternoon thunderstorms on the open plains. Late spring brings fresh green growth in the canyon and fewer people. Early fall is quieter, with pleasant temperatures and some color in the hardwoods and birches. Winter is cold and windy; the falls can form striking ice, but services in the area are limited and rural roads may drift with snow.",
+  "planning": "Most of the Niobrara's falls are on a patchwork of public and private land. Smith Falls is managed by Nebraska Game and Parks as a state park with camping and a footbridge across the river. Fort Falls lies within Fort Niobrara National Wildlife Refuge, managed by the US Fish and Wildlife Service, and the Niobrara National Scenic River corridor is overseen by the National Park Service in partnership with local landowners. Many river-access points and smaller falls sit on private ranch land, so respect posted property. Floating the river is a popular way to reach several falls. Hazards include swift current and submerged snags, sunburn and heat on the open water, ticks and poison ivy in wooded canyons, and slick sandstone near the falls.",
+  "faqs": [
+    {
+      "q": "What is the highest waterfall in Nebraska?",
+      "a": "Smith Falls in Cherry County is the highest, with USGS noting a vertical drop of 63 feet. It is the centerpiece of Smith Falls State Park on the Niobrara River."
+    },
+    {
+      "q": "Why do Nebraska's waterfalls flow all year?",
+      "a": "They are fed by groundwater from the Sandhills and the aquifer beneath them, which seeps out of the Niobrara canyon walls. This makes them far less dependent on recent rainfall than most falls."
+    }
+  ]
+}

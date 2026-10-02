@@ -1,0 +1,49 @@
+{
+  "state": "New Hampshire",
+  "overview": [
+    "New Hampshire's waterfalls are largely a gift of the White Mountains and the continental ice sheet that ground across them. Glaciers deepened the major valleys into broad notches such as Crawford, Franconia and Pinkham, leaving tributary brooks perched on the valley sides. Those brooks now tumble down over granite and related crystalline rocks, often through narrow flumes, potholes and joints where the rock splits cleanly. Abundant precipitation, deep winter snow and thin soils over bedrock keep these streams lively for much of the year. Most of the falls are modest in height but are often set in clear pools and polished potholes.",
+    "Our directory lists 51 named falls in New Hampshire, 15th nationally, and the pattern is strongly northern. Grafton, Coos and Carroll counties, which together contain most of the White Mountain National Forest, hold 38 of them. Grafton County leads with 19, thanks to the Kancamagus Highway corridor, Franconia Notch, Crawford Notch and the Pemigewasset River valley. Coos County covers Pinkham Notch and the North Country around Gorham and Colebrook. Southern New Hampshire, with lower hills and more developed river valleys, contributes a scattering of smaller falls, several on historic mill streams."
+  ],
+  "regions": [
+    {
+      "name": "Western White Mountains and the Pemigewasset",
+      "counties": [
+        "Grafton"
+      ],
+      "text": "Grafton County is the state's waterfall center. Sabbaday Falls, a short, gentle walk off the Kancamagus Highway, drops through a narrow flume in a series of chutes and pools. Arethusa Falls, described as the state's second tallest, is reached by an uphill trail in Crawford Notch. Franconia Falls lies deep in the Pemigewasset Wilderness, while Georgiana Falls is found near Lincoln. Farther south, the Pemigewasset River pours through a rocky gorge at Livermore Falls, and Profile Falls near Bristol is a popular local stop. Smooth granite ledges, clear pools and dense hardwood forests define the scenery throughout this region."
+    },
+    {
+      "name": "Eastern White Mountains and the North Country",
+      "counties": [
+        "Coos",
+        "Carroll"
+      ],
+      "text": "East of the main ridge, Pinkham Notch and the valleys around North Conway hold several of the state's most photographed falls. Glen Ellis Falls on the Ellis River drops cleanly into a pool below a stairway viewpoint in the White Mountain National Forest. Ripley Falls, on a short trail from Crawford Notch, slides down a long, steep granite slab. In Carroll County, Beede Falls near Sandwich is a quieter spot with a small pool and overhanging ledge. Coos County extends far north to the Canadian border, where Beaver Brook Falls near Colebrook sits right beside a state highway and other falls lie in remote spruce forest."
+    },
+    {
+      "name": "Southern Uplands and the Merrimack Valley",
+      "counties": [
+        "Cheshire",
+        "Hillsborough",
+        "Merrimack",
+        "Rockingham",
+        "Strafford",
+        "Sullivan",
+        "Downtown"
+      ],
+      "text": "Southern New Hampshire's falls are modest in height but rich in history. Rivers here powered textile mills and sawmills in the 1800s, and several named falls sit in or near town centers where dams and mill ruins remain. Wildcat Falls, in a conservation area in Hillsborough County, tumbles over a jumble of boulders through mixed forest. Cheshire and Sullivan counties along the Connecticut River valley hold small cascades in rolling hill country near Alstead, while Merrimack County's falls near Concord and Epsom lie on streams draining toward the Merrimack River. Flows here depend more on recent rain than on mountain snowmelt."
+    }
+  ],
+  "bestTime": "The best water in New Hampshire usually comes from April through early June, when snowmelt in the White Mountains combines with spring rain. Lower elevations peak first; high brooks in the notches keep running hard into June. Summer flows can drop sharply during dry spells, though thunderstorms refresh them quickly, and swimming holes become popular in July and August. Late September through mid-October brings famous foliage, especially along the Kancamagus Highway, along with heavy traffic and full trailhead lots on weekends. Winter turns many falls into ice formations and climbing objectives, but approach trails are icy and some forest roads close for the season. Black flies can be bothersome in late spring.",
+  "planning": "Most of the state's notable falls lie within the White Mountain National Forest or state parks such as Franconia Notch and Crawford Notch. Many national forest trailheads require a recreation parking pass, and state park fees apply at some sites. On autumn weekends, parking along the Kancamagus Highway and in the notches fills early. The main hazard is wet granite: smooth, algae-covered ledges near falls are extremely slippery, and slips into potholes or over drops cause injuries every year. Spring runoff makes crossings dangerous, and water stays cold well into summer. White Mountain weather can turn severe quickly at higher elevations, so even short hikes call for layers and rain gear.",
+  "faqs": [
+    {
+      "q": "What is the easiest White Mountains waterfall to visit?",
+      "a": "Sabbaday Falls off the Kancamagus Highway is reached by a short, gentle path, and Glen Ellis Falls in Pinkham Notch is a short walk from the road with stairs to the viewpoint. Beaver Brook Falls near Colebrook is visible from roadside parking."
+    },
+    {
+      "q": "Why are New Hampshire's waterfalls concentrated in the north?",
+      "a": "The White Mountains in Grafton, Coos and Carroll counties combine steep, glacier-carved notches, hard granite bedrock and heavy precipitation. The lower, rolling terrain of southern New Hampshire produces fewer and smaller falls."
+    }
+  ]
+}

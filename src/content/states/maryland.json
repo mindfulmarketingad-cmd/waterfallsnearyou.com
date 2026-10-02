@@ -1,0 +1,44 @@
+{
+  "state": "Maryland",
+  "overview": [
+    "Maryland packs several distinct physical provinces into a small state, and its waterfalls track the boundaries between them. In the far west, Garrett County sits on the Allegheny Plateau, where streams cross nearly flat-lying sandstone and drop off resistant ledges. Central Maryland includes the Blue Ridge, represented locally by Catoctin Mountain, with hard metamorphic and volcanic rock. East of that, the Piedmont meets the Coastal Plain along the fall line, the zone where rivers descending from older, harder rocks tumble onto softer sediments near the head of tidewater. Each of these settings produces a distinct style of waterfall.",
+    "Our directory counts 15 named falls in Maryland, 33rd nationally, spread across just five counties. Garrett County leads with five, most of them on the Youghiogheny River and its tributaries around Oakland. Montgomery County follows with four, centered on the Potomac River, where Great Falls is the most reviewed waterfall in the state. Frederick County's falls lie in the Catoctin Mountain area near Thurmont, while Cecil and Harford counties hold smaller Piedmont falls on creeks heading toward the Chesapeake Bay. The flat Eastern Shore has no named falls at all."
+  ],
+  "regions": [
+    {
+      "name": "Allegheny Plateau",
+      "counties": [
+        "Garrett"
+      ],
+      "text": "Garrett County is Maryland's highest and snowiest corner, and its falls have a mountain character unlike anything else in the state. Swallow Falls State Park, near Oakland, protects a cluster of falls in a hemlock forest: Muddy Creek Falls, described as the state's highest at 53 feet, along with Upper and Lower Swallow Falls on the Youghiogheny River and the gentler Tolliver Falls. The water here often runs tea-colored from tannins in upland bogs and forests. Ledges of sandstone and conglomerate shape the drops, and the surrounding plateau of farms and forest makes for a quiet, cool-weather destination even in midsummer."
+    },
+    {
+      "name": "Potomac Fall Line and the Piedmont",
+      "counties": [
+        "Montgomery",
+        "Cecil",
+        "Harford"
+      ],
+      "text": "The Great Falls of the Potomac is the state's signature cascade, a wide series of rapids and drops where the river crosses hard Piedmont bedrock and enters the narrow Mather Gorge. On the Maryland side it is part of the C&O Canal National Historical Park, with boardwalks to viewpoints and rugged riverside trails nearby; Stubblefield Falls and Yellow Falls are smaller named features in Montgomery County. In northeastern Maryland, Cecil and Harford counties hold modest falls on Piedmont streams. Gilpins Falls, near North East in Cecil County, sits beside a historic covered bridge, and other small cascades lie in wooded stream valleys near Jarrettsville and Rising Sun."
+    },
+    {
+      "name": "Catoctin Mountain",
+      "counties": [
+        "Frederick"
+      ],
+      "text": "Catoctin Mountain, the easternmost ridge of the Blue Ridge in Maryland, rises above the Frederick Valley near Thurmont and Myersville. Its streams cascade over hard, fractured rock in steep, boulder-filled ravines. Cunningham Falls, in the state park of the same name, is the best-known example and a popular summer destination thanks to a nearby lake, picnic areas and short trails to the falls. The Cascade is another named feature in the county. Catoctin's forests are especially attractive in autumn, and the area is close enough to Baltimore and Washington that warm weekends bring heavy visitation."
+    }
+  ],
+  "bestTime": "Spring is generally the strongest season for Maryland's falls, when winter snowmelt in Garrett County and frequent spring rains raise every stream. The Great Falls of the Potomac reflects rainfall over a vast upstream basin, so it can roar after storms in any season and runs especially high in late winter and spring. Summer brings lower flows and hot, humid weather, although Garrett County stays noticeably cooler. October is a fine month across the state, with fall color usually arriving first on the Allegheny Plateau and later in the Piedmont. Winter can coat Swallow Falls and Muddy Creek Falls in ice, but snow and freezing spray make paths treacherous.",
+  "planning": "Nearly all of Maryland's well-known falls are on public land: state parks such as Swallow Falls and Cunningham Falls, and the C&O Canal National Historical Park at Great Falls, which charges an entrance fee on the Maryland side. Popular parks fill quickly on summer weekends and holidays, and some state parks close their gates once parking is full, so arriving early helps. The Potomac at Great Falls is one of the most dangerous stretches of river in the region, with powerful currents and hidden hazards; wading and climbing on riverside rocks have led to many drownings. In Garrett County, ledges are wet and slippery, and water is cold well into spring. Some Piedmont falls lie close to private property.",
+  "faqs": [
+    {
+      "q": "What is the tallest waterfall in Maryland?",
+      "a": "Muddy Creek Falls in Swallow Falls State Park, Garrett County, is described as the state's highest waterfall at 53 feet. It drops over a sandstone ledge into a forested gorge."
+    },
+    {
+      "q": "Can Great Falls be seen from both Maryland and Virginia?",
+      "a": "Yes. The falls span the Potomac River, with overlooks on the Maryland side within the C&O Canal National Historical Park and on the Virginia side in Great Falls Park. The two sides are not connected by a bridge at the falls, so plan to visit one side at a time."
+    }
+  ]
+}

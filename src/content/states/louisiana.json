@@ -1,0 +1,26 @@
+{
+  "state": "Louisiana",
+  "overview": [
+    "Louisiana is built mostly of young river and coastal sediments laid down by the Mississippi and its distributaries, and much of the southern half of the state lies barely above sea level. Bayous, swamps and marshes move water slowly and horizontally, with no rock ledges for it to fall over. Our directory accordingly lists only 3 named waterfalls in Louisiana, ranking it 46th nationally. Even the state's highest point, Driskill Mountain in the north, is a modest wooded hill. Waterfalls here are small, rain-fed and found only in a couple of pockets where older, firmer layers of rock or clay reach the surface.",
+    "The main pocket is in the Kisatchie Hills of west-central Louisiana, in Natchitoches Parish, where erosion-resistant sandstone forms mesas, ridges and ledges unusual for the Gulf Coast. Kisatchie Bayou runs over these sandstone beds in a series of small falls and rapids, and Kisatchie Fall and Odum Falls belong to this country. The second pocket is the Tunica Hills in West Feliciana Parish near St. Francisville, a band of steep loess bluffs and deep ravines along the Mississippi River where creeks have carved into layers of clay and gravel. Woodriff Falls lies in this terrain. Louisiana uses parishes rather than counties, and both parishes are covered below."
+  ],
+  "regions": [
+    {
+      "name": "Kisatchie and Tunica Hills",
+      "counties": ["Natchitoches", "West Feliciana"],
+      "text": "Louisiana's few falls are spread across two hilly islands in an otherwise low landscape. In Natchitoches Parish, Kisatchie National Forest protects rugged sandstone country with longleaf pine, clear bayous and ledges where Kisatchie Bayou pours over small drops; Kisatchie Fall and Odum Falls are part of this area, and sandy beaches along the bayou are popular in warm weather. In West Feliciana Parish, the Tunica Hills rise above the Mississippi floodplain in a maze of steep, shaded ravines, and Woodriff Falls is one of the small drops found where creeks cut through clay and gravel. Both areas feel more like the uplands of neighboring states than typical Louisiana."
+    }
+  ],
+  "bestTime": "Rainfall controls these small falls, so the best visits come during or after wet periods. Louisiana receives heavy rain through much of the year, but late winter and spring, roughly January through May, tend to combine reliable flow with comfortable hiking temperatures and fewer insects. Summer brings intense heat and humidity, along with frequent afternoon thunderstorms that can briefly raise creeks. Late summer and early fall, especially August through October, are often the driest stretch, and the falls can shrink to a trickle. Hurricane season, from June through November, may bring flooding rains and road or forest closures after major storms. Mild winter days are often ideal for exploring the Tunica Hills ravines once leaves are down.",
+  "planning": "Kisatchie National Forest manages most of the Kisatchie Hills falls, with developed recreation areas, primitive camping and a network of forest roads, some of them gravel. In the Tunica Hills, access is a mix of state-managed land and private property, so confirm boundaries before setting out. Hunting is common on public land in fall and winter, and wearing blaze orange during those seasons is wise. The terrain is not high, but ravine walls are steep and loess soils become very slippery when wet. Heat exhaustion is a real risk from May through September; carry plenty of water. Ticks, chiggers, mosquitoes and venomous snakes are present in warm months, and creeks can rise quickly during heavy rain.",
+  "faqs": [
+    {
+      "q": "Where is the best place to see a waterfall in Louisiana?",
+      "a": "The Kisatchie Hills in Natchitoches Parish, within Kisatchie National Forest, offer the state's most notable falls, where Kisatchie Bayou flows over sandstone ledges. The Tunica Hills near St. Francisville offer smaller falls in steep ravines."
+    },
+    {
+      "q": "Why does Louisiana have hills at all?",
+      "a": "In the Kisatchie area, resistant sandstone layers have held up ridges and mesas while softer sediments eroded away. The Tunica Hills are thick deposits of windblown loess along the Mississippi River that streams have carved into steep ravines."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "state": "New Jersey",
+  "overview": [
+    "New Jersey packs several distinct geologic provinces into a small state, and its waterfalls follow the rock. The southern half is Coastal Plain, flat and sandy, with no falls at all. North of a line running roughly from Trenton toward Perth Amboy, older and harder rock rises to the surface, and that is where all 7 of the named waterfalls in our directory are found, a total that ranks the state 39th nationally. The most famous of them sits in the middle of a city: the Great Falls of the Passaic River in Paterson.",
+    "The Great Falls exists because of the Watchung Mountains, long ridges of hard basalt that formed from lava flows around 200 million years ago in a rift basin that also produced the Palisades. Where the Passaic River crosses the first of these basalt ridges, it plunges into a narrow chasm, a setting that powered Paterson's mills and made the city an early industrial center. Farther northwest, the Highlands and the Kittatinny Ridge are built from ancient gneiss and folded sedimentary rock, and streams falling off these ridges toward the Delaware River form ravine cascades in Sussex and Warren counties. Morris and Essex counties add smaller falls in wooded reservations."
+  ],
+  "regions": [
+    {
+      "name": "Watchung Ridges and Northern Piedmont",
+      "counties": ["Passaic", "Essex", "Morris"],
+      "text": "This is urban and suburban waterfall country. The Great Falls of the Passaic, listed here as both Great Falls and Passaic Falls, roars through a basalt gorge in Paterson, viewed from an overlook and a footbridge within a national historical park that also preserves the city's industrial history. In Essex County, the wooded South Mountain area around Short Hills holds small cascades along stream ravines, including Maple Falls. Pottersville Falls, on the Lamington River where Hunterdon, Morris and Somerset counties meet, is a small drop in a historic village setting. These falls are easy to reach and make good short outings from New York and northern New Jersey."
+    },
+    {
+      "name": "Kittatinny Ridge and Delaware Valley",
+      "counties": ["Sussex", "Warren"],
+      "text": "In the state's rural northwest corner, the Kittatinny Ridge and the valleys of the Delaware River offer a wilder setting. Tillman Falls in Sussex County lies within Tillman Ravine, a shaded gorge in Stokes State Forest where a brook drops through hemlocks and slate. Warren County adds Bass Lake Falls and Foul Rift Falls, the latter on the Delaware River near Belvidere, where a band of resistant rock creates rapids. Nearby Delaware Water Gap National Recreation Area extends along the river, and the region as a whole has a quieter, more forested character than the rest of the state."
+    }
+  ],
+  "bestTime": "Northern New Jersey's falls run strongest in spring, typically March through May, when snowmelt and steady rain fill streams in the Highlands and the Kittatinny. The Great Falls is on a large river and flows year-round, but it is most dramatic after heavy rain or snowmelt, and during dry late summers its flow can drop sharply. Summer thunderstorms bring brief surges, while August and September are often low-water months for small ravine streams. Fall foliage in the northwest usually peaks in mid to late October, making autumn a pleasant if lower-flow season. Winter can produce ice along the basalt gorge and in shaded ravines, though footing becomes treacherous.",
+  "planning": "Land managers vary widely for such a small state. The Great Falls is within Paterson Great Falls National Historical Park, run by the National Park Service in an urban setting with street parking and city amenities nearby. Essex County's falls are in county park reservations, while Sussex and Warren county falls fall under state forests and parks such as Stokes State Forest, along with the federally managed Delaware Water Gap area. Some sites are small and have limited parking that fills on fall weekends. Hazards include slick shale and basalt, steep ravine walls, and fast water on the Delaware River. Ticks are abundant in the northwest from spring through fall. At the Great Falls, stay behind the fences along the gorge rim.",
+  "faqs": [
+    {
+      "q": "Why is there a large waterfall in the middle of Paterson?",
+      "a": "The Passaic River crosses a ridge of hard basalt, part of the Watchung Mountains, and drops into a narrow gorge it has cut through the rock. Paterson was founded around the falls to use their water power for mills."
+    },
+    {
+      "q": "Does southern New Jersey have any waterfalls?",
+      "a": "Essentially none. The southern half of the state is flat Coastal Plain sand and gravel, so all of the falls in our directory are in the northern counties."
+    }
+  ]
+}

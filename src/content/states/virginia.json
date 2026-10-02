@@ -1,0 +1,69 @@
+{
+  "state": "Virginia",
+  "overview": [
+    "Virginia's waterfalls trace the spine of the Appalachians as they angle across the western half of the state. Three mountain provinces line up from east to west: the Blue Ridge, a narrow band of ancient granite, gneiss and greenstone; the Valley and Ridge, with long parallel ridges of sandstone and limestone; and, in the far southwest, the Appalachian Plateau, with flat-lying sandstone and coal-bearing rock. Each produces a distinctive style of waterfall, from the tumbling cascades of Shenandoah National Park to the sheet drops of the southwestern coal country. Our directory lists 48 named waterfalls in Virginia, ranking the state 18th nationally.",
+    "The Blue Ridge holds the densest cluster, especially in Page, Madison and Rockingham counties along Skyline Drive, where streams fall steeply off both sides of the crest. Further south, the Blue Ridge widens into a plateau and its falls become more scattered, while in the Valley and Ridge, limestone springs feed some unusual falls, including Falling Spring Falls. East of the mountains, the Piedmont and coastal plain hold very few natural drops, and some historical falls on southern rivers now lie under reservoirs. The overall pattern is simple: the higher and steeper the terrain, the more waterfalls it holds."
+  ],
+  "regions": [
+    {
+      "name": "Shenandoah and the Northern Blue Ridge",
+      "counties": [
+        "Page",
+        "Madison",
+        "Rockingham",
+        "Warren",
+        "Rappahannock",
+        "Greene",
+        "Albemarle",
+        "Augusta"
+      ],
+      "text": "Shenandoah National Park covers the crest of the northern Blue Ridge, and dozens of hollows drop steeply from Skyline Drive to the Shenandoah Valley on one side and the Piedmont on the other. Dark Hollow Falls in Madison County cascades over greenstone along a moderate trail of about 1.4 miles, and Lower Whiteoak Falls and Overall Run Falls are among the park's favorites. South River Falls in Greene County and Jones Run Falls are farther south along the Drive. Most of these falls lie below their trailheads, so hikes go downhill first and climb back out on the return."
+    },
+    {
+      "name": "Central Blue Ridge and the James River Highlands",
+      "counties": [
+        "Nelson",
+        "Amherst",
+        "Rockbridge",
+        "Botetourt"
+      ],
+      "text": "South of Shenandoah, the Blue Ridge Parkway follows the crest through the George Washington and Jefferson National Forests. Crabtree Falls in Nelson County is the highlight, a series of five major cascades and many smaller ones that together drop about 1,200 feet. Panther Falls in Amherst County is a swimming hole on the Pedlar River, popular in summer. Apple Orchard Falls in Botetourt County is a tall, fanning cascade in a cove near the Parkway, and Rockbridge County holds smaller falls in the hills around Buena Vista and the James River."
+    },
+    {
+      "name": "Alleghany Highlands and New River Valley",
+      "counties": [
+        "Alleghany",
+        "Bath",
+        "Giles",
+        "Craig",
+        "Montgomery"
+      ],
+      "text": "In the Valley and Ridge, long sandstone ridges are separated by limestone valleys, and waterfalls form where streams cut through the ridges. Falling Spring Falls in Alleghany County is fed by warm springs and drops over a limestone cliff. In Giles County, The Cascades, on Little Stony Creek near Pembroke, is one of the most popular hikes in southwest Virginia, ending at a broad fall in a rocky amphitheater. The Falls of Dismal in Giles County is a wide, low fall with a swimming hole. Craig, Bath and Montgomery counties have smaller, quieter falls in national forest."
+    },
+    {
+      "name": "Southwest Virginia and the Southern Blue Ridge",
+      "counties": [
+        "Russell",
+        "Scott",
+        "Washington",
+        "Patrick",
+        "Grayson",
+        "Floyd",
+        "Franklin"
+      ],
+      "text": "Southwest Virginia combines Appalachian Plateau sandstone with the high southern Blue Ridge. Tank Hollow Falls in Russell County spills in a wide, lacy sheet over sandstone ledges near Cleveland, and Abrams Falls in neighboring Washington County, in the ridges near the Tennessee line, is another local favorite. Scott County adds one more fall in this rugged corner of the state. To the east, Patrick, Floyd, Franklin and Grayson counties sit on the Blue Ridge plateau, where streams fall off the eastern escarpment toward the Piedmont. Patrick County, near Stuart, holds three listed falls, and Grayson County lies near Mount Rogers, the state's highest point."
+    }
+  ],
+  "bestTime": "Spring, from roughly March through May, is the classic season for Virginia waterfalls, when rain and snowmelt keep streams high and wildflowers bloom in the hollows of Shenandoah. Early summer still offers good flow, especially after storms, along with dense green foliage and rhododendron and mountain laurel blooms in the higher mountains. By late summer, many falls in Shenandoah and the Blue Ridge thin out considerably. Fall color usually peaks in the mountains in mid to late October, bringing heavy traffic on Skyline Drive and the Blue Ridge Parkway, especially on weekends. Winter can be beautiful, with icicles and frozen falls after hard cold snaps, but ice on trails and occasional closures of mountain roads during snow and ice events can complicate access.",
+  "planning": "Most of Virginia's waterfalls are on public land. Shenandoah National Park requires an entrance fee, and Skyline Drive is the primary access for its falls. The George Washington and Jefferson National Forests manage most of the falls along the Blue Ridge Parkway corridor and in the Valley and Ridge, with some trailheads requiring parking fees, such as at Crabtree Falls and The Cascades. Weekends during spring and fall can bring full parking lots at popular falls, so arriving early helps. Hazards include slick rock near falls, which has led to fatal accidents at Crabtree Falls, steep return climbs, and fast water after heavy rain. Many falls have swimming holes, but water can be cold and currents strong in spring.",
+  "faqs": [
+    {
+      "q": "What is the tallest waterfall in Virginia?",
+      "a": "Crabtree Falls in Nelson County is commonly described as the tallest cascading waterfall in Virginia, with five major cascades and many smaller ones dropping a total of about 1,200 feet."
+    },
+    {
+      "q": "Which part of Virginia has the most waterfalls?",
+      "a": "The northern Blue Ridge, especially Page, Madison and Rockingham counties in and around Shenandoah National Park, has the densest concentration. Giles County and the Crabtree Falls area are other important clusters."
+    }
+  ]
+}

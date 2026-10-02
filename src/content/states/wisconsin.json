@@ -1,0 +1,56 @@
+{
+  "state": "Wisconsin",
+  "overview": [
+    "Most of Wisconsin was smoothed by glaciers, but in the north the state rests on the old, hard rock of the Canadian Shield, and that is where its waterfalls gather. Along the Lake Superior shore, rivers flowing north drop off an escarpment of resistant basalt and sandstone on their way to the lake, producing the state's tallest and most dramatic falls. In the northeast, rivers draining toward Green Bay and Lake Michigan cross ridges of granite and other crystalline rock, creating clusters of rapids, ledges and falls. Our directory lists 50 named waterfalls in Wisconsin, ranking it 16th nationally, with Marinette and Menominee counties holding the most.",
+    "Elsewhere, Wisconsin's falls are scattered and smaller. In the central part of the state, rivers cut through Cambrian sandstone, producing ledges and narrow glens, and in the southwest the unglaciated Driftless Area adds a few more. Snowmelt and spring rain bring the biggest flows across the state, with many northern rivers carrying a tea-colored tint from the bogs and forests they drain. The combination of hard bedrock, abundant lakes and wetlands, and a snowy climate gives northern Wisconsin a landscape where falling water is a regular sight. Iron County, on the Michigan border, is a good example of this northern landscape."
+  ],
+  "regions": [
+    {
+      "name": "Lake Superior Uplands",
+      "counties": [
+        "Douglas",
+        "Ashland",
+        "Iron",
+        "Sawyer"
+      ],
+      "text": "Wisconsin's tallest falls lie near Lake Superior. Big Manitou Falls in Pattison State Park, Douglas County, plunges about 165 feet down a wooded gorge on the Black River and is the highest waterfall in the state, with Little Manitou Falls upstream. Nearby Amnicon Falls State Park has upper and lower falls along the Amnicon River, with a covered footbridge crossing the stream. In Ashland County, Copper Falls tumbles through a rugged gorge in the state park of the same name, and Morgan Falls lies in the Chequamegon National Forest. Iron County holds Potato River Falls and Superior Falls, while Sawyer County adds inland falls."
+    },
+    {
+      "name": "Northeast Woods and the Menominee River",
+      "counties": [
+        "Marinette",
+        "Menominee",
+        "Shawano",
+        "Florence",
+        "Oneida",
+        "Lincoln"
+      ],
+      "text": "Marinette County calls itself the waterfall capital of Wisconsin, and with 13 listed falls it leads the state. Rivers such as the Pike and Peshtigo cross bands of hard rock, producing falls like Daves Falls, Long Slide Falls, Smalley Falls, Strong Falls and Horseshoe Falls, many in county parks. In neighboring Menominee County, the Wolf River flows through the Menominee Indian Reservation over a series of falls and rapids. Shawano, Florence, Oneida and Lincoln counties add more river falls, often surrounded by northern hardwood and pine forest."
+    },
+    {
+      "name": "Central Sands and the Western Valleys",
+      "counties": [
+        "Jackson",
+        "Eau Claire",
+        "Wood",
+        "Waupaca",
+        "Sauk",
+        "St. Croix",
+        "Manitowoc"
+      ],
+      "text": "Across central and western Wisconsin, falls tend to be small ledges where rivers cut through sandstone. Jackson County, around Black River Falls, and Eau Claire County each have two listed falls, and Wood and Waupaca counties have one each. Sauk County lies near the Baraboo Hills and the edge of the Driftless Area, and St. Croix County sits along the St. Croix River on the Minnesota border. Manitowoc County, near Lake Michigan, adds an isolated fall. These sites are often in local parks and are easy to combine with other outings."
+    }
+  ],
+  "bestTime": "Spring is peak season for Wisconsin waterfalls. Snowmelt in April and May, along with spring rain, sends the strongest flows over the falls, especially in the north, where melt can continue into May. Black flies and mosquitoes become thick in the northern woods by late May and June. Summer flows are lower but usually steady, and the state parks along Lake Superior and in the northeast are busiest from late June through August. Fall color typically peaks in the north in late September to early October and moves south through mid-October; autumn rains can restore flow. Winter turns many falls into ice formations, and some state parks maintain winter trails, but heavy snow, cold and short days require preparation.",
+  "planning": "Wisconsin's best-known falls are in state parks such as Pattison, Amnicon Falls and Copper Falls, which require a state park vehicle admission sticker, and in county parks, notably in Marinette County. The Chequamegon-Nicolet National Forest manages others. Falls in Menominee County are on the Menominee Indian Reservation, where access rules are set by the Menominee Nation, so check before visiting. Some northern sites are reached by gravel roads, and cell coverage can be patchy. Hazards include slippery rock, steep gorges with unfenced edges, cold water in spring, and powerful currents during high flow. Ticks are common in summer woods, and winter ice near falls can be deceptive.",
+  "faqs": [
+    {
+      "q": "What is the tallest waterfall in Wisconsin?",
+      "a": "Big Manitou Falls in Pattison State Park, Douglas County, is the tallest in the state at about 165 feet. It is near Superior, close to Lake Superior."
+    },
+    {
+      "q": "Why does Marinette County have so many waterfalls?",
+      "a": "Several rivers in Marinette County, including the Pike and Peshtigo, cross bands of hard bedrock on their way to Green Bay, creating many ledges and falls. The county has 13 listed falls, more than any other in Wisconsin."
+    }
+  ]
+}

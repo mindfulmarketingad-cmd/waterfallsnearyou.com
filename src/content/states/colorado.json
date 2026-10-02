@@ -1,0 +1,41 @@
+{
+  "state": "Colorado",
+  "overview": [
+    "Colorado's waterfalls are a product of height and snow. The Southern Rockies push dozens of summits above 14,000 feet, and glaciers that once filled the high valleys left behind hanging valleys, cirques and steep U-shaped troughs where streams now tumble from one level to the next. Each winter, deep snowpack accumulates in these basins, and its spring melt sends a surge of water over granite, gneiss and volcanic cliffs. Our directory counts 82 named falls in the state, placing Colorado 13th nationally, with the heaviest concentration along the Front Range in Larimer and Boulder counties, much of it in and around Rocky Mountain National Park.",
+    "Beyond the Front Range, the falls follow the mountains rather than any single river system. The San Juan Mountains of the southwest, built largely from thick volcanic deposits, carve some of the state's tallest drops in Hinsdale, Mineral, Ouray and San Miguel counties, including the cliff-framed box canyon above Telluride. On the Western Slope, Garfield County stands out for falls tied to limestone and travertine, and Routt County adds the long drop of Fish Creek Falls near Steamboat Springs. The eastern plains, by contrast, hold almost nothing, since the flat terrain and modest rainfall leave little for water to fall over."
+  ],
+  "regions": [
+    {
+      "name": "Northern Front Range and Rocky Mountain National Park",
+      "counties": ["Larimer", "Boulder", "Grand", "Gilpin", "Jackson"],
+      "text": "This is the busiest waterfall country in the state. Glacially carved valleys on both sides of the Continental Divide send creeks through granite steps and gorges. Alberta Falls near Estes Park is among the most visited trails in Rocky Mountain National Park, and Ouzel Falls rewards a longer walk into the park's quieter Wild Basin area. On the west side, Adams Falls near Grand Lake drops through a rocky gorge a short walk from the trailhead. Closer to the cities, Boulder Falls sits along Boulder Canyon. Many of the falls here are modest in height but set among aspen, lodgepole pine and high peaks."
+    },
+    {
+      "name": "San Juan Mountains",
+      "counties": ["Hinsdale", "Mineral", "Ouray", "San Miguel", "Archuleta", "Dolores", "Montezuma", "Saguache"],
+      "text": "The San Juans are Colorado's most rugged range, a deeply eroded volcanic plateau where streams plunge off sheer walls. Bridal Veil Falls closes off the head of Telluride's box canyon and is one of the tallest falls in the state. Around Wolf Creek Pass, Treasure Falls is visible from the highway, and Piedra Falls lies in quieter forest country nearby. North Clear Creek Falls in Hinsdale County drops into a canyon near the high road between Lake City and Creede. Ouray, surrounded by cliffs and narrow gorges, has several falls within reach of town. Snow lingers late here, so peak flows often run into July."
+    },
+    {
+      "name": "Pikes Peak, Sangre de Cristo and Sawatch",
+      "counties": ["El Paso", "Custer", "Alamosa", "Chaffee", "Huerfano", "Las Animas", "Lake", "Park"],
+      "text": "South of Denver, falls are tucked into canyons at the foot of high, steep ranges. Helen Hunt Falls in North Cheyenne Canon near Colorado Springs is one of the state's most visited, since it sits beside a road with a trail leading higher. In the San Luis Valley, Zapata Falls hides inside a narrow rock crevice in the Sangre de Cristo Mountains, reached by wading over slippery stones. The Wet Mountains and Sangres around Westcliffe, and the Sawatch Range near Buena Vista, add falls fed by snowfields on fourteeners and high ridges. These eastern slopes are drier than the Divide country, so flows drop faster in late summer."
+    },
+    {
+      "name": "Western Slope Plateaus and Valleys",
+      "counties": ["Garfield", "Routt", "Moffat", "Eagle", "Pitkin", "Gunnison", "Summit"],
+      "text": "West of the Divide, waterfalls appear where streams cut through plateau edges and limestone. Rifle Falls in Garfield County is notable for a triple waterfall pouring over a travertine ledge, with small caves in the porous rock nearby, and Garfield County holds several other falls in the canyons near Parachute and Glenwood Springs. In Routt County, Fish Creek Falls drops into a forested canyon just outside Steamboat Springs, with upper and lower sections. Moffat County's falls lie in remote canyon country in the state's northwest corner. Resort valleys around Aspen, Vail and Crested Butte contribute a few more, mostly reached by short trails from summer trailheads."
+    }
+  ],
+  "bestTime": "Snowmelt sets the calendar. Lower falls along the foothills, like Helen Hunt Falls, often peak in May, while high-country falls in Rocky Mountain National Park and the San Juans usually run strongest from early June into early July, after the main melt reaches the upper basins. By late August many smaller falls thin noticeably, though larger creeks keep running. July and August also bring an afternoon monsoon pattern, with lightning on exposed ridges and brief downpours, so early starts are the norm. Late September adds golden aspens to the scenery with lower flows. In winter, several falls freeze into ice formations, and some high roads and trailheads are not plowed. Weekends in summer bring heavy crowds to the Front Range and Telluride.",
+  "planning": "Most Colorado falls are on federal land: Rocky Mountain National Park, plus national forests such as Arapaho-Roosevelt, Pike-San Isabel, San Juan, Rio Grande and White River. Rifle Falls is in a state park, and Helen Hunt Falls is in a city park in Colorado Springs. Rocky Mountain National Park has used timed-entry reservations in busy seasons, so check current requirements before going. Popular trailheads fill early, and some cities and parks run shuttles. Altitude is a real factor: trails often start above 8,000 feet, and visitors from low elevations tire quickly. Snowmelt creeks are icy cold and fast, and spray-coated rock near falls stays slick. Lightning is the most serious summer hazard above treeline, and some high access roads require high-clearance vehicles or open only in summer.",
+  "faqs": [
+    {
+      "q": "When is Bridal Veil Falls near Telluride at its best?",
+      "a": "It usually runs strongest in late spring and early summer as San Juan snowpack melts. In winter the falls freeze, and the area is known for ice."
+    },
+    {
+      "q": "Which part of Colorado has the most waterfalls?",
+      "a": "The northern Front Range, especially Larimer and Boulder counties around Rocky Mountain National Park, holds the largest share in our directory. The San Juan Mountains in the southwest hold many of the tallest drops."
+    }
+  ]
+}

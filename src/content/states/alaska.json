@@ -1,0 +1,59 @@
+{
+  "state": "Alaska",
+  "overview": [
+    "Alaska's waterfalls are products of ice, rain and relief on a scale found nowhere else in the country. Coastal mountain ranges rise almost straight out of the sea, glaciers have carved deep U-shaped valleys and fjords, and the side streams left hanging high on those valley walls now spill down cliffs hundreds of feet tall. Our directory lists 48 named falls in Alaska, ranking it 17th nationally, a number that reflects how few of the state's countless cascades have ever been named or mapped by road rather than how many actually exist.",
+    "The named falls cluster along the southern rim of the state. Southeast Alaska, including Juneau, Skagway, Sitka and the Prince of Wales-Hyder and Hoonah-Angoon areas, combines the Coast Mountains with heavy year-round precipitation from the Gulf of Alaska. Around Prince William Sound, the Chugach area receives similar maritime moisture against steep mountains. Farther west, a handful of falls sit on salmon rivers of the Alaska Peninsula and Bristol Bay region, where Brooks Falls is known far more for its bears than for its height. Many more falls in the Interior and Arctic remain unnamed or appear only on topographic maps."
+  ],
+  "regions": [
+    {
+      "name": "Southeast Alaska and the Inside Passage",
+      "counties": [
+        "Juneau",
+        "Juneau City and",
+        "Skagway",
+        "Hoonah-Angoon (CA)",
+        "Prince of Wales-Hyder (CA)",
+        "Ketchikan Gateway",
+        "Sitka",
+        "Wrangell"
+      ],
+      "text": "The Panhandle holds the largest share of Alaska's named falls. Temperate rainforest of spruce and hemlock covers steep slopes that drop directly to saltwater channels, and creeks fed by rain, snowfields and glaciers pour off them in long white ribbons. Juneau is the hub: Nugget Falls tumbles beside the Mendenhall Glacier at the end of a popular walk, while Ebner Falls sits above the Last Chance Basin just outside town, close to the city's old mining country. Skagway's Reid Falls is reached on a forest trail at the edge of town, and the Pitchfork Falls area above Goat Lake shows how far some of these streams drop. Many other falls here are seen only from boats and ferries."
+    },
+    {
+      "name": "Prince William Sound and Southcentral",
+      "counties": [
+        "Chugach",
+        "Copper River",
+        "Kenai Peninsula",
+        "Anchorage",
+        "Matanuska-Susitna",
+        "Southeast Fairbanks (CA)"
+      ],
+      "text": "Southcentral Alaska pairs the Chugach Mountains with the road system, so this is where the most drive-up waterfalls are found. Near Valdez, the walls of Keystone Canyon along the Richardson Highway carry Bridal Veil Falls and other cascades within sight of the road. Inland, Liberty Falls drops toward the Copper River basin northeast of Valdez. Closer to Anchorage, Thunder Bird Falls lies on Thunder Bird Creek just above its junction with the Eklutna River, a short outing from the city. The Kenai Peninsula and Matanuska-Susitna valleys add a few more, generally on glacier-fed creeks that run milky and cold through summer."
+    },
+    {
+      "name": "Southwest Alaska and the Alaska Peninsula",
+      "counties": [
+        "Lake and Peninsula",
+        "Bethel",
+        "Dillingham",
+        "Dillingham (CA)",
+        "Kodiak Island",
+        "Aleutians West (CA)"
+      ],
+      "text": "West of Cook Inlet the landscape opens into lake country, volcanic peaks and tundra, and waterfalls become rarer and far more remote. The most famous is Brooks Falls, a low ledge on the outlet of Brooks Lake in Katmai, where brown bears gather to catch salmon leaping the drop. Other named falls in the Bethel and Dillingham areas sit on rivers draining the uplands behind Bristol Bay and the Kuskokwim delta, and Kodiak and the Aleutians add a few on rugged island coastlines. Almost none of these are reachable by road; floatplanes, boats and guided trips are the usual means of access."
+    }
+  ],
+  "bestTime": "Alaska's waterfall season is short and runs roughly from late May into September. Snowmelt drives the strongest flows from late May through June in Southcentral and the Interior, while glacier-fed streams keep running hard through July and August as summer heat melts ice. In Southeast Alaska, rain matters as much as melt: the wettest stretch typically arrives in autumn, so September and October can produce surging falls along with low cloud and short days. Brooks Falls draws visitors in July, when sockeye runs peak, and again in September. Winter brings deep snow, avalanche danger on steep approaches and many frozen falls, though some roadside cascades become ice climbing objectives. Cruise-ship days concentrate crowds at Juneau and Skagway trailheads in midsummer.",
+  "planning": "Most of Alaska's named falls lie on public land managed by the Tongass and Chugach national forests, the National Park Service, state parks such as Chugach State Park, or the Bureau of Land Management, with some on Native corporation land where permission may be needed. Only a minority are on the road system; elsewhere, access depends on ferries, floatplanes or boats, and weather delays are routine. Bears are present across the state, so carrying bear spray and making noise on brushy trails is standard practice. Glacial meltwater is dangerously cold and silty, which hides depth and footing, and rivers rise quickly on warm afternoons. Near glaciers, ice calving and rockfall make approaching the base of a fall unwise. Rain gear and layers are essential even in July.",
+  "faqs": [
+    {
+      "q": "Which Alaska waterfall is easiest to visit?",
+      "a": "Nugget Falls near the Mendenhall Glacier in Juneau is the most reviewed fall in our directory and is reached by a well-used walk from the visitor area. In Southcentral, the roadside falls of Keystone Canyon near Valdez and Thunder Bird Falls near Anchorage are also accessible without a plane or boat."
+    },
+    {
+      "q": "Can Brooks Falls be reached by road?",
+      "a": "No. Brooks Falls is in Katmai on the Alaska Peninsula, and visitors typically arrive by floatplane. Bear viewing there is managed by the National Park Service, so it is worth checking the park's current guidance before planning a trip."
+    }
+  ]
+}

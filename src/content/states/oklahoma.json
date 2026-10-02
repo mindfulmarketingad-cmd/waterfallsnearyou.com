@@ -1,0 +1,36 @@
+{
+  "state": "Oklahoma",
+  "overview": [
+    "Oklahoma is mostly plains and rolling prairie, but three old, eroded mountain regions break up the landscape, and they hold nearly all of the 26 named waterfalls in our directory, which ranks the state 27th nationally. By far the most important is the Arbuckle Mountains of south-central Oklahoma. Murray County, home to the Arbuckles and the towns of Davis and Sulphur, accounts for 14 listings on its own. The Arbuckles are an uplift of folded limestone, dolomite and granite that exposes some of the oldest rock in the region, and they are riddled with springs.",
+    "Those springs are what make the Arbuckle falls distinctive. Groundwater rich in dissolved calcium carbonate emerges and deposits travertine, a porous limestone that builds up ledges, dams and terraces in creeks. Travertine Creek in the Chickasaw National Recreation Area near Sulphur has a string of small falls built this way, and Turner Falls on Honey Creek is the state's best-known waterfall. Southeast Oklahoma's Ouachita Mountains, formed of folded sandstone and shale ridges, add rain-fed falls in Le Flore and McCurtain counties, while the Ozark Plateau of the northeast contributes a few around Tahlequah and the Arkansas River valley."
+  ],
+  "regions": [
+    {
+      "name": "Arbuckle Mountains",
+      "counties": ["Murray", "Carter", "Johnston"],
+      "text": "The Arbuckles are low but rugged, with limestone ledges, clear spring-fed creeks and travertine formations. Turner Falls, along Honey Creek near Davis, spills over a wide rock face into a natural swimming pool, and it is among the most visited outdoor sites in Oklahoma. In the Chickasaw National Recreation Area at Sulphur, Travertine Creek flows past a series of small named falls, including Little Niagara Falls, Panther Falls, Bear Falls and Garfield Falls, each a short drop over a travertine ledge. Price Falls and other Murray County falls lie nearby. Carter and Johnston counties extend the region with smaller falls on creeks around Lone Grove and Tishomingo."
+    },
+    {
+      "name": "Ouachita Mountains",
+      "counties": ["Le Flore", "McCurtain", "Atoka"],
+      "text": "Southeast Oklahoma is forested, hilly and noticeably wetter than the rest of the state. The east-west ridges of the Ouachitas are built from folded sandstone and shale, and creeks crossing them form ledgy falls and cascades. Hontubby Falls lies in Le Flore County, and Presbyterian Falls is in McCurtain County, the forested corner of the state around Broken Bow that is known for clear rivers and pine and hardwood forest. Atoka County adds one listing near the town of Atoka. Most falls here are small and seasonal, but the setting of forested ridges and clear streams makes them pleasant destinations after rain."
+    },
+    {
+      "name": "Ozark Plateau and Green Country",
+      "counties": ["Cherokee", "Sequoyah", "Wagoner"],
+      "text": "Northeast Oklahoma rises onto the western edge of the Ozark Plateau, a dissected upland of limestone and chert cut by clear streams such as the Illinois River. Around Tahlequah, small falls drop over rock ledges in wooded hollows, and McSpadden Falls in Cherokee County is one of the listed sites here. Sequoyah County, near Vian along the Arkansas River, and Wagoner County each hold one listing. Falls in this region tend to be short drops and seeps that flow best in spring, and they are often found close to lakes and rivers popular for floating and fishing."
+    }
+  ],
+  "bestTime": "Spring is the most dependable season. Oklahoma's rainfall peaks in late spring, typically May and June, and creeks across the Ouachitas and Ozarks run best from March through early June. Rain-fed falls in those regions often dry up or slow to a trickle by midsummer, as July and August bring intense heat and frequent drought. The Arbuckle falls are the exception, since springs keep Travertine Creek and Honey Creek flowing through most summers, though prolonged drought can reduce them. Summer is peak swimming season at Turner Falls and the Chickasaw National Recreation Area, with heavy weekend crowds. Fall brings milder weather and color in the eastern forests. Winter is quiet, with occasional ice storms that can close rural roads.",
+  "planning": "Land management varies by site. Turner Falls is in a city-owned park run by the City of Davis, with heavy seasonal crowds. The Travertine Creek falls are in the Chickasaw National Recreation Area, managed by the National Park Service. Many Ouachita falls sit in the Ouachita National Forest or on private land, and several Ozark falls are on private property, so check access before going. Flash flooding is the most important hazard: Oklahoma is prone to severe thunderstorms, and narrow creek valleys in the Arbuckles can flood rapidly. Wet travertine and limestone are slippery, and cliff jumping and climbing around falls lead to injuries. Summer heat is severe, ticks and chiggers are common, and venomous snakes live in rocky areas.",
+  "faqs": [
+    {
+      "q": "What makes the waterfalls in the Arbuckle Mountains different?",
+      "a": "Many are built from travertine, a limestone deposited by mineral-rich spring water. This creates rounded ledges and natural dams, and the spring flow keeps falls such as those on Travertine Creek running through most summers."
+    },
+    {
+      "q": "Where are most of Oklahoma's waterfalls?",
+      "a": "More than half of the falls in our directory are in Murray County, in the Arbuckle Mountains around Davis and Sulphur. The Ouachita Mountains in the southeast and the Ozark Plateau in the northeast hold most of the rest."
+    }
+  ]
+}

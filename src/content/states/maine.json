@@ -1,0 +1,57 @@
+{
+  "state": "Maine",
+  "overview": [
+    "Maine's waterfalls were shaped first by ancient mountain building and then by ice. The state's interior is a patchwork of granite intrusions, slate and other metamorphic rock, worn into rounded mountains and high plateaus. During the last ice age, a thick ice sheet buried the entire state, scouring valleys, damming old drainages and leaving behind a disordered network of lakes, bogs and rivers that often tumble over ledges where they cross resistant bedrock. With 119 named waterfalls, Maine ranks seventh nationally in our directory. Granite ledges, slate gorges and long chains of rapids are all common.",
+    "The falls concentrate in the western mountains and the vast North Woods. Piscataquis County alone holds 32, many in the remote country around Moosehead Lake, the Appalachian Trail's Hundred-Mile Wilderness and the slate gorges east of Greenville. Oxford and Franklin counties, along the New Hampshire border, have the most accessible roadside falls. Heavy winter snowpack across these uplands feeds a strong spring runoff, while abundant rainfall keeps rivers moving through much of the year. Even Downeast and in the far north, rivers pour over ledges on their way to the Atlantic or the St. John."
+  ],
+  "regions": [
+    {
+      "name": "Western Mountains",
+      "counties": [
+        "Oxford",
+        "Franklin"
+      ],
+      "text": "The mountains along the New Hampshire border, from Grafton Notch to the Rangeley Lakes and Kingfield, are Maine's most visited waterfall country. Smalls Falls in Franklin County is a series of drops and pools beside a highway rest area, and Angel Falls nearby is a tall, narrow plunge reached by a forest walk. In Oxford County, Screw Auger Falls carves potholes and a small gorge into granite within Grafton Notch State Park, while The Cataracts and Kezar Falls are other favorites. Rumford Falls on the Androscoggin River is a large river fall harnessed for power since the 1890s, which USGS notes may be dry during low water."
+    },
+    {
+      "name": "North Woods and Moosehead Highlands",
+      "counties": [
+        "Piscataquis",
+        "Somerset",
+        "Penobscot"
+      ],
+      "text": "This is the largest and wildest waterfall region in New England, spanning the Moosehead Lake area, Baxter State Park country and the commercial forests that surround them. Many falls lie on slate and granite bedrock in remote valleys reached by logging roads or long hikes. Little Wilson Falls in Piscataquis County drops into a slate gorge along the Appalachian Trail, and Houston Brook Falls in Somerset County is a well-loved short hike. Near Patten in Penobscot County, Shin Falls is a quieter stop near Shin Pond. Numbers alone tell the story here: these three counties hold more than 50 of the state's falls."
+    },
+    {
+      "name": "Aroostook and Downeast",
+      "counties": [
+        "Aroostook",
+        "Washington",
+        "Hancock"
+      ],
+      "text": "Northern and eastern Maine are lower and more rolling, but rivers still break over ledges as they head for the St. John valley or the Atlantic. Fish River Falls near Fort Kent in Aroostook County is a classic north-country river drop. Washington County, Downeast, has numerous small falls on coastal rivers around Cherryfield and Calais. In Hancock County, Acadia National Park contains Hadlock Falls and Man O'War Brook Falls, short cascades on granite tumbling toward the sea, and Grand Falls is another river fall in the county. These falls tend to be modest but sit in striking coastal and forest settings."
+    },
+    {
+      "name": "Southern Maine Rivers",
+      "counties": [
+        "Cumberland",
+        "Androscoggin",
+        "York",
+        "Topsham"
+      ],
+      "text": "In the more settled south, waterfalls are mostly river falls in or near towns, many harnessed for mills and power since colonial times. Great Falls on the Androscoggin River divides Lewiston and Auburn, and is partly harnessed for hydropower. In Yarmouth, the Royal River descends over a series of falls to tidewater, beginning with the drop known as Pumgustuck. Topsham and York County add a few more historic river falls. These sites are easy to reach, often bordered by parks, bridges and riverwalks, and show how waterpower shaped southern Maine's mill towns."
+    }
+  ],
+  "bestTime": "Maine's waterfalls peak with snowmelt, which typically runs from April into late May, earlier along the coast and later in the high country of the western mountains and North Woods. Many logging roads are soft and muddy during this mud season, and some trailheads are not reachable until roads dry out. Late May through June is black fly season in the interior, so bring head nets and repellent. Summer flows drop but remain decent in wet years, and swimming holes like Smalls Falls and Screw Auger Falls are busiest in July and August. Fall color peaks from late September in the north to mid-October in the south, and autumn rains often restore flow. Winter is long and cold, with many falls frozen and many access roads unplowed.",
+  "planning": "Access in Maine varies widely by region. Grafton Notch, Baxter and other state parks, Acadia National Park and many roadside sites are straightforward to reach, though Acadia requires a park pass and is very busy in summer. Much of the North Woods, however, is privately owned commercial forest, crossed by gravel logging roads that are shared with heavy trucks; some are gated, with checkpoints and fees for visitors. Cell service is limited or absent across large areas, so carry maps and plan fuel carefully. Hazards include cold, fast water during spring runoff, slick granite and slate, and remote terrain where help may be hours away. Many popular swimming holes have steep ledges, and water levels can change quickly after rain.",
+  "faqs": [
+    {
+      "q": "Which Maine county has the most waterfalls?",
+      "a": "Piscataquis County, in the Moosehead Lake and North Woods region, holds 32 of the 119 named waterfalls in our directory, more than any other county in the state."
+    },
+    {
+      "q": "What are the easiest waterfalls to visit in Maine?",
+      "a": "Smalls Falls in Franklin County sits beside a highway rest area, and Screw Auger Falls in Grafton Notch State Park is a short walk from the parking area. Both are among the most reviewed falls in the state."
+    }
+  ]
+}

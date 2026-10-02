@@ -1,0 +1,41 @@
+{
+  "state": "North Carolina",
+  "overview": [
+    "North Carolina ranks 9th nationally in our directory, with 109 named waterfalls, and the great majority are in the mountains of the far west. The key landform is the Blue Ridge Escarpment, the abrupt eastern edge of the Blue Ridge where the land drops sharply from high plateau toward the Piedmont. Rivers flowing off that edge lose a great deal of elevation in a short distance, tumbling over hard granite, gneiss and other metamorphic rock that resists erosion. The southern escarpment also wrings heavy rainfall from moist air moving up from the Gulf of Mexico and the Atlantic, making the area around Highlands, Cashiers and Brevard among the wettest places in the eastern United States.",
+    "That combination of steep relief, hard rock and abundant rain explains why Transylvania County, widely known as the Land of Waterfalls, leads the state with 24 listings, followed by Jackson and Macon counties. Farther north, the High Country around Boone, Spruce Pine and the Black Mountains adds falls fed by some of the highest peaks in the East, and the Linville Gorge cuts a deep notch through the escarpment. Beyond the mountains, a few falls appear on isolated ridges of the Piedmont such as the Sauratown Mountains, and along the fall line in the east, where rivers like the Tar drop from Piedmont bedrock onto the Coastal Plain."
+  ],
+  "regions": [
+    {
+      "name": "Blue Ridge Escarpment and the Land of Waterfalls",
+      "counties": ["Transylvania", "Henderson", "Polk", "Rutherford"],
+      "text": "Transylvania County and its neighbors hold the densest concentration of falls in the state. In DuPont State Recreational Forest, Triple Falls, Hooker Falls and High Falls line the Little River within a short distance of one another. Rainbow Falls is a hiking destination on the Horsepasture River, and Sliding Rock in Pisgah National Forest is a natural water slide over smooth rock. To the east, Pearsons Falls near Saluda drops through a protected wooded glen, and the Hickory Nut Gorge around Lake Lure adds steep cliffside falls. Rivers here plunge off the escarpment edge in quick succession, producing tall drops and long cascades over bare granite."
+    },
+    {
+      "name": "Nantahala Mountains and Cullasaja Gorge",
+      "counties": ["Jackson", "Macon", "Graham", "Haywood", "Swain", "Cherokee", "Clay"],
+      "text": "The southwestern mountains are steep, heavily forested and among the rainiest parts of North Carolina. In Macon County, the Cullasaja River descends through a narrow gorge on its way from Highlands toward Franklin, passing Bridal Veil Falls and Dry Falls, both of which allow visitors to walk behind the water, and the long roadside drop of Cullasaja Falls. Jackson County, around Cashiers and Cullowhee, holds many falls on the upper Tuckasegee and nearby escarpment streams. Graham County falls near Robbinsville lie deep in the Nantahala National Forest, while Swain and Haywood counties include falls on the North Carolina side of the Great Smoky Mountains."
+    },
+    {
+      "name": "High Country and Black Mountains",
+      "counties": ["Mitchell", "Yancey", "Watauga", "Avery", "Ashe", "Burke", "Caldwell", "Buncombe"],
+      "text": "North of Asheville, the Blue Ridge broadens into a high, rugged landscape that includes the Black Mountains and the highlands around Boone and Banner Elk. Linville Falls, in Burke County, drops into the head of the Linville Gorge, one of the deepest gorges in the East, and is reached by well-maintained trails from a visitor center along the Blue Ridge Parkway. Crabtree Falls, in Mitchell County, cascades over a broad rock face on a loop trail through ferns and wildflowers. Yancey and Mitchell counties add falls draining the high Blacks and Roan Highlands, and Buncombe County holds a few near Black Mountain."
+    },
+    {
+      "name": "Foothills, Piedmont Ridges and Fall Line",
+      "counties": ["Stokes", "Wilkes", "Nash", "Edgecombe", "Harnett", "Stanly"],
+      "text": "East of the Blue Ridge, falls are fewer but varied. In Stokes County, the Sauratown Mountains rise abruptly from the Piedmont, and Hanging Rock State Park protects several falls, including Lower Cascade Falls, reached by a short walk down many rock steps. Wilkes County, along the foot of the Blue Ridge, adds falls on streams draining the escarpment. Farther east, Nash and Edgecombe counties sit on the fall line, where the Tar River drops over rocky shoals at Rocky Mount, and Harnett and Stanly counties include falls on the Cape Fear and in the ancient, worn-down Uwharrie hills."
+    }
+  ],
+  "bestTime": "North Carolina's mountain falls run year-round in most years, but they are fullest from late winter through spring, roughly February through May, when rain is frequent and trees have not yet leafed out to draw down soil moisture. April and May add wildflowers and fresh green to the gorges. Summer is warm and humid, with afternoon thunderstorms that raise streams quickly, and popular swimming spots such as Sliding Rock draw large crowds. Fall color climbs down from the highest elevations in early October to the lower escarpment by late October, making it the busiest season of the year, even though flows are often lower after dry spells. Winter brings quieter trails and occasional ice at higher elevations, when sections of the Blue Ridge Parkway may close for snow and ice.",
+  "planning": "Most mountain falls are on public land: Pisgah and Nantahala national forests, the Blue Ridge Parkway, Great Smoky Mountains National Park, state parks such as Gorges and Hanging Rock, and DuPont State Recreational Forest. A few are on private or nonprofit land with their own hours. Parking at roadside falls along US 64 in the Cullasaja Gorge and at popular trailheads fills early on weekends. Hurricane Helene in 2024 caused severe flooding and landslides across western North Carolina, so check the current status of roads, trails and recreation areas before visiting. The most serious hazard is climbing on or near the top of falls: wet granite and moss are extremely slippery, and falls from waterfall edges have caused many deaths in the region. Streams also rise quickly after heavy rain.",
+  "faqs": [
+    {
+      "q": "Why is Transylvania County called the Land of Waterfalls?",
+      "a": "It sits on the Blue Ridge Escarpment, where rivers drop steeply off the mountains, and it receives very high rainfall. Our directory lists 24 named falls there, more than any other county in North Carolina."
+    },
+    {
+      "q": "Can you walk behind any waterfalls in North Carolina?",
+      "a": "Yes. In the Cullasaja Gorge of Macon County, paths at both Dry Falls and Bridal Veil Falls pass behind the falling water, offering a reverse view."
+    }
+  ]
+}

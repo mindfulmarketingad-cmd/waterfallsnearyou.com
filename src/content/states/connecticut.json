@@ -1,0 +1,44 @@
+{
+  "state": "Connecticut",
+  "overview": [
+    "Connecticut's waterfalls are a product of ice and old rock. The state is built largely of hard crystalline bedrock, schist, gneiss and granite, worn down over hundreds of millions of years into rolling uplands on either side of a central lowland. During the last ice age, continental glaciers scraped across all of it, rearranging drainage and leaving streams to find new paths over ledges and through boulder-choked ravines. The result is a landscape full of short, steep drops rather than tall plunges. Our directory lists 11 named waterfalls in Connecticut, ranking it 36th nationally, with the eastern and lower river valley regions holding the largest share.",
+    "The Central Valley that runs from New Haven toward Massachusetts adds another element: ridges of traprock, a dark volcanic basalt, interbedded with softer sedimentary layers, which creates abrupt steps where streams cross them. Almost every waterfall in the state also has a human story. Connecticut's falls powered gristmills, textile mills and factories from colonial times onward, so many are paired with old dams, foundations and raceways. Connecticut now uses planning regions rather than counties for many purposes, and our listings follow those regions. Because these sites are small and close to roads and towns, the state is well suited to short visits that pair a waterfall with a historic mill village or riverside park."
+  ],
+  "regions": [
+    {
+      "name": "Eastern Connecticut and the Thames Basin",
+      "counties": [
+        "Southeastern Connecticut"
+      ],
+      "text": "The rivers that join to form the Thames, the Yantic, Shetucket and Quinebaug among them, drop over ledges of crystalline rock on their way to tidewater at Norwich. Yantic Falls in Norwich is the best known, a natural fall paired with a dam and linked to Mohegan legends, with walking paths nearby. Shetucket Falls and Quinebaug Falls are river falls with long histories of mill use, and Silver Falls is a smaller, quieter site. This region's waterfalls tend to sit close to town centers, and several are best appreciated as a blend of natural cascade and industrial heritage."
+    },
+    {
+      "name": "Lower Connecticut River Valley",
+      "counties": [
+        "Lower Connecticut River Valley"
+      ],
+      "text": "Middletown and the hills east of the Connecticut River hold three of the state's most visited waterfalls. Chapman Falls in Devil's Hopyard State Park cascades about 60 feet over a series of stone steps, and its stream has carved potholes into the ledges below. Wadsworth Falls, in the state park of the same name, is a broad curtain on the Coginchaug River, and Westfield Falls nearby is a smaller cascade. The valley's mix of crystalline rock and Central Valley sedimentary layers gives these falls their stepped, ledgy character, with leafy trails that suit short walks."
+    },
+    {
+      "name": "Western Hills and the Naugatuck",
+      "counties": [
+        "Northwest Hills",
+        "Naugatuck Valley",
+        "Western Connecticut"
+      ],
+      "text": "Western Connecticut is higher and more rugged, rising toward the Berkshire and Taconic hills along the Massachusetts and New York borders. Great Falls in the Northwest Hills region is a scenic fall with a swimming hole and hiking trails around it, while Roxbury Falls is a lesser-known drop in the same uplands. In the Naugatuck Valley, Buttermilk Falls near Terryville tumbles through a wooded ravine, and Rippowan Falls in the Western Connecticut region sits along the Rippowan River near Stamford. These falls lie in steeper terrain than the rest of the state, with narrower gorges and rockier footing."
+    }
+  ],
+  "bestTime": "Spring, from late March into May, is the peak for Connecticut waterfalls. Snowmelt from the western hills and frequent spring rain keep streams high, and the falls are at full volume before the trees leaf out. Early summer still offers good flow in most years, but by July and August many smaller streams drop considerably, and falls like Buttermilk and Chapman can thin to modest trickles during dry spells. Autumn is a strong second season: foliage usually peaks from early to late October, moving from the northwest hills toward the coast, and a few days of rain can bring the falls back. Winter visits can reward with ice formations on cold, still days, but ledges and stone steps become very slippery, and short daylight hours limit time on the trail.",
+  "planning": "Most of Connecticut's well-known falls are on state land, including Devil's Hopyard and Wadsworth Falls state parks, or in town-owned parks and open space. Connecticut State Parks generally allow free entry for vehicles with Connecticut plates, while out-of-state vehicles pay a parking fee at many parks. Parking at small town sites can be limited to a few roadside spaces and fills quickly on warm weekends. Many falls sit next to old dams and mill structures, so stay on marked paths and away from dam spillways, where currents can be dangerous. Wet schist and moss-covered ledges are slippery year-round. Swimming is restricted at some sites, so look for posted rules. Rapid rises after heavy rain can be sudden in narrow ravines, especially in the western hills.",
+  "faqs": [
+    {
+      "q": "Which Connecticut waterfall is easiest to reach?",
+      "a": "Chapman Falls in Devil's Hopyard State Park is reached by a short trail, and Yantic Falls in Norwich is close to town with walking paths. Both are good options for a short outing."
+    },
+    {
+      "q": "Why are so many Connecticut waterfalls next to dams or old mills?",
+      "a": "Waterfalls offered a concentrated drop in elevation that early settlers and later industries used to power mills. As a result, many natural falls in the state were partly dammed or channeled, and their historic structures often remain."
+    }
+  ]
+}

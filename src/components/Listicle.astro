@@ -1,8 +1,14 @@
 ---
 import Icon from './Icon.astro';
-import { imgFallback, listingImage, listingImageAlt, shortSummary, listingFacts, directionsUrl, fmtMiles, stars, fmtNum } from '../lib/format.mjs';
+import { imgFallback, listingImage, listingImageAlt, shortSummary, relativeSummary, listingFacts, directionsUrl, fmtMiles, stars, fmtNum } from '../lib/format.mjs';
 interface Props { items: { listing: any; miles?: number; direction?: string }[]; from?: string; start?: number }
 const { items, from, start = 1 } = Astro.props;
+const byReviews = items.filter((x) => x.listing.os?.reviews).sort((a, b) => b.listing.os.reviews - a.listing.os.reviews);
+const reviewRank = (x) => (byReviews.includes(x) ? byReviews.indexOf(x) + 1 : 0);
+const facts = (x) => {
+  const f = listingFacts(x.listing);
+  return from ? f.filter(([k]) => k !== 'Nearest town' && k !== 'USGS topo') : f;
+};
 ---
 <ol class="listicle" start={start}>
   {items.map(({ listing: l, miles, direction }, i) => (
@@ -20,9 +26,9 @@ const { items, from, start = 1 } = Astro.props;
         {l.os?.rating ? (
           <div class="rating"><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span>{l.os.rating.toFixed(1)} <span class="count">({fmtNum(l.os.reviews)} reviews)</span></div>
         ) : null}
-        <p class="li-summary">{shortSummary(l)}</p>
+        <p class="li-summary">{from ? relativeSummary(l, { from, miles, direction, index: start - 1 + i, reviewRank: reviewRank(items[i]), total: items.length }) : shortSummary(l)}</p>
         <dl class="li-facts">
-          {listingFacts(l).map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+          {facts(items[i]).map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
         </dl>
         <div class="li-actions">
           <a class="btn btn-primary" href={l.url}>View details</a>

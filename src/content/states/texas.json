@@ -1,0 +1,65 @@
+{
+  "state": "Texas",
+  "overview": [
+    "For a state its size, Texas has relatively few waterfalls, and those it does have are spread across very different landscapes. Our directory lists 31 named falls, ranking Texas 22nd nationally, and no single county holds more than three. The largest group lies in the Hill Country along the Balcones Escarpment, a long fault zone where the Edwards Plateau steps down to the coastal plain. Streams crossing this edge cut through layers of limestone, creating ledges, pour-overs and spring-fed falls. In some places, mineral-rich spring water deposits travertine, slowly building fern-draped walls such as the one at Gorman Falls.",
+    "Further afield, the Caprock Escarpment marks the edge of the High Plains in the Panhandle, where canyons such as Palo Duro and those near Crosbyton expose colorful sandstone and shale. In the Trans-Pecos of far West Texas, desert mountains and volcanic canyons hold a handful of rare, often seasonal falls, including Capote Falls in Presidio County, which USGS records as the highest waterfall in Texas at 175 feet. Rainfall decreases sharply from east to west, so most Texas falls depend on springs or recent storms. Several of the best-known falls sit inside state parks, while many others are on private ranch land."
+  ],
+  "regions": [
+    {
+      "name": "Hill Country and Balcones Escarpment",
+      "counties": [
+        "San Saba",
+        "Comal",
+        "Hays",
+        "Kendall",
+        "Blanco",
+        "Gillespie",
+        "Kimble",
+        "Bell",
+        "Bluff Springs",
+        "Guadalupe"
+      ],
+      "text": "The limestone hills west of Austin and San Antonio hold the largest share of Texas falls. Gorman Falls in Colorado Bend State Park, San Saba County, drops about 70 feet over a living travertine wall and is reached by a hike of roughly three miles round trip. Lower McKinney Falls, in McKinney Falls State Park on the edge of Austin, spills over limestone ledges on Onion Creek. Chalk Ridge Falls near Belton, Slumber Falls and Horseshoe Falls in Comal County, and Edge Falls in Kendall County are smaller, spring- and rain-fed falls in the region's characteristic green river valleys."
+    },
+    {
+      "name": "Caprock Canyons and Rolling Plains",
+      "counties": [
+        "Crosby",
+        "Briscoe",
+        "Randall",
+        "Stonewall",
+        "Taylor"
+      ],
+      "text": "Where the High Plains break off along the Caprock Escarpment, streams have cut colorful canyons into red sandstone and shale. Silver Falls in Crosby County, near Crosbyton, drops over a ledge along the White River below the caprock. Randall County is home to Palo Duro Canyon, and Briscoe County to Caprock Canyons, both known for dramatic badlands scenery. Falls in this region are small and often intermittent, running mainly after thunderstorms, but they offer a striking contrast to the flat plains above. Stonewall and Taylor counties hold isolated falls further southeast on the Rolling Plains."
+    },
+    {
+      "name": "Trans-Pecos and the Devils River",
+      "counties": [
+        "Presidio",
+        "Brewster",
+        "Val Verde"
+      ],
+      "text": "Far West Texas is desert, yet it contains some of the state's most remarkable falls. Capote Falls in Presidio County, which USGS records as the highest in Texas, drops from a high rim in rugged, remote country along the Rio Grande borderlands. Cattail Falls in Brewster County lies within Big Bend National Park, reached by a canyon trail. Dolan Falls on the Devils River in Val Verde County is a broad, powerful fall on one of the clearest and least developed rivers in Texas. These falls are far apart and often hard to reach, but their desert settings make them unforgettable."
+    },
+    {
+      "name": "North Central Texas",
+      "counties": [
+        "Parker",
+        "Hood"
+      ],
+      "text": "West of Fort Worth, the Brazos River and its tributaries cut through limestone and sandstone in the Cross Timbers region, creating small falls along creeks. Parker County, around Annetta, has three listed falls, and Kickapoo Falls in Hood County is another modest site. These are small, local falls, often in parks or on private land, that come alive after spring storms. They provide a rare opportunity for Dallas and Fort Worth residents to see moving water over rock within a short drive of the metro area."
+    }
+  ],
+  "bestTime": "Spring is the prime season across most of Texas. From March through early June, frequent storms and active springs keep Hill Country falls running, and wildflowers carpet the roadsides. Summer brings intense heat statewide; spring-fed falls such as Gorman Falls continue to flow, but many rain-fed falls dry up, and swimming holes become crowded. Autumn can bring heavy rains, especially in September and October, which revive falls but also bring dangerous flash floods. In the Trans-Pecos, the most reliable flow follows the summer monsoon, roughly July through September, while winter is the most comfortable season for hiking in Big Bend. Panhandle canyons see spring and summer thunderstorms, with occasional winter ice. Winter in the Hill Country is mild and flow is variable.",
+  "planning": "Texas is overwhelmingly private land, so access is the main planning challenge. Many falls are on ranches or private property and are not open to the public. The best-known sites are in Texas State Parks, such as Colorado Bend, McKinney Falls, Palo Duro Canyon and Caprock Canyons, which charge entry fees and can sell out of day passes on busy weekends, so reservations are wise. Cattail Falls is in Big Bend National Park, and Dolan Falls lies within a Nature Conservancy preserve with restricted access. The Hill Country is known as Flash Flood Alley, and rivers there can rise with startling speed; never cross flooded low-water crossings. Heat, sun and scarce water are serious hazards in summer, particularly in West Texas.",
+  "faqs": [
+    {
+      "q": "What is the highest waterfall in Texas?",
+      "a": "USGS records Capote Falls in Presidio County as the highest waterfall in Texas, with a vertical drop of 175 feet. It is in remote country in far West Texas."
+    },
+    {
+      "q": "Why do Hill Country waterfalls keep flowing in summer?",
+      "a": "Many Hill Country falls, including Gorman Falls, are fed by springs from the Edwards Plateau's limestone aquifers. That groundwater keeps them running even when rain-fed creeks dry up."
+    }
+  ]
+}

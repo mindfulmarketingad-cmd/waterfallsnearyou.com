@@ -2,6 +2,7 @@
 import StaticPage from '../components/StaticPage.astro';
 import { loadData } from '../lib/core.mjs';
 import { getPosts } from '../lib/blog.mjs';
+import { getStateLists, getSmallest } from '../lib/bestof.mjs';
 const { states } = loadData();
 const posts = getPosts();
 ---
@@ -14,6 +15,8 @@ const posts = getPosts();
   </ul>
   <h2>Blog</h2>
   <ul>{posts.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
+  <h2>State waterfall lists</h2>
+  <ul class="link-cols">{[getSmallest(), ...getStateLists()].map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
   <h2>States and towns</h2>
   {states.map((s) => (
     <>

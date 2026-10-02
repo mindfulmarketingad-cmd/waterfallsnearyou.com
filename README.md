@@ -29,10 +29,22 @@ Every imported record also gets `/partners/[business-name]`, which redirects to 
 /states  ->  /states/[state]        State hubs (listicle, town grid, counties, A-Z)
 /[state]/[city]                     Town hubs (numbered listicle ranked by distance)
 /[state]/[city]/[listing]           Waterfall pages
-/blog    ->  /blog/[slug]           Guides
+/blog    ->  /blog/[slug]           Guides (Markdown in src/content/blog)
+/blog/best-waterfalls-in-[state]            Ranked by weighted Google rating
+/blog/most-beautiful-waterfalls-in-[state]  Ranked by photos, five-star share, scenery mentions
+/blog/must-see-waterfalls-in-[state]        Top 5 most visited, spread out, with a route
+/blog/best-waterfall-hikes-in-[state]       Trail-evidenced falls ranked by rating
+/blog/smallest-waterfalls-in-the-us         Smallest falls with a recorded height
 /search                             Site-wide search
 /about /contact /disclaimer /privacy /terms /sitemap   /sitemap.xml /robots.txt /ads.txt
 ```
+
+## Unique state and town content
+
+- `src/content/states/<state>.json`: editorial overview, waterfall regions (mapped to counties), best season, planning notes and FAQs for each state.
+- `src/lib/insights.mjs`: statistics computed for each state and town (rankings, distance bands, quick picks, review-tag themes, compass extremes, county shares).
+- `src/lib/bestof.mjs`: the programmatic state list posts. They are generated only for states with more than 10 listings, and only where the data supports the list. Waterfalls flagged as private property are excluded.
+- Neighboring towns under 2.5 miles apart, or under 5 miles apart with near-identical names, are merged into one hub so their pages don't duplicate each other.
 
 ## Data sources
 

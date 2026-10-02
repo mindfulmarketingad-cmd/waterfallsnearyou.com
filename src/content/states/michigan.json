@@ -1,0 +1,59 @@
+{
+  "state": "Michigan",
+  "overview": [
+    "Michigan's waterfalls belong almost entirely to the Upper Peninsula. Of the 200 named falls in our directory, which places Michigan fourth in the nation, all but one are north of the Straits of Mackinac. The reason is bedrock. The western Upper Peninsula sits on the southern edge of the Canadian Shield, with some of the oldest rock in North America, along with the lava flows and conglomerates of the Keweenaw Peninsula and the hard iron-bearing formations around Marquette. Rivers draining north to Lake Superior must descend a few hundred feet over these resistant layers in a short distance, and they do it in steps.",
+    "Further east, Cambrian sandstone forms the cliffs of Pictured Rocks and an escarpment that streams spill off near Munising. In the Lower Peninsula, by contrast, thick glacial deposits bury the bedrock and the terrain is gentle, so natural falls are rare. The Upper Peninsula's heavy lake-effect snowfall, especially near Lake Superior, builds a deep snowpack that drives a strong spring melt, and the rivers often carry a tea-colored stain from tannins leached out of cedar swamps and bogs upstream. The Upper Peninsula's sparse population means that many falls sit in deep forest at the end of long gravel roads, while a handful of the most famous are easy roadside or boardwalk stops."
+  ],
+  "regions": [
+    {
+      "name": "Western Upper Peninsula and Keweenaw",
+      "counties": [
+        "Gogebic",
+        "Ontonagon",
+        "Iron",
+        "Houghton",
+        "Keweenaw"
+      ],
+      "text": "Gogebic County, with 42 listed falls, leads the state. Along the Black River north of Bessemer, a string of falls including Great Conglomerate, Potawatomi, Sandstone and Rainbow drop through a forested valley on the way to Lake Superior, with vertical drops of 25 to 45 feet recorded by USGS. The Presque Isle River and the Porcupine Mountains add more. In Ontonagon County, Bond Falls on the Middle Branch Ontonagon River spreads over a broad rock face with a 50-foot drop and a walkway across the river. Houghton and Keweenaw counties feature falls over volcanic rock on the copper-mining peninsula."
+    },
+    {
+      "name": "Marquette and Baraga Highlands",
+      "counties": [
+        "Marquette",
+        "Baraga",
+        "Dickinson",
+        "Delta",
+        "Menominee"
+      ],
+      "text": "The rugged hills between L'Anse and Marquette, including the Huron Mountains, hold dozens of falls on rivers such as the Sturgeon, Dead and Yellow Dog. Canyon Falls in Baraga County sits at the head of a narrow rock gorge on the Sturgeon River south of L'Anse, and Dead River Falls in Marquette County is a sequence of drops through a rocky, wooded gorge. Many falls in these counties lie at the end of rough two-track roads. Southward, Dickinson, Delta and Menominee counties have gentler terrain, with falls on rivers draining toward Lake Michigan and Green Bay."
+    },
+    {
+      "name": "Pictured Rocks and the Eastern UP",
+      "counties": [
+        "Alger",
+        "Luce",
+        "Chippewa"
+      ],
+      "text": "Around Munising, sandstone layers form a cliffline that streams pour over on their way to Lake Superior. Pictured Rocks National Lakeshore contains Munising Falls, Miners Falls and Sable Falls, while Wagner Falls and Laughing Whitefish Falls are protected as state scenic sites. Horseshoe Falls is a privately run attraction with an admission fee. Further east in Luce County, the Upper Falls of the Tahquamenon River is one of the largest waterfalls east of the Mississippi and among the most visited in Michigan, with its distinctive amber water. The Lower Falls lie a few miles downstream within the same state park."
+    },
+    {
+      "name": "Northern Lower Peninsula",
+      "counties": [
+        "Presque Isle"
+      ],
+      "text": "South of the Straits, waterfalls are nearly absent because thick glacial sediments blanket the bedrock. Ocqueoc Falls in Presque Isle County is the notable exception and one of the most reviewed falls in the state. The Ocqueoc River runs over low limestone ledges in a wooded setting, creating a series of small, wide cascades and pools popular for wading in summer. The site has a universally accessible design, allowing visitors using wheelchairs to reach the water's edge. It is a modest fall by Upper Peninsula standards, but it is the most notable natural waterfall in the Lower Peninsula."
+    }
+  ],
+  "bestTime": "Spring snowmelt is the main event. In the Upper Peninsula, melt typically runs from April into late May, depending on elevation and distance from Lake Superior, and the falls are at their most powerful then. Some seasonal roads and two-tracks remain snowbound or muddy into May. By June, black flies and mosquitoes are thick in the woods, especially near wetlands, and flows begin to settle. Summer brings comfortable temperatures and the busiest crowds at Tahquamenon, Bond Falls and Pictured Rocks. Fall color usually peaks from late September to early October, making it one of the most popular times to visit. Winter is long and snowy, and some falls freeze into impressive ice formations, with ice climbing near Munising, but many roads are not plowed.",
+  "planning": "Michigan's falls are spread across the Ottawa and Hiawatha national forests, Pictured Rocks National Lakeshore, state parks such as Tahquamenon Falls and Porcupine Mountains Wilderness, state forests and scenic sites, and large tracts of commercial forest. State parks require a Michigan Recreation Passport for vehicle entry, and some national forest sites have their own fees. Many lesser-known falls in Gogebic, Baraga and Marquette counties are reached by unmarked two-track roads that can be washed out, muddy or blocked by fallen trees, so high-clearance vehicles and offline maps help. Cell service is spotty. Hazards include cold, fast water in spring, steep riverbanks, slippery rock, and remote terrain. Bring insect protection from late May through July.",
+  "faqs": [
+    {
+      "q": "Why are almost all Michigan waterfalls in the Upper Peninsula?",
+      "a": "The Upper Peninsula has hard, exposed bedrock and rivers that drop toward Lake Superior, while the Lower Peninsula is covered by thick glacial deposits with little relief. That geology leaves the Lower Peninsula with very few natural falls."
+    },
+    {
+      "q": "Why is the water at Tahquamenon Falls brown?",
+      "a": "The Tahquamenon River drains cedar, spruce and hemlock swamps, which release tannins that stain the water an amber or root-beer color. The color is natural and not a sign of pollution."
+    }
+  ]
+}

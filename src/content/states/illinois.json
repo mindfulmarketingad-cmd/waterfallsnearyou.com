@@ -1,0 +1,31 @@
+{
+  "state": "Illinois",
+  "overview": [
+    "Illinois is one of the flattest states in the country, and that goes a long way toward explaining why our directory lists only six named waterfalls here, ranking it 41st nationally. Repeated advances of continental ice sheets planed most of the state into a broad till plain, filling old valleys with glacial sediment and leaving gentle gradients that favor meandering rivers over falling water. The exceptions occur where bedrock is exposed and streams have cut down into it, mostly along river bluffs and in the southern tip of the state.",
+    "The most important of those exceptions is the Shawnee Hills, an unglaciated band of rugged country across far southern Illinois. Here, layers of resistant Pennsylvanian sandstone form cliffs, bluffs and overhangs, and creeks drop off their edges as seasonal, rain-fed falls. Pope and Johnson counties hold the best examples. In the north, sandstone canyons along the Illinois River and small ravines carved into the glacial plain near Chicago produce a handful of modest cascades, while the Great Falls of the Illinois River at Marseilles is a river rapid on a much larger scale."
+  ],
+  "regions": [
+    {
+      "name": "Shawnee Hills",
+      "counties": ["Pope", "Johnson"],
+      "text": "The Shawnee National Forest covers much of this ridged, wooded corner of Illinois, where sandstone bluffs rise above narrow hollows. Burden Falls in Pope County, the most reviewed waterfall in the state, drops over a series of sandstone ledges in a wilderness area of the forest, and it can be remarkably full after heavy rain and nearly dry during a drought. Cedar Falls in Johnson County, near Vienna, is a similar wet-weather plunge from a sandstone rim into a shaded canyon. Both reflect the region's character: short, rain-fed drops framed by moss, ferns and rock shelters."
+    },
+    {
+      "name": "Northern River Valleys",
+      "counties": ["DuPage", "LaSalle", "Adams"],
+      "text": "Northern and western Illinois offer a scattered set of smaller falls tied to river valleys. In DuPage County, Waterfall Glen Forest Preserve near Lemont contains two small drops on Canyon Creek, recorded by USGS at roughly 3 and 8 feet. In LaSalle County, the Great Falls of the Illinois River near Marseilles is a broad stretch of fast water over bedrock on the state's namesake river. Homan Falls in Adams County, near Quincy, is a small cascade in the hilly country close to the Mississippi River, where tributary streams have cut ravines into bedrock as they descend toward the river."
+    }
+  ],
+  "bestTime": "Illinois waterfalls depend almost entirely on recent rainfall. The best window is late winter through spring, roughly March to early June, when storms are frequent and soils are already saturated, so runoff reaches the creeks quickly. Burden Falls and Cedar Falls in the Shawnee Hills are at their best within a day or two after a soaking rain and can be barely trickling during dry stretches in late summer and early fall. Northern Illinois falls follow the same pattern, with spring thaw adding to early-season flow. Summer brings heat, humidity, ticks and mosquitoes to the southern hollows. Fall color in the Shawnee usually peaks in late October, but flow is often low then unless autumn rains are generous. Prolonged cold snaps occasionally create icy formations on the bluffs.",
+  "planning": "The southern Illinois falls lie within the Shawnee National Forest, where some trailheads are at the end of gravel roads and parts of the forest are designated wilderness with minimal trail markings and no facilities. The northern sites are in county forest preserves and public river corridors, which tend to have marked trails and parking. Hazards include slippery sandstone ledges and unfenced bluff edges above the Shawnee falls, steep informal paths to the bases, and flash rises in narrow canyons during storms. In the north, the Illinois River near Marseilles has powerful currents and a nearby lock and dam, so stay well back from the water. Check locally for seasonal road conditions in the Shawnee after heavy rains, when low-water crossings can flood.",
+  "faqs": [
+    {
+      "q": "Does Illinois really have waterfalls?",
+      "a": "Yes, though they are few and mostly small. The best are rain-fed falls in the Shawnee Hills of southern Illinois, such as Burden Falls in Pope County and Cedar Falls in Johnson County."
+    },
+    {
+      "q": "Is there a waterfall near Chicago?",
+      "a": "Waterfall Glen Forest Preserve near Lemont in DuPage County has small cascades on Canyon Creek. They are modest in size but easy to reach from the Chicago area."
+    }
+  ]
+}

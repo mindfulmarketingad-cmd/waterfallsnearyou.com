@@ -1,0 +1,64 @@
+{
+  "state": "Pennsylvania",
+  "overview": [
+    "Pennsylvania's waterfalls cluster in the glaciated northeast, where the Appalachian Plateau meets the Pocono uplands. During the last ice age, glaciers reached into this part of the state, scouring valleys, damming old streams and leaving behind deranged drainage. As meltwater and later streams cut new paths off the plateau edges, they encountered resistant sandstone and conglomerate layers of the Catskill and Pocono formations and spilled over them in steep, stair-stepped glens. Our directory lists 95 named falls in Pennsylvania, tenth nationally. Southwestern Pennsylvania, beyond the glacial limit, owes its falls to resistant sandstone in the Laurel Highlands instead.",
+    "Luzerne County leads the state with 25 named falls, and Sullivan County adds 11, largely because of the concentration of cascades in the Ricketts Glen area on the plateau's edge. Pike and Monroe counties, in the Poconos along the Delaware River, hold 27 more, where tributaries drop off the plateau to the Delaware Water Gap corridor. In southwestern Pennsylvania, the Laurel Highlands of Fayette, Somerset and Westmoreland counties form a second cluster, centered on the Youghiogheny River gorge at Ohiopyle. Western Pennsylvania adds gorge falls in Lawrence County near the Ohio line."
+  ],
+  "regions": [
+    {
+      "name": "Ricketts Glen and the North Branch",
+      "counties": [
+        "Luzerne",
+        "Sullivan",
+        "Wyoming",
+        "Lackawanna",
+        "Tioga"
+      ],
+      "text": "The glens on the southern edge of the North Mountain plateau hold Pennsylvania's greatest concentration of falls. In Ricketts Glen State Park, which straddles Luzerne and Sullivan counties, two branches of Kitchen Creek descend through old-growth hemlock forest in a long series of named falls connected by the Falls Trail, a steep, rocky route with dozens of stone steps. The Laporte area of Sullivan County adds more remote falls in state forest land. To the east, Nay Aug Falls in Scranton is an urban gorge falls with observation decks, and Wyoming and Tioga counties add scattered falls in the plateau's deep valleys."
+    },
+    {
+      "name": "Poconos and the Delaware Water Gap",
+      "counties": [
+        "Pike",
+        "Monroe",
+        "Wayne",
+        "Carbon",
+        "Schuylkill"
+      ],
+      "text": "Tributaries of the Delaware River drop off the Pocono Plateau in a series of short, steep ravines. Within the Delaware Water Gap National Recreation Area, Dingmans Falls, described as 130 feet high, and nearby Silverthread Falls are reached by a boardwalk trail, and Raymondskill Falls descends in three tiers near Milford. Bushkill Falls, the state's most reviewed waterfall, is a privately owned park with eight falls and a network of trails and bridges. Around East Stroudsburg and Mountainhome, Monroe County adds more, while Hawk Falls in Hickory Run State Park in Carbon County is reached on a short forest trail."
+    },
+    {
+      "name": "Laurel Highlands",
+      "counties": [
+        "Fayette",
+        "Somerset",
+        "Westmoreland",
+        "Cambria"
+      ],
+      "text": "Southwestern Pennsylvania's falls are set on the high ridges of Laurel Hill and Chestnut Ridge and in the gorges that cut through them. At Ohiopyle State Park, Ohiopyle Falls spans the Youghiogheny River, a broad drop known for marking the start of the river's whitewater runs, and Cucumber Falls nearby can be viewed from above or reached by stairs to its base. Cole Run Falls in Somerset County and Adams Falls in Linn Run State Park in Westmoreland County are smaller, shaded falls in forest settings. Cambria County adds small falls on steep tributary streams near Johnstown."
+    },
+    {
+      "name": "Western Pennsylvania Gorges",
+      "counties": [
+        "Lawrence",
+        "Beaver",
+        "Mercer",
+        "Crawford",
+        "Erie"
+      ],
+      "text": "Northwestern Pennsylvania was glaciated, and meltwater carved steep gorges into the sandstone of the region. In Lawrence County, McConnells Mill State Park protects the gorge of Slippery Rock Creek, and Hells Hollow Falls is a small, pretty fall reached by a short trail in the same park. Quakertown Falls is another Lawrence County site. Beaver, Mercer and Crawford counties add scattered falls along creek valleys, and Erie County's single named fall lies near the Lake Erie shore, where small streams cut ravines through layered shale on their way to the lake."
+    }
+  ],
+  "bestTime": "Spring is the strongest season across Pennsylvania, from roughly March through May, when snowmelt and rain fill the plateau streams. The glens of Ricketts Glen and the Pocono ravines run at their best then, and the falls can be spectacular after heavy rain at any time of year. Summer flows often decline, though shaded glens remain cool, and July and August bring the heaviest crowds to the Poconos and Ohiopyle. October offers colorful hardwood forests and fewer visitors on weekdays. Winter can freeze the falls into ice formations, but the Falls Trail at Ricketts Glen becomes hazardous and its use in icy conditions is restricted.",
+  "planning": "Most of Pennsylvania's falls are on public land, including state parks, state forests, state game lands and the Delaware Water Gap National Recreation Area, though Bushkill Falls is a private attraction with an admission charge. State parks such as Ricketts Glen and Ohiopyle draw large crowds on summer weekends, and parking fills early. The most common hazards are wet rock and steep, uneven trails: the Falls Trail at Ricketts Glen involves many slippery stone steps and is strenuous in any conditions. On the Youghiogheny and Slippery Rock Creek, strong currents and undercut rocks make wading and swimming near falls dangerous. Some smaller falls sit on private property, so look for posted signs.",
+  "faqs": [
+    {
+      "q": "Where is the largest concentration of waterfalls in Pennsylvania?",
+      "a": "Ricketts Glen State Park, on the line between Luzerne and Sullivan counties, holds a long series of named falls along Kitchen Creek. The Poconos of Pike and Monroe counties have the next largest cluster."
+    },
+    {
+      "q": "Is Bushkill Falls a state park?",
+      "a": "No. Bushkill Falls in Pike County is a privately owned park with eight waterfalls and about 2 miles of trails, and it charges admission. Nearby Dingmans Falls and Raymondskill Falls are on National Park Service land."
+    }
+  ]
+}

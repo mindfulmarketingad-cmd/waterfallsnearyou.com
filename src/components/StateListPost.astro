@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import Faq from './Faq.astro';
+import { getStateLists, listsForState, BEST_YEAR } from '../lib/bestof.mjs';
+import { imageFor } from '../lib/core.mjs';
+import { listingImage, listingImageAlt, imgFallback, directionsUrl, fmtNum, fmtMiles, stars, listJoin } from '../lib/format.mjs';
+import { SITE } from '../config.mjs';
+
+interface Props { url: string }
+const post = getStateLists().find((p) => p.url === Astro.props.url);
+const { state, items, content } = post;
+const image = imageFor(post.url);
+const updated = new Date();
+const updatedText = updated.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: `${post.short} in ${state.name}`, url: post.url }];
+const first = items[0].listing;
+const towns = [...new Set(items.map((i) => i.listing.city))].slice(0, 8);
+const siblings = listsForState(state).filter((p) => p !== post);
+const others = getStateLists().filter((p) => p.kind === post.kind && p !== post).sort((a, b) => Math.hypot(a.state.center.lat - state.center.lat, a.state.center.lng - state.center.lng) - Math.hypot(b.state.center.lat - state.center.lat, b.state.center.lng - state.center.lng)).slice(0, 6);
+const label = { best: 'best', beautiful: 'most beautiful', 'must-see': 'must-see', hiking: 'best hiking' }[post.kind];
+const faqs = [
+  { q: `What is the ${label === 'must-see' ? 'number one must-see' : label} waterfall in ${state.name}?`, a: `${first.name} tops our ${BEST_YEAR} list${first.os?.rating ? `, with a ${first.os.rating.toFixed(1)}-star rating from ${fmtNum(first.os.reviews)} Google reviews` : ''}. It is near <a href="${first.city.url}">${first.city.name}</a>${first.county ? ` in ${first.county} County` : ''}.` },
+  { q: `How was this list made?`, a: post.method },
+  ...(post.route ? [{ q: `Can you see all five in one trip?`, a: `The five are about ${Math.round(post.route.total)} straight-line miles apart in total when visited in the order suggested above. Most people split them across two or more days.` }] : []),
+  { q: `How many waterfalls are in ${state.name}?`, a: `Our directory lists ${state.listings.length} named waterfalls in ${state.name}. See them all, sorted by town, in the <a href="${state.url}">${state.name} waterfall guide</a>.` },
+  ...(content?.faqs?.slice(post.kind === 'best' ? 0 : post.kind === 'beautiful' ? 1 : 0, post.kind === 'best' ? 1 : 2).slice(0, 1) || []),
+];
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    image: `${SITE.url}${image}`,
+    datePublished: `${BEST_YEAR}-01-01T00:00:00.000Z`,
+    dateModified: updated.toISOString(),
+    mainEntityOfPage: `${SITE.url}${post.url}`,
+    author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` },
+    publisher: { '@id': `${SITE.url}/#organization` },
+    about: { '@type': 'State', name: state.name },
+  },
+  { '@type': 'ItemList', name: post.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={post.title} description={post.description} image={image} imageAlt={post.imageAlt} type="article" modified={updated.toISOString()} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
+  <article>
+    <header class="wrap narrow" style="padding-top:22px">
+      <span class="eyebrow">{state.name} · Updated {updatedText}</span>
+      <h1>{post.title}</h1>
+      <p class="lead">
+        {post.kind === 'best' && `Of the ${state.listings.length} named waterfalls in ${state.name}, these ${items.length} earn the strongest visitor ratings, led by ${listJoin(items.slice(0, 3).map((i) => i.listing.name))}.`}
+        {post.kind === 'beautiful' && `Ranked by what visitors photograph and rate five stars, these are the ${items.length} most beautiful of ${state.name}'s ${state.listings.length} named waterfalls, starting with ${items[0].listing.name}.`}
+        {post.kind === 'must-see' && `If you only have time for five ${state.name} waterfalls, make it these: the state's most visited falls, spread out so the list covers ${post.regionsUsed.length > 1 ? `the ${listJoin(post.regionsUsed.slice(0, 3))}` : 'more ground'}.`}
+        {post.kind === 'hiking' && `These ${items.length} ${state.name} waterfalls are reached on foot and rated highly by the people who hiked them, led by ${listJoin(items.slice(0, 3).map((i) => i.listing.name))}.`}
+        {post.kind !== 'must-see' && post.regionsUsed.length > 1 ? ` The list spans the ${listJoin(post.regionsUsed.slice(0, 3))}.` : ''}
+      </p>
+      <img class="feature" src={image} alt={post.imageAlt} width="1200" height="630" fetchpriority="high" style="border-radius:14px;margin:18px 0 8px;aspect-ratio:1200/630;width:100%" />
+    </header>
+
+    <div class="wrap narrow">
+      <nav class="panel" aria-label="The list" style="margin:20px 0">
+        <h2 style="font-size:1.05rem">The {items.length} {label} waterfalls in {state.name}</h2>
+        <ol style="margin:0;padding-left:1.3em;columns:2 220px">{items.map((i, n) => <li><a href={`#w${n + 1}`}>{i.listing.name}</a></li>)}</ol>
+      </nav>
+
+      <div class="prose">
+        <h2>How We Picked</h2>
+        <p>{post.method} Every waterfall links to a full page with coordinates, maps and nearby falls.</p>
+      </div>
+
+      <ol class="best-list">
+        {items.map(({ listing: l, why, region }, n) => (
+          <li id={`w${n + 1}`}>
+            <h2><span class="best-num">{n + 1}.</span> <a href={l.url}>{l.name}</a></h2>
+            <p class="muted small">{l.city.name}, {state.code}{l.county ? ` · ${l.county} County` : ''}{region ? ` · ${region.name}` : ''}</p>
+            <img src={listingImage(l)} onerror={imgFallback(l)} alt={listingImageAlt(l)} width="1200" height="630" loading={n < 2 ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" />
+            {l.os?.rating && <p class="rating"><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span>{l.os.rating.toFixed(1)} <span class="count">({fmtNum(l.os.reviews)} Google reviews)</span></p>}
+            <h3>{post.whyHeading}</h3>
+            <p>{why.join(' ')}</p>
+            <div class="li-actions">
+              <a class="btn btn-primary" href={l.url}>Full details and map</a>
+              <a class="btn btn-outline" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Directions</a>
+              <a class="btn btn-outline" href={l.city.url}>More near {l.city.name}</a>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      {post.route && (
+        <div class="prose">
+          <h2>A Route Linking All Five</h2>
+          <p>Starting from the northernmost pick and always heading to the nearest remaining one, the five cover about {Math.round(post.route.total)} straight-line miles. Road distances are longer.</p>
+          <ol>
+            <li><a href={post.route.legs[0].from.url}>{post.route.legs[0].from.name}</a> (start, near {post.route.legs[0].from.city.name})</li>
+            {post.route.legs.map((g) => <li><a href={g.to.url}>{g.to.name}</a>, about {fmtMiles(g.miles)} {g.dir}</li>)}
+          </ol>
+        </div>
+      )}
+
+      {content && (
+        <div class="prose">
+          <h2>When to Visit {state.name}'s Waterfalls</h2>
+          <p>{content.bestTime}</p>
+          <h2>Before You Go</h2>
+          <p>{content.planning}</p>
+          <p>Read our <a href="/blog/waterfall-safety-tips">waterfall safety rules</a> and <a href="/blog/what-to-pack-for-a-waterfall-hike">packing list</a> before heading out.{post.kind === 'beautiful' && <> For better pictures, see our <a href="/blog/waterfall-photography-tips">waterfall photography tips</a>.</>}{post.kind === 'hiking' && <> Hiking with children? Read <a href="/blog/waterfall-hikes-with-kids">waterfall hikes with kids</a>.</>}</p>
+        </div>
+      )}
+
+      <div class="prose">
+        <h2>Explore More {state.name} Waterfalls</h2>
+        <p>See all {state.listings.length} waterfalls in the <a href={state.url}>{state.name} waterfall guide</a>, or browse by town: {towns.map((c, i) => <>{i ? ', ' : ''}<a href={c.url}>{c.name}</a></>)}.</p>
+      </div>
+
+      {siblings.length > 0 && (
+        <div class="panel" style="margin-top:28px">
+          <h2 style="font-size:1.15rem">More {state.name} Waterfall Lists</h2>
+          <ul class="nearby-list">{siblings.map((p) => <li><a href={p.url}><span>{p.title}</span></a></li>)}</ul>
+        </div>
+      )}
+
+      <div style="margin:36px 0"><Faq faqs={faqs} /></div>
+    </div>
+  </article>
+
+  <section class="bg-mist section-sm">
+    <div class="wrap">
+      <h2>{post.short} in Nearby States</h2>
+      <ul class="tile-list">{others.map((p) => <li><a href={p.url}><span>{p.state.name}</span><span class="count">{p.items.length}</span></a></li>)}</ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .best-list { list-style: none; padding: 0; margin: 28px 0; display: flex; flex-direction: column; gap: 44px; }
+  .best-list h2 { margin: 0 0 4px; }
+  .best-list h2 a { color: var(--slate-dark); text-decoration: none; }
+  .best-list h2 a:hover { color: var(--forest); text-decoration: underline; }
+  .best-num { color: var(--forest); }
+  .best-list img { border-radius: var(--radius); aspect-ratio: 1200 / 630; object-fit: cover; width: 100%; margin: 12px 0; background: var(--mist); }
+  .best-list h3 { font-size: 1.05rem; margin: 10px 0 6px; }
+</style>

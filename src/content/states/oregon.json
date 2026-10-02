@@ -1,0 +1,67 @@
+{
+  "state": "Oregon",
+  "overview": [
+    "Oregon ranks first in our directory with 249 named waterfalls, and the reasons are written in basalt and rain. Over millions of years, vast lava flows spread across the Columbia River region and the Cascade Range, stacking layer upon layer of hard volcanic rock. Where rivers cut down through these flows, the resistant basalt holds up as cliffs and ledges, often with softer layers between that erode back and leave water free-falling. At the end of the last ice age, the enormous Missoula Floods scoured the Columbia River Gorge, steepening its walls and leaving side streams hanging high above the river, which is why the Gorge holds such a dense concentration of tall falls.",
+    "Climate does the rest. Pacific storms drop heavy rain on the Coast Range and western Cascades from autumn through spring, and deep snowpack in the High Cascades sustains summer flow in rivers like the McKenzie and the North Umpqua. Lane, Douglas and Marion counties lead the state, followed by the Gorge counties of Multnomah and Hood River. East of the Cascades, the land dries out quickly, and falls become sparser, though canyon falls appear in the Blue Mountains, the Wallowas and along the Deschutes. Even there, rimrock basalt can create surprising drops after spring runoff."
+  ],
+  "regions": [
+    {
+      "name": "Columbia River Gorge",
+      "counties": [
+        "Multnomah",
+        "Hood River",
+        "Wasco"
+      ],
+      "text": "The Oregon side of the Gorge has one of the densest clusters of tall waterfalls in North America, many of them lined up along the Historic Columbia River Highway east of Troutdale. Multnomah Falls, an upper and lower fall more than 600 feet tall in total, is the most visited natural site in the state. Latourell Falls, Bridal Veil Falls and Horsetail Falls are short walks from the old highway, and Wahclella Falls drops in two tiers on Tanner Creek near Cascade Locks. Basalt cliffs, moss, ferns and mist define this region, and its falls run year-round."
+    },
+    {
+      "name": "Central Cascades and Willamette Foothills",
+      "counties": [
+        "Marion",
+        "Linn",
+        "Lane",
+        "Clackamas",
+        "Deschutes"
+      ],
+      "text": "Along the western slope of the Cascades, rivers drain toward the Willamette Valley through forested canyons rich in falls. Silver Falls State Park in Marion County contains a celebrated series, including South Falls and North Falls, which USGS records at 177 and 136 feet. Abiqua Falls in Marion County drops into a basalt amphitheater. On the McKenzie River in Linn County, Sahalie and Koosah falls pour over young lava flows, and Salt Creek Falls in Lane County plunges 286 feet near Willamette Pass. East of the crest, Tumalo Falls drops about 97 feet in the Deschutes National Forest near Bend."
+    },
+    {
+      "name": "Umpqua and Rogue Country",
+      "counties": [
+        "Douglas",
+        "Jackson",
+        "Josephine",
+        "Klamath",
+        "Curry"
+      ],
+      "text": "Southern Oregon is a major waterfall region in its own right. Douglas County, second in the state, includes the North Umpqua corridor east of Glide, where many falls lie a short distance off the highway amid old-growth forest and columnar basalt. The upper Rogue River in Jackson County flows through lava tubes and narrow gorges, and Josephine County's falls lie in the older, more complex rock of the Klamath-Siskiyou Mountains. Klamath and Curry counties add falls at the southern end of the Cascades and in the coastal mountains. This region is less crowded than the Gorge and rewards longer road trips."
+    },
+    {
+      "name": "Coast Range",
+      "counties": [
+        "Tillamook",
+        "Clatsop",
+        "Lincoln",
+        "Coos",
+        "Washington",
+        "Yamhill",
+        "Polk",
+        "Benton",
+        "Columbia"
+      ],
+      "text": "The Coast Range receives some of the heaviest rainfall in the continental United States, and its streams fall off basalt and sandstone ledges through dense forests of Douglas fir, Sitka spruce and western hemlock. Drift Creek Falls in Lincoln County is viewed from a suspension bridge over a canyon, and Youngs River Falls in Clatsop County spills into a pool in a forested setting near Astoria. Tillamook State Forest holds falls such as Fern Rock Falls, and Coos County has its own cluster in the southern Coast Range. Coastal falls run strongest in winter and spring, when Pacific storms bring steady rain."
+    }
+  ],
+  "bestTime": "Oregon's waterfall seasons vary by region. West of the Cascades, rain-fed falls in the Gorge and Coast Range run highest from November through May, with spring offering the best mix of full flow, green moss and longer daylight. Winter visits can be spectacular, but east winds through the Gorge sometimes bring ice storms that coat trails and roads. In the High Cascades, falls on snowmelt-fed rivers such as the McKenzie and North Umpqua peak in late spring and early summer, though roads and trails at higher elevations may remain snowbound into June. Summer is dry, and smaller coastal falls shrink, but snow-fed and spring-fed falls keep running. Fall brings the return of rain in October or November and vine maple color. Wildfire smoke can affect visibility in late summer.",
+  "planning": "Oregon's falls are mostly on public land: the Columbia River Gorge National Scenic Area, national forests such as the Mount Hood, Willamette, Umpqua and Deschutes, and state parks including Silver Falls. Many national forest trailheads require a recreation pass such as the Northwest Forest Pass, and several state parks charge day-use parking fees. In recent years, the busiest stretch of the Historic Columbia River Highway has used a seasonal timed-use permit system, so check current requirements before driving there in summer. Parking at Multnomah Falls and other Gorge sites fills early on weekends. Hazards include slick mossy basalt, cliff edges, cold and powerful water, falling rock, winter ice, and wildfire-related trail closures. Stay behind railings and on maintained trails.",
+  "faqs": [
+    {
+      "q": "Why does Oregon have so many waterfalls?",
+      "a": "Thick layers of hard basalt from ancient lava flows create cliffs that streams pour over, and heavy Pacific rainfall plus Cascade snowmelt keep those streams running. The Missoula Floods also carved the Columbia River Gorge, leaving many tributaries dropping over its walls."
+    },
+    {
+      "q": "What is the most visited waterfall in Oregon?",
+      "a": "Multnomah Falls in the Columbia River Gorge is by far the most reviewed waterfall in our directory, with more than 6,000 Google reviews. It drops more than 600 feet in two tiers."
+    }
+  ]
+}

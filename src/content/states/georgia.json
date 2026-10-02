@@ -1,0 +1,36 @@
+{
+  "state": "Georgia",
+  "overview": [
+    "Nearly all of Georgia's waterfalls are packed into a small slice of the state: the Blue Ridge Mountains that cross its northern border, plus the ridge and plateau country of the far northwest. The Blue Ridge here forms part of the Eastern Continental Divide, and its southern and eastern edge drops steeply toward the Piedmont. Streams falling off that escarpment, over hard metamorphic rock such as gneiss and schist, create the tall slides and plunges found in Rabun, White, Lumpkin and Union counties. Our directory lists 36 named waterfalls in Georgia, ranking it 21st nationally, with Rabun County alone holding ten.",
+    "Rainfall is a large part of the story. The northeast Georgia mountains are among the wettest places in the eastern United States, keeping creeks running through most of the year. In the northwest corner, Lookout and Pigeon mountains are part of the Cumberland Plateau, where sandstone caprock creates canyon-rim falls quite different from the Blue Ridge cascades. South of the mountains, the Piedmont and coastal plain hold few natural drops, though shoals do occur along the fall line, and an isolated waterfall such as the one in Coffee County is the exception rather than the rule."
+  ],
+  "regions": [
+    {
+      "name": "Northeast Georgia Mountains",
+      "counties": ["Rabun", "White", "Habersham", "Stephens", "Towns"],
+      "text": "Rabun County, in the state's northeast corner, has more waterfalls than any other Georgia county, scattered through the Chattahoochee National Forest around Clayton and Mountain City. Mud Creek Falls is among the highest-rated here. Nearby White County is home to Anna Ruby Falls, a double waterfall reached by driving through Unicoi State Park to a visitor center, and Dukes Creek Falls, where a trail with views of Mount Yonah descends to a viewing platform. To the east, Toccoa Falls in Stephens County drops off the edge of the Blue Ridge onto the Piedmont, while Hemlock Falls in Towns County is a quieter forest cascade."
+    },
+    {
+      "name": "North Georgia Blue Ridge",
+      "counties": ["Lumpkin", "Union", "Fannin", "Dawson", "Pickens"],
+      "text": "West of Rabun, the Blue Ridge spreads across Lumpkin, Union, Fannin and Dawson counties, where the Appalachian Trail begins its northbound run. Amicalola Falls, in the state park of the same name in Dawson County, is often described as the tallest waterfall in Georgia and is counted among the state's Seven Natural Wonders. Helton Creek Falls in Union County is a short, family-friendly walk to two drops, and DeSoto Falls in Lumpkin County has upper and lower falls along a forest trail. Sea Creek Falls in Fannin County is a small cascade reached by a short walk, and USGS records a long series of falls on a Frogtown Creek tributary near Neels Gap."
+    },
+    {
+      "name": "Northwest Ridges and Lookout Mountain",
+      "counties": ["Walker", "Dade", "Polk"],
+      "text": "Georgia's northwest corner belongs to a different geologic province. Lookout Mountain and Pigeon Mountain are flat-topped ridges capped with sandstone, and the folded Valley and Ridge country lies to their east. Keown Falls in Walker County drops off a sandstone rim on Johns Mountain and can slow to a trickle in dry weather. Lula Falls, also in Walker County, is reached by a steep trail and is open only at limited times. Dade County contains Cloudland Canyon on the western edge of Lookout Mountain. Polk County, further south, holds a lone waterfall on the edge of the ridge country."
+    }
+  ],
+  "bestTime": "Georgia's mountain waterfalls flow most strongly from late winter through spring, when frequent rain systems and occasional snowmelt keep streams high. March through May also brings wildflowers, and rhododendron and mountain laurel bloom along many trails from late spring into early summer. Summer remains a good time thanks to steady afternoon thunderstorms, although popular sites like Anna Ruby, Amicalola and Helton Creek are crowded on weekends. Fall color usually peaks in the northeast mountains in late October, which draws heavy traffic to Helen, Dahlonega and Clayton, and dry autumns can reduce flow noticeably. Keown Falls and other plateau-rim falls in the northwest are more seasonal and are best visited after rain. Winter offers solitude, and hard freezes occasionally create ice formations at higher elevations.",
+  "planning": "Most north Georgia falls lie in the Chattahoochee National Forest, with others in state parks such as Amicalola Falls and Unicoi, and a few on private or institutional land. Anna Ruby Falls is a fee area, and Georgia State Parks charge a daily parking fee. Toccoa Falls is located on the Toccoa Falls College campus, and Lula Falls is privately managed with limited open days, so check before going. Forest service roads to trailheads can be gravel and narrow. The main hazards are slick rock at the tops of falls, where serious and sometimes fatal accidents have occurred, and fast-rising water after summer storms. Weekend parking fills early at the most popular sites during summer and fall color season.",
+  "faqs": [
+    {
+      "q": "What is the tallest waterfall in Georgia?",
+      "a": "Amicalola Falls in Dawson County is often described as the tallest waterfall in Georgia and is one of the state's Seven Natural Wonders. It is the centerpiece of Amicalola Falls State Park."
+    },
+    {
+      "q": "Which north Georgia town is the best base for waterfall trips?",
+      "a": "Clayton in Rabun County puts the greatest number of falls within reach, while Helen and Dahlonega are close to Anna Ruby Falls, Dukes Creek Falls and DeSoto Falls."
+    }
+  ]
+}

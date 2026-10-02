@@ -1,0 +1,87 @@
+{
+  "state": "New York",
+  "overview": [
+    "New York ranks second in our directory with 221 named falls, and almost every major landform in the state contributes. Continental glaciers did much of the work: they gouged the long troughs of the Finger Lakes, leaving tributary streams hanging high above the lakes, and those streams have since cut deep gorges through layered shale and limestone. In the Adirondacks, ice scoured ancient crystalline rock and rearranged drainage, so rivers flowing out of the mountains tumble over countless ledges. The Niagara Escarpment, a resistant band of dolostone, produces Niagara Falls and other drops across western New York.",
+    "The distribution in the brief reflects that variety. St. Lawrence County alone holds 42 named falls, many on rivers such as the Raquette, Grasse and Oswegatchie as they descend from the Adirondack uplands to the St. Lawrence lowland. Essex County in the High Peaks adds 22, and Lewis County, on the edge of the snowy Tug Hill Plateau, has 13. The Catskills and Shawangunks of Ulster and Greene counties hold some of the most visited falls, while Tompkins, Schuyler and neighboring counties form the famous Finger Lakes gorge country. Western New York, from Niagara to the Genesee, adds some of the largest river falls in the East."
+  ],
+  "regions": [
+    {
+      "name": "Adirondacks and the St. Lawrence Valley",
+      "counties": [
+        "St. Lawrence",
+        "Essex",
+        "Franklin",
+        "Hamilton",
+        "Clinton",
+        "Warren",
+        "Herkimer",
+        "Fulton"
+      ],
+      "text": "Northern New York holds the largest concentration of named falls in the state. Rivers draining the Adirondack dome drop repeatedly as they cross from hard Precambrian rock onto the lowlands, and many of these falls are near small towns such as Hannawa Falls, Canton and Gouverneur, where they once powered mills and now feed hydroelectric plants. In Essex County, falls in the High Peaks around Lake Placid and Elizabethtown are wilder, often reached by forest trails along mountain brooks or found in rocky gorges cut by the Ausable and Boquet rivers. Hamilton and Franklin counties add falls deep in the lake country around Tupper Lake and Lake Pleasant."
+    },
+    {
+      "name": "Tug Hill and the Black River Country",
+      "counties": [
+        "Lewis",
+        "Jefferson",
+        "Oneida",
+        "Oswego",
+        "Onondaga",
+        "Madison"
+      ],
+      "text": "The Tug Hill Plateau, east of Lake Ontario, receives some of the heaviest lake-effect snowfall in the eastern United States, and its meltwater feeds streams that cut sharp gorges into layered limestone and shale at the plateau's edges. Salmon River Falls in Oswego County, one of the most reviewed falls in the state, plunges into a broad gorge on the plateau's western side. Lewis County, around Lowville, holds many falls on tributaries descending to the Black River, and Jefferson County's falls lie on rivers flowing toward Lake Ontario. South of the plateau, Onondaga and Madison counties add gorge falls in the hill country near Syracuse."
+    },
+    {
+      "name": "Finger Lakes and Western New York",
+      "counties": [
+        "Tompkins",
+        "Schuyler",
+        "Seneca",
+        "Cayuga",
+        "Yates",
+        "Livingston",
+        "Wyoming",
+        "Monroe",
+        "Niagara",
+        "Steuben",
+        "Cortland",
+        "Chenango",
+        "Genesee",
+        "Chautauqua",
+        "Cattaraugus",
+        "Tioga"
+      ],
+      "text": "Few places pack in waterfalls like the Finger Lakes. Around Ithaca, Ithaca Falls lies within walking distance of downtown, Taughannock Falls drops into a deep amphitheater in its state park, and Lucifer Falls tumbles through the gorge of Robert H. Treman State Park. In Schuyler County, Shequaga Falls drops right in the village of Montour Falls and Hector Falls can be seen from a bridge on Route 414. Carpenter Falls in Cayuga County spills off a limestone overhang. Farther west, the Genesee River descends through deep gorges in Livingston and Wyoming counties, and Niagara County holds American Falls and the rest of Niagara Falls."
+    },
+    {
+      "name": "Catskills, Hudson and Mohawk Valleys",
+      "counties": [
+        "Ulster",
+        "Greene",
+        "Delaware",
+        "Sullivan",
+        "Albany",
+        "Columbia",
+        "Schoharie",
+        "Otsego",
+        "Washington",
+        "Saratoga",
+        "Montgomery",
+        "Orange"
+      ],
+      "text": "Southeastern New York's falls are set in steep, forested mountains close to the Hudson Valley. Kaaterskill Falls, a two-tiered drop on Spruce Creek in the Catskills of Greene County, is one of the oldest tourist attractions in the country and a subject of Hudson River School painters. In Ulster County, the Shawangunk Ridge holds Verkeerder Kill Falls and other drops over white quartz conglomerate, while the eastern Catskills hide falls in narrow cloves. To the north, Cohoes Falls on the Mohawk River near its junction with the Hudson is a broad, powerful drop. Otsego, Delaware and Schoharie counties add quieter falls in rolling hill country."
+    }
+  ],
+  "bestTime": "Spring is prime waterfall season across New York. Snowmelt and rain usually push the Adirondack and Tug Hill rivers to their highest levels from April into May, and the Finger Lakes gorges run strongly through spring. Many smaller gorge falls drop to a thin veil in July and August, though Niagara and other large river falls flow steadily all year. Autumn brings outstanding foliage, peaking in the Adirondacks in late September and early October and later in the Catskills and Finger Lakes, and fall rains often restore flows. Winter freezes many falls into ice sculptures, but some Finger Lakes gorge trails close for the season because of ice and rockfall.",
+  "planning": "Most well-known falls are in state parks managed by New York State Parks or on state Forest Preserve and other lands managed by the Department of Environmental Conservation; the Adirondack and Catskill parks are a patchwork of public and private land, so posted boundaries matter. Popular parks such as Watkins Glen, Taughannock and Niagara Falls charge vehicle fees and become crowded on summer weekends, and Kaaterskill Falls parking fills early. Gorge rims are the chief hazard: shale and limestone edges crumble, ledges are wet and slippery, and fatal falls have occurred at several sites, including the upper ledges of Kaaterskill Falls. Swimming in gorges is often prohibited outside designated areas. Stay on marked trails and behind barriers.",
+  "faqs": [
+    {
+      "q": "Why does New York have so many waterfalls?",
+      "a": "Glaciers reshaped nearly the whole state, leaving hanging valleys in the Finger Lakes, disrupted drainage in the Adirondacks and steep escarpments in the west. Combined with ample rain and snow, that produces the second-highest count of named falls in our directory."
+    },
+    {
+      "q": "Which county in New York has the most waterfalls?",
+      "a": "St. Lawrence County, with 42 named falls in our directory, mostly on rivers descending from the Adirondacks toward the St. Lawrence River. Essex County in the High Peaks is next with 22."
+    }
+  ]
+}

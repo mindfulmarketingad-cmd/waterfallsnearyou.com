@@ -1,0 +1,36 @@
+{
+  "state": "Arizona",
+  "overview": [
+    "Arizona is better known for dry canyons than falling water, yet our directory lists 30 named waterfalls here, ranking the state 23rd nationally. Most of them owe their existence to elevation and to rock that has been cut deeply by water over millions of years. The Colorado Plateau in the north is layered sedimentary rock, and where side canyons of the Grand Canyon carry spring water or snowmelt, they drop over resistant ledges and travertine terraces. More than a third of the state's listed falls, 11 of 30, sit in Coconino County, home to the Grand Canyon, Havasu Canyon and the Little Colorado River.",
+    "Farther south, the Basin and Range country is broken by isolated mountain ranges, often called sky islands, that catch winter storms and summer monsoon rain. Creeks draining these ranges, such as those above Tucson in Pima County, run over smooth granite and gneiss and produce short-lived falls after wet spells. Between the plateau and the desert, the Mogollon Rim and the central highlands of Gila, Yavapai and Greenlee counties add a scattering of forested canyon falls. A few listings in the far southwest, like Tinajas Altas in Yuma County, are rock basins that hold rainwater rather than flowing streams, which says a lot about how precious water is in this landscape."
+  ],
+  "regions": [
+    {
+      "name": "Grand Canyon and Colorado Plateau",
+      "counties": ["Coconino", "Mohave", "Apache"],
+      "text": "The canyon country of northern Arizona holds the state's most famous falls. Havasu Falls and Beaver Falls lie in Havasu Canyon on the Havasupai Indian Reservation, where mineral-rich spring water builds travertine and colors the pools a striking blue-green. Inside Grand Canyon National Park, Ribbon Falls and Deer Creek Falls reward long inner-canyon hikes or river trips, while Cheyava Falls flows only seasonally. On the Navajo Nation northeast of Flagstaff, Grand Falls is a broad series of drops on the Little Colorado River that runs muddy brown when it runs at all. Mohave County adds remote canyon falls near Peach Springs and Meadview on the western end of the canyon."
+    },
+    {
+      "name": "Southern Arizona Sky Islands",
+      "counties": ["Pima", "Cochise", "Graham", "Pinal"],
+      "text": "Around Tucson, the Santa Catalina and Rincon mountains rise abruptly from the Sonoran Desert, and their canyons funnel rain and snowmelt over bare granite. Tanque Verde Falls and Chiva Falls sit in rugged terrain east of the city, and Bridal Wreath Falls is a hiking destination in the Rincon Mountains. These falls are highly seasonal: they can pour impressively after a wet winter or a strong monsoon storm and shrink to a trickle or dry ledge within weeks. Similar ephemeral falls appear in the ranges of Cochise, Graham and Pinal counties. The contrast of saguaros, bare rock and running water is the main appeal of this region."
+    },
+    {
+      "name": "Mogollon Rim and Central Highlands",
+      "counties": ["Gila", "Yavapai", "Greenlee"],
+      "text": "The broad escarpment of the Mogollon Rim and the mountains below it form a transition zone between plateau and desert, with ponderosa pine, oak and juniper replacing cactus. Workman Creek Falls in the Sierra Ancha of Gila County is one of the better-known falls here, dropping off a forested mountain bench. Yavapai County listings near Camp Verde and Mayer sit in the drainages of the Verde and Agua Fria rivers, and Greenlee County falls lie in the rough mountain country around Morenci. Flows depend on winter snowpack at higher elevations and on summer monsoon storms, so the region is at its liveliest in early spring and late summer."
+    }
+  ],
+  "bestTime": "Arizona waterfalls follow two water seasons rather than one. The first comes from winter storms and snowmelt, usually peaking from late winter into spring, when the sky island falls near Tucson and Grand Falls on the Little Colorado River are most likely to be running. The second is the summer monsoon, typically July through September, when afternoon thunderstorms can switch on dry falls within hours but also bring flash floods. Late spring and early summer, roughly May and June, are usually the driest and hottest stretch, and many falls go dry. Havasu Canyon's spring-fed falls flow year-round, though summer heat in the canyons is intense. Higher elevations on the Mogollon Rim and the Grand Canyon's North Rim see winter snow that limits access.",
+  "planning": "Land ownership matters more in Arizona than in most states. Havasu Falls and its neighbors are on Havasupai tribal land, where visits require advance reservations through the tribe, and Grand Falls is on the Navajo Nation, which sets its own access rules. Grand Canyon National Park manages the inner-canyon falls, and backcountry overnight trips there need permits. Most other falls are in national forests such as the Coronado and Tonto. Flash floods are the defining hazard: a storm miles upstream can send a wall of water through a slot or narrow canyon with no rain overhead. Smooth granite near falls like Tanque Verde is notoriously slick, and heat, dehydration and long unshaded approaches cause many rescues. Carry more water than seems necessary.",
+  "faqs": [
+    {
+      "q": "Why is the water at Havasu Falls so blue-green?",
+      "a": "The spring water feeding Havasu Creek is rich in dissolved calcium carbonate, which reflects light in blue and green tones and deposits travertine around the pools. Muddy floodwater can temporarily turn the creek brown after storms."
+    },
+    {
+      "q": "Do Arizona waterfalls flow all year?",
+      "a": "Only a few, mainly spring-fed falls like those in Havasu Canyon. Most others, including Grand Falls and the falls near Tucson, depend on snowmelt or monsoon rain and are dry for much of the year."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "state": "South Dakota",
+  "overview": [
+    "Most of South Dakota is prairie and rolling plains, where rivers wander across thick glacial and sedimentary deposits with little gradient, so it is no surprise that the state has only 7 named falls in our directory, ranking it 40th nationally. Nearly all of them are found in the one place where the land rises sharply: the Black Hills. This isolated mountain range on the state's western edge is an uplifted dome with a core of ancient granite and metamorphic rock, ringed by tilted layers of limestone and sandstone. East of the Missouri River, glaciers left a low, rolling surface with few ledges.",
+    "Streams draining the Black Hills have cut deep canyons through those layers, and where they cross resistant limestone ledges they form small, attractive falls set among ponderosa pine and spruce. Lawrence County, in the northern Hills around Spearfish and Lead, holds three of the named falls, all in or near Spearfish Canyon. Pennington County, around Rapid City, adds two more, and Fall River County in the southern Hills has Cascade Falls near Hot Springs. The lone exception on the plains is the falls of the Big Sioux River, which gave the city of Sioux Falls its name as the river tumbles over hard pink Sioux quartzite in the state's southeastern corner."
+  ],
+  "regions": [
+    {
+      "name": "Black Hills",
+      "counties": [
+        "Lawrence",
+        "Pennington",
+        "Fall River"
+      ],
+      "text": "Spearfish Canyon in the northern Black Hills is the state's waterfall showcase, a deep limestone canyon followed by a scenic byway. Bridal Veil Falls is visible from a roadside pullout, while Spearfish Falls and Roughlock Falls are reached by short trails near the community of Savoy; Roughlock Falls lies in a state-managed nature area on Little Spearfish Creek. Near Rapid City, Pennington County's falls include Thunderhead Falls, which drops inside an old mining tunnel as a private attraction. In the far southern Hills, Cascade Falls near Hot Springs is fed by warm springs, giving it a mild temperature and a popular swimming hole."
+    },
+    {
+      "name": "Sioux Falls and the Eastern Plains",
+      "counties": [
+        "Minnehaha"
+      ],
+      "text": "On the eastern prairie, the Big Sioux River drops over a series of ledges of Sioux quartzite, an extremely hard, pinkish rock that resists erosion far better than the surrounding glacial deposits. The falls became the founding reason for the city of Sioux Falls, and early settlers used them to power mills. Today they are the centerpiece of Falls Park near downtown, where paths, overlooks and the ruins of a historic mill frame a broad cascade rather than a single tall drop. The falls are fullest during spring runoff and after heavy rains, when the river carries noticeably more water across the quartzite ledges."
+    }
+  ],
+  "bestTime": "Spring is usually the best time for South Dakota's falls. In the Black Hills, snowmelt and spring rains raise the creeks from April through June, and May and June combine good flows with green canyons. Spearfish Canyon is especially popular in late September and early October, when aspen and birch turn gold against the limestone walls. Summer brings the heaviest tourist traffic to the Black Hills, along with afternoon thunderstorms that can briefly swell streams. In winter, Spearfish Canyon's falls partly freeze into ice formations, and snow makes the canyon quiet and striking. Cascade Falls, fed by warm springs, is pleasant even in cooler months, while the Big Sioux at Sioux Falls is most impressive during spring runoff.",
+  "planning": "The Black Hills falls lie largely within the Black Hills National Forest and state-managed areas, with Thunderhead Falls a private, fee-based attraction. Spearfish Canyon is narrow, and parking at the trailheads near Savoy fills on summer and autumn weekends. Limestone and wet rock along the canyon trails are slippery, and the creeks are cold. Black Hills canyons are prone to flash flooding during intense summer thunderstorms; Rapid City's 1972 flood remains one of the deadliest in the region's history, a reminder to avoid streambeds during heavy rain. In the southern Hills, watch for rattlesnakes in warm weather. At Falls Park in Sioux Falls, stay off the rocks and out of the river, where currents are strong.",
+  "faqs": [
+    {
+      "q": "Where are the best waterfalls in South Dakota?",
+      "a": "Spearfish Canyon in the northern Black Hills holds the state's best-known group, including Spearfish Falls, Roughlock Falls and Bridal Veil Falls. Cascade Falls near Hot Springs and the falls of the Big Sioux River in Sioux Falls are the other main attractions."
+    },
+    {
+      "q": "Why is Cascade Falls warm?",
+      "a": "Cascade Falls near Hot Springs is fed by warm springs rising in the southern Black Hills. The water stays mild compared with other Black Hills streams, which makes the pool popular for swimming."
+    }
+  ]
+}

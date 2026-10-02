@@ -1,0 +1,39 @@
+{
+  "state": "Missouri",
+  "overview": [
+    "Missouri is known for springs, caves and clear rivers rather than waterfalls, and the reason lies underground. Most of southern Missouri sits on the Ozark Plateau, a broad dome of limestone and dolomite riddled with sinkholes and cave passages. In this karst landscape, much of the rainfall soaks into the ground and travels through fractures and conduits before emerging at springs, so surface streams are fewer and gentler than the hilly terrain might suggest. Our directory lists six named waterfalls in Missouri, ranking it 42nd nationally. Instead, the Ozarks are famous for large springs, losing streams and caves.",
+    "The exceptions occur where harder rock breaks through. In the St. Francois Mountains of southeast Missouri, ancient volcanic rocks such as rhyolite and granite rise above the surrounding dolomite, and creeks crossing them form shut-ins, chutes and small falls. Elsewhere, falls form where streams cross resistant ledges of chert or limestone in the western Ozarks, or where tributaries drop into larger valleys in the north. North of the Missouri River, glacial deposits smooth out the land and falls are rare, though one listed fall lies in Andrew County. The few falls that remain are mostly modest, but some are set in striking scenery."
+  ],
+  "regions": [
+    {
+      "name": "The Ozarks and St. Francois Mountains",
+      "counties": [
+        "Shannon",
+        "Iron",
+        "Ozark",
+        "Newton"
+      ],
+      "text": "Southern Missouri holds the state's best-known falls. Rocky Falls in Shannon County, within the Ozark National Scenic Riverways, spills down a broad face of pinkish volcanic rock into a wide pool that is popular for wading and swimming. In Iron County, Mina Sauk Falls cascades down the flank of Taum Sauk Mountain, the highest point in Missouri, and is reached by a rugged loop trail; it flows best in wet weather. In the western Ozarks near Joplin, Shoal Creek Falls is a wide ledge drop on Shoal Creek, and Ozark County near Gainesville has a smaller, little-known fall."
+    },
+    {
+      "name": "Northern River Country",
+      "counties": [
+        "Andrew",
+        "St. Louis (city)"
+      ],
+      "text": "North and east of the Ozarks, Missouri's falls are linked to its great rivers. Rochester Falls in Andrew County, in the state's northwest corner, is a small fall and one of the very few in this glaciated part of Missouri. In St. Louis, USGS records the Chain of Rocks, a natural bed of rock that extends some 1,600 feet from the Missouri shore of the Mississippi River and once created hazardous rapids for river traffic. These sites show how rare natural drops are outside the Ozark uplands."
+    }
+  ],
+  "bestTime": "Spring is the most dependable season for Missouri waterfalls, typically from March through early June, when frequent storms keep Ozark streams running. Mina Sauk Falls in particular is strongly seasonal and may be little more than a trickle in dry periods, so visiting within a few days of heavy rain makes a real difference. Summer is hot and humid; Rocky Falls draws crowds of swimmers in July and August even when flow is modest. Late summer and early fall are typically the driest stretch. Fall foliage in the Ozarks usually peaks around mid to late October and can be paired with autumn rains. Winter is generally mild in the southern part of the state, and occasional freezes can coat rocks with ice, adding hazard to steep trails.",
+  "planning": "Missouri's top falls are on public land: Rocky Falls is part of the Ozark National Scenic Riverways, managed by the National Park Service, and Mina Sauk Falls is in Taum Sauk Mountain State Park. Other sites are in city or county parks or near private land, so confirm access before visiting smaller falls. Ozark roads are often narrow, winding and gravel in places, and low-water crossings can flood quickly during storms. The trail to Mina Sauk Falls is rocky and uneven. Hazards include slick volcanic rock at Rocky Falls, sudden rises in small streams after thunderstorms, ticks and chiggers in warm weather, and summer heat. Swimming holes are popular, but water depth and currents can change after rain.",
+  "faqs": [
+    {
+      "q": "What is the best-known waterfall in Missouri?",
+      "a": "Rocky Falls in Shannon County, within the Ozark National Scenic Riverways, is the most reviewed waterfall in our directory for Missouri. Mina Sauk Falls on Taum Sauk Mountain and Shoal Creek Falls near Joplin are also well known."
+    },
+    {
+      "q": "Why does Missouri have so few waterfalls despite its hills?",
+      "a": "Much of the Ozarks is karst, where water drains underground through limestone and dolomite and reappears at springs. Waterfalls mainly form where harder volcanic rock or resistant ledges are exposed, which happens in only a few places."
+    }
+  ]
+}

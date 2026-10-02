@@ -1,0 +1,41 @@
+{
+  "state": "Washington",
+  "overview": [
+    "Washington ranks third in our directory with 212 named falls, and the reason is a near-perfect waterfall recipe on the western half of the state. Moist Pacific air drives heavy rain and deep snow onto the Olympic Mountains and the Cascade Range, and both ranges were carved by glaciers into steep valleys with hanging tributaries. The Cascades add volcanic landforms around Mount Rainier, Mount St. Helens and Mount Baker, where lava flows and glacier-fed rivers create cliffs and ledges. Pierce County, which includes much of Mount Rainier National Park, leads the state with 35 named falls, followed by Snohomish, Lewis and King counties.",
+    "East of the Cascades the climate turns dry, but the landscape still produces striking falls of a different kind. Vast layers of Columbia River basalt cover the interior, and at the end of the last ice age, repeated catastrophic floods from glacial Lake Missoula tore across this plateau, scouring channels and leaving dry falls and abrupt cliffs. Palouse Falls, which drops into a deep basalt canyon in the southeast, is the most famous result. In the northeast, the Spokane, Pend Oreille and Okanogan country adds falls on rivers descending from forested highlands."
+  ],
+  "regions": [
+    {
+      "name": "Mount Rainier and the South Cascades",
+      "counties": ["Pierce", "Lewis", "Skamania", "Clark", "Cowlitz", "Klickitat", "Yakima", "Thurston"],
+      "text": "Mount Rainier's glaciers feed dozens of streams that drop off the volcano's flanks, and the park and the surrounding foothills hold more named falls than any other part of the state. Narada Falls, a two-tiered cascade beside the road to Paradise, is among the most visited. Near Eatonville, Little Mashel Falls lies in forested foothills. Farther south, Skamania County takes in the Washington side of the Columbia River Gorge and the Gifford Pinchot National Forest, where Falls Creek Falls is reached by a forest trail near Carson. Clark County's Moulton Falls, on the East Fork Lewis River, is a popular local park with a high arched bridge."
+    },
+    {
+      "name": "North Cascades and the Snoqualmie Corridor",
+      "counties": ["Snohomish", "King", "Whatcom", "Skagit", "Chelan", "Okanogan", "Kittitas"],
+      "text": "The mountain highways east of Seattle and Bellingham pass some of Washington's best-known falls. Snoqualmie Falls, described as 270 feet tall, drops into a gorge beside an observation deck and a historic hydroelectric plant, and is the most reviewed waterfall in the state. Up the Interstate 90 corridor, Franklin Falls tumbles in three tiers on the South Fork Snoqualmie. Along US 2, Eagle Falls near Index and Deception Falls near Stevens Pass are short stops from the highway. To the north, Nooksack Falls drops into a narrow gorge on the Mount Baker Highway, and Chelan and Okanogan counties add falls on the drier eastern slope of the Cascades."
+    },
+    {
+      "name": "Olympic Peninsula and Puget Sound",
+      "counties": ["Clallam", "Jefferson", "Mason", "Kitsap", "San Juan", "Pacific"],
+      "text": "The Olympic Mountains receive some of the heaviest precipitation in the contiguous United States, and their rainforest valleys are threaded with mossy cascades. In Olympic National Park near Lake Crescent, Marymere Falls drops about 90 feet at the end of a short trail through old-growth forest, and Sol Duc Falls splits into several channels as the Sol Duc River plunges into a narrow slot. Jefferson and Mason counties include falls on the eastern side of the Olympics, facing Hood Canal. The San Juan Islands, Kitsap Peninsula and Pacific coast add a handful of small falls, usually at their best during the wet winter months."
+    },
+    {
+      "name": "Columbia Plateau and Northeast Washington",
+      "counties": ["Stevens", "Spokane", "Downtown Spokane", "Lincoln", "Pend Oreille", "Grant", "Ferry", "Whitman", "Franklin", "Adams", "Columbia"],
+      "text": "Eastern Washington's falls are shaped by basalt and by the Ice Age floods that swept across the region. Palouse Falls, described as dropping 200 feet into a winding canyon, is the centerpiece of a state park in Franklin County and is one of the most dramatic sights in the interior Northwest. In Spokane, Spokane Falls roars through the city center beside Riverfront Park, especially during spring runoff. Lincoln County's Hawk Creek Falls lies near Lake Roosevelt, and Stevens, Pend Oreille and Ferry counties hold falls on forested rivers near Kettle Falls and the Canadian border. Grant County's coulees preserve dry falls left by the floods."
+    }
+  ],
+  "bestTime": "West of the Cascades, rain sustains falls for much of the year, but the most powerful flows come with spring snowmelt from about April through June and again with autumn and winter rains. Higher falls such as those around Paradise on Mount Rainier are often snowbound until early summer, so July and August are the main season there. In eastern Washington, Palouse Falls and Spokane Falls peak with spring runoff, usually from March to May, and both drop considerably by late summer. Winter brings heavy rain at low elevations and deep snow in the mountains, closing some park roads and making approaches like the Franklin Falls trail prone to avalanches. Summer weekends bring the heaviest crowds.",
+  "planning": "Washington's falls are split among national parks, national forests and state lands. State parks and Department of Natural Resources lands generally require a Discover Pass, while many national forest trailheads require a Northwest Forest Pass or interagency pass, and the national parks charge entrance fees. Popular trailheads along I-90 and US 2 fill early on weekends, and Snoqualmie Falls draws crowds year-round. Hazards vary by region: in the Cascades and Olympics, cold, swift glacial and snowmelt rivers, moss-slick logs and rocks, and winter avalanche paths; at Palouse Falls, unfenced basalt cliffs where people have fallen to their deaths. Wildfire smoke and closures can affect eastern Cascade trails in late summer.",
+  "faqs": [
+    {
+      "q": "What is the most visited waterfall in Washington?",
+      "a": "Snoqualmie Falls in King County is by far the most reviewed in our directory, thanks to its observation deck, park and location close to Seattle. Franklin Falls and Palouse Falls are the next most reviewed."
+    },
+    {
+      "q": "Why is Palouse Falls in such a dry landscape?",
+      "a": "Palouse Falls was shaped by enormous Ice Age floods from glacial Lake Missoula, which carved canyons and cliffs into the basalt of the Columbia Plateau. The Palouse River still flows over the resulting cliff, even though the surrounding region is semi-arid."
+    }
+  ]
+}

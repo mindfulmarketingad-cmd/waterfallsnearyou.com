@@ -1,0 +1,41 @@
+{
+  "state": "California",
+  "overview": [
+    "California's waterfalls owe most of their drama to the Sierra Nevada. During the last ice ages, glaciers deepened the main river canyons of the range's western slope into steep-walled granite valleys, leaving tributary streams hanging high above the valley floors. Yosemite Valley is the classic example, with Bridalveil Fall and Yosemite Falls plunging over its walls. Our directory lists 189 named falls in the state, fifth nationally, and Mariposa County alone accounts for 24 of them, with Tuolumne, Madera, Fresno and Tulare counties extending the pattern south through the range.",
+    "Outside the Sierra, volcanic geology shapes the north. In Shasta and Siskiyou counties, porous lava flows around Mount Shasta and Lassen absorb snowmelt and release it as large springs, which is why Burney Falls and Mossbrae Falls keep flowing when most of the state is dry. Elsewhere, coastal ranges and the Transverse Ranges of Southern California hold smaller falls on seasonal creeks. California's Mediterranean climate is the key constraint: nearly all precipitation falls between late autumn and spring, so many waterfalls are spectacular in May and a dry streak of rock by September."
+  ],
+  "regions": [
+    {
+      "name": "Yosemite and the Western Sierra",
+      "counties": ["Mariposa", "Tuolumne", "Madera", "Fresno", "Tulare", "El Dorado", "Placer", "Sierra"],
+      "text": "The western slope of the Sierra Nevada holds the densest concentration of named falls in the state. In Yosemite Valley, Bridalveil Fall drops over the south wall, while Vernal Fall and Nevada Fall step down the Merced River's granite staircase above the valley. Tuolumne County covers the park's northern country, including Hetch Hetchy. Farther south, Madera, Fresno and Tulare counties take in the high country around Sequoia and Kings Canyon, with Three Rivers as a gateway town. North of Yosemite, El Dorado County's Bassi Falls flows over broad granite slabs in the Crystal Basin area. Granite here is smooth, polished and very slippery when wet."
+    },
+    {
+      "name": "Eastern Sierra and Owens Valley",
+      "counties": ["Mono", "Inyo", "Alpine"],
+      "text": "The Sierra's eastern escarpment rises abruptly from the Great Basin, and its creeks fall steeply toward Bridgeport, Mammoth Lakes and Big Pine. Snowmelt feeds most of these falls, so they run hardest in early summer and shrink in autumn. Bridgeport and the June Lake and Mammoth areas are the main bases for exploring them. In Inyo County, Fossil Falls is an unusual dry fall: a polished basalt chute carved by an ancient river that no longer flows there, set in desert volcanic terrain south of the Owens Valley."
+    },
+    {
+      "name": "Shasta Cascade and the Klamath Mountains",
+      "counties": ["Shasta", "Siskiyou", "Tehama", "Trinity", "Plumas", "Butte", "Lassen", "Modoc", "Del Norte", "Humboldt"],
+      "text": "Northern California's volcanic and mountain country accounts for more than 40 of the state's named falls. Burney Falls, the most reviewed waterfall in California in our directory, pours from spring outlets in porous lava as well as from its creek, giving it a steady flow even in late summer. Mossbrae Falls near Dunsmuir similarly emerges from springs beside the upper Sacramento River. Around McCloud, a series of falls on the McCloud River lies close to the road. West of Interstate 5, the Klamath and Trinity mountains near Happy Camp hold more remote falls on wild river tributaries, many reached only by forest roads."
+    },
+    {
+      "name": "Coast Ranges and Southern California Mountains",
+      "counties": ["San Bernardino", "San Diego", "Santa Cruz", "Riverside", "Marin", "Monterey", "Santa Barbara", "Santa Clara", "Ventura", "Los Angeles", "Imperial", "San Luis Obispo"],
+      "text": "Along the coast and in the southern mountains, falls are smaller and highly seasonal. McWay Falls in Big Sur drops onto a cove beach and is viewed from an overlook, while Alamere Falls in Point Reyes spills off a coastal bluff onto the sand. The Santa Cruz Mountains around Boulder Creek hold redwood-shaded cascades. In Southern California, Sturtevant Falls in the San Gabriel Mountains and Bonita Falls in Lytle Creek are local favorites, and Tahquitz Falls lies in a canyon above Palm Springs. Most of these creeks depend on winter storms, and many dwindle to a trickle by early summer."
+    }
+  ],
+  "bestTime": "Timing depends on elevation. Low-elevation coastal and Southern California falls peak during and just after winter storms, typically January through April, and often fade by June. Sierra Nevada falls follow the snowpack: in Yosemite, flows usually build in April, peak in May and June, and decline through July, with some falls dry by late summer in an average year. Big snow years extend the season; drought years shorten it sharply. Spring-fed falls in Shasta and Siskiyou counties are the exception and are worthwhile in any season. High Sierra roads such as the Tioga Road and those to the eastern trailheads usually remain closed into late spring, and summer weekends bring heavy crowds to Yosemite Valley and other well-known sites.",
+  "planning": "California's falls are spread across national parks, national forests, state parks and county or regional open space, with a few on tribal land. In Yosemite and other heavily visited parks, the National Park Service has used vehicle reservation systems during busy periods in recent years, so checking current entry requirements before travel is wise. Many trailheads in Southern California fill early on weekends. The most serious hazards are swift, cold snowmelt and slick granite: people regularly die after slipping into rivers above waterfalls in the Sierra, especially in late spring. In the southern mountains and deserts, sudden storms can produce flash floods in narrow canyons, and summer heat makes midday hiking risky. Wildfire closures can also affect forest access in late summer and autumn.",
+  "faqs": [
+    {
+      "q": "When are Yosemite's waterfalls at their best?",
+      "a": "Usually in May and June, when snowmelt from the high country is at its peak. By late summer some of the valley's falls shrink dramatically or stop flowing altogether, depending on the previous winter's snowpack."
+    },
+    {
+      "q": "Which California waterfalls flow year-round?",
+      "a": "Spring-fed falls in the volcanic north are the most reliable, notably Burney Falls in Shasta County and Mossbrae Falls in Siskiyou County. Larger river falls such as Vernal Fall on the Merced River also keep flowing, though at much lower volume in autumn."
+    }
+  ]
+}

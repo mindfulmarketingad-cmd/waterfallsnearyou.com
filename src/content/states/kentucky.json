@@ -1,0 +1,54 @@
+{
+  "state": "Kentucky",
+  "overview": [
+    "Kentucky's waterfalls are tied to the Cumberland Plateau and the sandstone escarpments along its western edge. Thick, erosion-resistant sandstone and conglomerate cap much of eastern Kentucky, and where streams cut through that caprock into softer shale beneath, the shale wears back to leave an overhanging ledge with a waterfall pouring off it. The same process creates the region's rock shelters, arches and gorges. Our directory lists 18 named falls in Kentucky, ranking it 31st nationally, though the state has many more small, unnamed cascades in its ravines. Rainfall is plentiful year-round, but the shallow soils on the plateau shed water quickly, so many falls respond within hours to a storm.",
+    "The named falls concentrate in the south-central part of the state, in McCreary and Whitley counties near the Tennessee line, where the Cumberland River and Big South Fork carve deep gorges through the plateau. A second cluster lies around the Red River Gorge and the Knobs region to the north and east. Farther west, falls are rarer, though the state shares one notable feature with Indiana: the Falls of the Ohio at Louisville, a series of river rapids over ancient limestone that once forced boats to portage around them. Karst country in the central and western parts of the state sends much of its water underground instead."
+  ],
+  "regions": [
+    {
+      "name": "Cumberland Plateau and Big South Fork",
+      "counties": [
+        "McCreary",
+        "Whitley",
+        "Wayne",
+        "Clinton",
+        "Rockcastle",
+        "Casey"
+      ],
+      "text": "The deep sandstone gorges of south-central Kentucky hold the state's best-known falls. Cumberland Falls, on the Cumberland River near Corbin, is a broad curtain of water over a sandstone ledge and is famous for the moonbow that can appear in its mist on clear nights near the full moon. Nearby Eagle Falls drops into a pool below a rock ledge, and Dog Slaughter Falls lies in the Daniel Boone National Forest. Yahoo Falls, in the Big South Fork area, pours over a large rock shelter. Seventy Six Falls in Clinton County empties toward Lake Cumberland, and Anglin Falls in Rockcastle County lies at the end of a forest preserve trail."
+    },
+    {
+      "name": "Red River Gorge and the Eastern Knobs",
+      "counties": [
+        "Wolfe",
+        "Menifee",
+        "Owsley",
+        "Carter",
+        "Lawrence"
+      ],
+      "text": "North of the Cumberland region, the Red River Gorge area and the hills of northeastern Kentucky hold a scattering of smaller falls. This is country of sandstone arches, cliffs and narrow hollows, much of it in the Daniel Boone National Forest. Broken Leg Falls in Menifee County drops into a rock-walled hollow, and other named falls in Wolfe and Owsley counties occupy similar ravines near Campton and Booneville. Farther northeast, Lick Falls in Carter County lies near Grayson Lake, where sandstone cliffs line the reservoir. These falls are usually seasonal, running well in winter and spring and thinning noticeably by late summer."
+    },
+    {
+      "name": "Ohio Valley and Western Kentucky",
+      "counties": [
+        "Jefferson",
+        "Meade",
+        "Henry",
+        "Allen"
+      ],
+      "text": "Away from the plateau, Kentucky's waterfalls are few and widely spread. The most significant is the Falls of the Ohio at Louisville, a stretch of rapids where the Ohio River crosses fossil-rich limestone beds; dams and the locks around them have tamed the falls, but the exposed rock remains notable for its fossils. Meade County, along the Ohio downstream, and Henry County, in the rolling country between Louisville and Frankfort, each hold one named fall. Allen County near the Tennessee border adds another in the karst-influenced landscape of south-central Kentucky, where much water travels underground rather than over ledges."
+    }
+  ],
+  "bestTime": "Kentucky's falls depend on rainfall, and the wettest, most reliable period generally runs from late winter through spring. From about February into May, most falls on the Cumberland Plateau and in the Red River Gorge flow well, and wildflowers fill the ravines in April. By late summer and early autumn many smaller falls shrink to a trickle, though Cumberland Falls on a large river runs year-round. Autumn color, usually peaking in late October, makes for good scenery even when flows are modest. Hard freezes in January occasionally create ice formations. For the Cumberland Falls moonbow, clear nights around the full moon are required, and those dates draw crowds.",
+  "planning": "Kentucky's best-known falls are on public land: Cumberland Falls State Resort Park, the Daniel Boone National Forest, the Big South Fork National River and Recreation Area, and state nature preserves such as the one around Anglin Falls. Some preserves restrict pets, swimming or off-trail travel, so it is worth reading posted rules. Smaller falls may sit on private property. Sandstone ledges above falls are often covered in moss and wet leaves and are very slippery, and cliff falls are a recurring cause of injuries in the Red River Gorge area. Above Cumberland Falls the river current is strong, so stay out of the water there. Seventy Six Falls depends partly on Lake Cumberland's level, which changes how much of the drop is visible.",
+  "faqs": [
+    {
+      "q": "What is the moonbow at Cumberland Falls?",
+      "a": "It is a rainbow formed by moonlight in the falls' mist, visible on clear nights around the full moon. Cumberland Falls is one of very few places in the world where a moonbow appears with some regularity."
+    },
+    {
+      "q": "Why are most Kentucky waterfalls in the south-central part of the state?",
+      "a": "That area lies on the Cumberland Plateau, where resistant sandstone sits above softer shale. Rivers cutting into the plateau form ledges and gorges, which creates far more waterfalls than the gentler limestone country to the west."
+    }
+  ]
+}

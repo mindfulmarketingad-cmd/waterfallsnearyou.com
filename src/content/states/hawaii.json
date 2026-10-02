@@ -1,0 +1,36 @@
+{
+  "state": "Hawaii",
+  "overview": [
+    "Hawaii's waterfalls come from a simple but powerful combination: young volcanic mountains rising thousands of feet out of the Pacific and persistent northeast trade winds that drop heavy rain on their windward slopes. Our directory lists 112 named falls in the islands, eighth nationally, almost all of them on Kauai, Hawaii Island and Maui. Rain falling on basalt quickly finds fractures and lava tubes, but on the older, more weathered slopes it gathers into streams that have cut deep valleys and cliffs, and those valleys end in tall, narrow falls.",
+    "Island age shapes the pattern. Kauai, the oldest of the main islands, has been eroded the longest, which is why it has the most named falls in our directory, along with deeply carved valleys and the sheer cliffs of the Na Pali coast. On Hawaii Island, falls concentrate on the wet Hilo and Hamakua side, where streams drop over the flanks of Mauna Kea toward the sea. Maui's falls cluster on the windward slopes of Haleakala along the road to Hana and in the West Maui Mountains. Leeward coasts on every island are much drier and have few falls."
+  ],
+  "regions": [
+    {
+      "name": "Kauai",
+      "counties": ["Kauai"],
+      "text": "Kauai leads the state with 40 named falls. Its central peaks are among the rainiest places on Earth, and the runoff has carved the island into ridges, valleys and amphitheater-headed canyons. On the east side near Wailua, Wailua Falls is a roadside double fall seen from an overlook, and Opaekaa Falls is viewed from a distance across a lush valley. Hoopii Falls near Kapaa is reached by a muddy forest trail. On the north shore, Hanakapiai Falls lies inland along the Na Pali coast, while the Waimea and Kalaheo areas on the drier west side give access to canyon-rim views of falls in Waimea Canyon and the interior."
+    },
+    {
+      "name": "Hawaii Island: Hilo and the Hamakua Coast",
+      "counties": ["Hawaii"],
+      "text": "On the Big Island, nearly all of the 37 named falls lie on the windward northeast side between Hilo and Waimea. Streams fed by the rains on Mauna Kea's slopes cut steep gulches across the Hamakua Coast and spill over old lava flows on their way to the ocean. In Hilo, Rainbow Falls drops over a lava ledge on the Wailuku River and is known for rainbows in morning sun, while Waiale Falls is a short distance upstream. North of town, Akaka Falls is reached by a short loop through tropical plants in a state park. Kulaniapia Falls sits on private land outside Hilo."
+    },
+    {
+      "name": "Maui and Oahu",
+      "counties": ["Maui", "Honolulu"],
+      "text": "Maui's 30 named falls cluster along the windward flanks of Haleakala, where the Hana Highway crosses stream after stream, and in the deep valleys of the West Maui Mountains. At the far end of the Hana road, Waimoku Falls is reached by a trail up the Pipiwai Stream in the Kipahulu district of Haleakala National Park. Oahu has fewer named falls but some of the most visited. Manoa Falls lies in a rainforest valley just above Honolulu, Maunawili Falls lies on the windward side below the Koolau Range, and Waimea Falls on the North Shore sits within a botanical garden reached by a paved path."
+    }
+  ],
+  "bestTime": "Hawaii has falls year-round, but flow depends on recent rain far more than on season. The wetter months generally run from about October through April, when winter storms add to trade-wind showers and falls along the Hana Highway, the Hamakua Coast and Kauai's interior run strongest. Summer trades still bring regular windward showers, so many falls keep flowing, though some smaller ones shrink to a trickle during dry spells. Morning visits tend to be clearer, calmer and less crowded, and they are best for rainbows at Rainbow Falls in Hilo. Heavy rain can arrive suddenly in any month, and north-shore winter surf affects coastal trailheads on Kauai and Oahu.",
+  "planning": "Many of Hawaii's best-known falls are in state parks or national parks, while others sit on private land, in watershed areas or in botanical gardens that charge admission. Several popular sites, including Haena State Park at the start of Kauai's Kalalau Trail, use reservation or entry systems for out-of-state visitors, so checking current requirements is wise. Parking is tight along the Hana Highway, and stopping on narrow shoulders is dangerous and often restricted. The biggest hazard is flash flooding: streams can rise within minutes from rain falling far upslope, stranding hikers at crossings. Rockfall beneath falls is common, freshwater can carry leptospirosis, and trails turn very slick with red mud. Respect closures and no-trespassing signs, which are frequently posted at informal access points.",
+  "faqs": [
+    {
+      "q": "Which Hawaiian island has the most waterfalls?",
+      "a": "Kauai, with 40 named falls in our directory, followed by Hawaii Island with 37 and Maui with 30. Kauai is the oldest of the main islands, and long erosion under very heavy rainfall has carved its many valleys and cliffs."
+    },
+    {
+      "q": "Is it safe to swim beneath Hawaii's waterfalls?",
+      "a": "It carries real risks. Rocks regularly fall from the cliffs above pools, flash floods can arrive with little warning, and freshwater may carry leptospirosis, so many agencies advise against swimming, especially with open cuts or after rain."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "state": "Arkansas",
+  "overview": [
+    "Arkansas splits neatly in two: the flat Mississippi Delta and Gulf coastal plain in the south and east, and the Interior Highlands in the north and west. Every waterfall in our directory lies in the highlands. The Ozark Plateaus, and particularly the Boston Mountains along their southern edge, are built of nearly horizontal layers of sandstone, shale and limestone. As streams cut down through these layers, the harder sandstone and limestone beds hold up as ledges and bluffs, producing the shelf-like pour-overs and grotto falls that are typical of the region.",
+    "Our directory counts 12 named waterfalls in Arkansas, placing it 35th nationally, but that figure understates the number of small, unnamed wet-weather falls hidden in Ozark hollows. Newton County, home to the upper Buffalo River, and the hills around the Arkansas River valley hold several of the best known. South of that valley, the Ouachita Mountains bring folded ridges of sandstone and novaculite. Because Ozark streams are fed mainly by rain rather than snow, nearly every Arkansas waterfall rises and falls with the weather, often running hard for a few days after a storm and fading quickly afterward."
+  ],
+  "regions": [
+    {
+      "name": "Boston Mountains and the Buffalo River",
+      "counties": ["Newton", "Johnson", "Pope", "Marion"],
+      "text": "The highest and most rugged part of the Ozarks covers Newton, Johnson and Pope counties, where deep hollows drain toward the Buffalo and Arkansas rivers. Falling Water Falls in Pope County, a wide ledge drop on Falling Water Creek in the Ozark National Forest, is the most reviewed waterfall in the state. Eden Falls in Newton County lies in the Lost Valley area of the Buffalo National River, where a creek emerges from a cave and drops through a series of grottoes. Spainhour Falls in Johnson County and Lay Falls in Marion County are smaller, quieter sites in the same rugged hill country."
+    },
+    {
+      "name": "Arkansas River Valley and Ouachita Edge",
+      "counties": ["Conway", "Perry"],
+      "text": "Between the Ozarks and the Ouachitas, the Arkansas River valley is interrupted by isolated mesas and ridges. The best known is Petit Jean Mountain in Conway County, where Cedar Falls drops into a sandstone box canyon below Petit Jean State Park. The trail to the base climbs steeply on the return, and an overlook offers a view from above for those who prefer not to make the descent. To the south, Perry County reaches into the northern edge of the Ouachita Mountains, whose east-west ridges hold smaller seasonal drops such as Sausmann Falls."
+    },
+    {
+      "name": "White River Hills",
+      "counties": ["Cleburne", "Independence", "Stone", "Fulton"],
+      "text": "The eastern Ozarks around the White River and Greers Ferry Lake are lower and more rolling than the Boston Mountains, with limestone and sandstone bluffs along their creeks. Bridal Veil Falls near Heber Springs in Cleburne County is the most visited waterfall here, with water stepping down over layered rock. Bailey Falls in Independence County, Bear Pen Falls in Stone County, and Saddler Falls and Cottonwood Falls in Fulton County round out the cluster. These are mostly modest falls that look their best during wet spells in late winter and spring."
+    }
+  ],
+  "bestTime": "Spring is the heart of Arkansas waterfall season. Ozark creeks are rain-fed, and the period from roughly February through May usually brings the steadiest storms, when even minor hollows produce falls that are dry the rest of the year. Many local hikers time trips to arrive within a day or two after a good soaking rain. By midsummer the heat and humidity are heavy, ticks and chiggers are active, and flows drop sharply; late summer and early fall are commonly the driest months. Autumn foliage in the Boston Mountains typically peaks in late October to early November, and a wet fall can pair color with running water. Winter offers clear views through bare trees, and a hard cold snap occasionally freezes smaller falls into ice formations, though such conditions rarely last long.",
+  "planning": "Most of the better-known falls lie on public land managed by the Ozark National Forest, the Buffalo National River, or Arkansas State Parks such as Petit Jean. Several smaller falls in Fulton, Perry and Independence counties are on or near private property, so verify access before visiting. Many trailheads are reached by gravel county or forest roads that can be rough, and low-water crossings become impassable when creeks are running high, which is exactly when the falls are best. Cell coverage is unreliable in the deeper hollows. Main hazards include slick moss-covered sandstone, steep unmaintained paths to the bases of falls, sudden creek rises during heavy rain, and ticks in warm months. Swimming in plunge pools is common in summer, but flows can be powerful after storms.",
+  "faqs": [
+    {
+      "q": "What is the most visited waterfall in Arkansas?",
+      "a": "Among the falls in our directory, Falling Water Falls in Pope County has the most reviews, followed by Eden Falls in the Lost Valley area of the Buffalo National River and Bridal Veil Falls near Heber Springs."
+    },
+    {
+      "q": "Do Arkansas waterfalls flow all year?",
+      "a": "Most do not flow strongly year-round. They are fed by rain, so they peak in late winter and spring and after storms, and many shrink to a trickle or dry up in late summer."
+    }
+  ]
+}

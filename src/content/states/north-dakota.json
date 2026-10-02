@@ -1,0 +1,28 @@
+{
+  "state": "North Dakota",
+  "overview": [
+    "North Dakota has just one named waterfall in our directory, placing it 50th nationally, and USGS records Mineral Springs Falls in Ransom County as the state's only recognized waterfall. The scarcity is a matter of landscape. The eastern edge of the state is the floor of glacial Lake Agassiz, an enormous ice-age lake whose sediments left the Red River Valley among the flattest land in North America. Most of the rest of the state is glacial till plain and rolling prairie, smoothed by repeated ice sheets that buried the bedrock under layers of clay, sand and gravel.",
+    "Water is also limited. Much of North Dakota is semi-arid, especially west of the Missouri River, and its rivers are generally slow and meandering. The Badlands along the Little Missouri River have dramatic relief, but their soft clays and sandstones erode into gullies rather than holding up ledges, and their streams are intermittent. The Sheyenne River valley in the southeast, deeply cut by glacial meltwater, provides one of the few settings with enough slope and steady groundwater seepage to sustain a small waterfall. Elsewhere in the state, falling water is mostly limited to brief seasonal trickles over cutbanks and to man-made dam spillways."
+  ],
+  "regions": [
+    {
+      "name": "Sheyenne River Valley",
+      "counties": [
+        "Ransom"
+      ],
+      "text": "The Sheyenne River winds through southeastern North Dakota in a valley much deeper and more wooded than the surrounding prairie, cut by meltwater as the last ice sheet retreated. Ransom County, around Lisbon, lies along this valley, where oak and basswood forest, springs and steep side slopes create a landscape unlike most of the state. Mineral Springs Falls is found here, a small spring-fed fall that USGS identifies as North Dakota's only recognized waterfall. The surrounding area includes state park land, scenic byways and the Sheyenne National Grassland to the east, making the valley a worthwhile destination even beyond the falls."
+    }
+  ],
+  "bestTime": "The best time to visit the Sheyenne Valley for Mineral Springs Falls is from late spring through early fall. Snowmelt in April and spring rains in May and June raise groundwater and stream levels, so flow is generally strongest in late spring and early summer. Summer brings full green foliage in the valley's woodlands, along with mosquitoes and ticks. Fall color in the Sheyenne River valley is among the best in the state, usually peaking from late September into early October, and cool temperatures make hiking pleasant. Winter is long and severe, with deep cold, wind and snow, and while a spring-fed fall may form ice formations, many rural roads and trails are not maintained for winter travel. Spring thaw can leave gravel roads muddy.",
+  "planning": "The Sheyenne Valley around Lisbon offers a mix of state park land, state forest and recreation areas, and private farmland. Before heading to the falls, confirm current access and trail information locally, as rural signage can be sparse and some land in the valley is private. Many roads in Ransom County are gravel and can become muddy after rain or snowmelt. Cell coverage is generally decent near towns but less reliable in the valley bottom. Hazards are modest compared with mountain states but include ticks and poison ivy in summer, slippery slopes near seeps and springs, and severe thunderstorms in summer. Winter cold can be dangerous, so plan carefully if visiting outside the warm season.",
+  "faqs": [
+    {
+      "q": "Does North Dakota have any waterfalls?",
+      "a": "It has one recognized natural waterfall, Mineral Springs Falls in Ransom County in the Sheyenne River valley. USGS identifies it as the state's only recognized waterfall."
+    },
+    {
+      "q": "Why does North Dakota have so few waterfalls?",
+      "a": "Glaciers and glacial lakes left most of the state flat or gently rolling, with bedrock buried under thick sediment. Combined with a semi-arid climate and slow rivers, that leaves very few places where water can drop over a ledge."
+    }
+  ]
+}

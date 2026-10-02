@@ -1,0 +1,26 @@
+{
+  "state": "Florida",
+  "overview": [
+    "Florida is one of the flattest states in the country, and its highest natural point, Britton Hill in the Panhandle, is famously the lowest state high point in the nation. With no mountains, no hard bedrock ledges at the surface and very little elevation to lose, rivers here tend to meander slowly toward the coast rather than drop. That is why our directory lists only 2 named waterfalls in Florida, ranking it 47th nationally. What the state does have in abundance is limestone, and that limestone is the key to both of its falls.",
+    "Florida sits on a thick platform of porous limestone that rainwater slowly dissolves, creating a karst landscape of springs, caves and sinkholes. Where a small stream happens to flow into the open throat of a sinkhole, it can fall a surprising distance below the surrounding ground. Both listed falls work this way. Falling Water in Washington County, near Chipley in the Panhandle, pours into a deep cylindrical sinkhole, and Falling Creek Falls in Columbia County, near Lake City in north Florida, drops over a ledge into a small rocky ravine. Neither would stand out in a mountain state, but in Florida they are genuine geological curiosities."
+  ],
+  "regions": [
+    {
+      "name": "North Florida and Panhandle Sinkhole Country",
+      "counties": ["Columbia", "Washington"],
+      "text": "Both of Florida's listed waterfalls lie in the northern tier of the state, where gently rolling uplands sit above the limestone and sinkholes are common. Falling Water, near Chipley, is the centerpiece of a state park where a boardwalk leads to an overlook of the sinkhole the stream disappears into; it is widely described as the tallest waterfall in Florida. Falling Creek Falls, just north of Lake City, is reached by a short boardwalk through shady hardwood forest and drops over a ledge into a small ravine. Both are short visits that pair well with nearby springs and rivers, and both depend heavily on recent rainfall for their flow."
+    }
+  ],
+  "bestTime": "Rain, not snowmelt, controls these falls, so timing a visit means watching the weather. Northern Florida and the Panhandle get frequent summer thunderstorms from roughly June through September, and both falls tend to run best during or shortly after wet periods. The Panhandle also receives substantial rain from winter and early spring frontal systems, which can bring good flow in cooler weather. Extended dry spells, which can occur in spring and late fall, may reduce Falling Water to a thin trickle or nothing at all. Summer visits mean heat, humidity and afternoon lightning, so mornings are more comfortable. Late fall and winter offer milder temperatures and fewer insects, though flow is less predictable. Tropical storms can bring heavy rain but also park closures.",
+  "planning": "Falling Water is managed by Florida State Parks, with developed parking, restrooms and a boardwalk to the sinkhole overlook. Falling Creek Falls is a small local park with a short boardwalk. Both are easy walks suitable for most visitors, and neither involves the steep scrambles typical of mountain waterfalls. Because the attraction is often how much water is running, it helps to check recent rainfall before driving a long distance. Stay on boardwalks and behind railings: sinkhole edges are unstable and steep, and limestone can be slick when wet. Summer brings heat, mosquitoes and frequent lightning, and the surrounding forests have ticks. Both sites make sensible stops on a longer trip across north Florida rather than standalone destinations.",
+  "faqs": [
+    {
+      "q": "Why does Florida have so few waterfalls?",
+      "a": "The state is very flat and lacks exposed hard rock ledges, so most streams flow gently to the sea. Its few falls occur where streams drop into limestone sinkholes or ravines in north Florida."
+    },
+    {
+      "q": "Is Falling Water always flowing?",
+      "a": "No. The stream feeding it is rain-dependent, so the waterfall can be strong after wet weather and reduced to a trickle during dry spells."
+    }
+  ]
+}

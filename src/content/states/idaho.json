@@ -1,0 +1,41 @@
+{
+  "state": "Idaho",
+  "overview": [
+    "Idaho has two very different kinds of waterfall country. Across the south, the Snake River Plain is a broad arc of layered basalt lava flows, and where the Snake River and its tributaries have cut a canyon into that rock, water spills over dark, columnar cliffs. Shoshone Falls near Twin Falls, often called the Niagara of the West, is the best-known example, and nearby Pillar Falls flows around basalt pillars in the river. Upstream in eastern Idaho, Upper and Lower Mesa Falls drop over volcanic rock on the Henrys Fork. Our directory lists 66 named falls statewide, ranking Idaho 14th, and Twin Falls County alone accounts for seven of them.",
+    "The rest of Idaho's falls belong to its mountains. The central Idaho batholith, a vast mass of granite, is cut by deep river canyons such as the Salmon, Selway and Payette, and side streams descend steeply into them. Farther north, the Panhandle catches more Pacific moisture than anywhere else in the state, and the Selkirk and Cabinet ranges in Boundary and Bonner counties shelter dense forest and many cascading creeks, a landscape shaped by Ice Age glaciers. Idaho County, the state's largest, ties Twin Falls County for the most listings. Snowmelt drives nearly everything, so flows swell in late spring almost everywhere."
+  ],
+  "regions": [
+    {
+      "name": "Snake River Canyon and Magic Valley",
+      "counties": ["Twin Falls", "Jerome", "Gooding", "Lincoln", "Owyhee", "Cassia"],
+      "text": "Around the city of Twin Falls, the Snake River runs through a sheer basalt canyon, and the waterfalls here are as much about rock as water. Shoshone Falls is the headline, a wide horseshoe of cascades, with Twin Falls and Pillar Falls nearby on the same stretch of river. Perrine Coulee Falls drops over the canyon rim in a single long plunge. In Gooding County, spring water emerging from the canyon walls feeds smaller falls. To the west, Jump Creek Falls in Owyhee County sits at the end of a short narrow canyon in volcanic cliffs, an oasis in sagebrush country."
+    },
+    {
+      "name": "Henrys Fork and Eastern Idaho",
+      "counties": ["Fremont", "Bonneville", "Caribou"],
+      "text": "On the western edge of the Yellowstone region, the Henrys Fork of the Snake flows off a high volcanic plateau and over two major drops. Upper Mesa Falls has a viewing platform close to the brink, and Lower Mesa Falls is seen from an overlook downstream, both along a scenic byway through lodgepole pine forest. South of Idaho Falls, Fall Creek Falls in Bonneville County spills over travertine ledges directly into the Snake River in Swan Valley. Caribou County, in the mountains of the southeast, rounds out this region. Snow lingers at these elevations, and access roads can be closed or unplowed in winter."
+    },
+    {
+      "name": "Central Idaho Mountains",
+      "counties": ["Idaho", "Boise", "Adams", "Custer", "Lemhi", "Elmore", "Valley", "Washington"],
+      "text": "This is Idaho's wild interior, a sprawling granite highland broken by some of the deepest canyons in the country. Falls here range from roadside drops near Idaho City and Cascade to remote cascades in the Sawtooth and Salmon River country around Challis and Salmon. Idaho County holds the most, including Selway Falls, a powerful series of drops on the Selway River. Many falls in this region lie in national forest and wilderness, reached by long gravel roads or backcountry trails. The landscape rewards travelers who are comfortable with remote driving, limited services and changeable mountain weather."
+    },
+    {
+      "name": "North Idaho Panhandle",
+      "counties": ["Boundary", "Bonner", "Shoshone", "Clearwater"],
+      "text": "The Panhandle is Idaho's wettest region, with cedar and hemlock forest that feels closer to the Pacific Northwest than to the Rockies. Glaciers scoured these valleys, leaving steep side drainages where creeks plunge toward the Kootenai River and Lake Pend Oreille. Near Bonners Ferry, Snow Creek Falls and Copper Falls are reached by short forest trails, while Bonner County falls lie around Priest River. Farther south, Fern Falls sits in the Coeur d'Alene Mountains of Shoshone County, and Elk Creek Falls in Clearwater County is a series of drops in a rugged canyon. Moss, ferns and mist define the character here."
+    }
+  ],
+  "bestTime": "Snowmelt makes late spring the peak season across Idaho. In the Snake River Canyon, Shoshone Falls usually runs fullest from about April into early June; later in summer, upstream diversions for irrigation can reduce it to a fraction of its spring volume. Mesa Falls and the Panhandle falls generally peak in May and June as mountain snow melts. Central Idaho's higher-elevation falls may not be reachable until roads and trails clear of snow, often in late June or July, and flows remain decent through midsummer. Late summer and early fall bring lower water, smoke from wildfires in some years, and fall color in the northern forests. Winter is quiet; some canyon falls form ice, but many mountain roads are closed or unplowed.",
+  "planning": "Ownership in Idaho varies by region. Shoshone Falls is a city park in Twin Falls, while canyon falls around it mix city, state, private and federal land. Jump Creek Falls is on Bureau of Land Management land. In the mountains, most falls sit in national forests such as the Caribou-Targhee, Boise, Payette, Salmon-Challis, Nez Perce-Clearwater and Idaho Panhandle. Expect long gravel roads, seasonal closures and patchy cell service in central and north Idaho. Hazards include cold, swift snowmelt rivers, unstable basalt and canyon rims without railings, and slick rock in spray zones. Wildfire activity and smoke can close areas in late summer. Carry a paper map and plan fuel stops in remote counties.",
+  "faqs": [
+    {
+      "q": "Why is Shoshone Falls lower in late summer?",
+      "a": "Water from the Snake River is diverted upstream for irrigation during the growing season, so the falls carry much less water by mid to late summer. Spring, before diversions peak, is the best time to see it at full force."
+    },
+    {
+      "q": "What river forms Upper and Lower Mesa Falls?",
+      "a": "Both falls are on the Henrys Fork of the Snake River in Fremont County, eastern Idaho. They lie along a scenic byway with overlooks for each."
+    }
+  ]
+}

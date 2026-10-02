@@ -1,0 +1,31 @@
+{
+  "state": "Mississippi",
+  "overview": [
+    "Mississippi lies almost entirely on the Gulf Coastal Plain, a broad apron of sand, clay, marl and gravel that slopes gently toward the Gulf of Mexico. These are relatively young, soft sediments rather than hard bedrock, so streams tend to cut gullies and ravines instead of flowing over durable ledges. The state also has no true mountains, and its highest point is a modest hill in the northeast. Together these facts explain why our directory lists only 4 named waterfalls in Mississippi, ranking it 45th nationally. The falls that do exist are small and usually depend on a local layer of firmer material holding up a drop.",
+    "Two kinds of terrain account for them. In the southwest, along the Mississippi River near Port Gibson, a belt of thick windblown loess forms steep bluffs, and creeks draining toward the river carve narrow ravines where water spills over clay and gravel layers. Claiborne and Copiah counties fall within or near this bluff country. In the east-central part of the state, rolling hills of the Piney Woods and the clay hills around Meridian produce occasional drops along creeks, and Dunns Falls in Lauderdale County is the best known, set at a historic mill site. Covington County adds a smaller fall in the southern pine belt."
+  ],
+  "regions": [
+    {
+      "name": "Loess Bluffs of the Southwest",
+      "counties": ["Claiborne", "Copiah"],
+      "text": "The bluff country east of the Mississippi River is defined by loess, a fine windblown silt deposited during the Ice Age that stands in nearly vertical walls when cut. Around Port Gibson, creeks have eroded deep, shaded ravines with sandbars, exposed roots and small falls where water drops over firmer layers of clay or gravel. Scutchalo Falls in Copiah County belongs to this broader landscape of hills and hollows. These falls are rarely tall, and their flow depends entirely on recent rain, but the ravines themselves are among the most rugged-feeling landscapes in the state. Expect informal paths and few signs."
+    },
+    {
+      "name": "East-Central Hills and Piney Woods",
+      "counties": ["Lauderdale", "Covington"],
+      "text": "In eastern and southern Mississippi, rolling hills covered in pine and hardwood forest are cut by creeks that occasionally spill over resistant beds. Dunns Falls, near Meridian in Lauderdale County, is the state's most visited listed waterfall, a drop tied to a nineteenth-century mill site. It is privately operated, so hours and access vary. Seminary Falls in Covington County, near Collins in the southern pine belt, is a lesser-known local site. Both falls are best after periods of steady rain, when the creeks feeding them run high and the water spills fully across the drop."
+    }
+  ],
+  "bestTime": "Mississippi's falls are entirely rain-fed, so wet seasons matter most. The state typically sees its heaviest and most dependable rain from late winter through spring, often January through April, when creeks are fullest and temperatures are mild. Summer brings heat, high humidity and scattered thunderstorms that can raise creeks briefly, but evaporation is high. Late summer into fall, especially September and October, is often the driest period, and small falls can slow to a trickle or stop. Fall offers pleasant hiking weather despite low water. Hurricane season can deliver intense rain to the south of the state, but flooding and downed trees may close roads and trails afterward. Winter is generally mild, with only occasional freezes.",
+  "planning": "Public land is limited in Mississippi, and several of its waterfalls are on private property or privately operated sites, so check access and hours before driving out. Dunns Falls, the most visited, is run as a private park. In the loess bluff region, steep ravine walls are prone to collapse, and loess soils turn slick after rain, so stay back from edges and avoid climbing on bluff faces. Creeks in narrow ravines can rise quickly during heavy storms. Summer heat and humidity are the main day-to-day hazard; carry water and start early. Ticks, chiggers, mosquitoes and venomous snakes are common in warm months. Hunting seasons in fall and winter make blaze orange a sensible precaution in wooded areas.",
+  "faqs": [
+    {
+      "q": "What is the best-known waterfall in Mississippi?",
+      "a": "Dunns Falls in Lauderdale County, near Meridian, is the most reviewed fall in our directory for the state. It is set at a historic mill site and is privately operated."
+    },
+    {
+      "q": "Why are Mississippi's waterfalls so small?",
+      "a": "The state sits on soft Coastal Plain sediments with little elevation change, so there are few hard rock ledges for water to fall over. Most drops form where streams cut through loess, clay or gravel layers."
+    }
+  ]
+}

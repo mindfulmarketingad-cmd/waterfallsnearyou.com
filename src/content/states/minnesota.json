@@ -1,0 +1,50 @@
+{
+  "state": "Minnesota",
+  "overview": [
+    "Minnesota's waterfalls come from two very different geological stories. In the northeast, rivers flowing to Lake Superior cross a thick stack of ancient lava flows laid down during the Midcontinent Rift more than a billion years ago. As glaciers deepened the Superior basin, these rivers were left high above the lake, and they now descend to it in a rapid series of drops over hard basalt and related rock. The result is the North Shore, a string of short, steep rivers with falls tucked into wooded gorges. Snowmelt each spring gives these rivers their strongest flows.",
+    "Southern Minnesota's falls trace back to the end of the last ice age, when the enormous Glacial River Warren drained Lake Agassiz and carved the wide valley now occupied by the Minnesota River. Tributary streams were left hanging above that valley and the Mississippi, which is why falls such as Minnehaha and Minneopa drop into it today. Our directory lists 42 named falls in Minnesota, 19th nationally, with Lake, St. Louis and Cook counties in the northeast holding 29 of them, followed by a smaller cluster in the Minnesota River valley and the Twin Cities."
+  ],
+  "regions": [
+    {
+      "name": "North Shore and the Arrowhead",
+      "counties": [
+        "Lake",
+        "Cook",
+        "St. Louis",
+        "Koochiching"
+      ],
+      "text": "The North Shore of Lake Superior, from Duluth to the Canadian border, is Minnesota's waterfall heartland. A series of state parks along Highway 61 protects the lower reaches of rivers that fall steeply over dark volcanic rock to the lake. Gooseberry Falls, with its stacked upper, middle and lower falls, is the region's most visited. Farther northeast, Illgen Falls near Silver Bay, Caribou Falls, Cascade Falls near Grand Marais and Pigeon Falls on the border river each have a distinct gorge setting. Inland, St. Louis County's falls around Ely lie on the lake-studded Canadian Shield, where Newton Falls sits on a stream between two lakes."
+    },
+    {
+      "name": "Minnesota River Valley",
+      "counties": [
+        "Nicollet",
+        "Redwood",
+        "Yellow Medicine",
+        "Pipestone"
+      ],
+      "text": "Southwestern Minnesota's falls occur where tributary creeks plunge into the broad Minnesota River valley. Near Mankato, Minneopa Falls drops into a sandstone gorge in a state park, and Minnemishinona Falls, once on private land, now has public parking and a viewing area. Ramsey Falls lies in a large park in Redwood Falls, where Ramsey Creek cuts through old granite bedrock exposed by the glacial river. Upstream, the town of Granite Falls in Yellow Medicine County takes its name from the river's drop over the same ancient bedrock. Farther west, Pipestone County's small fall lies on the pink Sioux quartzite of the prairie, in country historically important for its pipestone quarries."
+    },
+    {
+      "name": "Twin Cities and the Kettle River",
+      "counties": [
+        "Hennepin",
+        "Ramsey",
+        "Pine"
+      ],
+      "text": "Minneapolis holds two of the state's most famous falls. Minnehaha Falls, in its namesake regional park, drops over a limestone ledge just above the Mississippi and is the most reviewed waterfall in Minnesota in our directory. Saint Anthony Falls, the only major natural falls on the Mississippi, has been reshaped by dams, a lock system and an engineered apron, and is now the centerpiece of a riverfront heritage trail. North of the metro area, Pine County's Kettle River country near Sandstone offers a wilder setting, with Big Spring Falls and Wolf Creek Falls in rocky gorges surrounded by forest."
+    }
+  ],
+  "bestTime": "Spring snowmelt drives Minnesota's peak season. On the North Shore, rivers typically surge from mid-April through May as the snowpack melts, and the falls can be thunderous then before thinning considerably by late summer. Heavy summer rains can refill them briefly. In the south, Minnehaha and Minneopa are fullest in spring and after storms, and Minnehaha can slow to a trickle during summer droughts. Late September to early October brings vivid fall color to the North Shore, along with heavy weekend traffic on Highway 61. Winter is long and cold: many falls freeze into ice columns, and some parks keep paths open for winter viewing, but icy stairs and ledges demand traction devices.",
+  "planning": "Most of Minnesota's falls are on public land. The North Shore falls are largely protected by state parks and waysides, Minneapolis falls are in city and regional parks, and falls around Ely lie in or near the Superior National Forest and the Boundary Waters, where some require canoe travel. State parks require a vehicle permit, and popular lots at places such as Gooseberry Falls fill on summer and autumn weekends. North Shore rivers drop through narrow gorges with steep, wet rock; slipping into the river above a falls is a recurring cause of serious accidents, and spring flows are powerful. Lake Superior's water stays cold all year. In winter, ice-covered rocks and frozen spray are hazardous.",
+  "faqs": [
+    {
+      "q": "Why are so many Minnesota waterfalls along Lake Superior?",
+      "a": "North Shore rivers descend steeply from the uplands to the lake over hard volcanic rock from the ancient Midcontinent Rift. That short, steep drop over resistant rock produces many falls in a short distance."
+    },
+    {
+      "q": "Does Minnehaha Falls freeze in winter?",
+      "a": "It often does during prolonged cold, forming a column of ice that draws visitors to the park. In dry summers, by contrast, its flow can dwindle to a trickle."
+    }
+  ]
+}

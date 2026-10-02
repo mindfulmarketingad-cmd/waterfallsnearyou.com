@@ -1,0 +1,36 @@
+{
+  "state": "Utah",
+  "overview": [
+    "Utah is mostly arid, and its waterfalls exist where elevation squeezes moisture out of the sky or where springs emerge from porous rock in the desert. Our directory lists 22 named falls in the state, ranking it 28th nationally. The largest group lies along the Wasatch Range, a steep fault-block mountain front that rises abruptly above Salt Lake City and Provo. Deep winter snowpack in these mountains feeds creeks that pour down canyons sculpted by both streams and glaciers, producing cascades within a short drive of the state's population centers.",
+    "Utah County and Salt Lake County together hold seven of the named falls, mostly in Provo, American Fork and the Cottonwood canyons. The Uinta Mountains in Summit County add high-elevation falls along rivers draining a broad, glaciated range. Southern Utah, on the Colorado Plateau, is different terrain altogether: streams cut through thick sandstone, and the few permanent falls are fed by springs, such as those in Calf Creek in Garfield County. Elsewhere in the canyon country, dry pour-offs that flow only after storms are far more common than true year-round waterfalls, so a storm can briefly turn a cliff into a cascade."
+  ],
+  "regions": [
+    {
+      "name": "Wasatch Front Canyons",
+      "counties": ["Utah", "Salt Lake", "Sanpete", "Carbon"],
+      "text": "The canyons of the Wasatch Range hold Utah's most accessible falls. In Provo Canyon, Bridal Veil Falls cascades down the canyon wall beside the highway and a paved trail, and the Upper Falls lies nearby. Above American Fork, Scout Falls is reached by a moderate hike, while Stewarts Cascades lie near Sundance. In Big Cottonwood Canyon, Doughnut Falls pours through a hole in the rock into a small cave, and Hidden Falls is a short walk from the road; Little Cottonwood Canyon's Lisa Falls is reached on a short, bouldery path. South along the Wasatch Plateau, Milky Falls in Sanpete County and a fall near East Carbon City are quieter spots."
+    },
+    {
+      "name": "Uinta Mountains",
+      "counties": ["Summit", "Daggett", "Uintah"],
+      "text": "The Uinta Mountains are unusual for running east to west, and their high plateau was heavily glaciated, leaving lakes, meadows and steep river descents. Provo River Falls, along the Mirror Lake Highway east of Kamas, is a series of cascades over stepped bedrock ledges that can be seen from roadside overlooks. Other falls in Summit County lie farther into the range near Francis and Kamas. On the north and east slopes, Daggett and Uintah counties include canyon country around Flaming Gorge; the historic Ashley Falls on the Green River now lies beneath Flaming Gorge Reservoir, a reminder of how much river terrain the dam submerged."
+    },
+    {
+      "name": "Colorado Plateau and Canyon Country",
+      "counties": ["Garfield", "Kane", "San Juan", "Grand", "Washington"],
+      "text": "Southern Utah's falls are oases in a land of slickrock and sandstone cliffs. In Garfield County, Lower Calf Creek Falls plunges into a pool at the head of a sheer-walled canyon in the Grand Staircase-Escalante area, with Upper Calf Creek Falls reached by a separate steep route. Kane County's Cascade Falls lies on the forested Markagunt Plateau near Navajo Lake, where water emerges from limestone. San Juan County near Blanding, Grand County near Moab and Washington County hold a few more, often in narrow canyons. Many canyon-country falls are seasonal pour-offs that run only during snowmelt or after thunderstorms."
+    }
+  ],
+  "bestTime": "In the Wasatch and Uintas, waterfalls peak with snowmelt, typically from late May through June, though big snow years can extend high flows into July. Lower-elevation falls such as Bridal Veil in Provo Canyon run earlier, while the Mirror Lake Highway to Provo River Falls usually stays closed by snow into late spring. Late summer flows drop considerably. In southern Utah, spring-fed Calf Creek flows year-round, and spring and autumn are the most comfortable seasons to hike there because summer heat is intense. The summer monsoon, generally July through September, brings thunderstorms that can create temporary falls over canyon rims but also dangerous flash floods. Winter freezes many Wasatch falls into ice.",
+  "planning": "Most of Utah's falls are on public land: the Uinta-Wasatch-Cache, Manti-La Sal and Dixie national forests in the mountains, and Bureau of Land Management land, including Grand Staircase-Escalante National Monument, in the south. Big and Little Cottonwood canyons are part of the Salt Lake City watershed, where dogs and swimming are prohibited. Canyon trailheads such as Doughnut Falls fill quickly on summer weekends. In the Wasatch, snowmelt streams are cold and fast, and wet rock around Doughnut Falls is slippery. In the canyon country, flash floods are the overriding hazard: check forecasts and avoid narrow canyons when storms threaten anywhere upstream. Carry ample water on desert hikes such as Lower Calf Creek, where sandy trails and summer heat take a toll.",
+  "faqs": [
+    {
+      "q": "Are there waterfalls in southern Utah's desert?",
+      "a": "Yes, though they are few. Lower and Upper Calf Creek Falls in Garfield County are spring-fed and flow year-round, and Cascade Falls in Kane County emerges from limestone on the Markagunt Plateau. Many other desert falls are pour-offs that run only after storms."
+    },
+    {
+      "q": "Can dogs go to Doughnut Falls or Lisa Falls?",
+      "a": "No. Big and Little Cottonwood canyons are protected watershed for the Salt Lake City area, and dogs are not allowed in those canyons. Check the rules for other canyons before bringing a pet."
+    }
+  ]
+}
