@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.cache/
+.vercel/
+public/images/gen/
+.env
+.env.*
+.DS_Store

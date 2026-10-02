@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/states', label: 'States' },
+  { href: '/about', label: 'About' },
+];
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(href + '/')) ? 'page' : undefined;
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <a href="/" class="logo" aria-label="WaterfallsNearYou home">
+      <img src="/brand/logo.svg" alt="WaterfallsNearYou" width="265" height="38" />
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        {links.map((l) => <li><a href={l.href} aria-current={isCurrent(l.href)}>{l.label}</a></li>)}
+        <li><a href="/search" class="nav-search" aria-current={isCurrent('/search')}><Icon name="search" />Search</a></li>
+      </ul>
+    </nav>
+    <details class="menu">
+      <summary aria-label="Open menu"><Icon name="menu" /></summary>
+      <nav class="menu-panel" aria-label="Mobile">
+        {links.map((l) => <a href={l.href} aria-current={isCurrent(l.href)}>{l.label}</a>)}
+        <a href="/search">Search</a>
+      </nav>
+    </details>
+  </div>
+</header>

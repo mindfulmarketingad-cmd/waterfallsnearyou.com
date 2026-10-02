@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Listicle from '../../components/Listicle.astro';
+import FilterChips from '../../components/FilterChips.astro';
+import Faq from '../../components/Faq.astro';
+import { loadData, imageFor } from '../../lib/core.mjs';
+import { fmtNum, listJoin } from '../../lib/format.mjs';
+import { getPosts } from '../../lib/blog.mjs';
+import { SITE } from '../../config.mjs';
+
+export function getStaticPaths() {
+  return loadData().states.map((s) => ({ params: { state: s.slug }, props: { name: s.name } }));
+}
+const { name } = Astro.props;
+const { states } = loadData();
+const state = states.find((s) => s.name === name);
+const rank = [...states].sort((a, b) => b.listings.length - a.listings.length).findIndex((s) => s === state) + 1;
+const ordinal = (n) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
+const chips = state.cities.slice(0, 16).map((c) => ({ url: c.url, label: `Near ${c.name}`, count: c.nearby.filter((x) => x.miles <= 30).length }));
+const top = state.listings.slice(0, 25).map((l) => ({ listing: l }));
+const topCounties = state.counties.slice(0, 3);
+const image = imageFor(state.url);
+const n = state.listings.length;
+const title = `Waterfalls in ${state.name}: ${n} Waterfalls Near You`;
+const description = `Explore ${fmtNum(n)} named waterfalls in ${state.name} across ${state.counties.length} counties. Browse by town or county with maps, GPS coordinates and directions.`;
+const byCity = [...state.cities].sort((a, b) => a.name.localeCompare(b.name));
+const posts = getPosts().slice(0, 3);
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'States', url: '/states' }, { name: state.name, url: state.url }];
+const faqs = [
+  { q: `How many waterfalls are in ${state.name}?`, a: `The USGS Geographic Names Information System lists ${fmtNum(n)} named waterfall${n === 1 ? '' : 's'} in ${state.name}, which ranks ${ordinal(rank)} among the states in our directory. Many smaller, unnamed falls also exist.` },
+  ...(topCounties.length ? [{ q: `Which ${state.name} county has the most waterfalls?`, a: `${topCounties[0].name} County leads with ${topCounties[0].listings.length}${topCounties.length > 1 ? `, followed by ${listJoin(topCounties.slice(1).map((c) => `${c.name} County (${c.listings.length})`))}` : ''}.` }] : []),
+  { q: `How do I find waterfalls near me in ${state.name}?`, a: `Pick the town closest to you from the list on this page to see nearby waterfalls ranked by distance, or use <a href="/search">site search</a>. Our homepage can also suggest waterfalls based on your approximate location.` },
+  { q: `When is the best time to see waterfalls in ${state.name}?`, a: `Flow is usually strongest after sustained rain and during spring snowmelt. Read <a href="/blog/best-time-to-visit-waterfalls">the best time to visit waterfalls</a> for a season-by-season breakdown.` },
+];
+const schema = [
+  { '@type': 'CollectionPage', name: title, url: `${SITE.url}${state.url}`, about: { '@type': 'State', name: state.name } },
+  { '@type': 'ItemList', name: `Waterfalls in ${state.name}`, numberOfItems: top.length, itemListElement: top.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${t.listing.url}`, name: t.listing.name })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={title} description={description} image={image} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
+  <PageHero title={`Waterfalls in ${state.name}`} image={image} imageAlt={`Illustrated waterfall landscape representing ${state.name}`} eyebrow="State guide">
+    <p class="sub">{fmtNum(n)} named waterfall{n === 1 ? '' : 's'} across {state.counties.length} count{state.counties.length === 1 ? 'y' : 'ies'}, organized by the nearest of {state.cities.length} town{state.cities.length === 1 ? '' : 's'}.{topCounties.length ? ` ${topCounties[0].name} County has the most (${topCounties[0].listings.length}).` : ''}</p>
+    <p class="muted small">Source: USGS Geographic Names Information System. Pick a town below to see waterfalls ranked by distance.</p>
+  </PageHero>
+
+  {chips.length > 0 && (
+    <section class="wrap section-sm">
+      <h2 class="sr-only">Filters</h2>
+      <FilterChips chips={chips} label={`Waterfalls near ${state.name} towns`} />
+    </section>
+  )}
+
+  <section class="wrap section-sm" aria-labelledby="top">
+    <h2 id="top">{top.length === n ? `All ${n}` : `${top.length} Featured`} Waterfalls in {state.name}</h2>
+    <p class="muted">Ordered by available visitor data and documented history, then alphabetically.</p>
+    <Listicle items={top} />
+  </section>
+
+  <section class="bg-mist section-sm">
+    <div class="wrap">
+      <h2>Find Waterfalls Near a {state.name} Town</h2>
+      <ul class="tile-list">
+        {byCity.map((c) => <li><a href={c.url}><span>{c.name}</span><span class="count">{c.nearby.filter((x) => x.miles <= 30).length} nearby</span></a></li>)}
+      </ul>
+    </div>
+  </section>
+
+  {state.counties.length > 0 && (
+    <section class="wrap section-sm">
+      <h2>Waterfalls by County</h2>
+      <ul class="tile-list">
+        {state.counties.map((c) => <li><span class="tile"><span>{c.name} County ({c.listings.length}): {c.listings.map((l, i) => <>{i ? ', ' : ' '}<a href={l.url}>{l.name}</a></>)}</span></span></li>)}
+      </ul>
+    </section>
+  )}
+
+  <section class="wrap section-sm">
+    <h2>All {state.name} Waterfalls A to Z</h2>
+    <ul class="link-cols">
+      {[...state.listings].sort((a, b) => a.name.localeCompare(b.name)).map((l) => <li><a href={l.url}>{l.name}</a> <span class="muted small">({l.city.name})</span></li>)}
+    </ul>
+  </section>
+
+  <section class="bg-mist section-sm">
+    <div class="wrap">
+      <h2>Plan Your Waterfall Trip</h2>
+      <div class="grid-3">
+        {posts.map((p) => (
+          <article class="card">
+            <img src={imageFor(p.url)} alt={p.imageAlt} width="1200" height="630" loading="lazy" />
+            <div class="body"><span class="eyebrow">{p.category}</span><h3><a href={p.url}>{p.title}</a></h3></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section narrow"><Faq faqs={faqs} /></section>
+</Base>

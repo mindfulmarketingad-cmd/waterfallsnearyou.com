@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import SearchForm from '../components/SearchForm.astro';
+---
+<Base title="Page Not Found | WaterfallsNearYou" description="The page you were looking for could not be found." noindex>
+  <section class="wrap section narrow center">
+    <span class="eyebrow">404</span>
+    <h1>This trail does not go anywhere</h1>
+    <p class="lead">The page may have moved. Search for a waterfall or town, or browse by state.</p>
+    <div style="display:flex;justify-content:center;margin:24px 0"><SearchForm bordered id="nf-q" /></div>
+    <p><a class="btn btn-primary" href="/states">Browse waterfalls by state</a></p>
+  </section>
+</Base>

@@ -1,0 +1,13 @@
+---
+import { imgFallback, listingImage, listingImageAlt, fmtMiles, stars } from '../lib/format.mjs';
+interface Props { listing: any; miles?: number; direction?: string }
+const { listing: l, miles, direction } = Astro.props;
+---
+<article class="card">
+  <img src={listingImage(l)} onerror={imgFallback(l)} alt={listingImageAlt(l)} width="1200" height="630" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+  <div class="body">
+    <h3><a href={l.url}>{l.name}</a></h3>
+    <div class="meta">{l.city.name}, {l.stateCode}{typeof miles === 'number' ? ` · ${fmtMiles(miles)}${direction ? ` ${direction}` : ''}` : l.county ? ` · ${l.county} County` : ''}</div>
+    {l.os?.rating ? <div class="meta"><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span> {l.os.rating.toFixed(1)} ({l.os.reviews})</div> : null}
+  </div>
+</article>

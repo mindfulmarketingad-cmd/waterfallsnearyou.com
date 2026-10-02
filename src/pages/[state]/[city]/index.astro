@@ -1,0 +1,82 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import Listicle from '../../../components/Listicle.astro';
+import FilterChips from '../../../components/FilterChips.astro';
+import Faq from '../../../components/Faq.astro';
+import { loadData, imageFor } from '../../../lib/core.mjs';
+import { fmtMiles, listJoin } from '../../../lib/format.mjs';
+import { SITE } from '../../../config.mjs';
+
+export function getStaticPaths() {
+  return loadData().cities.map((c) => ({ params: { state: c.stateSlug, city: c.slug }, props: { url: c.url } }));
+}
+const { url } = Astro.props;
+const { cities, states } = loadData();
+const city = cities.find((c) => c.url === url);
+const state = states.find((s) => s.name === city.state);
+const items = city.nearby.slice(0, 40);
+const within30 = city.nearby.filter((n) => n.miles <= 30).length;
+const closest = items[0];
+const countyNames = [...new Set(items.map((n) => n.listing.county).filter(Boolean))];
+const chips = [
+  { url: city.url, label: city.name, count: within30 },
+  ...city.nearbyCities.map(({ city: c }) => ({ url: c.url, label: c.name, count: c.nearby.filter((x) => x.miles <= 30).length })),
+  { url: state.url, label: `All ${state.name}`, count: state.listings.length },
+];
+const image = imageFor(city.url);
+const title = `Waterfalls Near ${city.name}, ${city.stateCode} | ${items.length} Scenic Falls`;
+const description = `${within30 || items.length} waterfalls within ${within30 ? '30' : Math.ceil(items.at(-1)?.miles || 30)} miles of ${city.name}, ${state.name}. Numbered list with distances, GPS coordinates, maps and directions for each waterfall.`;
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'States', url: '/states' },
+  { name: state.name, url: state.url },
+  { name: city.name, url: city.url },
+];
+const faqs = [
+  { q: `How many waterfalls are near ${city.name}, ${city.stateCode}?`, a: within30 ? `Our directory lists ${within30} named waterfall${within30 === 1 ? '' : 's'} within 30 miles of ${city.name}, measured in a straight line from the town center.` : `No named waterfalls fall within 30 miles of ${city.name}; the ${items.length} closest are listed on this page, the nearest ${closest ? fmtMiles(closest.miles) : ''} away.` },
+  ...(closest ? [{ q: `What is the closest waterfall to ${city.name}?`, a: `<a href="${closest.listing.url}">${closest.listing.name}</a> is the closest, about ${fmtMiles(closest.miles).replace(' mi', ' miles')} ${closest.direction} of ${city.name}.` }] : []),
+  ...(countyNames.length ? [{ q: `Which counties are these waterfalls in?`, a: `The waterfalls on this page are spread across ${listJoin(countyNames.slice(0, 6).map((c) => `${c} County`))}.` }] : []),
+  { q: `Are these waterfalls open to the public?`, a: `Many are on public land such as national forests and state parks, but some named falls are on private property. Check the land manager and posted signs before visiting, and read our <a href="/blog/waterfall-safety-tips">waterfall safety tips</a>.` },
+];
+const schema = [
+  { '@type': 'CollectionPage', name: title, url: `${SITE.url}${city.url}`, about: { '@type': 'City', name: city.name, containedInPlace: { '@type': 'State', name: state.name } } },
+  { '@type': 'ItemList', name: `Waterfalls near ${city.name}, ${city.stateCode}`, numberOfItems: items.length, itemListElement: items.map((n, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${n.listing.url}`, name: n.listing.name })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={title} description={description} image={image} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
+  <PageHero title={`Waterfalls Near ${city.name}, ${city.stateCode}`} image={image} imageAlt={`Illustration of a waterfall in the hills near ${city.name}, ${state.name}`} eyebrow={`${city.county ? `${city.county} County, ` : ''}${state.name}`}>
+    <p class="sub">
+      {within30 > 0
+        ? `${within30} named waterfall${within30 === 1 ? '' : 's'} lie within 30 miles of ${city.name}.`
+        : `The closest named waterfalls to ${city.name} are a longer drive away.`}
+      {closest && ` The nearest is ${closest.listing.name}, ${fmtMiles(closest.miles).replace(' mi', ' miles')} ${closest.direction} of town.`}
+    </p>
+    <p class="muted small">Distances are straight-line from the town center. Listings are ordered from nearest to farthest.</p>
+  </PageHero>
+
+  <section class="wrap section-sm">
+    <FilterChips chips={chips} current={city.url} label={`Waterfalls near other ${state.name} towns`} />
+  </section>
+
+  <section class="wrap section-sm" aria-labelledby="list">
+    <h2 id="list">{items.length} Waterfalls Near {city.name}, Ranked by Distance</h2>
+    <Listicle items={items} from={city.name} />
+  </section>
+
+  {city.nearbyCities.length > 0 && (
+    <section class="bg-mist section-sm">
+      <div class="wrap">
+        <h2>Nearby Towns With Waterfalls</h2>
+        <ul class="tile-list">
+          {city.nearbyCities.map(({ city: c, miles }) => <li><a href={c.url}><span>{c.name}</span><span class="count">{fmtMiles(miles)}</span></a></li>)}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="wrap section narrow">
+    <Faq faqs={faqs} />
+  </section>
+</Base>

@@ -1,0 +1,24 @@
+---
+import StaticPage from '../components/StaticPage.astro';
+import { loadData } from '../lib/core.mjs';
+import { getPosts } from '../lib/blog.mjs';
+const { states } = loadData();
+const posts = getPosts();
+---
+<StaticPage title="Sitemap | All Pages on WaterfallsNearYou" h1="Sitemap" eyebrow="Every page" description="An overview of every section of WaterfallsNearYou: state guides, town guides, blog articles and site information pages." intro="Every state and town guide on the site. Each town page links to the individual waterfalls around it.">
+  <h2>Main pages</h2>
+  <ul class="link-cols">
+    <li><a href="/">Home</a></li><li><a href="/states">Waterfalls by State</a></li><li><a href="/blog">Blog</a></li><li><a href="/search">Search</a></li>
+    <li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/disclaimer">Disclaimer</a></li><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms of Use</a></li>
+    <li><a href="/sitemap.xml">XML sitemap</a></li>
+  </ul>
+  <h2>Blog</h2>
+  <ul>{posts.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
+  <h2>States and towns</h2>
+  {states.map((s) => (
+    <>
+      <h3><a href={s.url}>Waterfalls in {s.name}</a> <span class="muted small">({s.listings.length})</span></h3>
+      <ul class="link-cols">{[...s.cities].sort((a, b) => a.name.localeCompare(b.name)).map((c) => <li><a href={c.url}>{c.name}</a></li>)}</ul>
+    </>
+  ))}
+</StaticPage>

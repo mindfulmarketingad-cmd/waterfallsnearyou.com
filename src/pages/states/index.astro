@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Faq from '../../components/Faq.astro';
+import { loadData, imageFor } from '../../lib/core.mjs';
+import { fmtNum } from '../../lib/format.mjs';
+import { SITE } from '../../config.mjs';
+
+const { states, listings, cities } = loadData();
+const ranked = [...states].sort((a, b) => b.listings.length - a.listings.length);
+const image = imageFor('/states');
+const title = 'Waterfalls by State | Find Waterfalls Near You in the US';
+const description = `Browse ${fmtNum(listings.length)} named waterfalls in ${states.length - 1} states and DC. Choose a state to find waterfalls near your town with maps and directions.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'States', url: '/states' }];
+const faqs = [
+  { q: 'Which state has the most waterfalls?', a: `By count of officially named falls in the USGS gazetteer, ${ranked[0].name} leads with ${ranked[0].listings.length}, followed by ${ranked[1].name} (${ranked[1].listings.length}) and ${ranked[2].name} (${ranked[2].listings.length}). See <a href="/blog/states-with-the-most-waterfalls">states with the most named waterfalls</a> for the full analysis.` },
+  { q: 'Where does this waterfall data come from?', a: 'Every waterfall location starts from the U.S. Geological Survey Geographic Names Information System (GNIS), the federal standard for geographic names, and is enriched with business and visitor details where available.' },
+  { q: 'Why is my favorite waterfall missing?', a: 'GNIS includes officially named falls only. If you know a public waterfall we should add, <a href="/contact">contact us</a> with its name and location.' },
+];
+const schema = [
+  { '@type': 'CollectionPage', name: title, url: `${SITE.url}/states` },
+  { '@type': 'ItemList', name: 'US states with waterfalls', numberOfItems: states.length, itemListElement: states.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${s.url}`, name: s.name })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={title} description={description} image={image} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
+  <PageHero title="Waterfalls by State" image={image} imageAlt="Illustration of a waterfall between forested ridges" eyebrow="Browse the directory">
+    <p class="sub">{fmtNum(listings.length)} named waterfalls in {states.length - 1} states and the District of Columbia, grouped around {fmtNum(cities.length)} towns. Choose a state to start.</p>
+  </PageHero>
+  <section class="wrap section-sm">
+    <h2>All States</h2>
+    <ul class="tile-list">
+      {states.map((s) => <li><a href={s.url}><span>{s.name}</span><span class="count">{s.listings.length}</span></a></li>)}
+    </ul>
+  </section>
+  <section class="bg-mist section-sm">
+    <div class="wrap narrow prose">
+      <h2>States Ranked by Number of Named Waterfalls</h2>
+      <table>
+        <thead><tr><th>Rank</th><th>State</th><th>Named waterfalls</th><th>Counties with falls</th><th>Most in one county</th></tr></thead>
+        <tbody>
+          {ranked.map((s, i) => <tr><td>{i + 1}</td><td><a href={s.url}>{s.name}</a></td><td>{s.listings.length}</td><td>{s.counties.length}</td><td>{s.counties[0] ? `${s.counties[0].name} (${s.counties[0].listings.length})` : '—'}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="wrap section narrow"><Faq faqs={faqs} /></section>
+</Base>

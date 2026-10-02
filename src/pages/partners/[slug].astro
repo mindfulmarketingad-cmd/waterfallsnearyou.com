@@ -1,0 +1,23 @@
+---
+// Outscraper-imported records are reachable at /partners/[business-name]. Each one permanently
+// redirects to its canonical listing in the Home > State > City > Listing hierarchy so the
+// same waterfall never exists at two indexable URLs.
+import { loadData } from '../../lib/core.mjs';
+import { SITE } from '../../config.mjs';
+export function getStaticPaths() {
+  return loadData().listings.filter((l) => l.partnerSlug).map((l) => ({ params: { slug: l.partnerSlug }, props: { url: l.url, name: l.name } }));
+}
+const { url, name } = Astro.props;
+const target = `${SITE.url}${url}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{name}</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={target} />
+    <meta http-equiv="refresh" content={`0; url=${url}`} />
+  </head>
+  <body><p><a href={url}>{name}</a></p></body>
+</html>

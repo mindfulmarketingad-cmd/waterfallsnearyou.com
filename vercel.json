@@ -1,0 +1,390 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.googleadservices.com https://*.doubleclick.net https://*.gstatic.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://*.gstatic.com; img-src 'self' data: https:; font-src 'self' https://*.gstatic.com; frame-src https://www.openstreetmap.org https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.adtrafficquality.google; connect-src 'self' https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://*.adtrafficquality.google https://*.gstatic.com; media-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(self), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin-allow-popups"
+        }
+      ]
+    },
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/media/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/search-index.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/ads.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/Blog",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/Blog/:path*",
+      "destination": "/blog/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/States",
+      "destination": "/states",
+      "permanent": true
+    },
+    {
+      "source": "/States/:path*",
+      "destination": "/states/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/Search",
+      "destination": "/search",
+      "permanent": true
+    },
+    {
+      "source": "/About",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/Contact",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/partners",
+      "destination": "/states",
+      "permanent": true
+    },
+    {
+      "source": "/alabama",
+      "destination": "/states/alabama",
+      "permanent": true
+    },
+    {
+      "source": "/alaska",
+      "destination": "/states/alaska",
+      "permanent": true
+    },
+    {
+      "source": "/arizona",
+      "destination": "/states/arizona",
+      "permanent": true
+    },
+    {
+      "source": "/arkansas",
+      "destination": "/states/arkansas",
+      "permanent": true
+    },
+    {
+      "source": "/california",
+      "destination": "/states/california",
+      "permanent": true
+    },
+    {
+      "source": "/colorado",
+      "destination": "/states/colorado",
+      "permanent": true
+    },
+    {
+      "source": "/connecticut",
+      "destination": "/states/connecticut",
+      "permanent": true
+    },
+    {
+      "source": "/district-of-columbia",
+      "destination": "/states/district-of-columbia",
+      "permanent": true
+    },
+    {
+      "source": "/florida",
+      "destination": "/states/florida",
+      "permanent": true
+    },
+    {
+      "source": "/georgia",
+      "destination": "/states/georgia",
+      "permanent": true
+    },
+    {
+      "source": "/hawaii",
+      "destination": "/states/hawaii",
+      "permanent": true
+    },
+    {
+      "source": "/idaho",
+      "destination": "/states/idaho",
+      "permanent": true
+    },
+    {
+      "source": "/illinois",
+      "destination": "/states/illinois",
+      "permanent": true
+    },
+    {
+      "source": "/indiana",
+      "destination": "/states/indiana",
+      "permanent": true
+    },
+    {
+      "source": "/iowa",
+      "destination": "/states/iowa",
+      "permanent": true
+    },
+    {
+      "source": "/kansas",
+      "destination": "/states/kansas",
+      "permanent": true
+    },
+    {
+      "source": "/kentucky",
+      "destination": "/states/kentucky",
+      "permanent": true
+    },
+    {
+      "source": "/louisiana",
+      "destination": "/states/louisiana",
+      "permanent": true
+    },
+    {
+      "source": "/maine",
+      "destination": "/states/maine",
+      "permanent": true
+    },
+    {
+      "source": "/maryland",
+      "destination": "/states/maryland",
+      "permanent": true
+    },
+    {
+      "source": "/massachusetts",
+      "destination": "/states/massachusetts",
+      "permanent": true
+    },
+    {
+      "source": "/michigan",
+      "destination": "/states/michigan",
+      "permanent": true
+    },
+    {
+      "source": "/minnesota",
+      "destination": "/states/minnesota",
+      "permanent": true
+    },
+    {
+      "source": "/mississippi",
+      "destination": "/states/mississippi",
+      "permanent": true
+    },
+    {
+      "source": "/missouri",
+      "destination": "/states/missouri",
+      "permanent": true
+    },
+    {
+      "source": "/montana",
+      "destination": "/states/montana",
+      "permanent": true
+    },
+    {
+      "source": "/nebraska",
+      "destination": "/states/nebraska",
+      "permanent": true
+    },
+    {
+      "source": "/nevada",
+      "destination": "/states/nevada",
+      "permanent": true
+    },
+    {
+      "source": "/new-hampshire",
+      "destination": "/states/new-hampshire",
+      "permanent": true
+    },
+    {
+      "source": "/new-jersey",
+      "destination": "/states/new-jersey",
+      "permanent": true
+    },
+    {
+      "source": "/new-mexico",
+      "destination": "/states/new-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/new-york",
+      "destination": "/states/new-york",
+      "permanent": true
+    },
+    {
+      "source": "/north-carolina",
+      "destination": "/states/north-carolina",
+      "permanent": true
+    },
+    {
+      "source": "/north-dakota",
+      "destination": "/states/north-dakota",
+      "permanent": true
+    },
+    {
+      "source": "/ohio",
+      "destination": "/states/ohio",
+      "permanent": true
+    },
+    {
+      "source": "/oklahoma",
+      "destination": "/states/oklahoma",
+      "permanent": true
+    },
+    {
+      "source": "/oregon",
+      "destination": "/states/oregon",
+      "permanent": true
+    },
+    {
+      "source": "/pennsylvania",
+      "destination": "/states/pennsylvania",
+      "permanent": true
+    },
+    {
+      "source": "/rhode-island",
+      "destination": "/states/rhode-island",
+      "permanent": true
+    },
+    {
+      "source": "/south-carolina",
+      "destination": "/states/south-carolina",
+      "permanent": true
+    },
+    {
+      "source": "/south-dakota",
+      "destination": "/states/south-dakota",
+      "permanent": true
+    },
+    {
+      "source": "/tennessee",
+      "destination": "/states/tennessee",
+      "permanent": true
+    },
+    {
+      "source": "/texas",
+      "destination": "/states/texas",
+      "permanent": true
+    },
+    {
+      "source": "/utah",
+      "destination": "/states/utah",
+      "permanent": true
+    },
+    {
+      "source": "/vermont",
+      "destination": "/states/vermont",
+      "permanent": true
+    },
+    {
+      "source": "/virginia",
+      "destination": "/states/virginia",
+      "permanent": true
+    },
+    {
+      "source": "/washington",
+      "destination": "/states/washington",
+      "permanent": true
+    },
+    {
+      "source": "/west-virginia",
+      "destination": "/states/west-virginia",
+      "permanent": true
+    },
+    {
+      "source": "/wisconsin",
+      "destination": "/states/wisconsin",
+      "permanent": true
+    },
+    {
+      "source": "/wyoming",
+      "destination": "/states/wyoming",
+      "permanent": true
+    }
+  ]
+}

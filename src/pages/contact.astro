@@ -1,0 +1,27 @@
+---
+import StaticPage from '../components/StaticPage.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../config.mjs';
+const schema = [{ '@type': 'ContactPage', name: 'Contact WaterfallsNearYou', url: `${SITE.url}/contact`, mainEntity: { '@id': `${SITE.url}/#organization` } }];
+---
+<StaticPage title="Contact WaterfallsNearYou | Corrections and Questions" h1="Contact Us" eyebrow="Get in touch" description="Contact WaterfallsNearYou to report a correction, suggest a waterfall, ask about advertising or send feedback about the directory." intro="Corrections, new waterfall suggestions and feedback all help make the directory better for everyone." schema={schema}>
+  <h2>Email</h2>
+  <p>The fastest way to reach us is by email:</p>
+  <p><a class="btn btn-green" href={`mailto:${SITE.email}`}><Icon name="mail" />{SITE.email}</a></p>
+  <p>We read every message and aim to reply within three business days.</p>
+
+  <h2>Reporting a correction</h2>
+  <p>To help us fix a listing quickly, please include:</p>
+  <ul>
+    <li>The page URL (for example, the address of the waterfall page you are viewing).</li>
+    <li>What is incorrect and what it should say.</li>
+    <li>How you know: a land manager's website, posted signage, or your own visit, with the date.</li>
+  </ul>
+  <p>We especially want to hear about waterfalls that are on private land, closed to the public, or whose access has changed.</p>
+
+  <h2>Suggesting a waterfall</h2>
+  <p>Our listings start from officially named features in the USGS gazetteer. If you know a publicly accessible waterfall we are missing, send its name, the nearest town and its GPS coordinates if you have them.</p>
+
+  <h2>Other questions</h2>
+  <p>For partnership, advertising, media or data questions, use the same address and put the topic in the subject line. Before visiting any waterfall, please read our <a href="/disclaimer">disclaimer</a>.</p>
+</StaticPage>

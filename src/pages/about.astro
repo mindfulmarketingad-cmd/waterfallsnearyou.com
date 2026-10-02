@@ -1,0 +1,39 @@
+---
+import StaticPage from '../components/StaticPage.astro';
+import { loadData } from '../lib/core.mjs';
+import { fmtNum } from '../lib/format.mjs';
+import { SITE } from '../config.mjs';
+const { listings, states, cities } = loadData();
+const schema = [{ '@type': 'AboutPage', name: 'About WaterfallsNearYou', url: `${SITE.url}/about`, about: { '@id': `${SITE.url}/#organization` } }];
+---
+<StaticPage title="About WaterfallsNearYou | Our Data and Mission" h1="About WaterfallsNearYou" eyebrow="Our story" description={`WaterfallsNearYou is a free directory of ${fmtNum(listings.length)} named US waterfalls built from official USGS data. Learn where our data comes from and how we keep it accurate.`} intro="A free, data-first directory that helps people find waterfalls near them and visit them safely." schema={schema}>
+  <h2>Why WaterfallsNearYou exists</h2>
+  <p>Search for "waterfalls near me" and you usually get the same handful of famous falls. Meanwhile, thousands of named waterfalls sit a short drive from where people live, recorded on federal topographic maps but missing from most travel sites. WaterfallsNearYou was built to close that gap: one page for every officially named waterfall in the United States, organized around the towns people actually live in and travel to.</p>
+
+  <h2>What you will find here</h2>
+  <ul>
+    <li><strong>{fmtNum(listings.length)} waterfall pages</strong>, each with GPS coordinates, county, the USGS 7.5-minute topographic map name, named landmarks nearby, the closest other waterfalls and links to directions.</li>
+    <li><strong>{fmtNum(cities.length)} town guides</strong> that rank every nearby waterfall by distance, so you can start from a place you know.</li>
+    <li><strong>{states.length} state guides</strong> covering the {states.length - 1} states with a named waterfall plus the District of Columbia.</li>
+    <li><strong>Practical guides</strong> on <a href="/blog/waterfall-safety-tips">safety</a>, <a href="/blog/best-time-to-visit-waterfalls">timing</a>, <a href="/blog/waterfall-photography-tips">photography</a> and <a href="/blog/leave-no-trace-at-waterfalls">Leave No Trace</a>.</li>
+  </ul>
+
+  <h2>Where our data comes from</h2>
+  <p>Every waterfall location starts with the <strong>U.S. Geological Survey Geographic Names Information System (GNIS)</strong>, the federal government's official repository of domestic geographic names. GNIS records each named waterfall's position, county, topographic quadrangle, alternate historical names and, for some features, written descriptions and naming history. GNIS data is in the public domain.</p>
+  <p>Nearby towns come from <strong>GeoNames</strong> (licensed CC BY 4.0), using places with 1,000 or more residents. Distances on this site are straight-line distances; driving and hiking distances are longer.</p>
+  <p>Where available, listings are enriched with public business information from Google Maps listings, such as visitor ratings, hours, phone numbers, websites and photos. Those details are refreshed periodically and can change without notice.</p>
+
+  <h2>Our editorial standards</h2>
+  <ul>
+    <li>We do not invent details. If a fact such as a height or trail length is not in our sources, we leave it out rather than guess.</li>
+    <li>Guides are written to be practical and conservative about safety.</li>
+    <li>We clearly separate official USGS records from third-party business details on each page.</li>
+    <li>Corrections are welcome. If something is wrong or a waterfall is closed to the public, please <a href="/contact">tell us</a>.</li>
+  </ul>
+
+  <h2>How the site is funded</h2>
+  <p>WaterfallsNearYou is free to use and supported by advertising served through Google AdSense. Advertisers have no influence over which waterfalls we list or how we describe them. See our <a href="/privacy">privacy policy</a> for how advertising cookies work.</p>
+
+  <h2>Start exploring</h2>
+  <p>Browse <a href="/states">waterfalls by state</a>, <a href="/search">search by town or name</a>, or head back to the <a href="/">homepage</a> to see waterfalls near your location.</p>
+</StaticPage>

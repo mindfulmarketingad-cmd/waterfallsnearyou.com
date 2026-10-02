@@ -1,0 +1,237 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import Faq from '../../../components/Faq.astro';
+import ListingCard from '../../../components/ListingCard.astro';
+import { loadData, imageFor, hoursSummary } from '../../../lib/core.mjs';
+import {
+  fmtMiles, fmtNum, stars, gnisUrl, directionsUrl, appleMapsUrl, osmUrl, osmEmbed, topoUrl,
+  listingImage, listingImageAlt, imgFallback, longSummary, nearText, listJoin,
+} from '../../../lib/format.mjs';
+import { SITE } from '../../../config.mjs';
+
+export function getStaticPaths() {
+  return loadData().listings.map((l) => ({
+    params: { state: l.stateSlug, city: l.city.slug, listing: l.slug },
+    props: { id: l.id },
+  }));
+}
+const { id } = Astro.props;
+const l = loadData().listings.find((x) => x.id === id);
+const os = l.os;
+const state = loadData().states.find((s) => s.name === l.state);
+const sameCity = l.city.assigned.filter((x) => x !== l).slice(0, 12);
+const hours = hoursSummary(os);
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'States', url: '/states' },
+  { name: l.state, url: state.url },
+  { name: l.city.name, url: l.city.url },
+  { name: l.name, url: l.url },
+];
+const dupName = l.city.assigned.some((x) => x !== l && x.name === l.name);
+const baseTitle = dupName ? `${l.name}, ${fmtMiles(l.cityMiles)} ${l.cityDirection || 'from'} of ${l.city.name}, ${l.stateCode}`.replace(' from of ', ' from ') : `${l.name} near ${l.city.name}, ${l.stateCode}`;
+const title = baseTitle.length <= 44 ? `${baseTitle} | Map & Directions` : baseTitle.length <= 54 ? `${baseTitle} | Directions` : baseTitle;
+const description = os?.rating
+  ? `${l.name} near ${l.city.name}, ${l.stateCode}: rated ${os.rating.toFixed(1)} from ${fmtNum(os.reviews)} reviews. Hours, directions, GPS coordinates, map and nearby waterfalls.`
+  : `${l.name} is a waterfall ${nearText(l)}, ${l.state}. GPS coordinates, USGS topo map, directions, map and ${l.nearby.length} nearby waterfalls.`;
+const heroImg = listingImage(l);
+const ownImage = imageFor(l.url);
+const nearest = l.nearby[0];
+
+const faqs = [
+  { q: `Where is ${l.name} located?`, a: `${l.name} is in ${l.county ? `${l.county} County, ` : ''}${l.state}, ${nearText(l)}. Its coordinates are ${l.lat.toFixed(5)}, ${l.lng.toFixed(5)} (${l.latText}, ${l.lngText}).` },
+  { q: `What town is closest to ${l.name}?`, a: `The closest town with 1,000 or more residents is <a href="${l.city.url}">${l.city.name}, ${l.stateCode}</a>, about ${fmtMiles(l.cityMiles).replace(' mi', ' miles')} away in a straight line. Driving distance is usually longer, so check the route before you go.` },
+  ...(hours ? [{ q: `What are the hours for ${l.name}?`, a: `Listed hours: ${hours}. Hours can change seasonally or after storms, so confirm with the managing agency before visiting.` }] : []),
+  ...(nearest ? [{ q: `What waterfalls are near ${l.name}?`, a: `The closest is <a href="${nearest.listing.url}">${nearest.listing.name}</a> (${fmtMiles(nearest.miles)} ${nearest.direction}). ${l.nearby.length > 1 ? `Others within reach include ${listJoin(l.nearby.slice(1, 4).map((n) => `<a href="${n.listing.url}">${n.listing.name}</a> (${fmtMiles(n.miles)})`))}.` : ''}` }] : []),
+  ...(l.topoMap ? [{ q: `Which USGS topographic map shows ${l.name}?`, a: `${l.name} appears on the USGS ${l.topoMap} 7.5-minute quadrangle. You can view it in The National Map viewer or download the US Topo sheet for offline navigation.` }] : []),
+];
+
+const schema = [
+  {
+    '@type': 'TouristAttraction',
+    '@id': `${SITE.url}${l.url}#place`,
+    name: l.name,
+    description: longSummary(l),
+    url: `${SITE.url}${l.url}`,
+    image: os?.photo ? [os.photo, `${SITE.url}${ownImage}`] : `${SITE.url}${ownImage}`,
+    ...(l.variants?.length ? { alternateName: l.variants } : {}),
+    geo: { '@type': 'GeoCoordinates', latitude: l.lat, longitude: l.lng },
+    address: {
+      '@type': 'PostalAddress',
+      ...(os?.street ? { streetAddress: os.street } : {}),
+      addressLocality: os?.city || l.city.name,
+      ...(l.county ? { addressRegion: l.stateCode } : { addressRegion: l.stateCode }),
+      ...(os?.postalCode ? { postalCode: os.postalCode } : {}),
+      addressCountry: 'US',
+    },
+    containedInPlace: { '@type': 'AdministrativeArea', name: `${l.county ? `${l.county} County, ` : ''}${l.state}` },
+    ...(os?.phone ? { telephone: os.phone } : {}),
+    ...(os?.site ? { sameAs: [os.site] } : {}),
+    hasMap: osmUrl(l),
+    isAccessibleForFree: true,
+    publicAccess: true,
+    touristType: ['Hikers', 'Photographers', 'Families'],
+    ...(os?.hours?.length
+      ? { openingHoursSpecification: os.hours.filter((h) => /24 hours/i.test(h.hours)).map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: h.day, opens: '00:00', closes: '23:59' })) }
+      : {}),
+  },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerScore) as number[]) : 0;
+---
+<Base title={title} description={description} image={ownImage} imageAlt={listingImageAlt(l)} breadcrumbs={crumbs} schema={schema} preloadImage={heroImg}>
+  <section class="page-hero">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">Waterfall · {l.county ? `${l.county} County, ` : ''}{l.state}</span>
+        <h1>{l.name}</h1>
+        <p class="sub">Waterfall {nearText(l)}, {l.stateCode}.{l.variants?.length ? ` Also known as ${listJoin(l.variants)}.` : ''}</p>
+        {os?.rating ? (
+          <p class="rating"><span class="stars" aria-hidden="true">{stars(os.rating)}</span>{os.rating.toFixed(1)} <span class="count">· {fmtNum(os.reviews)} Google reviews</span></p>
+        ) : null}
+        <div class="li-actions">
+          <a class="btn btn-green" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Get directions</a>
+          <a class="btn btn-outline" href="#map"><Icon name="map" />View map</a>
+          {os?.site && <a class="btn btn-outline" href={os.site} rel="nofollow noopener ugc" target="_blank"><Icon name="globe" />Website</a>}
+        </div>
+      </div>
+      <figure>
+        <img class="feature" src={heroImg} onerror={imgFallback(l)} alt={listingImageAlt(l)} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" />
+        {os?.photo && <figcaption class="small muted">Photo via Google Maps listing data.</figcaption>}
+      </figure>
+    </div>
+  </section>
+
+  <div class="wrap section-sm detail">
+    <article class="prose">
+      <h2>About {l.name}</h2>
+      <p>{longSummary(l)}</p>
+      {os?.description && <p>{os.description}</p>}
+      {l.gnisDescription && <p><strong>USGS gazetteer description:</strong> {l.gnisDescription}</p>}
+      {l.gnisHistory && <p><strong>Name history:</strong> {l.gnisHistory}</p>}
+
+      {os?.photos?.length > 1 && (
+        <>
+          <h2>Photos</h2>
+          <div class="gallery">
+            {os.photos.slice(0, 8).map((p, i) => <img src={p} alt={`${l.name} photo ${i + 1}`} width="400" height="300" loading="lazy" decoding="async" referrerpolicy="no-referrer" />)}
+          </div>
+        </>
+      )}
+
+      <h2 id="map">Map and Directions</h2>
+      <p>The marker shows the USGS-recorded position of {l.name}. Trailheads and parking can be some distance from the falls themselves, so plan your route with an up-to-date trail map.</p>
+      <iframe class="map-frame" src={osmEmbed(l)} title={`Map of ${l.name}`} loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+      <div class="li-actions" style="margin-top:14px">
+        <a class="btn btn-outline" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Google Maps</a>
+        <a class="btn btn-outline" href={appleMapsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="pin" />Apple Maps</a>
+        <a class="btn btn-outline" href={osmUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="map" />OpenStreetMap</a>
+        <a class="btn btn-outline" href={topoUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="mountain" />USGS topo viewer</a>
+      </div>
+
+      {os?.about && (
+        <>
+          <h2>Amenities and Accessibility</h2>
+          {Object.entries(os.about).map(([section, items]) => (
+            <>
+              <h3>{section}</h3>
+              <p>{(items as string[]).map((i) => <span class="tag">{i}</span>)}</p>
+            </>
+          ))}
+        </>
+      )}
+
+      {os?.reviewsPerScore && (
+        <>
+          <h2>Visitor Ratings</h2>
+          <p>{l.name} holds a {os.rating?.toFixed(1)} average from {fmtNum(os.reviews)} Google reviews. Distribution by star rating:</p>
+          <div class="bars">
+            {[5, 4, 3, 2, 1].map((s) => (
+              <div><span>{s}★</span><span class="track"><span class="fill" style={`width:${maxScore ? Math.round(((os.reviewsPerScore[s] || 0) / maxScore) * 100) : 0}%`}></span></span><span>{fmtNum(os.reviewsPerScore[s] || 0)}</span></div>
+            ))}
+          </div>
+          {os.reviewsLink && <p class="small" style="margin-top:10px"><a href={os.reviewsLink} rel="nofollow noopener" target="_blank">Read reviews on Google</a></p>}
+        </>
+      )}
+
+      {l.landmarks?.length > 0 && (
+        <>
+          <h2>Named Landmarks Nearby</h2>
+          <p>These named features from the USGS Geographic Names Information System lie within two miles of {l.name}. Stream positions mark the stream's mouth as recorded by USGS.</p>
+          <ul>
+            {l.landmarks.map((m) => <li><strong>{m.name}</strong> — {m.type.toLowerCase()}, {fmtMiles(m.miles)}</li>)}
+          </ul>
+        </>
+      )}
+
+      <h2>Before You Visit</h2>
+      <ul>
+        <li>Water levels change quickly. Flow is usually strongest after rain and during snowmelt; see <a href="/blog/best-time-to-visit-waterfalls">the best time to visit waterfalls</a>.</li>
+        <li>Stay back from the brink and off wet rock. Our <a href="/blog/waterfall-safety-tips">waterfall safety guide</a> covers the most common hazards.</li>
+        <li>Check land ownership and access before you go. Some named falls sit on private property or in areas without a maintained trail.</li>
+        <li>Download offline maps and save the coordinates <strong>{l.lat.toFixed(5)}, {l.lng.toFixed(5)}</strong>. Use our <a href="/blog/what-to-pack-for-a-waterfall-hike">waterfall hike packing list</a>.</li>
+      </ul>
+
+      {l.nearby.length > 0 && (
+        <>
+          <h2>Waterfalls Near {l.name}</h2>
+          <div class="grid-3">
+            {l.nearby.slice(0, 6).map((n) => <ListingCard listing={n.listing} miles={n.miles} direction={n.direction} />)}
+          </div>
+          {l.nearby.length > 6 && (
+            <ul class="nearby-list" style="margin-top:16px">
+              {l.nearby.slice(6).map((n) => <li><a href={n.listing.url}><span>{n.listing.name}, {n.listing.stateCode}</span><span class="d">{fmtMiles(n.miles)} {n.direction}</span></a></li>)}
+            </ul>
+          )}
+        </>
+      )}
+
+      <div style="margin-top:36px"><Faq faqs={faqs} /></div>
+    </article>
+
+    <aside>
+      <div class="panel">
+        <h2>Quick Facts</h2>
+        <dl class="facts">
+          <div><dt>Type</dt><dd>{os?.category || 'Waterfall'}</dd></div>
+          {os?.fullAddress && <div><dt>Address</dt><dd>{os.fullAddress}</dd></div>}
+          <div><dt>County</dt><dd>{l.county ? `${l.county} County` : 'Not recorded'}</dd></div>
+          <div><dt>State</dt><dd><a href={state.url}>{l.state}</a></dd></div>
+          <div><dt>Nearest town</dt><dd><a href={l.city.url}>{l.city.name}</a> ({fmtMiles(l.cityMiles)})</dd></div>
+          <div><dt>Coordinates</dt><dd>{l.lat.toFixed(5)}, {l.lng.toFixed(5)}<br /><span class="muted small">{l.latText}, {l.lngText}</span></dd></div>
+          {os?.plusCode && <div><dt>Plus code</dt><dd>{os.plusCode}</dd></div>}
+          {os?.phone && <div><dt>Phone</dt><dd><a href={`tel:${os.phone.replace(/[^\d+]/g, '')}`}>{os.phone}</a></dd></div>}
+          {os?.site && <div><dt>Website</dt><dd><a href={os.site} rel="nofollow noopener ugc" target="_blank">{new URL(os.site).hostname.replace(/^www\./, '')}</a></dd></div>}
+          {os?.priceRange && <div><dt>Price</dt><dd>{os.priceRange}</dd></div>}
+          {os?.typicalTimeSpent && <div><dt>Time spent</dt><dd>{os.typicalTimeSpent}</dd></div>}
+          {l.topoMap && <div><dt>USGS topo</dt><dd>{l.topoMap} 7.5′ quad</dd></div>}
+          {l.gnisId && <div><dt>GNIS ID</dt><dd><a href={gnisUrl(l.gnisId)} rel="noopener" target="_blank">{l.gnisId}</a></dd></div>}
+          {l.gnisCreated && <div><dt>Recorded</dt><dd>{new Date(l.gnisCreated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</dd></div>}
+        </dl>
+      </div>
+      {os?.hours?.length > 0 && (
+        <div class="panel">
+          <h2>Hours</h2>
+          <table class="hours"><tbody>{os.hours.map((h) => <tr><td>{h.day}</td><td>{h.hours}</td></tr>)}</tbody></table>
+        </div>
+      )}
+      <div class="panel">
+        <h2>Explore the Area</h2>
+        <ul class="nearby-list">
+          <li><a href={l.city.url}><span>Waterfalls near {l.city.name}</span><span class="d">{l.city.nearby.length}</span></a></li>
+          <li><a href={state.url}><span>All {l.state} waterfalls</span><span class="d">{state.listings.length}</span></a></li>
+        </ul>
+        {sameCity.length > 0 && (
+          <>
+            <h3 style="margin-top:16px">Also near {l.city.name}</h3>
+            <ul class="link-cols" style="columns:1">
+              {sameCity.map((s) => <li><a href={s.url}>{s.name}</a></li>)}
+            </ul>
+          </>
+        )}
+      </div>
+      <p class="small muted">Location data: USGS Geographic Names Information System{l.gnisEdited ? `, last edited ${l.gnisEdited}` : ''}.{os ? ' Business details from Google Maps listing data.' : ''} Spotted an error? <a href="/contact">Let us know</a>.</p>
+    </aside>
+  </div>
+</Base>

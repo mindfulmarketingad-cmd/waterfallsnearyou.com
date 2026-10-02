@@ -1,0 +1,16 @@
+---
+interface Props { title: string; image: string; imageAlt: string; eyebrow?: string }
+const { title, image, imageAlt, eyebrow } = Astro.props;
+---
+<section class="page-hero">
+  <div class="wrap grid">
+    <div>
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h1>{title}</h1>
+      <slot />
+    </div>
+    <figure>
+      <img class="feature" src={image} alt={imageAlt} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" />
+    </figure>
+  </div>
+</section>

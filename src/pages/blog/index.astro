@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { getPosts } from '../../lib/blog.mjs';
+import { imageFor } from '../../lib/core.mjs';
+import { SITE } from '../../config.mjs';
+const posts = getPosts();
+const image = imageFor('/blog');
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }];
+const schema = [
+  { '@type': 'Blog', name: 'WaterfallsNearYou Blog', url: `${SITE.url}/blog`, blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: `${SITE.url}${p.url}`, datePublished: p.date.toISOString() })) },
+];
+const fmt = (d) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+<Base title="Waterfall Hiking Blog | Safety, Planning & Photography Tips" description="Practical guides for visiting waterfalls: safety rules, the best seasons for flow, photography tips, packing lists, family hikes and how to find waterfalls near you." image={image} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
+  <PageHero title="The Waterfall Blog" image={image} imageAlt="Illustration of a quiet waterfall in a forested valley" eyebrow="Guides and tips">
+    <p class="sub">Field-tested advice for planning safer, better waterfall hikes, from reading a topo map to timing the season.</p>
+  </PageHero>
+  <section class="wrap section-sm">
+    <div class="grid-3">
+      {posts.map((p, i) => (
+        <article class="card">
+          <img src={imageFor(p.url)} alt={p.imageAlt} width="1200" height="630" loading={i < 3 ? 'eager' : 'lazy'} />
+          <div class="body">
+            <span class="eyebrow">{p.category}</span>
+            <h2 style="font-size:1.2rem;margin:0"><a href={p.url} style="color:inherit;text-decoration:none">{p.title}</a></h2>
+            <p>{p.description}</p>
+            <div class="meta"><time datetime={p.date.toISOString()}>{fmt(p.date)}</time> · {p.minutes} min read</div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

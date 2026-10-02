@@ -1,0 +1,113 @@
+---
+import Base from '../layouts/Base.astro';
+import SearchForm from '../components/SearchForm.astro';
+import { loadData, imageFor } from '../lib/core.mjs';
+import { getPosts } from '../lib/blog.mjs';
+import { fmtNum } from '../lib/format.mjs';
+
+const { listings, states, cities } = loadData();
+const topStates = [...states].sort((a, b) => b.listings.length - a.listings.length).slice(0, 12);
+const topTowns = [...cities].sort((a, b) => b.nearby.filter((n) => n.miles <= 30).length - a.nearby.filter((n) => n.miles <= 30).length).slice(0, 18);
+const posts = getPosts().slice(0, 4);
+const image = imageFor('/search');
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }];
+---
+<Base title="Search Waterfalls Near Me | Find Waterfalls by Name or Town" description={`Search ${fmtNum(listings.length)} named waterfalls by name, nearby town, county or state, or use your location to find the waterfalls closest to you.`} image={image} breadcrumbs={crumbs}>
+  <section class="wrap section-sm narrow">
+    <span class="eyebrow">Search the directory</span>
+    <h1>Search Waterfalls</h1>
+    <p class="lead">Search {fmtNum(listings.length)} waterfalls, {fmtNum(cities.length)} towns and {states.length - 1} states plus DC. Try a waterfall name, a town such as "Asheville", or a county.</p>
+    <SearchForm bordered id="search-q" />
+    <p style="margin-top:14px"><button class="btn btn-outline" type="button" id="near-me">Show waterfalls near my location</button></p>
+    <p id="search-status" class="muted small" role="status" aria-live="polite"></p>
+    <ul class="results" id="results"></ul>
+    <noscript><p>Search needs JavaScript. You can still browse <a href="/states">waterfalls by state</a>.</p></noscript>
+  </section>
+
+  <section class="bg-mist section-sm">
+    <div class="wrap">
+      <h2>Popular States</h2>
+      <ul class="tile-list">{topStates.map((s) => <li><a href={s.url}><span>{s.name}</span><span class="count">{s.listings.length}</span></a></li>)}</ul>
+      <h2 style="margin-top:36px">Towns With the Most Waterfalls Nearby</h2>
+      <ul class="tile-list">{topTowns.map((c) => <li><a href={c.url}><span>{c.name}, {c.stateCode}</span><span class="count">{c.nearby.filter((n) => n.miles <= 30).length}</span></a></li>)}</ul>
+    </div>
+  </section>
+  <section class="wrap section-sm">
+    <h2>Guides</h2>
+    <ul class="link-cols">{posts.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
+  </section>
+</Base>
+
+<script>
+  import { loadIndex, norm, el, nearest, browserLocation, imageOf } from '../scripts/directory.js';
+
+  const input = document.getElementById('search-q') as HTMLInputElement;
+  const list = document.getElementById('results');
+  const status = document.getElementById('search-status');
+  const params = new URLSearchParams(location.search);
+  const q0 = (params.get('q') || '').slice(0, 80);
+  if (q0) input.value = q0;
+
+  function fmt(d) { return d < 10 ? d.toFixed(1) : Math.round(d).toString(); }
+
+  function render(rows) {
+    list.replaceChildren(
+      ...rows.map((r) =>
+        el('li', {}, el('a', { href: r.url },
+          el('span', { class: 'k' }, r.kind),
+          el('span', { class: 't' }, r.title),
+          el('span', { class: 's' }, r.sub),
+        )),
+      ),
+    );
+  }
+
+  function search(index, raw) {
+    const q = norm(raw).replace(/\bwaterfalls?\b|\bnear( me)?\b|\bin\b|\bfalls\b/g, ' ').trim();
+    const full = norm(raw).trim();
+    if (!full) { list.replaceChildren(); status.textContent = ''; return; }
+    const terms = (q || full).split(/[\s,]+/).filter(Boolean);
+    const out = [];
+    const scoreText = (text) => {
+      const t = norm(text);
+      if (!terms.every((w) => t.includes(w))) return 0;
+      let s = 1;
+      if (t.startsWith(terms[0])) s += 2;
+      if (t === (q || full)) s += 4;
+      return s;
+    };
+    for (const s of index.s) { const sc = scoreText(`${s[0]} ${s[2]}`); if (sc) out.push({ kind: 'State', title: `Waterfalls in ${s[0]}`, sub: `${s[3]} waterfalls`, url: s[1], score: sc + 6 }); }
+    for (const c of index.c) { const sc = scoreText(`${c[0]} ${c[2]}`); if (sc) out.push({ kind: 'Town', title: `Waterfalls near ${c[0]}, ${c[2]}`, sub: `${c[3]} waterfalls within 30 miles`, url: c[1], score: sc + 3 }); }
+    for (const l of index.l) {
+      const sc = Math.max(scoreText(`${l[0]} ${l[10]}`) * 1.5, scoreText(`${l[0]} ${l[2]} ${l[3]} ${l[6]} county ${l[10]}`));
+      if (sc) out.push({ kind: 'Waterfall', title: l[0], sub: `${l[2]}, ${l[3]}${l[6] ? ` · ${l[6]} County` : ''}`, url: l[1], score: sc + l[11] / 10 });
+    }
+    for (const b of index.b) { const sc = scoreText(`${b[0]} ${b[2]}`); if (sc) out.push({ kind: 'Guide', title: b[0], sub: b[2], url: b[1], score: sc - 0.5 }); }
+    out.sort((a, b) => b.score - a.score);
+    const shown = out.slice(0, 60);
+    status.textContent = out.length ? `${out.length} result${out.length === 1 ? '' : 's'} for "${raw}"${out.length > 60 ? ' (showing top 60)' : ''}` : `No results for "${raw}". Try a town or state name, or use your location.`;
+    render(shown);
+  }
+
+  loadIndex().then((index) => {
+    if (q0) {
+      if (/near me|near you/i.test(q0) && !/\b(in|near)\s+(?!me\b|you\b)\w/i.test(q0)) status.textContent = 'Tip: use the location button to see the waterfalls closest to you.';
+      search(index, q0);
+    }
+    let t;
+    input.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => search(index, input.value), 160); });
+  }).catch(() => { status.textContent = 'Search is temporarily unavailable. Browse waterfalls by state instead.'; });
+
+  document.getElementById('near-me').addEventListener('click', async () => {
+    status.textContent = 'Finding your location...';
+    try {
+      const [pos, index] = await Promise.all([browserLocation(), loadIndex()]);
+      const rows = nearest(index, pos, 25).map(({ row, d }) => ({ kind: `${fmt(d)} mi`, title: row[0], sub: `${row[2]}, ${row[3]}${row[6] ? ` · ${row[6]} County` : ''}`, url: row[1] }));
+      status.textContent = 'The 25 closest waterfalls to your location (straight-line distance):';
+      render(rows);
+      void imageOf;
+    } catch {
+      status.textContent = 'Location is unavailable. Search by town or state instead.';
+    }
+  });
+</script>

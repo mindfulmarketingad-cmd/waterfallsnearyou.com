@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+interface Props { bordered?: boolean; value?: string; id?: string; placeholder?: string }
+const { bordered = false, value = '', id = 'q', placeholder = 'Search waterfalls, towns or states' } = Astro.props;
+---
+<form class:list={['search-form', { bordered }]} action="/search" method="get" role="search">
+  <label class="sr-only" for={id}>Search WaterfallsNearYou</label>
+  <input id={id} name="q" type="search" value={value} placeholder={placeholder} autocomplete="off" maxlength="80" />
+  <button class="btn btn-green" type="submit"><Icon name="search" />Search</button>
+</form>

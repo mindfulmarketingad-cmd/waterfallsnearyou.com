@@ -1,0 +1,13 @@
+---
+interface Props { chips: { url: string; label: string; count?: number }[]; current?: string; label?: string }
+const { chips, current, label = 'Filter waterfalls' } = Astro.props;
+---
+{chips.length > 0 && (
+  <nav aria-label={label}>
+    <ul class="chips">
+      {chips.map((c) => (
+        <li><a class="chip" href={c.url} aria-current={c.url === current ? 'page' : undefined}>{c.label}{typeof c.count === 'number' && <span class="n">{c.count}</span>}</a></li>
+      ))}
+    </ul>
+  </nav>
+)}

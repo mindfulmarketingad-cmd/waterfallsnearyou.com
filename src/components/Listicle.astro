@@ -1,0 +1,36 @@
+---
+import Icon from './Icon.astro';
+import { imgFallback, listingImage, listingImageAlt, shortSummary, listingFacts, directionsUrl, fmtMiles, stars, fmtNum } from '../lib/format.mjs';
+interface Props { items: { listing: any; miles?: number; direction?: string }[]; from?: string; start?: number }
+const { items, from, start = 1 } = Astro.props;
+---
+<ol class="listicle" start={start}>
+  {items.map(({ listing: l, miles, direction }, i) => (
+    <li class="li-item" id={`n${start + i}`}>
+      <div class="li-num" aria-hidden="true">{start + i}</div>
+      <a class="li-img" href={l.url} tabindex="-1" aria-hidden="true">
+        <img src={listingImage(l)} onerror={imgFallback(l)} alt={listingImageAlt(l)} width="1200" height="630" loading={i < 2 ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" />
+      </a>
+      <div class="li-body">
+        <h3><a href={l.url}>{l.name}</a></h3>
+        <div class="li-meta">
+          {l.city.name}, {l.stateCode}{l.county ? ` · ${l.county} County` : ''}
+          {typeof miles === 'number' && from ? ` · ${fmtMiles(miles)} ${direction} of ${from}` : ''}
+        </div>
+        {l.os?.rating ? (
+          <div class="rating"><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span>{l.os.rating.toFixed(1)} <span class="count">({fmtNum(l.os.reviews)} reviews)</span></div>
+        ) : null}
+        <p class="li-summary">{shortSummary(l)}</p>
+        <dl class="li-facts">
+          {listingFacts(l).map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+        </dl>
+        <div class="li-actions">
+          <a class="btn btn-primary" href={l.url}>View details</a>
+          <a class="btn btn-outline" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Directions</a>
+          {l.os?.phone && <a class="btn btn-outline" href={`tel:${l.os.phone.replace(/[^\d+]/g, '')}`}><Icon name="phone" />Call</a>}
+          {l.os?.site && <a class="btn btn-outline" href={l.os.site} rel="nofollow noopener ugc" target="_blank"><Icon name="globe" />Website</a>}
+        </div>
+      </div>
+    </li>
+  ))}
+</ol>
