@@ -4,6 +4,7 @@ import SearchForm from '../components/SearchForm.astro';
 import ListingCard from '../components/ListingCard.astro';
 import Faq from '../components/Faq.astro';
 import Icon from '../components/Icon.astro';
+import StateTiles from '../components/StateTiles.astro';
 import { loadData, imageFor } from '../lib/core.mjs';
 import { getPosts } from '../lib/blog.mjs';
 import { fmtNum } from '../lib/format.mjs';
@@ -106,9 +107,7 @@ const schema = [
     <div class="wrap">
       <span class="eyebrow">Browse by state</span>
       <h2>Find Waterfalls in Your State</h2>
-      <ul class="tile-list">
-        {states.map((s) => <li><a href={s.url}><span>{s.name}</span><span class="count">{s.listings.length}</span></a></li>)}
-      </ul>
+      <StateTiles states={states} />
     </div>
   </section>
 

@@ -34,10 +34,11 @@ const tz = timeZoneFor(l);
 </section>
 
 <style>
-  .cond { margin: 1.6em 0; }
+  .cond { margin: 1.6em 0; min-width: 0; max-width: 100%; contain: inline-size; }
   .cond h2 { margin-bottom: 12px; }
   .cond-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-  @media (max-width: 900px) { .cond-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .cond-grid { grid-template-columns: minmax(0, 1fr); } }
+  .cond-card { min-width: 0; overflow-wrap: anywhere; }
   .cond-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; background: #fff; }
   .cond-card h3 { font-size: 1.02rem; margin: 0 0 10px; }
   .cond-dl { margin: 0 0 8px; display: grid; gap: 6px; font-size: 0.94rem; }

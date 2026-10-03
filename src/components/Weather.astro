@@ -20,26 +20,32 @@ const nwsPage = `https://forecast.weather.gov/MapClick.php?lat=${lat.toFixed(4)}
 </section>
 
 <style>
-  .wx { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--mist-2); margin: 1.6em 0; }
+  .wx { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--mist-2); margin: 1.6em 0; min-width: 0; max-width: 100%; contain: inline-size; }
+  .wx[data-state='loading'] { min-height: 470px; }
+  @media (min-width: 761px) { .wx[data-state='loading'] { min-height: 420px; } }
   .wx-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
   .wx-head h2 { margin: 0; }
   .wx-sub { margin: 4px 0 14px; }
   .wx-alerts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
-  .wx :global(.wx-alert) { border-left: 4px solid #b4432c; background: #fbefec; border-radius: 8px; padding: 10px 14px; font-size: 0.93rem; }
+  .wx :global(.wx-alert) { border-left: 4px solid #b4432c; background: #fbefec; border-radius: 8px; padding: 10px 14px; font-size: 0.93rem; overflow-wrap: anywhere; }
   .wx :global(.wx-alert strong) { color: #8a2f1d; }
   .wx-now { display: flex; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
   .wx :global(.wx-now img) { width: 64px; height: 64px; border-radius: 10px; flex: none; }
   .wx :global(.wx-temp) { font-family: var(--font-head); font-size: 2.2rem; font-weight: 600; color: var(--slate-dark); line-height: 1; }
-  .wx-days { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+  .wx-days { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; min-width: 0; max-width: 100%; }
   .wx :global(.wx-day) { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 6px; text-align: center; font-size: 0.85rem; }
   .wx :global(.wx-day img) { width: 44px; height: 44px; border-radius: 8px; margin: 6px auto; }
   .wx :global(.wx-day .hi) { font-weight: 700; color: var(--ink); }
   .wx :global(.wx-day .lo) { color: var(--slate-soft); }
   .wx :global(.wx-day .pop) { color: #2f6a8a; font-size: 0.8rem; }
-  .wx :global(.wx-day .sf) { color: var(--slate); font-size: 0.78rem; line-height: 1.3; margin-top: 4px; }
+  .wx :global(.wx-day .sf) { color: var(--slate); font-size: 0.78rem; line-height: 1.3; margin-top: 4px; overflow-wrap: normal; word-break: normal; hyphens: auto; }
   .wx-credit { margin: 12px 0 0; }
   @media (max-width: 760px) {
-    .wx-days { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 112px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+    .wx { padding: 16px; }
+    .wx-days { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 104px; overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+    .wx :global(.wx-now) { gap: 12px; padding: 12px; }
+    .wx :global(.wx-now img) { width: 52px; height: 52px; }
+    .wx :global(.wx-temp) { font-size: 1.9rem; }
     .wx :global(.wx-day) { scroll-snap-align: start; }
   }
 </style>
@@ -110,6 +116,7 @@ const nwsPage = `https://forecast.weather.gov/MapClick.php?lat=${lat.toFixed(4)}
     )));
     list.hidden = false;
     status.remove();
+    box.dataset.state = 'ready';
   }
 
   async function load() {
@@ -132,10 +139,12 @@ const nwsPage = `https://forecast.weather.gov/MapClick.php?lat=${lat.toFixed(4)}
       render(periods, alerts);
     } catch {
       status.textContent = 'The forecast is unavailable right now. Use the full NWS forecast link above.';
+      box.dataset.state = 'error';
     }
   }
 
   if (box) {
+    box.dataset.state = 'loading';
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
         if (entries.some((e) => e.isIntersecting)) { io.disconnect(); load(); }
