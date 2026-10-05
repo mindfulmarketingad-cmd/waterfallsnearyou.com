@@ -18,6 +18,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+/* The hidden attribute always wins over component display rules (filters, widgets, map toggle). */
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -340,3 +342,6 @@ a.sc-tag:hover { background: var(--forest); color: #fff; }
   .pc-main { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .pc-thumb img { width: 100%; height: auto; aspect-ratio: 3 / 2; }
 }
+
+.stars.empty { color: #c9cfcc; }
+.rating.unrated .count { margin-left: 6px; }

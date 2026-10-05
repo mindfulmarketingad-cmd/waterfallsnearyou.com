@@ -1,0 +1,23 @@
+---
+// Links every map page to every other map page (and back to the US map).
+import { mapStates, mapUrl } from '../lib/maps.mjs';
+interface Props { current?: string }
+const { current } = Astro.props;
+---
+<nav class="maplinks" aria-label="Waterfall maps by state">
+  <h2>Waterfall maps by state</h2>
+  <ul>
+    {current && <li><a href="/map"><strong>United States</strong></a></li>}
+    {mapStates().map((s) => <li><a href={mapUrl(s)} aria-current={s.slug === current ? 'page' : undefined}>{s.name} <span class="n">{s.listings.length}</span></a></li>)}
+  </ul>
+</nav>
+
+<style>
+  .maplinks ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+  .maplinks a { display: flex; justify-content: space-between; gap: 8px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--slate-dark); text-decoration: none; font-size: 0.92rem; }
+  .maplinks a:hover { border-color: var(--forest); color: var(--forest); }
+  .maplinks a[aria-current='page'] { background: var(--forest); border-color: var(--forest); color: #fff; }
+  .maplinks .n { color: var(--slate-soft); }
+  .maplinks a[aria-current='page'] .n { color: #e7f0eb; }
+  @media (max-width: 560px) { .maplinks ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>

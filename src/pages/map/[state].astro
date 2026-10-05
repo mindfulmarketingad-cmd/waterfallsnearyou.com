@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageBand from '../../components/PageBand.astro';
+import WaterfallMap from '../../components/WaterfallMap.astro';
+import MapHubLinks from '../../components/MapHubLinks.astro';
+import Faq from '../../components/Faq.astro';
+import { point, MAP_YEAR, mapStates } from '../../lib/maps.mjs';
+import { stateInsights } from '../../lib/insights.mjs';
+import { fmtNum, listJoin } from '../../lib/format.mjs';
+import { SITE } from '../../config.mjs';
+
+export function getStaticPaths() {
+  return mapStates().map((s) => ({ params: { state: s.slug }, props: { slug: s.slug } }));
+}
+const state = mapStates().find((s) => s.slug === Astro.props.slug);
+const ins = stateInsights(state);
+const n = state.listings.length;
+const rated = state.listings.filter((l) => l.os?.rating).length;
+const title = `${state.name} Waterfall Map ${MAP_YEAR}`;
+const topCounties = ins.counties.slice(0, 3);
+const lead = ins.mostReviewed[0];
+const description = `Interactive map of ${fmtNum(n)} waterfall${n === 1 ? '' : 's'} in ${state.name}. Tap any marker to open that waterfall's page with directions, photos and live weather.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Map', url: '/map' }, { name: state.name, url: `/map/${state.slug}` }];
+const faqs = [
+  { q: `How many waterfalls are in ${state.name}?`, a: `This map shows ${fmtNum(n)} waterfall${n === 1 ? '' : 's'} in ${state.name}${rated ? `, ${fmtNum(rated)} with Google visitor ratings (green markers)` : ''}. See them as a ranked list on the <a href="${state.url}">${state.name} waterfalls page</a>.` },
+  ...(topCounties.length ? [{ q: `Where are most of ${state.name}'s waterfalls?`, a: `${topCounties[0].name} County has the most (${topCounties[0].listings.length})${topCounties.length > 1 ? `, followed by ${listJoin(topCounties.slice(1).map((c) => `${c.name} County (${c.listings.length})`))}` : ''}. Zoom into those areas on the map to see clusters of falls.` }] : []),
+  ...(lead ? [{ q: `What is the most visited waterfall in ${state.name}?`, a: `<a href="${lead.url}">${lead.name}</a> near ${lead.city.name} has the most Google reviews (${fmtNum(lead.os.reviews)}).` }] : []),
+  { q: 'Are the marker locations exact?', a: 'Markers show the recorded position of each waterfall, not the trailhead or parking area. Use the directions on each waterfall page and check access before you go.' },
+  { q: `Is there a map of waterfalls in every state?`, a: 'Yes. Use the state links below or the <a href="/map">United States waterfall map</a> to explore other states.' },
+];
+const schema = [
+  { '@type': 'WebPage', name: title, url: `${SITE.url}/map/${state.slug}`, description, about: { '@type': 'State', name: state.name } },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={title} description={description} breadcrumbs={crumbs} bandCrumbs schema={schema}>
+  <PageBand title={title} crumbs={crumbs}>
+    <p>{fmtNum(n)} waterfall{n === 1 ? '' : 's'} across {state.counties.length} count{state.counties.length === 1 ? 'y' : 'ies'} in {state.name}, mapped from official USGS records. Tap a marker to open that waterfall's page with directions and live conditions, or see the ranked list on the <a href={state.url}>{state.name} waterfalls page</a>.</p>
+  </PageBand>
+  <section class="wrap section-sm">
+    <WaterfallMap points={state.listings.map(point)} label={`Map of waterfalls in ${state.name}`} height={620} />
+  </section>
+  <section class="wrap section narrow"><Faq faqs={faqs} heading="Frequently asked questions" /></section>
+  <section class="wrap section-sm"><MapHubLinks current={state.slug} /></section>
+</Base>

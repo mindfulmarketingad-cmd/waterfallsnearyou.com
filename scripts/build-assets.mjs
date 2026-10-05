@@ -10,7 +10,7 @@ import { getStateLists, getSmallest, getRoadside, getCapitalLists } from '../src
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { listings, states, cities } = loadData();
 const blog = readdirSync(path.join(ROOT, 'src/content/blog')).filter((f) => f.endsWith('.md')).map((f) => `/blog/${f.replace(/\.md$/, '')}`);
-const urls = [...staticPagePaths(), ...states.map((s) => s.url), ...cities.map((c) => c.url), ...listings.map((l) => l.url), ...blog, ...getStateLists().map((p) => p.url), getSmallest().url, getRoadside().url, ...getCapitalLists().map((p) => p.url)];
+const urls = [...staticPagePaths(), ...states.map((s) => s.url), ...cities.map((c) => c.url), ...listings.map((l) => l.url), ...blog, ...getStateLists().map((p) => p.url), getSmallest().url, getRoadside().url, ...getCapitalLists().map((p) => p.url), '/map', ...states.map((s) => `/map/${s.slug}`)];
 
 let made = 0;
 const queue = [...new Set(urls)];

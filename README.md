@@ -35,6 +35,10 @@ Every imported record also gets `/partners/[business-name]`, which redirects to 
 /blog/must-see-waterfalls-in-[state]        Top 5 most visited, spread out, with a route
 /blog/best-waterfall-hikes-in-[state]       Trail-evidenced falls ranked by rating
 /blog/smallest-waterfalls-in-the-us         Smallest falls with a recorded height
+/blog/best-waterfalls-[capital]-[state]     Best waterfalls near each qualifying state capital (28)
+/blog/[waterfall]                           "[Waterfall] Guide Before Visiting" (waterfalls with 25+ reviews,
+                                            a Google description or USGS naming history; 821 today)
+/map  ->  /map/[state]              Interactive waterfall maps (Leaflet + OpenStreetMap tiles)
 /search                             Site-wide search
 /about /contact /disclaimer /privacy /terms /sitemap   /sitemap.xml /robots.txt /ads.txt
 ```
@@ -45,6 +49,10 @@ Every imported record also gets `/partners/[business-name]`, which redirects to 
 - `src/lib/insights.mjs`: statistics computed for each state and town (rankings, distance bands, quick picks, review-tag themes, compass extremes, county shares).
 - `src/lib/bestof.mjs`: the programmatic state list posts. They are generated only for states with more than 10 listings, and only where the data supports the list. Waterfalls flagged as private property are excluded.
 - Neighboring towns under 2.5 miles apart, or under 5 miles apart with near-identical names, are merged into one hub so their pages don't duplicate each other.
+
+## Filling rating gaps
+
+`data/outscraper-requests/unrated-waterfalls.csv` lists every waterfall without Google data. Each row has a ready-made search `query` plus coordinates. Run it through Outscraper's Google Maps scraper and drop the export into `data/outscraper/`. The next build matches the results back and adds ratings and photos. Waterfalls that gain enough reviews also get a visitor guide automatically.
 
 ## Images
 

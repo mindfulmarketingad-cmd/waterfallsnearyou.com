@@ -6,6 +6,7 @@ import ListingCard from '../../../components/ListingCard.astro';
 import Photo from '../../../components/Photo.astro';
 import Weather from '../../../components/Weather.astro';
 import Conditions from '../../../components/Conditions.astro';
+import { guideFor } from '../../../lib/guides.mjs';
 import { listingPhoto } from '../../../lib/photos.mjs';
 import { loadData, imageFor, hoursSummary } from '../../../lib/core.mjs';
 import {
@@ -40,6 +41,7 @@ const description = os?.rating
   ? `${l.name} near ${l.city.name}, ${l.stateCode}: rated ${os.rating.toFixed(1)} from ${fmtNum(os.reviews)} reviews. Hours, directions, GPS coordinates, map and nearby waterfalls.`
   : `${l.name} is a waterfall ${nearText(l)}, ${l.state}. GPS coordinates, USGS topo map, directions, map and ${l.nearby.length} nearby waterfalls.`;
 const photo = listingPhoto(l);
+const guide = guideFor(l);
 const ownImage = photo.own ? photo.src : imageFor(l.url);
 const nearest = l.nearby[0];
 
@@ -92,12 +94,15 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <h1>{l.name}</h1>
         <p class="sub">Waterfall {nearText(l)}, {l.stateCode}.{l.variants?.length ? ` Also known as ${listJoin(l.variants)}.` : ''}</p>
         {os?.rating ? (
-          <p class="rating"><span class="stars" aria-hidden="true">{stars(os.rating)}</span>{os.rating.toFixed(1)} <span class="count">· {fmtNum(os.reviews)} Google reviews</span></p>
-        ) : null}
+          <p class="rating"><a class="rating-link" href="#ratings"><span class="stars" aria-hidden="true">{stars(os.rating)}</span>{os.rating.toFixed(1)} <span class="count">· {fmtNum(os.reviews)} Google reviews</span></a></p>
+        ) : (
+          <p class="rating unrated" title="No visitor ratings have been collected for this waterfall yet"><span class="stars empty" aria-hidden="true">☆☆☆☆☆</span><span class="count">Not yet rated</span></p>
+        )}
         <div class="li-actions">
           <a class="btn btn-green" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Get directions</a>
           <a class="btn btn-outline" href="#map"><Icon name="map" />View map</a>
           <a class="btn btn-outline" href="#weather"><Icon name="clock" />Weather</a>
+          {guide && <a class="btn btn-outline" href={guide.url}><Icon name="book" />Visitor guide</a>}
           {os?.site && <a class="btn btn-outline" href={os.site} rel="nofollow noopener ugc" target="_blank"><Icon name="globe" />Website</a>}
         </div>
       </div>
@@ -234,6 +239,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
       <div class="panel">
         <h2>Explore the Area</h2>
         <ul class="nearby-list">
+          {guide && <li><a href={guide.url}><span>{l.name} visitor guide</span><span class="d">Guide</span></a></li>}
           <li><a href={l.city.url}><span>Waterfalls near {l.city.name}</span><span class="d">{l.city.nearby.length}</span></a></li>
           <li><a href={state.url}><span>All {l.state} waterfalls</span><span class="d">{state.listings.length}</span></a></li>
         </ul>

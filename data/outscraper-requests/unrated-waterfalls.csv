@@ -1,0 +1,790 @@
+query,name,county,state,latitude,longitude,listing_url
+"Butler Falls, Franklin County, AL",Butler Falls,Franklin,Alabama,34.305931,-87.556691,https://waterfallsnearyou.com/alabama/haleyville/butler-falls
+"Georgia Falls, Colbert County, AL",Georgia Falls,Colbert,Alabama,34.794066,-87.626457,https://waterfallsnearyou.com/alabama/east-florence/georgia-falls
+"Parker Cascades, Lawrence County, AL",Parker Cascades,Lawrence,Alabama,34.308432,-87.481133,https://waterfallsnearyou.com/alabama/haleyville/parker-cascades
+"Tallapoosa Falls (historical), Elmore County, AL",Tallapoosa Falls (historical),Elmore,Alabama,32.535968,-85.885792,https://waterfallsnearyou.com/alabama/tallassee/tallapoosa-falls-historical
+"University Falls (historical), Tuscaloosa County, AL",University Falls (historical),Tuscaloosa,Alabama,33.21984,-87.551117,https://waterfallsnearyou.com/alabama/tuscaloosa/university-falls-historical
+"Alaska Chief Falls, Juneau County, AK",Alaska Chief Falls,Juneau,Alaska,58.305,-134.34,https://waterfallsnearyou.com/alaska/juneau/alaska-chief-falls
+"Beaver Falls, Ketchikan Gateway County, AK",Beaver Falls,Ketchikan Gateway,Alaska,55.381667,-131.522778,https://waterfallsnearyou.com/alaska/ketchikan/beaver-falls
+"Bridal Veil Falls, Skagway County, AK",Bridal Veil Falls,Skagway,Alaska,59.569444,-135.208333,https://waterfallsnearyou.com/alaska/haines/bridal-veil-falls
+"Cheshnina Falls, Copper River County, AK",Cheshnina Falls,Copper River,Alaska,61.857768,-144.11771,https://waterfallsnearyou.com/alaska/valdez/cheshnina-falls
+"Chitistone Falls, Copper River County, AK",Chitistone Falls,Copper River,Alaska,61.547222,-142.174722,https://waterfallsnearyou.com/alaska/tok/chitistone-falls
+"Cynthia Falls, Kenai Peninsula County, AK",Cynthia Falls,Kenai Peninsula,Alaska,59.786111,-153.208611,https://waterfallsnearyou.com/alaska/anchor-point/cynthia-falls
+"Fish Ladder, Ketchikan Gateway County, AK",Fish Ladder,Ketchikan Gateway,Alaska,55.293056,-130.651944,https://waterfallsnearyou.com/alaska/metlakatla/fish-ladder
+"Fultons Falls, Kodiak Island County, AK",Fultons Falls,Kodiak Island,Alaska,58.141667,-154.990278,https://waterfallsnearyou.com/alaska/kodiak-station/fultons-falls
+"Golden Gate Falls, Bethel County, AK",Golden Gate Falls,Bethel,Alaska,60.500408,-160.173507,https://waterfallsnearyou.com/alaska/bethel/golden-gate-falls
+"Grindstone Falls, Juneau County, AK",Grindstone Falls,Juneau,Alaska,58.216667,-134.25,https://waterfallsnearyou.com/alaska/juneau/grindstone-falls
+"Kasnyku Falls, Sitka County, AK",Kasnyku Falls,Sitka,Alaska,57.191111,-134.8325,https://waterfallsnearyou.com/alaska/sitka/kasnyku-falls
+"Kolevokharit Koygut Falls, Dillingham (CA) County, AK",Kolevokharit Koygut Falls,Dillingham (CA),Alaska,59.783333,-158.566667,https://waterfallsnearyou.com/alaska/dillingham/kolevokharit-koygut-falls
+"Lax'áask'i, Hoonah-Angoon (CA) County, AK",Lax'áask'i,Hoonah-Angoon (CA),Alaska,57.953607,-135.224159,https://waterfallsnearyou.com/alaska/juneau/laxaaski
+"Lost Rocker Falls, Juneau County, AK",Lost Rocker Falls,Juneau,Alaska,58.266667,-134.316667,https://waterfallsnearyou.com/alaska/juneau/lost-rocker-falls
+"Lower Falls, Bethel County, AK",Lower Falls,Bethel,Alaska,60.434466,-160.094569,https://waterfallsnearyou.com/alaska/bethel/lower-falls
+"Nutkwa Falls, Prince of Wales-Hyder (CA) County, AK",Nutkwa Falls,Prince of Wales-Hyder (CA),Alaska,55.118611,-132.539444,https://waterfallsnearyou.com/alaska/craig/nutkwa-falls
+"Petrof Falls, Lake and Peninsula County, AK",Petrof Falls,Lake and Peninsula,Alaska,59.8,-154.95,https://waterfallsnearyou.com/alaska/anchor-point/petrof-falls
+"Rainbow Falls, Wrangell County, AK",Rainbow Falls,Wrangell,Alaska,56.422778,-132.332778,https://waterfallsnearyou.com/alaska/wrangell/rainbow-falls
+"Rotary Falls, Matanuska-Susitna County, AK",Rotary Falls,Matanuska-Susitna,Alaska,61.72,-149.294444,https://waterfallsnearyou.com/alaska/fishhook/rotary-falls
+"Sahlin Falls, Chugach County, AK",Sahlin Falls,Chugach,Alaska,60.694444,-145.966944,https://waterfallsnearyou.com/alaska/cordova/sahlin-falls
+"Silver Falls, Prince of Wales-Hyder (CA) County, AK",Silver Falls,Prince of Wales-Hyder (CA),Alaska,55.978608,-130.053744,https://waterfallsnearyou.com/alaska/ketchikan/silver-falls
+"Silver Salmon Falls, Prince of Wales-Hyder (CA) County, AK",Silver Salmon Falls,Prince of Wales-Hyder (CA),Alaska,55.791389,-133.094722,https://waterfallsnearyou.com/alaska/craig/silver-salmon-falls
+"Sockeye Falls, Prince of Wales-Hyder (CA) County, AK",Sockeye Falls,Prince of Wales-Hyder (CA),Alaska,55.916667,-133,https://waterfallsnearyou.com/alaska/craig/sockeye-falls
+"Sweetheart Falls, Juneau County, AK",Sweetheart Falls,Juneau,Alaska,57.945278,-133.676667,https://waterfallsnearyou.com/alaska/juneau/sweetheart-falls
+"Tax'áas, Hoonah-Angoon (CA) County, AK",Tax'áas,Hoonah-Angoon (CA),Alaska,57.841316,-135.037648,https://waterfallsnearyou.com/alaska/juneau/taxaas
+"The Falls, Southeast Fairbanks (CA) County, AK",The Falls,Southeast Fairbanks (CA),Alaska,64.929444,-141.825833,https://waterfallsnearyou.com/alaska/tok/the-falls
+"Upper Falls, Bethel County, AK",Upper Falls,Bethel,Alaska,60.362298,-159.943696,https://waterfallsnearyou.com/alaska/bethel/upper-falls
+"White Falls, Aleutians West (CA) County, AK",White Falls,Aleutians West (CA),Alaska,51.786111,-176.798611,https://waterfallsnearyou.com/alaska/unalaska/white-falls
+"Whiting Falls, Chugach County, AK",Whiting Falls,Chugach,Alaska,60.990058,-144.842168,https://waterfallsnearyou.com/alaska/cordova/whiting-falls
+"Wolf Pass Falls, Prince of Wales-Hyder (CA) County, AK",Wolf Pass Falls,Prince of Wales-Hyder (CA),Alaska,55.733889,-132.856944,https://waterfallsnearyou.com/alaska/craig/wolf-pass-falls
+"Wolverine Falls, Lake and Peninsula County, AK",Wolverine Falls,Lake and Peninsula,Alaska,58.547782,-154.725505,https://waterfallsnearyou.com/alaska/kodiak-station/wolverine-falls
+"X'áask', Hoonah-Angoon (CA) County, AK",X'áask',Hoonah-Angoon (CA),Alaska,57.992877,-135.65927,https://waterfallsnearyou.com/alaska/juneau/xaask
+"Ash Creek Falls, Graham County, AZ",Ash Creek Falls,Graham,Arizona,32.729791,-109.893969,https://waterfallsnearyou.com/arizona/swift-trail-junction/ash-creek-falls
+"Big Flow, Apache County, AZ",Big Flow,Apache,Arizona,36.235836,-109.322881,https://waterfallsnearyou.com/arizona/tsaile/big-flow
+"Black Falls, Coconino County, AZ",Black Falls,Coconino,Arizona,35.578913,-111.284397,https://waterfallsnearyou.com/arizona/flagstaff/black-falls
+"Chitty Falls, Greenlee County, AZ",Chitty Falls,Greenlee,Arizona,33.539093,-109.396219,https://waterfallsnearyou.com/arizona/morenci/chitty-falls
+"Columbine Falls, Mohave County, AZ",Columbine Falls,Mohave,Arizona,36.092673,-113.921809,https://waterfallsnearyou.com/arizona/meadview/columbine-falls
+"Glynns Falls, Yuma County, AZ",Glynns Falls,Yuma,Arizona,32.588106,-113.653531,https://waterfallsnearyou.com/arizona/wellton/glynns-falls
+"Minnehaha Waters, Yavapai County, AZ",Minnehaha Waters,Yavapai,Arizona,34.201974,-112.422669,https://waterfallsnearyou.com/arizona/mayer/minnehaha-waters
+"Mooney Falls, Coconino County, AZ",Mooney Falls,Coconino,Arizona,36.263119,-112.70853,https://waterfallsnearyou.com/arizona/grand-canyon-village/mooney-falls
+"Sardine Falls, Greenlee County, AZ",Sardine Falls,Greenlee,Arizona,33.191745,-109.275686,https://waterfallsnearyou.com/arizona/morenci/sardine-falls
+"Two Hundred and Fivemile Rapids, Coconino County, AZ",Two Hundred and Fivemile Rapids,Coconino,Arizona,36.005541,-113.342155,https://waterfallsnearyou.com/arizona/peach-springs/two-hundred-and-fivemile-rapids
+"Whitmore Rapids, Mohave County, AZ",Whitmore Rapids,Mohave,Arizona,36.145538,-113.200486,https://waterfallsnearyou.com/arizona/peach-springs/whitmore-rapids
+"Basin Falls, Santa Clara County, CA",Basin Falls,Santa Clara,California,37.079722,-121.806111,https://waterfallsnearyou.com/california/day-valley/basin-falls
+"Black Rock Falls, Santa Clara County, CA",Black Rock Falls,Santa Clara,California,37.082222,-121.800833,https://waterfallsnearyou.com/california/day-valley/black-rock-falls
+"Blue Canyon Falls, Fresno County, CA",Blue Canyon Falls,Fresno,California,36.931582,-118.749769,https://waterfallsnearyou.com/california/big-pine/blue-canyon-falls
+"Bunnell Cascade, Mariposa County, CA",Bunnell Cascade,Mariposa,California,37.745204,-119.471825,https://waterfallsnearyou.com/california/yosemite-valley/bunnell-cascade
+"Burnt Ranch Falls, Trinity County, CA",Burnt Ranch Falls,Trinity,California,40.826249,-123.476154,https://waterfallsnearyou.com/california/willow-creek/burnt-ranch-falls
+"Carson Falls, Alpine County, CA",Carson Falls,Alpine,California,38.488953,-119.682513,https://waterfallsnearyou.com/california/bridgeport/carson-falls
+"Cholollo Falls, Tulare County, CA",Cholollo Falls,Tulare,California,36.05967,-118.645089,https://waterfallsnearyou.com/california/east-porterville/cholollo-falls
+"First Falls, Inyo County, CA",First Falls,Inyo,California,37.126321,-118.445105,https://waterfallsnearyou.com/california/big-pine/first-falls
+"Garlic Falls, Fresno County, CA",Garlic Falls,Fresno,California,36.861304,-118.952076,https://waterfallsnearyou.com/california/squaw-valley/garlic-falls
+"Hackmans Falls, Sierra County, CA",Hackmans Falls,Sierra,California,39.558695,-120.626986,https://waterfallsnearyou.com/california/downieville/hackmans-falls
+"Hidden Falls, Placer County, CA",Hidden Falls,Placer,California,38.966159,-121.177628,https://waterfallsnearyou.com/california/north-auburn/hidden-falls
+"Hidden Heart Falls, Riverside County, CA",Hidden Heart Falls,Riverside,California,33.784426,-116.840627,https://waterfallsnearyou.com/california/valle-vista/hidden-heart-falls
+"Horsetail Falls, Siskiyou County, CA",Horsetail Falls,Siskiyou,California,41.928953,-123.129822,https://waterfallsnearyou.com/california/happy-camp/horsetail-falls
+"Horsetail Falls, Mono County, CA",Horsetail Falls,Mono,California,38.139364,-119.379884,https://waterfallsnearyou.com/california/bridgeport/horsetail-falls
+"Horsetail Falls, Mono County, CA",Horsetail Falls,Mono,California,37.539379,-118.829571,https://waterfallsnearyou.com/california/mammoth-lakes/horsetail-falls
+"Lion Wash Falls, Shasta County, CA",Lion Wash Falls,Shasta,California,40.871545,-121.885828,https://waterfallsnearyou.com/california/burney/lion-wash-falls
+"Little Nellie Falls, Mariposa County, CA",Little Nellie Falls,Mariposa,California,37.720205,-119.784341,https://waterfallsnearyou.com/california/yosemite-valley/little-nellie-falls
+"Llewellyn Falls, Alpine County, CA",Llewellyn Falls,Alpine,California,38.460185,-119.604902,https://waterfallsnearyou.com/california/bridgeport/llewellyn-falls
+"Lower Deer Creek Falls, Tehama County, CA",Lower Deer Creek Falls,Tehama,California,40.168215,-121.581921,https://waterfallsnearyou.com/california/forest-ranch/lower-deer-creek-falls
+"Lower Rainbow Falls, Madera County, CA",Lower Rainbow Falls,Madera,California,37.594382,-119.089021,https://waterfallsnearyou.com/california/mammoth-lakes/lower-rainbow-falls
+"Manly Fall (historical), Inyo County, CA",Manly Fall (historical),Inyo,California,35.937451,-117.186165,https://waterfallsnearyou.com/california/searles-valley/manly-fall-historical
+"Maple Falls, Siskiyou County, CA",Maple Falls,Siskiyou,California,41.644576,-123.180324,https://waterfallsnearyou.com/california/happy-camp/maple-falls
+"Pywiack Cascade, Mariposa County, CA",Pywiack Cascade,Mariposa,California,37.787147,-119.488772,https://waterfallsnearyou.com/california/yosemite-valley/pywiack-cascade
+"Sawyier Falls, El Dorado County, CA",Sawyier Falls,El Dorado,California,38.877444,-120.091063,https://waterfallsnearyou.com/california/south-lake-tahoe/sawyier-falls
+"Second Falls, Inyo County, CA",Second Falls,Inyo,California,37.134099,-118.455661,https://waterfallsnearyou.com/california/big-pine/second-falls
+"Silver Apron, Mariposa County, CA",Silver Apron,Mariposa,California,37.726871,-119.540717,https://waterfallsnearyou.com/california/yosemite-valley/silver-apron
+"Silver Falls, Mono County, CA",Silver Falls,Mono,California,38.343803,-119.546558,https://waterfallsnearyou.com/california/bridgeport/silver-falls
+"Silver Spray Falls, Fresno County, CA",Silver Spray Falls,Fresno,California,36.91331,-118.787154,https://waterfallsnearyou.com/california/squaw-valley/silver-spray-falls
+"Silverwood Falls, San Bernardino County, CA",Silverwood Falls,San Bernardino,California,34.075604,-116.817543,https://waterfallsnearyou.com/california/banning/silverwood-falls
+"Sisquoc Falls, Santa Barbara County, CA",Sisquoc Falls,Santa Barbara,California,34.742485,-119.731245,https://waterfallsnearyou.com/california/mission-canyon/sisquoc-falls
+"Tangerine Falls, Santa Barbara County, CA",Tangerine Falls,Santa Barbara,California,34.469875,-119.658837,https://waterfallsnearyou.com/california/montecito/tangerine-falls
+"The Cascades, Mariposa County, CA",The Cascades,Mariposa,California,37.726871,-119.712949,https://waterfallsnearyou.com/california/yosemite-valley/the-cascades
+"Three Troughs Falls, San Luis Obispo County, CA",Three Troughs Falls,San Luis Obispo,California,35.67363,-121.14886,https://waterfallsnearyou.com/california/cambria/three-troughs-falls
+"Triple Falls, Fresno County, CA",Triple Falls,Fresno,California,36.984659,-118.555379,https://waterfallsnearyou.com/california/big-pine/triple-falls
+"Triple Falls, Santa Clara County, CA",Triple Falls,Santa Clara,California,37.078056,-121.794167,https://waterfallsnearyou.com/california/day-valley/triple-falls
+"Tufa Falls, Tulare County, CA",Tufa Falls,Tulare,California,36.443821,-118.598142,https://waterfallsnearyou.com/california/three-rivers/tufa-falls
+"Twin Falls, Mono County, CA",Twin Falls,Mono,California,37.611603,-119.010132,https://waterfallsnearyou.com/california/mammoth-lakes/twin-falls
+"Upper Falls, Santa Clara County, CA",Upper Falls,Santa Clara,California,37.079722,-121.802222,https://waterfallsnearyou.com/california/day-valley/upper-falls
+"White Cascade, Tuolumne County, CA",White Cascade,Tuolumne,California,37.908535,-119.419605,https://waterfallsnearyou.com/california/yosemite-valley/white-cascade
+"Young Falls, Lassen County, CA",Young Falls,Lassen,California,41.042664,-121.3172,https://waterfallsnearyou.com/california/burney/young-falls
+"Agnes Vaille Falls, Chaffee County, CO",Agnes Vaille Falls,Chaffee,Colorado,38.720552,-106.234465,https://waterfallsnearyou.com/colorado/buena-vista/agnes-vaille-falls
+"Bedrock Falls, Chaffee County, CO",Bedrock Falls,Chaffee,Colorado,38.944439,-106.340024,https://waterfallsnearyou.com/colorado/buena-vista/bedrock-falls
+"Bessies Falls, Garfield County, CO",Bessies Falls,Garfield,Colorado,40.000538,-107.278944,https://waterfallsnearyou.com/colorado/gypsum/bessies-falls
+"Big Creek Falls, Jackson County, CO",Big Creek Falls,Jackson,Colorado,40.90886,-106.638371,https://waterfallsnearyou.com/colorado/walden/big-creek-falls
+"Calypso Cascades, Boulder County, CO",Calypso Cascades,Boulder,Colorado,40.194152,-105.590558,https://waterfallsnearyou.com/colorado/estes-park/calypso-cascades
+"Columbine Falls, Larimer County, CO",Columbine Falls,Larimer,Colorado,40.260818,-105.599169,https://waterfallsnearyou.com/colorado/estes-park/columbine-falls
+"Eagle Falls, Dolores County, CO",Eagle Falls,Dolores,Colorado,37.763739,-108.097694,https://waterfallsnearyou.com/colorado/telluride/eagle-falls
+"East Middle Fork Falls, Garfield County, CO",East Middle Fork Falls,Garfield,Colorado,39.616979,-108.059829,https://waterfallsnearyou.com/colorado/parachute/east-middle-fork-falls
+"Fan Falls, Boulder County, CO",Fan Falls,Boulder,Colorado,40.229429,-105.650838,https://waterfallsnearyou.com/colorado/estes-park/fan-falls
+"Glacier Falls, Larimer County, CO",Glacier Falls,Larimer,Colorado,40.293873,-105.645837,https://waterfallsnearyou.com/colorado/estes-park/glacier-falls
+"Grace Falls, Larimer County, CO",Grace Falls,Larimer,Colorado,40.323069,-105.688661,https://waterfallsnearyou.com/colorado/estes-park/grace-falls
+"Gray Copper Falls, Ouray County, CO",Gray Copper Falls,Ouray,Colorado,37.92229,-107.656801,https://waterfallsnearyou.com/colorado/ouray/gray-copper-falls
+"Lost Falls, Larimer County, CO",Lost Falls,Larimer,Colorado,40.503618,-105.566399,https://waterfallsnearyou.com/colorado/estes-park/lost-falls
+"Lower Disaster Falls, Moffat County, CO",Lower Disaster Falls,Moffat,Colorado,40.643852,-108.932895,https://waterfallsnearyou.com/colorado/rangely/lower-disaster-falls
+"Lyric Falls, Boulder County, CO",Lyric Falls,Boulder,Colorado,40.224152,-105.596113,https://waterfallsnearyou.com/colorado/estes-park/lyric-falls
+"Macey Falls, Custer County, CO",Macey Falls,Custer,Colorado,38.004444,-105.567785,https://waterfallsnearyou.com/colorado/westcliffe/macey-falls
+"Marguerite Falls, Larimer County, CO",Marguerite Falls,Larimer,Colorado,40.339621,-105.674653,https://waterfallsnearyou.com/colorado/estes-park/marguerite-falls
+"Mertensia Falls, Boulder County, CO",Mertensia Falls,Boulder,Colorado,40.212763,-105.641115,https://waterfallsnearyou.com/colorado/estes-park/mertensia-falls
+"Morgan Creek Falls, Routt County, CO",Morgan Creek Falls,Routt,Colorado,40.545668,-107.204644,https://waterfallsnearyou.com/colorado/hayden/morgan-creek-falls
+"Rainbow Falls, El Paso County, CO",Rainbow Falls,El Paso,Colorado,38.87,-104.925833,https://waterfallsnearyou.com/colorado/manitou-springs/rainbow-falls
+"Saguache Falls, Saguache County, CO",Saguache Falls,Saguache,Colorado,37.941664,-106.80282,https://waterfallsnearyou.com/colorado/creede/saguache-falls
+"Seven Falls, El Paso County, CO",Seven Falls,El Paso,Colorado,38.77888,-104.879974,https://waterfallsnearyou.com/colorado/colorado-springs/seven-falls
+"South Fork Falls, Garfield County, CO",South Fork Falls,Garfield,Colorado,39.83387,-107.387556,https://waterfallsnearyou.com/colorado/new-castle/south-fork-falls
+"The Falls, Chaffee County, CO",The Falls,Chaffee,Colorado,38.772774,-106.062515,https://waterfallsnearyou.com/colorado/buena-vista/the-falls
+"Thousand Falls, Larimer County, CO",Thousand Falls,Larimer,Colorado,40.410748,-105.663847,https://waterfallsnearyou.com/colorado/estes-park/thousand-falls
+"Thunder Falls, Boulder County, CO",Thunder Falls,Boulder,Colorado,40.227485,-105.639726,https://waterfallsnearyou.com/colorado/estes-park/thunder-falls
+"Timberline Falls, Boulder County, CO",Timberline Falls,Boulder,Colorado,40.135541,-105.559723,https://waterfallsnearyou.com/colorado/nederland/timberline-falls
+"Treasure Falls, Hinsdale County, CO",Treasure Falls,Hinsdale,Colorado,38.019347,-107.362313,https://waterfallsnearyou.com/colorado/lake-city/treasure-falls
+"Trio Falls, Boulder County, CO",Trio Falls,Boulder,Colorado,40.235818,-105.641393,https://waterfallsnearyou.com/colorado/estes-park/trio-falls
+"Triplet Falls, Moffat County, CO",Triplet Falls,Moffat,Colorado,40.604686,-108.949284,https://waterfallsnearyou.com/colorado/rangely/triplet-falls
+"Upper Disaster Falls, Moffat County, CO",Upper Disaster Falls,Moffat,Colorado,40.650241,-108.93345,https://waterfallsnearyou.com/colorado/rangely/upper-disaster-falls
+"War Dance Falls, Grand County, CO",War Dance Falls,Grand,Colorado,40.288318,-105.729452,https://waterfallsnearyou.com/colorado/estes-park/war-dance-falls
+"West Fork Falls, Garfield County, CO",West Fork Falls,Garfield,Colorado,39.629519,-108.161933,https://waterfallsnearyou.com/colorado/parachute/west-fork-falls
+"High Water Falls, Lumpkin County, GA",High Water Falls,Lumpkin,Georgia,34.723297,-83.920195,https://waterfallsnearyou.com/georgia/blairsville/high-water-falls
+"Wilson Falls, Habersham County, GA",Wilson Falls,Habersham,Georgia,34.818149,-83.59517,https://waterfallsnearyou.com/georgia/clayton/wilson-falls
+"Aimoo Falls, Hawaii County, HI",Aimoo Falls,Hawaii,Hawaii,20.094002,-155.620241,https://waterfallsnearyou.com/hawaii/waimea/aimoo-falls
+"Haha Falls, Maui County, HI",Haha Falls,Maui,Hawaii,21.095759,-156.882256,https://waterfallsnearyou.com/hawaii/waialua/haha-falls
+"Haʻipuaʻena Falls, Maui County, HI",Haʻipuaʻena Falls,Maui,Hawaii,20.865509,-156.176199,https://waterfallsnearyou.com/hawaii/wailua/haipuaena-falls
+"Hakalaoa Falls, Hawaii County, HI",Hakalaoa Falls,Hawaii,Hawaii,20.094467,-155.595278,https://waterfallsnearyou.com/hawaii/waimea/hakalaoa-falls
+"Hāliʻi Falls, Kauai County, HI",Hāliʻi Falls,Kauai,Hawaii,22.005862,-159.454456,https://waterfallsnearyou.com/hawaii/puhi/halii-falls
+"Hāloku Falls, Maui County, HI",Hāloku Falls,Maui,Hawaii,21.160713,-156.859289,https://waterfallsnearyou.com/hawaii/waialua/haloku-falls
+"Halulu Falls, Kauai County, HI",Halulu Falls,Kauai,Hawaii,22.007288,-159.52903,https://waterfallsnearyou.com/hawaii/kalaheo/halulu-falls
+"Hanakoa Falls, Kauai County, HI",Hanakoa Falls,Kauai,Hawaii,22.186594,-159.615314,https://waterfallsnearyou.com/hawaii/princeville/hanakoa-falls
+"Hikiau Falls, Hawaii County, HI",Hikiau Falls,Hawaii,Hawaii,20.019788,-155.293943,https://waterfallsnearyou.com/hawaii/honokaa/hikiau-falls
+"Hina Falls, Maui County, HI",Hina Falls,Maui,Hawaii,21.100341,-156.889619,https://waterfallsnearyou.com/hawaii/waialua/hina-falls
+"Hīpuapua Falls, Maui County, HI",Hīpuapua Falls,Maui,Hawaii,21.155282,-156.767812,https://waterfallsnearyou.com/hawaii/waialua/hipuapua-falls
+"Hoʻoleʻa Falls, Kauai County, HI",Hoʻoleʻa Falls,Kauai,Hawaii,22.171009,-159.659694,https://waterfallsnearyou.com/hawaii/princeville/hoolea-falls
+"Hoʻopōuli Falls, Kauai County, HI",Hoʻopōuli Falls,Kauai,Hawaii,22.148963,-159.44687,https://waterfallsnearyou.com/hawaii/kilauea/hoopouli-falls
+"ʻĀwini Falls, Kauai County, HI",ʻĀwini Falls,Kauai,Hawaii,22.100215,-159.637001,https://waterfallsnearyou.com/hawaii/waimea-kauai/awini-falls
+"ʻOʻopulele Falls, Kauai County, HI",ʻOʻopulele Falls,Kauai,Hawaii,22.037789,-159.590368,https://waterfallsnearyou.com/hawaii/waimea-kauai/oopulele-falls
+"ʻOloʻupena Falls, Maui County, HI",ʻOloʻupena Falls,Maui,Hawaii,21.160655,-156.85641,https://waterfallsnearyou.com/hawaii/waialua/oloupena-falls
+"Kanahualiʻi Falls, Maui County, HI",Kanahualiʻi Falls,Maui,Hawaii,20.689162,-156.033068,https://waterfallsnearyou.com/hawaii/hana/kanahualii-falls
+"Kapaka Nui Falls, Kauai County, HI",Kapaka Nui Falls,Kauai,Hawaii,22.102583,-159.438188,https://waterfallsnearyou.com/hawaii/wailua-homesteads/kapaka-nui-falls
+"Kapakaiki Falls, Kauai County, HI",Kapakaiki Falls,Kauai,Hawaii,22.101195,-159.435021,https://waterfallsnearyou.com/hawaii/wailua-homesteads/kapakaiki-falls
+"Keʻākū Falls, Maui County, HI",Keʻākū Falls,Maui,Hawaii,20.844206,-156.147105,https://waterfallsnearyou.com/hawaii/wailua/keaku-falls
+"Kekuapoʻowai Falls, Maui County, HI",Kekuapoʻowai Falls,Maui,Hawaii,20.692775,-156.042082,https://waterfallsnearyou.com/hawaii/hana/kekuapoowai-falls
+"Koholālele Falls, Kauai County, HI",Koholālele Falls,Kauai,Hawaii,22.055385,-159.394057,https://waterfallsnearyou.com/hawaii/wailua-homesteads/koholalele-falls
+"Lahomene Falls, Hawaii County, HI",Lahomene Falls,Hawaii,Hawaii,20.122299,-155.65375,https://waterfallsnearyou.com/hawaii/waimea/lahomene-falls
+"Lauiole Falls, Hawaii County, HI",Lauiole Falls,Hawaii,Hawaii,19.709752,-155.157225,https://waterfallsnearyou.com/hawaii/hilo/lauiole-falls
+"Moaʻula, Maui County, HI",Moaʻula,Maui,Hawaii,21.153561,-156.766388,https://waterfallsnearyou.com/hawaii/waialua/moaula
+"Mōhihi Falls, Kauai County, HI",Mōhihi Falls,Kauai,Hawaii,22.114889,-159.62165,https://waterfallsnearyou.com/hawaii/waimea-kauai/mohihi-falls
+"Moʻoloa Falls, Maui County, HI",Moʻoloa Falls,Maui,Hawaii,21.097709,-156.88572,https://waterfallsnearyou.com/hawaii/waialua/mooloa-falls
+"Naalapa Falls, Hawaii County, HI",Naalapa Falls,Hawaii,Hawaii,20.112454,-155.609681,https://waterfallsnearyou.com/hawaii/waimea/naalapa-falls
+"Nanaue Falls, Hawaii County, HI",Nanaue Falls,Hawaii,Hawaii,20.106278,-155.613663,https://waterfallsnearyou.com/hawaii/waimea/nanaue-falls
+"Ooiki Falls, Kauai County, HI",Ooiki Falls,Kauai,Hawaii,21.959001,-159.542206,https://waterfallsnearyou.com/hawaii/kalaheo/ooiki-falls
+"Paaiki Falls, Kauai County, HI",Paaiki Falls,Kauai,Hawaii,22.1437,-159.717075,https://waterfallsnearyou.com/hawaii/kekaha/paaiki-falls
+"Peepee Falls, Hawaii County, HI",Peepee Falls,Hawaii,Hawaii,19.715226,-155.134232,https://waterfallsnearyou.com/hawaii/hilo/peepee-falls
+"Puʻukaʻōkū Falls, Maui County, HI",Puʻukaʻōkū Falls,Maui,Hawaii,21.160602,-156.851551,https://waterfallsnearyou.com/hawaii/waialua/puukaoku-falls
+"Pukamaui Falls, Hawaii County, HI",Pukamaui Falls,Hawaii,Hawaii,19.711249,-155.157347,https://waterfallsnearyou.com/hawaii/hilo/pukamaui-falls
+"Puohokamoa Falls, Maui County, HI",Puohokamoa Falls,Maui,Hawaii,20.866312,-156.178945,https://waterfallsnearyou.com/hawaii/wailua/puohokamoa-falls
+"Pūwainui Falls, Kauai County, HI",Pūwainui Falls,Kauai,Hawaii,22.135782,-159.557793,https://waterfallsnearyou.com/hawaii/princeville/puwainui-falls
+"Uhauʻiole Falls, Kauai County, HI",Uhauʻiole Falls,Kauai,Hawaii,22.086149,-159.435527,https://waterfallsnearyou.com/hawaii/wailua-homesteads/uhauiole-falls
+"Waiānuenue Falls, Kauai County, HI",Waiānuenue Falls,Kauai,Hawaii,22.034791,-159.551913,https://waterfallsnearyou.com/hawaii/kalaheo/waianuenue-falls
+"Waiemi Falls, Hawaii County, HI",Waiemi Falls,Hawaii,Hawaii,19.802017,-155.162023,https://waterfallsnearyou.com/hawaii/pepeekeo/waiemi-falls
+"Waihiʻumalu Falls, Maui County, HI",Waihiʻumalu Falls,Maui,Hawaii,20.695026,-156.038966,https://waterfallsnearyou.com/hawaii/hana/waihiumalu-falls
+"Waihunehune Falls, Kauai County, HI",Waihunehune Falls,Kauai,Hawaii,22.136345,-159.4415,https://waterfallsnearyou.com/hawaii/kilauea/waihunehune-falls
+"Waiʻalae Falls, Kauai County, HI",Waiʻalae Falls,Kauai,Hawaii,22.074555,-159.605768,https://waterfallsnearyou.com/hawaii/waimea-kauai/waialae-falls
+"Waiʻilikahi Falls, Hawaii County, HI",Waiʻilikahi Falls,Hawaii,Hawaii,20.132776,-155.646861,https://waterfallsnearyou.com/hawaii/waimea/waiilikahi-falls
+"Waikaka Falls, Kauai County, HI",Waikaka Falls,Kauai,Hawaii,22.047524,-159.552322,https://waterfallsnearyou.com/hawaii/kalaheo/waikaka-falls
+"Wailele Falls, Maui County, HI",Wailele Falls,Maui,Hawaii,21.162742,-156.848846,https://waterfallsnearyou.com/hawaii/waialua/wailele-falls
+"Wailoa Falls, Hawaii County, HI",Wailoa Falls,Hawaii,Hawaii,19.708134,-155.166486,https://waterfallsnearyou.com/hawaii/hilo/wailoa-falls
+"Wailua Falls, Maui County, HI",Wailua Falls,Maui,Hawaii,20.683609,-156.030722,https://waterfallsnearyou.com/hawaii/hana/wailua-falls
+"Waimanu Falls, Maui County, HI",Waimanu Falls,Maui,Hawaii,21.149915,-156.943474,https://waterfallsnearyou.com/hawaii/kualapuu/waimanu-falls
+"Waiokilo Falls, Maui County, HI",Waiokilo Falls,Maui,Hawaii,20.848519,-156.128901,https://waterfallsnearyou.com/hawaii/wailua/waiokilo-falls
+"Waiokuna Falls, Maui County, HI",Waiokuna Falls,Maui,Hawaii,20.849868,-156.145009,https://waterfallsnearyou.com/hawaii/wailua/waiokuna-falls
+"Albeni Falls, Bonner County, ID",Albeni Falls,Bonner,Idaho,48.177684,-117.001311,https://waterfallsnearyou.com/idaho/priest-river/albeni-falls
+"Baron Creek Falls, Boise County, ID",Baron Creek Falls,Boise,Idaho,44.100278,-115.035,https://waterfallsnearyou.com/idaho/sun-valley/baron-creek-falls
+"Bear Creek Falls, Adams County, ID",Bear Creek Falls,Adams,Idaho,44.980989,-116.701817,https://waterfallsnearyou.com/idaho/council/bear-creek-falls
+"Bridal Veil Falls, Custer County, ID",Bridal Veil Falls,Custer,Idaho,44.211851,-115.106759,https://waterfallsnearyou.com/idaho/idaho-city/bridal-veil-falls
+"Bull Run Creek Falls, Clearwater County, ID",Bull Run Creek Falls,Clearwater,Idaho,46.73708,-116.19589,https://waterfallsnearyou.com/idaho/orofino/bull-run-creek-falls
+"Camel Falls, Owyhee County, ID",Camel Falls,Owyhee,Idaho,42.544998,-116.622958,https://waterfallsnearyou.com/idaho/murphy/camel-falls
+"Crane Falls (historical), Elmore County, ID",Crane Falls (historical),Elmore,Idaho,42.973784,-115.830643,https://waterfallsnearyou.com/idaho/mountain-home-air-force-base/crane-falls-historical
+"Devlin Falls, Lemhi County, ID",Devlin Falls,Lemhi,Idaho,45.227214,-114.097899,https://waterfallsnearyou.com/idaho/salmon/devlin-falls
+"Fern Falls, Boise County, ID",Fern Falls,Boise,Idaho,44.033332,-115.089993,https://waterfallsnearyou.com/idaho/idaho-city/fern-falls
+"Hazard Falls, Idaho County, ID",Hazard Falls,Idaho,Idaho,45.203779,-116.256514,https://waterfallsnearyou.com/idaho/mccall/hazard-falls
+"Little Drops, Lincoln County, ID",Little Drops,Lincoln,Idaho,42.978794,-114.421154,https://waterfallsnearyou.com/idaho/shoshone/little-drops
+"Little Falls, Boise County, ID",Little Falls,Boise,Idaho,44.072396,-115.762612,https://waterfallsnearyou.com/idaho/idaho-city/little-falls
+"Lost Creek Falls, Adams County, ID",Lost Creek Falls,Adams,Idaho,44.917778,-116.453056,https://waterfallsnearyou.com/idaho/council/lost-creek-falls
+"Mallard Creek Falls, Idaho County, ID",Mallard Creek Falls,Idaho,Idaho,45.56557,-115.29797,https://waterfallsnearyou.com/idaho/grangeville/mallard-creek-falls
+"Napias Creek Falls, Lemhi County, ID",Napias Creek Falls,Lemhi,Idaho,45.141079,-114.201146,https://waterfallsnearyou.com/idaho/salmon/napias-creek-falls
+"Patsy Ann Falls, Idaho County, ID",Patsy Ann Falls,Idaho,Idaho,45.959086,-114.458149,https://waterfallsnearyou.com/idaho/salmon/patsy-ann-falls
+"Rambiker Falls, Shoshone County, ID",Rambiker Falls,Shoshone,Idaho,47.019365,-115.08819,https://waterfallsnearyou.com/idaho/wallace/rambiker-falls
+"Rush Falls, Washington County, ID",Rush Falls,Washington,Idaho,44.719327,-116.68988,https://waterfallsnearyou.com/idaho/council/rush-falls
+"Salmon Falls, Idaho County, ID",Salmon Falls,Idaho,Idaho,45.498525,-114.998996,https://waterfallsnearyou.com/idaho/salmon/salmon-falls
+"Shoestring Falls, Idaho County, ID",Shoestring Falls,Idaho,Idaho,46.278471,-115.390351,https://waterfallsnearyou.com/idaho/kamiah/shoestring-falls
+"Smith Falls, Boise County, ID",Smith Falls,Boise,Idaho,44.000217,-115.040724,https://waterfallsnearyou.com/idaho/sun-valley/smith-falls
+"Smith Falls, Boundary County, ID",Smith Falls,Boundary,Idaho,48.959948,-116.557992,https://waterfallsnearyou.com/idaho/bonners-ferry/smith-falls
+"Tappan Falls, Lemhi County, ID",Tappan Falls,Lemhi,Idaho,44.878889,-114.749444,https://waterfallsnearyou.com/idaho/challis/tappan-falls
+"The Falls, Owyhee County, ID",The Falls,Owyhee,Idaho,42.529615,-116.188161,https://waterfallsnearyou.com/idaho/mountain-home-air-force-base/the-falls
+"The Falls, Caribou County, ID",The Falls,Caribou,Idaho,42.761871,-111.112711,https://waterfallsnearyou.com/idaho/soda-springs/the-falls
+"Upper Salmon Falls, Twin Falls County, ID",Upper Salmon Falls,Twin Falls,Idaho,42.766569,-114.897279,https://waterfallsnearyou.com/idaho/wendell/upper-salmon-falls
+"Velvet Falls, Custer County, ID",Velvet Falls,Custer,Idaho,44.59523,-115.29109,https://waterfallsnearyou.com/idaho/cascade/velvet-falls
+"Wildhorse Falls, Adams County, ID",Wildhorse Falls,Adams,Idaho,44.849324,-116.817661,https://waterfallsnearyou.com/idaho/council/wildhorse-falls
+"Canyon Creek Cascade, DuPage County, IL",Canyon Creek Cascade,DuPage,Illinois,41.6905,-88.0019,https://waterfallsnearyou.com/illinois/lemont/canyon-creek-cascade
+"Canyon Creek Falls, DuPage County, IL",Canyon Creek Falls,DuPage,Illinois,41.69,-88.0023,https://waterfallsnearyou.com/illinois/lemont/canyon-creek-falls
+"Drennon Falls, Henry County, KY",Drennon Falls,Henry,Kentucky,38.438928,-85.110348,https://waterfallsnearyou.com/kentucky/new-castle/drennon-falls
+"Falls of Buffalo, Owsley County, KY",Falls of Buffalo,Owsley,Kentucky,37.35005,-83.546623,https://waterfallsnearyou.com/kentucky/booneville/falls-of-buffalo
+"Irvine Fall, Allen County, KY",Irvine Fall,Allen,Kentucky,36.90207,-86.1368,https://waterfallsnearyou.com/kentucky/scottsville/irvine-fall
+"Rock Bridge Falls, Wolfe County, KY",Rock Bridge Falls,Wolfe,Kentucky,37.76946,-83.561745,https://waterfallsnearyou.com/kentucky/campton/rock-bridge-falls
+"The Big Falls, Meade County, KY",The Big Falls,Meade,Kentucky,37.899766,-86.025068,https://waterfallsnearyou.com/kentucky/fort-knox/the-big-falls
+"Allagash Falls, Aroostook County, ME",Allagash Falls,Aroostook,Maine,46.950036,-69.133098,https://waterfallsnearyou.com/maine/fort-kent/allagash-falls
+"Ambajejus Falls, Piscataquis County, ME",Ambajejus Falls,Piscataquis,Maine,45.736436,-68.898932,https://waterfallsnearyou.com/maine/millinocket/ambajejus-falls
+"Attean Falls, Somerset County, ME",Attean Falls,Somerset,Maine,45.545326,-70.246178,https://waterfallsnearyou.com/maine/greenville/attean-falls
+"Aziscohos Falls (historical), Oxford County, ME",Aziscohos Falls (historical),Oxford,Maine,44.944444,-70.998056,https://waterfallsnearyou.com/maine/phillips/aziscohos-falls-historical
+"Big Ambejackmockamus Falls, Piscataquis County, ME",Big Ambejackmockamus Falls,Piscataquis,Maine,45.865878,-69.091993,https://waterfallsnearyou.com/maine/millinocket/big-ambejackmockamus-falls
+"Boars Head Falls, Aroostook County, ME",Boars Head Falls,Aroostook,Maine,46.406709,-68.763935,https://waterfallsnearyou.com/maine/patten/boars-head-falls
+"Bowlin Falls, Penobscot County, ME",Bowlin Falls,Penobscot,Maine,46.038658,-68.723374,https://waterfallsnearyou.com/maine/patten/bowlin-falls
+"Bucks Falls, Piscataquis County, ME",Bucks Falls,Piscataquis,Maine,45.308384,-69.317548,https://waterfallsnearyou.com/maine/dover-foxcroft/bucks-falls
+"Dog Falls, Washington County, ME",Dog Falls,Washington,Maine,45.371459,-67.430275,https://waterfallsnearyou.com/maine/calais/dog-falls
+"Fish River Falls, Aroostook County, ME",Fish River Falls,Aroostook,Maine,46.850596,-68.733379,https://waterfallsnearyou.com/maine/fort-kent/fish-river-falls
+"Gilman Falls, Penobscot County, ME",Gilman Falls,Penobscot,Maine,45.951437,-68.694761,https://waterfallsnearyou.com/maine/patten/gilman-falls
+"Gordon Falls, Penobscot County, ME",Gordon Falls,Penobscot,Maine,45.503949,-68.301687,https://waterfallsnearyou.com/maine/east-millinocket/gordon-falls
+"Grand Falls, Somerset County, ME",Grand Falls,Somerset,Maine,45.297553,-70.222289,https://waterfallsnearyou.com/maine/kingfield/grand-falls
+"Grand Falls, Penobscot County, ME",Grand Falls,Penobscot,Maine,45.612273,-68.704202,https://waterfallsnearyou.com/maine/millinocket/grand-falls
+"Grand Falls, Piscataquis County, ME",Grand Falls,Piscataquis,Maine,46.007546,-68.871433,https://waterfallsnearyou.com/maine/patten/grand-falls
+"Great Falls, Washington County, ME",Great Falls,Washington,Maine,44.777854,-67.584162,https://waterfallsnearyou.com/maine/machias/great-falls
+"Green Falls, Piscataquis County, ME",Green Falls,Piscataquis,Maine,46.012545,-68.956435,https://waterfallsnearyou.com/maine/patten/green-falls
+"Grindstone Falls, Penobscot County, ME",Grindstone Falls,Penobscot,Maine,45.728384,-68.591699,https://waterfallsnearyou.com/maine/east-millinocket/grindstone-falls
+"Hatch Falls, Piscataquis County, ME",Hatch Falls,Piscataquis,Maine,45.283107,-69.676999,https://waterfallsnearyou.com/maine/greenville/hatch-falls
+"Hays Brook Falls, Piscataquis County, ME",Hays Brook Falls,Piscataquis,Maine,45.485325,-69.274494,https://waterfallsnearyou.com/maine/greenville/hays-brook-falls
+"Holeb Falls, Somerset County, ME",Holeb Falls,Somerset,Maine,45.533381,-70.36368,https://waterfallsnearyou.com/maine/greenville/holeb-falls
+"Ledge Falls, Aroostook County, ME",Ledge Falls,Aroostook,Maine,45.757281,-67.958071,https://waterfallsnearyou.com/maine/hodgdon/ledge-falls
+"Ledge Falls, Piscataquis County, ME",Ledge Falls,Piscataquis,Maine,45.993935,-68.887822,https://waterfallsnearyou.com/maine/patten/ledge-falls
+"Little Allagash Falls, Piscataquis County, ME",Little Allagash Falls,Piscataquis,Maine,46.326595,-69.450952,https://waterfallsnearyou.com/maine/patten/little-allagash-falls
+"Little Ambejackmockamus Falls, Piscataquis County, ME",Little Ambejackmockamus Falls,Piscataquis,Maine,45.871434,-69.112271,https://waterfallsnearyou.com/maine/millinocket/little-ambejackmockamus-falls
+"Little Boy Falls, Oxford County, ME",Little Boy Falls,Oxford,Maine,45.185883,-70.979515,https://waterfallsnearyou.com/maine/phillips/little-boy-falls
+"Little Canada Falls, Somerset County, ME",Little Canada Falls,Somerset,Maine,45.82921,-70.273682,https://waterfallsnearyou.com/maine/greenville/little-canada-falls
+"Little Falls, Washington County, ME",Little Falls,Washington,Maine,44.860352,-67.801112,https://waterfallsnearyou.com/maine/addison/little-falls
+"Little Falls, Washington County, ME",Little Falls,Washington,Maine,44.916744,-67.271377,https://waterfallsnearyou.com/maine/machias/little-falls
+"Little Falls, Oxford County, ME",Little Falls,Oxford,Maine,45.031997,-70.856181,https://waterfallsnearyou.com/maine/phillips/little-falls
+"Little Falls, Washington County, ME",Little Falls,Washington,Maine,45.507845,-67.462222,https://waterfallsnearyou.com/maine/calais/little-falls-washington
+"Little Niagara Falls, Piscataquis County, ME",Little Niagara Falls,Piscataquis,Maine,45.872267,-69.03977,https://waterfallsnearyou.com/maine/millinocket/little-niagara-falls
+"Lower Falls, Aroostook County, ME",Lower Falls,Aroostook,Maine,46.152272,-68.307808,https://waterfallsnearyou.com/maine/patten/lower-falls
+"Mallison Falls, Cumberland County, ME",Mallison Falls,Cumberland,Maine,43.727301,-70.42033,https://waterfallsnearyou.com/maine/south-windham/mallison-falls
+"Millinocket Falls, Penobscot County, ME",Millinocket Falls,Penobscot,Maine,46.309488,-68.812546,https://waterfallsnearyou.com/maine/patten/millinocket-falls
+"Moxie Falls, Somerset County, ME",Moxie Falls,Somerset,Maine,45.364773,-69.939784,https://waterfallsnearyou.com/maine/greenville/moxie-falls
+"Mud Gauntlet Falls, Piscataquis County, ME",Mud Gauntlet Falls,Piscataquis,Maine,45.536437,-69.0331,https://waterfallsnearyou.com/maine/brownville/mud-gauntlet-falls
+"Munsungan Falls, Piscataquis County, ME",Munsungan Falls,Piscataquis,Maine,46.370041,-68.91977,https://waterfallsnearyou.com/maine/patten/munsungan-falls
+"Norway Falls, Piscataquis County, ME",Norway Falls,Piscataquis,Maine,46.005363,-68.843834,https://waterfallsnearyou.com/maine/patten/norway-falls
+"Orris Falls, York County, ME",Orris Falls,York,Maine,43.275278,-70.710833,https://waterfallsnearyou.com/maine/north-berwick/orris-falls
+"Poplar Hill Falls, Somerset County, ME",Poplar Hill Falls,Somerset,Maine,45.344218,-70.01173,https://waterfallsnearyou.com/maine/greenville/poplar-hill-falls
+"Pumgustuck, Cumberland County, ME",Pumgustuck,Cumberland,Maine,43.79892,-70.17849,https://waterfallsnearyou.com/maine/yarmouth/pumgustuck
+"Red River Falls, Aroostook County, ME",Red River Falls,Aroostook,Maine,46.910318,-68.730879,https://waterfallsnearyou.com/maine/fort-kent/red-river-falls
+"Shadagee Falls, Franklin County, ME",Shadagee Falls,Franklin,Maine,45.266441,-70.566179,https://waterfallsnearyou.com/maine/kingfield/shadagee-falls
+"Skew Falls, Aroostook County, ME",Skew Falls,Aroostook,Maine,46.84254,-68.719212,https://waterfallsnearyou.com/maine/fort-kent/skew-falls
+"Slugundy Falls, Piscataquis County, ME",Slugundy Falls,Piscataquis,Maine,45.413936,-69.420329,https://waterfallsnearyou.com/maine/greenville/slugundy-falls
+"Stair Falls, Piscataquis County, ME",Stair Falls,Piscataquis,Maine,45.494213,-69.344495,https://waterfallsnearyou.com/maine/greenville/stair-falls
+"Stair Falls, Penobscot County, ME",Stair Falls,Penobscot,Maine,46.086866,-68.775922,https://waterfallsnearyou.com/maine/patten/stair-falls
+"Stair Falls, Aroostook County, ME",Stair Falls,Aroostook,Maine,46.113328,-68.320259,https://waterfallsnearyou.com/maine/patten/stair-falls-aroostook
+"Thirtyfoot Falls, Piscataquis County, ME",Thirtyfoot Falls,Piscataquis,Maine,46.412538,-69.104773,https://waterfallsnearyou.com/maine/patten/thirtyfoot-falls
+"Upper Falls, Aroostook County, ME",Upper Falls,Aroostook,Maine,46.160605,-68.294197,https://waterfallsnearyou.com/maine/patten/upper-falls
+"Whetstone Falls, Penobscot County, ME",Whetstone Falls,Penobscot,Maine,45.864772,-68.62198,https://waterfallsnearyou.com/maine/patten/whetstone-falls
+"Kilgores Rocks, Harford County, MD",Kilgores Rocks,Harford,Maryland,39.691224,-76.426721,https://waterfallsnearyou.com/maryland/jarrettsville/kilgores-rocks
+"Wiley Falls, Harford County, MD",Wiley Falls,Harford,Maryland,39.683002,-76.518872,https://waterfallsnearyou.com/maryland/jarrettsville/wiley-falls
+"Bear Rock Falls, Berkshire County, MA",Bear Rock Falls,Berkshire,Massachusetts,42.062841,-73.437191,https://waterfallsnearyou.com/massachusetts/sheffield/bear-rock-falls
+"Abinodji Falls, Gogebic County, MI",Abinodji Falls,Gogebic,Michigan,46.642426,-89.926768,https://waterfallsnearyou.com/michigan/wakefield/abinodji-falls
+"Big Carp Falls, Gogebic County, MI",Big Carp Falls,Gogebic,Michigan,46.759167,-89.872222,https://waterfallsnearyou.com/michigan/wakefield/big-carp-falls
+"Bushy Creek Falls, Marquette County, MI",Bushy Creek Falls,Marquette,Michigan,46.734722,-87.693611,https://waterfallsnearyou.com/michigan/negaunee/bushy-creek-falls
+"Chipmunk Falls, Iron County, MI",Chipmunk Falls,Iron,Michigan,46.291615,-88.563192,https://waterfallsnearyou.com/michigan/iron-river/chipmunk-falls
+"Deer Creek Falls, Ontonagon County, MI",Deer Creek Falls,Ontonagon,Michigan,46.652425,-89.697208,https://waterfallsnearyou.com/michigan/wakefield/deer-creek-falls
+"Dumpy Falls, Iron County, MI",Dumpy Falls,Iron,Michigan,46.41689,-88.91375,https://waterfallsnearyou.com/michigan/iron-river/dumpy-falls
+"East Branch Falls, Baraga County, MI",East Branch Falls,Baraga,Michigan,46.849722,-88.063333,https://waterfallsnearyou.com/michigan/lanse/east-branch-falls
+"Ectasy Falls, Baraga County, MI",Ectasy Falls,Baraga,Michigan,46.860083,-88.075916,https://waterfallsnearyou.com/michigan/lanse/ectasy-falls
+"Eighty Foot Falls, Marquette County, MI",Eighty Foot Falls,Marquette,Michigan,46.854167,-87.841667,https://waterfallsnearyou.com/michigan/west-ishpeming/eighty-foot-falls
+"Explorers Falls, Gogebic County, MI",Explorers Falls,Gogebic,Michigan,46.732724,-89.885723,https://waterfallsnearyou.com/michigan/wakefield/explorers-falls
+"Forty Foot Falls, Marquette County, MI",Forty Foot Falls,Marquette,Michigan,46.832778,-87.973611,https://waterfallsnearyou.com/michigan/lanse/forty-foot-falls
+"Glidden Rapids, Iron County, MI",Glidden Rapids,Iron,Michigan,46.078889,-88.221389,https://waterfallsnearyou.com/michigan/crystal-falls/glidden-rapids
+"Granite Falls, Gogebic County, MI",Granite Falls,Gogebic,Michigan,46.44,-90.028056,https://waterfallsnearyou.com/michigan/bessemer/granite-falls
+"Harley Falls, Baraga County, MI",Harley Falls,Baraga,Michigan,46.687,-88.3224,https://waterfallsnearyou.com/michigan/lanse/harley-falls
+"Hogback Falls, Marquette County, MI",Hogback Falls,Marquette,Michigan,46.808258,-87.847907,https://waterfallsnearyou.com/michigan/west-ishpeming/hogback-falls
+"Holeyoke Falls, Marquette County, MI",Holeyoke Falls,Marquette,Michigan,46.5775,-87.496389,https://waterfallsnearyou.com/michigan/trowbridge-park/holeyoke-falls
+"Horse Race Rapids, Dickinson County, MI",Horse Race Rapids,Dickinson,Michigan,45.780833,-88.058333,https://waterfallsnearyou.com/michigan/kingsford/horse-race-rapids
+"Iagoo Falls, Gogebic County, MI",Iagoo Falls,Gogebic,Michigan,46.662222,-89.941389,https://waterfallsnearyou.com/michigan/wakefield/iagoo-falls
+"Lepisto Falls, Gogebic County, MI",Lepisto Falls,Gogebic,Michigan,46.658866,-89.94055,https://waterfallsnearyou.com/michigan/wakefield/lepisto-falls
+"Little Falls, Ontonagon County, MI",Little Falls,Ontonagon,Michigan,46.377447,-89.099585,https://waterfallsnearyou.com/michigan/iron-river/little-falls
+"Lower Falls, Baraga County, MI",Lower Falls,Baraga,Michigan,46.865482,-88.082348,https://waterfallsnearyou.com/michigan/lanse/lower-falls
+"Lower Falls, Marquette County, MI",Lower Falls,Marquette,Michigan,46.815278,-87.803611,https://waterfallsnearyou.com/michigan/west-ishpeming/lower-falls
+"Lower Falls, Keweenaw County, MI",Lower Falls,Keweenaw,Michigan,47.393889,-87.839444,https://waterfallsnearyou.com/michigan/eagle-river/lower-falls
+"Lower Letherby Falls, Baraga County, MI",Lower Letherby Falls,Baraga,Michigan,46.807633,-88.087083,https://waterfallsnearyou.com/michigan/lanse/lower-letherby-falls
+"Manakiki Falls, Gogebic County, MI",Manakiki Falls,Gogebic,Michigan,46.640835,-90.111994,https://waterfallsnearyou.com/michigan/bessemer/manakiki-falls
+"Manganese Falls, Keweenaw County, MI",Manganese Falls,Keweenaw,Michigan,47.46,-87.878333,https://waterfallsnearyou.com/michigan/eagle-river/manganese-falls
+"Maple Creek Falls, Gogebic County, MI",Maple Creek Falls,Gogebic,Michigan,46.646111,-90.113333,https://waterfallsnearyou.com/michigan/bessemer/maple-creek-falls
+"Michigamme Falls (historical), Iron County, MI",Michigamme Falls (historical),Iron,Michigan,46.130556,-88.225,https://waterfallsnearyou.com/michigan/crystal-falls/michigamme-falls-historical
+"Middle East Jumbo River Falls, Iron County, MI",Middle East Jumbo River Falls,Iron,Michigan,46.415278,-88.908611,https://waterfallsnearyou.com/michigan/iron-river/middle-east-jumbo-river-falls
+"Middle Falls, Marquette County, MI",Middle Falls,Marquette,Michigan,46.811111,-87.825833,https://waterfallsnearyou.com/michigan/west-ishpeming/middle-falls
+"Middle Falls River Falls, Baraga County, MI",Middle Falls River Falls,Baraga,Michigan,46.744866,-88.449716,https://waterfallsnearyou.com/michigan/lanse/middle-falls-river-falls
+"Minnewawa Falls, Ontonagon County, MI",Minnewawa Falls,Ontonagon,Michigan,46.597169,-89.84961,https://waterfallsnearyou.com/michigan/wakefield/minnewawa-falls
+"Mulligan Falls, Marquette County, MI",Mulligan Falls,Marquette,Michigan,46.683611,-87.821944,https://waterfallsnearyou.com/michigan/west-ishpeming/mulligan-falls
+"Neepikon Falls, Gogebic County, MI",Neepikon Falls,Gogebic,Michigan,46.491059,-89.996283,https://waterfallsnearyou.com/michigan/bessemer/neepikon-falls
+"Nimikon Falls, Ontonagon County, MI",Nimikon Falls,Ontonagon,Michigan,46.604947,-89.853777,https://waterfallsnearyou.com/michigan/wakefield/nimikon-falls
+"No Name Falls, Baraga County, MI",No Name Falls,Baraga,Michigan,46.621333,-88.364883,https://waterfallsnearyou.com/michigan/lanse/no-name-falls
+"Nokomis Falls, Gogebic County, MI",Nokomis Falls,Gogebic,Michigan,46.646613,-89.910168,https://waterfallsnearyou.com/michigan/wakefield/nokomis-falls
+"Ogima Falls, Gogebic County, MI",Ogima Falls,Gogebic,Michigan,46.63449,-89.929334,https://waterfallsnearyou.com/michigan/wakefield/ogima-falls
+"Ogimakwe Falls, Gogebic County, MI",Ogimakwe Falls,Gogebic,Michigan,46.640711,-89.92674,https://waterfallsnearyou.com/michigan/wakefield/ogimakwe-falls
+"Onion Falls, Houghton County, MI",Onion Falls,Houghton,Michigan,46.570497,-88.984584,https://waterfallsnearyou.com/michigan/ontonagon/onion-falls
+"Otter Falls, Houghton County, MI",Otter Falls,Houghton,Michigan,46.811633,-88.754207,https://waterfallsnearyou.com/michigan/lanse/otter-falls
+"Piers Gorge Falls, Dickinson County, MI",Piers Gorge Falls,Dickinson,Michigan,45.757778,-87.944167,https://waterfallsnearyou.com/michigan/norway/piers-gorge-falls
+"Pinkerton Falls, Gogebic County, MI",Pinkerton Falls,Gogebic,Michigan,46.733333,-89.894722,https://waterfallsnearyou.com/michigan/wakefield/pinkerton-falls
+"Rapid River Falls, Ontonagon County, MI",Rapid River Falls,Ontonagon,Michigan,46.627152,-89.668691,https://waterfallsnearyou.com/michigan/wakefield/rapid-river-falls
+"Ravine River Falls, Baraga County, MI",Ravine River Falls,Baraga,Michigan,46.821366,-88.194233,https://waterfallsnearyou.com/michigan/lanse/ravine-river-falls
+"Rose Falls (East), Delta County, MI",Rose Falls (East),Delta,Michigan,45.973056,-87.245833,https://waterfallsnearyou.com/michigan/gladstone/rose-falls-east
+"Rose Falls (West), Delta County, MI",Rose Falls (West),Delta,Michigan,45.973056,-87.27,https://waterfallsnearyou.com/michigan/gladstone/rose-falls-west
+"Sandstone Falls, Ontonagon County, MI",Sandstone Falls,Ontonagon,Michigan,46.668832,-89.296533,https://waterfallsnearyou.com/michigan/ontonagon/sandstone-falls
+"Siskiwit Falls, Keweenaw County, MI",Siskiwit Falls,Keweenaw,Michigan,47.98544,-88.802857,https://waterfallsnearyou.com/michigan/eagle-river/siskiwit-falls
+"Traders Falls, Gogebic County, MI",Traders Falls,Gogebic,Michigan,46.751057,-89.894334,https://waterfallsnearyou.com/michigan/wakefield/traders-falls
+"Trappers Falls, Gogebic County, MI",Trappers Falls,Gogebic,Michigan,46.732915,-89.88489,https://waterfallsnearyou.com/michigan/wakefield/trappers-falls
+"Turkey Neck Falls, Marquette County, MI",Turkey Neck Falls,Marquette,Michigan,46.820556,-87.951111,https://waterfallsnearyou.com/michigan/lanse/turkey-neck-falls
+"Twin Island Rapids, Menominee County, MI",Twin Island Rapids,Menominee,Michigan,45.234167,-87.723056,https://waterfallsnearyou.com/michigan/menominee/twin-island-rapids
+"Upper East Tumbo River Falls, Iron County, MI",Upper East Tumbo River Falls,Iron,Michigan,46.416389,-88.908889,https://waterfallsnearyou.com/michigan/iron-river/upper-east-tumbo-river-falls
+"Upper Falls, Marquette County, MI",Upper Falls,Marquette,Michigan,46.815278,-87.853056,https://waterfallsnearyou.com/michigan/west-ishpeming/upper-falls
+"Upper Falls, Keweenaw County, MI",Upper Falls,Keweenaw,Michigan,47.400556,-87.835833,https://waterfallsnearyou.com/michigan/eagle-river/upper-falls
+"Upper Sturgeon Falls, Baraga County, MI",Upper Sturgeon Falls,Baraga,Michigan,46.617666,-88.293,https://waterfallsnearyou.com/michigan/lanse/upper-sturgeon-falls
+"Vista Falls, Houghton County, MI",Vista Falls,Houghton,Michigan,46.692715,-88.861526,https://waterfallsnearyou.com/michigan/lanse/vista-falls
+"West Branch Falls, Baraga County, MI",West Branch Falls,Baraga,Michigan,46.838816,-88.089849,https://waterfallsnearyou.com/michigan/lanse/west-branch-falls
+"West Branch Sturgeon Falls, Houghton County, MI",West Branch Sturgeon Falls,Houghton,Michigan,46.722436,-88.78847,https://waterfallsnearyou.com/michigan/lanse/west-branch-sturgeon-falls
+"West Branch Yellow Dog Falls, Marquette County, MI",West Branch Yellow Dog Falls,Marquette,Michigan,46.721944,-87.9625,https://waterfallsnearyou.com/michigan/west-ishpeming/west-branch-yellow-dog-falls
+"Wylie Falls, Marquette County, MI",Wylie Falls,Marquette,Michigan,46.718889,-87.855,https://waterfallsnearyou.com/michigan/west-ishpeming/wylie-falls
+"Fiftysix Rapids, St. Louis County, MN",Fiftysix Rapids,St. Louis,Minnesota,48.234904,-92.338761,https://waterfallsnearyou.com/minnesota/ely/fiftysix-rapids
+"Hannine Falls, St. Louis County, MN",Hannine Falls,St. Louis,Minnesota,47.867978,-92.907676,https://waterfallsnearyou.com/minnesota/chisholm/hannine-falls
+"Kettle Falls, St. Louis County, MN",Kettle Falls,St. Louis,Minnesota,48.49935,-92.639041,https://waterfallsnearyou.com/minnesota/international-falls/kettle-falls
+"Last Falls, Lake County, MN",Last Falls,Lake,Minnesota,48.114339,-91.710126,https://waterfallsnearyou.com/minnesota/ely/last-falls
+"Lower Basswood Falls, Lake County, MN",Lower Basswood Falls,Lake,Minnesota,48.113505,-91.711515,https://waterfallsnearyou.com/minnesota/ely/lower-basswood-falls
+"Pipestone Falls, Lake County, MN",Pipestone Falls,Lake,Minnesota,48.001838,-91.73152,https://waterfallsnearyou.com/minnesota/ely/pipestone-falls
+"Saganaga Falls, Cook County, MN",Saganaga Falls,Cook,Minnesota,48.228777,-90.840108,https://waterfallsnearyou.com/minnesota/grand-marais/saganaga-falls
+"Rocky Falls, Claiborne County, MS",Rocky Falls,Claiborne,Mississippi,31.895716,-90.763712,https://waterfallsnearyou.com/mississippi/port-gibson/rocky-falls
+"Chain of Rocks, St. Louis (city) County, MO",Chain of Rocks,St. Louis (city),Missouri,38.759167,-90.179167,https://waterfallsnearyou.com/missouri/glasgow-village/chain-of-rocks
+"Akaiyan Falls, Flathead County, MT",Akaiyan Falls,Flathead,Montana,48.614138,-113.784838,https://waterfallsnearyou.com/montana/columbia-falls/akaiyan-falls
+"Appistoki Falls, Glacier County, MT",Appistoki Falls,Glacier,Montana,48.481934,-113.352659,https://waterfallsnearyou.com/montana/north-browning/appistoki-falls
+"Atlantic Falls, Glacier County, MT",Atlantic Falls,Glacier,Montana,48.573582,-113.45095,https://waterfallsnearyou.com/montana/north-browning/atlantic-falls
+"Atsina Falls, Glacier County, MT",Atsina Falls,Glacier,Montana,48.873708,-113.85075,https://waterfallsnearyou.com/montana/columbia-falls/atsina-falls
+"Barrier Falls, Missoula County, MT",Barrier Falls,Missoula,Montana,47.566605,-113.495358,https://waterfallsnearyou.com/montana/seeley-lake/barrier-falls
+"Beaver Chief Falls, Flathead County, MT",Beaver Chief Falls,Flathead,Montana,48.59386,-113.764559,https://waterfallsnearyou.com/montana/columbia-falls/beaver-chief-falls
+"Beaver Medicine Falls, Flathead County, MT",Beaver Medicine Falls,Flathead,Montana,48.601637,-113.796227,https://waterfallsnearyou.com/montana/columbia-falls/beaver-medicine-falls
+"Big Salmon Falls, Missoula County, MT",Big Salmon Falls,Missoula,Montana,47.513056,-113.512115,https://waterfallsnearyou.com/montana/seeley-lake/big-salmon-falls
+"Buffalo Falls, Cascade County, MT",Buffalo Falls,Cascade,Montana,47.363084,-111.907935,https://waterfallsnearyou.com/montana/sun-prairie/buffalo-falls
+"Canyon Falls, Ravalli County, MT",Canyon Falls,Ravalli,Montana,46.244979,-114.32196,https://waterfallsnearyou.com/montana/hamilton/canyon-falls
+"Castner Falls, Cascade County, MT",Castner Falls,Cascade,Montana,47.304765,-111.496944,https://waterfallsnearyou.com/montana/sun-prairie/castner-falls
+"Cedar Falls, Madison County, MT",Cedar Falls,Madison,Montana,45.238539,-111.517187,https://waterfallsnearyou.com/montana/big-sky/cedar-falls
+"Charlie Falls, Carbon County, MT",Charlie Falls,Carbon,Montana,45.122165,-109.72434,https://waterfallsnearyou.com/montana/red-lodge/charlie-falls
+"Dawn Mist Falls, Glacier County, MT",Dawn Mist Falls,Glacier,Montana,48.908089,-113.722834,https://waterfallsnearyou.com/montana/north-browning/dawn-mist-falls
+"Dawson Falls, Glacier County, MT",Dawson Falls,Glacier,Montana,48.423343,-113.209172,https://waterfallsnearyou.com/montana/north-browning/dawson-falls
+"Dean Falls, Flathead County, MT",Dean Falls,Flathead,Montana,47.877445,-113.212292,https://waterfallsnearyou.com/montana/bigfork/dean-falls
+"Elizabeth Falls, Lake County, MT",Elizabeth Falls,Lake,Montana,47.339099,-113.928712,https://waterfallsnearyou.com/montana/ronan/elizabeth-falls
+"Feather Woman Falls, Flathead County, MT",Feather Woman Falls,Flathead,Montana,48.611638,-113.779004,https://waterfallsnearyou.com/montana/columbia-falls/feather-woman-falls
+"Gros Ventre Falls, Glacier County, MT",Gros Ventre Falls,Glacier,Montana,48.930173,-113.740736,https://waterfallsnearyou.com/montana/north-browning/gros-ventre-falls
+"Hole-in-the Wall Falls, Flathead County, MT",Hole-in-the Wall Falls,Flathead,Montana,48.961921,-114.068186,https://waterfallsnearyou.com/montana/whitefish/hole-in-the-wall-falls
+"Horsetail Falls, Park County, MT",Horsetail Falls,Park,Montana,45.440766,-110.916331,https://waterfallsnearyou.com/montana/bozeman/horsetail-falls
+"Impasse Falls, Carbon County, MT",Impasse Falls,Carbon,Montana,45.117721,-109.742397,https://waterfallsnearyou.com/montana/red-lodge/impasse-falls
+"Ipasha Falls, Glacier County, MT",Ipasha Falls,Glacier,Montana,48.848291,-113.806964,https://waterfallsnearyou.com/montana/columbia-falls/ipasha-falls
+"Knowles Falls, Park County, MT",Knowles Falls,Park,Montana,45.012013,-110.594602,https://waterfallsnearyou.com/montana/west-yellowstone/knowles-falls
+"Lange Falls, Lewis and Clark County, MT",Lange Falls,Lewis and Clark,Montana,47.602683,-112.83502,https://waterfallsnearyou.com/montana/choteau/lange-falls
+"Lost Creek Falls, Mineral County, MT",Lost Creek Falls,Mineral,Montana,47.11493,-115.117412,https://waterfallsnearyou.com/montana/superior/lost-creek-falls
+"Lower Falls, Lincoln County, MT",Lower Falls,Lincoln,Montana,48.935512,-115.681575,https://waterfallsnearyou.com/montana/eureka/lower-falls
+"Miche Wabun Falls, Glacier County, MT",Miche Wabun Falls,Glacier,Montana,48.98094,-113.771402,https://waterfallsnearyou.com/montana/north-browning/miche-wabun-falls
+"Mokowanis Cascade, Glacier County, MT",Mokowanis Cascade,Glacier,Montana,48.87647,-113.84134,https://waterfallsnearyou.com/montana/columbia-falls/mokowanis-cascade
+"Mud Creek Falls, Lake County, MT",Mud Creek Falls,Lake,Montana,47.616048,-114.00594,https://waterfallsnearyou.com/montana/pablo/mud-creek-falls
+"Needle Falls, Flathead County, MT",Needle Falls,Flathead,Montana,47.611607,-113.205063,https://waterfallsnearyou.com/montana/seeley-lake/needle-falls
+"Oberlin Falls, Flathead County, MT",Oberlin Falls,Flathead,Montana,48.699697,-113.723448,https://waterfallsnearyou.com/montana/columbia-falls/oberlin-falls
+"Paiota Falls, Glacier County, MT",Paiota Falls,Glacier,Montana,48.872121,-113.849759,https://waterfallsnearyou.com/montana/columbia-falls/paiota-falls
+"Paradise Falls, Lewis and Clark County, MT",Paradise Falls,Lewis and Clark,Montana,46.751667,-112.463889,https://waterfallsnearyou.com/montana/lincoln/paradise-falls
+"Piegan Falls, Glacier County, MT",Piegan Falls,Glacier,Montana,48.710023,-113.678068,https://waterfallsnearyou.com/montana/north-browning/piegan-falls
+"Pinkham Falls, Lincoln County, MT",Pinkham Falls,Lincoln,Montana,48.83913,-115.171837,https://waterfallsnearyou.com/montana/eureka/pinkham-falls
+"Ptarmigan Falls, Glacier County, MT",Ptarmigan Falls,Glacier,Montana,48.821439,-113.71159,https://waterfallsnearyou.com/montana/north-browning/ptarmigan-falls
+"Raven Quiver Falls, Glacier County, MT",Raven Quiver Falls,Glacier,Montana,48.865404,-113.847233,https://waterfallsnearyou.com/montana/columbia-falls/raven-quiver-falls
+"Sacred Dancing Cascade, Flathead County, MT",Sacred Dancing Cascade,Flathead,Montana,48.642194,-113.85234,https://waterfallsnearyou.com/montana/columbia-falls/sacred-dancing-cascade
+"Salamander Falls, Glacier County, MT",Salamander Falls,Glacier,Montana,48.755624,-113.735783,https://waterfallsnearyou.com/montana/columbia-falls/salamander-falls
+"Sentinel Falls, Carbon County, MT",Sentinel Falls,Carbon,Montana,45.156462,-109.528499,https://waterfallsnearyou.com/montana/red-lodge/sentinel-falls
+"Siksika Falls, Glacier County, MT",Siksika Falls,Glacier,Montana,48.617705,-113.68705,https://waterfallsnearyou.com/montana/columbia-falls/siksika-falls
+"Specimen Falls, Park County, MT",Specimen Falls,Park,Montana,45.057393,-110.480459,https://waterfallsnearyou.com/montana/west-yellowstone/specimen-falls
+"Sutton Creek Falls, Lincoln County, MT",Sutton Creek Falls,Lincoln,Montana,48.770239,-115.266283,https://waterfallsnearyou.com/montana/eureka/sutton-creek-falls
+"Taylor Falls, Madison County, MT",Taylor Falls,Madison,Montana,45.036594,-111.407459,https://waterfallsnearyou.com/montana/big-sky/taylor-falls
+"Tenmile Falls, Lincoln County, MT",Tenmile Falls,Lincoln,Montana,48.618571,-115.171831,https://waterfallsnearyou.com/montana/eureka/tenmile-falls
+"Thunderbird Falls, Glacier County, MT",Thunderbird Falls,Glacier,Montana,48.940725,-114.032455,https://waterfallsnearyou.com/montana/whitefish/thunderbird-falls
+"Turner Falls, Lincoln County, MT",Turner Falls,Lincoln,Montana,48.868845,-115.580182,https://waterfallsnearyou.com/montana/eureka/turner-falls
+"White Quiver Falls, Glacier County, MT",White Quiver Falls,Glacier,Montana,48.885896,-113.814807,https://waterfallsnearyou.com/montana/columbia-falls/white-quiver-falls
+"Wolf Creek Falls, Fergus County, MT",Wolf Creek Falls,Fergus,Montana,47.53498,-109.669355,https://waterfallsnearyou.com/montana/lewistown/wolf-creek-falls
+"Horseshoe Falls, Cherry County, NE",Horseshoe Falls,Cherry,Nebraska,42.417499,-101.184602,https://waterfallsnearyou.com/nebraska/mullen/horseshoe-falls
+"Coosauk Fall, Coos County, NH",Coosauk Fall,Coos,New Hampshire,44.36284,-71.270631,https://waterfallsnearyou.com/new-hampshire/gorham/coosauk-fall
+"Dryad Falls, Coos County, NH",Dryad Falls,Coos,New Hampshire,44.442282,-71.077576,https://waterfallsnearyou.com/new-hampshire/berlin/dryad-falls
+"Ellingwood Falls, Coos County, NH",Ellingwood Falls,Coos,New Hampshire,44.873383,-71.128687,https://waterfallsnearyou.com/new-hampshire/colebrook/ellingwood-falls
+"Great Falls, Cheshire County, NH",Great Falls,Cheshire,New Hampshire,43.135505,-72.440348,https://waterfallsnearyou.com/new-hampshire/alstead/great-falls
+"Hitchcock Falls, Coos County, NH",Hitchcock Falls,Coos,New Hampshire,44.359784,-71.271187,https://waterfallsnearyou.com/new-hampshire/gorham/hitchcock-falls
+"Moose Falls, Coos County, NH",Moose Falls,Coos,New Hampshire,45.189213,-71.192574,https://waterfallsnearyou.com/new-hampshire/colebrook/moose-falls
+"Norway Rapids, Grafton County, NH",Norway Rapids,Grafton,New Hampshire,43.96868,-71.486465,https://waterfallsnearyou.com/new-hampshire/woodstock/norway-rapids
+"Peboamauk Fall, Coos County, NH",Peboamauk Fall,Coos,New Hampshire,44.414782,-71.266465,https://waterfallsnearyou.com/new-hampshire/gorham/peboamauk-fall
+"Shell Cascade, Grafton County, NH",Shell Cascade,Grafton,New Hampshire,43.929792,-71.534799,https://waterfallsnearyou.com/new-hampshire/thornton/shell-cascade
+"Big Falls, McKinley County, NM",Big Falls,McKinley,New Mexico,35.350841,-108.871656,https://waterfallsnearyou.com/new-mexico/gallup/big-falls
+"Catfish Falls (historical), Guadalupe County, NM",Catfish Falls (historical),Guadalupe,New Mexico,35.056445,-104.688878,https://waterfallsnearyou.com/new-mexico/santa-rosa/catfish-falls-historical
+"Chamisa Vega Spring Falls, Sandoval County, NM",Chamisa Vega Spring Falls,Sandoval,New Mexico,35.676246,-106.941158,https://waterfallsnearyou.com/new-mexico/jemez-pueblo/chamisa-vega-spring-falls
+"Garcia Falls, Socorro County, NM",Garcia Falls,Socorro,New Mexico,33.492569,-107.452148,https://waterfallsnearyou.com/new-mexico/truth-or-consequences/garcia-falls
+"Lower Frijoles Falls, Sandoval County, NM",Lower Frijoles Falls,Sandoval,New Mexico,35.76086,-106.258915,https://waterfallsnearyou.com/new-mexico/white-rock/lower-frijoles-falls
+"The Falls, Cibola County, NM",The Falls,Cibola,New Mexico,35.207809,-108.443129,https://waterfallsnearyou.com/new-mexico/thoreau/the-falls
+"Agers Falls, Lewis County, NY",Agers Falls,Lewis,New York,43.621649,-75.312436,https://waterfallsnearyou.com/new-york/boonville/agers-falls
+"Augerhole Falls, Franklin County, NY",Augerhole Falls,Franklin,New York,44.42034,-74.547117,https://waterfallsnearyou.com/new-york/tupper-lake/augerhole-falls
+"Beaver Falls, Jefferson County, NY",Beaver Falls,Jefferson,New York,43.960055,-75.957272,https://waterfallsnearyou.com/new-york/watertown/beaver-falls
+"Bog River Falls, St. Lawrence County, NY",Bog River Falls,St. Lawrence,New York,44.128641,-74.544951,https://waterfallsnearyou.com/new-york/tupper-lake/bog-river-falls
+"Brasher Falls, St. Lawrence County, NY",Brasher Falls,St. Lawrence,New York,44.807778,-74.772222,https://waterfallsnearyou.com/new-york/massena/brasher-falls
+"Browns Falls, St. Lawrence County, NY",Browns Falls,St. Lawrence,New York,44.214738,-75.047783,https://waterfallsnearyou.com/new-york/gouverneur/browns-falls
+"Bruner Falls, St. Lawrence County, NY",Bruner Falls,St. Lawrence,New York,44.543118,-74.692963,https://waterfallsnearyou.com/new-york/hannawa-falls/bruner-falls
+"Burrville Cider Mill Falls, Jefferson County, NY",Burrville Cider Mill Falls,Jefferson,New York,43.93022,-75.858994,https://waterfallsnearyou.com/new-york/watertown/burrville-cider-mill-falls
+"Buttermilk Falls, Orange County, NY",Buttermilk Falls,Orange,New York,41.37,-73.961944,https://waterfallsnearyou.com/new-york/highland-falls/buttermilk-falls
+"Buttermilk Falls, Albany County, NY",Buttermilk Falls,Albany,New York,42.775833,-73.687778,https://waterfallsnearyou.com/new-york/cohoes/buttermilk-falls
+"Butternut Falls, Jefferson County, NY",Butternut Falls,Jefferson,New York,43.96338,-75.863217,https://waterfallsnearyou.com/new-york/watertown/butternut-falls
+"Cascade Falls, St. Lawrence County, NY",Cascade Falls,St. Lawrence,New York,44.595922,-75.175164,https://waterfallsnearyou.com/new-york/canton/cascade-falls
+"Catfish Falls, Jefferson County, NY",Catfish Falls,Jefferson,New York,44.139389,-76.067588,https://waterfallsnearyou.com/new-york/clayton/catfish-falls
+"Childs Falls, Jefferson County, NY",Childs Falls,Jefferson,New York,44.136124,-75.705234,https://waterfallsnearyou.com/new-york/philadelphia/childs-falls
+"Clarke Falls, Otsego County, NY",Clarke Falls,Otsego,New York,42.780976,-74.850165,https://waterfallsnearyou.com/new-york/cooperstown/clarke-falls
+"Clifford Falls, Essex County, NY",Clifford Falls,Essex,New York,44.276714,-73.82292,https://waterfallsnearyou.com/new-york/lake-placid/clifford-falls
+"Coopers Falls, St. Lawrence County, NY",Coopers Falls,St. Lawrence,New York,44.519467,-75.341381,https://waterfallsnearyou.com/new-york/canton/coopers-falls
+"Dicob Falls, Lewis County, NY",Dicob Falls,Lewis,New York,43.850821,-75.302999,https://waterfallsnearyou.com/new-york/lowville/dicob-falls
+"Eagle Falls, Lewis County, NY",Eagle Falls,Lewis,New York,43.905254,-75.197668,https://waterfallsnearyou.com/new-york/lowville/eagle-falls
+"Eatonville Falls, Lewis County, NY",Eatonville Falls,Lewis,New York,43.71445,-75.34331,https://waterfallsnearyou.com/new-york/lowville/eatonville-falls
+"Emeryville Falls, St. Lawrence County, NY",Emeryville Falls,St. Lawrence,New York,44.297118,-75.367008,https://waterfallsnearyou.com/new-york/gouverneur/emeryville-falls
+"Five Falls (historical), St. Lawrence County, NY",Five Falls (historical),St. Lawrence,New York,44.528056,-74.835556,https://waterfallsnearyou.com/new-york/hannawa-falls/five-falls-historical
+"Fullerville Falls, St. Lawrence County, NY",Fullerville Falls,St. Lawrence,New York,44.265346,-75.342366,https://waterfallsnearyou.com/new-york/gouverneur/fullerville-falls
+"Gain Twist Falls (historical), St. Lawrence County, NY",Gain Twist Falls (historical),St. Lawrence,New York,44.513889,-74.8175,https://waterfallsnearyou.com/new-york/hannawa-falls/gain-twist-falls-historical
+"Great Falls, Jefferson County, NY",Great Falls,Jefferson,New York,43.97701,-75.906576,https://waterfallsnearyou.com/new-york/watertown/great-falls
+"Greenwood Falls, St. Lawrence County, NY",Greenwood Falls,St. Lawrence,New York,44.204936,-75.195688,https://waterfallsnearyou.com/new-york/gouverneur/greenwood-falls
+"Harts Falls, St. Lawrence County, NY",Harts Falls,St. Lawrence,New York,44.502582,-75.168853,https://waterfallsnearyou.com/new-york/canton/harts-falls
+"Hazleton Falls, St. Lawrence County, NY",Hazleton Falls,St. Lawrence,New York,44.257587,-75.337918,https://waterfallsnearyou.com/new-york/gouverneur/hazleton-falls
+"High Falls, Essex County, NY",High Falls,Essex,New York,44.348936,-73.874033,https://waterfallsnearyou.com/new-york/lake-placid/high-falls
+"High Falls, St. Lawrence County, NY",High Falls,St. Lawrence,New York,44.467007,-74.622678,https://waterfallsnearyou.com/new-york/tupper-lake/high-falls-st-lawrence
+"High Falls, Oneida County, NY",High Falls,Oneida,New York,43.281463,-75.153341,https://waterfallsnearyou.com/new-york/oriskany/high-falls
+"High Falls, Monroe County, NY",High Falls,Monroe,New York,43.16138,-77.61336,https://waterfallsnearyou.com/new-york/rochester/high-falls
+"Honeoye Falls, Monroe County, NY",Honeoye Falls,Monroe,New York,42.951944,-77.591389,https://waterfallsnearyou.com/new-york/honeoye-falls/honeoye-falls
+"Jerden Falls, Lewis County, NY",Jerden Falls,Lewis,New York,44.010667,-75.319874,https://waterfallsnearyou.com/new-york/west-carthage/jerden-falls
+"Kingsley Falls, St. Lawrence County, NY",Kingsley Falls,St. Lawrence,New York,44.550618,-74.68074,https://waterfallsnearyou.com/new-york/hannawa-falls/kingsley-falls
+"Little Falls (historical), St. Lawrence County, NY",Little Falls (historical),St. Lawrence,New York,44.504722,-74.7575,https://waterfallsnearyou.com/new-york/hannawa-falls/little-falls-historical
+"Lower Falls, Monroe County, NY",Lower Falls,Monroe,New York,43.17957,-77.62796,https://waterfallsnearyou.com/new-york/rochester/lower-falls
+"Lower High Falls, Oneida County, NY",Lower High Falls,Oneida,New York,43.281135,-75.153234,https://waterfallsnearyou.com/new-york/oriskany/lower-high-falls
+"Lyons Falls, Lewis County, NY",Lyons Falls,Lewis,New York,43.618333,-75.358056,https://waterfallsnearyou.com/new-york/boonville/lyons-falls
+"Madison Chute, St. Lawrence County, NY",Madison Chute,St. Lawrence,New York,44.240887,-75.168499,https://waterfallsnearyou.com/new-york/gouverneur/madison-chute
+"Meadow Falls, Greene County, NY",Meadow Falls,Greene,New York,42.432582,-73.835959,https://waterfallsnearyou.com/new-york/ravena/meadow-falls
+"Middle Falls, Monroe County, NY",Middle Falls,Monroe,New York,43.17638,-77.62797,https://waterfallsnearyou.com/new-york/rochester/middle-falls
+"Mill Dam Falls, Oneida County, NY",Mill Dam Falls,Oneida,New York,43.283322,-75.152719,https://waterfallsnearyou.com/new-york/oriskany/mill-dam-falls
+"Millers Falls, Essex County, NY",Millers Falls,Essex,New York,44.105893,-74.209323,https://waterfallsnearyou.com/new-york/tupper-lake/millers-falls
+"Newton Falls, St. Lawrence County, NY",Newton Falls,St. Lawrence,New York,44.212222,-74.998611,https://waterfallsnearyou.com/new-york/gouverneur/newton-falls
+"Ord Falls, Essex County, NY",Ord Falls,Essex,New York,43.943396,-74.144038,https://waterfallsnearyou.com/new-york/lake-placid/ord-falls
+"Pelkys Falls, St. Lawrence County, NY",Pelkys Falls,St. Lawrence,New York,44.428951,-75.020199,https://waterfallsnearyou.com/new-york/hannawa-falls/pelkys-falls
+"Phelps Falls, Essex County, NY",Phelps Falls,Essex,New York,44.20116,-73.774861,https://waterfallsnearyou.com/new-york/elizabethtown/phelps-falls
+"Pleasant Creek Falls, Jefferson County, NY",Pleasant Creek Falls,Jefferson,New York,44.088574,-75.806664,https://waterfallsnearyou.com/new-york/fort-drum/pleasant-creek-falls
+"Plumb Brook Falls, St. Lawrence County, NY",Plumb Brook Falls,St. Lawrence,New York,44.397792,-75.149611,https://waterfallsnearyou.com/new-york/canton/plumb-brook-falls
+"Rainbow Falls, Lewis County, NY",Rainbow Falls,Lewis,New York,43.832431,-75.835256,https://waterfallsnearyou.com/new-york/adams-center/rainbow-falls
+"Raquette Falls, Franklin County, NY",Raquette Falls,Franklin,New York,44.145,-74.3241,https://waterfallsnearyou.com/new-york/tupper-lake/raquette-falls
+"Rensselaer Falls, St. Lawrence County, NY",Rensselaer Falls,St. Lawrence,New York,44.589695,-75.321844,https://waterfallsnearyou.com/new-york/canton/rensselaer-falls
+"Rock Dam Falls, St. Lawrence County, NY",Rock Dam Falls,St. Lawrence,New York,44.245576,-75.175984,https://waterfallsnearyou.com/new-york/gouverneur/rock-dam-falls
+"Sherman Falls, Oneida County, NY",Sherman Falls,Oneida,New York,43.278682,-75.154758,https://waterfallsnearyou.com/new-york/oriskany/sherman-falls
+"Shingle Mill Falls, Lewis County, NY",Shingle Mill Falls,Lewis,New York,43.72149,-75.26544,https://waterfallsnearyou.com/new-york/lowville/shingle-mill-falls
+"Singing Waters Falls, Lewis County, NY",Singing Waters Falls,Lewis,New York,43.66291,-75.32274,https://waterfallsnearyou.com/new-york/lowville/singing-waters-falls
+"Sliding Falls, Herkimer County, NY",Sliding Falls,Herkimer,New York,44.024507,-74.928241,https://waterfallsnearyou.com/new-york/tupper-lake/sliding-falls
+"Sperrys Falls, Jefferson County, NY",Sperrys Falls,Jefferson,New York,44.18375,-76.1305,https://waterfallsnearyou.com/new-york/clayton/sperrys-falls
+"Stark Falls, St. Lawrence County, NY",Stark Falls,St. Lawrence,New York,44.451571,-74.766877,https://waterfallsnearyou.com/new-york/hannawa-falls/stark-falls
+"Stone Falls, Livingston County, NY",Stone Falls,Livingston,New York,42.537012,-77.667494,https://waterfallsnearyou.com/new-york/dansville/stone-falls
+"Sylvan Falls, St. Lawrence County, NY",Sylvan Falls,St. Lawrence,New York,44.576172,-74.710742,https://waterfallsnearyou.com/new-york/hannawa-falls/sylvan-falls
+"The Falls, Essex County, NY",The Falls,Essex,New York,44.077832,-73.832082,https://waterfallsnearyou.com/new-york/elizabethtown/the-falls
+"Three Falls, St. Lawrence County, NY",Three Falls,St. Lawrence,New York,44.516667,-74.881944,https://waterfallsnearyou.com/new-york/hannawa-falls/three-falls
+"Trenton Falls, Oneida County, NY",Trenton Falls,Oneida,New York,43.281916,-75.153084,https://waterfallsnearyou.com/new-york/oriskany/trenton-falls
+"Upper Falls, Franklin County, NY",Upper Falls,Franklin,New York,44.1415,-74.32933,https://waterfallsnearyou.com/new-york/tupper-lake/upper-falls
+"Upper High Falls, Oneida County, NY",Upper High Falls,Oneida,New York,43.281884,-75.153256,https://waterfallsnearyou.com/new-york/oriskany/upper-high-falls
+"Whitaker Falls, Lewis County, NY",Whitaker Falls,Lewis,New York,43.734444,-75.445556,https://waterfallsnearyou.com/new-york/lowville/whitaker-falls
+"Winns Pond, Oswego County, NY",Winns Pond,Oswego,New York,43.24417,-75.92655,https://waterfallsnearyou.com/new-york/constantia/winns-pond
+"Bemis Camp Falls, Graham County, NC",Bemis Camp Falls,Graham,North Carolina,35.341111,-84.0025,https://waterfallsnearyou.com/north-carolina/robbinsville/bemis-camp-falls
+"Betsy Falls, Jackson County, NC",Betsy Falls,Jackson,North Carolina,35.217876,-83.132643,https://waterfallsnearyou.com/north-carolina/cullowhee/betsy-falls
+"Big Falls, Avery County, NC",Big Falls,Avery,North Carolina,36.199013,-81.969006,https://waterfallsnearyou.com/north-carolina/banner-elk/big-falls
+"Blue Sea Falls, Yancey County, NC",Blue Sea Falls,Yancey,North Carolina,35.764519,-82.310147,https://waterfallsnearyou.com/north-carolina/black-mountain/blue-sea-falls
+"Connestee Falls, Transylvania County, NC",Connestee Falls,Transylvania,North Carolina,35.163727,-82.731516,https://waterfallsnearyou.com/north-carolina/brevard/connestee-falls
+"Crystal Falls, Mitchell County, NC",Crystal Falls,Mitchell,North Carolina,35.89156,-82.08424,https://waterfallsnearyou.com/north-carolina/spruce-pine/crystal-falls
+"Fairfield Falls, Jackson County, NC",Fairfield Falls,Jackson,North Carolina,35.134539,-83.042087,https://waterfallsnearyou.com/north-carolina/cullowhee/fairfield-falls
+"Glencannon Falls, Transylvania County, NC",Glencannon Falls,Transylvania,North Carolina,35.225948,-82.696791,https://waterfallsnearyou.com/north-carolina/brevard/glencannon-falls
+"Little Creek Falls, Swain County, NC",Little Creek Falls,Swain,North Carolina,35.506209,-83.372378,https://waterfallsnearyou.com/north-carolina/cherokee/little-creek-falls
+"Little Falls, Wilkes County, NC",Little Falls,Wilkes,North Carolina,36.380965,-81.034246,https://waterfallsnearyou.com/north-carolina/thurmond/little-falls
+"Lower Falls, Graham County, NC",Lower Falls,Graham,North Carolina,35.454554,-83.971891,https://waterfallsnearyou.com/north-carolina/robbinsville/lower-falls
+"Lower Vernal Falls, Jackson County, NC",Lower Vernal Falls,Jackson,North Carolina,35.262778,-82.971111,https://waterfallsnearyou.com/north-carolina/cullowhee/lower-vernal-falls
+"Maidenhair Falls, Jackson County, NC",Maidenhair Falls,Jackson,North Carolina,35.140928,-83.042364,https://waterfallsnearyou.com/north-carolina/cullowhee/maidenhair-falls
+"Onion Cliff Falls, Jackson County, NC",Onion Cliff Falls,Jackson,North Carolina,35.21482,-83.120698,https://waterfallsnearyou.com/north-carolina/cullowhee/onion-cliff-falls
+"Onion Falls, Jackson County, NC",Onion Falls,Jackson,North Carolina,35.197597,-83.152923,https://waterfallsnearyou.com/north-carolina/cullowhee/onion-falls
+"Roaring Spout Falls, Yancey County, NC",Roaring Spout Falls,Yancey,North Carolina,35.848963,-82.208978,https://waterfallsnearyou.com/north-carolina/burnsville/roaring-spout-falls
+"Schoolhouse Falls, Jackson County, NC",Schoolhouse Falls,Jackson,North Carolina,35.163151,-83.006529,https://waterfallsnearyou.com/north-carolina/cullowhee/schoolhouse-falls
+"Shady Falls, Transylvania County, NC",Shady Falls,Transylvania,North Carolina,35.2203,-82.67484,https://waterfallsnearyou.com/north-carolina/brevard/shady-falls
+"Slatten Falls, Jackson County, NC",Slatten Falls,Jackson,North Carolina,35.204265,-83.054862,https://waterfallsnearyou.com/north-carolina/cullowhee/slatten-falls
+"Twin Falls, Jackson County, NC",Twin Falls,Jackson,North Carolina,35.139261,-83.043475,https://waterfallsnearyou.com/north-carolina/cullowhee/twin-falls
+"Upper Falls, Haywood County, NC",Upper Falls,Haywood,North Carolina,35.318162,-82.867353,https://waterfallsnearyou.com/north-carolina/brevard/upper-falls-haywood
+"Upper Vernal Falls, Jackson County, NC",Upper Vernal Falls,Jackson,North Carolina,35.263333,-82.972222,https://waterfallsnearyou.com/north-carolina/cullowhee/upper-vernal-falls
+"Whitewater Falls, Transylvania County, NC",Whitewater Falls,Transylvania,North Carolina,35.071214,-82.886805,https://waterfallsnearyou.com/north-carolina/brevard/whitewater-falls
+"Windy Falls, Transylvania County, NC",Windy Falls,Transylvania,North Carolina,35.075096,-82.957919,https://waterfallsnearyou.com/north-carolina/brevard/windy-falls
+"Woodfin Falls, Jackson County, NC",Woodfin Falls,Jackson,North Carolina,35.449344,-83.100822,https://waterfallsnearyou.com/north-carolina/maggie-valley/woodfin-falls
+"Mineral Springs Falls, Ransom County, ND",Mineral Springs Falls,Ransom,North Dakota,46.50342,-97.90124,https://waterfallsnearyou.com/north-dakota/lisbon/mineral-springs-falls
+"Big Lyons Falls, Ashland County, OH",Big Lyons Falls,Ashland,Ohio,40.616111,-82.327778,https://waterfallsnearyou.com/ohio/loudonville/big-lyons-falls
+"Deans Fall, Geauga County, OH",Deans Fall,Geauga,Ohio,41.5208,-81.3901,https://waterfallsnearyou.com/ohio/gates-mills/deans-fall
+"Little Lyons Falls, Ashland County, OH",Little Lyons Falls,Ashland,Ohio,40.6193,-82.3292,https://waterfallsnearyou.com/ohio/loudonville/little-lyons-falls
+"Sugar Creek Falls (historical), Tuscarawas County, OH",Sugar Creek Falls (historical),Tuscarawas,Ohio,40.635616,-81.5604,https://waterfallsnearyou.com/ohio/beach-city/sugar-creek-falls-historical
+"Cedar Falls, Carter County, OK",Cedar Falls,Carter,Oklahoma,34.335091,-97.053071,https://waterfallsnearyou.com/oklahoma/dickson/cedar-falls
+"Henry House Falls, Carter County, OK",Henry House Falls,Carter,Oklahoma,34.350923,-97.233352,https://waterfallsnearyou.com/oklahoma/lone-grove/henry-house-falls
+"Lower Verdigris Falls (historical), Wagoner County, OK",Lower Verdigris Falls (historical),Wagoner,Oklahoma,35.85543,-95.369215,https://waterfallsnearyou.com/oklahoma/wagoner/lower-verdigris-falls-historical
+"Travertine Falls, Murray County, OK",Travertine Falls,Murray,Oklahoma,34.505645,-96.969183,https://waterfallsnearyou.com/oklahoma/sulphur/travertine-falls
+"Webbers Falls (historical), Sequoyah County, OK",Webbers Falls (historical),Sequoyah,Oklahoma,35.460833,-95.054444,https://waterfallsnearyou.com/oklahoma/vian/webbers-falls-historical
+"Buck Falls, Morrow County, OR",Buck Falls,Morrow,Oregon,45.124321,-119.649694,https://waterfallsnearyou.com/oregon/heppner/buck-falls
+"Cascade Falls, Linn County, OR",Cascade Falls,Linn,Oregon,44.545797,-122.428701,https://waterfallsnearyou.com/oregon/mill-city/cascade-falls
+"Cascade Falls, Lincoln County, OR",Cascade Falls,Lincoln,Oregon,44.319287,-123.855389,https://waterfallsnearyou.com/oregon/waldport/cascade-falls
+"Celestial Falls, Wasco County, OR",Celestial Falls,Wasco,Oregon,45.2425,-121.096389,https://waterfallsnearyou.com/oregon/moro/celestial-falls
+"Celilo Falls (historical), Wasco County, OR",Celilo Falls (historical),Wasco,Oregon,45.649845,-120.978956,https://waterfallsnearyou.com/oregon/the-dalles/celilo-falls-historical
+"Clover Falls, Douglas County, OR",Clover Falls,Douglas,Oregon,43.20602,-122.71583,https://waterfallsnearyou.com/oregon/glide/clover-falls
+"Diamond Creek Falls, Lane County, OR",Diamond Creek Falls,Lane,Oregon,43.607152,-122.143657,https://waterfallsnearyou.com/oregon/oakridge/diamond-creek-falls
+"Drift Creek Falls, Marion County, OR",Drift Creek Falls,Marion,Oregon,44.899011,-122.70731,https://waterfallsnearyou.com/oregon/sublimity/drift-creek-falls
+"East Fork Falls, Baker County, OR",East Fork Falls,Baker,Oregon,45.04289,-117.176091,https://waterfallsnearyou.com/oregon/joseph/east-fork-falls
+"Gnat Creek Falls, Clatsop County, OR",Gnat Creek Falls,Clatsop,Oregon,46.11878,-123.481411,https://waterfallsnearyou.com/oregon/clatskanie/gnat-creek-falls
+"Groundhog Falls, Malheur County, OR",Groundhog Falls,Malheur,Oregon,42.675711,-117.146807,https://waterfallsnearyou.com/oregon/nyssa/groundhog-falls
+"Grouse Mountain Falls, Lane County, OR",Grouse Mountain Falls,Lane,Oregon,43.567107,-122.615507,https://waterfallsnearyou.com/oregon/oakridge/grouse-mountain-falls
+"Gunaldo Falls, Yamhill County, OR",Gunaldo Falls,Yamhill,Oregon,45.103999,-123.774002,https://waterfallsnearyou.com/oregon/rose-lodge/gunaldo-falls
+"Hewett Falls, Coos County, OR",Hewett Falls,Coos,Oregon,43.455393,-123.919545,https://waterfallsnearyou.com/oregon/lakeside/hewett-falls
+"Hideaway Falls, Clackamas County, OR",Hideaway Falls,Clackamas,Oregon,45.229028,-121.881976,https://waterfallsnearyou.com/oregon/mount-hood-village/hideaway-falls
+"Honey Creek Falls, Lane County, OR",Honey Creek Falls,Lane,Oregon,44.08734,-121.894486,https://waterfallsnearyou.com/oregon/sisters/honey-creek-falls
+"Horseshoe Falls, Sherman County, OR",Horseshoe Falls,Sherman,Oregon,45.387382,-120.585644,https://waterfallsnearyou.com/oregon/moro/horseshoe-falls
+"Indian Hole Falls, Lane County, OR",Indian Hole Falls,Lane,Oregon,44.090951,-121.866708,https://waterfallsnearyou.com/oregon/sisters/indian-hole-falls
+"Kelsey Falls (historical), Josephine County, OR",Kelsey Falls (historical),Josephine,Oregon,42.697612,-123.772024,https://waterfallsnearyou.com/oregon/merlin/kelsey-falls-historical
+"Lancaster Falls, Hood River County, OR",Lancaster Falls,Hood River,Oregon,45.684759,-121.706133,https://waterfallsnearyou.com/oregon/odell/lancaster-falls
+"Laverne Falls, Coos County, OR",Laverne Falls,Coos,Oregon,43.256751,-124.027355,https://waterfallsnearyou.com/oregon/coquille/laverne-falls
+"Lillian Falls, Lane County, OR",Lillian Falls,Lane,Oregon,43.69816,-122.092017,https://waterfallsnearyou.com/oregon/oakridge/lillian-falls
+"Linton Falls, Lane County, OR",Linton Falls,Lane,Oregon,44.15984,-121.884491,https://waterfallsnearyou.com/oregon/sisters/linton-falls
+"Little Falls, Clatsop County, OR",Little Falls,Clatsop,Oregon,45.799555,-123.618181,https://waterfallsnearyou.com/oregon/cannon-beach/little-falls
+"Little Lee Falls, Washington County, OR",Little Lee Falls,Washington,Oregon,45.451264,-123.26434,https://waterfallsnearyou.com/oregon/yamhill/little-lee-falls
+"Little Niagara Falls, Clackamas County, OR",Little Niagara Falls,Clackamas,Oregon,45.241858,-121.885986,https://waterfallsnearyou.com/oregon/mount-hood-village/little-niagara-falls
+"Loowit Falls, Hood River County, OR",Loowit Falls,Hood River,Oregon,45.60828,-121.88547,https://waterfallsnearyou.com/oregon/cascade-locks/loowit-falls
+"Lower Black Bar Falls, Josephine County, OR",Lower Black Bar Falls,Josephine,Oregon,42.655946,-123.731188,https://waterfallsnearyou.com/oregon/merlin/lower-black-bar-falls
+"Lower Falls, Crook County, OR",Lower Falls,Crook,Oregon,44.19333,-120.147369,https://waterfallsnearyou.com/oregon/prineville/lower-falls
+"Lower Kentucky Falls, Douglas County, OR",Lower Kentucky Falls,Douglas,Oregon,43.93127,-123.81572,https://waterfallsnearyou.com/oregon/florence/lower-kentucky-falls
+"Lower Parker Falls, Lane County, OR",Lower Parker Falls,Lane,Oregon,43.635833,-122.606667,https://waterfallsnearyou.com/oregon/oakridge/lower-parker-falls
+"Lower Soda Falls, Linn County, OR",Lower Soda Falls,Linn,Oregon,44.407799,-122.475364,https://waterfallsnearyou.com/oregon/sweet-home/lower-soda-falls
+"Lower Trestle Creek Falls, Lane County, OR",Lower Trestle Creek Falls,Lane,Oregon,43.647222,-122.6575,https://waterfallsnearyou.com/oregon/culp-creek/lower-trestle-creek-falls
+"Marjorie Falls, Jackson County, OR",Marjorie Falls,Jackson,Oregon,42.329937,-122.450487,https://waterfallsnearyou.com/oregon/ashland/marjorie-falls
+"McNabb Falls, Linn County, OR",McNabb Falls,Linn,Oregon,44.527298,-122.219465,https://waterfallsnearyou.com/oregon/mill-city/mcnabb-falls
+"Metlako Falls, Hood River County, OR",Metlako Falls,Hood River,Oregon,45.628129,-121.898804,https://waterfallsnearyou.com/oregon/cascade-locks/metlako-falls
+"Middle Falls, Clackamas County, OR",Middle Falls,Clackamas,Oregon,45.294986,-122.256717,https://waterfallsnearyou.com/oregon/estacada/middle-falls
+"Mill Creek Falls, Jackson County, OR",Mill Creek Falls,Jackson,Oregon,42.74013,-122.495217,https://waterfallsnearyou.com/oregon/shady-cove/mill-creek-falls
+"Minam Falls, Wallowa County, OR",Minam Falls,Wallowa,Oregon,45.311968,-117.565295,https://waterfallsnearyou.com/oregon/enterprise/minam-falls
+"Mist Falls, Multnomah County, OR",Mist Falls,Multnomah,Oregon,45.573869,-122.13082,https://waterfallsnearyou.com/oregon/troutdale/mist-falls
+"Moffett Falls, Multnomah County, OR",Moffett Falls,Multnomah,Oregon,45.622062,-121.973971,https://waterfallsnearyou.com/oregon/cascade-locks/moffett-falls
+"Moose Creek Falls, Linn County, OR",Moose Creek Falls,Linn,Oregon,44.404014,-122.44008,https://waterfallsnearyou.com/oregon/sweet-home/moose-creek-falls
+"Munson Creek Falls, Tillamook County, OR",Munson Creek Falls,Tillamook,Oregon,45.361773,-123.760952,https://waterfallsnearyou.com/oregon/tillamook/munson-creek-falls
+"Painter Falls, Linn County, OR",Painter Falls,Linn,Oregon,44.552926,-122.45125,https://waterfallsnearyou.com/oregon/mill-city/painter-falls
+"Pinard Falls, Lane County, OR",Pinard Falls,Lane,Oregon,43.709444,-122.615278,https://waterfallsnearyou.com/oregon/oakridge/pinard-falls
+"Platinum Falls, Douglas County, OR",Platinum Falls,Douglas,Oregon,43.55539,-123.84843,https://waterfallsnearyou.com/oregon/reedsport/platinum-falls
+"Rainbow Falls, Linn County, OR",Rainbow Falls,Linn,Oregon,44.375631,-122.468446,https://waterfallsnearyou.com/oregon/sweet-home/rainbow-falls
+"Red Blanket Falls, Klamath County, OR",Red Blanket Falls,Klamath,Oregon,42.793017,-122.228486,https://waterfallsnearyou.com/oregon/shady-cove/red-blanket-falls
+"Salt Creek Falls, Lane County, OR",Salt Creek Falls,Lane,Oregon,43.762407,-122.371989,https://waterfallsnearyou.com/oregon/oakridge/salt-creek-falls
+"Slide Falls, Grant County, OR",Slide Falls,Grant,Oregon,44.296859,-118.660282,https://waterfallsnearyou.com/oregon/canyon-city/slide-falls
+"Split Falls, Clackamas County, OR",Split Falls,Clackamas,Oregon,45.22867,-121.874376,https://waterfallsnearyou.com/oregon/mount-hood-village/split-falls
+"Steelhead Falls, Jefferson County, OR",Steelhead Falls,Jefferson,Oregon,44.416285,-121.28977,https://waterfallsnearyou.com/oregon/terrebonne/steelhead-falls
+"Stein Falls, Clackamas County, OR",Stein Falls,Clackamas,Oregon,45.226363,-121.870189,https://waterfallsnearyou.com/oregon/mount-hood-village/stein-falls
+"Stuart Falls, Klamath County, OR",Stuart Falls,Klamath,Oregon,42.799082,-122.21291,https://waterfallsnearyou.com/oregon/shady-cove/stuart-falls
+"Stulls Falls, Coos County, OR",Stulls Falls,Coos,Oregon,43.510948,-123.995659,https://waterfallsnearyou.com/oregon/lakeside/stulls-falls
+"Sullivan Creek Falls, Marion County, OR",Sullivan Creek Falls,Marion,Oregon,44.840556,-122.265556,https://waterfallsnearyou.com/oregon/mill-city/sullivan-creek-falls
+"Switchback Falls, Hood River County, OR",Switchback Falls,Hood River,Oregon,45.314171,-121.660642,https://waterfallsnearyou.com/oregon/mount-hood-village/switchback-falls
+"Tanner Creek Falls, Multnomah County, OR",Tanner Creek Falls,Multnomah,Oregon,45.617715,-121.951273,https://waterfallsnearyou.com/oregon/cascade-locks/tanner-creek-falls
+"Thompson Falls, Morrow County, OR",Thompson Falls,Morrow,Oregon,45.020945,-119.192249,https://waterfallsnearyou.com/oregon/heppner/thompson-falls
+"Ti'lomikh Falls, Jackson County, OR",Ti'lomikh Falls,Jackson,Oregon,42.443285,-123.043098,https://waterfallsnearyou.com/oregon/gold-hill/tilomikh-falls
+"tíkem Falls, Wallowa County, OR",tíkem Falls,Wallowa,Oregon,45.902057,-117.660871,https://waterfallsnearyou.com/oregon/elgin/tikem-falls
+"Toketee Falls, Douglas County, OR",Toketee Falls,Douglas,Oregon,43.263169,-122.43331,https://waterfallsnearyou.com/oregon/oakridge/toketee-falls
+"Tumwater Falls, Gilliam County, OR",Tumwater Falls,Gilliam,Oregon,45.658469,-120.50275,https://waterfallsnearyou.com/oregon/moro/tumwater-falls
+"Turner Drop, Jackson County, OR",Turner Drop,Jackson,Oregon,42.865278,-122.501111,https://waterfallsnearyou.com/oregon/shady-cove/turner-drop
+"Upper Falls, Crook County, OR",Upper Falls,Crook,Oregon,44.25503,-120.100484,https://waterfallsnearyou.com/oregon/prineville/upper-falls
+"Upper Kentucky Falls, Douglas County, OR",Upper Kentucky Falls,Douglas,Oregon,43.92819,-123.802464,https://waterfallsnearyou.com/oregon/florence/upper-kentucky-falls
+"Upper Parker Falls, Lane County, OR",Upper Parker Falls,Lane,Oregon,43.6375,-122.603889,https://waterfallsnearyou.com/oregon/oakridge/upper-parker-falls
+"Upper Soda Falls, Linn County, OR",Upper Soda Falls,Linn,Oregon,44.414745,-122.471702,https://waterfallsnearyou.com/oregon/sweet-home/upper-soda-falls
+"Upper Trestle Creek Falls, Lane County, OR",Upper Trestle Creek Falls,Lane,Oregon,43.651389,-122.651389,https://waterfallsnearyou.com/oregon/culp-creek/upper-trestle-creek-falls
+"Vanishing Falls, Clackamas County, OR",Vanishing Falls,Clackamas,Oregon,45.243546,-121.894279,https://waterfallsnearyou.com/oregon/mount-hood-village/vanishing-falls
+"White River Falls, Wasco County, OR",White River Falls,Wasco,Oregon,45.242682,-121.097411,https://waterfallsnearyou.com/oregon/moro/white-river-falls
+"Winter Falls, Marion County, OR",Winter Falls,Marion,Oregon,44.884423,-122.640926,https://waterfallsnearyou.com/oregon/lyons/winter-falls
+"Wolf Hollow Falls, Gilliam County, OR",Wolf Hollow Falls,Gilliam,Oregon,45.378887,-120.075964,https://waterfallsnearyou.com/oregon/condon/wolf-hollow-falls
+"Yocum Falls, Clackamas County, OR",Yocum Falls,Clackamas,Oregon,45.307101,-121.79297,https://waterfallsnearyou.com/oregon/mount-hood-village/yocum-falls
+"Buttermilk Falls, Monroe County, PA",Buttermilk Falls,Monroe,Pennsylvania,41.009817,-75.132123,https://waterfallsnearyou.com/pennsylvania/east-stroudsburg/buttermilk-falls
+"Cold Run Road Falls, Sullivan County, PA",Cold Run Road Falls,Sullivan,Pennsylvania,41.460077,-76.573838,https://waterfallsnearyou.com/pennsylvania/laporte/cold-run-road-falls
+"Delaware Falls, Luzerne County, PA",Delaware Falls,Luzerne,Pennsylvania,41.322222,-76.283056,https://waterfallsnearyou.com/pennsylvania/laporte/delaware-falls
+"Erie Falls, Luzerne County, PA",Erie Falls,Luzerne,Pennsylvania,41.32159,-76.277647,https://waterfallsnearyou.com/pennsylvania/laporte/erie-falls
+"Ganoga Falls, Luzerne County, PA",Ganoga Falls,Luzerne,Pennsylvania,41.323889,-76.283889,https://waterfallsnearyou.com/pennsylvania/laporte/ganoga-falls
+"High Falls, Monroe County, PA",High Falls,Monroe,Pennsylvania,41.21037,-75.143511,https://waterfallsnearyou.com/pennsylvania/mountainhome/high-falls
+"Lincoln Falls, Sullivan County, PA",Lincoln Falls,Sullivan,Pennsylvania,41.513134,-76.6608,https://waterfallsnearyou.com/pennsylvania/laporte/lincoln-falls
+"Onondaga Falls, Luzerne County, PA",Onondaga Falls,Luzerne,Pennsylvania,41.331191,-76.273824,https://waterfallsnearyou.com/pennsylvania/laporte/onondaga-falls
+"Twin Falls, Monroe County, PA",Twin Falls,Monroe,Pennsylvania,41.031484,-75.126011,https://waterfallsnearyou.com/pennsylvania/east-stroudsburg/twin-falls
+"White Tail Falls, Cambria County, PA",White Tail Falls,Cambria,Pennsylvania,40.314444,-78.8675,https://waterfallsnearyou.com/pennsylvania/oakland/white-tail-falls
+"Winding Staircase Falls, Cambria County, PA",Winding Staircase Falls,Cambria,Pennsylvania,40.315,-78.866667,https://waterfallsnearyou.com/pennsylvania/oakland/winding-staircase-falls
+"Woonsocket Falls, Providence County, RI",Woonsocket Falls,Providence,Rhode Island,41.999167,-71.517778,https://waterfallsnearyou.com/rhode-island/woonsocket/woonsocket-falls
+"Lower Falls, Greenville County, SC",Lower Falls,Greenville,South Carolina,34.84413,-82.40046,https://waterfallsnearyou.com/south-carolina/greenville/lower-falls
+"Reedy River Falls, Greenville County, SC",Reedy River Falls,Greenville,South Carolina,34.84419,-82.40114,https://waterfallsnearyou.com/south-carolina/greenville/reedy-river-falls
+"Sids Falls, Oconee County, SC",Sids Falls,Oconee,South Carolina,34.756111,-83.307778,https://waterfallsnearyou.com/south-carolina/westminster/sids-falls
+"Upper Falls, Greenville County, SC",Upper Falls,Greenville,South Carolina,34.845019,-82.400927,https://waterfallsnearyou.com/south-carolina/greenville/upper-falls
+"Coon Den Falls, Carter County, TN",Coon Den Falls,Carter,Tennessee,36.253449,-82.118737,https://waterfallsnearyou.com/tennessee/roan-mountain/coon-den-falls
+"Copperas Falls, Coffee County, TN",Copperas Falls,Coffee,Tennessee,35.420077,-86.22138,https://waterfallsnearyou.com/tennessee/tullahoma/copperas-falls
+"Crystal Falls, Bledsoe County, TN",Crystal Falls,Bledsoe,Tennessee,35.519784,-85.17785,https://waterfallsnearyou.com/tennessee/pikeville/crystal-falls
+"Double Drop Falls, Morgan County, TN",Double Drop Falls,Morgan,Tennessee,36.118406,-84.80717,https://waterfallsnearyou.com/tennessee/fairfield-glade/double-drop-falls
+"Flatrock Falls, Morgan County, TN",Flatrock Falls,Morgan,Tennessee,36.11999,-84.425,https://waterfallsnearyou.com/tennessee/coalfield/flatrock-falls
+"Flatrock Falls, Hamilton County, TN",Flatrock Falls,Hamilton,Tennessee,35.193266,-85.284236,https://waterfallsnearyou.com/tennessee/falling-water/flatrock-falls
+"Freudenberg Falls, Hamilton County, TN",Freudenberg Falls,Hamilton,Tennessee,35.193801,-85.285826,https://waterfallsnearyou.com/tennessee/falling-water/freudenberg-falls
+"Hemlock Falls, Van Buren County, TN",Hemlock Falls,Van Buren,Tennessee,35.734774,-85.352734,https://waterfallsnearyou.com/tennessee/spencer/hemlock-falls
+"Hilliard Falls, Bledsoe County, TN",Hilliard Falls,Bledsoe,Tennessee,35.650624,-85.061067,https://waterfallsnearyou.com/tennessee/pikeville/hilliard-falls
+"Jumpoff Falls, Marion County, TN",Jumpoff Falls,Marion,Tennessee,35.142855,-85.842459,https://waterfallsnearyou.com/tennessee/sewanee/jumpoff-falls
+"Middle Creek Falls, Hamilton County, TN",Middle Creek Falls,Hamilton,Tennessee,35.120106,-85.373537,https://waterfallsnearyou.com/tennessee/signal-mountain/middle-creek-falls
+"Morphy Falls, Rhea County, TN",Morphy Falls,Rhea,Tennessee,35.534981,-85.05968,https://waterfallsnearyou.com/tennessee/dayton/morphy-falls
+"Ramsey Cascades, Sevier County, TN",Ramsey Cascades,Sevier,Tennessee,35.708495,-83.300029,https://waterfallsnearyou.com/tennessee/gatlinburg/ramsey-cascades
+"Rockstack Falls, Hamilton County, TN",Rockstack Falls,Hamilton,Tennessee,35.193652,-85.297652,https://waterfallsnearyou.com/tennessee/fairmount/rockstack-falls
+"Rogers Falls, White County, TN",Rogers Falls,White,Tennessee,35.884875,-85.632806,https://waterfallsnearyou.com/tennessee/sparta/rogers-falls
+"Slider Falls, Hamilton County, TN",Slider Falls,Hamilton,Tennessee,35.193158,-85.283793,https://waterfallsnearyou.com/tennessee/falling-water/slider-falls
+"Stinging Fork Falls, Rhea County, TN",Stinging Fork Falls,Rhea,Tennessee,35.721127,-84.927073,https://waterfallsnearyou.com/tennessee/spring-city/stinging-fork-falls
+"Three Creeks Falls, Hamilton County, TN",Three Creeks Falls,Hamilton,Tennessee,35.12016,-85.37367,https://waterfallsnearyou.com/tennessee/signal-mountain/three-creeks-falls
+"Wilson Falls, Sevier County, TN",Wilson Falls,Sevier,Tennessee,35.589219,-83.48512,https://waterfallsnearyou.com/tennessee/gatlinburg/wilson-falls
+"Lingos Falls, Briscoe County, TX",Lingos Falls,Briscoe,Texas,34.335345,-101.199599,https://waterfallsnearyou.com/texas/silverton/lingos-falls
+"Madrid Falls, Presidio County, TX",Madrid Falls,Presidio,Texas,29.379791,-103.884026,https://waterfallsnearyou.com/texas/presidio/madrid-falls
+"Salt Croton Falls, Stonewall County, TX",Salt Croton Falls,Stonewall,Texas,33.363979,-100.34261,https://waterfallsnearyou.com/texas/jayton/salt-croton-falls
+"Skiles Falls, Karnes County, TX",Skiles Falls,Karnes,Texas,28.958431,-98.044415,https://waterfallsnearyou.com/texas/poth/skiles-falls
+"Tecolote Artesian Well, Kenedy County, TX",Tecolote Artesian Well,Kenedy,Texas,26.673396,-97.615822,https://waterfallsnearyou.com/texas/raymondville/tecolote-artesian-well
+"Ashley Falls, Daggett County, UT",Ashley Falls,Daggett,Utah,40.916626,-109.500417,https://waterfallsnearyou.com/utah/manila/ashley-falls
+"Chandler Falls, Carbon County, UT",Chandler Falls,Carbon,Utah,39.470521,-110.022092,https://waterfallsnearyou.com/utah/east-carbon-city/chandler-falls
+"Funnel Falls, Grand County, UT",Funnel Falls,Grand,Utah,38.993598,-109.14789,https://waterfallsnearyou.com/utah/moab/funnel-falls
+"Lower Jump, San Juan County, UT",Lower Jump,San Juan,Utah,38.193876,-109.791789,https://waterfallsnearyou.com/utah/moab/lower-jump
+"Merkley Drop, Uintah County, UT",Merkley Drop,Uintah,Utah,40.483289,-109.899872,https://waterfallsnearyou.com/utah/roosevelt/merkley-drop
+"The Thumb Pour Off, San Juan County, UT",The Thumb Pour Off,San Juan,Utah,37.45722,-110.02013,https://waterfallsnearyou.com/utah/blanding/the-thumb-pour-off
+"Upper Jump, San Juan County, UT",Upper Jump,San Juan,Utah,38.041655,-109.764568,https://waterfallsnearyou.com/utah/monticello/upper-jump
+"Gages Falls, Windham County, VT",Gages Falls,Windham,Vermont,43.1163,-72.4562,https://waterfallsnearyou.com/vermont/bellows-falls/gages-falls
+"Hamilton Falls, Windham County, VT",Hamilton Falls,Windham,Vermont,43.137577,-72.763429,https://waterfallsnearyou.com/vermont/newfane/hamilton-falls
+"Saxtons River Falls, Windham County, VT",Saxtons River Falls,Windham,Vermont,43.137742,-72.509622,https://waterfallsnearyou.com/vermont/bellows-falls/saxtons-river-falls
+"Sokoki Falls, Windham County, VT",Sokoki Falls,Windham,Vermont,43.208608,-72.517071,https://waterfallsnearyou.com/vermont/rockingham/sokoki-falls
+"Twin Falls, Windham County, VT",Twin Falls,Windham,Vermont,43.1166,-72.4536,https://waterfallsnearyou.com/vermont/bellows-falls/twin-falls
+"Cedar Falls, Rockingham County, VA",Cedar Falls,Rockingham,Virginia,38.394849,-78.541401,https://waterfallsnearyou.com/virginia/elkton/cedar-falls
+"Climbing Rose Falls, Madison County, VA",Climbing Rose Falls,Madison,Virginia,38.519732,-78.366423,https://waterfallsnearyou.com/virginia/stanley/climbing-rose-falls
+"Eagle Point Falls (historical), Mecklenburg County, VA",Eagle Point Falls (historical),Mecklenburg,Virginia,36.593475,-78.429998,https://waterfallsnearyou.com/virginia/boydton/eagle-point-falls-historical
+"Gibbs Falls, Rockbridge County, VA",Gibbs Falls,Rockbridge,Virginia,37.948187,-79.268923,https://waterfallsnearyou.com/virginia/east-lexington/gibbs-falls
+"Hyco Falls (historical), Halifax County, VA",Hyco Falls (historical),Halifax,Virginia,36.684584,-78.728339,https://waterfallsnearyou.com/virginia/south-boston/hyco-falls-historical
+"Miller Falls, Warren County, VA",Miller Falls,Warren,Virginia,38.781082,-78.208156,https://waterfallsnearyou.com/virginia/washington/miller-falls
+"Affi Falls, Pierce County, WA",Affi Falls,Pierce,Washington,46.93983,-121.687041,https://waterfallsnearyou.com/washington/buckley/affi-falls
+"Alice Falls, Pierce County, WA",Alice Falls,Pierce,Washington,46.960662,-121.788712,https://waterfallsnearyou.com/washington/buckley/alice-falls
+"Basaltic Falls, Pierce County, WA",Basaltic Falls,Pierce,Washington,46.809554,-121.648148,https://waterfallsnearyou.com/washington/eatonville/basaltic-falls
+"Bear Creek Falls, Clallam County, WA",Bear Creek Falls,Clallam,Washington,48.128966,-124.330215,https://waterfallsnearyou.com/washington/forks/bear-creek-falls
+"Bridal Veil Falls, Chelan County, WA",Bridal Veil Falls,Chelan,Washington,48.269626,-120.644021,https://waterfallsnearyou.com/washington/granite-falls/bridal-veil-falls
+"Castile Falls, Yakima County, WA",Castile Falls,Yakima,Washington,46.255122,-121.241186,https://waterfallsnearyou.com/washington/goldendale/castile-falls
+"Cataract Falls, Pierce County, WA",Cataract Falls,Pierce,Washington,46.942051,-121.811212,https://waterfallsnearyou.com/washington/buckley/cataract-falls
+"Cedar Falls, Okanogan County, WA",Cedar Falls,Okanogan,Washington,48.558515,-120.480404,https://waterfallsnearyou.com/washington/okanogan/cedar-falls
+"Chewack Falls, Okanogan County, WA",Chewack Falls,Okanogan,Washington,48.859012,-120.025339,https://waterfallsnearyou.com/washington/oroville/chewack-falls
+"Clear Creek Falls, Yakima County, WA",Clear Creek Falls,Yakima,Washington,46.656197,-121.350625,https://waterfallsnearyou.com/washington/tieton/clear-creek-falls
+"Cress Falls, Pierce County, WA",Cress Falls,Pierce,Washington,46.95594,-121.773433,https://waterfallsnearyou.com/washington/buckley/cress-falls
+"Crooked Creek Falls, Yakima County, WA",Crooked Creek Falls,Yakima,Washington,46.147066,-121.454526,https://waterfallsnearyou.com/washington/white-salmon/crooked-creek-falls
+"Crown Point Falls, Chelan County, WA",Crown Point Falls,Chelan,Washington,48.198362,-120.895985,https://waterfallsnearyou.com/washington/darrington/crown-point-falls
+"Curly Creek Falls, Skamania County, WA",Curly Creek Falls,Skamania,Washington,46.058169,-121.972031,https://waterfallsnearyou.com/washington/carson/curly-creek-falls
+"Delzer Falls, Lincoln County, WA",Delzer Falls,Lincoln,Washington,47.400179,-118.755147,https://waterfallsnearyou.com/washington/ritzville/delzer-falls
+"Domke Falls, Chelan County, WA",Domke Falls,Chelan,Washington,48.162144,-120.543354,https://waterfallsnearyou.com/washington/granite-falls/domke-falls
+"Ethania Falls, Pierce County, WA",Ethania Falls,Pierce,Washington,46.835107,-121.91677,https://waterfallsnearyou.com/washington/eatonville/ethania-falls
+"Fish Ladder Falls, Lewis County, WA",Fish Ladder Falls,Lewis,Washington,46.707335,-121.511476,https://waterfallsnearyou.com/washington/tieton/fish-ladder-falls
+"Florence Falls, King County, WA",Florence Falls,King,Washington,47.61011,-121.391209,https://waterfallsnearyou.com/washington/tanner/florence-falls
+"Garda Falls, Pierce County, WA",Garda Falls,Pierce,Washington,46.922364,-121.72592,https://waterfallsnearyou.com/washington/buckley/garda-falls
+"Giant Falls, Pierce County, WA",Giant Falls,Pierce,Washington,46.903162,-121.852602,https://waterfallsnearyou.com/washington/eatonville/giant-falls
+"Gibson Falls, Snohomish County, WA",Gibson Falls,Snohomish,Washington,48.255112,-121.332612,https://waterfallsnearyou.com/washington/darrington/gibson-falls
+"Hardy Falls, Skamania County, WA",Hardy Falls,Skamania,Washington,45.642339,-122.015639,https://waterfallsnearyou.com/washington/stevenson/hardy-falls
+"Harmony Falls, Skamania County, WA",Harmony Falls,Skamania,Washington,46.282333,-122.102872,https://waterfallsnearyou.com/washington/morton/harmony-falls
+"Hatana Falls, Jefferson County, WA",Hatana Falls,Jefferson,Washington,47.763702,-123.253783,https://waterfallsnearyou.com/washington/seabeck/hatana-falls
+"Herman Falls, Clallam County, WA",Herman Falls,Clallam,Washington,48.162298,-124.375218,https://waterfallsnearyou.com/washington/forks/herman-falls
+"Hidden Falls, San Juan County, WA",Hidden Falls,San Juan,Washington,48.648319,-122.822748,https://waterfallsnearyou.com/washington/friday-harbor/hidden-falls
+"Hn(wa'(we'elshn (historical), Spokane County, WA",Hn(wa'(we'elshn (historical),Spokane,Washington,47.679183,-117.36209,https://waterfallsnearyou.com/washington/spokane/hn-wa-weelshn-historical
+"John Pierce Waterfall, Whatcom County, WA",John Pierce Waterfall,Whatcom,Washington,48.721241,-121.070675,https://waterfallsnearyou.com/washington/darrington/john-pierce-waterfall
+"Kalispell Falls, Pend Oreille County, WA",Kalispell Falls,Pend Oreille,Washington,48.614694,-117.111237,https://waterfallsnearyou.com/washington/newport/kalispell-falls
+"Kettle Falls (historical), Stevens County, WA",Kettle Falls (historical),Stevens,Washington,48.639346,-118.109436,https://waterfallsnearyou.com/washington/kettle-falls/kettle-falls-historical
+"Larrupin Falls, Pierce County, WA",Larrupin Falls,Pierce,Washington,46.835385,-121.914826,https://waterfallsnearyou.com/washington/eatonville/larrupin-falls
+"LaSota Falls, Pend Oreille County, WA",LaSota Falls,Pend Oreille,Washington,48.772145,-117.068564,https://waterfallsnearyou.com/washington/newport/lasota-falls
+"Little Chamokane Falls, Stevens County, WA",Little Chamokane Falls,Stevens,Washington,47.884282,-117.877188,https://waterfallsnearyou.com/washington/deer-park/little-chamokane-falls
+"Little Niagara Falls, Skamania County, WA",Little Niagara Falls,Skamania,Washington,46.158171,-121.799529,https://waterfallsnearyou.com/washington/carson/little-niagara-falls
+"Loowit Falls, Skamania County, WA",Loowit Falls,Skamania,Washington,46.223619,-122.183601,https://waterfallsnearyou.com/washington/morton/loowit-falls
+"Lower Falls, Skamania County, WA",Lower Falls,Skamania,Washington,46.154559,-121.879531,https://waterfallsnearyou.com/washington/carson/lower-falls
+"Malachite Falls, King County, WA",Malachite Falls,King,Washington,47.607333,-121.328987,https://waterfallsnearyou.com/washington/tanner/malachite-falls
+"Maple Falls, Lewis County, WA",Maple Falls,Lewis,Washington,46.756499,-121.662869,https://waterfallsnearyou.com/washington/eatonville/maple-falls
+"Marie Falls, Pierce County, WA",Marie Falls,Pierce,Washington,46.808999,-121.62648,https://waterfallsnearyou.com/washington/eatonville/marie-falls
+"Martha Falls, Lewis County, WA",Martha Falls,Lewis,Washington,46.767332,-121.694259,https://waterfallsnearyou.com/washington/eatonville/martha-falls
+"Mary Belle Falls, Pierce County, WA",Mary Belle Falls,Pierce,Washington,46.813999,-121.630925,https://waterfallsnearyou.com/washington/eatonville/mary-belle-falls
+"Mary Pamela Falls, Snohomish County, WA",Mary Pamela Falls,Snohomish,Washington,47.97854,-121.78781,https://waterfallsnearyou.com/washington/sultan/mary-pamela-falls
+"McLoughlin Falls, Okanogan County, WA",McLoughlin Falls,Okanogan,Washington,48.609311,-119.476775,https://waterfallsnearyou.com/washington/tonasket/mcloughlin-falls
+"Mission Falls, Okanogan County, WA",Mission Falls,Okanogan,Washington,48.37043,-119.439213,https://waterfallsnearyou.com/washington/omak/mission-falls
+"Nahunta Falls, Pierce County, WA",Nahunta Falls,Pierce,Washington,46.782609,-121.767039,https://waterfallsnearyou.com/washington/eatonville/nahunta-falls
+"Otter Falls, King County, WA",Otter Falls,King,Washington,47.587888,-121.467042,https://waterfallsnearyou.com/washington/tanner/otter-falls
+"Preston Falls, Chelan County, WA",Preston Falls,Chelan,Washington,47.882607,-120.431367,https://waterfallsnearyou.com/washington/granite-falls/preston-falls
+"Rainbow Falls, Whatcom County, WA",Rainbow Falls,Whatcom,Washington,48.770955,-121.676808,https://waterfallsnearyou.com/washington/peaceful-valley/rainbow-falls
+"Reiser Falls, Lincoln County, WA",Reiser Falls,Lincoln,Washington,47.493658,-118.860149,https://waterfallsnearyou.com/washington/moses-lake-north/reiser-falls
+"Rickey Rapids, Stevens County, WA",Rickey Rapids,Stevens,Washington,48.54351,-118.142771,https://waterfallsnearyou.com/washington/kettle-falls/rickey-rapids
+"Saint Johns Falls, Lewis County, WA",Saint Johns Falls,Lewis,Washington,46.782874,-121.62175,https://waterfallsnearyou.com/washington/eatonville/saint-johns-falls
+"Salmon Falls, Okanogan County, WA",Salmon Falls,Okanogan,Washington,48.554314,-119.847572,https://waterfallsnearyou.com/washington/omak/salmon-falls
+"Service Falls, Jefferson County, WA",Service Falls,Jefferson,Washington,47.757486,-123.658767,https://waterfallsnearyou.com/washington/port-angeles/service-falls
+"Snowshoe Falls, King County, WA",Snowshoe Falls,King,Washington,47.434279,-121.455094,https://waterfallsnearyou.com/washington/tanner/snowshoe-falls
+"Spray Falls, Okanogan County, WA",Spray Falls,Okanogan,Washington,48.13299,-119.006317,https://waterfallsnearyou.com/washington/coulee-dam/spray-falls
+"Sunbeam Falls, Lewis County, WA",Sunbeam Falls,Lewis,Washington,46.774554,-121.711204,https://waterfallsnearyou.com/washington/eatonville/sunbeam-falls
+"Sunday Falls, Snohomish County, WA",Sunday Falls,Snohomish,Washington,47.981774,-121.391497,https://waterfallsnearyou.com/washington/gold-bar/sunday-falls
+"Sylvia Falls, Lewis County, WA",Sylvia Falls,Lewis,Washington,46.76511,-121.676481,https://waterfallsnearyou.com/washington/eatonville/sylvia-falls
+"Teepee Falls, Skagit County, WA",Teepee Falls,Skagit,Washington,48.343725,-121.440677,https://waterfallsnearyou.com/washington/darrington/teepee-falls
+"The Dalles (historical), Klickitat County, WA",The Dalles (historical),Klickitat,Washington,45.605954,-121.165071,https://waterfallsnearyou.com/washington/dallesport/the-dalles-historical
+"Trixie Falls, Pierce County, WA",Trixie Falls,Pierce,Washington,46.81511,-121.64787,https://waterfallsnearyou.com/washington/eatonville/trixie-falls
+"Twin Falls, Skamania County, WA",Twin Falls,Skamania,Washington,46.21484,-121.667862,https://waterfallsnearyou.com/washington/carson/twin-falls
+"Twin Falls, Pierce County, WA",Twin Falls,Pierce,Washington,46.804277,-121.64037,https://waterfallsnearyou.com/washington/eatonville/twin-falls
+"Upper Falls, Stevens County, WA",Upper Falls,Stevens,Washington,48.954756,-117.79895,https://waterfallsnearyou.com/washington/kettle-falls/upper-falls
+"Washboard Falls, Cowlitz County, WA",Washboard Falls,Cowlitz,Washington,46.150387,-122.52566,https://waterfallsnearyou.com/washington/amboy/washboard-falls
+"Washington Cascades, Lewis County, WA",Washington Cascades,Lewis,Washington,46.777609,-121.742872,https://waterfallsnearyou.com/washington/eatonville/washington-cascades
+"Wilson Creek Falls, Lincoln County, WA",Wilson Creek Falls,Lincoln,Washington,47.650387,-118.913366,https://waterfallsnearyou.com/washington/coulee-dam/wilson-creek-falls
+"Tenskwatawa Falls, Webster County, WV",Tenskwatawa Falls,Webster,West Virginia,38.655127,-80.338182,https://waterfallsnearyou.com/west-virginia/webster-springs/tenskwatawa-falls
+"Big Quinnesec Falls (historical), Marinette County, WI",Big Quinnesec Falls (historical),Marinette,Wisconsin,45.786901,-88.040681,https://waterfallsnearyou.com/wisconsin/niagara/big-quinnesec-falls-historical
+"Breakwater Falls, Florence County, WI",Breakwater Falls,Florence,Wisconsin,45.829446,-88.253348,https://waterfallsnearyou.com/wisconsin/florence/breakwater-falls
+"Peavey Falls, Menominee County, WI",Peavey Falls,Menominee,Wisconsin,44.966087,-88.770384,https://waterfallsnearyou.com/wisconsin/keshena/peavey-falls
+"Quiver Falls, Marinette County, WI",Quiver Falls,Marinette,Wisconsin,45.654771,-87.823867,https://waterfallsnearyou.com/wisconsin/niagara/quiver-falls
+"Sturgeon Falls (historical), Marinette County, WI",Sturgeon Falls (historical),Marinette,Wisconsin,45.742182,-87.864846,https://waterfallsnearyou.com/wisconsin/niagara/sturgeon-falls-historical
+"Albright Falls, Teton County, WY",Albright Falls,Teton,Wyoming,44.277707,-110.903548,https://waterfallsnearyou.com/wyoming/moose-wilson-road/albright-falls
+"Bannock Falls, Teton County, WY",Bannock Falls,Teton,Wyoming,43.72007,-110.767316,https://waterfallsnearyou.com/wyoming/moose-wilson-road/bannock-falls
+"Bechler Falls, Teton County, WY",Bechler Falls,Teton,Wyoming,44.149091,-111.00994,https://waterfallsnearyou.com/wyoming/moose-wilson-road/bechler-falls
+"Big Creek Falls, Park County, WY",Big Creek Falls,Park,Wyoming,44.582921,-109.599495,https://waterfallsnearyou.com/wyoming/cody/big-creek-falls
+"Bridal Veil Falls, Park County, WY",Bridal Veil Falls,Park,Wyoming,44.844812,-109.341254,https://waterfallsnearyou.com/wyoming/cody/bridal-veil-falls
+"Bucking Mule Falls, Big Horn County, WY",Bucking Mule Falls,Big Horn,Wyoming,44.897442,-107.924977,https://waterfallsnearyou.com/wyoming/lovell/bucking-mule-falls
+"Bull Lake Falls, Fremont County, WY",Bull Lake Falls,Fremont,Wyoming,43.176745,-109.202043,https://waterfallsnearyou.com/wyoming/fort-washakie/bull-lake-falls
+"Cascade Acres, Teton County, WY",Cascade Acres,Teton,Wyoming,44.144931,-110.856325,https://waterfallsnearyou.com/wyoming/moose-wilson-road/cascade-acres
+"Cascades of the Firehole, Teton County, WY",Cascades of the Firehole,Teton,Wyoming,44.616321,-110.85549,https://waterfallsnearyou.com/wyoming/moose-wilson-road/cascades-of-the-firehole
+"Clear Creek Falls, Sublette County, WY",Clear Creek Falls,Sublette,Wyoming,43.294722,-109.829167,https://waterfallsnearyou.com/wyoming/pinedale/clear-creek-falls
+"Cleft Falls, Teton County, WY",Cleft Falls,Teton,Wyoming,43.724029,-110.77807,https://waterfallsnearyou.com/wyoming/moose-wilson-road/cleft-falls
+"Cliff Creek Falls, Sublette County, WY",Cliff Creek Falls,Sublette,Wyoming,43.111314,-110.581776,https://waterfallsnearyou.com/wyoming/hoback/cliff-creek-falls
+"Colonnade Falls, Teton County, WY",Colonnade Falls,Teton,Wyoming,44.238539,-110.947993,https://waterfallsnearyou.com/wyoming/moose-wilson-road/colonnade-falls
+"Crystal Falls, Park County, WY",Crystal Falls,Park,Wyoming,44.717994,-110.500759,https://waterfallsnearyou.com/wyoming/cody/crystal-falls
+"Fern Cascades, Teton County, WY",Fern Cascades,Teton,Wyoming,44.446044,-110.8441,https://waterfallsnearyou.com/wyoming/moose-wilson-road/fern-cascades
+"Gibbon Falls, Teton County, WY",Gibbon Falls,Teton,Wyoming,44.654379,-110.770766,https://waterfallsnearyou.com/wyoming/moose-wilson-road/gibbon-falls
+"Gwinna Falls, Teton County, WY",Gwinna Falls,Teton,Wyoming,44.281875,-110.880214,https://waterfallsnearyou.com/wyoming/moose-wilson-road/gwinna-falls
+"Iris Falls, Teton County, WY",Iris Falls,Teton,Wyoming,44.241595,-110.943549,https://waterfallsnearyou.com/wyoming/moose-wilson-road/iris-falls
+"Kepler Cascades, Teton County, WY",Kepler Cascades,Teton,Wyoming,44.445767,-110.807155,https://waterfallsnearyou.com/wyoming/moose-wilson-road/kepler-cascades
+"Lake Fork Falls, Fremont County, WY",Lake Fork Falls,Fremont,Wyoming,43.931895,-109.96268,https://waterfallsnearyou.com/wyoming/jackson/lake-fork-falls
+"Le Vasseur Falls, Converse County, WY",Le Vasseur Falls,Converse,Wyoming,42.651911,-105.732221,https://waterfallsnearyou.com/wyoming/glenrock/le-vasseur-falls
+"Lewis Falls, Teton County, WY",Lewis Falls,Teton,Wyoming,44.267516,-110.636846,https://waterfallsnearyou.com/wyoming/moose-wilson-road/lewis-falls
+"Lewis Falls, Lincoln County, WY",Lewis Falls,Lincoln,Wyoming,42.616148,-110.592142,https://waterfallsnearyou.com/wyoming/afton/lewis-falls
+"Lost Creek Falls, Park County, WY",Lost Creek Falls,Park,Wyoming,44.909143,-110.420055,https://waterfallsnearyou.com/wyoming/cody/lost-creek-falls
+"Melody Falls, Big Horn County, WY",Melody Falls,Big Horn,Wyoming,44.866214,-108.050044,https://waterfallsnearyou.com/wyoming/lovell/melody-falls
+"Menace Falls, Sublette County, WY",Menace Falls,Sublette,Wyoming,42.742987,-110.614349,https://waterfallsnearyou.com/wyoming/afton/menace-falls
+"North Fork Falls, Teton County, WY",North Fork Falls,Teton,Wyoming,43.980226,-110.119909,https://waterfallsnearyou.com/wyoming/jackson/north-fork-falls
+"North Fork Falls, Sublette County, WY",North Fork Falls,Sublette,Wyoming,42.873542,-109.528746,https://waterfallsnearyou.com/wyoming/pinedale/north-fork-falls
+"Osprey Falls, Park County, WY",Osprey Falls,Park,Wyoming,44.928563,-110.680996,https://waterfallsnearyou.com/wyoming/cody/osprey-falls
+"Ouzel Falls, Teton County, WY",Ouzel Falls,Teton,Wyoming,44.234927,-110.975772,https://waterfallsnearyou.com/wyoming/moose-wilson-road/ouzel-falls
+"Plateau Falls, Teton County, WY",Plateau Falls,Teton,Wyoming,44.159119,-110.236039,https://waterfallsnearyou.com/wyoming/moose-wilson-road/plateau-falls
+"Porcupine Creek Falls, Sublette County, WY",Porcupine Creek Falls,Sublette,Wyoming,43.276336,-109.838492,https://waterfallsnearyou.com/wyoming/pinedale/porcupine-creek-falls
+"Quiver Cascade, Teton County, WY",Quiver Cascade,Teton,Wyoming,44.304931,-110.881325,https://waterfallsnearyou.com/wyoming/moose-wilson-road/quiver-cascade
+"Ragged Falls, Teton County, WY",Ragged Falls,Teton,Wyoming,44.287986,-110.889936,https://waterfallsnearyou.com/wyoming/moose-wilson-road/ragged-falls
+"Rainbow Falls, Teton County, WY",Rainbow Falls,Teton,Wyoming,44.142152,-110.880215,https://waterfallsnearyou.com/wyoming/moose-wilson-road/rainbow-falls
+"Ribbon Cascade, Teton County, WY",Ribbon Cascade,Teton,Wyoming,43.774655,-110.748268,https://waterfallsnearyou.com/wyoming/moose-wilson-road/ribbon-cascade
+"Shoal Falls, Teton County, WY",Shoal Falls,Teton,Wyoming,43.340771,-110.348238,https://waterfallsnearyou.com/wyoming/hoback/shoal-falls
+"Shoshoko Falls, Teton County, WY",Shoshoko Falls,Teton,Wyoming,43.708148,-110.802495,https://waterfallsnearyou.com/wyoming/moose-wilson-road/shoshoko-falls
+"Silver Cord Cascade, Park County, WY",Silver Cord Cascade,Park,Wyoming,44.72605,-110.451591,https://waterfallsnearyou.com/wyoming/cody/silver-cord-cascade
+"Silver Scarf Falls, Teton County, WY",Silver Scarf Falls,Teton,Wyoming,44.246314,-111.022162,https://waterfallsnearyou.com/wyoming/moose-wilson-road/silver-scarf-falls
+"Slide Falls, Sublette County, WY",Slide Falls,Sublette,Wyoming,43.283281,-109.817381,https://waterfallsnearyou.com/wyoming/pinedale/slide-falls
+"Sluiceway Falls, Teton County, WY",Sluiceway Falls,Teton,Wyoming,44.279097,-110.879658,https://waterfallsnearyou.com/wyoming/moose-wilson-road/sluiceway-falls
+"South Fork Falls, Teton County, WY",South Fork Falls,Teton,Wyoming,43.861338,-110.06435,https://waterfallsnearyou.com/wyoming/jackson/south-fork-falls
+"Spalding Falls, Teton County, WY",Spalding Falls,Teton,Wyoming,43.728542,-110.79688,https://waterfallsnearyou.com/wyoming/moose-wilson-road/spalding-falls
+"Spring Creek Falls, Lincoln County, WY",Spring Creek Falls,Lincoln,Wyoming,42.633722,-110.741128,https://waterfallsnearyou.com/wyoming/afton/spring-creek-falls
+"Sweetwater Creek Falls, Park County, WY",Sweetwater Creek Falls,Park,Wyoming,44.592148,-109.745265,https://waterfallsnearyou.com/wyoming/cody/sweetwater-creek-falls
+"Tempe Cascade, Teton County, WY",Tempe Cascade,Teton,Wyoming,44.301598,-110.870491,https://waterfallsnearyou.com/wyoming/moose-wilson-road/tempe-cascade
+"Tendoy Falls, Teton County, WY",Tendoy Falls,Teton,Wyoming,44.284653,-110.878547,https://waterfallsnearyou.com/wyoming/moose-wilson-road/tendoy-falls
+"Terraced Falls, Teton County, WY",Terraced Falls,Teton,Wyoming,44.147153,-110.864103,https://waterfallsnearyou.com/wyoming/moose-wilson-road/terraced-falls
+"Tower Fall, Park County, WY",Tower Fall,Park,Wyoming,44.893664,-110.387219,https://waterfallsnearyou.com/wyoming/cody/tower-fall
+"Twilight Falls, Fremont County, WY",Twilight Falls,Fremont,Wyoming,43.781979,-109.664317,https://waterfallsnearyou.com/wyoming/jackson/twilight-falls
+"Twister Falls, Teton County, WY",Twister Falls,Teton,Wyoming,44.297431,-110.86188,https://waterfallsnearyou.com/wyoming/moose-wilson-road/twister-falls
+"Virginia Cascade, Park County, WY",Virginia Cascade,Park,Wyoming,44.712992,-110.646041,https://waterfallsnearyou.com/wyoming/cody/virginia-cascade
+"Wagon Hound Falls, Converse County, WY",Wagon Hound Falls,Converse,Wyoming,42.558662,-105.648591,https://waterfallsnearyou.com/wyoming/douglas/wagon-hound-falls
+"Wahhi Falls, Teton County, WY",Wahhi Falls,Teton,Wyoming,44.275208,-110.877714,https://waterfallsnearyou.com/wyoming/moose-wilson-road/wahhi-falls
+"West Dell Falls, Sublette County, WY",West Dell Falls,Sublette,Wyoming,43.33105,-110.313515,https://waterfallsnearyou.com/wyoming/hoback/west-dell-falls
+"Wilderness Falls, Teton County, WY",Wilderness Falls,Teton,Wyoming,43.91622,-110.758701,https://waterfallsnearyou.com/wyoming/moose-wilson-road/wilderness-falls
+"Wohelo Falls, Lincoln County, WY",Wohelo Falls,Lincoln,Wyoming,42.590549,-110.60302,https://waterfallsnearyou.com/wyoming/afton/wohelo-falls
+"Carey Falls, Idaho County, ID",Carey Falls,Idaho,Idaho,45.4568423,-115.9384633,https://waterfallsnearyou.com/idaho/grangeville/carey-falls
+"Corbin Creek Falls, Transylvania County, NC",Corbin Creek Falls,Transylvania,North Carolina,35.03688229999999,-83.01188789999999,https://waterfallsnearyou.com/north-carolina/brevard/corbin-creek-falls
+"Ganaga Falls, Sullivan County, PA",Ganaga Falls,Sullivan,Pennsylvania,41.3250805,-76.28521359999999,https://waterfallsnearyou.com/pennsylvania/laporte/ganaga-falls
+"Angeline Falls, King County, WA",Angeline Falls,King,Washington,47.5838613,-121.3102065,https://waterfallsnearyou.com/washington/tanner/angeline-falls
+"Brunswick Falls, Topsham County, ME",Brunswick Falls,Topsham,Maine,43.9219686,-69.965588,https://waterfallsnearyou.com/maine/topsham/brunswick-falls
+"Waterfalls of the West Fork Foss River Valley, King County, WA",Waterfalls of the West Fork Foss River Valley,King,Washington,47.6097422,-121.331012,https://waterfallsnearyou.com/washington/tanner/waterfalls-of-the-west-fork-foss-river-valley
+"Whinnimic Falls, King County, WA",Whinnimic Falls,King,Washington,47.4837627,-121.2819073,https://waterfallsnearyou.com/washington/tanner/whinnimic-falls
+"Sydney Falls, Pierce County, WA",Sydney Falls,Pierce,Washington,46.8402485,-121.5593686,https://waterfallsnearyou.com/washington/buckley/sydney-falls
+"Upper Stevens Creek Falls, Pierce County, WA",Upper Stevens Creek Falls,Pierce,Washington,46.7971949,-121.7074749,https://waterfallsnearyou.com/washington/eatonville/upper-stevens-creek-falls
+"Blum Basin Falls, Whatcom County, WA",Blum Basin Falls,Whatcom,Washington,48.73545439999999,-121.5034356,https://waterfallsnearyou.com/washington/peaceful-valley/blum-basin-falls
+"Clear Creek Falls, Sublette County, WY",Clear Creek Falls,Sublette,Wyoming,43.1332797,-109.8173781,https://waterfallsnearyou.com/wyoming/pinedale/clear-creek-falls-sublette
+"Darnell Falls, Rabun County, GA",Darnell Falls,Rabun,Georgia,34.9832069,-83.26604259999999,https://waterfallsnearyou.com/georgia/mountain-city/darnell-falls
+"East Snow Mountain Falls, Nevada County, CA",East Snow Mountain Falls,Nevada,California,39.2415052,-120.4476556,https://waterfallsnearyou.com/california/truckee/east-snow-mountain-falls
+"East Twin Falls, Clallam County, WA",East Twin Falls,Clallam,Washington,48.1315806,-123.9005874,https://waterfallsnearyou.com/washington/port-angeles/east-twin-falls
+"Alkali Falls, Jackson County, OR",Alkali Falls,Jackson,Oregon,43.06407,-122.3627655,https://waterfallsnearyou.com/oregon/shady-cove/alkali-falls
+"‘O‘opulele Falls, Kauai County, HI",‘O‘opulele Falls,Kauai,Hawaii,22.041111,-159.5930556,https://waterfallsnearyou.com/hawaii/waimea-kauai/o-opulele-falls
+"Depot Valley Falls, Whatcom County, WA",Depot Valley Falls,Whatcom,Washington,48.9801547,-121.2820503,https://waterfallsnearyou.com/washington/peaceful-valley/depot-valley-falls
+"Pu‘uka‘ōkū Falls, Maui County, HI",Pu‘uka‘ōkū Falls,Maui,Hawaii,21.1647222,-156.8552778,https://waterfallsnearyou.com/hawaii/waialua/pu-uka-oku-falls
+"Depot Creek Falls, Whatcom County, WA",Depot Creek Falls,Whatcom,Washington,48.9797342,-121.2849316,https://waterfallsnearyou.com/washington/peaceful-valley/depot-creek-falls
+"McNeil Falls, Kenai Peninsula County, AK",McNeil Falls,Kenai Peninsula,Alaska,59.1171588,-154.2787759,https://waterfallsnearyou.com/alaska/anchor-point/mcneil-falls
+"Kanim Falls, Snohomish County, WA",Kanim Falls,Snohomish,Washington,47.6621046,-121.4834518,https://waterfallsnearyou.com/washington/gold-bar/kanim-falls

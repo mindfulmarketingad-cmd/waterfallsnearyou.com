@@ -27,7 +27,9 @@ const facts = (x) => {
         </div>
         {l.os?.rating ? (
           <a class="rating rating-link" href={ratingsUrl(l)} aria-label={`${l.os.rating.toFixed(1)} out of 5 from ${fmtNum(l.os.reviews)} reviews`}><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span>{l.os.rating.toFixed(1)} <span class="count">({fmtNum(l.os.reviews)} reviews)</span></a>
-        ) : null}
+        ) : (
+          <div class="rating unrated"><span class="stars empty" aria-hidden="true">☆☆☆☆☆</span><span class="count">Not yet rated</span></div>
+        )}
         <p class="li-summary">{from ? relativeSummary(l, { from, miles, direction, index: start - 1 + i, reviewRank: reviewRank(items[i]), total: items.length }) : shortSummary(l)}</p>
         <dl class="li-facts">
           {facts(items[i]).map(([k, v, href]) => <div><dt>{k}</dt><dd>{href ? <a href={href}>{v}</a> : v}</dd></div>)}

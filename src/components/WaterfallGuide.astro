@@ -1,0 +1,151 @@
+---
+// "[Waterfall] Guide Before Visiting" post.
+import Base from '../layouts/Base.astro';
+import PageBand from './PageBand.astro';
+import Byline from './Byline.astro';
+import Faq from './Faq.astro';
+import Weather from './Weather.astro';
+import Conditions from './Conditions.astro';
+import ListingCard from './ListingCard.astro';
+import { getGuides, GUIDES_PUBLISHED, mi } from '../lib/guides.mjs';
+import { listingPhoto } from '../lib/photos.mjs';
+import { stars, fmtNum, fmtMiles, listJoin, nearText, addressText, directionsUrl, appleMapsUrl, countyUrl, ratingsUrl, mapUrl, displayName } from '../lib/format.mjs';
+import { listsForState, getCapitalLists } from '../lib/bestof.mjs';
+import { SITE } from '../config.mjs';
+
+interface Props { url: string }
+const g = getGuides().find((x) => x.url === Astro.props.url);
+const { listing: l, state, content, crowd, diff, hist, share, countyRank, packing, swim } = g;
+const os = l.os;
+const photo = listingPhoto(l);
+const abs = (u) => (u.startsWith('http') ? u : `${SITE.url}${u}`);
+const updated = new Date();
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: `${l.name} Guide`, url: g.url }];
+const lists = [...getCapitalLists(), ...listsForState(state)].filter((p) => p.state === state && p.items.some((i) => i.listing === l));
+const nearby = (l.nearby || []).filter((n) => n.listing.state === l.state).slice(0, 6);
+const sections = [
+  ['glance', 'At a glance'], ['weather', 'Weather'], ['getting-there', 'Getting there'], ['bring', 'What to bring'],
+  ['prepare', 'How to prepare'], ...(os?.rating ? [['visitors', 'What visitors say']] : []), ['history', 'History of the area'], ['nearby-falls', 'Nearby waterfalls'], ['faq', 'FAQ'],
+];
+const faqs = [
+  { q: `Where is ${l.name}?`, a: `${l.name} is in ${l.county ? `${l.county} County, ` : ''}${l.state}, ${nearText(l)}. Its coordinates are ${l.lat.toFixed(5)}, ${l.lng.toFixed(5)}.` },
+  ...(crowd ? [{ q: `Is ${l.name} crowded?`, a: crowd.note }] : []),
+  { q: `What should I bring to ${l.name}?`, a: `At minimum: ${listJoin(packing.slice(0, 4).map(([k]) => k.toLowerCase()))}. See the full checklist above, which is tailored to what visitors report about this waterfall.` },
+  ...(swim ? [{ q: `Can you swim at ${l.name}?`, a: 'Visitors mention swimming here, but conditions change. Water near falls is often cold with strong currents and hidden rocks. Never swim above a drop, obey posted signs, and read our <a href="/blog/swimming-at-waterfalls">waterfall swimming safety guide</a> first.' }] : []),
+  { q: `When is the best time to visit ${l.name}?`, a: content?.bestTime ? content.bestTime.split(/(?<=\.)\s/).slice(0, 2).join(' ') : 'Flow is usually strongest after rain and during spring snowmelt. Weekday mornings are the quietest time to visit.' },
+  { q: `Do I need a permit or pay a fee to visit ${l.name}?`, a: `Fees and permits depend on who manages the land. Check with the managing agency before you go${os?.site ? `, or see the <a href="${os.site}" rel="nofollow noopener">official website</a>` : ''}. Our <a href="/states/${state.slug}">${state.name} waterfalls page</a> covers access in the state.` },
+];
+const schema = [
+  { '@type': 'BlogPosting', headline: g.title, description: g.description, image: abs(photo.src), datePublished: GUIDES_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${g.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@id': `${SITE.url}${l.url}#place` } },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={g.title} description={g.description} image={photo.own ? photo.src : photo.fallback || photo.src} imageAlt={photo.alt} type="article" published={GUIDES_PUBLISHED.toISOString()} modified={updated.toISOString()} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={photo.src}>
+  <PageBand title={g.title} crumbs={crumbs} narrow />
+  <article class="wrap narrow">
+    <figure class="post-hero">
+      <img src={photo.src} alt={photo.alt} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror={photo.fallback ? `this.onerror=null;this.src='${photo.fallback}';this.parentNode.querySelector('figcaption')?.remove()` : undefined} />
+      {photo.caption ? <figcaption>{photo.caption}</figcaption> : photo.own && <figcaption>Photo via Google Maps listing data</figcaption>}
+    </figure>
+    <Byline published={GUIDES_PUBLISHED} updated={updated} minutes={g.minutes} />
+    <nav class="jump" aria-label="Jump to">
+      <strong>Jump to:</strong>
+      {sections.map(([id, label], i) => <>{i ? <span class="sep">·</span> : ''}<a href={`#${id}`}>{label}</a></>)}
+    </nav>
+
+    <div class="prose">
+      <p class="lead">
+        {displayName(l)} is a waterfall in {l.county ? <><a href={countyUrl(l)}>{l.county} County</a>, </> : ''}<a href={`/states/${state.slug}`}>{state.name}</a>, {nearText(l)}. This guide covers what to check, bring and expect before you go, using visitor ratings, official USGS records and live conditions for this exact location.
+      </p>
+
+      <h2 id="glance">At a glance</h2>
+      <dl class="facts glance-facts">
+        <div><dt>Location</dt><dd>{l.county ? <a href={countyUrl(l)}>{l.county} County</a> : state.name}, <a href={`/states/${state.slug}`}>{l.stateCode}</a></dd></div>
+        <div><dt>Nearest town</dt><dd><a href={l.city.url}>{l.city.name}</a> ({fmtMiles(l.cityMiles)})</dd></div>
+        {os?.rating && <div><dt>Visitor rating</dt><dd><a href={ratingsUrl(l)}><span class="stars" aria-hidden="true">{stars(os.rating)}</span> {os.rating.toFixed(1)} from {fmtNum(os.reviews)} reviews</a></dd></div>}
+        {crowd && <div><dt>Crowds</dt><dd>{crowd.label}</dd></div>}
+        {diff && <div><dt>Access</dt><dd>{diff.label}</dd></div>}
+        {swim && <div><dt>Swimming</dt><dd>Visitors mention it; use caution</dd></div>}
+        <div><dt>Coordinates</dt><dd><a href={mapUrl(l)}>{l.lat.toFixed(5)}, {l.lng.toFixed(5)}</a></dd></div>
+        {l.topoMap && <div><dt>USGS topo</dt><dd>{l.topoMap} quad</dd></div>}
+      </dl>
+    </div>
+
+    <Weather lat={l.lat} lng={l.lng} name={l.name} />
+    <Conditions listing={l} />
+
+    <div class="prose">
+      <h2 id="getting-there">Getting there</h2>
+      <p>
+        {l.name} sits {l.cityMiles < 0.5 ? `in ${l.city.name}` : `about ${mi(l.cityMiles)} ${l.cityDirection} of ${l.city.name}`} in {l.county ? `${l.county} County` : state.name}.
+        {os?.fullAddress?.includes(',') ? ` Google lists the address as ${os.fullAddress}.` : ` Navigate to the coordinates ${l.lat.toFixed(5)}, ${l.lng.toFixed(5)}, which mark the waterfall itself; the trailhead or parking area may be some distance away.`}
+        {diff && ` ${diff.note}`}
+      </p>
+      <p>Open directions in <a href={directionsUrl(l)} rel="nofollow noopener" target="_blank">Google Maps</a> or <a href={appleMapsUrl(l)} rel="nofollow noopener" target="_blank">Apple Maps</a>, or view the <a href={mapUrl(l)}>map on the {l.name} listing</a>. Navigation apps sometimes route onto seasonal forest roads, so check road status if you are heading into the mountains.</p>
+      {content?.planning && <p>{content.planning}</p>}
+
+      <h2 id="bring">What to bring</h2>
+      <p>This checklist is tailored to {l.name} based on what visitors report and the conditions typical of {state.name}. For the complete list, see our <a href="/blog/what-to-pack-for-a-waterfall-hike">waterfall hike packing guide</a>.</p>
+      <ul class="checklist">
+        {packing.map(([item, why]) => <li><strong>{item}.</strong> {why}</li>)}
+      </ul>
+
+      <h2 id="prepare">How to prepare</h2>
+      <h3>Timing</h3>
+      <p>{content?.bestTime || 'Flow is usually strongest after a few days of rain and during spring snowmelt, and weakest in late summer.'} {crowd ? crowd.note : ''}</p>
+      <h3>Safety</h3>
+      <p>Stay behind railings and off wet rock, never climb on the falls, and keep children within arm's reach near the water. Check the weather panel above for flood or storm alerts before you set out; water levels can rise fast after upstream rain. Our <a href="/blog/waterfall-safety-tips">waterfall safety guide</a> covers the most common hazards{swim ? <>, and <a href="/blog/swimming-at-waterfalls">this guide on swimming at waterfalls</a> explains the risks of getting in the water</> : ''}.</p>
+      <h3>Respect the place</h3>
+      <p>Pack out everything you bring, stay on established paths to limit erosion, and leave rocks and plants where they are. See <a href="/blog/leave-no-trace-at-waterfalls">Leave No Trace at waterfalls</a>.</p>
+
+      {os?.rating && (
+        <>
+          <h2 id="visitors">What visitors say</h2>
+          <p>
+            {l.name} holds a {os.rating.toFixed(1)}-star average across {fmtNum(os.reviews)} Google reviews{share != null ? `, and ${share}% of reviewers give it five stars` : ''}.
+            {countyRank && l.county ? ` That makes it the ${countyRank === 1 ? 'most reviewed waterfall' : `number ${countyRank} waterfall by review count`} in ${l.county} County.` : ''}
+            {os.photosCount ? ` Visitors have shared ${fmtNum(os.photosCount)} photos.` : ''}
+          </p>
+          {os.description && <blockquote>{os.description}</blockquote>}
+          {os.reviewTags?.length > 0 && <p>The topics that come up most in reviews: {os.reviewTags.map((t) => <span class="tag">{t}</span>)}</p>}
+          <p class="small"><a href={ratingsUrl(l)}>See the rating breakdown</a>{os.reviewsLink && <> or <a href={os.reviewsLink} rel="nofollow noopener" target="_blank">read reviews on Google</a></>}.</p>
+        </>
+      )}
+
+      <h2 id="history">History of the area</h2>
+      {hist.lines.map((p) => <p>{p}</p>)}
+      {hist.region && <p><strong>{hist.region.name}.</strong> {hist.region.text}</p>}
+      {!hist.lines.length && !hist.region && <p>{content?.overview?.[0]}</p>}
+
+      <h2 id="nearby-falls">Nearby waterfalls to add to your trip</h2>
+    </div>
+    {nearby.length > 0 && (
+      <div class="grid-3" style="margin:12px 0 8px">
+        {nearby.slice(0, 3).map((n) => <ListingCard listing={n.listing} miles={n.miles} direction={n.direction} />)}
+      </div>
+    )}
+    {nearby.length > 3 && (
+      <ul class="nearby-list" style="margin-top:12px">
+        {nearby.slice(3).map((n) => <li><a href={n.listing.url}><span>{n.listing.name}</span><span class="d">{fmtMiles(n.miles)} {n.direction}</span></a></li>)}
+      </ul>
+    )}
+    <p class="small" style="margin-top:12px">More around here: <a href={l.city.url}>waterfalls near {l.city.name}</a>{l.county && <> · <a href={countyUrl(l)}>{l.county} County waterfalls</a></>} · <a href={`/states/${state.slug}`}>all {state.name} waterfalls</a>{lists.map((p) => <> · <a href={p.url}>{p.title.replace(/ \(\d{4}( Updated)?\)$/, '')}</a></>)}</p>
+
+    <div id="faq" style="margin:34px 0"><Faq faqs={faqs} heading="Frequently asked questions" /></div>
+
+    <div class="prose">
+      <h2>Summary</h2>
+      <p>
+        {l.name} {nearText(l)} is {os?.rating ? `rated ${os.rating.toFixed(1)} out of 5 by ${fmtNum(os.reviews)} visitors` : 'a documented waterfall in the federal gazetteer'}.
+        Check the live forecast and stream gauge above, save the coordinates for offline use, and pack for wet, uneven ground. Ratings, hours and access can change, so confirm conditions with the land manager before you drive out.
+      </p>
+      <p>See the full <a href={l.url}>{l.name} listing</a> for the map, photos and nearby landmarks.</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .glance-facts { margin: 8px 0 4px; }
+  .checklist { padding-left: 1.2em; }
+  .checklist li { margin-bottom: 0.5em; }
+</style>
