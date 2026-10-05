@@ -261,3 +261,82 @@ img, video, iframe, svg { max-width: 100%; }
   .li-actions .btn { flex: 1 1 auto; justify-content: center; }
   .facts div { grid-template-columns: 100px minmax(0, 1fr); }
 }
+
+/* Internal links inside listing cards: readable, clearly clickable, not loud. */
+.li-meta a, .li-facts dd a { color: var(--slate-dark); text-decoration: underline; text-decoration-color: #b9c4bf; text-underline-offset: 3px; }
+.li-meta a:hover, .li-facts dd a:hover { color: var(--forest); text-decoration-color: currentColor; }
+a.rating-link { text-decoration: none; color: var(--ink); }
+a.rating-link:hover .count { color: var(--forest); text-decoration: underline; }
+
+/* ---------- Header band (state pages, blog hub, posts) ---------- */
+.band-head { background: var(--mist); border-bottom: 1px solid var(--line); padding: 18px 0 30px; }
+.band-head .crumbs { padding-top: 0; margin-bottom: 14px; }
+.band-head h1 { margin: 0 0 10px; }
+.band-head p { color: var(--slate); max-width: 720px; margin: 0 0 8px; }
+
+/* ---------- Blog post parts ---------- */
+.post-hero { margin: 28px 0 6px; }
+.post-hero img { border-radius: 12px; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; background: var(--mist); }
+.post-hero figcaption { font-size: 0.8rem; color: var(--slate-soft); text-align: right; margin-top: 6px; }
+.byline { display: flex; gap: 12px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.byline .avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 0.85rem; flex: none; }
+.byline .by-name { font-weight: 600; font-size: 0.95rem; }
+.byline .by-name a { color: var(--ink); text-decoration: none; }
+.byline .by-name a:hover { color: var(--forest); text-decoration: underline; }
+.byline .by-meta { font-size: 0.85rem; color: var(--slate-soft); }
+.jump { background: var(--mist); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 0.92rem; margin: 0 0 22px; }
+.jump strong { margin-right: 6px; }
+.jump a { margin-right: 4px; }
+.jump .sep { color: #b5bcb9; margin: 0 6px 0 2px; }
+
+/* ---------- Compact listing cards (state pages) ---------- */
+.sc-list, .pc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.sc { position: relative; display: grid; grid-template-columns: 30px 120px minmax(0, 1fr); gap: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.sc-num, .pc-num { width: 28px; height: 28px; border-radius: 50%; background: var(--forest); color: #fff; display: grid; place-items: center; font-size: 0.85rem; font-weight: 700; }
+.sc-thumb img { width: 120px; height: 80px; object-fit: cover; border-radius: 8px; background: var(--mist); }
+.sc-name { font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; margin: 0 0 4px; letter-spacing: 0; }
+.sc-name a { color: var(--ink); text-decoration: none; }
+.sc-name a:hover { color: var(--forest); text-decoration: underline; }
+.sc-meta, .pc-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; font-size: 0.88rem; margin: 0 0 6px; }
+.sc-meta a, .sc-line a, .pc-meta a, .pc-addr a { color: var(--forest); text-decoration: underline; text-decoration-color: #b6cfc2; text-underline-offset: 3px; }
+.sc-meta a:hover, .sc-line a:hover, .pc-meta a:hover, .pc-addr a:hover { text-decoration-color: currentColor; }
+.sc-meta .sc-rating, .pc-meta .pc-rating { text-decoration: none; color: var(--ink); }
+.sc-meta .sep, .sc-line .sep { color: #b5bcb9; }
+.sc-dist { font-weight: 600; color: var(--slate-dark); }
+.sc-line { font-size: 0.86rem; margin: 0 0 3px; display: flex; flex-wrap: wrap; gap: 2px 6px; }
+.sc-hours { font-size: 0.84rem; color: var(--slate-soft); margin: 4px 0 2px; }
+.sc-hours.open { color: #2f7a4a; font-weight: 600; }
+.sc-perfect { font-size: 0.88rem; font-weight: 700; color: var(--ink); margin: 2px 0 4px; }
+.sc-sum { font-size: 0.93rem; color: var(--slate); margin: 0 0 8px; }
+.sc-tags, .pc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+.sc-tag { display: inline-block; font-size: 0.78rem; padding: 3px 10px; border-radius: 999px; background: #e7f0eb; color: var(--forest-dark); text-decoration: none; border: 1px solid #d3e3da; }
+a.sc-tag:hover { background: var(--forest); color: #fff; }
+.sc-tag.plain { background: var(--mist-2); color: var(--slate); border-color: var(--line); }
+@media (max-width: 560px) {
+  .sc { grid-template-columns: 26px minmax(0, 1fr); grid-template-areas: 'num thumb' 'body body'; gap: 10px; padding: 12px; }
+  .sc-num { grid-area: num; }
+  .sc-thumb { grid-area: thumb; }
+  .sc-body { grid-area: body; }
+  .sc-thumb img { width: 132px; height: 88px; }
+  .sc-num, .pc-num { width: 24px; height: 24px; font-size: 0.78rem; }
+}
+
+/* ---------- Blog post entry cards ---------- */
+.pc { position: relative; display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.pc-main { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 16px; }
+.pc-thumb img { width: 160px; height: 107px; object-fit: cover; border-radius: 8px; background: var(--mist); }
+.pc-name { font-family: var(--font-body); font-size: 1.1rem; font-weight: 700; margin: 0 0 4px; letter-spacing: 0; }
+.pc-name a { color: var(--ink); text-decoration: none; }
+.pc-name a:hover { color: var(--forest); text-decoration: underline; }
+.pc-sum { font-size: 0.95rem; color: var(--slate); margin: 4px 0 8px; }
+.pc-addr { font-size: 0.86rem; margin: 0 0 8px; }
+.pc-more { margin: 10px 0 4px; }
+.pc-more summary { cursor: pointer; color: var(--forest); font-weight: 600; font-size: 0.9rem; }
+.pc-more p { font-size: 0.93rem; color: var(--slate); margin: 8px 0 0; }
+.pc-actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 0; }
+.pc-actions .btn { padding: 7px 14px; font-size: 0.85rem; }
+@media (max-width: 560px) {
+  .pc { grid-template-columns: 24px minmax(0, 1fr); padding: 14px; gap: 10px; }
+  .pc-main { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .pc-thumb img { width: 100%; height: auto; aspect-ratio: 3 / 2; }
+}

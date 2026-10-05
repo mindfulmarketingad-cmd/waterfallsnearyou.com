@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import PageBand from './PageBand.astro';
+import { getFeed, pageCount, pageUrl, PER_PAGE } from '../lib/blogfeed.mjs';
+import { featuredPhoto } from '../lib/photos.mjs';
+import { SITE } from '../config.mjs';
+interface Props { page: number }
+const { page } = Astro.props;
+const total = pageCount();
+const posts = getFeed().slice((page - 1) * PER_PAGE, page * PER_PAGE);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const url = pageUrl(page);
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, ...(page > 1 ? [{ name: `Page ${page}`, url }] : [])];
+const title = page === 1 ? 'Waterfall Guides | Blog | WaterfallsNearYou' : `Waterfall Guides, Page ${page} of ${total} | WaterfallsNearYou`;
+const description = page === 1
+  ? 'Waterfall guides built from the data we maintain: the best waterfalls in every state, near state capitals, plus safety, timing and photography advice.'
+  : `More waterfall guides and ranked state lists, page ${page} of ${total}.`;
+const image = featuredPhoto('/blog').src;
+const schema = [{ '@type': 'Blog', name: 'WaterfallsNearYou Guides', url: `${SITE.url}${url}`, blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: `${SITE.url}${p.url}`, datePublished: p.date.toISOString() })) }];
+---
+<Base title={title} description={description} image={image} breadcrumbs={crumbs} bandCrumbs schema={schema}>
+  <PageBand title={page === 1 ? 'Waterfall Guides' : `Waterfall Guides: Page ${page}`} crumbs={crumbs}>
+    <p>Everything we learn from mapping thousands of waterfalls, written down so your next trip goes better than your last one.</p>
+  </PageBand>
+  <section class="wrap section-sm">
+    <ul class="feed">
+      {posts.map((p) => (
+        <li class="feed-item">
+          <h2><a href={p.url}>{p.title}</a></h2>
+          <p class="feed-meta">By the <a href="/about">WaterfallsNearYou Editorial Team</a> · <time datetime={p.date.toISOString()}>{fmt(p.date)}</time> · {p.minutes} min read</p>
+          <p class="feed-desc">{p.description}</p>
+          <a class="feed-btn" href={p.url}>Read the guide</a>
+        </li>
+      ))}
+    </ul>
+    <nav class="pager" aria-label="Blog pages">
+      {page > 1 ? <a class="btn btn-outline" href={pageUrl(page - 1)} rel="prev">Newer</a> : <span></span>}
+      <span class="muted small">Page {page} of {total}</span>
+      {page < total ? <a class="btn btn-outline" href={pageUrl(page + 1)} rel="next">Older</a> : <span></span>}
+    </nav>
+  </section>
+  {page === 1 && (
+    <section class="wrap section-sm prose" aria-labelledby="about-blog">
+      <h2 id="about-blog">What we write about</h2>
+      <p>We are not a lifestyle blog. Everything here comes out of the data we maintain: official USGS waterfall records, visitor ratings and photos from Google Maps listings, live weather and stream gauges, and the corrections readers send us when a trail closes or a waterfall turns out to be on private land.</p>
+      <p>Our ranked lists are rebuilt from that data every time the site updates, and our guides cover what the numbers cannot: how to stay safe on wet rock, when waterfalls run strongest, and how to photograph them.</p>
+      <p>Ready to find one? <a href="/search">Search for waterfalls near you</a> or <a href="/states">browse by state</a>. Curious who is behind the site? <a href="/about">Read about us</a>.</p>
+    </section>
+  )}
+</Base>
+
+<style>
+  .feed { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .feed-item { border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; background: #fff; }
+  .feed-item h2 { font-family: var(--font-body); font-size: 1.12rem; font-weight: 700; margin: 0 0 4px; letter-spacing: 0; }
+  .feed-item h2 a { color: var(--ink); text-decoration: none; }
+  .feed-item h2 a:hover { color: var(--forest); text-decoration: underline; }
+  .feed-meta { font-size: 0.84rem; color: var(--slate-soft); margin: 0 0 8px; }
+  .feed-meta a { color: var(--forest); }
+  .feed-desc { font-size: 0.95rem; color: var(--slate); margin: 0 0 12px; }
+  .feed-btn { display: inline-block; font-size: 0.82rem; font-weight: 600; padding: 6px 14px; border-radius: 999px; background: #e7f0eb; color: var(--forest-dark); text-decoration: none; border: 1px solid #d3e3da; }
+  .feed-btn:hover { background: var(--forest); color: #fff; }
+  .pager { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; margin-top: 26px; }
+  .pager > :last-child { justify-self: end; }
+</style>

@@ -10,6 +10,8 @@ import { stateContent, regionForCounty } from './insights.mjs';
 import { fmtMiles, listJoin } from './format.mjs';
 
 export const BEST_YEAR = 2026;
+// Date the programmatic list posts were first published (their content refreshes on every build).
+export const LISTS_PUBLISHED = new Date('2026-10-02T12:00:00Z');
 const MIN_LISTINGS = 10;
 const isPlss = (s) => /^Located in sec/i.test(s || '');
 const fmt = (n) => Number(n).toLocaleString('en-US');
@@ -19,7 +21,10 @@ const ordinal = (n) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st',
 const OPP = { north: 'south', south: 'north', east: 'west', west: 'east', northeast: 'southwest', southwest: 'northeast', northwest: 'southeast', southeast: 'northwest' };
 const SCENIC = /scener|beautiful|gorgeous|stunning|view|overlook|picturesque|scenic|photo|canyon|gorge|rainbow/i;
 
+// Excluded from every ranked list: private property / no public access, and USGS "(historical)"
+// features, which no longer exist (e.g. falls drowned by a reservoir).
 export const isPrivate = (l) =>
+  /\(historical\)/i.test(l.name) ||
   (l.os?.reviewTags || []).some((t) => /private property|no trespass/i.test(t)) ||
   /private property|no public access/i.test(`${l.gnisDescription} ${l.os?.description || ''}`);
 
@@ -370,3 +375,61 @@ export function getSmallest() {
   };
   return smallCache;
 }
+
+// ---------- Best waterfalls near each state capital ----------
+// Only capitals with at least 5 rated (5+ reviews), publicly accessible waterfalls within 100 miles
+// in the same state get a page, so none are thin.
+import CAPITALS from '../data/capitals.json' with { type: 'json' };
+import CITIES from '../../data/us-cities.json' with { type: 'json' };
+const CAP_RADIUS = 100;
+let capCache = null;
+export function getCapitalLists() {
+  if (capCache) return capCache;
+  const { states, listings } = loadData();
+  capCache = [];
+  for (const state of states) {
+    const capName = CAPITALS[state.code];
+    if (!capName) continue;
+    const cap = CITIES.find((c) => c.state === state.name && (c.name === capName || c.name === `${capName} City` || c.name.startsWith(`${capName}-`)));
+    if (!cap) continue;
+    const near = listings
+      .filter((l) => l.state === state.name && !isPrivate(l) && l.os?.rating && l.os.reviews >= 5)
+      .map((l) => ({ l, d: miles(cap, l) }))
+      .filter((x) => x.d <= CAP_RADIUS);
+    if (near.length < 5) continue;
+    const votes = near.reduce((s, x) => s + x.l.os.reviews, 0);
+    const C = near.reduce((s, x) => s + x.l.os.rating * x.l.os.reviews, 0) / votes;
+    const M = 25;
+    const score = (x) => (x.l.os.reviews / (x.l.os.reviews + M)) * x.l.os.rating + (M / (x.l.os.reviews + M)) * C - 0.004 * x.d;
+    const picks = near.sort((a, b) => score(b) - score(a)).slice(0, 10);
+    const hub = state.cities.find((c) => c.name === cap.name);
+    const items = picks.map(({ l, d }) => {
+      const dir = bearing(cap, l);
+      const share = fiveShare(l);
+      return {
+        listing: l,
+        miles: d,
+        direction: dir,
+        why: [
+          `${l.name} is about ${mi(d)} ${dir} of ${capName}${l.cityMiles >= 0.5 ? `, near ${l.city.name}` : `, in ${l.city.name}`}.`,
+          `Visitors rate it ${l.os.rating.toFixed(1)} stars across ${fmt(l.os.reviews)} Google reviews${share != null && l.os.reviews >= 20 ? `, and ${Math.round(share * 100)}% of them give it five stars` : ''}.`,
+          l.os.description ? `In short: "${l.os.description.replace(/\.$/, '')}."` : null,
+          l.os.reviewTags?.length ? `Reviews most often mention ${listJoin(l.os.reviewTags.slice(0, 3))}.` : null,
+          ...usgsLines(l).slice(0, 1),
+        ].filter(Boolean),
+      };
+    });
+    const slug = `best-waterfalls-${slugifyName(capName)}-${state.slug}`;
+    const n = items.length;
+    capCache.push({
+      kind: 'capital',
+      slug, url: `/blog/${slug}`, state, capital: capName, cap, hub, items, candidates: near.length,
+      short: `Best Waterfalls Near ${capName}`,
+      title: `${n} Best Waterfalls Near Me In ${capName} ${state.name}`,
+      description: `The ${n} best waterfalls near ${capName}, ${state.name}, within ${CAP_RADIUS} miles: ${listJoin(items.slice(0, 2).map((i) => i.listing.name))} and more, with distances and ratings.`.slice(0, 160),
+      method: `We looked at the ${near.length} publicly accessible ${state.name} waterfalls within ${CAP_RADIUS} straight-line miles of ${capName} that have at least five Google reviews, then ranked them by a weighted rating with a small penalty for distance, so a great waterfall close to town edges out an equally rated one far away.`,
+    });
+  }
+  return capCache;
+}
+const slugifyName = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');

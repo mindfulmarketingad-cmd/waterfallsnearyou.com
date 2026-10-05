@@ -1,0 +1,8 @@
+---
+import BlogHub from '../../../components/BlogHub.astro';
+import { pageCount } from '../../../lib/blogfeed.mjs';
+export function getStaticPaths() {
+  return Array.from({ length: Math.max(0, pageCount() - 1) }, (_, i) => ({ params: { n: String(i + 2) }, props: { page: i + 2 } }));
+}
+---
+<BlogHub page={Astro.props.page} />

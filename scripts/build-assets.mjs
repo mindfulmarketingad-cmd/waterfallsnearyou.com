@@ -5,12 +5,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadData, imageFor, staticPagePaths } from '../src/lib/core.mjs';
 import { landscapeSvg } from '../src/lib/art.mjs';
-import { getStateLists, getSmallest, getRoadside } from '../src/lib/bestof.mjs';
+import { getStateLists, getSmallest, getRoadside, getCapitalLists } from '../src/lib/bestof.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { listings, states, cities } = loadData();
 const blog = readdirSync(path.join(ROOT, 'src/content/blog')).filter((f) => f.endsWith('.md')).map((f) => `/blog/${f.replace(/\.md$/, '')}`);
-const urls = [...staticPagePaths(), ...states.map((s) => s.url), ...cities.map((c) => c.url), ...listings.map((l) => l.url), ...blog, ...getStateLists().map((p) => p.url), getSmallest().url, getRoadside().url];
+const urls = [...staticPagePaths(), ...states.map((s) => s.url), ...cities.map((c) => c.url), ...listings.map((l) => l.url), ...blog, ...getStateLists().map((p) => p.url), getSmallest().url, getRoadside().url, ...getCapitalLists().map((p) => p.url)];
 
 let made = 0;
 const queue = [...new Set(urls)];

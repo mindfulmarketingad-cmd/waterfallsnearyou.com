@@ -1,8 +1,8 @@
 ---
-interface Props { items: { name: string; url: string }[] }
-const { items } = Astro.props;
+interface Props { items: { name: string; url: string }[]; inBand?: boolean }
+const { items, inBand = false } = Astro.props;
 ---
-<nav class="crumbs wrap" aria-label="Breadcrumb">
+<nav class:list={['crumbs', { wrap: !inBand }]} aria-label="Breadcrumb">
   <ol>
     {items.map((c, i) => <li>{i < items.length - 1 ? <a href={c.url}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}
   </ol>

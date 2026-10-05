@@ -115,7 +115,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
 
       {os?.reviewTags?.length > 0 && (
         <>
-          <h2>What Visitors Mention</h2>
+          <h2 id="visitors">What Visitors Mention</h2>
           <p>Topics that come up most often in Google reviews of {l.name}:</p>
           <p>{os.reviewTags.map((t) => <span class="tag">{t}</span>)}</p>
         </>
@@ -157,15 +157,15 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         </>
       )}
 
-      {os?.reviewsPerScore && (
+      {os?.rating && (
         <>
-          <h2>Visitor Ratings</h2>
-          <p>{l.name} holds a {os.rating?.toFixed(1)} average from {fmtNum(os.reviews)} Google reviews. Distribution by star rating:</p>
-          <div class="bars">
+          <h2 id="ratings">Visitor Ratings</h2>
+          <p>{l.name} holds a {os.rating?.toFixed(1)} average from {fmtNum(os.reviews)} Google reviews.{os.reviewsPerScore ? ' Distribution by star rating:' : ''}</p>
+          {os.reviewsPerScore && <div class="bars">
             {[5, 4, 3, 2, 1].map((s) => (
               <div><span>{s}★</span><span class="track"><span class="fill" style={`width:${maxScore ? Math.round(((os.reviewsPerScore[s] || 0) / maxScore) * 100) : 0}%`}></span></span><span>{fmtNum(os.reviewsPerScore[s] || 0)}</span></div>
             ))}
-          </div>
+          </div>}
           {os.reviewsLink && <p class="small" style="margin-top:10px"><a href={os.reviewsLink} rel="nofollow noopener" target="_blank">Read reviews on Google</a></p>}
         </>
       )}

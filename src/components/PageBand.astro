@@ -1,0 +1,14 @@
+---
+// Tinted header band: breadcrumbs, H1 and an optional intro, used by state pages, the blog hub
+// and blog posts.
+import Breadcrumbs from './Breadcrumbs.astro';
+interface Props { title: string; crumbs: { name: string; url: string }[]; narrow?: boolean }
+const { title, crumbs, narrow = false } = Astro.props;
+---
+<header class="band-head">
+  <div class:list={['wrap', { narrow }]}>
+    <Breadcrumbs items={crumbs} inBand />
+    <h1>{title}</h1>
+    <slot />
+  </div>
+</header>

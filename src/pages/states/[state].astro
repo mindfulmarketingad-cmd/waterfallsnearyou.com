@@ -1,14 +1,15 @@
 ---
 import Base from '../../layouts/Base.astro';
-import PageHero from '../../components/PageHero.astro';
-import Listicle from '../../components/Listicle.astro';
-import FilterChips from '../../components/FilterChips.astro';
+import PageBand from '../../components/PageBand.astro';
+import StateCard from '../../components/StateCard.astro';
 import Faq from '../../components/Faq.astro';
-import { loadData, imageFor } from '../../lib/core.mjs';
-import { fmtNum, fmtMiles, listJoin } from '../../lib/format.mjs';
+import { loadData } from '../../lib/core.mjs';
+import { fmtNum, fmtMiles, listJoin, countyUrl } from '../../lib/format.mjs';
 import { stateInsights, stateContent } from '../../lib/insights.mjs';
-import { listsForState } from '../../lib/bestof.mjs';
-import { pagePhoto, stateFeatured } from '../../lib/photos.mjs';
+import { listsForState, getCapitalLists } from '../../lib/bestof.mjs';
+import { pagePhoto, stateFeatured, sized } from '../../lib/photos.mjs';
+import { features, FEATURES } from '../../lib/cards.mjs';
+import { getPosts } from '../../lib/blog.mjs';
 import { SITE } from '../../config.mjs';
 
 export function getStaticPaths() {
@@ -18,72 +19,144 @@ const { name } = Astro.props;
 const { states } = loadData();
 const state = states.find((s) => s.name === name);
 const ins = stateInsights(state);
-const lists = listsForState(state);
 const content = stateContent(state.slug);
+const lists = listsForState(state);
+const capitalPost = getCapitalLists().find((p) => p.state === state);
+const guides = [...(capitalPost ? [capitalPost] : []), ...lists];
+const generalGuides = getPosts().filter((p) => ['best-time-to-visit-waterfalls', 'waterfall-safety-tips', 'what-to-pack-for-a-waterfall-hike', 'waterfall-hikes-with-kids', 'swimming-at-waterfalls', 'waterfall-photography-tips'].includes(p.slug));
 const ordinal = (n) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
 const n = ins.count;
 const gnisN = state.listings.filter((l) => l.source === 'gnis').length;
 const isDC = state.code === 'DC';
-const chips = state.cities.slice(0, 16).map((c) => ({ url: c.url, label: `Near ${c.name}`, count: c.nearby.filter((x) => x.miles <= 30).length }));
-const top = state.listings.slice(0, 25).map((l) => ({ listing: l }));
+const all = state.listings; // already ranked by rating and review volume
+const towns = [...new Set(all.map((l) => l.city))].sort((a, b) => a.name.localeCompare(b.name));
+const counties = [...new Set(all.map((l) => l.county).filter(Boolean))].sort();
+const featCounts = Object.keys(FEATURES).map((k) => ({ k, label: FEATURES[k], count: all.filter((l) => features(l).includes(k)).length })).filter((f) => f.count > 0);
 const topCounties = ins.counties.slice(0, 3);
 const regions = (content?.regions || []).map((r) => {
   const set = new Set(r.counties.map((c) => c.toLowerCase()));
-  const ls = state.listings.filter((l) => set.has((l.county || '').toLowerCase()));
+  const ls = all.filter((l) => set.has((l.county || '').toLowerCase()));
   return { ...r, listings: ls, highlights: [...ls].sort((a, b) => (b.os?.reviews || 0) - (a.os?.reviews || 0)).slice(0, 5) };
 }).filter((r) => r.listings.length);
+const photos = stateFeatured(state).slice(0, 5);
 const photo = pagePhoto(state.url, stateFeatured(state));
-const image = photo.src;
-const title = `Waterfalls in ${state.name}: ${n} Named Falls by Town & County`;
-const lead = ins.mostReviewed[0];
-const description = `${fmtNum(n)} waterfalls in ${state.name}${regions.length ? `, from the ${regions[0].name}${regions[1] ? ` to the ${regions[1].name}` : ''}` : ''}${lead ? `. Most visited: ${lead.name}` : ''}. Maps, towns and directions.`.slice(0, 160);
-const byCity = [...state.cities].sort((a, b) => a.name.localeCompare(b.name));
+const title = `${fmtNum(n)} Waterfalls Near Me in ${state.name}`;
+const description = `All ${fmtNum(n)} waterfalls we track in ${state.name}, ranked by rating and reviews, with a map, filters by town and feature, hours, directions and photos.`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'States', url: '/states' }, { name: state.name, url: state.url }];
 const tagLabels = { swim: 'swimming', easy: 'easy access', family: 'families and kids', dogs: 'dogs' };
 const tagLines = Object.entries(ins.tagCounts).filter(([, ls]) => ls.length).map(([k, ls]) => ({ k, label: tagLabels[k], ls }));
+const lead = ins.mostReviewed[0];
 
 const faqs = [
-  { q: `How many waterfalls are in ${state.name}?`, a: `Our directory lists ${fmtNum(n)} waterfall${n === 1 ? '' : 's'} in ${state.name}${gnisN < n ? ` (${fmtNum(gnisN)} officially named in the USGS Geographic Names Information System and ${fmtNum(n - gnisN)} added from Google Maps listings)` : ', all officially named in the USGS Geographic Names Information System'}, ${ordinal(ins.rank)} among the ${states.length} jurisdictions in our directory and ${ins.share}% of the national total.${ins.counties.length > 2 ? ` ${ins.top3CountyShare}% of them are in just three counties: ${listJoin(topCounties.map((c) => c.name))}.` : ''}` },
-  ...(lead ? [{ q: `What is the most visited waterfall in ${state.name}?`, a: `By Google review count, <a href="${lead.url}">${lead.name}</a> in ${lead.county ? `${lead.county} County` : state.name} leads with ${fmtNum(lead.os.reviews)} reviews and a ${lead.os.rating.toFixed(1)} rating.${ins.mostReviewed[1] ? ` <a href="${ins.mostReviewed[1].url}">${ins.mostReviewed[1].name}</a> is next.` : ''}` }] : []),
+  { q: `How many waterfalls are in ${state.name}?`, a: `Our directory lists ${fmtNum(n)} waterfall${n === 1 ? '' : 's'} in ${state.name}${gnisN < n ? ` (${fmtNum(gnisN)} officially named in the USGS Geographic Names Information System and ${fmtNum(n - gnisN)} added from Google Maps listings)` : ', all officially named in the USGS Geographic Names Information System'}, ${ordinal(ins.rank)} among the ${states.length} jurisdictions in our directory.${ins.counties.length > 2 ? ` ${ins.top3CountyShare}% of them are in just three counties: ${listJoin(topCounties.map((c) => `<a href="${countyUrl({ stateSlug: state.slug, county: c.name })}">${c.name}</a>`))}.` : ''}` },
+  ...(lead ? [{ q: `What is the most visited waterfall in ${state.name}?`, a: `By Google review count, <a href="${lead.url}">${lead.name}</a> near <a href="${lead.city.url}">${lead.city.name}</a> leads with ${fmtNum(lead.os.reviews)} reviews and a ${lead.os.rating.toFixed(1)} rating.${ins.mostReviewed[1] ? ` <a href="${ins.mostReviewed[1].url}">${ins.mostReviewed[1].name}</a> is next.` : ''}` }] : []),
   ...(content?.faqs || []),
   ...(ins.busiestTown && n > 3 ? [{ q: `Which ${state.name} town has the most waterfalls nearby?`, a: `<a href="${ins.busiestTown.url}">${ins.busiestTown.name}</a> has ${ins.busiestTown.nearby.filter((x) => x.miles <= 30).length} named waterfalls within 30 miles, the most of any town in our ${state.name} directory.` }] : []),
 ];
 const schema = [
   { '@type': 'CollectionPage', name: title, url: `${SITE.url}${state.url}`, about: { '@type': isDC ? 'AdministrativeArea' : 'State', name: state.name }, description },
-  { '@type': 'ItemList', name: `Waterfalls in ${state.name}`, numberOfItems: top.length, itemListElement: top.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${t.listing.url}`, name: t.listing.name })) },
+  { '@type': 'ItemList', name: title, numberOfItems: all.length, itemListElement: all.slice(0, 50).map((l, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${l.url}`, name: l.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---
-<Base title={title} description={description} image={image} imageAlt={photo.alt} breadcrumbs={crumbs} schema={schema} preloadImage={image}>
-  <PageHero title={`Waterfalls in ${state.name}`} photo={photo} eyebrow={isDC ? 'District guide' : 'State guide'}>
-    <p class="sub">{fmtNum(n)} waterfall{n === 1 ? '' : 's'} across {state.counties.length} count{state.counties.length === 1 ? 'y' : 'ies'}, ranked {ordinal(ins.rank)} nationally.{regions.length > 1 ? ` The main waterfall regions are ${listJoin(regions.map((r) => r.name))}.` : ''}</p>
-    <p class="muted small">Source: USGS Geographic Names Information System, with visitor ratings from Google Maps listings.</p>
-    {lists.length > 0 && <p class="li-actions">{lists.map((p, i) => <a class={i ? 'btn btn-outline' : 'btn btn-green'} href={p.url}>{p.short}</a>)}</p>}
-  </PageHero>
+<Base title={title} description={description} image={photo.src} imageAlt={photo.alt} breadcrumbs={crumbs} bandCrumbs schema={schema}>
+  <PageBand title={title} crumbs={crumbs}>
+    <p>Every waterfall we track in {state.name}, ranked by rating and review volume across {fmtNum(towns.length)} towns. Search by name or town, or filter by feature. Always confirm access and conditions before you head out; trails and roads can close after storms.</p>
+    {guides.length > 0 && <p class="band-links">Guides: {guides.map((p, i) => <>{i ? <span class="sep">·</span> : ''}<a href={p.url}>{p.short}</a></>)}</p>}
+  </PageBand>
 
-  {chips.length > 1 && (
-    <section class="wrap section-sm">
-      <h2 class="sr-only">Towns</h2>
-      <FilterChips chips={chips} label={`Waterfalls near ${state.name} towns`} />
+  <section class="wrap section-sm" id="waterfalls" aria-labelledby="list-h">
+    <div class="list-head">
+      <h2 id="list-h" class="list-count"><span data-count>{fmtNum(n)}</span> waterfalls on this page</h2>
+      <div class="view-toggle" role="group" aria-label="View" hidden>
+        <button type="button" class="vt-btn" data-view="list" aria-pressed="true">List</button>
+        <button type="button" class="vt-btn" data-view="map" aria-pressed="false">Map</button>
+      </div>
+    </div>
+
+    <form class="filters" role="search" hidden onsubmit="return false">
+      <label class="sr-only" for="f-q">Search by name or town</label>
+      <input id="f-q" class="f-q" type="search" placeholder="Search by name or town..." autocomplete="off" />
+      <div class="f-row">
+        <label><span>Town</span><select id="f-town"><option value="">All towns</option>{towns.map((c) => <option value={c.name}>{c.name}</option>)}</select></label>
+        <label><span>County</span><select id="f-county"><option value="">All counties</option>{counties.map((c) => <option value={c}>{c}</option>)}</select></label>
+        <label><span>Feature</span><select id="f-feature"><option value="">All</option>{featCounts.map((f) => <option value={f.k}>{f.label} ({f.count})</option>)}</select></label>
+        <label><span>Sort</span><select id="f-sort"><option value="top">Top rated</option><option value="reviews">Most reviewed</option><option value="rating">Highest rating</option><option value="name">Name A to Z</option><option value="near" disabled>Nearest to me</option></select></label>
+        <button type="button" class="btn btn-outline f-reset">Reset</button>
+      </div>
+      <div class="f-row f-row2">
+        <button type="button" class="btn btn-outline f-near">Show distance from me</button>
+        <span class="f-status muted small" role="status" aria-live="polite"><span data-count>{fmtNum(n)}</span> waterfalls</span>
+      </div>
+    </form>
+
+    <div class="state-map" hidden aria-label={`Map of waterfalls in ${state.name}`}></div>
+
+    <ol class="sc-list">
+      {all.map((l, i) => <StateCard listing={l} rank={i + 1} />)}
+    </ol>
+    <p class="no-results muted" hidden>No waterfalls match those filters. <button type="button" class="linkish f-reset">Reset filters</button></p>
+  </section>
+
+  <section class="wrap section-sm" aria-labelledby="towns-h">
+    <h2 id="towns-h">Waterfalls by town in {state.name}</h2>
+    <p class="muted small">Pick a town to see every waterfall around it, ranked by distance.</p>
+    <ul class="town-grid">
+      {[...state.cities].sort((a, b) => a.name.localeCompare(b.name)).map((c) => <li><a href={c.url}><span>{c.name}</span><span aria-hidden="true">›</span></a></li>)}
+    </ul>
+  </section>
+
+  {featCounts.length > 0 && (
+    <section class="wrap section-sm" aria-labelledby="feat-h">
+      <h2 id="feat-h">{state.name} waterfalls by feature</h2>
+      <p class="chips">{featCounts.map((f) => <a class="sc-tag" href={`?feature=${f.k}#waterfalls`} data-feature={f.k}>{f.label} ({f.count})</a>)}</p>
+    </section>
+  )}
+
+  <section class="wrap section-sm" aria-labelledby="guides-h">
+    <h2 id="guides-h">{state.name} waterfall guides</h2>
+    <ul class="guide-list">
+      {guides.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
+      {generalGuides.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
+    </ul>
+  </section>
+
+  {content && (
+    <section class="wrap section-sm prose" aria-labelledby="plan-h">
+      <h2 id="plan-h">Planning a {state.name} waterfall trip</h2>
+      <p>{content.bestTime}</p>
+      <p>{content.planning}</p>
+      <p><a class="btn btn-outline" href="#waterfalls" data-open-map>Search the {state.name} map</a></p>
+    </section>
+  )}
+
+  {photos.length >= 3 && (
+    <section class="wrap section-sm" aria-labelledby="photos-h">
+      <h2 id="photos-h">Photos from waterfalls in {state.name}</h2>
+      <ul class="photo-strip">
+        {photos.map((l) => (
+          <li><a href={l.url}><img src={sized(l.os.photo, 400, 400)} alt={`Photo of ${l.name}, ${state.name}`} width="200" height="200" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('li').remove()" /><span>{l.name}</span></a></li>
+        ))}
+      </ul>
+      <p class="muted small">Photos via Google Maps listings.</p>
     </section>
   )}
 
   {content && (
-    <section class="wrap section-sm narrow prose" aria-labelledby="overview">
+    <section class="wrap section-sm prose" aria-labelledby="overview">
       <h2 id="overview">{n > 20 ? `Why ${state.name} Has So Many Waterfalls` : n > 3 ? `Where ${state.name}'s Waterfalls Are` : `Why ${state.name} Has So Few Waterfalls`}</h2>
       {content.overview.map((p) => <p>{p}</p>)}
     </section>
   )}
 
-
   {regions.length > 0 && (
     <section class="wrap section-sm" aria-labelledby="regions">
-      <h2 id="regions">{state.name} Waterfall Regions</h2>
+      <h2 id="regions">{state.name} waterfall regions</h2>
       <div class="grid-2">
         {regions.map((r) => (
           <article class="panel">
             <h3>{r.name}</h3>
-            <p class="muted small">{r.listings.length} waterfall{r.listings.length === 1 ? '' : 's'} · {listJoin(r.counties.map((c) => `${c} County`))}</p>
+            <p class="muted small">{r.listings.length} waterfall{r.listings.length === 1 ? '' : 's'} · {r.counties.map((c, i) => <>{i ? ', ' : ''}<a href={countyUrl({ stateSlug: state.slug, county: c })}>{c} County</a></>)}</p>
             <p>{r.text}</p>
             {r.highlights.length > 0 && <p class="small"><strong>Start with:</strong> {r.highlights.map((l, i) => <>{i ? ', ' : ''}<a href={l.url}>{l.name}</a></>)}</p>}
           </article>
@@ -92,30 +165,23 @@ const schema = [
     </section>
   )}
 
-  <section class="wrap section-sm" aria-labelledby="top">
-    <h2 id="top">{top.length === n ? `All ${n}` : `${top.length} Featured`} Waterfalls in {state.name}</h2>
-    <p class="muted">Ordered by Google rating and review volume, then by documented USGS history.</p>
-    <Listicle items={top} />
-  </section>
-
   {(ins.topRated.length > 0 || tagLines.length > 0 || ins.extremes.length > 0) && (
     <section class="bg-mist section-sm">
       <div class="wrap grid-2">
         <div>
           {ins.topRated.length > 0 && (
             <>
-              <h2>Highest Rated in {state.name}</h2>
+              <h2>Highest rated in {state.name}</h2>
               <ol class="ranked">
-                {ins.topRated.map((l) => <li><a href={l.url}>{l.name}</a> <span class="muted small">{l.os.rating.toFixed(1)} from {fmtNum(l.os.reviews)} reviews · {l.city.name}</span></li>)}
+                {ins.topRated.map((l) => <li><a href={l.url}>{l.name}</a> <span class="muted small">{l.os.rating.toFixed(1)} from {fmtNum(l.os.reviews)} reviews · <a href={l.city.url}>{l.city.name}</a></span></li>)}
               </ol>
-              <p class="small muted">Waterfalls with at least 25 Google reviews.</p>
             </>
           )}
           {tagLines.length > 0 && (
             <>
-              <h2>What Visitors Mention</h2>
+              <h2>What visitors mention</h2>
               <ul>
-                {tagLines.map((t) => <li>Reviews of {t.ls.length} {state.name} waterfall{t.ls.length === 1 ? '' : 's'} mention {t.label}, including {listJoin(t.ls.slice(0, 3).map((l) => l.name))}.</li>)}
+                {tagLines.map((t) => <li>Reviews of {t.ls.length} {state.name} waterfall{t.ls.length === 1 ? '' : 's'} mention {t.label}, including {t.ls.slice(0, 3).map((l, i) => <>{i ? (i === Math.min(t.ls.length, 3) - 1 ? ' and ' : ', ') : ''}<a href={l.url}>{l.name}</a></>)}.</li>)}
               </ul>
             </>
           )}
@@ -123,19 +189,11 @@ const schema = [
         <div>
           {ins.extremes.length > 0 && (
             <>
-              <h2>{state.name} Waterfalls by the Compass</h2>
+              <h2>{state.name} waterfalls by the compass</h2>
               <ul class="nearby-list">
                 {ins.extremes.map((e) => <li><a href={e.l.url}><span><strong>{e.label}:</strong> {e.l.name}</span><span class="d">near {e.l.city.name}</span></a></li>)}
               </ul>
               <p class="small muted" style="margin-top:10px">The farthest-apart named falls in {state.name} are about {fmtMiles(ins.spanMiles).replace(' mi', ' miles')} apart.</p>
-            </>
-          )}
-          {(ins.repeatedNames.length > 0 || ins.withVariants.length > 0 || ins.historyPick) && (
-            <>
-              <h2>Names and History</h2>
-              {ins.repeatedNames.length > 0 && <p>The most reused names are {listJoin(ins.repeatedNames.map(([nm, c]) => `${nm} (${c})`))}, so check the county and town before you set out.</p>}
-              {ins.withVariants.length > 0 && <p>{ins.withVariants.length} waterfall{ins.withVariants.length === 1 ? ' has' : 's have'} alternate historical names on record, such as {listJoin(ins.withVariants.slice(0, 2).map((l) => `${l.name} (also ${l.variants[0]})`))}.</p>}
-              {ins.historyPick && <p>From the USGS record for <a href={ins.historyPick.url}>{ins.historyPick.name}</a>: "{ins.historyPick.gnisHistory}"</p>}
             </>
           )}
         </div>
@@ -143,47 +201,216 @@ const schema = [
     </section>
   )}
 
-  {content && (
-    <section class="wrap section-sm grid-2">
-      <div class="prose">
-        <h2>Best Time to See Waterfalls in {state.name}</h2>
-        <p>{content.bestTime}</p>
-      </div>
-      <div class="prose">
-        <h2>Planning a Waterfall Trip in {state.name}</h2>
-        <p>{content.planning}</p>
-        <p class="small">More: <a href="/blog/waterfall-safety-tips">waterfall safety</a> · <a href="/blog/what-to-pack-for-a-waterfall-hike">packing list</a></p>
-      </div>
-    </section>
-  )}
-
-  <section class="bg-mist section-sm">
-    <div class="wrap">
-      <h2>Find Waterfalls Near a {state.name} Town</h2>
-      <ul class="tile-list">
-        {byCity.map((c) => <li><a href={c.url}><span>{c.name}</span><span class="count">{c.nearby.filter((x) => x.miles <= 30).length} nearby</span></a></li>)}
-      </ul>
-    </div>
-  </section>
-
   {ins.counties.length > 0 && (
     <section class="wrap section-sm prose">
-      <h2>Waterfalls by County</h2>
+      <h2>Waterfalls by county</h2>
       <table>
         <thead><tr><th>County</th><th>Waterfalls</th><th>Share</th><th>Most visited</th></tr></thead>
         <tbody>
-          {ins.counties.map((c) => <tr><td>{c.name}</td><td>{c.listings.length}</td><td>{c.share}%</td><td><a href={c.best.url}>{c.best.name}</a></td></tr>)}
+          {ins.counties.map((c) => <tr><td><a href={countyUrl({ stateSlug: state.slug, county: c.name })}>{c.name}</a></td><td>{c.listings.length}</td><td>{c.share}%</td><td><a href={c.best.url}>{c.best.name}</a></td></tr>)}
         </tbody>
       </table>
     </section>
   )}
 
-  <section class="wrap section-sm">
-    <h2>All {state.name} Waterfalls A to Z</h2>
-    <ul class="link-cols">
-      {[...state.listings].sort((a, b) => a.name.localeCompare(b.name)).map((l) => <li><a href={l.url}>{l.name}</a> <span class="muted small">({l.city.name})</span></li>)}
-    </ul>
-  </section>
-
-  <section class="wrap section narrow"><Faq faqs={faqs} heading={`${state.name} Waterfalls: FAQs`} /></section>
+  <section class="wrap section narrow"><Faq faqs={faqs} heading={`${state.name} waterfalls: FAQs`} /></section>
 </Base>
+
+<style>
+  .band-links { font-size: 0.92rem; }
+  .band-links a { color: var(--forest); }
+  .band-links .sep { color: #b5bcb9; margin: 0 6px; }
+  .list-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .list-count { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--slate); margin: 0; letter-spacing: 0; }
+  .view-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .vt-btn { border: 0; background: #fff; padding: 7px 16px; font: inherit; font-size: 0.88rem; font-weight: 600; color: var(--slate); cursor: pointer; }
+  .vt-btn[aria-pressed='true'] { background: var(--forest); color: #fff; }
+  .filters { background: var(--mist); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .f-q { width: 100%; font: inherit; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+  .f-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+  .f-row label { display: flex; flex-direction: column; gap: 3px; font-size: 0.78rem; color: var(--slate-soft); flex: 1 1 150px; min-width: 0; }
+  .f-row select { font: inherit; font-size: 0.92rem; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); width: 100%; min-width: 0; }
+  .f-row .btn { padding: 8px 14px; font-size: 0.88rem; }
+  .f-row2 { align-items: center; justify-content: space-between; }
+  .state-map { height: 560px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 16px; background: var(--mist); }
+  .no-results { padding: 20px 0; }
+  .linkish { background: none; border: 0; color: var(--forest); text-decoration: underline; cursor: pointer; font: inherit; padding: 0; }
+  .town-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+  .town-grid a { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--slate-dark); text-decoration: none; font-size: 0.9rem; }
+  .town-grid a:hover { border-color: var(--forest); color: var(--forest); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+  .guide-list { list-style: none; margin: 0; padding: 0; }
+  .guide-list li { border-bottom: 1px solid var(--line); }
+  .guide-list a { display: block; padding: 10px 0; color: var(--forest); }
+  .photo-strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+  .photo-strip a { display: block; position: relative; color: #fff; text-decoration: none; }
+  .photo-strip img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; background: var(--mist); }
+  .photo-strip span { position: absolute; left: 6px; bottom: 6px; right: 6px; font-size: 0.72rem; background: rgba(30, 34, 37, 0.7); padding: 3px 7px; border-radius: 6px; }
+  @media (max-width: 700px) {
+    .photo-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .state-map { height: 420px; }
+    .town-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
+
+<script>
+  const root = document.getElementById('waterfalls');
+  const list = root.querySelector('.sc-list') as HTMLElement;
+  const cards = [...list.querySelectorAll<HTMLElement>('.sc')];
+  const form = root.querySelector('.filters') as HTMLFormElement;
+  const toggle = root.querySelector('.view-toggle') as HTMLElement;
+  const mapEl = root.querySelector('.state-map') as HTMLElement;
+  const noResults = root.querySelector('.no-results') as HTMLElement;
+  const q = document.getElementById('f-q') as HTMLInputElement;
+  const town = document.getElementById('f-town') as HTMLSelectElement;
+  const county = document.getElementById('f-county') as HTMLSelectElement;
+  const feature = document.getElementById('f-feature') as HTMLSelectElement;
+  const sort = document.getElementById('f-sort') as HTMLSelectElement;
+  const nearBtn = root.querySelector('.f-near') as HTMLButtonElement;
+  form.hidden = false;
+  toggle.hidden = false;
+
+  let me: { lat: number; lng: number } | null = null;
+  let map, layer, L;
+  const norm = (s: string) => s.normalize('NFKD').replace(/[̀-ͯʻ']/g, '').toLowerCase();
+  const miles = (a, b) => {
+    const r = Math.PI / 180, dLat = (b.lat - a.lat) * r, dLng = (b.lng - a.lng) * r;
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLng / 2) ** 2;
+    return 2 * 3958.8 * Math.asin(Math.sqrt(h));
+  };
+  const setIfOption = (sel: HTMLSelectElement, v: string | null) => { if (v && [...sel.options].some((o) => o.value === v)) sel.value = v; };
+
+  // Initial state from the URL (?q=&town=&county=&feature=&sort=)
+  const params = new URLSearchParams(location.search);
+  q.value = (params.get('q') || '').slice(0, 60);
+  setIfOption(town, params.get('town'));
+  setIfOption(county, params.get('county'));
+  setIfOption(feature, params.get('feature'));
+  setIfOption(sort, params.get('sort'));
+
+  function apply(pushUrl = true) {
+    const term = norm(q.value.trim());
+    const visible = cards.filter((c) => {
+      const d = c.dataset;
+      if (term && !norm(`${d.name} ${d.town} ${d.county}`).includes(term)) return false;
+      if (town.value && d.town !== town.value) return false;
+      if (county.value && d.county !== county.value) return false;
+      if (feature.value && !d.features.split(' ').includes(feature.value)) return false;
+      return true;
+    });
+    const by = {
+      top: (a, b) => +b.dataset.score - +a.dataset.score,
+      reviews: (a, b) => +b.dataset.reviews - +a.dataset.reviews,
+      rating: (a, b) => (+b.dataset.reviews >= 10 ? +b.dataset.rating : 0) - (+a.dataset.reviews >= 10 ? +a.dataset.rating : 0) || +b.dataset.reviews - +a.dataset.reviews,
+      name: (a, b) => a.dataset.name.localeCompare(b.dataset.name),
+      near: (a, b) => +a.dataset.dist - +b.dataset.dist,
+    }[sort.value] || (() => 0);
+    const ordered = [...visible].sort(by);
+    const hidden = cards.filter((c) => !visible.includes(c));
+    list.replaceChildren(...ordered, ...hidden);
+    ordered.forEach((c, i) => { c.hidden = false; c.querySelector('.sc-num').textContent = String(i + 1); });
+    hidden.forEach((c) => { c.hidden = true; });
+    root.querySelectorAll('[data-count]').forEach((el) => { el.textContent = ordered.length.toLocaleString('en-US'); });
+    noResults.hidden = ordered.length > 0;
+    if (pushUrl) {
+      const p = new URLSearchParams();
+      if (q.value.trim()) p.set('q', q.value.trim());
+      if (town.value) p.set('town', town.value);
+      if (county.value) p.set('county', county.value);
+      if (feature.value) p.set('feature', feature.value);
+      if (sort.value !== 'top' && sort.value !== 'near') p.set('sort', sort.value);
+      const qs = p.toString();
+      history.replaceState(null, '', `${location.pathname}${qs ? `?${qs}` : ''}#waterfalls`);
+    }
+    if (map) drawMarkers(ordered);
+  }
+
+  let t;
+  q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(apply, 150); });
+  [town, county, feature, sort].forEach((s) => s.addEventListener('change', () => apply()));
+  root.querySelectorAll('.f-reset').forEach((b) => b.addEventListener('click', () => {
+    q.value = ''; town.value = ''; county.value = ''; feature.value = ''; sort.value = me ? 'near' : 'top';
+    apply();
+  }));
+
+  // Feature chips and county/feature links that point at this same page filter in place.
+  document.addEventListener('click', (e) => {
+    const a = (e.target as HTMLElement).closest('a');
+    if (!a || !a.getAttribute('href')) return;
+    const url = new URL(a.href, location.href);
+    if (url.pathname !== location.pathname || url.hash !== '#waterfalls' || !url.search) return;
+    e.preventDefault();
+    q.value = ''; town.value = ''; county.value = ''; feature.value = '';
+    setIfOption(county, url.searchParams.get('county'));
+    setIfOption(feature, url.searchParams.get('feature'));
+    setIfOption(town, url.searchParams.get('town'));
+    apply();
+    root.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  nearBtn.addEventListener('click', () => {
+    if (!('geolocation' in navigator)) return;
+    nearBtn.textContent = 'Finding your location...';
+    navigator.geolocation.getCurrentPosition((pos) => {
+      me = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      for (const c of cards) {
+        const d = miles(me, { lat: +c.dataset.lat, lng: +c.dataset.lng });
+        c.dataset.dist = String(d);
+        const out = c.querySelector('.sc-dist') as HTMLElement;
+        out.textContent = `· ${d < 10 ? d.toFixed(1) : Math.round(d)} mi away`;
+        out.hidden = false;
+      }
+      const opt = [...sort.options].find((o) => o.value === 'near');
+      opt.disabled = false;
+      sort.value = 'near';
+      nearBtn.textContent = 'Distances shown from your location';
+      apply(false);
+    }, () => { nearBtn.textContent = 'Location unavailable'; }, { timeout: 12000, maximumAge: 600000 });
+  });
+
+  // ---- Map view (Leaflet + OpenStreetMap tiles), loaded only when first opened ----
+  function drawMarkers(visible: HTMLElement[]) {
+    layer.clearLayers();
+    const pts = [];
+    for (const c of visible) {
+      const ll = [+c.dataset.lat, +c.dataset.lng];
+      pts.push(ll);
+      const name = c.querySelector('.sc-name a').textContent;
+      const popup = document.createElement('div');
+      const a = document.createElement('a');
+      a.href = c.dataset.url; a.textContent = name; a.style.fontWeight = '700';
+      const meta = document.createElement('div');
+      meta.textContent = `${c.dataset.town}${+c.dataset.reviews ? ` · ${(+c.dataset.rating).toFixed(1)} stars (${(+c.dataset.reviews).toLocaleString('en-US')})` : ''}`;
+      popup.append(a, meta);
+      L.circleMarker(ll, { radius: 7, color: '#ffffff', weight: 2, fillColor: '#3f6f5a', fillOpacity: 0.95 }).bindPopup(popup).addTo(layer);
+    }
+    if (pts.length) map.fitBounds(pts, { padding: [30, 30], maxZoom: 12 });
+  }
+  async function openMap() {
+    toggle.querySelectorAll('.vt-btn').forEach((b: HTMLElement) => b.setAttribute('aria-pressed', String(b.dataset.view === 'map')));
+    mapEl.hidden = false;
+    list.hidden = true;
+    if (!map) {
+      const mod = await import('leaflet');
+      await import('leaflet/dist/leaflet.css');
+      L = mod.default || mod;
+      map = L.map(mapEl, { scrollWheelZoom: false });
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
+      layer = L.layerGroup().addTo(map);
+    }
+    map.invalidateSize();
+    drawMarkers(cards.filter((c) => !c.hidden));
+  }
+  function openList() {
+    toggle.querySelectorAll('.vt-btn').forEach((b: HTMLElement) => b.setAttribute('aria-pressed', String(b.dataset.view === 'list')));
+    mapEl.hidden = true;
+    list.hidden = false;
+  }
+  toggle.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest('.vt-btn') as HTMLElement;
+    if (b) (b.dataset.view === 'map' ? openMap : openList)();
+  });
+  document.querySelectorAll('[data-open-map]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); root.scrollIntoView({ behavior: 'smooth' }); openMap(); }));
+
+  if ([...params.keys()].length) apply(false);
+</script>

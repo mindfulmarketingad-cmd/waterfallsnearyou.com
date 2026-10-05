@@ -64,17 +64,23 @@ export function addressText(l) {
   return `${l.county ? `${l.county} County, ` : ''}${l.stateCode}${zip} (GPS ${l.lat.toFixed(4)}, ${l.lng.toFixed(4)})`;
 }
 
+// Internal link targets used by listing cards.
+export const countyUrl = (l) => (l.county ? `/states/${l.stateSlug}?county=${encodeURIComponent(l.county)}#waterfalls` : `/states/${l.stateSlug}#waterfalls`);
+export const ratingsUrl = (l) => `${l.url}#ratings`;
+export const mapUrl = (l) => `${l.url}#map`;
+
+// [label, value, internal link]
 export function listingFacts(l) {
   const f = [];
-  if (l.os?.rating) f.push(['Rating', `${l.os.rating.toFixed(1)} (${fmtNum(l.os.reviews)} Google reviews)`]);
+  if (l.os?.rating) f.push(['Rating', `${l.os.rating.toFixed(1)} (${fmtNum(l.os.reviews)} Google reviews)`, ratingsUrl(l)]);
   const h = hoursSummary(l.os);
-  if (h) f.push(['Hours', h]);
-  f.push(['Address', addressText(l)]);
+  if (h) f.push(['Hours', h, l.url]);
+  f.push(['Address', addressText(l), mapUrl(l)]);
   if (l.os?.phone) f.push(['Phone', l.os.phone]);
   if (l.os?.site) f.push(['Website', new URL(l.os.site).hostname.replace(/^www\./, '')]);
-  if (l.os?.reviewTags?.length) f.push(['Known for', l.os.reviewTags.slice(0, 5).join(', ')]);
-  f.push(['Nearest town', `${l.city.name}, ${l.stateCode} (${fmtMiles(l.cityMiles)})`]);
-  if (l.topoMap) f.push(['USGS topo', `${l.topoMap} quad`]);
+  if (l.os?.reviewTags?.length) f.push(['Known for', l.os.reviewTags.slice(0, 5).join(', '), `${l.url}#visitors`]);
+  f.push(['Nearest town', `${l.city.name}, ${l.stateCode} (${fmtMiles(l.cityMiles)})`, l.city.url]);
+  if (l.topoMap) f.push(['USGS topo', `${l.topoMap} quad`, mapUrl(l)]);
   return f;
 }
 

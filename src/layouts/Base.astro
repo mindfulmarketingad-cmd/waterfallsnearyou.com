@@ -20,8 +20,10 @@ interface Props {
   breadcrumbs?: { name: string; url: string }[];
   schema?: object[];
   preloadImage?: string;
+  /** The page renders its own breadcrumbs (inside a PageBand); schema is still emitted. */
+  bandCrumbs?: boolean;
 }
-const { title, description, image, imageAlt, noindex = false, type = 'website', published, modified, breadcrumbs, schema = [], preloadImage } = Astro.props;
+const { title, description, image, imageAlt, noindex = false, type = 'website', published, modified, breadcrumbs, schema = [], preloadImage, bandCrumbs = false } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonical = new URL(path, SITE.url).href.replace(/\/$/, path === '/' ? '/' : '');
 const ogImage = new URL(image || imageFor(path), SITE.url).href;
@@ -101,7 +103,7 @@ const isProd = import.meta.env.PROD;
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <Header />
-    {breadcrumbs?.length ? <Breadcrumbs items={breadcrumbs} /> : null}
+    {breadcrumbs?.length && !bandCrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
     <main id="main">
       <slot />
     </main>

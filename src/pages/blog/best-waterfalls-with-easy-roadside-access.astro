@@ -2,8 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import Faq from '../../components/Faq.astro';
+import PageBand from '../../components/PageBand.astro';
+import Byline from '../../components/Byline.astro';
+import PostCard from '../../components/PostCard.astro';
+import { cardSummary } from '../../lib/cards.mjs';
 import Photo from '../../components/Photo.astro';
-import { getRoadside, BEST_YEAR } from '../../lib/bestof.mjs';
+import { getRoadside, BEST_YEAR, LISTS_PUBLISHED } from '../../lib/bestof.mjs';
 import { pagePhoto, listingPhoto } from '../../lib/photos.mjs';
 import { directionsUrl, fmtNum, stars, listJoin, displayName } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
@@ -12,6 +16,7 @@ const post = getRoadside();
 const { items } = post;
 const photo = pagePhoto(post.url, items.map((i) => i.listing));
 const updated = new Date();
+const minutes = Math.max(3, Math.round((items.length * 90 + 450) / 230));
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: 'Waterfalls with Easy Roadside Access', url: post.url }];
 const faqs = [
   { q: 'What waterfalls can you see without hiking?', a: `Our top picks are ${listJoin(items.slice(0, 3).map((i) => `<a href="${i.listing.url}">${i.listing.name}</a> in ${i.listing.state}`))}. Each one has a roadside viewpoint, a paved path, a boardwalk or a short walk from parking, based on its listing and visitor reviews.` },
@@ -20,20 +25,24 @@ const faqs = [
   { q: 'When are roadside waterfalls least crowded?', a: 'Early mornings on weekdays. Short-walk waterfalls fill up quickly on summer weekends and holidays because they suit every age and fitness level.' },
 ];
 const schema = [
-  { '@type': 'BlogPosting', headline: post.title, description: post.description, image: photo.src, datePublished: `${BEST_YEAR}-10-02T00:00:00.000Z`, dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${post.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` } },
+  { '@type': 'BlogPosting', headline: post.title, description: post.description, image: photo.src.startsWith('http') ? photo.src : `${SITE.url}${photo.src}`, datePublished: LISTS_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${post.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` } },
   { '@type': 'ItemList', name: post.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---
-<Base title={post.title} description={post.description} image={photo.src} imageAlt={photo.alt} type="article" modified={updated.toISOString()} breadcrumbs={crumbs} schema={schema} preloadImage={photo.src}>
-  <article>
-    <header class="wrap narrow" style="padding-top:22px">
-      <span class="eyebrow">Easy access · Updated {updated.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</span>
-      <h1>{post.title}</h1>
-      <p class="lead">Not every great waterfall needs a long hike. These {items.length} top-rated falls across {post.states.length} states can be seen from a roadside viewpoint, a paved path, a boardwalk or a short walk from the parking area, which makes them ideal for families, older visitors and quick stops on a road trip.</p>
-      <div style="margin:18px 0 8px"><Photo photo={photo} class="feature" priority /></div>
-    </header>
-    <div class="wrap narrow">
+<Base title={post.title} description={post.description} image={photo.src} imageAlt={photo.alt} type="article" published={LISTS_PUBLISHED.toISOString()} modified={updated.toISOString()} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={photo.src}>
+  <PageBand title={post.title} crumbs={crumbs} narrow />
+  <article class="wrap narrow">
+    <figure class="post-hero">
+      <img src={photo.src} alt={photo.alt} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror={photo.fallback ? `this.onerror=null;this.src='${photo.fallback}';this.parentNode.querySelector('figcaption')?.remove()` : undefined} />
+      {photo.listing && <figcaption>Photo via Google: {photo.listing.name}, {photo.listing.state}, from our directory</figcaption>}
+    </figure>
+    <Byline published={LISTS_PUBLISHED} updated={updated} minutes={minutes} />
+    <nav class="jump" aria-label="Jump to">
+      <strong>Jump to:</strong>
+      {items.map((i, n) => <>{n ? <span class="sep">·</span> : ''}<a href={`#w${n + 1}`}>{n + 1}. {displayName(i.listing)}</a></>)}
+    </nav>
+    <div class="prose"><p>Not every great waterfall needs a long hike. These {items.length} top-rated falls across {post.states.length} states can be seen from a roadside viewpoint, a paved path, a boardwalk or a short walk from the parking area, which makes them ideal for families, older visitors and quick stops on a road trip.</p></div>
       <div class="prose">
         <h2>How We Picked</h2>
         <p>We only included waterfalls whose Google listing or reviews explicitly describe easy access, such as roadside viewing, paved trails, boardwalks or "accessible from the parking lot". Anything described as a hike, or tagged by reviewers as steep or strenuous, was left out. From the {post.candidates} that qualified, we ranked by a weighted Google rating. Access can change with weather and repairs, so check conditions before you go.</p>
@@ -42,20 +51,9 @@ const schema = [
           <tbody>{items.map((i, n) => <tr><td>{n + 1}</td><td><a href={i.listing.url}>{displayName(i.listing)}</a></td><td><a href={`/states/${i.listing.stateSlug}`}>{i.listing.state}</a></td><td>{i.listing.os.rating.toFixed(1)} ({fmtNum(i.listing.os.reviews)})</td></tr>)}</tbody>
         </table>
       </div>
-      <ol class="best-list">
+      <ol class="pc-list" style="margin:22px 0 10px">
         {items.map(({ listing: l, why }, n) => (
-          <li id={`w${n + 1}`}>
-            <h2><span class="best-num">{n + 1}.</span> <a href={l.url}>{displayName(l)}</a>, {l.state}</h2>
-            <p class="muted small">{l.county ? `${l.county} County · ` : ''}near {l.city.name}</p>
-            <Photo photo={listingPhoto(l)} eager={n < 2} />
-            <p class="rating"><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span>{l.os.rating.toFixed(1)} <span class="count">({fmtNum(l.os.reviews)} Google reviews)</span></p>
-            <p>{why.join(' ')}</p>
-            <div class="li-actions">
-              <a class="btn btn-primary" href={l.url}>Full details and map</a>
-              <a class="btn btn-outline" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Directions</a>
-              <a class="btn btn-outline" href={l.city.url}>Waterfalls near {l.city.name}</a>
-            </div>
-          </li>
+          <PostCard listing={l} rank={n + 1} anchor={`w${n + 1}`} lead={cardSummary(l, n + 1)} why={why} />
         ))}
       </ol>
       <div class="prose">
@@ -66,15 +64,7 @@ const schema = [
           <li>Bringing children? Read <a href="/blog/waterfall-hikes-with-kids">waterfall hikes with kids</a> for age-by-age advice.</li>
         </ul>
       </div>
-      <div style="margin:36px 0"><Faq faqs={faqs} /></div>
-    </div>
+      <div style="margin:36px 0"><Faq faqs={faqs} heading="Frequently asked questions" /></div>
   </article>
 </Base>
 
-<style>
-  .best-list { list-style: none; padding: 0; margin: 28px 0; display: flex; flex-direction: column; gap: 40px; }
-  .best-list h2 { margin: 0 0 4px; }
-  .best-list h2 a { color: var(--slate-dark); text-decoration: none; }
-  .best-num { color: var(--forest); }
-  .best-list img { border-radius: var(--radius); aspect-ratio: 1200 / 630; object-fit: cover; width: 100%; margin: 12px 0; background: var(--mist); }
-</style>

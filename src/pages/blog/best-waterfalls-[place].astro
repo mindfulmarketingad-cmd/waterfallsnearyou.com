@@ -1,0 +1,105 @@
+---
+// "[x] Best Waterfalls Near Me In [Capital] [State]": one pillar page per state capital with enough
+// nearby rated waterfalls. Every link on the page points to that city's area or that state.
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import PageBand from '../../components/PageBand.astro';
+import Byline from '../../components/Byline.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCapitalLists, listsForState, LISTS_PUBLISHED, BEST_YEAR } from '../../lib/bestof.mjs';
+import { miles } from '../../lib/core.mjs';
+import { stateContent } from '../../lib/insights.mjs';
+import { pagePhoto } from '../../lib/photos.mjs';
+import { displayName, fmtNum, listJoin } from '../../lib/format.mjs';
+import { SITE } from '../../config.mjs';
+
+export function getStaticPaths() {
+  return getCapitalLists().map((p) => ({ params: { place: p.slug.replace(/^best-waterfalls-/, '') }, props: { url: p.url } }));
+}
+const post = getCapitalLists().find((p) => p.url === Astro.props.url);
+const { state, capital, cap, items } = post;
+const content = stateContent(state.slug);
+const lists = listsForState(state);
+const photo = pagePhoto(post.url, items.map((i) => i.listing));
+const abs = (u) => (u.startsWith('http') ? u : `${SITE.url}${u}`);
+const updated = new Date();
+const minutes = Math.max(3, Math.round((items.length * 80 + 500) / 230));
+const place = `${capital}, ${state.name}`;
+const hubs = [...state.cities].map((c) => ({ c, d: miles(cap, c) })).sort((a, b) => a.d - b.d).slice(0, 8);
+const closest = [...items].sort((a, b) => a.miles - b.miles)[0];
+const first = items[0];
+const within50 = items.filter((i) => i.miles <= 50).length;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: `Best Waterfalls Near ${capital}`, url: post.url }];
+const faqs = [
+  { q: `What is the best waterfall near ${capital}?`, a: `<a href="${first.listing.url}">${first.listing.name}</a> tops our ${BEST_YEAR} list. It is about ${Math.round(first.miles)} miles ${first.direction} of ${capital} and rated ${first.listing.os.rating.toFixed(1)} stars from ${fmtNum(first.listing.os.reviews)} Google reviews.` },
+  { q: `What is the closest waterfall to ${capital}?`, a: `Of the waterfalls on this list, <a href="${closest.listing.url}">${closest.listing.name}</a> is the closest, about ${Math.round(closest.miles)} straight-line miles ${closest.direction} of the city${closest.listing.city.name !== capital ? `, near <a href="${closest.listing.city.url}">${closest.listing.city.name}</a>` : ''}.` },
+  { q: `How many waterfalls are near ${capital}?`, a: `We track ${post.candidates} publicly accessible, reviewed waterfalls in ${state.name} within 100 miles of ${capital}${within50 ? `, ${within50} of this list's picks within 50 miles` : ''}. See every waterfall in the state on the <a href="${state.url}">${state.name} waterfalls page</a>.` },
+  { q: 'How was this list made?', a: post.method },
+  ...(content?.faqs?.slice(0, 1) || []),
+];
+const schema = [
+  { '@type': 'BlogPosting', headline: post.title, description: post.description, image: abs(photo.src), datePublished: LISTS_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${post.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'City', name: capital, containedInPlace: { '@type': 'State', name: state.name } } },
+  { '@type': 'ItemList', name: post.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={post.title} description={post.description} image={photo.src} imageAlt={photo.alt} type="article" published={LISTS_PUBLISHED.toISOString()} modified={updated.toISOString()} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={photo.src}>
+  <PageBand title={post.title} crumbs={crumbs} narrow />
+  <article class="wrap narrow">
+    <figure class="post-hero">
+      <img src={photo.src} alt={photo.alt} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror={photo.fallback ? `this.onerror=null;this.src='${photo.fallback}';this.parentNode.querySelector('figcaption')?.remove()` : undefined} />
+      {photo.listing && <figcaption>Photo via Google: {photo.listing.name}, near {capital}</figcaption>}
+    </figure>
+    <Byline published={LISTS_PUBLISHED} updated={updated} minutes={minutes} />
+
+    <nav class="jump" aria-label="Jump to">
+      <strong>Jump to:</strong>
+      {items.map((i, n) => <>{n ? <span class="sep">·</span> : ''}<a href={`#w${n + 1}`}>{n + 1}. {displayName(i.listing)}</a></>)}
+    </nav>
+
+    <div class="prose">
+      <p>
+        The best waterfalls near {place} are {items.length > 3 ? `${items.slice(0, 3).map((i) => displayName(i.listing)).join(', ')} and ${items.length - 3} more` : listJoin(items.map((i) => displayName(i.listing)))}, ranked by visitor ratings and distance from the city.
+        {closest && ` The closest is ${closest.listing.name}, about ${Math.round(closest.miles)} miles ${closest.direction} of ${capital}.`}
+      </p>
+      <p>
+        For more waterfalls around {capital}, browse the nearest towns: {hubs.map(({ c }, i) => <>{i ? ', ' : ''}<a href={c.url}>{c.name}</a></>)}.
+        You can also see every waterfall on the <a href={state.url}>{state.name} waterfalls page</a>.
+      </p>
+      <p class="small muted">How we picked: {post.method}</p>
+    </div>
+
+    <ol class="pc-list" style="margin:22px 0 10px">
+      {items.map(({ listing: l, why, miles: d, direction }, n) => (
+        <PostCard listing={l} rank={n + 1} anchor={`w${n + 1}`}
+          lead={`${Math.round(d)} miles ${direction} of ${capital}. ${n === 0 ? 'Our top pick near the city' : 'Rated'} ${l.os.rating.toFixed(1)} out of 5 from ${fmtNum(l.os.reviews)} reviews.`}
+          why={why} />
+      ))}
+    </ol>
+
+    <div class="prose">
+      <h2>Waterfall Day Trips From {capital}</h2>
+      <table>
+        <thead><tr><th>Waterfall</th><th>Distance</th><th>Nearest town</th><th>Rating</th></tr></thead>
+        <tbody>
+          {[...items].sort((a, b) => a.miles - b.miles).map((i) => <tr><td><a href={i.listing.url}>{displayName(i.listing)}</a></td><td>{Math.round(i.miles)} mi {i.direction}</td><td><a href={i.listing.city.url}>{i.listing.city.name}</a></td><td>{i.listing.os.rating.toFixed(1)}</td></tr>)}
+        </tbody>
+      </table>
+      <p class="small muted">Straight-line distances from downtown {capital}. Driving distances are longer, especially in the mountains.</p>
+    </div>
+
+    <div style="margin:34px 0"><Faq faqs={faqs} heading="Frequently asked questions" /></div>
+
+    <div class="prose">
+      <h2>Summary</h2>
+      <p>
+        {displayName(first.listing)} is our top waterfall pick near {capital}, rated {first.listing.os.rating.toFixed(1)} out of 5 and about {Math.round(first.miles)} miles from the city.
+        Ratings and review counts reflect public data at the time of writing and can change, and trail access and water levels vary through the year, so confirm conditions before you go.
+      </p>
+      {content?.bestTime && <p>{content.bestTime}</p>}
+      <p>
+        For more {state.name} waterfalls, see the full <a href={state.url}>{state.name} waterfalls page</a>{lists.length > 0 && <>, or read {lists.slice(0, 3).map((p, i) => <>{i ? (i === Math.min(lists.length, 3) - 1 ? ' and ' : ', ') : ''}<a href={p.url}>{p.title.replace(/ \(\d{4}( Updated)?\)$/, '')}</a></>)}</>}.
+      </p>
+    </div>
+  </article>
+</Base>

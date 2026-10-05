@@ -1,0 +1,18 @@
+---
+// Author line for blog posts. The site has no individually named writers, so posts are credited
+// to the editorial team rather than an invented person.
+interface Props { published?: Date; updated?: Date; minutes: number }
+const { published, updated, minutes } = Astro.props;
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+<div class="byline">
+  <span class="avatar" aria-hidden="true">WN</span>
+  <div>
+    <div class="by-name">By the <a href="/about">WaterfallsNearYou Editorial Team</a></div>
+    <div class="by-meta">
+      {published && <>Published <time datetime={published.toISOString()}>{fmt(published)}</time></>}
+      {updated && (!published || updated.toDateString() !== published.toDateString()) && <>{published ? ' · ' : ''}Updated <time datetime={updated.toISOString()}>{fmt(updated)}</time></>}
+      {' · '}{minutes} min read
+    </div>
+  </div>
+</div>

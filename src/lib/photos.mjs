@@ -68,3 +68,9 @@ export function cityFeatured(city) {
   return city.nearby.filter((n) => n.miles <= 30 && ownPhoto(n.listing)).sort((a, b) => b.listing.os.reviews - a.listing.os.reviews).map((n) => n.listing)
     .concat(city.nearby.filter((n) => ownPhoto(n.listing)).map((n) => n.listing));
 }
+
+// Google photo URLs accept a size suffix (=w800-h500-k-no); request a small version for thumbnails.
+export function sized(src, w, h) {
+  if (typeof src !== 'string' || !/googleusercontent\.com/.test(src)) return src;
+  return /=w\d+-h\d+/.test(src) ? src.replace(/=w\d+-h\d+/, `=w${w}-h${h}`) : src;
+}

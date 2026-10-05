@@ -1,6 +1,6 @@
 import { loadData, staticPagePaths } from '../lib/core.mjs';
 import { getPosts } from '../lib/blog.mjs';
-import { getStateLists, getSmallest, getRoadside } from '../lib/bestof.mjs';
+import { getStateLists, getSmallest, getRoadside, getCapitalLists } from '../lib/bestof.mjs';
 import { SITE } from '../config.mjs';
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -11,7 +11,7 @@ export function GET() {
   const entries = [
     ...staticPagePaths().map((p) => ({ loc: p, lastmod: today, img: null })),
     ...posts.map((p) => ({ loc: p.url, lastmod: p.updated.toISOString().slice(0, 10), img: `/images/gen${p.url}.webp` })),
-    ...[...getStateLists(), getSmallest(), getRoadside()].map((p) => ({ loc: p.url, lastmod: today, img: `/images/gen${p.url}.webp` })),
+    ...[...getStateLists(), ...getCapitalLists(), getSmallest(), getRoadside()].map((p) => ({ loc: p.url, lastmod: today, img: `/images/gen${p.url}.webp` })),
     ...states.map((s) => ({ loc: s.url, lastmod: today, img: `/images/gen${s.url}.webp` })),
     ...cities.map((c) => ({ loc: c.url, lastmod: today, img: `/images/gen${c.url}.webp` })),
     ...listings.map((l) => ({ loc: l.url, lastmod: l.gnisEdited || today, img: l.os?.photo || `/images/gen${l.url}.webp` })),
