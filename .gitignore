@@ -7,3 +7,4 @@ public/images/gen/
 .env
 .env.*
 .DS_Store
+public/vendor/

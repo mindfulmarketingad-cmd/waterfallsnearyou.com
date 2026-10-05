@@ -6,11 +6,12 @@ import ListingCard from '../../../components/ListingCard.astro';
 import Photo from '../../../components/Photo.astro';
 import Weather from '../../../components/Weather.astro';
 import Conditions from '../../../components/Conditions.astro';
+import { point } from '../../../lib/maps.mjs';
 import { guideFor } from '../../../lib/guides.mjs';
 import { listingPhoto } from '../../../lib/photos.mjs';
 import { loadData, imageFor, hoursSummary } from '../../../lib/core.mjs';
 import {
-  fmtMiles, fmtNum, stars, gnisUrl, directionsUrl, appleMapsUrl, osmUrl, osmEmbed, topoUrl,
+  fmtMiles, fmtNum, stars, gnisUrl, directionsUrl, appleMapsUrl, osmUrl, topoUrl,
   listingImage, listingImageAlt, imgFallback, addressText, longSummary, nearText, listJoin,
 } from '../../../lib/format.mjs';
 import { SITE } from '../../../config.mjs';
@@ -141,7 +142,9 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
 
       <h2 id="map">Map and Directions</h2>
       <p>The marker shows the USGS-recorded position of {l.name}. Trailheads and parking can be some distance from the falls themselves, so plan your route with an up-to-date trail map.</p>
-      <iframe class="map-frame" src={osmEmbed(l)} title={`Map of ${l.name}`} loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+      <div class="map-frame minimap" role="region" aria-label={`Map of ${l.name} and nearby waterfalls`}></div>
+      <script type="application/json" class="minimap-data" set:html={JSON.stringify({ center: [l.lng, l.lat], highlight: l.url, points: [l, ...l.nearby.slice(0, 10).map((n) => n.listing)].map(point) }).replace(/</g, '\\u003c')} />
+      <p class="small muted" style="margin-top:6px">Red marks {l.name}; green and gray markers are nearby waterfalls (tap for their pages).</p>
       <div class="li-actions" style="margin-top:14px">
         <a class="btn btn-outline" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Google Maps</a>
         <a class="btn btn-outline" href={appleMapsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="pin" />Apple Maps</a>
@@ -256,3 +259,19 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
     </aside>
   </div>
 </Base>
+
+<script>
+  // Small interactive map: loads MapLibre only when the map scrolls near the viewport.
+  const el = document.querySelector<HTMLElement>('.minimap');
+  if (el) {
+    const start = async () => {
+      const { center, highlight, points } = JSON.parse(document.querySelector('.minimap-data').textContent);
+      const { createWaterfallMap } = await import('../../../scripts/wmap.js');
+      createWaterfallMap(el, points, { center, zoom: 12, highlight }).catch(() => {});
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((e) => { if (e.some((x) => x.isIntersecting)) { io.disconnect(); start(); } }, { rootMargin: '300px' });
+      io.observe(el);
+    } else start();
+  }
+</script>

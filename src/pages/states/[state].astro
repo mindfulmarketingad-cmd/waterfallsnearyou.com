@@ -272,7 +272,7 @@ const schema = [
   toggle.hidden = false;
 
   let me: { lat: number; lng: number } | null = null;
-  let map, layer, L;
+  let map, mapApi;
   const norm = (s: string) => s.normalize('NFKD').replace(/[̀-ͯʻ']/g, '').toLowerCase();
   const miles = (a, b) => {
     const r = Math.PI / 180, dLat = (b.lat - a.lat) * r, dLng = (b.lng - a.lng) * r;
@@ -369,38 +369,27 @@ const schema = [
     }, () => { nearBtn.textContent = 'Location unavailable'; }, { timeout: 12000, maximumAge: 600000 });
   });
 
-  // ---- Map view (Leaflet + OpenStreetMap tiles), loaded only when first opened ----
+  // ---- Map view (MapLibre GL + OpenFreeMap tiles), loaded only when first opened ----
+  const toPoint = (c: HTMLElement) => ({
+    n: c.querySelector('.sc-name a').textContent, u: c.dataset.url, la: +c.dataset.lat, ln: +c.dataset.lng,
+    t: c.dataset.town, r: +c.dataset.rating || 0, c: +c.dataset.reviews || 0,
+  });
   function drawMarkers(visible: HTMLElement[]) {
-    layer.clearLayers();
-    const pts = [];
-    for (const c of visible) {
-      const ll = [+c.dataset.lat, +c.dataset.lng];
-      pts.push(ll);
-      const name = c.querySelector('.sc-name a').textContent;
-      const popup = document.createElement('div');
-      const a = document.createElement('a');
-      a.href = c.dataset.url; a.textContent = name; a.style.fontWeight = '700';
-      const meta = document.createElement('div');
-      meta.textContent = `${c.dataset.town}${+c.dataset.reviews ? ` · ${(+c.dataset.rating).toFixed(1)} stars (${(+c.dataset.reviews).toLocaleString('en-US')})` : ''}`;
-      popup.append(a, meta);
-      L.circleMarker(ll, { radius: 7, color: '#ffffff', weight: 2, fillColor: '#3f6f5a', fillOpacity: 0.95 }).bindPopup(popup).addTo(layer);
-    }
-    if (pts.length) map.fitBounds(pts, { padding: [30, 30], maxZoom: 12 });
+    mapApi?.setPoints(visible.map(toPoint));
   }
   async function openMap() {
     toggle.querySelectorAll('.vt-btn').forEach((b: HTMLElement) => b.setAttribute('aria-pressed', String(b.dataset.view === 'map')));
     mapEl.hidden = false;
     list.hidden = true;
-    if (!map) {
-      const mod = await import('leaflet');
-      await import('leaflet/dist/leaflet.css');
-      L = mod.default || mod;
-      map = L.map(mapEl, { scrollWheelZoom: false });
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
-      layer = L.layerGroup().addTo(map);
+    const visible = cards.filter((c) => !c.hidden);
+    if (!mapApi) {
+      const { createWaterfallMap } = await import('../../scripts/wmap.js');
+      mapApi = await createWaterfallMap(mapEl, visible.map(toPoint), { padding: 30 }).catch(() => null);
+      map = mapApi?.map;
+    } else {
+      map.resize();
+      drawMarkers(visible);
     }
-    map.invalidateSize();
-    drawMarkers(cards.filter((c) => !c.hidden));
   }
   function openList() {
     toggle.querySelectorAll('.vt-btn').forEach((b: HTMLElement) => b.setAttribute('aria-pressed', String(b.dataset.view === 'list')));

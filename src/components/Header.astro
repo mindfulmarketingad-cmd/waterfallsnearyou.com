@@ -5,6 +5,7 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/blog', label: 'Blog' },
   { href: '/states', label: 'States' },
+  { href: '/map', label: 'Map' },
   { href: '/about', label: 'About' },
 ];
 const isCurrent = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(href + '/')) ? 'page' : undefined;

@@ -5,12 +5,13 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/import-outscraper.mjs && node scripts/build-assets.mjs",
+    "prebuild": "node scripts/copy-vendor.mjs && node scripts/import-outscraper.mjs && node scripts/build-assets.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
     "data:gnis": "node scripts/prepare-gnis.mjs",
-    "import:outscraper": "node scripts/import-outscraper.mjs"
+    "import:outscraper": "node scripts/import-outscraper.mjs",
+    "predev": "node scripts/copy-vendor.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",
@@ -18,7 +19,7 @@
     "astro": "^7.3.5",
     "csv-parse": "^7.0.3",
     "exceljs": "^4.4.0",
-    "leaflet": "^1.9.4",
+    "maplibre-gl": "^6.12.0",
     "marked": "^18.0.14",
     "sharp": "^0.35.5",
     "yaml": "^2.9.1"

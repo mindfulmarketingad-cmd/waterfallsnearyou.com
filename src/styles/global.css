@@ -345,3 +345,9 @@ a.sc-tag:hover { background: var(--forest); color: #fff; }
 
 .stars.empty { color: #c9cfcc; }
 .rating.unrated .count { margin-left: 6px; }
+
+/* ---------- Maps (MapLibre) ---------- */
+.wpop a { font-weight: 700; color: var(--forest); }
+.wpop div { font-size: 0.85rem; color: var(--slate); margin-top: 2px; }
+.wmap-fallback { display: grid; place-items: center; color: var(--slate); padding: 20px; text-align: center; }
+.maplibregl-popup-content { border-radius: 10px; padding: 10px 12px; font-family: var(--font-body); }

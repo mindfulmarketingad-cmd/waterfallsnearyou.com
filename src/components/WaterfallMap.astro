@@ -1,68 +1,32 @@
 ---
-// Interactive waterfall map (Leaflet + OpenStreetMap tiles). Points are embedded as JSON; every
+// Interactive waterfall map (MapLibre GL + OpenFreeMap tiles). Points are embedded as JSON; every
 // marker opens a popup linking to that waterfall's listing page.
 interface Point { n: string; u: string; la: number; ln: number; t: string; r?: number; c?: number }
 interface Props { points: Point[]; label: string; bounds?: [[number, number], [number, number]]; height?: number }
 const { points, label, bounds, height = 640 } = Astro.props;
-const data = JSON.stringify({ points, bounds: bounds || null }).replace(/</g, '\\u003c');
+// MapLibre bounds are [[west, south], [east, north]] in lng/lat order.
+const lngLatBounds = bounds ? [[bounds[0][1], bounds[0][0]], [bounds[1][1], bounds[1][0]]] : null;
+const data = JSON.stringify({ points, bounds: lngLatBounds }).replace(/</g, '\\u003c');
 ---
 <div class="wmap-wrap">
   <div class="wmap" style={`--h:${height}px`} role="region" aria-label={label}></div>
-  <p class="wmap-legend small muted"><span class="dot"></span> Waterfall with visitor ratings <span class="dot dot-u"></span> Not yet rated · Tap a marker for the waterfall page.</p>
+  <p class="wmap-legend small muted"><span class="dot"></span> Waterfall with visitor ratings <span class="dot dot-u"></span> Not yet rated · Tap a marker for the waterfall page. Use two fingers (or Ctrl + scroll) to zoom.</p>
   <noscript><p>The interactive map needs JavaScript. Browse the waterfall pages linked below instead.</p></noscript>
   <script type="application/json" class="wmap-data" set:html={data} />
 </div>
 
 <style>
-  .wmap { height: var(--h); max-height: 75vh; min-height: 380px; border: 1px solid var(--line); border-radius: 12px; background: var(--mist); z-index: 0; }
+  .wmap { height: var(--h); max-height: 75vh; min-height: 380px; border: 1px solid var(--line); border-radius: 12px; background: var(--mist); overflow: hidden; }
   .wmap-legend { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 8px 0 0; }
   .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #3f6f5a; border: 2px solid #fff; box-shadow: 0 0 0 1px #3f6f5a; }
   .dot-u { background: #9aa6a1; box-shadow: 0 0 0 1px #9aa6a1; margin-left: 10px; }
-  .wmap :global(.wpop a) { font-weight: 700; color: var(--forest); }
-  .wmap :global(.wpop div) { font-size: 0.85rem; color: var(--slate); margin-top: 2px; }
 </style>
 
 <script>
-  import L from 'leaflet';
-  import 'leaflet/dist/leaflet.css';
-
+  import { createWaterfallMap } from '../scripts/wmap.js';
   for (const wrap of document.querySelectorAll<HTMLElement>('.wmap-wrap')) {
     const el = wrap.querySelector('.wmap') as HTMLElement;
     const { points, bounds } = JSON.parse(wrap.querySelector('.wmap-data').textContent);
-    const map = L.map(el, { preferCanvas: true, scrollWheelZoom: false, worldCopyJump: true });
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
-    const all = [];
-    for (const p of points) {
-      const rated = !!p.r;
-      const m = L.circleMarker([p.la, p.ln], {
-        radius: rated ? 6 : 5, color: '#ffffff', weight: 1.5,
-        fillColor: rated ? '#3f6f5a' : '#9aa6a1', fillOpacity: 0.95,
-      });
-      const box = document.createElement('div');
-      box.className = 'wpop';
-      const a = document.createElement('a');
-      a.href = p.u;
-      a.textContent = p.n;
-      const meta = document.createElement('div');
-      meta.textContent = `${p.t}${rated ? ` · ${p.r.toFixed(1)} stars (${p.c.toLocaleString('en-US')} reviews)` : ''}`;
-      const go = document.createElement('div');
-      const link = document.createElement('a');
-      link.href = p.u;
-      link.textContent = 'View waterfall';
-      go.append(link);
-      box.append(a, meta, go);
-      m.bindPopup(box);
-      m.bindTooltip(p.n, { direction: 'top', offset: [0, -6] });
-      m.addTo(map);
-      all.push([p.la, p.ln]);
-    }
-    if (bounds) map.fitBounds(bounds, { padding: [20, 20] });
-    else if (all.length) map.fitBounds(all, { padding: [30, 30], maxZoom: 12 });
-    // Enable scroll-zoom only after the user interacts, so the page still scrolls normally.
-    map.once('click', () => map.scrollWheelZoom.enable());
-    map.on('focus', () => map.scrollWheelZoom.enable());
+    createWaterfallMap(el, points, { bounds: bounds || undefined, padding: 20 }).catch(() => {});
   }
 </script>
