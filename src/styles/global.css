@@ -351,3 +351,13 @@ a.sc-tag:hover { background: var(--forest); color: #fff; }
 .wpop div { font-size: 0.85rem; color: var(--slate); margin-top: 2px; }
 .wmap-fallback { display: grid; place-items: center; color: var(--slate); padding: 20px; text-align: center; }
 .maplibregl-popup-content { border-radius: 10px; padding: 10px 12px; font-family: var(--font-body); }
+
+/* Homepage hiking gear CTA */
+.gear-cta { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px 40px; align-items: center; background: var(--slate); color: #f1f3f2; border-radius: 16px; padding: 36px 40px; }
+.gear-cta h2 { color: #fff; }
+.gear-cta .eyebrow { color: #c9d6d0; }
+.gear-cta p { color: #e6eae8; }
+.gear-cta .gear-note { font-size: 0.82rem; color: #c9d0cd; margin: 12px 0 0; }
+.gear-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.gear-list li { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 10px; padding: 10px 14px; font-weight: 500; }
+@media (max-width: 760px) { .gear-cta { grid-template-columns: minmax(0, 1fr); padding: 28px 22px; } }

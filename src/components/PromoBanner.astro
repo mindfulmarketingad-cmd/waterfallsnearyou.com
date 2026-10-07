@@ -1,0 +1,19 @@
+---
+// Sitewide promo bar above the header linking to the hiking gear affiliate page.
+import { SITE } from '../config.mjs';
+---
+<aside class="promo" aria-label="Promotion">
+  <div class="wrap promo-inner">
+    <span>Heading out to a waterfall?<span class="promo-more"> Get trail-ready boots, packs and water gear.</span></span>
+    <a href={SITE.gearUrl} rel="sponsored nofollow noopener" target="_blank">Shop Hiking Gear<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</aside>
+
+<style>
+  .promo { background: var(--slate-dark); color: #e6eae8; font-size: 0.88rem; }
+  .promo-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 14px; padding-top: 8px; padding-bottom: 8px; text-align: center; }
+  .promo a { display: inline-flex; align-items: center; gap: 4px; color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+  .promo a:hover { text-decoration: none; }
+  .promo svg { width: 15px; height: 15px; }
+  @media (max-width: 560px) { .promo-more { display: none; } .promo-inner { flex-wrap: nowrap; gap: 10px; } }
+</style>
