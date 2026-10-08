@@ -6,7 +6,7 @@ import FilterChips from '../../../components/FilterChips.astro';
 import Faq from '../../../components/Faq.astro';
 import { loadData, imageFor } from '../../../lib/core.mjs';
 import { fmtMiles, listJoin, listingImage, listingImageAlt, imgFallback } from '../../../lib/format.mjs';
-import { cityInsights, vary } from '../../../lib/insights.mjs';
+import { cityInsights, isHistorical, vary } from '../../../lib/insights.mjs';
 import Photo from '../../../components/Photo.astro';
 import { pagePhoto, cityFeatured, listingPhoto } from '../../../lib/photos.mjs';
 import { SITE } from '../../../config.mjs';
@@ -19,7 +19,8 @@ const { cities, states } = loadData();
 const city = cities.find((c) => c.url === url);
 const state = states.find((s) => s.name === city.state);
 const ins = cityInsights(city);
-const items = city.nearby.slice(0, 30);
+const current = city.nearby.filter((n) => !isHistorical(n.listing));
+const items = (current.length ? current : city.nearby).slice(0, 30);
 const within30 = ins.w30.length;
 const closest = items[0];
 const top = ins.picks.find((p) => p.label === 'Highest rated');
@@ -53,18 +54,32 @@ const regionText = ins.region
 const dirSummary = Object.entries(ins.dirCount).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]);
 const chips = [
   { url: city.url, label: city.name, count: within30 },
-  ...city.nearbyCities.map(({ city: c }) => ({ url: c.url, label: c.name, count: c.nearby.filter((x) => x.miles <= 30).length })),
+  ...city.nearbyCities.map(({ city: c }) => ({ url: c.url, label: c.name, count: c.nearby.filter((x) => x.miles <= 30 && !isHistorical(x.listing)).length })),
   { url: state.url, label: `All ${state.name}`, count: state.listings.length },
 ];
 const photo = pagePhoto(city.url, cityFeatured(city));
 const image = photo.src;
-const title = `Waterfalls Near ${place} | ${within30 || items.length} Scenic Falls`;
-const description = [
-  within30 ? `${within30} waterfalls within 30 miles of ${place}` : `The closest waterfalls to ${place}`,
-  closest ? `; the nearest is ${closest.listing.name} (${fmtMiles(closest.miles)})` : '',
-  top ? `, top rated is ${top.n.listing.name}` : '',
-  '. Maps, GPS coordinates and directions.',
-].join('').slice(0, 160);
+// Searchers recognise the best-known falls by name, so the title leads with the most-reviewed ones
+// (within 30 miles when there are any) instead of a bare count.
+const seen = new Set();
+const famous = [...(ins.w30.length ? ins.w30 : items.slice(0, 10))]
+  .filter((n) => n.listing.os?.reviews >= 10 && !seen.has(n.listing.name) && seen.add(n.listing.name))
+  .sort((a, b) => b.listing.os.reviews - a.listing.os.reviews);
+const pair = (a, b) => (a.endsWith(' Falls') && b.endsWith(' Falls') ? `${a.slice(0, -6)} & ${b}` : `${a} & ${b}`);
+const titleOptions = [
+  famous[1] && `Waterfalls Near ${place}: ${pair(famous[0].listing.name, famous[1].listing.name)}`,
+  famous[0] && `Waterfalls Near ${place}: ${famous[0].listing.name} & More`,
+  `${items.length} Waterfalls Near ${place} (Map & Directions)`,
+  `${items.length} Waterfalls Near ${place}`,
+].filter(Boolean);
+const title = titleOptions.find((t) => t.length <= 60) || titleOptions[titleOptions.length - 1];
+const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+const descFor = (k) => [
+  within30 ? `${plural(within30, 'waterfall')} within 30 miles of ${place}` : `The closest waterfalls to ${place}`,
+  famous[0] && k ? `, including ${listJoin(famous.slice(0, k).map((n) => n.listing.name))}` : closest ? `; the nearest is ${closest.listing.name} (${fmtMiles(closest.miles)})` : '',
+  '. Distances, ratings, maps and directions.',
+].join('');
+const description = [3, 2, 1, 0].map(descFor).find((d) => d.length <= 160) || descFor(0);
 const crumbs = [
   { name: 'Home', url: '/' },
   { name: 'States', url: '/states' },

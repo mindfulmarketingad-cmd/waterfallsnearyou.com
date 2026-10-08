@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'WaterfallsNearYou',
   domain: 'WaterfallsNearYou.com',
-  url: 'https://waterfallsnearyou.com',
+  url: 'https://www.waterfallsnearyou.com',
   email: 'contact@waterfallsnearyou.com',
   tagline: 'Hidden Locations For Scenic Hikes',
   adsenseClient: 'ca-pub-9332749804326149',

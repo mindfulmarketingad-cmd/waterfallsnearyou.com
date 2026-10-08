@@ -1,6 +1,6 @@
 ---
-title: "Is It Safe to Swim at Waterfalls? Risks and Safer Options"
-description: "Is it safe to swim at waterfalls? Learn the real risks, from cold water shock and hydraulics to hidden rocks and flash floods, plus how to choose safer spots."
+title: "Can You Swim in a Waterfall? Risks and Safer Options"
+description: "Can you swim in a waterfall? Sometimes, in the right pool at the right flow. Learn the risks, from cold water shock to hydraulics, and how to pick safer spots."
 pubDate: 2026-09-19
 category: "Safety"
 imageAlt: "A calm, shallow pool below a small cascade in a forested creek, with clear water over smooth stones and sunlight filtering through the trees"

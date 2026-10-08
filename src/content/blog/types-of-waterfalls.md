@@ -1,12 +1,18 @@
 ---
-title: "Types of Waterfalls: Plunge, Horsetail, Cascade and More"
-description: "Learn the main types of waterfalls, from plunge and horsetail to cascade, tiered and punchbowl, plus how falls form through erosion, caprock and nickpoints."
+title: "10 Types of Waterfalls: Plunge, Horsetail, Cascade and More"
+description: "The 10 main types of waterfalls, from plunge and horsetail to cascade, tiered, block and punchbowl, what small falls are called, and how waterfalls form."
 pubDate: 2026-09-16
 category: "Guides"
 imageAlt: "A tall plunge waterfall dropping over a dark rock ledge into a round green pool surrounded by ferns and mossy boulders"
 faqs:
   - q: "What are the main types of waterfalls?"
     a: "The most widely used categories are plunge, horsetail, cascade, tiered, segmented, block, fan, punchbowl, slide and chute. Many waterfalls combine two or more forms, such as a tiered fall whose upper drop is a plunge and lower drop is a cascade."
+  - q: "What is a small waterfall called?"
+    a: "A small waterfall is usually called a cascade, especially when the water tumbles over a series of low rock steps rather than one clean drop. Stretches of fast, broken water over rocks with no real drop are called rapids rather than waterfalls."
+  - q: "What is a step-like series of waterfalls called?"
+    a: "A series of small steps close together is a cascade. When each step is a distinct waterfall with its own ledge or pool, it is called a tiered or multi-step waterfall."
+  - q: "What is a cataract?"
+    a: "Cataract is an older, general term for a large, powerful waterfall, usually on a big river with a high volume of water. It describes size and force rather than a particular shape."
   - q: "What is the difference between a plunge and a horsetail waterfall?"
     a: "In a plunge, the water leaves the rock face and falls freely through the air. In a horsetail, the water stays in contact with the rock for at least part of its descent, spreading and fraying as it slides down."
   - q: "How do waterfalls form?"
@@ -48,9 +54,9 @@ A tiered waterfall drops in a series of distinct steps, each with its own pool o
 
 A segmented waterfall splits into two or more separate channels of water as it descends, usually because rock outcrops divide the flow at the lip. The number of segments often changes with water level. At high flow, the streams may merge into a single sheet; at low flow, they separate into distinct ribbons.
 
-### Block (Curtain)
+### Block (Sheet)
 
-A block or curtain waterfall is wider than it is tall, with water pouring over a broad, relatively even ledge. These are typically found on larger rivers, and they are the type most people picture when they think of very high-volume falls. Niagara Falls is the best-known North American example of the form.
+A block or sheet waterfall is wider than it is tall, with water pouring over a broad, relatively even ledge. These are typically found on larger rivers, and they are the type most people picture when they think of very high-volume falls. Niagara Falls is the best-known North American example of the form. A sheet of water that is taller than it is wide is sometimes called a curtain waterfall.
 
 ### Fan
 

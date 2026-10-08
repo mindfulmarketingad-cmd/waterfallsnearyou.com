@@ -15,6 +15,7 @@ import {
   listingImage, listingImageAlt, imgFallback, addressText, longSummary, nearText, listJoin,
 } from '../../../lib/format.mjs';
 import { SITE } from '../../../config.mjs';
+import { listingTitle } from '../../../lib/seo.mjs';
 
 export function getStaticPaths() {
   return loadData().listings.map((l) => ({
@@ -35,12 +36,13 @@ const crumbs = [
   { name: l.city.name, url: l.city.url },
   { name: l.name, url: l.url },
 ];
-const dupName = l.city.assigned.some((x) => x !== l && x.name === l.name);
-const baseTitle = dupName ? `${l.name}, ${l.cityMiles.toFixed(1)} mi ${l.cityDirection || 'from'} of ${l.city.name}, ${l.stateCode}`.replace(' from of ', ' from ') : `${l.name} near ${l.city.name}, ${l.stateCode}`;
-const title = baseTitle.length <= 44 ? `${baseTitle} | Map & Directions` : baseTitle.length <= 54 ? `${baseTitle} | Directions` : baseTitle;
-const description = os?.rating
-  ? `${l.name} near ${l.city.name}, ${l.stateCode}: rated ${os.rating.toFixed(1)} from ${fmtNum(os.reviews)} reviews. Hours, directions, GPS coordinates, map and nearby waterfalls.`
-  : `${l.name} is a waterfall ${nearText(l)}, ${l.state}. GPS coordinates, USGS topo map, directions, map and ${l.nearby.length} nearby waterfalls.`;
+const title = listingTitle(l);
+// Only promise what the page shows: hours appear only when Google lists them.
+const where = `${l.county ? `${l.county} County, ` : ''}${l.state}`;
+const aka = l.variants?.length ? ` Also known as ${l.variants[0]}.` : '';
+const description = (os?.rating
+  ? `${l.name} near ${l.city.name} in ${where}: rated ${os.rating.toFixed(1)} from ${fmtNum(os.reviews)} Google reviews.${aka} ${hours ? 'Hours, directions' : 'Directions'}, GPS coordinates, weather and map.`
+  : `${l.name} is a waterfall ${nearText(l)} in ${where}.${aka} GPS coordinates, USGS topo map, directions, weather and ${l.nearby.length} nearby falls.`);
 const photo = listingPhoto(l);
 const guide = guideFor(l);
 const ownImage = photo.own ? photo.src : imageFor(l.url);
