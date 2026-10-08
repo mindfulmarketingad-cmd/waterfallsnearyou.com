@@ -4,6 +4,7 @@ import Faq from './Faq.astro';
 import PageBand from './PageBand.astro';
 import Byline from './Byline.astro';
 import PostCard from './PostCard.astro';
+import TripCta from './TripCta.astro';
 import { getStateLists, listsForState, BEST_YEAR, LISTS_PUBLISHED } from '../lib/bestof.mjs';
 import { displayName, fmtNum, fmtMiles, listJoin } from '../lib/format.mjs';
 import { cardSummary } from '../lib/cards.mjs';
@@ -84,6 +85,7 @@ const schema = [
         <PostCard listing={l} rank={n + 1} lead={cardSummary(l, n + 1)} why={why} anchor={`w${n + 1}`} />
       ))}
     </ol>
+    <TripCta place={state.name} />
 
     {post.route && (
       <div class="prose">

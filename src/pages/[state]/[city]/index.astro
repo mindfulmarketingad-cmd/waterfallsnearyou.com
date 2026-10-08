@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import PageHero from '../../../components/PageHero.astro';
 import Listicle from '../../../components/Listicle.astro';
+import TripCta from '../../../components/TripCta.astro';
 import FilterChips from '../../../components/FilterChips.astro';
 import Faq from '../../../components/Faq.astro';
 import { loadData, imageFor } from '../../../lib/core.mjs';
@@ -116,6 +117,7 @@ const schema = [
   <section class="wrap section-sm" aria-labelledby="list">
     <h2 id="list">{items.length} Waterfalls Near {city.name}, Ranked by Distance</h2>
     <Listicle items={items} from={city.name} />
+    <TripCta place={`${city.name}, ${state.name}`} />
   </section>
 
   <section class="bg-mist section-sm">

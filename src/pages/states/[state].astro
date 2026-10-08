@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import TripCta from '../../components/TripCta.astro';
 import PageBand from '../../components/PageBand.astro';
 import StateCard from '../../components/StateCard.astro';
 import Faq from '../../components/Faq.astro';
@@ -96,6 +97,7 @@ const schema = [
       {all.map((l, i) => <StateCard listing={l} rank={i + 1} />)}
     </ol>
     <p class="no-results muted" hidden>No waterfalls match those filters. <button type="button" class="linkish f-reset">Reset filters</button></p>
+    <TripCta place={state.name} />
   </section>
 
   <section class="wrap section-sm" aria-labelledby="towns-h">

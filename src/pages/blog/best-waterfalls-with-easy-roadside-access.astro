@@ -5,6 +5,7 @@ import Faq from '../../components/Faq.astro';
 import PageBand from '../../components/PageBand.astro';
 import Byline from '../../components/Byline.astro';
 import PostCard from '../../components/PostCard.astro';
+import TripCta from '../../components/TripCta.astro';
 import { cardSummary } from '../../lib/cards.mjs';
 import Photo from '../../components/Photo.astro';
 import { getRoadside, BEST_YEAR, LISTS_PUBLISHED } from '../../lib/bestof.mjs';
@@ -56,6 +57,7 @@ const schema = [
           <PostCard listing={l} rank={n + 1} anchor={`w${n + 1}`} lead={cardSummary(l, n + 1)} why={why} />
         ))}
       </ol>
+      <TripCta />
       <div class="prose">
         <h2>Tips for Easy Waterfall Visits</h2>
         <ul>

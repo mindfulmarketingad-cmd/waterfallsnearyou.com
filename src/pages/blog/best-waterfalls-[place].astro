@@ -6,6 +6,7 @@ import Faq from '../../components/Faq.astro';
 import PageBand from '../../components/PageBand.astro';
 import Byline from '../../components/Byline.astro';
 import PostCard from '../../components/PostCard.astro';
+import TripCta from '../../components/TripCta.astro';
 import { getCapitalLists, listsForState, LISTS_PUBLISHED, BEST_YEAR } from '../../lib/bestof.mjs';
 import { miles } from '../../lib/core.mjs';
 import { stateContent } from '../../lib/insights.mjs';
@@ -76,6 +77,7 @@ const schema = [
           why={why} />
       ))}
     </ol>
+    <TripCta place={place} />
 
     <div class="prose">
       <h2>Waterfall Day Trips From {capital}</h2>

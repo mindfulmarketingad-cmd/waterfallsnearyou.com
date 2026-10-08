@@ -5,6 +5,7 @@ import Faq from '../../components/Faq.astro';
 import PageBand from '../../components/PageBand.astro';
 import Byline from '../../components/Byline.astro';
 import PostCard from '../../components/PostCard.astro';
+import TripCta from '../../components/TripCta.astro';
 import { cardSummary } from '../../lib/cards.mjs';
 import { getSmallest, BEST_YEAR, LISTS_PUBLISHED } from '../../lib/bestof.mjs';
 import { imageFor } from '../../lib/core.mjs';
@@ -61,6 +62,7 @@ const schema = [
             why={[`The ${h.source} records it as: "${h.text.replace(/\s+/g, ' ').trim()}"`, ...(l.os?.rating ? [`Visitors rate it ${l.os.rating.toFixed(1)} stars from ${fmtNum(l.os.reviews)} Google reviews.`] : []), ...(l.nearby?.[0] ? [`The nearest other named waterfall is ${l.nearby[0].listing.name}, about ${l.nearby[0].miles.toFixed(1)} miles to the ${l.nearby[0].direction}.`] : [])]} />
         ))}
       </ol>
+      <TripCta />
       <div class="prose">
         <h2>Why Small Waterfalls Are Worth a Visit</h2>
         <p>Short drops are often the easiest falls to reach, frequently sit in town parks or beside roads, and keep flowing in seasons when tall, thin falls dry up. They are also where geology is easiest to read: a single resistant ledge of rock holding back a stream. For the opposite end of the scale, see the <a href="/blog/largest-waterfalls-in-the-us-by-state">largest waterfalls in the US by state</a>, or learn the difference between a cascade and a plunge in our guide to <a href="/blog/types-of-waterfalls">types of waterfalls</a>.</p>
