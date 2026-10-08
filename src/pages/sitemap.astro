@@ -5,6 +5,7 @@ import { getPosts } from '../lib/blog.mjs';
 import { getStateLists, getSmallest, getRoadside, getCapitalLists } from '../lib/bestof.mjs';
 const { states } = loadData();
 const posts = getPosts();
+import { getFind, findPages } from '../lib/find.mjs';
 ---
 <StaticPage title="Sitemap | All Pages on WaterfallsNearYou" h1="Sitemap" eyebrow="Every page" description="An overview of every section of WaterfallsNearYou: state guides, town guides, blog articles and site information pages." intro="Every state and town guide on the site. Each town page links to the individual waterfalls around it.">
   <h2>Main pages</h2>
@@ -12,12 +13,15 @@ const posts = getPosts();
     <li><a href="/">Home</a></li><li><a href="/states">Waterfalls by State</a></li><li><a href="/blog">Blog</a></li><li><a href="/search">Search</a></li>
     <li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/disclaimer">Disclaimer</a></li><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms of Use</a></li>
     <li><a href="/map">United States Waterfall Map</a></li>
+    <li><a href="/find">Find Waterfalls by Type</a></li>
     <li><a href="/sitemap.xml">XML sitemap</a></li>
   </ul>
   <h2>Blog</h2>
   <ul>{posts.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
   <h2>State waterfall lists</h2>
   <ul class="link-cols">{[getRoadside(), getSmallest(), ...getCapitalLists(), ...getStateLists()].map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
+  <h2>Waterfalls by type</h2>
+  <ul class="link-cols">{getFind().flatMap((t) => [t, ...findPages().filter((p) => p.type.slug === t.slug)]).map((p) => <li><a href={p.url}>{p.title || `${p.name} by State`}</a></li>)}</ul>
   <h2>States and towns</h2>
   {states.map((s) => (
     <>

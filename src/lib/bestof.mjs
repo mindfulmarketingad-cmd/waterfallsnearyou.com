@@ -86,10 +86,10 @@ function regionLine(l, ctx, state) {
   const r = regionForCounty(state, l.county);
   return r && ctx.regionCounts[r.name] > 1 ? `It is one of ${ctx.regionCounts[r.name]} named falls in the ${r.name} region.` : null;
 }
-function townLine(l) {
+export function townLine(l) {
   return l.cityMiles < 0.5 ? `It is right in ${l.city.name}.` : `The nearest town is ${l.city.name}, about ${mi(l.cityMiles)} to the ${OPP[l.cityDirection] || l.cityDirection}.`;
 }
-function usgsLines(l) {
+export function usgsLines(l) {
   const out = [];
   if (l.gnisDescription && !isPlss(l.gnisDescription)) out.push(`The USGS gazetteer describes it as: ${end(l.gnisDescription)}`);
   if (l.gnisHistory) out.push(`Name history: ${end(l.gnisHistory)}`);

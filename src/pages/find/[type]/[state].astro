@@ -1,0 +1,86 @@
+---
+// "[x] Best [Type] in [State] [Year]": one page per waterfall type and state, built only when at
+// least MIN_ITEMS waterfalls in the state genuinely qualify (see src/lib/find.mjs).
+import Base from '../../../layouts/Base.astro';
+import Faq from '../../../components/Faq.astro';
+import PageBand from '../../../components/PageBand.astro';
+import Byline from '../../../components/Byline.astro';
+import PostCard from '../../../components/PostCard.astro';
+import TripCta from '../../../components/TripCta.astro';
+import { findPages, findForState, FIND_PUBLISHED, FIND_YEAR } from '../../../lib/find.mjs';
+import { cardSummary } from '../../../lib/cards.mjs';
+import { pagePhoto } from '../../../lib/photos.mjs';
+import { displayName, fmtNum, listJoin } from '../../../lib/format.mjs';
+import { SITE } from '../../../config.mjs';
+
+export function getStaticPaths() {
+  return findPages().map((p) => ({ params: { type: p.type.slug, state: p.state.slug }, props: { url: p.url } }));
+}
+const page = findPages().find((p) => p.url === Astro.props.url);
+const { type, state, items } = page;
+const others = findForState(state).filter((p) => p !== page);
+const photo = pagePhoto(page.url, items.map((i) => i.listing));
+const abs = (u) => (u.startsWith('http') ? u : `${SITE.url}${u}`);
+const updated = new Date();
+const first = items[0].listing;
+const towns = [...new Set(items.map((i) => i.listing.city))].slice(0, 6);
+const counties = [...new Set(items.map((i) => i.listing.county).filter(Boolean))];
+const minutes = Math.max(2, Math.round(items.reduce((s, i) => s + i.why.join(' ').split(/\s+/).length + 40, 300) / 230));
+const lower = type.short.toLowerCase();
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Find', url: '/find' }, { name: type.name, url: type.url }, { name: state.name, url: page.url }];
+const faqs = [
+  { q: `What is the best ${lower.replace(/s$/, '')} in ${state.name}?`, a: `<a href="${first.url}">${first.name}</a> tops our ${FIND_YEAR} list. ${items[0].why[0]} It is near <a href="${first.city.url}">${first.city.name}</a>${first.county ? ` in ${first.county} County` : ''}.` },
+  { q: `How many ${lower} are in ${state.name}?`, a: `${fmtNum(page.candidates)} of the ${fmtNum(state.listings.length)} waterfalls we track in ${state.name} qualify. This page ranks the top ${items.length}; every waterfall in the state is on the <a href="${state.url}">${state.name} waterfalls page</a>.` },
+  { q: 'How was this list made?', a: page.method },
+  ...(counties.length > 1 ? [{ q: `Which counties are they in?`, a: `The ${items.length} on this list are in ${listJoin(counties.slice(0, 6).map((c) => `${c} County`))}${counties.length > 6 ? ' and others' : ''}.` }] : []),
+];
+const schema = [
+  { '@type': 'Article', headline: page.title, description: page.description, image: abs(photo.src), datePublished: FIND_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${page.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'State', name: state.name } },
+  { '@type': 'ItemList', name: page.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={page.title} description={page.description} image={photo.src} imageAlt={photo.alt} type="article" published={FIND_PUBLISHED.toISOString()} modified={updated.toISOString()} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={photo.src}>
+  <PageBand title={page.title} crumbs={crumbs} narrow />
+  <article class="wrap narrow">
+    <figure class="post-hero">
+      <img src={photo.src} alt={photo.alt} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror={photo.fallback ? `this.onerror=null;this.src='${photo.fallback}';this.parentNode.querySelector('figcaption')?.remove()` : undefined} />
+      {photo.listing && <figcaption>Photo via Google: {photo.listing.name}, {state.name}</figcaption>}
+    </figure>
+    <Byline published={FIND_PUBLISHED} updated={updated} minutes={minutes} />
+
+    <nav class="jump" aria-label="Jump to">
+      <strong>Jump to:</strong>
+      {items.map((i, n) => <>{n ? <span class="sep">·</span> : ''}<a href={`#w${n + 1}`}>{n + 1}. {displayName(i.listing)}</a></>)}
+    </nav>
+
+    <div class="prose">
+      <p>
+        The best {lower} in {state.name} are {items.length > 3 ? `${items.slice(0, 3).map((i) => displayName(i.listing)).join(', ')} and ${items.length - 3} more` : listJoin(items.map((i) => displayName(i.listing)))}. {type.blurb}
+      </p>
+      <p>
+        See every waterfall on the <a href={state.url}>{state.name} waterfalls page</a> or the <a href={`/map/${state.slug}`}>{state.name} waterfall map</a>{towns.length > 0 && <>, or browse by town: {towns.map((c, i) => <>{i ? ', ' : ''}<a href={c.url}>{c.name}</a></>)}</>}.
+      </p>
+      <p class="small muted">How we picked: {page.method}</p>
+    </div>
+
+    <ol class="pc-list" style="margin:22px 0 10px">
+      {items.map(({ listing: l, why }, n) => (
+        <PostCard listing={l} rank={n + 1} anchor={`w${n + 1}`} lead={cardSummary(l, n + 1)} why={why} />
+      ))}
+    </ol>
+    <TripCta place={state.name} />
+
+    <div style="margin:34px 0"><Faq faqs={faqs} heading="Frequently asked questions" /></div>
+
+    {others.length > 0 && (
+      <div class="prose">
+        <h2>More {state.name} Waterfalls by Type</h2>
+        <ul>
+          {others.map((p) => <li><a href={p.url}>{p.title.replace(/ \(\d{4}( Updated)?\)$/, '')}</a></li>)}
+        </ul>
+        <p>Or browse every type on the <a href={type.url}>{type.name.toLowerCase()} by state</a> page and the <a href="/find">waterfall types hub</a>.</p>
+      </div>
+    )}
+  </article>
+</Base>

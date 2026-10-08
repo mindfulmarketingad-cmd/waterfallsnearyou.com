@@ -2,6 +2,7 @@ import { loadData, staticPagePaths } from '../lib/core.mjs';
 import { getPosts } from '../lib/blog.mjs';
 import { getStateLists, getSmallest, getRoadside, getCapitalLists } from '../lib/bestof.mjs';
 import { getGuides } from '../lib/guides.mjs';
+import { getFind, findPages } from '../lib/find.mjs';
 import { SITE } from '../config.mjs';
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -13,6 +14,9 @@ export function GET() {
     ...staticPagePaths().map((p) => ({ loc: p, lastmod: today, img: null })),
     ...posts.map((p) => ({ loc: p.url, lastmod: p.updated.toISOString().slice(0, 10), img: `/images/gen${p.url}.webp` })),
     ...[...getStateLists(), ...getCapitalLists(), getSmallest(), getRoadside()].map((p) => ({ loc: p.url, lastmod: today, img: `/images/gen${p.url}.webp` })),
+    { loc: '/find', lastmod: today, img: null },
+    ...getFind().map((t) => ({ loc: t.url, lastmod: today, img: null })),
+    ...findPages().map((p) => ({ loc: p.url, lastmod: today, img: `/images/gen${p.url}.webp` })),
     { loc: '/map', lastmod: today, img: null },
     ...states.map((s) => ({ loc: `/map/${s.slug}`, lastmod: today, img: null })),
     ...getGuides().map((g) => ({ loc: g.url, lastmod: today, img: g.listing.os?.photo || `/images/gen${g.listing.url}.webp` })),
