@@ -4,13 +4,22 @@ import Base from '../../layouts/Base.astro';
 import PageBand from '../../components/PageBand.astro';
 import { getFind, FIND_YEAR } from '../../lib/find.mjs';
 import { loadData } from '../../lib/core.mjs';
-import { pagePhoto } from '../../lib/photos.mjs';
+import { pagePhoto, listingPhoto, sized } from '../../lib/photos.mjs';
 import { fmtNum } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
 
 const types = getFind();
 const { listings } = loadData();
 const total = types.reduce((s, t) => s + t.pages.length, 0);
+// One real photo per type: the highest-placed waterfall on that type's lists that has its own
+// Google photo, never reusing a waterfall already shown for another type.
+const used = new Set();
+const covers = Object.fromEntries(types.map((t) => {
+  const pool = [...t.pages.flatMap((p) => p.items || []), ...(t.national?.items || [])].map((i) => i.listing);
+  const l = pool.find((x) => !used.has(x) && listingPhoto(x).own) || pool.find((x) => !used.has(x)) || pool[0];
+  if (l) used.add(l);
+  return [t.slug, l ? { listing: l, photo: listingPhoto(l) } : null];
+}));
 const title = `Find Waterfalls by Type (${FIND_YEAR})`;
 const description = `Browse ${fmtNum(listings.length)} US waterfalls by type: hidden gems, waterfall trails, historic falls, cascades, tall and small waterfalls, roadside stops and more, state by state.`.slice(0, 160);
 const photo = pagePhoto('/find', types.flatMap((t) => t.pages.slice(0, 1).flatMap((p) => p.items.slice(0, 1).map((i) => i.listing))));
@@ -27,6 +36,13 @@ const schema = [
     <div class="find-types">
       {types.map((t) => (
         <section class="find-type" aria-labelledby={`t-${t.slug}`}>
+          {covers[t.slug] && (
+            <a class="find-img" href={t.url} tabindex="-1" aria-hidden="true">
+              <img src={sized(covers[t.slug].photo.src, 680, 400)} alt="" width="680" height="400" loading="lazy" decoding="async" referrerpolicy="no-referrer"
+                onerror={covers[t.slug].photo.fallback ? `this.onerror=null;this.src='${covers[t.slug].photo.fallback}'` : undefined} />
+              <span class="find-cap">{covers[t.slug].listing.name}, {covers[t.slug].listing.stateCode}</span>
+            </a>
+          )}
           <h2 id={`t-${t.slug}`}><a href={t.url}>{t.name}</a></h2>
           <p>{t.blurb}</p>
           {t.pages.length > 0 && (
@@ -44,8 +60,11 @@ const schema = [
 
 <style>
   .find-types { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 18px; margin-top: 24px; }
-  .find-type { border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; background: #fff; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; }
+  .find-type { border: 1px solid var(--line); border-radius: 14px; padding: 0 22px 20px; overflow: hidden; background: #fff; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; }
   .find-type h2 { font-size: 1.3rem; margin: 0 0 4px; }
+  .find-img { position: relative; display: block; margin: 0 -22px 14px; width: calc(100% + 44px); aspect-ratio: 17 / 10; background: var(--mist); }
+  .find-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .find-cap { position: absolute; left: 10px; bottom: 8px; padding: 3px 8px; border-radius: 6px; background: rgba(43, 47, 51, 0.72); color: #fff; font-size: 0.75rem; }
   .find-type h2 a { text-decoration: none; color: inherit; }
   .find-type .btn { margin-top: auto; }
   .find-links { color: var(--slate-soft); line-height: 1.7; }

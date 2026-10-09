@@ -11,6 +11,7 @@ import { fmtNum } from '../lib/format.mjs';
 import { SITE } from '../config.mjs';
 import Photo from '../components/Photo.astro';
 import { featuredPhoto, pagePhoto } from '../lib/photos.mjs';
+import { getFind } from '../lib/find.mjs';
 const splitPhoto = pagePhoto('/states', [...loadData().listings].filter((l) => l.os?.photo).sort((a, b) => b.os.reviews - a.os.reviews).slice(3));
 
 const { listings, states, cities } = loadData();
@@ -33,6 +34,7 @@ const schema = [
   { '@type': 'WebPage', name: title, url: SITE.url, description, primaryImageOfPage: `${SITE.url}/media/hero-landscape.webp` },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
+const findTypes = getFind();
 ---
 <Base title={title} description={description} image="/media/hero-landscape.webp" imageAlt="A waterfall pouring into a green swimming hole surrounded by wildflowers" schema={schema}>
   <section class="hero">
@@ -108,6 +110,25 @@ const schema = [
       <span class="eyebrow">Browse by state</span>
       <h2>Find Waterfalls in Your State</h2>
       <StateTiles states={states} />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="types-h">
+    <div class="wrap">
+      <span class="eyebrow">Browse by type</span>
+      <h2 id="types-h">Find Waterfalls by Type</h2>
+      <ul class="type-grid">
+        {findTypes.map((t) => (
+          <li>
+            <a href={t.url}>
+              <strong>{t.name}</strong>
+              <span class="type-blurb">{t.blurb}</span>
+              <span class="type-count">{t.pages.length ? `${t.pages.length} state ${t.pages.length === 1 ? 'list' : 'lists'}` : 'Nationwide list'}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p style="margin-top:20px"><a class="btn btn-outline" href="/find">All waterfall types</a></p>
     </div>
   </section>
 
