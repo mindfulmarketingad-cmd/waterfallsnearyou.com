@@ -5,6 +5,7 @@
 import { loadData } from './core.mjs';
 import { isPrivate, statedHeight, townLine, usgsLines, getStateLists, getRoadside, getSmallest, BEST_YEAR } from './bestof.mjs';
 import { listJoin } from './format.mjs';
+import { getPosts } from './blog.mjs';
 
 export const FIND_YEAR = BEST_YEAR;
 export const FIND_PUBLISHED = new Date('2026-10-08T12:00:00Z');
@@ -128,6 +129,8 @@ export function getFind() {
   const smallest = getSmallest();
   const small = types.find((t) => t.slug === 'small-waterfalls');
   small.national = smallest;
+  const tallest = getPosts().find((p) => p.slug === 'largest-waterfalls-in-the-us-by-state');
+  if (tallest) types.find((t) => t.slug === 'tall-waterfalls').national = tallest;
   cache = types;
   return cache;
 }

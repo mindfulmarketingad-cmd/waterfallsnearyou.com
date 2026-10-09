@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageBand from './PageBand.astro';
 import { getFeed, pageCount, pageUrl, PER_PAGE } from '../lib/blogfeed.mjs';
+import { getPosts } from '../lib/blog.mjs';
 import { featuredPhoto } from '../lib/photos.mjs';
 import { SITE } from '../config.mjs';
 interface Props { page: number }
@@ -22,6 +23,14 @@ const schema = [{ '@type': 'Blog', name: 'WaterfallsNearYou Guides', url: `${SIT
   <PageBand title={page === 1 ? 'Waterfall Guides' : `Waterfall Guides: Page ${page}`} crumbs={crumbs}>
     <p>Everything we learn from mapping thousands of waterfalls, written down so your next trip goes better than your last one.</p>
   </PageBand>
+  {page === 1 && (
+    <section class="wrap section-sm" aria-labelledby="essentials-h">
+      <h2 id="essentials-h">Start Here: Essential Waterfall Guides</h2>
+      <ul class="essentials">
+        {[...getPosts()].sort((a, b) => a.title.localeCompare(b.title)).map((p) => <li><a href={p.url}>{p.title}</a><span class="muted small">{p.category}</span></li>)}
+      </ul>
+    </section>
+  )}
   <section class="wrap section-sm">
     <ul class="feed">
       {posts.map((p) => (

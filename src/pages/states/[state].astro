@@ -11,7 +11,7 @@ import { stateInsights, stateContent } from '../../lib/insights.mjs';
 import { listsForState, getCapitalLists } from '../../lib/bestof.mjs';
 import { pagePhoto, stateFeatured, sized } from '../../lib/photos.mjs';
 import { features, FEATURES } from '../../lib/cards.mjs';
-import { getPosts } from '../../lib/blog.mjs';
+import { getPosts, postsLinkingTo } from '../../lib/blog.mjs';
 import { SITE } from '../../config.mjs';
 
 export function getStaticPaths() {
@@ -25,7 +25,8 @@ const content = stateContent(state.slug);
 const lists = listsForState(state);
 const capitalPost = getCapitalLists().find((p) => p.state === state);
 const guides = [...(capitalPost ? [capitalPost] : []), ...lists];
-const generalGuides = getPosts().filter((p) => ['best-time-to-visit-waterfalls', 'waterfall-safety-tips', 'what-to-pack-for-a-waterfall-hike', 'waterfall-hikes-with-kids', 'swimming-at-waterfalls', 'waterfall-photography-tips'].includes(p.slug));
+const aboutState = postsLinkingTo(state.url);
+const generalGuides = getPosts().filter((p) => !aboutState.includes(p)).filter((p) => ['best-time-to-visit-waterfalls', 'waterfall-safety-tips', 'what-to-pack-for-a-waterfall-hike', 'waterfall-hikes-with-kids', 'swimming-at-waterfalls', 'waterfall-photography-tips'].includes(p.slug));
 const ordinal = (n) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
 const n = ins.count;
 const gnisN = state.listings.filter((l) => l.source === 'gnis').length;
@@ -130,6 +131,7 @@ const schema = [
     <h2 id="guides-h">{state.name} waterfall guides</h2>
     <ul class="guide-list">
       {guides.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
+      {aboutState.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
       {generalGuides.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
     </ul>
   </section>
