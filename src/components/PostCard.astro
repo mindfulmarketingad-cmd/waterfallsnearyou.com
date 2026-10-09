@@ -3,6 +3,7 @@
 import { listingPhoto, sized } from '../lib/photos.mjs';
 import { stars, fmtNum, addressText, directionsUrl, countyUrl, ratingsUrl, mapUrl, displayName } from '../lib/format.mjs';
 import { features, FEATURES } from '../lib/cards.mjs';
+import { heightOf, fmtHeight } from '../lib/heights.mjs';
 interface Props { listing: any; rank: number; lead?: string; why?: string[]; anchor?: string }
 const { listing: l, rank, lead, why = [], anchor } = Astro.props;
 const photo = listingPhoto(l);
@@ -10,6 +11,7 @@ const thumb = sized(photo.src, 320, 214);
 const onerror = photo.fallback ? `this.onerror=null;this.src='${photo.fallback}'` : undefined;
 const feats = features(l).filter((f) => f !== 'top').slice(0, 2);
 const tags = (l.os?.reviewTags || []).slice(0, 3);
+const height = heightOf(l);
 const summary = lead || why[0] || '';
 const more = lead ? why : why.slice(1);
 ---
@@ -28,6 +30,7 @@ const more = lead ? why : why.slice(1);
       </p>
       {summary && <p class="pc-sum">{summary}</p>}
       <p class="pc-addr"><a href={mapUrl(l)}>{addressText(l)}</a></p>
+      {height && <p class="pc-height">Height: <strong>{fmtHeight(height)}</strong> <span class="muted">(source: {height.url ? <a href={height.url} rel="nofollow noopener" target="_blank">{height.source}</a> : height.source})</span></p>}
       {(feats.length > 0 || tags.length > 0) && (
         <p class="pc-tags">
           {feats.map((f) => <a class="sc-tag" href={`/states/${l.stateSlug}?feature=${f}#waterfalls`}>{FEATURES[f]}</a>)}

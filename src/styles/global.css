@@ -332,6 +332,7 @@ a.sc-tag:hover { background: var(--forest); color: #fff; }
 .pc-name a:hover { color: var(--forest); text-decoration: underline; }
 .pc-sum { font-size: 0.95rem; color: var(--slate); margin: 4px 0 8px; }
 .pc-addr { font-size: 0.86rem; margin: 0 0 8px; }
+.pc-height { font-size: 0.86rem; margin: -4px 0 8px; }
 .pc-more { margin: 10px 0 4px; }
 .pc-more summary { cursor: pointer; color: var(--forest); font-weight: 600; font-size: 0.9rem; }
 .pc-more p { font-size: 0.93rem; color: var(--slate); margin: 8px 0 0; }

@@ -15,6 +15,7 @@ import {
   listingImage, listingImageAlt, imgFallback, addressText, longSummary, nearText, listJoin,
 } from '../../../lib/format.mjs';
 import { SITE } from '../../../config.mjs';
+import { heightOf, fmtHeight } from '../../../lib/heights.mjs';
 
 export function getStaticPaths() {
   return loadData().listings.map((l) => ({
@@ -42,6 +43,7 @@ const description = os?.rating
   ? `${l.name} near ${l.city.name}, ${l.stateCode}: rated ${os.rating.toFixed(1)} from ${fmtNum(os.reviews)} reviews. Hours, directions, GPS coordinates, map and nearby waterfalls.`
   : `${l.name} is a waterfall ${nearText(l)}, ${l.state}. GPS coordinates, USGS topo map, directions, map and ${l.nearby.length} nearby waterfalls.`;
 const photo = listingPhoto(l);
+const height = heightOf(l);
 const guide = guideFor(l);
 const ownImage = photo.own ? photo.src : imageFor(l.url);
 const nearest = l.nearby[0];
@@ -223,6 +225,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <h2>Quick Facts</h2>
         <dl class="facts">
           <div><dt>Type</dt><dd>{os?.category || 'Waterfall'}</dd></div>
+          {height && <div><dt>Height</dt><dd>{fmtHeight(height)} <span class="muted small">({height.source})</span></dd></div>}
           {os && <div><dt>Address</dt><dd>{addressText(l)}</dd></div>}
           <div><dt>County</dt><dd>{l.county ? `${l.county} County` : 'Not recorded'}</dd></div>
           <div><dt>State</dt><dd><a href={state.url}>{l.state}</a></dd></div>

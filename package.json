@@ -10,6 +10,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "data:gnis": "node scripts/prepare-gnis.mjs",
+    "data:heights": "node scripts/fetch-heights.mjs",
     "import:outscraper": "node scripts/import-outscraper.mjs",
     "predev": "node scripts/copy-vendor.mjs"
   },
