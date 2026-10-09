@@ -71,8 +71,12 @@ export function stateInsights(state) {
 
 const DIR_ORDER = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest'];
 
+// USGS marks features that no longer exist (drowned by dams, quarried away) as "(historical)".
+export const isHistorical = (l) => /\(historical\)/i.test(l.name);
+
 export function cityInsights(city) {
-  const near = city.nearby;
+  const current = city.nearby.filter((n) => !isHistorical(n.listing));
+  const near = current.length ? current : city.nearby;
   const w30 = near.filter((n) => n.miles <= 30);
   const pool = w30.length >= 3 ? w30 : near.slice(0, 12);
   const bands = [
