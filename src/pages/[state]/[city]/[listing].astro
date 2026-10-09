@@ -16,6 +16,7 @@ import {
 } from '../../../lib/format.mjs';
 import { SITE } from '../../../config.mjs';
 import { listingTitle } from '../../../lib/seo.mjs';
+import { heightOf, fmtHeight } from '../../../lib/heights.mjs';
 
 export function getStaticPaths() {
   return loadData().listings.map((l) => ({
@@ -44,6 +45,7 @@ const description = (os?.rating
   ? `${l.name} near ${l.city.name} in ${where}: rated ${os.rating.toFixed(1)} from ${fmtNum(os.reviews)} Google reviews.${aka} ${hours ? 'Hours, directions' : 'Directions'}, GPS coordinates, weather and map.`
   : `${l.name} is a waterfall ${nearText(l)} in ${where}.${aka} GPS coordinates, USGS topo map, directions, weather and ${l.nearby.length} nearby falls.`);
 const photo = listingPhoto(l);
+const height = heightOf(l);
 const guide = guideFor(l);
 const ownImage = photo.own ? photo.src : imageFor(l.url);
 const nearest = l.nearby[0];
@@ -147,6 +149,11 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
       <div class="map-frame minimap" role="region" aria-label={`Map of ${l.name} and nearby waterfalls`}></div>
       <script type="application/json" class="minimap-data" set:html={JSON.stringify({ center: [l.lng, l.lat], highlight: l.url, points: [l, ...l.nearby.slice(0, 10).map((n) => n.listing)].map(point) }).replace(/</g, '\\u003c')} />
       <p class="small muted" style="margin-top:6px">Red marks {l.name}; green and gray markers are nearby waterfalls (tap for their pages).</p>
+      <div class="trail-info" hidden>
+        <h3>Trail Map</h3>
+        <p><span class="key key-trail"></span> Orange lines are the hiking trails and footpaths mapped around {l.name}<span class="trail-park" hidden>, and <span class="key key-park"></span> blue dots mark parking areas, which are often the trailhead</span>.<span class="trail-names" hidden> Named trails here: <strong class="trail-list"></strong>.</span></p>
+        <p class="small muted">Trail lines come from OpenStreetMap, a community-edited map, and may be incomplete or include unofficial paths. Check the land manager's current trail map and conditions before you go.</p>
+      </div>
       <div class="li-actions" style="margin-top:14px">
         <a class="btn btn-outline" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Google Maps</a>
         <a class="btn btn-outline" href={appleMapsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="pin" />Apple Maps</a>
@@ -220,6 +227,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <h2>Quick Facts</h2>
         <dl class="facts">
           <div><dt>Type</dt><dd>{os?.category || 'Waterfall'}</dd></div>
+          {height && <div><dt>Height</dt><dd>{fmtHeight(height)} <span class="muted small">({height.source})</span></dd></div>}
           {os && <div><dt>Address</dt><dd>{addressText(l)}</dd></div>}
           <div><dt>County</dt><dd>{l.county ? `${l.county} County` : 'Not recorded'}</dd></div>
           <div><dt>State</dt><dd><a href={state.url}>{l.state}</a></dd></div>
@@ -266,10 +274,20 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
   // Small interactive map: loads MapLibre only when the map scrolls near the viewport.
   const el = document.querySelector<HTMLElement>('.minimap');
   if (el) {
-    const start = async () => {
+    const start = async () => { try {
       const { center, highlight, points } = JSON.parse(document.querySelector('.minimap-data').textContent);
-      const { createWaterfallMap } = await import('../../../scripts/wmap.js');
-      createWaterfallMap(el, points, { center, zoom: 12, highlight }).catch(() => {});
+      const { createWaterfallMap, showTrails } = await import('../../../scripts/wmap.js');
+      const api = await createWaterfallMap(el, points, { center, zoom: 12, highlight });
+      const found = await showTrails(api, center);
+      if (!found) return;
+      const box = document.querySelector<HTMLElement>('.trail-info');
+      if (found.parking) box.querySelector<HTMLElement>('.trail-park').hidden = false;
+      if (found.names.length) {
+        box.querySelector('.trail-list').textContent = found.names.slice(0, 6).join(', ');
+        box.querySelector<HTMLElement>('.trail-names').hidden = false;
+      }
+      box.hidden = false;
+    } catch { /* map failed to load; the static links below still work */ }
     };
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((e) => { if (e.some((x) => x.isIntersecting)) { io.disconnect(); start(); } }, { rootMargin: '300px' });

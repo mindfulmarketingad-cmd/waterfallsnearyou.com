@@ -1,0 +1,52 @@
+---
+// /find: hub for every waterfall type, linking each type's state pages.
+import Base from '../../layouts/Base.astro';
+import PageBand from '../../components/PageBand.astro';
+import { getFind, FIND_YEAR } from '../../lib/find.mjs';
+import { loadData } from '../../lib/core.mjs';
+import { pagePhoto } from '../../lib/photos.mjs';
+import { fmtNum } from '../../lib/format.mjs';
+import { SITE } from '../../config.mjs';
+
+const types = getFind();
+const { listings } = loadData();
+const total = types.reduce((s, t) => s + t.pages.length, 0);
+const title = `Find Waterfalls by Type (${FIND_YEAR})`;
+const description = `Browse ${fmtNum(listings.length)} US waterfalls by type: hidden gems, waterfall trails, historic falls, cascades, tall and small waterfalls, roadside stops and more, state by state.`.slice(0, 160);
+const photo = pagePhoto('/find', types.flatMap((t) => t.pages.slice(0, 1).flatMap((p) => p.items.slice(0, 1).map((i) => i.listing))));
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Find', url: '/find' }];
+const schema = [
+  { '@type': 'CollectionPage', name: title, description, url: `${SITE.url}/find` },
+  { '@type': 'ItemList', name: title, numberOfItems: types.length, itemListElement: types.map((t, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${t.url}`, name: t.name })) },
+];
+---
+<Base title={title} description={description} image={photo.src} imageAlt={photo.alt} breadcrumbs={crumbs} bandCrumbs schema={schema}>
+  <PageBand title={title} crumbs={crumbs} narrow />
+  <div class="wrap section-sm">
+    <p class="lead" style="max-width:760px">Every list here is built from real data: Google ratings and reviews, the USGS gazetteer and recorded heights. A state gets a page for a type only when enough of its waterfalls genuinely qualify, so there are {fmtNum(total)} state lists across {types.length} types.</p>
+    <div class="find-types">
+      {types.map((t) => (
+        <section class="find-type" aria-labelledby={`t-${t.slug}`}>
+          <h2 id={`t-${t.slug}`}><a href={t.url}>{t.name}</a></h2>
+          <p>{t.blurb}</p>
+          {t.pages.length > 0 && (
+            <p class="find-links small">
+              {[...t.pages].sort((a, b) => a.state.name.localeCompare(b.state.name)).map((p, i) => <>{i ? ' · ' : ''}<a href={p.url}>{p.state.name}</a></>)}
+            </p>
+          )}
+          {t.national && <p class="small"><a href={t.national.url}>{t.national.title}</a></p>}
+          <a class="btn btn-outline" href={t.url}>All {t.short.toLowerCase()}</a>
+        </section>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .find-types { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 18px; margin-top: 24px; }
+  .find-type { border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; background: #fff; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; }
+  .find-type h2 { font-size: 1.3rem; margin: 0 0 4px; }
+  .find-type h2 a { text-decoration: none; color: inherit; }
+  .find-type .btn { margin-top: auto; }
+  .find-links { color: var(--slate-soft); line-height: 1.7; }
+</style>

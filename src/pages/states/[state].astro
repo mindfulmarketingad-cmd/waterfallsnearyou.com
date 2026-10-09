@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import TripCta from '../../components/TripCta.astro';
+import { findForState } from '../../lib/find.mjs';
 import PageBand from '../../components/PageBand.astro';
 import StateCard from '../../components/StateCard.astro';
 import Faq from '../../components/Faq.astro';
@@ -96,6 +98,7 @@ const schema = [
       {all.map((l, i) => <StateCard listing={l} rank={i + 1} />)}
     </ol>
     <p class="no-results muted" hidden>No waterfalls match those filters. <button type="button" class="linkish f-reset">Reset filters</button></p>
+    <TripCta place={state.name} />
   </section>
 
   <section class="wrap section-sm" aria-labelledby="towns-h">
@@ -110,6 +113,16 @@ const schema = [
     <section class="wrap section-sm" aria-labelledby="feat-h">
       <h2 id="feat-h">{state.name} waterfalls by feature</h2>
       <p class="chips">{featCounts.map((f) => <a class="sc-tag" href={`?feature=${f.k}#waterfalls`} data-feature={f.k}>{f.label} ({f.count})</a>)}</p>
+    </section>
+  )}
+
+  {findForState(state).some((p) => !p.external) && (
+    <section class="wrap section-sm" aria-labelledby="types-h">
+      <h2 id="types-h">{state.name} waterfalls by type</h2>
+      <ul class="guide-list">
+        {findForState(state).filter((p) => !p.external).map((p) => <li><a href={p.url}>{p.title}</a></li>)}
+        <li><a href="/find">All waterfall types</a></li>
+      </ul>
     </section>
   )}
 

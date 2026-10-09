@@ -1,0 +1,90 @@
+---
+// One hub per waterfall type: what qualifies, the state pages that exist for it, and (for types
+// with their own pages) the top picks nationwide.
+import Base from '../../../layouts/Base.astro';
+import PageBand from '../../../components/PageBand.astro';
+import Faq from '../../../components/Faq.astro';
+import { getFind, FIND_YEAR } from '../../../lib/find.mjs';
+import { pagePhoto } from '../../../lib/photos.mjs';
+import { displayName, fmtNum } from '../../../lib/format.mjs';
+import { SITE } from '../../../config.mjs';
+
+export function getStaticPaths() {
+  return getFind().map((t) => ({ params: { type: t.slug }, props: { slug: t.slug } }));
+}
+const type = getFind().find((t) => t.slug === Astro.props.slug);
+const others = getFind().filter((t) => t !== type);
+const pages = [...type.pages].sort((a, b) => a.state.name.localeCompare(b.state.name));
+const lower = type.short.toLowerCase();
+// Nationwide top picks: the first-ranked item from each state page, best states first.
+const top = type.built ? type.pages.map((p) => ({ p, i: p.items[0] })).slice(0, 10) : [];
+const title = pages.length ? `${type.name} by State (${FIND_YEAR})` : `${type.name} in the US (${FIND_YEAR})`;
+const description = (type.built
+  ? `${type.name} in ${pages.length} state${pages.length === 1 ? '' : 's'}, ranked. ${type.blurb}`
+  : pages.length ? `${type.name} in ${pages.length} states. ${type.blurb}` : `${type.name} across the US. ${type.blurb}`).slice(0, 160);
+const photo = pagePhoto(type.url, (type.built ? top.map((t) => t.i.listing) : pages.flatMap((p) => p.items.slice(0, 1).map((i) => i.listing))).slice(0, 10));
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Find', url: '/find' }, { name: type.name, url: type.url }];
+const faqs = [
+  { q: `What counts as ${lower.replace(/s$/, '').replace(/^(.)/, (c) => (/[aeiou]/i.test(c) ? 'an ' : 'a ') + c)}?`, a: type.blurb },
+  ...(pages.length ? [{ q: `Which states have the most ${lower}?`, a: `${[...type.pages].sort((a, b) => b.candidates - a.candidates).slice(0, 3).map((p) => `${p.state.name} (${fmtNum(p.candidates)})`).join(', ')} have the most in our directory.` }] : []),
+  { q: 'Why is my state missing?', a: type.built ? `We only publish a state page when at least 5 waterfalls in that state genuinely qualify, so the list is never padded. Every waterfall in every state is still on its <a href="/states">state page</a>.` : `These lists are built only for states with enough rated waterfalls to rank fairly. Every waterfall in every state is still on its <a href="/states">state page</a>.` },
+];
+const schema = [
+  { '@type': 'CollectionPage', name: title, description, url: `${SITE.url}${type.url}` },
+  { '@type': 'ItemList', name: title, numberOfItems: pages.length, itemListElement: pages.map((p, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${p.url}`, name: p.title })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={title} description={description} image={photo.src} imageAlt={photo.alt} breadcrumbs={crumbs} bandCrumbs schema={schema}>
+  <PageBand title={title} crumbs={crumbs} narrow />
+  <div class="wrap narrow section-sm">
+    <div class="prose">
+      <p class="lead">{type.blurb}</p>
+      {type.built
+        ? <p>We publish a ranked page for each state where at least 5 waterfalls qualify. {pages.length === 1 ? 'One state meets that bar so far.' : `${pages.length} states meet that bar.`}</p>
+        : <p>Each state list below ranks real visitor data for that state.</p>}
+
+      {pages.length > 0 && <h2>{type.name} by State</h2>}
+    </div>
+    {pages.length > 0 && (
+      <ul class="find-states">
+        {pages.map((p) => (
+          <li><a href={p.url}><strong>{p.state.name}</strong><span>{p.title.replace(/ \(\d{4}( Updated)?\)$/, '')}</span></a></li>
+        ))}
+      </ul>
+    )}
+
+    {type.national && (
+      <div class="prose">
+        <h2>Nationwide List</h2>
+        <p><a href={type.national.url}>{type.national.title}</a>: {type.national.description}</p>
+      </div>
+    )}
+
+    {top.length > 1 && (
+      <div class="prose">
+        <h2>Top Pick in Each State</h2>
+        <table>
+          <thead><tr><th>Waterfall</th><th>State</th><th>Why it made the list</th></tr></thead>
+          <tbody>
+            {top.map(({ p, i }) => <tr><td><a href={i.listing.url}>{displayName(i.listing)}</a></td><td><a href={p.url}>{p.state.name}</a></td><td>{i.why[0]}</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+    )}
+
+    <div style="margin:34px 0"><Faq faqs={faqs} heading={`${type.name}: FAQs`} /></div>
+
+    <div class="prose">
+      <h2>Other Waterfall Types</h2>
+      <ul>{others.map((t) => <li><a href={t.url}>{t.name}</a>: {t.blurb}</li>)}</ul>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .find-states { list-style: none; padding: 0; margin: 12px 0 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 10px; }
+  .find-states a { display: flex; flex-direction: column; gap: 2px; height: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--ink); background: #fff; }
+  .find-states a:hover { border-color: var(--slate); }
+  .find-states span { font-size: 0.86rem; color: var(--slate-soft); }
+</style>

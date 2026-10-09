@@ -2,13 +2,15 @@
 import Icon from './Icon.astro';
 import Photo from './Photo.astro';
 import { listingPhoto } from '../lib/photos.mjs';
+import { heightOf, fmtHeight } from '../lib/heights.mjs';
 import { shortSummary, relativeSummary, listingFacts, directionsUrl, fmtMiles, stars, fmtNum, countyUrl, ratingsUrl } from '../lib/format.mjs';
 interface Props { items: { listing: any; miles?: number; direction?: string }[]; from?: string; start?: number }
 const { items, from, start = 1 } = Astro.props;
 const byReviews = items.filter((x) => x.listing.os?.reviews).sort((a, b) => b.listing.os.reviews - a.listing.os.reviews);
 const reviewRank = (x) => (byReviews.includes(x) ? byReviews.indexOf(x) + 1 : 0);
 const facts = (x) => {
-  const f = listingFacts(x.listing);
+  const h = heightOf(x.listing);
+  const f = [...(h ? [['Height', `${fmtHeight(h)} (${h.source})`]] : []), ...listingFacts(x.listing)];
   return from ? f.filter(([k]) => k !== 'Nearest town' && k !== 'USGS topo') : f;
 };
 ---

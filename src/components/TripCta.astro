@@ -1,0 +1,27 @@
+---
+// "Planning A Trip?" call to action shown after the ranked list on every listicle page.
+// Links to the Viator affiliate URL in config.
+import { SITE } from '../config.mjs';
+interface Props { place?: string }
+const { place } = Astro.props;
+---
+<aside class="trip-cta" aria-label="Plan a trip">
+  <div>
+    <h2 class="trip-title">Planning A Trip?</h2>
+    <p>{place ? `Find guided tours, outdoor activities and things to do around ${place} on Viator.` : 'Find guided tours, outdoor activities and things to do near your next waterfall on Viator.'}</p>
+  </div>
+  <div class="trip-act">
+    <a class="btn btn-light" href={SITE.viatorUrl} rel="sponsored nofollow noopener" target="_blank">Find Tours &amp; Activities</a>
+    <p class="trip-note">We may earn a commission when you book through this link.</p>
+  </div>
+</aside>
+
+<style>
+  .trip-cta { display: flex; align-items: center; justify-content: space-between; gap: 18px 32px; flex-wrap: wrap; background: var(--slate); color: #e6eae8; border-radius: 14px; padding: 24px 28px; margin: 28px 0; }
+  .trip-cta > div:first-child { flex: 1 1 320px; min-width: 0; }
+  .trip-title { color: #fff; font-size: 1.35rem; margin: 0 0 6px; }
+  .trip-cta p { margin: 0; color: #e6eae8; }
+  .trip-act { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .trip-cta .trip-note { font-size: 0.8rem; color: #c9d0cd; }
+  @media (max-width: 560px) { .trip-cta { padding: 22px 20px; } }
+</style>
