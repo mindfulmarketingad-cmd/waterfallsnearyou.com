@@ -16,6 +16,7 @@ import {
 } from '../../../lib/format.mjs';
 import { SITE } from '../../../config.mjs';
 import { heightOf, fmtHeight } from '../../../lib/heights.mjs';
+import { postsLinkingTo } from '../../../lib/blog.mjs';
 
 export function getStaticPaths() {
   return loadData().listings.map((l) => ({
@@ -44,6 +45,7 @@ const description = os?.rating
   : `${l.name} is a waterfall ${nearText(l)}, ${l.state}. GPS coordinates, USGS topo map, directions, map and ${l.nearby.length} nearby waterfalls.`;
 const photo = listingPhoto(l);
 const height = heightOf(l);
+const featuredIn = postsLinkingTo(l.url);
 const guide = guideFor(l);
 const ownImage = photo.own ? photo.src : imageFor(l.url);
 const nearest = l.nearby[0];
@@ -251,6 +253,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <h2>Explore the Area</h2>
         <ul class="nearby-list">
           {guide && <li><a href={guide.url}><span>{l.name} visitor guide</span><span class="d">Guide</span></a></li>}
+          {featuredIn.map((p) => <li><a href={p.url}><span>{p.title}</span><span class="d">Featured</span></a></li>)}
           <li><a href={l.city.url}><span>Waterfalls near {l.city.name}</span><span class="d">{l.city.nearby.length}</span></a></li>
           <li><a href={state.url}><span>All {l.state} waterfalls</span><span class="d">{state.listings.length}</span></a></li>
         </ul>

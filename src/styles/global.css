@@ -370,3 +370,8 @@ a.sc-tag:hover { background: var(--forest); color: #fff; }
 .key { display: inline-block; vertical-align: middle; margin-right: 2px; }
 .key-trail { width: 22px; height: 4px; border-radius: 2px; background: #e0782b; }
 .key-park { width: 11px; height: 11px; border-radius: 50%; background: #2b6cb0; box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px #2b6cb0; }
+
+/* Blog hub: editorial articles listed above the dated feed */
+.essentials { list-style: none; padding: 0; margin: 10px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 8px 22px; }
+.essentials li { display: flex; flex-direction: column; padding: 10px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.essentials a { font-weight: 600; }

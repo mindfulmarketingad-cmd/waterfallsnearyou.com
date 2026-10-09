@@ -32,6 +32,7 @@ export function getPosts() {
       };
       const html = marked.parse(body, { renderer, gfm: true });
       const words = body.split(/\s+/).filter(Boolean).length;
+      const links = [...new Set([...body.matchAll(/\]\((\/[^)#\s]*)/g)].map((m) => m[1].replace(/\/$/, '')))];
       const slug = file.replace(/\.md$/, '');
       const date = data.pubDate instanceof Date ? data.pubDate : new Date(data.pubDate);
       return {
@@ -45,6 +46,7 @@ export function getPosts() {
         date,
         updated: data.updatedDate ? new Date(data.updatedDate) : date,
         html,
+        links,
         headings,
         words,
         minutes: Math.max(1, Math.round(words / 230)),
@@ -53,3 +55,6 @@ export function getPosts() {
     .sort((a, b) => b.date - a.date);
   return posts;
 }
+
+/** Editorial articles that link to `url` in their body, so the target page can link back. */
+export const postsLinkingTo = (url) => getPosts().filter((p) => p.links.includes(url));
