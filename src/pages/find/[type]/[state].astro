@@ -7,7 +7,7 @@ import PageBand from '../../../components/PageBand.astro';
 import Byline from '../../../components/Byline.astro';
 import PostCard from '../../../components/PostCard.astro';
 import TripCta from '../../../components/TripCta.astro';
-import { findPages, findForState, FIND_PUBLISHED, FIND_YEAR } from '../../../lib/find.mjs';
+import { findPages, findForState, findCitiesFor, FIND_PUBLISHED, FIND_YEAR } from '../../../lib/find.mjs';
 import { cardSummary } from '../../../lib/cards.mjs';
 import { pagePhoto } from '../../../lib/photos.mjs';
 import { displayName, fmtNum, listJoin } from '../../../lib/format.mjs';
@@ -72,6 +72,13 @@ const schema = [
     <TripCta place={state.name} />
 
     <div style="margin:34px 0"><Faq faqs={faqs} heading="Frequently asked questions" /></div>
+
+    {findCitiesFor(type, state).length > 0 && (
+      <div class="prose">
+        <h2>{type.name} near {state.name} Cities</h2>
+        <ul>{findCitiesFor(type, state).map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
+      </div>
+    )}
 
     {others.length > 0 && (
       <div class="prose">

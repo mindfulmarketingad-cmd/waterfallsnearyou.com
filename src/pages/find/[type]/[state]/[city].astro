@@ -1,0 +1,101 @@
+---
+// "Best [Type] near [City] 2026": built only when at least CITY_MIN qualifying waterfalls lie within
+// CITY_RADIUS straight-line miles of the city (see getFindCities in src/lib/find.mjs).
+import Base from '../../../../layouts/Base.astro';
+import Faq from '../../../../components/Faq.astro';
+import PageBand from '../../../../components/PageBand.astro';
+import Byline from '../../../../components/Byline.astro';
+import PostCard from '../../../../components/PostCard.astro';
+import TripCta from '../../../../components/TripCta.astro';
+import { getFindCities, findPages, CITY_RADIUS, FIND_PUBLISHED, FIND_YEAR } from '../../../../lib/find.mjs';
+import { cardSummary } from '../../../../lib/cards.mjs';
+import { pagePhoto } from '../../../../lib/photos.mjs';
+import { displayName, listJoin } from '../../../../lib/format.mjs';
+import { miles } from '../../../../lib/core.mjs';
+import { SITE } from '../../../../config.mjs';
+
+export function getStaticPaths() {
+  return getFindCities().map((p) => {
+    const [, , type, state, city] = p.url.split('/');
+    return { params: { type, state, city }, props: { url: p.url } };
+  });
+}
+const all = getFindCities();
+const page = all.find((p) => p.url === Astro.props.url);
+const { type, state, city, items, place } = page;
+const statePage = findPages().find((p) => p.type.slug === type.slug && p.state === state);
+const sameCity = all.filter((p) => p !== page && p.city === city);
+const nearbyCities = all.filter((p) => p !== page && p.type === type && p.city !== city)
+  .map((p) => ({ p, d: miles(city, p.city) })).filter((x) => x.d <= 150).sort((a, b) => a.d - b.d).slice(0, 6);
+const photo = pagePhoto(page.url, items.map((i) => i.listing));
+const abs = (u) => (u.startsWith('http') ? u : `${SITE.url}${u}`);
+const updated = new Date();
+const lower = type.short.toLowerCase();
+const closest = [...items].sort((a, b) => a.miles - b.miles)[0];
+const first = items[0];
+const minutes = Math.max(2, Math.round(items.reduce((s, i) => s + i.why.join(' ').split(/\s+/).length + 40, 250) / 230));
+const crumbs = [
+  { name: 'Home', url: '/' }, { name: 'Find', url: '/find' }, { name: type.name, url: type.url },
+  ...(statePage ? [{ name: state.name, url: statePage.url }] : []),
+  { name: city.name, url: page.url },
+];
+const faqs = [
+  { q: `What is the best ${lower.replace(/s$/, '')} near ${city.name}?`, a: `<a href="${first.listing.url}">${first.listing.name}</a> tops our ${FIND_YEAR} list, about ${Math.round(first.miles)} miles ${first.direction} of ${city.name}. ${first.why[0]}` },
+  { q: `What is the closest one to ${city.name}?`, a: `<a href="${closest.listing.url}">${closest.listing.name}</a> is the closest on this list, about ${Math.round(closest.miles)} straight-line miles ${closest.direction} of ${city.name}${closest.listing.city ? `, near <a href="${closest.listing.city.url}">${closest.listing.city.name}</a>` : ''}. Driving distances are longer.` },
+  { q: 'How was this list made?', a: page.method },
+  ...(page.alsoNear?.length ? [{ q: `Does this list cover nearby cities too?`, a: `Yes. ${listJoin(page.alsoNear.slice(0, 6))}${page.alsoNear.length > 6 ? ' and others' : ''} ${page.alsoNear.length === 1 ? 'is' : 'are'} close enough to ${city.name} to share the same waterfalls, so this list serves them as well.` }] : []),
+];
+const schema = [
+  { '@type': 'Article', headline: page.title, description: page.description, image: abs(photo.src), datePublished: FIND_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${page.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'City', name: city.name, containedInPlace: { '@type': 'State', name: state.name } } },
+  { '@type': 'ItemList', name: page.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={page.title} description={page.description} image={photo.src} imageAlt={photo.alt} type="article" published={FIND_PUBLISHED.toISOString()} modified={updated.toISOString()} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={photo.src}>
+  <PageBand title={page.title} crumbs={crumbs} narrow />
+  <article class="wrap narrow">
+    <figure class="post-hero">
+      <img src={photo.src} alt={photo.alt} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror={photo.fallback ? `this.onerror=null;this.src='${photo.fallback}';this.parentNode.querySelector('figcaption')?.remove()` : undefined} />
+      {photo.listing && <figcaption>Photo via Google: {photo.listing.name}, {photo.listing.state}</figcaption>}
+    </figure>
+    <Byline published={FIND_PUBLISHED} updated={updated} minutes={minutes} />
+
+    <nav class="jump" aria-label="Jump to">
+      <strong>Jump to:</strong>
+      {items.map((i, n) => <>{n ? <span class="sep">·</span> : ''}<a href={`#w${n + 1}`}>{n + 1}. {displayName(i.listing)}</a></>)}
+    </nav>
+
+    <div class="prose">
+      <p>
+        The best {lower} near {city.name} are {items.length > 3 ? `${items.slice(0, 3).map((i) => displayName(i.listing)).join(', ')} and ${items.length - 3} more` : listJoin(items.map((i) => displayName(i.listing)))}, all within {CITY_RADIUS} straight-line miles of the city. The closest is {closest.listing.name}, about {Math.round(closest.miles)} miles {closest.direction}. {type.blurb}
+      </p>
+      <p>
+        For every waterfall in the state, see the <a href={state.url}>{state.name} waterfalls page</a> or the <a href={`/map/${state.slug}`}>{state.name} waterfall map</a>{statePage && <>, or the statewide list of <a href={statePage.url}>{statePage.title.replace(/ \d{4}$/, '')}</a></>}.
+      </p>
+      <p class="small muted">How we picked: {page.method}</p>
+    </div>
+
+    <ol class="pc-list" style="margin:22px 0 10px">
+      {items.map(({ listing: l, why, miles: d, direction }, n) => (
+        <PostCard listing={l} rank={n + 1} anchor={`w${n + 1}`} lead={`About ${Math.round(d)} miles ${direction} of ${city.name}. ${cardSummary(l, n + 1)}`} why={why} />
+      ))}
+    </ol>
+    <TripCta place={`${city.name}, ${state.name}`} />
+
+    <div style="margin:34px 0"><Faq faqs={faqs} heading="Frequently asked questions" /></div>
+
+    {(sameCity.length > 0 || nearbyCities.length > 0) && (
+      <div class="prose">
+        {sameCity.length > 0 && <>
+          <h2>More Waterfalls by Type near {city.name}</h2>
+          <ul>{sameCity.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
+        </>}
+        {nearbyCities.length > 0 && <>
+          <h2>{type.name} near Other Cities</h2>
+          <ul>{nearbyCities.map(({ p, d }) => <li><a href={p.url}>{p.title}</a> <span class="muted small">({Math.round(d)} miles away)</span></li>)}</ul>
+        </>}
+        <p>Browse every type on the <a href="/find">waterfall types hub</a>.</p>
+      </div>
+    )}
+  </article>
+</Base>

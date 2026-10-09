@@ -2,7 +2,9 @@
 // text, stated heights, names). A state page is built only when at least MIN_ITEMS waterfalls in that
 // state genuinely qualify. Types already covered by an existing state blog list link to that list
 // instead of duplicating it.
-import { loadData } from './core.mjs';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { loadData, miles, bearing, slugify } from './core.mjs';
 import { isPrivate, statedHeight, townLine, usgsLines, getStateLists, getRoadside, getSmallest, BEST_YEAR } from './bestof.mjs';
 import { listJoin } from './format.mjs';
 
@@ -89,7 +91,14 @@ const BUILT = [
 
 // Types whose state pages already exist as blog lists (or one national list).
 const LINKED = [
-  { slug: 'waterfall-trails', name: 'Waterfall Trails', short: 'Waterfall trails', blurb: 'Falls you reach on foot, ranked by the hikers who reviewed them.', kind: 'hiking' },
+  {
+    slug: 'waterfall-trails', name: 'Waterfall Trails', short: 'Waterfall trails', blurb: 'Falls you reach on foot, ranked by the hikers who reviewed them.', kind: 'hiking',
+    // Used for city pages only; state pages are the existing hiking lists.
+    qualifies: (l) => l.os?.rating && l.os.reviews >= 5 && [...(l.os.reviewTags || []), l.os.description || ''].some((t) => /hik|trail|trek|loop/i.test(t)),
+    rank: (list) => { const b = bayesFor(list); return [...list].sort((a, c) => b(c) - b(a)); },
+    method: (n, place) => `We took the ${n} publicly accessible waterfalls near ${place} whose Google reviews or listing mention hiking or trails and ranked them by a weighted Google rating.`,
+    why: (l) => [ratingLine(l), tagLine(l), l.os?.description ? `Listing description: ${quote(l.os.description)}` : null, townLine(l)],
+  },
   { slug: 'most-photographed-waterfalls', name: 'Most Photographed Waterfalls', short: 'Most photographed waterfalls', blurb: 'The falls visitors photograph and rate five stars most often.', kind: 'beautiful' },
   { slug: 'popular-waterfalls', name: 'Popular Waterfalls', short: 'Popular waterfalls', blurb: 'The falls that draw the most visitors, by Google review volume.', kind: 'most-visited' },
   { slug: 'must-see-waterfalls', name: 'Must-See Waterfalls', short: 'Must-see waterfalls', blurb: 'Five top-rated, widely visited falls per state, spread across its regions.', kind: 'must-see' },
@@ -133,3 +142,65 @@ export function getFind() {
 }
 export const findPages = () => getFind().flatMap((t) => (t.built ? t.pages : []));
 export const findForState = (state) => getFind().flatMap((t) => t.pages.filter((p) => p.state === state));
+
+// ---------- City pages: /find/[type]/[state]/[city] ----------
+// Cities are US places with 50,000+ people plus state capitals (data/us-metros.json). A city gets a
+// page for a type only when at least CITY_MIN qualifying waterfalls lie within CITY_RADIUS straight-
+// line miles. Neighbouring cities that would show nearly the same list are folded into the larger
+// city so the site never publishes near-duplicate pages.
+export const CITY_RADIUS = 75;
+export const CITY_MIN = 3;
+const OVERLAP = 0.7;
+const CITY_TYPES = ['hidden-gem-waterfalls', 'historic-waterfalls', 'cascades', 'tall-waterfalls', 'small-waterfalls', 'waterfall-trails'];
+
+let cityCache = null;
+export function getFindCities() {
+  if (cityCache) return cityCache;
+  const { listings, states } = loadData();
+  const byCode = Object.fromEntries(states.map((s) => [s.code, s]));
+  const metros = JSON.parse(readFileSync(path.join(process.cwd(), 'data/us-metros.json'), 'utf8')).filter((m) => byCode[m.st]);
+  const pages = [];
+  for (const t of getFind().filter((x) => CITY_TYPES.includes(x.slug))) {
+    const pool = listings.filter((l) => !isPrivate(l) && t.qualifies(l));
+    const kept = [];
+    for (const m of metros) {
+      const here = { lat: m.lat, lng: m.lng };
+      const near = pool.map((l) => ({ l, d: miles(here, l) })).filter((x) => x.d <= CITY_RADIUS);
+      if (near.length < CITY_MIN) continue;
+      const dist = new Map(near.map((x) => [x.l, x.d]));
+      const ranked = t.rank(near.map((x) => x.l)).slice(0, MAX_ITEMS);
+      const ids = new Set(ranked);
+      // Same metro (within 25 miles of a larger city that already has this page) or a near-identical list.
+      const dupe = kept.find((k) => miles(here, k.city) <= 25 || (miles(here, k.city) <= 45 && [...ids].filter((l) => k.ids.has(l)).length / ids.size >= OVERLAP));
+      if (dupe) { dupe.alsoNear.push(m.name); continue; }
+      const state = byCode[m.st];
+      const items = ranked.map((l) => {
+        const d = dist.get(l);
+        const dir = bearing(here, l);
+        return { listing: l, miles: d, direction: dir, why: t.why(l).filter(Boolean) };
+      });
+      kept.push({ ids, city: m, alsoNear: [], page: { type: t, state, city: m, items, candidates: near.length,
+        url: `/find/${t.slug}/${state.slug}/${slugify(m.name)}`,
+        method: (() => {
+          const within = `within ${CITY_RADIUS} straight-line miles of ${m.name}`;
+          return t.method(near.length, '@@').replace('@@ waterfalls', `waterfalls ${within}`).replace('@@ features', `features ${within}`).replace('near @@', within);
+        })() } });
+    }
+    for (const k of kept) { k.page.alsoNear = k.alsoNear; pages.push(k.page); }
+  }
+  // Same city name in two states (Portland OR / ME): add the state to keep titles unique.
+  const nameCount = {};
+  for (const p of pages) nameCount[`${p.type.slug}|${p.city.name}`] = (nameCount[`${p.type.slug}|${p.city.name}`] || 0) + 1;
+  const seen = new Set();
+  cityCache = pages.filter((p) => !seen.has(p.url) && seen.add(p.url)).map((p) => {
+    const place = nameCount[`${p.type.slug}|${p.city.name}`] > 1 ? `${p.city.name}, ${p.city.st}` : p.city.name;
+    const first = p.items[0].listing.name;
+    return {
+      ...p, place,
+      title: `Best ${p.type.name} near ${place} ${FIND_YEAR}`,
+      description: `The best ${p.type.short.toLowerCase()} within ${CITY_RADIUS} miles of ${p.city.name}, ${p.state.name}, led by ${first}, with distances, maps and directions.`.slice(0, 160),
+    };
+  });
+  return cityCache;
+}
+export const findCitiesFor = (type, state) => getFindCities().filter((p) => p.type.slug === type.slug && (!state || p.state === state));
