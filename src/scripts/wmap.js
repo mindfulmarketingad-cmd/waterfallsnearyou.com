@@ -104,3 +104,71 @@ export async function createWaterfallMap(el, points, opts = {}) {
     },
   };
 }
+
+// ---------- Trail maps ----------
+// OpenFreeMap's vector tiles carry OpenStreetMap paths, footways and tracks (OpenMapTiles
+// "transportation" layer, class path/track) plus parking from the "poi" layer. We highlight them
+// and report whether any trail actually reaches the waterfall, so pages only claim a trail map
+// when one exists in the data.
+const TRAIL_CLASSES = ['path', 'track'];
+const toRad = (d) => (d * Math.PI) / 180;
+function meters(a, b) {
+  const dLat = toRad(b[1] - a[1]);
+  const dLng = toRad(b[0] - a[0]);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a[1])) * Math.cos(toRad(b[1])) * Math.sin(dLng / 2) ** 2;
+  return 2 * 6371000 * Math.asin(Math.sqrt(h));
+}
+const coordsOf = (g) => (g.type === 'LineString' ? g.coordinates : g.type === 'MultiLineString' ? g.coordinates.flat() : g.type === 'Point' ? [g.coordinates] : []);
+const once = (map, ev) => new Promise((r) => map.once(ev, r));
+
+/**
+ * Highlights trails around `center` ([lng, lat]) on a map made by createWaterfallMap. Resolves to
+ * { names: string[], parking: number } when a trail passes within `reach` meters of the falls, or
+ * null when none does (the map is then returned to `fallbackZoom`).
+ */
+export async function showTrails(api, center, { reach = 300, radius = 1500, fallbackZoom = 12 } = {}) {
+  const { map } = api;
+  if (!map.loaded()) await once(map, 'load');
+  const src = Object.entries(map.getStyle().sources).find(([, s]) => s.type === 'vector')?.[0];
+  if (!src) return null;
+  map.jumpTo({ center, zoom: 14.5 });
+  await once(map, 'idle');
+  const isTrail = ['in', ['get', 'class'], ['literal', TRAIL_CLASSES]];
+  const near = (f, r) => coordsOf(f.geometry).some((c) => meters(c, center) <= r);
+  const lines = map.querySourceFeatures(src, { sourceLayer: 'transportation', filter: isTrail }).filter((f) => near(f, radius));
+  if (!lines.some((f) => near(f, reach))) {
+    map.jumpTo({ center, zoom: fallbackZoom });
+    return null;
+  }
+  const names = [...new Set(map.querySourceFeatures(src, { sourceLayer: 'transportation_name', filter: isTrail })
+    .filter((f) => near(f, radius)).map((f) => f.properties.name).filter(Boolean))].sort();
+  const parking = [];
+  for (const f of map.querySourceFeatures(src, { sourceLayer: 'poi', filter: ['==', ['get', 'class'], 'parking'] })) {
+    const c = coordsOf(f.geometry)[0];
+    if (c && meters(c, center) <= radius && !parking.some((p) => meters(p, c) < 60)) parking.push(c);
+  }
+  const before = map.getLayer('falls') ? 'falls' : undefined;
+  map.addLayer({
+    id: 'trails-casing', type: 'line', source: src, 'source-layer': 'transportation', filter: isTrail,
+    layout: { 'line-join': 'round', 'line-cap': 'round' },
+    paint: { 'line-color': '#ffffff', 'line-width': ['interpolate', ['linear'], ['zoom'], 12, 3, 16, 7] },
+  }, before);
+  map.addLayer({
+    id: 'trails', type: 'line', source: src, 'source-layer': 'transportation', filter: isTrail,
+    layout: { 'line-join': 'round', 'line-cap': 'round' },
+    paint: { 'line-color': '#e0782b', 'line-width': ['interpolate', ['linear'], ['zoom'], 12, 1.6, 16, 4.5] },
+  }, before);
+  if (parking.length) {
+    map.addSource('parking', { type: 'geojson', data: { type: 'FeatureCollection', features: parking.map((c) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: c }, properties: {} })) } });
+    map.addLayer({ id: 'parking', type: 'circle', source: 'parking', paint: { 'circle-radius': 6, 'circle-color': '#2b6cb0', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.5 } }, before);
+  }
+  // Frame the trails near the falls.
+  let w = center[0], e = center[0], s = center[1], n = center[1];
+  for (const f of lines) for (const c of coordsOf(f.geometry)) {
+    if (meters(c, center) > radius) continue;
+    w = Math.min(w, c[0]); e = Math.max(e, c[0]); s = Math.min(s, c[1]); n = Math.max(n, c[1]);
+  }
+  for (const c of parking) { w = Math.min(w, c[0]); e = Math.max(e, c[0]); s = Math.min(s, c[1]); n = Math.max(n, c[1]); }
+  map.fitBounds([[w, s], [e, n]], { padding: 40, maxZoom: 16, duration: 0 });
+  return { names, parking: parking.length };
+}
