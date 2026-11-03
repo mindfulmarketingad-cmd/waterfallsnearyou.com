@@ -7,6 +7,10 @@
 import { loadData, staticPagePaths } from './core.mjs';
 import { getPosts } from './blog.mjs';
 import { getSmallest, getRoadside } from './bestof.mjs';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+// Read hub slugs directly (cityhubs.mjs imports this module).
+const hubUrls = () => JSON.parse(readFileSync(path.join(process.cwd(), 'data/city-hubs.json'), 'utf8')).map((h) => `/waterfalls-near/${h.slug}`);
 
 export const MIN_REVIEWS = 25;
 export const MIN_USGS_TEXT = 200;
@@ -28,6 +32,8 @@ export function indexableUrls() {
     getRoadside().url,
     '/find',
     '/map',
+    '/waterfalls-near',
+    ...hubUrls(),
     ...states.map((s) => s.url),
     ...cities.filter(richCity).map((c) => c.url),
     ...listings.filter(richListing).map((l) => l.url),

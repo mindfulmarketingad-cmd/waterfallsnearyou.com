@@ -51,7 +51,7 @@ A good autumn rainstorm can transform the picture. If your area gets a soaking r
 
 ### Winter: ice, solitude, and rain-fed flow
 
-Winter is underrated. In colder regions, waterfalls build sculptures of ice around the falling water, and the trails are often quiet. In milder, rain-fed regions such as the Pacific Northwest lowlands and parts of the Southeast, winter can actually be one of the highest-flow periods because rain falls steadily and evaporation is low.
+Winter is underrated. In colder regions, waterfalls build sculptures of ice around the falling water, and the trails are often quiet. In milder, rain-fed regions such as the Pacific Northwest lowlands and parts of the Southeast, winter can actually be one of the highest-flow periods because rain falls steadily and evaporation is low. The [Columbia River Gorge waterfalls](/blog/columbia-river-gorge-waterfalls-road-trip) east of Portland are a good example.
 
 Winter visits demand more preparation: shorter days, icy steps and boardwalks, possible road closures, and falling ice near cliffs. Carry traction devices and extra layers, and check what to bring in our [waterfall hike packing checklist](/blog/what-to-pack-for-a-waterfall-hike).
 

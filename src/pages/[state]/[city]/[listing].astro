@@ -17,6 +17,7 @@ import {
 import { SITE } from '../../../config.mjs';
 import { heightOf, fmtHeight } from '../../../lib/heights.mjs';
 import { postsLinkingTo } from '../../../lib/blog.mjs';
+import { tripFacts, tripRows } from '../../../lib/tripfacts.mjs';
 
 export function getStaticPaths() {
   return loadData().listings.map((l) => ({
@@ -49,12 +50,18 @@ const featuredIn = postsLinkingTo(l.url);
 const guide = guideFor(l);
 const ownImage = photo.own ? photo.src : imageFor(l.url);
 const nearest = l.nearby[0];
+const trip = tripFacts(l.url);
+const tripList = tripRows(trip);
+const fmtChecked = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
 const faqs = [
   { q: `Where is ${l.name} located?`, a: `${l.name} is in ${l.county ? `${l.county} County, ` : ''}${l.state}, ${nearText(l)}. Its coordinates are ${l.lat.toFixed(5)}, ${l.lng.toFixed(5)} (${l.latText}, ${l.lngText}).` },
   { q: `What town is closest to ${l.name}?`, a: `The closest town with 1,000 or more residents is <a href="${l.city.url}">${l.city.name}, ${l.stateCode}</a>, about ${fmtMiles(l.cityMiles).replace(' mi', ' miles')} away in a straight line. Driving distance is usually longer, so check the route before you go.` },
   ...(hours ? [{ q: `What are the hours for ${l.name}?`, a: `Listed hours: ${hours}. Hours can change seasonally or after storms, so confirm with the managing agency before visiting.` }] : []),
   ...(nearest ? [{ q: `What waterfalls are near ${l.name}?`, a: `The closest is <a href="${nearest.listing.url}">${nearest.listing.name}</a> (${fmtMiles(nearest.miles)} ${nearest.direction}). ${l.nearby.length > 1 ? `Others within reach include ${listJoin(l.nearby.slice(1, 4).map((n) => `<a href="${n.listing.url}">${n.listing.name}</a> (${fmtMiles(n.miles)})`))}.` : ''}` }] : []),
+  ...(trip?.dogs ? [{ q: `Are dogs allowed at ${l.name}?`, a: `${trip.dogs}. Rules can change, so check with the managing agency before you bring a dog.` }] : []),
+  ...(trip?.swimming ? [{ q: `Can you swim at ${l.name}?`, a: `${trip.swimming}.` }] : []),
+  ...(trip?.fees ? [{ q: `Does ${l.name} charge a fee?`, a: `${trip.fees}. Prices were checked on ${fmtChecked(trip.checked)} and can change.` }] : []),
   ...(l.topoMap ? [{ q: `Which USGS topographic map shows ${l.name}?`, a: `${l.name} appears on the USGS ${l.topoMap} 7.5-minute quadrangle. You can view it in The National Map viewer or download the US Topo sheet for offline navigation.` }] : []),
 ];
 
@@ -80,7 +87,7 @@ const schema = [
     ...(os?.phone ? { telephone: os.phone } : {}),
     ...(os?.site ? { sameAs: [os.site] } : {}),
     hasMap: osmUrl(l),
-    isAccessibleForFree: true,
+    ...(trip && typeof trip.free === 'boolean' ? { isAccessibleForFree: trip.free } : {}),
     publicAccess: true,
     touristType: ['Hikers', 'Photographers', 'Families'],
     ...(os?.hours?.length
@@ -122,6 +129,16 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
       {os?.description && <p>{os.description}</p>}
       {l.gnisDescription && <p><strong>USGS gazetteer description:</strong> {l.gnisDescription}</p>}
       {l.gnisHistory && <p><strong>Name history:</strong> {l.gnisHistory}</p>}
+
+      {tripList.length > 0 && (
+        <>
+          <h2 id="plan">Plan Your Visit</h2>
+          <dl class="facts trip-facts">
+            {tripList.map((r) => <div><dt>{r.label}</dt><dd>{r.value}</dd></div>)}
+          </dl>
+          <p class="small muted" style="margin-top:8px">Checked {fmtChecked(trip.checked)} against {trip.sources.map((s, i) => <>{i > 0 && (i === trip.sources.length - 1 ? ' and ' : ', ')}<a href={s[1]} rel="noopener" target="_blank">{s[0]}</a></>)}. Fees, permits and closures change, so confirm before you go.</p>
+        </>
+      )}
 
       {os?.reviewTags?.length > 0 && (
         <>

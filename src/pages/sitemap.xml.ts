@@ -5,6 +5,7 @@ import { getGuides } from '../lib/guides.mjs';
 import { getFind, findPages, getFindCities } from '../lib/find.mjs';
 import { SITE } from '../config.mjs';
 import { isIndexable } from '../lib/indexing.mjs';
+import { getCityHubs } from '../lib/cityhubs.mjs';
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 export function GET() {
@@ -20,6 +21,8 @@ export function GET() {
     ...findPages().map((p) => ({ loc: p.url, lastmod: today, img: `/images/gen${p.url}.webp` })),
     ...getFindCities().map((p) => ({ loc: p.url, lastmod: today, img: `/images/gen${p.url}.webp` })),
     { loc: '/map', lastmod: today, img: null },
+    { loc: '/waterfalls-near', lastmod: today, img: null },
+    ...getCityHubs().map((h) => ({ loc: h.url, lastmod: h.published, img: null })),
     ...states.map((s) => ({ loc: `/map/${s.slug}`, lastmod: today, img: null })),
     ...getGuides().map((g) => ({ loc: g.url, lastmod: today, img: g.listing.os?.photo || `/images/gen${g.listing.url}.webp` })),
     ...states.map((s) => ({ loc: s.url, lastmod: today, img: `/images/gen${s.url}.webp` })),

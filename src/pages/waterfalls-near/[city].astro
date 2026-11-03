@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageBand from '../../components/PageBand.astro';
+import ListingCard from '../../components/ListingCard.astro';
+import Faq from '../../components/Faq.astro';
+import { getCityHubs, HUB_RADIUS } from '../../lib/cityhubs.mjs';
+import { pagePhoto } from '../../lib/photos.mjs';
+import { fmtMiles, fmtNum } from '../../lib/format.mjs';
+import { SITE } from '../../config.mjs';
+
+export function getStaticPaths() {
+  return getCityHubs().map((h) => ({ params: { city: h.slug }, props: { slug: h.slug } }));
+}
+const h = getCityHubs().find((x) => x.slug === Astro.props.slug);
+const top = h.picks[0].listing;
+const anyTrip = h.picks.some((p) => p.trip);
+const title = `Waterfalls Near ${h.name}: ${h.picks.length} Day Trips`;
+const description = `${h.picks.length} waterfalls within ${HUB_RADIUS} miles of ${h.name}, from ${h.closest.listing.name} (${Math.round(h.closest.miles)} mi) to ${top.name}, with distances, ratings and maps.`.slice(0, 160);
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Waterfalls Near Cities', url: '/waterfalls-near' }, { name: h.name, url: h.url }];
+const photo = pagePhoto(h.url, h.picks.map((p) => p.listing));
+const faqs = [
+  { q: `What is the closest waterfall to ${h.name}?`, a: `Of the waterfalls we list, the closest is <a href="${h.closest.listing.url}">${h.closest.listing.name}</a>, about ${Math.round(h.closest.miles)} miles ${h.closest.direction} of the city center in a straight line.` },
+  { q: `What is the most visited waterfall near ${h.name}?`, a: `By Google review count, it is <a href="${top.url}">${top.name}</a> in ${top.state}, with ${fmtNum(top.os.reviews)} reviews and a ${top.os.rating.toFixed(1)} average.` },
+  { q: `How did you choose these waterfalls?`, a: `We took every publicly accessible waterfall on this site within ${HUB_RADIUS} straight-line miles of ${h.name} that has enough visitor data to judge it, then ordered them by number of Google reviews. Driving distance is longer than straight-line distance, so check your route.` },
+];
+const schema = [
+  { '@type': 'CollectionPage', name: title, description, url: `${SITE.url}${h.url}` },
+  { '@type': 'ItemList', name: title, numberOfItems: h.picks.length, itemListElement: h.picks.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${p.listing.url}`, name: p.listing.name })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
+---
+<Base title={title} description={description} image={photo.src} imageAlt={photo.alt} breadcrumbs={crumbs} bandCrumbs schema={schema}>
+  <PageBand title={`Waterfalls Near ${h.name}`} crumbs={crumbs} narrow />
+  <div class="wrap section-sm">
+    <article class="prose" style="max-width:820px">
+      {h.intro.map((p) => <p>{p}</p>)}
+      <p class="small muted">By David F. · Published {new Date(h.published + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })} · Distances are straight-line miles from the center of {h.name}.</p>
+
+      <h2>Day-Trip Waterfalls at a Glance</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Waterfall</th><th>State</th><th>Distance</th><th>Google rating</th>{anyTrip && <><th>Fee</th><th>Dogs</th></>}</tr></thead>
+          <tbody>
+            {h.picks.map((p) => (
+              <tr>
+                <td><a href={p.listing.url}>{p.listing.name}</a></td>
+                <td>{p.listing.stateCode}</td>
+                <td>{fmtMiles(p.miles)} {p.direction}</td>
+                <td>{p.listing.os?.rating ? `${p.listing.os.rating.toFixed(1)} (${fmtNum(p.listing.os.reviews)})` : 'Not rated'}</td>
+                {anyTrip && <><td>{p.trip && typeof p.trip.free === 'boolean' ? (p.trip.free ? 'No' : 'Yes') : 'Not checked'}</td>
+                <td>{p.trip?.dogs ? (/^no\b/i.test(p.trip.dogs) || /only in parking/i.test(p.trip.dogs) ? 'No' : 'Leashed') : 'Not checked'}</td></>}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {anyTrip && <p class="small muted">"Not checked" means we haven't verified that detail yet, not that the answer is no. Open a waterfall's page for its trail, parking and swimming details where we have them.</p>}
+    </article>
+
+    <h2 style="margin-top:32px">The Picks</h2>
+    <div class="grid-3">
+      {h.picks.map((p) => <ListingCard listing={p.listing} miles={p.miles} direction={p.direction} />)}
+    </div>
+
+    <div class="prose" style="max-width:820px;margin-top:32px">
+      <h2>Before You Go</h2>
+      <ul>
+        <li>Water levels drive the experience. See <a href="/blog/best-time-to-visit-waterfalls">the best time to visit waterfalls</a> for how season and rain change flow.</li>
+        <li>Stay off wet rock and out of the water unless swimming is allowed. Our <a href="/blog/waterfall-safety-tips">waterfall safety tips</a> and <a href="/blog/swimming-at-waterfalls">guide to swimming at waterfalls</a> explain why.</li>
+        <li>Pack for a short hike even at roadside falls: <a href="/blog/what-to-pack-for-a-waterfall-hike">what to pack for a waterfall hike</a>.</li>
+        <li>Browse every waterfall in <a href={h.state.url}>{h.state.name}</a> or on the <a href="/map">waterfall map</a>.</li>
+      </ul>
+      <div style="margin-top:28px"><Faq faqs={faqs} /></div>
+    </div>
+  </div>
+</Base>

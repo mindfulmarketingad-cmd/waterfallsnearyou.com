@@ -1,0 +1,24 @@
+[
+  {
+    "name": "New York City",
+    "st": "NY",
+    "slug": "new-york-city",
+    "published": "2026-11-03",
+    "intro": [
+      "You don't have to leave the metro area to see a big waterfall from New York City. The Great Falls of the Passaic in Paterson, New Jersey, sits about 17 miles from Manhattan inside Paterson Great Falls National Historical Park, and you can see it from overlooks a short walk from the street. It's the easiest waterfall trip from the city, and it can be done by train and bus.",
+      "For a full day, most New Yorkers head northwest. The Pennsylvania side of the Delaware Water Gap National Recreation Area, about an hour and a half to two hours by car in light traffic, has Dingmans, Silverthread and Raymondskill Falls within a few miles of each other, and the privately owned Bushkill Falls charges admission for a network of trails past eight falls. North of the city, Awosting Falls and Stony Kill Falls in the Shawangunk Ridge area pair well with a hike at Minnewaska State Park Preserve.",
+      "Flow is strongest in spring and after heavy rain. Many of these streams drop to a trickle by late summer, so a wet week in April or May beats a dry weekend in August."
+    ]
+  },
+  {
+    "name": "Los Angeles",
+    "st": "CA",
+    "slug": "los-angeles",
+    "published": "2026-11-03",
+    "intro": [
+      "Los Angeles waterfalls are seasonal. Most of the falls within reach of the city are fed by winter storms and snowmelt in the San Gabriel and San Bernardino Mountains, so they run best from about January through spring and can shrink to a damp rock face by late summer and fall. Plan a visit for the days after a good rain.",
+      "The closest is Sturtevant Falls in Big Santa Anita Canyon above Sierra Madre, about 17 miles from downtown in the Angeles National Forest. San Antonio Falls sits just off the road to Mount Baldy, and Bonita Falls is in Lytle Creek Canyon near the 15 freeway. Farther out, Big Falls in the San Bernardino Mountains, Rose Valley Falls above Ojai and Tahquitz Falls in Palm Springs each make a full day.",
+      "Mountain roads in these canyons can close after storms and fires, and forest parking areas may require a recreation pass. Check the managing agency's alerts before you drive."
+    ]
+  }
+]

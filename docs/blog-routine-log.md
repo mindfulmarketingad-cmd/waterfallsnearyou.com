@@ -10,5 +10,17 @@
 - TODO: About page has no named owner/editor (only "WaterfallsNearYou Editorial Team"); add a real name/bio when the owner provides one.
 - TODO: Grow hand-written posts; new posts in src/content/blog are indexed automatically. Thin pages can be re-indexed by enriching their data and adjusting thresholds in src/lib/indexing.mjs.
 
+## Daily routine progress (counters)
+
+- Trip facts (data/trip-facts.json, shown as "Plan Your Visit" on waterfall pages): 20 waterfalls covered. Next: continue down the most-reviewed indexed list (Mystic Falls WY, Bond Falls MI, Havasu Falls AZ, Bridal Veil Falls UT, Ithaca Falls NY, ...), and prioritize picks on city hubs (NYC: Dingmans, Raymondskill, Great Falls Paterson, Awosting; LA: Sturtevant, Bonita, San Antonio, Tahquitz).
+- City hubs (/waterfalls-near/[city], intros in data/city-hubs.json): 2 of 50 published (New York City, Los Angeles). Next: Chicago, Houston, Phoenix, Philadelphia, San Antonio, San Diego, Dallas, ... (skip boroughs Brooklyn/Queens).
+- Filter pages (dog-friendly, swimmable, accessible...): not started; wait until trip facts cover enough falls per state.
+- Friday data studies done: none yet. Next: states ranked by waterfalls per 1,000 sq mi and per resident.
+
+## Site changes (dated)
+
+2026-11-03 | site | Trip facts system (src/lib/tripfacts.mjs) with Plan Your Visit section, dog/swim/fee FAQs and correct isAccessibleForFree schema; /waterfalls-near hub + NYC and LA pages (indexed, in sitemap, linked from home); post linked from best-time-to-visit-waterfalls.
+
 ## Posts
 date | slug | primary keyword | GSC basis
+2026-11-03 | columbia-river-gorge-waterfalls-road-trip | columbia river gorge waterfalls | no GSC data (content-gap list: waterfall road trips)

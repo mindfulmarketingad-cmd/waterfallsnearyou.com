@@ -1,0 +1,380 @@
+{
+  "_about": "Hand-checked trip-planning facts for waterfall pages, keyed by page URL. Every field is optional: leave it out rather than guess. 'free' is true only when no entry or parking fee applies, false when one does. Prices and rules change, so each entry records the date it was checked and its sources.",
+  "/oregon/cascade-locks/multnomah-falls": {
+    "checked": "2026-11-03",
+    "hike": "Lower viewpoint is a short paved walk from the I-84 Exit 31 lot; the trail to the top viewpoint is 2.4 miles round trip",
+    "elevationGain": "About 600 feet to the top of the falls",
+    "difficulty": "Easy to the lower viewpoint and Benson Bridge; strenuous, steep and uneven to the top",
+    "parking": "I-84 Exit 31 lot (about 186 spaces) plus a small privately operated paid lot on the Historic Columbia River Highway; no shoulder parking on the highway",
+    "fees": "No entry fee. A timed-use permit was required for the I-84 lot from 9 a.m. to 6 p.m., May 22 to Sept. 7, 2026 ($2 online transaction fee; limited free permits in Troutdale and Cascade Locks)",
+    "free": true,
+    "dogs": "Allowed on leash, including the trail to the top; not inside the lodge",
+    "swimming": "No; do not enter Multnomah Creek, which has spawning fish",
+    "accessibility": "Paved path with slight inclines from the I-84 lot to the visitor center and lower viewing area; accessible parking at both lots",
+    "bestSeason": "Winter and spring, when flow from Larch Mountain springs is highest",
+    "sources": [
+      [
+        "U.S. Forest Service: Multnomah Falls",
+        "https://www.fs.usda.gov/r06/columbiarivergorge/recreation/multnomah-falls"
+      ],
+      [
+        "Recreation.gov: Multnomah Falls timed use permit",
+        "https://www.recreation.gov/timed-entry/10089144"
+      ]
+    ]
+  },
+  "/tennessee/chattanooga/ruby-falls": {
+    "checked": "2026-11-03",
+    "hike": "Guided cave walk of about 1 mile round trip after a 260-foot elevator descent; allow up to 90 minutes",
+    "difficulty": "Easy to moderate: paved, mostly level, with about 50 steps in small groups",
+    "fees": "Timed tickets sold online only: $29.95 adults, $19.95 ages 4 to 12, $28.95 seniors 65+, free age 3 and under",
+    "free": false,
+    "dogs": "No pets in the cave (trained service animals only); free outdoor kennels seasonally, first come, first served",
+    "swimming": "No",
+    "accessibility": "The cave is not wheelchair or stroller accessible; the Blue Heron Overlook, plaza, gift shop, cafe and restrooms are",
+    "bestSeason": "Year-round; the cave is underground, so weather matters little",
+    "sources": [
+      [
+        "Ruby Falls: tickets",
+        "https://www.rubyfalls.com/ruby-falls-tickets/"
+      ],
+      [
+        "Ruby Falls: accessibility and amenities",
+        "https://www.rubyfalls.com/plan-your-visit/amenities-accessibility/"
+      ]
+    ]
+  },
+  "/washington/snoqualmie/snoqualmie-falls": {
+    "checked": "2026-11-03",
+    "hike": "Upper viewing platform is about 200 feet from the paid lot; the trail to the lower viewpoint is 1.4 miles round trip",
+    "elevationGain": "About 250 feet on the lower-falls trail",
+    "difficulty": "Easy, with one steep climb back up from the lower viewpoint",
+    "parking": "Free lot across the street (sky bridge), paid lot next to the falls ($7 per hour), and a small lower lot ($7)",
+    "fees": "Admission is free; parking fees apply in the paid lots",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "swimming": "No; do not cross gates or railings to the river",
+    "accessibility": "Upper viewing area is wheelchair accessible; the lower-falls trail is not",
+    "bestSeason": "Late fall through spring for the biggest flow; open sunrise to sunset every day",
+    "sources": [
+      [
+        "Snoqualmie Falls official site",
+        "https://www.snoqualmiefalls.com/"
+      ],
+      [
+        "City of Snoqualmie: Snoqualmie Falls",
+        "https://snoqualmiewa.gov/378/Snoqualmie-Falls"
+      ],
+      [
+        "Washington Trails Association: Snoqualmie Falls",
+        "https://www.wta.org/go-hiking/hikes/snoqualmie-falls"
+      ]
+    ]
+  },
+  "/minnesota/mendota-heights/minnehaha-falls": {
+    "checked": "2026-11-03",
+    "hike": "Short walk from the park's lots to the viewing areas above the falls",
+    "difficulty": "Easy",
+    "parking": "A pay lot, a free lot and on-street pay kiosks; rates are posted at the pay stations",
+    "fees": "No entry fee; pay parking in some lots",
+    "free": true,
+    "dogs": "Allowed on leash; the off-leash area closes to off-leash use on Dec. 21, 2026",
+    "accessibility": "Accessible restrooms and the Wabun universal access play area; parking is free for vehicles with disability plates or placards",
+    "sources": [
+      [
+        "Minneapolis Park & Recreation Board: Minnehaha Regional Park",
+        "https://www.minneapolisparks.org/parks-destinations/parks-lakes/minnehaha_regional_park/"
+      ],
+      [
+        "MPRB: Minnehaha dog park decommissioning",
+        "https://www.minneapolisparks.org/park-care-improvements/park-projects/current_projects/minnehaha-dog-park-decommissioning/"
+      ]
+    ]
+  },
+  "/oklahoma/davis/turner-falls": {
+    "checked": "2026-11-03",
+    "parking": "Level 1 permit $25 a day, Level 2 $15, Level 3 free (admission still required)",
+    "fees": "Per-person admission. Summer (May 1 to Sept. 30): $16 adults weekdays, $20 weekends. Winter (Oct. 1 to Apr. 30): $9 weekdays, $12 weekends. Under 5 free",
+    "free": false,
+    "dogs": "No pets; only ADA service animals",
+    "swimming": "Yes in the summer season, at your own risk and never after dark; children 12 and under must wear a Coast Guard approved life jacket. Swimming is closed in winter",
+    "bestSeason": "May to September for swimming; closed Thanksgiving and Christmas Day",
+    "sources": [
+      [
+        "Turner Falls Park: daily admission",
+        "https://www.turnerfallspark.com/admissions"
+      ],
+      [
+        "Turner Falls Park: FAQ",
+        "https://www.turnerfallspark.com/faq"
+      ]
+    ]
+  },
+  "/california/burney/burney-falls": {
+    "checked": "2026-11-03",
+    "hike": "The Falls Loop Trail is about 1 to 1.2 miles",
+    "fees": "$10 day-use fee per vehicle; a summer reservation pilot ended Sept. 27, 2026",
+    "free": false,
+    "dogs": "Only in parking lots, paved roads and campgrounds; not on trails or at the Lake Britton beach",
+    "swimming": "Not in the falls pool; Lake Britton has a designated swimming beach",
+    "sources": [
+      [
+        "California State Parks: McArthur-Burney Falls Memorial SP",
+        "https://www.parks.ca.gov/?page_id=455"
+      ]
+    ]
+  },
+  "/hawaii/hilo/rainbow-falls": {
+    "checked": "2026-11-03",
+    "hike": "Paved path from the parking lot to the viewpoint",
+    "difficulty": "Easy",
+    "fees": "Non-residents pay $5 per person plus $10 per vehicle (card only); Hawaii residents free. One payment also covers Boiling Pots",
+    "free": false,
+    "swimming": "No; strong currents, slick rock and flash floods, and no lifeguards",
+    "accessibility": "Viewpoint is reachable on a paved path, suitable for limited mobility",
+    "bestSeason": "Morning visits for the rainbow in the mist; open 7 a.m. to 5:30 p.m. daily",
+    "sources": [
+      [
+        "Hawaii Division of State Parks: Wailuku River State Park",
+        "https://dlnr.hawaii.gov/dsp/parks/hawaii/wailuku-river-state-park/"
+      ]
+    ]
+  },
+  "/new-york/palenville/kaaterskill-falls": {
+    "checked": "2026-11-03",
+    "hike": "0.3 mile each way from Laurel House Road to the top viewing platform; about 0.7 mile each way to the lower pools",
+    "elevationGain": "About 100 feet to the platform; about 240 feet to the middle and lower falls",
+    "difficulty": "Easy to the platform; moderate with stairs to the lower falls",
+    "parking": "Use the Laurel House Road lot; roadside parking on Route 23A is prohibited",
+    "free": true,
+    "swimming": "No swimming or wading within 150 feet upstream of the falls; stay at least 6 feet from cliff edges",
+    "sources": [
+      [
+        "NYSDEC: Kaaterskill Wild Forest",
+        "https://dec.ny.gov/places/kaaterskill-wild-forest"
+      ],
+      [
+        "6 NYCRR 190.36 (Northern Catskill riparian areas)",
+        "https://www.law.cornell.edu/regulations/new-york/6-NYCRR-190.36"
+      ]
+    ]
+  },
+  "/georgia/cleveland/anna-ruby-falls": {
+    "checked": "2026-11-03",
+    "hike": "Paved trail about 0.4 mile each way (0.8 mile round trip); the accessible Lion's Eye Trail is about 0.1 mile",
+    "difficulty": "Easy distance but steady uphill",
+    "fees": "$6 per visitor age 16 and up; 15 and under free",
+    "free": false,
+    "dogs": "Allowed on leash outdoors; not in the gift shop or restrooms",
+    "accessibility": "Lion's Eye Trail is designed for accessibility; the main trail is paved but steep",
+    "sources": [
+      [
+        "U.S. Forest Service: Anna Ruby Falls Recreation Area",
+        "https://www.fs.usda.gov/r08/chattahoochee-oconee/recreation/anna-ruby-falls-recreation-area"
+      ],
+      [
+        "FIND Outdoors: Anna Ruby Falls know before you go",
+        "https://gofindoutdoors.org/anna-ruby-know-before-you-go/"
+      ]
+    ]
+  },
+  "/kentucky/whitley-city/cumberland-falls": {
+    "checked": "2026-11-03",
+    "parking": "Free lots near the falls; they fill early on weekends and moonbow nights",
+    "fees": "No entry or parking fee",
+    "free": true,
+    "dogs": "Allowed on leash in outdoor areas and on trails",
+    "swimming": "No swimming in the Cumberland River at the falls; the park has a seasonal pool",
+    "accessibility": "A paved path reaches the upper viewing deck; lower platforms and trails have stairs and steep grades",
+    "bestSeason": "Spring for flow; moonbow nights around the full moon draw crowds",
+    "sources": [
+      [
+        "Kentucky Tourism: Moonbow Trail at Cumberland Falls",
+        "https://www.kentuckytourism.com/trip-planning/travel-inspiration/articles/2023/07/25/hiking-the-moonbow-trail-at-cumberland-falls"
+      ]
+    ]
+  },
+  "/pennsylvania/saw-creek/bushkill-falls": {
+    "checked": "2026-11-03",
+    "hike": "Four color-coded trails: Green about 15 minutes, Yellow about 45 minutes, Blue about 1 hour 15 minutes, and Red (all eight falls) over 2 hours and nearly 2 miles",
+    "difficulty": "Easy (Green) to strenuous (Red), with many stairs",
+    "parking": "Free",
+    "fees": "$24 adults, $22 seniors 62+ and active military, $12 ages 4 to 10, free 3 and under",
+    "free": false,
+    "dogs": "Allowed on leash; owners must clean up",
+    "swimming": "No swimming or wading for people or pets",
+    "sources": [
+      [
+        "Bushkill Falls: park admission fees",
+        "https://www.visitbushkillfalls.com/plan/park-admission-fees/"
+      ],
+      [
+        "Bushkill Falls: trails",
+        "https://www.visitbushkillfalls.com/things-to-do/trails/"
+      ]
+    ]
+  },
+  "/alabama/gadsden/noccalula-falls": {
+    "checked": "2026-11-03",
+    "hike": "The Gorge Trail (included with admission) leads below and behind the falls; the separate Black Creek Trail is 1.7 miles",
+    "fees": "$10 adults, $8 ages 4 to 12 and seniors 55+, free 3 and under",
+    "free": false,
+    "dogs": "Allowed on leash in the park and campground; not on the train",
+    "sources": [
+      [
+        "Noccalula Falls Park: park information",
+        "https://noccalulafallspark.com/park-information/"
+      ],
+      [
+        "Noccalula Falls Park: FAQ",
+        "https://noccalulafallspark.com/frequently-asked-questions/"
+      ]
+    ]
+  },
+  "/michigan/newberry/upper-falls": {
+    "checked": "2026-11-03",
+    "hike": "Paved path of about 0.4 mile from the Upper Falls lot to the viewing platforms",
+    "difficulty": "Easy",
+    "fees": "Michigan Recreation Passport required per vehicle (non-residents $12 a day or $42 a year)",
+    "free": false,
+    "dogs": "Allowed on a 6-foot leash on trails and platforms",
+    "accessibility": "Accessible paved path and boardwalk to the brink viewpoint",
+    "sources": [
+      [
+        "Michigan DNR: Tahquamenon Falls State Park",
+        "https://www.michigan.gov/recsearch/parks/tahquamenonfalls"
+      ],
+      [
+        "Michigan DNR: Recreation Passport",
+        "https://www.michigan.gov/dnr/buy-and-apply/rec-pp"
+      ]
+    ]
+  },
+  "/north-carolina/franklin/dry-falls": {
+    "checked": "2026-11-03",
+    "hike": "Paved trail of about 0.1 mile each way with stairs; the path goes behind the 75-foot falls",
+    "difficulty": "Easy, with stairs",
+    "parking": "Small lot on US 64 about 2 miles west of Highlands; fills by midday",
+    "fees": "$3 per vehicle per day; a $15 annual pass also covers Whiteside Mountain and Whitewater Falls",
+    "free": false,
+    "dogs": "Allowed on leash",
+    "accessibility": "An accessible walkway reaches an upper overlook",
+    "sources": [
+      [
+        "U.S. Forest Service: Dry Falls",
+        "https://www.fs.usda.gov/r08/northcarolina/recreation/dry-falls"
+      ],
+      [
+        "U.S. Forest Service: Dry Falls Trail",
+        "https://www.fs.usda.gov/r08/northcarolina/recreation/trails/dry-falls-trail"
+      ]
+    ]
+  },
+  "/hawaii/maunawili/manoa-falls": {
+    "checked": "2026-11-03",
+    "hike": "0.8 mile each way (1.6 miles round trip) on a muddy rainforest trail",
+    "difficulty": "Moderate; often wet and slippery",
+    "parking": "Paid lot at the trailhead (about $7); do not park at Lyon Arboretum, where hikers are towed",
+    "dogs": "Allowed on leash",
+    "swimming": "No; the pool below the falls is closed to swimming and wading",
+    "sources": [
+      [
+        "Hawaii DLNR Forestry & Wildlife: Oahu FAQ",
+        "https://dlnr.hawaii.gov/dofaw/oahu/faq/"
+      ],
+      [
+        "Lyon Arboretum: safety and policies",
+        "https://manoa.hawaii.edu/lyon/visit/safety-and-policies/"
+      ]
+    ]
+  },
+  "/hawaii/wailua-homesteads/wailua-falls": {
+    "checked": "2026-11-03",
+    "hike": "Roadside viewpoint at the end of Ma'alo Road; there is no authorized trail to the bottom",
+    "difficulty": "Easy (drive-up)",
+    "fees": "Since Feb. 22, 2026, non-residents pay $5 per person (age 4+) plus $10 per vehicle, card only; Hawaii residents free",
+    "free": false,
+    "swimming": "No; the route to the base is closed and posted no hiking",
+    "accessibility": "Viewed from the roadside parking area",
+    "sources": [
+      [
+        "Hawaii Division of State Parks: Wailua River State Park",
+        "https://dlnr.hawaii.gov/dsp/parks/kauai/wailua-river-state-park/"
+      ],
+      [
+        "DLNR visitor notice: new parking and entry fees (PDF)",
+        "https://dlnr.hawaii.gov/dsp/files/2026/02/VISITOR-NOTICE-NEW-PARKING-ENTRY-FEE-MANAGEMENT-1.pdf"
+      ]
+    ]
+  },
+  "/idaho/twin-falls/shoshone-falls": {
+    "checked": "2026-11-03",
+    "fees": "$5 per vehicle while the ticket booth is open (from April 1 in 2026); $25 season pass",
+    "free": false,
+    "dogs": "Allowed on leash in Shoshone Falls Park; not on the Dierkes Lake lawn",
+    "swimming": "Not at the falls; swimming is at nearby Dierkes Lake",
+    "bestSeason": "April to June, during snowmelt; summer and fall flows are often low because of irrigation diversions",
+    "sources": [
+      [
+        "City of Twin Falls: Shoshone Falls",
+        "https://www.tfid.org/309/Shoshone-Falls"
+      ],
+      [
+        "City of Twin Falls: 2026 ticket booth reopening",
+        "https://www.tfid.org/m/newsflash/Home/Detail/1666"
+      ]
+    ]
+  },
+  "/colorado/manitou-springs/helen-hunt-falls": {
+    "checked": "2026-11-03",
+    "hike": "The falls are beside the visitor center lot; the Silver Cascade Falls trail continues about 0.3 to 0.7 mile out and back",
+    "elevationGain": "Roughly 200 to 280 feet on the Silver Cascade trail",
+    "difficulty": "Easy to the falls; steep and rocky beyond the bridge",
+    "parking": "Free paved lot at the visitor center; fills early in summer",
+    "fees": "Free",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "sources": [
+      [
+        "City of Colorado Springs: North Cheyenne Canon Park",
+        "https://coloradosprings.gov/NCC"
+      ],
+      [
+        "City of Colorado Springs: Helen Hunt Falls Visitor Center",
+        "https://coloradosprings.gov/helenhuntfalls"
+      ]
+    ]
+  },
+  "/north-carolina/brevard/sliding-rock": {
+    "checked": "2026-11-03",
+    "fees": "$6 per person, 5 and under free (staffed season)",
+    "free": false,
+    "dogs": "Allowed on leash, but dogs may not slide",
+    "swimming": "Yes: sliding and swimming, with lifeguards Memorial Day through Labor Day, 9 a.m. to 6 p.m.; no lifeguards or open restrooms the rest of the year",
+    "bestSeason": "Memorial Day to Labor Day, when lifeguards are on duty",
+    "sources": [
+      [
+        "U.S. Forest Service: Sliding Rock Recreation Area",
+        "https://www.fs.usda.gov/r08/northcarolina/recreation/sliding-rock-recreation-area"
+      ]
+    ]
+  },
+  "/michigan/rogers-city/ocqueoc-falls": {
+    "checked": "2026-11-03",
+    "hike": "Short paved path from the parking area",
+    "difficulty": "Easy",
+    "fees": "Michigan Recreation Passport required per vehicle",
+    "free": false,
+    "accessibility": "Billed by the Michigan DNR as a universally accessible waterfall: paved path, ramp to the river, accessible picnic areas and benches",
+    "sources": [
+      [
+        "Michigan DNR: Ocqueoc Falls",
+        "https://www.michigan.gov/recsearch/sfcampgroundsn-z/ocqueocfalls"
+      ],
+      [
+        "Michigan DNR news: Ocqueoc Falls has universal appeal",
+        "https://content.govdelivery.com/accounts/MIDNR/bulletins/4c47bd"
+      ]
+    ]
+  }
+}
