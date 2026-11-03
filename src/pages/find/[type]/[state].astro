@@ -35,7 +35,7 @@ const faqs = [
   ...(counties.length > 1 ? [{ q: `Which counties are they in?`, a: `The ${items.length} on this list are in ${listJoin(counties.slice(0, 6).map((c) => `${c} County`))}${counties.length > 6 ? ' and others' : ''}.` }] : []),
 ];
 const schema = [
-  { '@type': 'Article', headline: page.title, description: page.description, image: abs(photo.src), datePublished: FIND_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${page.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'State', name: state.name } },
+  { '@type': 'Article', headline: page.title, description: page.description, image: abs(photo.src), datePublished: FIND_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${page.url}`, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'State', name: state.name } },
   { '@type': 'ItemList', name: page.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];

@@ -30,7 +30,7 @@ const schema = [
     wordCount: post.words,
     articleSection: post.category,
     mainEntityOfPage: `${SITE.url}${post.url}`,
-    author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` },
+    author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
     publisher: { '@id': `${SITE.url}/#organization` },
   },
   ...(post.faqs.length ? [{ '@type': 'FAQPage', mainEntity: post.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),

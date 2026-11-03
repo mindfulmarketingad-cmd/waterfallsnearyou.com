@@ -36,7 +36,7 @@ const faqs = [
   { q: `Do I need a permit or pay a fee to visit ${l.name}?`, a: `Fees and permits depend on who manages the land. Check with the managing agency before you go${os?.site ? `, or see the <a href="${os.site}" rel="nofollow noopener">official website</a>` : ''}. Our <a href="/states/${state.slug}">${state.name} waterfalls page</a> covers access in the state.` },
 ];
 const schema = [
-  { '@type': 'BlogPosting', headline: g.title, description: g.description, image: abs(photo.src), datePublished: GUIDES_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${g.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@id': `${SITE.url}${l.url}#place` } },
+  { '@type': 'BlogPosting', headline: g.title, description: g.description, image: abs(photo.src), datePublished: GUIDES_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${g.url}`, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@id': `${SITE.url}${l.url}#place` } },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---

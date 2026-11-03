@@ -39,7 +39,7 @@ const faqs = [
   ...(content?.faqs?.slice(0, 1) || []),
 ];
 const schema = [
-  { '@type': 'BlogPosting', headline: post.title, description: post.description, image: abs(photo.src), datePublished: LISTS_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${post.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'City', name: capital, containedInPlace: { '@type': 'State', name: state.name } } },
+  { '@type': 'BlogPosting', headline: post.title, description: post.description, image: abs(photo.src), datePublished: LISTS_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${post.url}`, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'City', name: capital, containedInPlace: { '@type': 'State', name: state.name } } },
   { '@type': 'ItemList', name: post.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];

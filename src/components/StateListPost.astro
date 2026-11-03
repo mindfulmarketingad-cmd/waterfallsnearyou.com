@@ -49,7 +49,7 @@ const schema = [
     datePublished: published.toISOString(),
     dateModified: updated.toISOString(),
     mainEntityOfPage: `${SITE.url}${post.url}`,
-    author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` },
+    author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
     publisher: { '@id': `${SITE.url}/#organization` },
     about: { '@type': 'State', name: state.name },
   },

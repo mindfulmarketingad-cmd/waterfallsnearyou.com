@@ -46,7 +46,7 @@ const faqs = [
   ...(page.alsoNear?.length ? [{ q: `Does this list cover nearby cities too?`, a: `Yes. ${listJoin(page.alsoNear.slice(0, 6))}${page.alsoNear.length > 6 ? ' and others' : ''} ${page.alsoNear.length === 1 ? 'is' : 'are'} close enough to ${city.name} to share the same waterfalls, so this list serves them as well.` }] : []),
 ];
 const schema = [
-  { '@type': 'Article', headline: page.title, description: page.description, image: abs(photo.src), datePublished: FIND_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${page.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'City', name: city.name, containedInPlace: { '@type': 'State', name: state.name } } },
+  { '@type': 'Article', headline: page.title, description: page.description, image: abs(photo.src), datePublished: FIND_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${page.url}`, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'City', name: city.name, containedInPlace: { '@type': 'State', name: state.name } } },
   { '@type': 'ItemList', name: page.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];

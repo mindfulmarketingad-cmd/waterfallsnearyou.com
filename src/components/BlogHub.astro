@@ -36,7 +36,7 @@ const schema = [{ '@type': 'Blog', name: 'WaterfallsNearYou Guides', url: `${SIT
       {posts.map((p) => (
         <li class="feed-item">
           <h2><a href={p.url}>{p.title}</a></h2>
-          <p class="feed-meta">By the <a href="/about">WaterfallsNearYou Editorial Team</a> · <time datetime={p.date.toISOString()}>{fmt(p.date)}</time> · {p.minutes} min read</p>
+          <p class="feed-meta">By <a href="/about">David F.</a> · <time datetime={p.date.toISOString()}>{fmt(p.date)}</time> · {p.minutes} min read</p>
           <p class="feed-desc">{p.description}</p>
           <a class="feed-btn" href={p.url}>Read the guide</a>
         </li>

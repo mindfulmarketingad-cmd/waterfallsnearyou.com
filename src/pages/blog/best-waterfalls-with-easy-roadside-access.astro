@@ -26,7 +26,7 @@ const faqs = [
   { q: 'When are roadside waterfalls least crowded?', a: 'Early mornings on weekdays. Short-walk waterfalls fill up quickly on summer weekends and holidays because they suit every age and fitness level.' },
 ];
 const schema = [
-  { '@type': 'BlogPosting', headline: post.title, description: post.description, image: photo.src.startsWith('http') ? photo.src : `${SITE.url}${photo.src}`, datePublished: LISTS_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${post.url}`, author: { '@type': 'Organization', name: 'WaterfallsNearYou Editorial Team', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` } },
+  { '@type': 'BlogPosting', headline: post.title, description: post.description, image: photo.src.startsWith('http') ? photo.src : `${SITE.url}${photo.src}`, datePublished: LISTS_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${post.url}`, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` } },
   { '@type': 'ItemList', name: post.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];

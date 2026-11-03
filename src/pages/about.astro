@@ -4,7 +4,7 @@ import { loadData } from '../lib/core.mjs';
 import { fmtNum } from '../lib/format.mjs';
 import { SITE } from '../config.mjs';
 const { listings, states, cities } = loadData();
-const schema = [{ '@type': 'AboutPage', name: 'About WaterfallsNearYou', url: `${SITE.url}/about`, about: { '@id': `${SITE.url}/#organization` } }];
+const schema = [{ '@type': 'AboutPage', name: 'About WaterfallsNearYou', url: `${SITE.url}/about`, about: { '@id': `${SITE.url}/#organization` }, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` } }];
 ---
 <StaticPage title="About WaterfallsNearYou | Our Data and Mission" h1="About WaterfallsNearYou" eyebrow="Our story" description={`WaterfallsNearYou is a free directory of ${fmtNum(listings.length)} named US waterfalls built from official USGS data. Learn where our data comes from and how we keep it accurate.`} intro="A free, data-first directory that helps people find waterfalls near them and visit them safely." schema={schema}>
   <h2>Why WaterfallsNearYou exists</h2>
@@ -21,7 +21,10 @@ const schema = [{ '@type': 'AboutPage', name: 'About WaterfallsNearYou', url: `$
   <h2>Where our data comes from</h2>
   <p>Every waterfall location starts with the <strong>U.S. Geological Survey Geographic Names Information System (GNIS)</strong>, the federal government's official repository of domestic geographic names. GNIS records each named waterfall's position, county, topographic quadrangle, alternate historical names and, for some features, written descriptions and naming history. GNIS data is in the public domain.</p>
   <p>Nearby towns come from <strong>GeoNames</strong> (licensed CC BY 4.0), using places with 1,000 or more residents. Distances on this site are straight-line distances; driving and hiking distances are longer.</p>
-  <p>Where available, listings are enriched with public business information from Google Maps listings, such as visitor ratings, hours, phone numbers, websites and photos. Those details are refreshed periodically and can change without notice.</p>
+  <p>Where available, listings are enriched with public business information from Google Maps listings, such as visitor ratings, hours, phone numbers and websites. Those details are refreshed periodically and can change without notice.</p>
+
+  <h2>Who runs WaterfallsNearYou</h2>
+  <p>WaterfallsNearYou.com was founded and is run by <strong>David F.</strong> David oversees the site's data, guides and corrections, and every article on the site is published under his name. Questions, corrections and suggestions reach him directly through the <a href="/contact">contact page</a>.</p>
 
   <h2>Our editorial standards</h2>
   <ul>
