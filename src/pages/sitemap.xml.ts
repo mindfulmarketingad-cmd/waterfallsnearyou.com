@@ -2,8 +2,9 @@ import { loadData, staticPagePaths } from '../lib/core.mjs';
 import { getPosts } from '../lib/blog.mjs';
 import { getStateLists, getSmallest, getRoadside, getCapitalLists } from '../lib/bestof.mjs';
 import { getGuides } from '../lib/guides.mjs';
-import { getFind, findPages } from '../lib/find.mjs';
+import { getFind, findPages, getFindCities } from '../lib/find.mjs';
 import { SITE } from '../config.mjs';
+import { isIndexable } from '../lib/indexing.mjs';
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 export function GET() {
@@ -17,13 +18,14 @@ export function GET() {
     { loc: '/find', lastmod: today, img: null },
     ...getFind().map((t) => ({ loc: t.url, lastmod: today, img: null })),
     ...findPages().map((p) => ({ loc: p.url, lastmod: today, img: `/images/gen${p.url}.webp` })),
+    ...getFindCities().map((p) => ({ loc: p.url, lastmod: today, img: `/images/gen${p.url}.webp` })),
     { loc: '/map', lastmod: today, img: null },
     ...states.map((s) => ({ loc: `/map/${s.slug}`, lastmod: today, img: null })),
     ...getGuides().map((g) => ({ loc: g.url, lastmod: today, img: g.listing.os?.photo || `/images/gen${g.listing.url}.webp` })),
     ...states.map((s) => ({ loc: s.url, lastmod: today, img: `/images/gen${s.url}.webp` })),
     ...cities.map((c) => ({ loc: c.url, lastmod: today, img: `/images/gen${c.url}.webp` })),
     ...listings.map((l) => ({ loc: l.url, lastmod: l.gnisEdited || today, img: l.os?.photo || `/images/gen${l.url}.webp` })),
-  ];
+  ].filter((e) => isIndexable(e.loc));
   const abs = (u) => (u.startsWith('http') ? u : `${SITE.url}${u === '/' ? '' : u}`);
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">

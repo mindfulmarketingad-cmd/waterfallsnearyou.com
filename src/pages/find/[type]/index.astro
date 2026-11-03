@@ -4,7 +4,7 @@
 import Base from '../../../layouts/Base.astro';
 import PageBand from '../../../components/PageBand.astro';
 import Faq from '../../../components/Faq.astro';
-import { getFind, FIND_YEAR } from '../../../lib/find.mjs';
+import { getFind, findCitiesFor, CITY_RADIUS, FIND_YEAR } from '../../../lib/find.mjs';
 import { pagePhoto } from '../../../lib/photos.mjs';
 import { displayName, fmtNum } from '../../../lib/format.mjs';
 import { SITE } from '../../../config.mjs';
@@ -50,6 +50,20 @@ const schema = [
       <ul class="find-states">
         {pages.map((p) => (
           <li><a href={p.url}><strong>{p.state.name}</strong><span>{p.title.replace(/ \(\d{4}( Updated)?\)$/, '')}</span></a></li>
+        ))}
+      </ul>
+    )}
+
+    {findCitiesFor(type).length > 0 && (
+      <div class="prose">
+        <h2>{type.name} near Major Cities</h2>
+        <p>Lists for cities with at least 3 qualifying waterfalls within {CITY_RADIUS} straight-line miles.</p>
+      </div>
+    )}
+    {findCitiesFor(type).length > 0 && (
+      <ul class="find-states">
+        {[...findCitiesFor(type)].sort((a, b) => a.state.name.localeCompare(b.state.name) || a.city.name.localeCompare(b.city.name)).map((p) => (
+          <li><a href={p.url}><strong>{p.city.name}, {p.city.st}</strong><span>{p.items.length} waterfall{p.items.length === 1 ? '' : 's'}</span></a></li>
         ))}
       </ul>
     )}
