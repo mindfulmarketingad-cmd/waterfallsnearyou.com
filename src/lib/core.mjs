@@ -83,7 +83,8 @@ export function loadData() {
   if (cache) return cache;
   const gnis = readJson('data/gnis-waterfalls.json', []);
   const cities = readJson('data/us-cities.json', []);
-  const outscraper = readJson('data/outscraper.json', []);
+  // Google Maps photo URLs are not hotlinked: pages use the site's own generated images instead.
+  const outscraper = readJson('data/outscraper.json', []).map((r) => ({ ...r, photo: null, photos: [], streetView: null, logo: null }));
 
   // ---- Base listings from GNIS ----
   const listings = gnis.map((g) => ({
