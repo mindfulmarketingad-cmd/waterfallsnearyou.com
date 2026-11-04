@@ -4,6 +4,7 @@ description: "Plan a Columbia River Gorge waterfalls road trip: Multnomah, Latou
 pubDate: 2026-11-03
 category: "Guides"
 imageAlt: "A tall, thin waterfall plunging down a dark basalt cliff draped in green moss, with a stone arch bridge crossing the stream partway up"
+featuredWaterfall: "oregon/cascade-locks/multnomah-falls"
 faqs:
   - q: "Do you need a permit to visit Multnomah Falls?"
     a: "Only in summer, and only for the I-84 Exit 31 parking lot. In 2026 a timed-use permit was required there from 9 a.m. to 6 p.m. daily between May 22 and September 7, booked on Recreation.gov with a $2 transaction fee. A limited number of free permits were available at the Gateway to the Gorge Visitor Center in Troutdale and the Cascade Locks Historical Museum."

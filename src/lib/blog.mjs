@@ -42,6 +42,7 @@ export function getPosts() {
         description: data.description,
         category: data.category,
         imageAlt: data.imageAlt,
+        featuredWaterfall: data.featuredWaterfall || null,
         faqs: data.faqs || [],
         date,
         updated: data.updatedDate ? new Date(data.updatedDate) : date,

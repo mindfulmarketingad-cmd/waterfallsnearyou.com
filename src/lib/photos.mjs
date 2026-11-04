@@ -3,6 +3,7 @@
 // a photo of a real waterfall from their content, also labeled. The generated illustration is only a
 // fallback (no photo nearby, or the remote photo fails to load).
 import { loadData, imageFor } from './core.mjs';
+import { getPosts } from './blog.mjs';
 
 const NEIGHBOR_MILES = 10;
 const fm = (m) => (m < 10 ? m.toFixed(1) : String(Math.round(m)));
@@ -48,9 +49,34 @@ function nationalPool() {
     .filter((l) => { const n = seenState.get(l.state) || 0; seenState.set(l.state, n + 1); return n < 3; });
   return pool;
 }
+// Blog posts: the post's own `featuredWaterfall` (a listing URL path), else the first linked
+// waterfall page with a photo, else the national pool. No two posts share a photo.
+let postMap = null;
+function postPhotos() {
+  if (postMap) return postMap;
+  const { listings } = loadData();
+  const byUrl = new Map(listings.map((l) => [l.url, l]));
+  const used = new Set();
+  postMap = new Map();
+  const posts = [...getPosts()].sort((a, b) => (b.featuredWaterfall ? 1 : 0) - (a.featuredWaterfall ? 1 : 0) || a.date - b.date || a.slug.localeCompare(b.slug));
+  for (const post of posts) {
+    const want = post.featuredWaterfall ? '/' + post.featuredWaterfall.replace(/^\/|\/$/g, '') : null;
+    const cands = [want, ...post.links].map((u) => u && byUrl.get(u)).filter((l) => l && ownPhoto(l) && !used.has(l.os.photo));
+    let l = cands[0];
+    if (!l) {
+      const p = nationalPool().filter((x) => !used.has(x.os.photo));
+      l = p.length ? p[hashIndex(post.url) % p.length] : null;
+    }
+    if (l) { used.add(l.os.photo); postMap.set(post.url, l); }
+  }
+  return postMap;
+}
 const assigned = new Map();
 export function featuredPhoto(key) {
-  const p = nationalPool();
+  const pm = postPhotos();
+  if (pm.has(key)) return pagePhoto(key, [pm.get(key)]);
+  const taken = new Set([...pm.values()].map((l) => l.os.photo));
+  const p = nationalPool().filter((l) => !taken.has(l.os.photo));
   if (!assigned.has(key)) assigned.set(key, assigned.size);
   const l = p[(hashIndex(key) + assigned.get(key) * 7) % p.length];
   return pagePhoto(key, [l]);

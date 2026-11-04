@@ -25,6 +25,7 @@ description: "..."      # 140-160 chars, includes primary keyword, written to ea
 pubDate: YYYY-MM-DD     # today's date in America/New_York
 category: "..."         # one of: Planning, Safety, Guides, Data, Families, Gear, Photography
 imageAlt: "..."         # a specific, literal description of a waterfall scene that fits the post
+featuredWaterfall: "state/town/slug"  # REQUIRED: listing URL path (no leading slash) of a waterfall the post covers and links to, with a Google photo; must not be used by any other post (it becomes the hero and og:image)
 faqs:                   # 4 to 5 real questions people search, each answered in 2 to 4 sentences
   - q: "..."
     a: "..."

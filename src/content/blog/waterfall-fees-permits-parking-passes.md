@@ -4,6 +4,7 @@ description: "Which waterfalls are free and which charge? Entrance fees, parking
 pubDate: 2026-11-04
 category: "Planning"
 imageAlt: "A wide waterfall spilling over a rock ledge into a brown river, seen from a wooden viewing platform with a railing in the foreground"
+featuredWaterfall: "tennessee/chattanooga/ruby-falls"
 faqs:
   - q: "Are most waterfalls free to visit?"
     a: "Many are, but fewer than people expect at the famous ones. Of the 40 heavily visited waterfalls we have checked so far, 13 had no entry fee for at least one way in, 24 charged an entrance fee, a parking fee or a per-person ticket, and 3 had rules we could not pin down. The free ones tend to be on city land, in fee-free national park units, or in states like Tennessee and Massachusetts that do not charge at the parks we checked."
