@@ -20,5 +20,27 @@
       "The closest is Sturtevant Falls in Big Santa Anita Canyon above Sierra Madre, about 17 miles from downtown in the Angeles National Forest. San Antonio Falls sits just off the road to Mount Baldy, and Bonita Falls is in Lytle Creek Canyon near the 15 freeway. Farther out, Big Falls in the San Bernardino Mountains, Rose Valley Falls above Ojai and Tahquitz Falls in Palm Springs each make a full day.",
       "Mountain roads in these canyons can close after storms and fires, and forest parking areas may require a recreation pass. Check the managing agency's alerts before you drive."
     ]
+  },
+  {
+    "name": "Philadelphia",
+    "st": "PA",
+    "slug": "philadelphia",
+    "published": "2026-11-04",
+    "intro": [
+      "Philadelphia has no big waterfall inside the city, but you don't have to drive far for one. The closest on our list is Gilpins Falls in North East, Maryland, about 47 miles southwest in a straight line, where Northeast Creek drops beside a restored covered bridge. It makes an easy half-day trip down I-95.",
+      "For a full day, head north. The Poconos hold most of the falls within reach of the city: Hawk Falls in Hickory Run State Park is a short hike off the Pennsylvania Turnpike's Northeast Extension, and the privately owned Bushkill Falls sells tickets for trails past eight falls. Farther up, Raymondskill Falls sits in Delaware Water Gap National Recreation Area, along with Dingmans Falls, whose trail has been closed for reconstruction since May 2025. The Great Falls of the Passaic in Paterson, New Jersey, is about as far as the Poconos and can be seen from overlooks near the street.",
+      "Spring and the days after a soaking rain are the time to go. Several of these streams run low by late summer, and Pocono roads and trails can be icy well into March."
+    ]
+  },
+  {
+    "name": "Seattle",
+    "st": "WA",
+    "slug": "seattle",
+    "published": "2026-11-04",
+    "intro": [
+      "Seattle is one of the best big cities in the country for waterfalls. Snoqualmie Falls, about 23 miles east of downtown in a straight line, drops 268 feet beside a free viewing area and is a short walk from parking. Keep going east on I-90 and Twin Falls, Teneriffe Falls and Franklin Falls are all short-to-moderate hikes off the interstate.",
+      "Farther out, US 2 passes Deception Falls east of Gold Bar, Mount Rainier National Park has Narada and Christine Falls right off the road to Paradise, and Olympic National Park's Marymere and Sol Duc Falls make a long day or an overnight from the city. Up north, Nooksack Falls is on the Mount Baker Highway.",
+      "Flow is highest from late fall through spring, when rain and snowmelt feed the Cascades. National forest trailheads usually need a Northwest Forest Pass or day pass, state parks need a Discover Pass, and the national parks charge entrance fees, so check which one covers your stop. Winter snow closes some trailhead roads, including Franklin Falls's."
+    ]
   }
 ]

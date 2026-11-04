@@ -376,5 +376,395 @@
         "https://content.govdelivery.com/accounts/MIDNR/bulletins/4c47bd"
       ]
     ]
+  },
+  "/wyoming/moose-wilson-road/mystic-falls": {
+    "checked": "2026-11-04",
+    "hike": "2.4 miles round trip on the Mystic Falls Trail; an optional switchback climb to an overlook of the Upper Geyser Basin adds 1.5 miles. Biscuit Basin's lot and boardwalk have been closed since the July 2024 hydrothermal explosion, so start from the Daisy Trail pullouts, which adds about half a mile each way",
+    "elevationGain": "Modest to the falls; about 500 feet more if you climb to the overlook",
+    "difficulty": "Rated moderately strenuous by the park",
+    "parking": "Roadside pullouts on the Grand Loop Road about 0.25 mile south of Biscuit Basin while the Biscuit Basin lot is closed",
+    "fees": "No trail fee; Yellowstone entrance fees apply",
+    "free": false,
+    "dogs": "No; pets are not allowed on Yellowstone trails or boardwalks",
+    "swimming": "No",
+    "sources": [
+      [
+        "NPS: Mystic Falls Trail",
+        "https://www.nps.gov/thingstodo/yell-trail-mystic-falls.htm"
+      ],
+      [
+        "NPS: Biscuit Basin Trailhead",
+        "https://www.nps.gov/places/000/biscuit-basin-trailhead-ok4.htm"
+      ]
+    ]
+  },
+  "/michigan/iron-river/bond-falls": {
+    "checked": "2026-11-04",
+    "hike": "About a five-minute walk from the main lower lot on a paved path to a 600-foot boardwalk with six viewing spots; a loop trail climbs both banks to the cascades above",
+    "difficulty": "Easy on the boardwalk; stairs and uneven ground on the upper loop",
+    "parking": "Main lower lot off Scenic Overlook Drive (Recreation Passport required); free roadside parking near the Bond Falls Outpost at the top of the falls, which means stairs down to the viewing deck",
+    "fees": "Michigan Recreation Passport required for vehicles in the main lot; a self-registration station is at the entrance. Walk-ins and cyclists do not need one",
+    "free": false,
+    "dogs": "Allowed on leash",
+    "accessibility": "Boardwalk and main viewing deck are wheelchair accessible from the lower lot; the upper roadside access is not",
+    "bestSeason": "Vehicle access usually runs mid-May to mid-October; the trail stays open year-round but is not groomed for snow and ice",
+    "sources": [
+      [
+        "Michigan DNR: Bond Falls Scenic Site",
+        "https://www.michigan.gov/recsearch/parks/bondfalls"
+      ],
+      [
+        "Michigan DNR: accessible trails and scenic sites",
+        "https://www.michigan.gov/dnr/about/accessibility/trails"
+      ]
+    ]
+  },
+  "/arizona/grand-canyon-village/havasu-falls": {
+    "checked": "2026-11-04",
+    "hike": "10 miles one way from Hualapai Hilltop to the campground (8 miles to Supai Village, then 2 more); day hiking is not allowed",
+    "difficulty": "Strenuous desert backpacking trip; trails close when temperatures exceed 115 degrees",
+    "parking": "Hualapai Hilltop trailhead, at the end of Indian Highway 18; no services there",
+    "fees": "Reservation required for every visitor and every stay is 4 days and 3 nights. 2026 prices: campground $455 per person, lodge $2,277 per room for up to four",
+    "free": false,
+    "dogs": "No; pets, service animals and private horses are not allowed anywhere on the reservation",
+    "sources": [
+      [
+        "NPS: Havasupai Tribe Reservation",
+        "https://www.nps.gov/grca/planyourvisit/havasupai.htm"
+      ],
+      [
+        "Havasupai Reservations: permit prices",
+        "https://help.havasupaireservations.com/hc/en-us/articles/12133761690004-What-are-the-permit-prices-to-visit-Havasupai"
+      ],
+      [
+        "Havasupai Reservations: pets",
+        "https://help.havasupaireservations.com/hc/en-us/articles/47114743108500-Are-pets-service-animals-or-horses-allowed"
+      ]
+    ]
+  },
+  "/utah/orem/bridal-veil-falls": {
+    "checked": "2026-11-04",
+    "hike": "Normally about half a mile of the paved Provo River Parkway from parking to the base. Closed since an Oct. 23, 2026 rockslide: the trail from the Nunn's Park turnoff to the falls is shut through winter, with repairs planned for spring",
+    "difficulty": "Easy on the paved parkway; unofficial paths above the base are steep and dangerous",
+    "parking": "Lower lot and Nunn's Park off US-189; the upper overlook lot closes for winter on Nov. 1",
+    "fees": "No fee",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "accessibility": "The paved parkway is flat and works for wheelchairs and strollers when open",
+    "sources": [
+      [
+        "Utah County Parks: Bridal Veil Falls",
+        "https://publicworks.utahcounty.gov/parks"
+      ],
+      [
+        "KSL: rockfall closes Bridal Veil Falls trail",
+        "https://www.ksl.com/article/51641324/massive-rock-fall-closes-bridal-veil-falls-trail-until-at-least-spring"
+      ]
+    ]
+  },
+  "/new-york/south-hill/ithaca-falls": {
+    "checked": "2026-11-04",
+    "hike": "About 0.1 mile each way on gravel from Lake Street at East Falls Street; the falls are also visible from the Lake Street bridge",
+    "difficulty": "Short, but the last stretch is rough and uneven",
+    "parking": "Lake Street, with small lots near the corner of Lake and East Falls streets; TCAT bus stop Lake @ Falls",
+    "fees": "No fee",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "swimming": "No; swimming in Fall Creek is illegal and the currents near the falls are deadly",
+    "accessibility": "A flat path at the park entrance reaches a creek overlook; the path to the falls is rough",
+    "bestSeason": "Open year-round; flow is loudest in spring",
+    "sources": [
+      [
+        "Ithaca Trails: Ithaca Falls",
+        "https://ithacatrails.org/trail/ithaca-falls/"
+      ]
+    ]
+  },
+  "/washington/tanner/franklin-falls": {
+    "checked": "2026-11-04",
+    "hike": "2 miles round trip on Franklin Falls Trail 1036 to a 70-foot falls; in winter, when Denny Creek Road is gated, it is about 7 miles round trip from the Asahel Curtis Sno-Park",
+    "elevationGain": "About 400 feet",
+    "difficulty": "Easy family hike, with a rocky final descent to the pool",
+    "parking": "Franklin Falls Trailhead on Denny Creek Road (Forest Road 58)",
+    "fees": "Recreation pass required: $5 National Forest Day Pass, $30 Northwest Forest Pass, or an interagency pass. The Discover Pass is not valid",
+    "free": false,
+    "dogs": "Allowed on leash",
+    "sources": [
+      [
+        "USFS: Franklin Falls Trail 1036",
+        "https://www.fs.usda.gov/r06/mbs/recreation/trails/franklin-falls-trail-1036"
+      ],
+      [
+        "USFS: Franklin Falls Trailhead",
+        "https://www.fs.usda.gov/r06/mbs/recreation/franklin-falls-trailhead"
+      ]
+    ]
+  },
+  "/california/carmel-valley-village/mcway-falls": {
+    "checked": "2026-11-04",
+    "hike": "The McWay Falls Overlook Trail is 0.5 mile round trip, but it is closed for retaining-wall work with no reopening date posted",
+    "difficulty": "Easy",
+    "parking": "Julia Pfeiffer Burns State Park day-use lot; limited spaces and no vehicles over 22 feet",
+    "fees": "$10 per vehicle day-use fee",
+    "free": false,
+    "dogs": "No; dogs are not allowed on park trails, only on leash in the paved parking area",
+    "sources": [
+      [
+        "California State Parks: Julia Pfeiffer Burns trails",
+        "https://www.parks.ca.gov/?page_id=29888"
+      ],
+      [
+        "California State Parks: Julia Pfeiffer Burns day use",
+        "https://www.parks.ca.gov/?page_id=29883"
+      ]
+    ]
+  },
+  "/washington/dayton/palouse-falls": {
+    "checked": "2026-11-04",
+    "hike": "Short walks from the parking area to the main viewing area and gravel paths to the Fryxell Overlook; all trails into the canyon and to the base are permanently closed",
+    "difficulty": "Easy",
+    "fees": "Washington Discover Pass required ($10 day or $45 annual)",
+    "free": false,
+    "dogs": "Allowed on leash",
+    "swimming": "No; the plunge pool is closed to the public",
+    "accessibility": "Paved interpretive path and viewing area are ADA accessible",
+    "sources": [
+      [
+        "Washington State Parks: Palouse Falls",
+        "https://parks.wa.gov/find-parks/state-parks/palouse-falls-state-park-heritage-site"
+      ],
+      [
+        "Washington State Parks: plan a Palouse Falls trip",
+        "https://parks.wa.gov/about/news-center/field-guide-blog/make-your-trip-palouse-falls-unforgettable"
+      ]
+    ]
+  },
+  "/maryland/potomac/great-falls": {
+    "checked": "2026-11-04",
+    "hike": "Great Falls Overlook boardwalk crosses Olmsted Island from the Great Falls Tavern area; Billy Goat Trail Section A is a separate rock scramble",
+    "parking": "Great Falls Tavern area lots, inside the C&O Canal fee area",
+    "fees": "Entrance pass required: $20 per vehicle, cashless (card only); annual and interagency passes accepted",
+    "free": false,
+    "dogs": "Not on the Great Falls Overlook boardwalk or Billy Goat Trail Section A; allowed on a 6-foot leash on the towpath and Billy Goat Sections B and C",
+    "swimming": "No",
+    "accessibility": "Great Falls Overlook boardwalk is ADA accessible",
+    "sources": [
+      [
+        "NPS: Great Falls Overlook",
+        "https://www.nps.gov/choh/planyourvisit/great-falls-overlook.htm"
+      ],
+      [
+        "NPS: C&O Canal fees",
+        "https://www.nps.gov/choh/planyourvisit/fees.htm"
+      ],
+      [
+        "NPS: C&O Canal pets",
+        "https://www.nps.gov/choh/planyourvisit/pets.htm"
+      ]
+    ]
+  },
+  "/pennsylvania/birchwood-lakes/dingmans-falls": {
+    "checked": "2026-11-04",
+    "hike": "Closed to all visitors, including pedestrians, since May 12, 2025 for bridge and trail reconstruction, with no reopening date posted. When open, a boardwalk runs about 0.3 mile to near the base, then 0.1 mile of steep stairs",
+    "parking": "Dingmans Falls Visitor Center lot; no buses or RVs on weekends and federal holidays",
+    "fees": "No fee for the falls (the $10 Dingmans Access fee is for a separate river access)",
+    "free": true,
+    "dogs": "No; only trained service dogs on the trail and in the visitor center",
+    "accessibility": "When open, the boardwalk is wheelchair and stroller accessible to the lower viewpoint; the stairs to the base are not",
+    "sources": [
+      [
+        "NPS: Dingmans Creek Trail",
+        "https://www.nps.gov/dewa/planyourvisit/dingmans-creek-trail.htm"
+      ],
+      [
+        "NPS: Dingmans Falls",
+        "https://www.nps.gov/places/dingmans-falls.htm"
+      ]
+    ]
+  },
+  "/oregon/troutdale/latourell-falls": {
+    "checked": "2026-11-04",
+    "hike": "Lower falls viewpoint is a few steps from the lot; the Latourell Falls Loop is 2.4 miles and passes Upper Latourell Falls",
+    "elevationGain": "About 600 feet on the full loop",
+    "difficulty": "Easy to the lower viewpoint; moderate on the loop",
+    "parking": "Guy W. Talbot State Park lot on the Historic Columbia River Highway",
+    "fees": "Oregon State Parks day-use parking permit required since March 30, 2026: $10 for Oregon residents, $12 for nonresidents",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet",
+    "accessibility": "The full loop is rocky and not wheelchair accessible",
+    "sources": [
+      [
+        "Friends of the Columbia Gorge: Latourell Falls Loop",
+        "https://gorgefriends.org/find-a-hike/latourell-falls-loop/"
+      ],
+      [
+        "Oregon State Parks: day-use parking permits",
+        "https://stateparks.oregon.gov/index.cfm?do=visit.parking"
+      ]
+    ]
+  },
+  "/tennessee/dodson-branch/cummins-falls": {
+    "checked": "2026-11-04",
+    "hike": "The 0.35-mile Falls Overlook Trail needs no permit; reaching the base means a steep, slippery descent and wading up the Blackburn Fork gorge",
+    "difficulty": "Easy to the overlook; strenuous into the gorge",
+    "fees": "Gorge Access Permit required for the base and swimming area, bought online in advance; the overlook is free",
+    "dogs": "Allowed on leash, but the gorge route is not recommended for pets",
+    "swimming": "Yes, in the gorge with a Gorge Access Permit, in fair weather only; it closes quickly for flash flooding. Children 5 and under should not go, and those 12 and under need a life jacket",
+    "sources": [
+      [
+        "Tennessee State Parks: Cummins Falls",
+        "https://tnstateparks.com/parks/cummins-falls"
+      ],
+      [
+        "Tennessee State Parks: Gorge Access Permits",
+        "https://reserve.tnstateparks.com/cummins-falls/permits"
+      ]
+    ]
+  },
+  "/tennessee/spencer/fall-creek-falls": {
+    "checked": "2026-11-04",
+    "hike": "Fall Creek Falls Overlook is a paved path from its parking area; the Base of Falls Trail is 0.35 mile one way",
+    "difficulty": "Easy at the overlook; the base trail is difficult and rocky, with a steep climb back",
+    "fees": "No entry or parking fee",
+    "free": true,
+    "dogs": "Allowed on a 6-foot leash",
+    "accessibility": "The overlook has accessible parking and a paved path",
+    "sources": [
+      [
+        "Tennessee State Parks: Fall Creek Falls hiking",
+        "https://tnstateparks.com/parks/fall-creek-falls/hiking"
+      ],
+      [
+        "Tennessee State Parks: Fall Creek Falls accessibility",
+        "https://tdec-stag.iostudio.com/parks/fall-creek-falls/accessibility"
+      ]
+    ]
+  },
+  "/alabama/fort-payne/de-soto-falls": {
+    "checked": "2026-11-04",
+    "hike": "Short walk from the DeSoto Falls Picnic Area; the main overlook is down about 50 concrete stairs",
+    "difficulty": "Easy, with stairs",
+    "parking": "DeSoto Falls Picnic Area near Mentone; limited spaces, open daylight to dusk",
+    "fees": "$5 per vehicle",
+    "free": false,
+    "swimming": "Only above the A. A. Miller Dam and in designated West Fork areas; not on the cascade or within 50 feet of the falls",
+    "accessibility": "The dam and upper falls area are accessible; the main overlook requires stairs",
+    "sources": [
+      [
+        "Alabama State Parks: DeSoto Falls Picnic Area",
+        "https://www.alapark.com/AL-desoto-falls"
+      ],
+      [
+        "Alabama State Parks: DeSoto swimming",
+        "https://www.alapark.com/desoto-state-park/swimming"
+      ]
+    ]
+  },
+  "/massachusetts/sheffield/bash-bish-falls": {
+    "checked": "2026-11-04",
+    "hike": "About 0.7 mile round trip from the Falls Road lot in Massachusetts; the route from the New York side (Taconic State Park) is about 1.5 miles round trip and gentler",
+    "difficulty": "Steep and rugged from the Massachusetts lot",
+    "parking": "Free lot on Falls Road (about 24 cars); roadside parking is prohibited",
+    "fees": "No fee",
+    "free": true,
+    "dogs": "Allowed on leash at all times",
+    "swimming": "No; swimming, diving and entering the water are prohibited",
+    "sources": [
+      [
+        "Mass.gov: Bash Bish Falls State Park",
+        "https://www.mass.gov/locations/bash-bish-falls-state-park"
+      ]
+    ]
+  },
+  "/ohio/boston-heights/brandywine-falls": {
+    "checked": "2026-11-04",
+    "hike": "About 0.3 mile round trip on the upper boardwalk; the lower head-on viewing deck is down about 80 steps",
+    "difficulty": "Easy",
+    "parking": "Brandywine Falls lot (about 90 spaces, with accessible spaces) on Stanford Road; no overflow parking and it often fills by mid-morning on nice days",
+    "fees": "No fee; Cuyahoga Valley National Park has no entrance fee",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "accessibility": "Upper boardwalk overlook is wheelchair accessible",
+    "sources": [
+      [
+        "NPS: Brandywine Falls Trailhead",
+        "https://www.nps.gov/places/000/brandywine-falls-trailhead.htm"
+      ],
+      [
+        "NPS: Cuyahoga Valley parking",
+        "https://www.nps.gov/cuva/planyourvisit/parking.htm"
+      ]
+    ]
+  },
+  "/michigan/munising/munising-falls": {
+    "checked": "2026-11-04",
+    "hike": "Normally an 800-foot paved trail from the lot to the viewing platform. Closed with no alternate access after a washout; a rebuilt, fully accessible route is expected by the end of 2027",
+    "difficulty": "Easy, slightly uphill",
+    "dogs": "Allowed on leash when the trail is open",
+    "sources": [
+      [
+        "NPS: Munising Falls",
+        "https://nps.gov/places/munising-falls.htm"
+      ],
+      [
+        "NPS: Munising Falls trail contract",
+        "https://www.nps.gov/piro/learn/news/2026-09-03-munising-falls-contract-awarded.htm"
+      ]
+    ]
+  },
+  "/hawaii/pupukea/waimea-falls": {
+    "checked": "2026-11-04",
+    "hike": "About 3/4 mile each way on a paved path through the Waimea Valley gardens",
+    "difficulty": "Easy",
+    "fees": "Admission: $26 adults, $20 seniors and students, $18 ages 4 to 12; Hawaii residents and military $10, $8 and $6",
+    "free": false,
+    "dogs": "No; only ADA service animals",
+    "swimming": "Only when lifeguards say conditions are safe; free life jackets are required. Call (808) 638-7766 to check that day",
+    "accessibility": "The paved path is accessible",
+    "sources": [
+      [
+        "Waimea Valley: tickets and hours",
+        "https://www.waimeavalley.net/admission"
+      ],
+      [
+        "Waimea Valley: FAQ",
+        "https://www.waimeavalley.net/faq"
+      ],
+      [
+        "Waimea Valley: Waimea Falls",
+        "https://www.waimeavalley.net/waterfall"
+      ]
+    ]
+  },
+  "/oklahoma/sulphur/little-niagara-falls": {
+    "checked": "2026-11-04",
+    "fees": "No entrance or parking fee at Chickasaw National Recreation Area; lots can fill on summer weekends",
+    "free": true,
+    "dogs": "Allowed on a 6-foot leash in nearby picnic areas, but not in the water at Little Niagara or the other named falls",
+    "swimming": "Yes, in Travertine Creek from Little Niagara downstream; swimming and wading upstream of it are prohibited",
+    "sources": [
+      [
+        "NPS: Chickasaw swimming",
+        "https://www.nps.gov/chic/planyourvisit/swimming.htm"
+      ],
+      [
+        "NPS: Chickasaw pets",
+        "https://www.nps.gov/chic/planyourvisit/pets.htm"
+      ]
+    ]
+  },
+  "/oregon/deschutes-river-woods/tumalo-falls": {
+    "checked": "2026-11-04",
+    "hike": "The viewpoint is a few steps from the lot; a short trail climbs to an upper viewing platform. In winter Forest Road 4603 closes to cars, adding roughly 2.5 miles each way from Skyliners Sno-Park",
+    "parking": "Tumalo Falls Day Use Area; limited spaces and vehicles over 27 feet are restricted",
+    "fees": "$5 per vehicle per day, or a Northwest Forest Pass or interagency pass",
+    "free": false,
+    "dogs": "Allowed on leash on the Tumalo Falls Trail; not allowed in the Bend Municipal Watershed or on the Bridge Creek Trail",
+    "sources": [
+      [
+        "USFS: Tumalo Falls Day Use Area",
+        "https://www.fs.usda.gov/r06/deschutes/recreation/tumalo-falls-day-use-area"
+      ]
+    ]
   }
 }

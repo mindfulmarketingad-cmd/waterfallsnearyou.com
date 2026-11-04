@@ -86,7 +86,7 @@ The roadside falls are wonderful, but the side canyons east of Multnomah are whe
 
 ### Wahclella Falls
 
-[Wahclella Falls](/oregon/cascade-locks/wahclella-falls) is the best effort-to-reward hike in the Gorge. The trail follows Tanner Creek for 2.4 miles round trip to a two-tiered waterfall pouring into a deep, mossy bowl. The trailhead lot is tiny, with about 12 spaces and overflow parking nearby, and it requires a Northwest Forest Pass or an America the Beautiful pass. Arrive early on weekends.
+[Wahclella Falls](/oregon/cascade-locks/wahclella-falls) is the best effort-to-reward hike in the Gorge. The trail follows Tanner Creek for 2.4 miles round trip to a two-tiered waterfall pouring into a deep, mossy bowl. The trailhead lot is tiny, with about 12 spaces and overflow parking nearby, and it requires a Northwest Forest Pass or an America the Beautiful pass. Arrive early on weekends. For how forest passes differ from state park permits, see [waterfall fees, permits and parking passes](/blog/waterfall-fees-permits-parking-passes).
 
 ### Elowah Falls
 
@@ -100,7 +100,7 @@ Eagle Creek is the Gorge's classic waterfall trail and the namesake of the 2017 
 
 | Waterfall | Height | Walk from parking | Pass needed |
 |---|---|---|---|
-| Latourell Falls | 249 ft | Short paved path | No |
+| Latourell Falls | 249 ft | Short paved path | Oregon State Parks day-use permit ($10 residents, $12 nonresidents, since March 30, 2026) |
 | Bridal Veil Falls | About 100 ft | Short trail, downhill to the falls | Check at the park |
 | Wahkeena Falls | 242 ft | Roadside | No |
 | Multnomah Falls | 620 ft | Short paved walk; 2.4 mi round trip to the top | Summer timed permit for the I-84 lot |

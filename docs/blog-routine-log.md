@@ -12,8 +12,8 @@
 
 ## Daily routine progress (counters)
 
-- Trip facts (data/trip-facts.json, shown as "Plan Your Visit" on waterfall pages): 20 waterfalls covered. Next: continue down the most-reviewed indexed list (Mystic Falls WY, Bond Falls MI, Havasu Falls AZ, Bridal Veil Falls UT, Ithaca Falls NY, ...), and prioritize picks on city hubs (NYC: Dingmans, Raymondskill, Great Falls Paterson, Awosting; LA: Sturtevant, Bonita, San Antonio, Tahquitz).
-- City hubs (/waterfalls-near/[city], intros in data/city-hubs.json): 2 of 50 published (New York City, Los Angeles). Next: Chicago, Houston, Phoenix, Philadelphia, San Antonio, San Diego, Dallas, ... (skip boroughs Brooklyn/Queens).
+- Trip facts (data/trip-facts.json, shown as "Plan Your Visit" on waterfall pages): 40 waterfalls covered (top 40 most-reviewed indexed falls). Next: Upper Mesa Falls ID, Amicalola Falls GA, Helton Creek Falls GA, Crabtree Falls VA, then continue down the list; prioritize city-hub picks (Raymondskill, Great Falls Paterson, Hawk Falls, Twin Falls WA, Narada, Marymere, Sturtevant, Tahquitz).
+- City hubs (/waterfalls-near/[city], intros in data/city-hubs.json): 4 of 50 published (New York City, Los Angeles, Philadelphia, Seattle). Chicago, Houston, Phoenix, Dallas, Fort Worth, El Paso, Memphis, Milwaukee, Miami, Omaha, Mesa, Virginia Beach, Tampa have 0 indexed falls within 100 mi, so skip them for now (a waterfall-deserts data study fits them better). Next with enough picks: Portland (50), Atlanta (24), Charlotte (20), Fresno (19), Nashville (18), Boston (16), Washington DC (13), Denver (11), Sacramento (11), Minneapolis (10), San Jose (9), San Francisco (8).
 - Filter pages (dog-friendly, swimmable, accessible...): not started; wait until trip facts cover enough falls per state.
 - Friday data studies done: none yet. Next: states ranked by waterfalls per 1,000 sq mi and per resident.
 
@@ -21,6 +21,9 @@
 
 2026-11-03 | site | Trip facts system (src/lib/tripfacts.mjs) with Plan Your Visit section, dog/swim/fee FAQs and correct isAccessibleForFree schema; /waterfalls-near hub + NYC and LA pages (indexed, in sitemap, linked from home); post linked from best-time-to-visit-waterfalls.
 
+2026-11-04 | site | Trip facts for 20 more falls (40 total); Waterfalls Near Philadelphia and Seattle hubs; fixed Latourell pass info in the Columbia Gorge post (Oregon State Parks permit since Mar 30, 2026) and linked it to the new fees post.
+
 ## Posts
 date | slug | primary keyword | GSC basis
 2026-11-03 | columbia-river-gorge-waterfalls-road-trip | columbia river gorge waterfalls | no GSC data (content-gap list: waterfall road trips)
+2026-11-04 | waterfall-fees-permits-parking-passes | waterfall fees and parking passes | no GSC data (content-gap list: free vs. paid/permit falls; built from data/trip-facts.json)
