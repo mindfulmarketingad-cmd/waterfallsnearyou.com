@@ -60,10 +60,26 @@ All maps use [MapLibre GL](https://maplibre.org) with free [OpenFreeMap](https:/
 
 ## Images
 
-Pages use Outscraper (Google Maps) photos via `src/lib/photos.mjs`:
-- A waterfall page uses its own photo. If it has none, it uses the closest photographed waterfall within 10 miles, labeled "Pictured: nearby ...".
-- Hub, blog and static pages use a labeled photo of a real waterfall from their content.
-- The generated illustrations in `public/images/gen/` are only a fallback: no photo nearby, or a Google photo that fails to load.
+Waterfall cards, listing heroes, state and city hubs, find results and blog featured images use hosted lifestyle photos, not hotlinked Google URLs.
+
+Google Maps photo URLs from Outscraper (`lh3.googleusercontent.com`) return HTTP 403 in browsers. The old card markup loaded those URLs and, on error, swapped in the generated illustration under `public/images/gen/`. That is why every card showed the same kind of fallback art.
+
+What the site uses now:
+
+- `data/lifestyle-photos.json` is the catalog: Pexels and Unsplash photos, with author, license and source URL. Licenses are the [Pexels License](https://www.pexels.com/license/) and the [Unsplash License](https://unsplash.com/license). Attribution is not required; the catalog keeps the credit anyway.
+- `public/images/lifestyle/*.webp` are the files the pages actually load (1200×750). They are committed, so a production build does not download them and does not need an API key.
+- `src/lib/lifestyle.mjs` assigns a photo from a regional pool (Pacific Northwest, desert, tropical, alpine, Appalachia, California, Northeast, or a general forest pool) using a stable hash of the waterfall URL. The same listing always gets the same photo.
+- `src/lib/photos.mjs` (`listingPhoto`, `pagePhoto`, `featuredPhoto`) returns those hosted paths. The generated illustration is only the `onerror` fallback if a file is missing.
+- These are visit scenes, not a photograph of that specific waterfall. Alt text describes the scene. Visitor photos still linked from a Google Maps listing stay as an outbound link.
+
+To refresh the files after editing the catalog:
+
+```
+node scripts/fetch-lifestyle-photos.mjs
+node scripts/fetch-lifestyle-photos.mjs --force
+```
+
+`npm run photos:lifestyle` runs the same script. Commit the WebP files with the catalog.
 
 ## Data sources
 

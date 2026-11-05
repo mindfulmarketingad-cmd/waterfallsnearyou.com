@@ -11,8 +11,8 @@ import { SITE } from '../../config.mjs';
 const types = getFind();
 const { listings } = loadData();
 const total = types.reduce((s, t) => s + t.pages.length, 0);
-// One real photo per type: the highest-placed waterfall on that type's lists that has its own
-// Google photo, never reusing a waterfall already shown for another type.
+// One hosted lifestyle photo per type, from the highest-placed waterfall on that type's lists,
+// never reusing a waterfall already shown for another type.
 const used = new Set();
 const covers = Object.fromEntries(types.map((t) => {
   const pool = [...t.pages.flatMap((p) => p.items || []), ...(t.national?.items || [])].map((i) => i.listing);

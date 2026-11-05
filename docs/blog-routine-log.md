@@ -25,6 +25,8 @@
 
 2026-11-05 | site | Trip facts for 23 more falls (63 total); Waterfalls Near Portland and Atlanta hubs; Ithaca Finger Lakes road-trip post; linked Portland hub from Columbia Gorge post and Ithaca post from fees guide.
 
+2026-11-05 | site | Waterfall cards no longer hotlink Google Maps photos. Those `lh3.googleusercontent.com` URLs return HTTP 403, so every card was falling through `onerror` to `public/images/gen/`. Cards, hubs, find results and blog featured images now use committed Pexels/Unsplash WebPs in `public/images/lifestyle/` (`data/lifestyle-photos.json`, `src/lib/lifestyle.mjs`). Refresh with `npm run photos:lifestyle`. Do not point card `src` back at Google photo URLs.
+
 ## Posts
 date | slug | primary keyword | GSC basis
 2026-11-03 | columbia-river-gorge-waterfalls-road-trip | columbia river gorge waterfalls | no GSC data (content-gap list: waterfall road trips)

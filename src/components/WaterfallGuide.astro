@@ -40,12 +40,12 @@ const schema = [
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---
-<Base title={g.title} description={g.description} image={photo.own ? photo.src : photo.fallback || photo.src} imageAlt={photo.alt} type="article" published={GUIDES_PUBLISHED.toISOString()} modified={updated.toISOString()} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={photo.src}>
+<Base title={g.title} description={g.description} image={photo.src} imageAlt={photo.alt} type="article" published={GUIDES_PUBLISHED.toISOString()} modified={updated.toISOString()} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={photo.src}>
   <PageBand title={g.title} crumbs={crumbs} narrow />
   <article class="wrap narrow">
     <figure class="post-hero">
       <img src={photo.src} alt={photo.alt} width="1200" height="630" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror={photo.fallback ? `this.onerror=null;this.src='${photo.fallback}';this.parentNode.querySelector('figcaption')?.remove()` : undefined} />
-      {photo.caption ? <figcaption>{photo.caption}</figcaption> : photo.own && <figcaption>Photo via Google Maps listing data</figcaption>}
+      {photo.caption && <figcaption>{photo.caption}</figcaption>}
     </figure>
     <Byline published={GUIDES_PUBLISHED} updated={updated} minutes={g.minutes} />
     <nav class="jump" aria-label="Jump to">

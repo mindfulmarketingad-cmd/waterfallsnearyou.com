@@ -1,4 +1,5 @@
-import { imageFor, hoursSummary } from './core.mjs';
+import { hoursSummary } from './core.mjs';
+import { listingPhoto } from './photos.mjs';
 
 export const fmtMiles = (m) => (m < 0.1 ? 'under 0.1 mi' : m < 10 ? `${m.toFixed(1)} mi` : `${Math.round(m)} mi`);
 export const fmtNum = (n) => Number(n).toLocaleString('en-US');
@@ -14,11 +15,13 @@ export const osmEmbed = (l, d = 0.02) =>
   `https://www.openstreetmap.org/export/embed.html?bbox=${(l.lng - d * 1.6).toFixed(5)}%2C${(l.lat - d).toFixed(5)}%2C${(l.lng + d * 1.6).toFixed(5)}%2C${(l.lat + d).toFixed(5)}&layer=mapnik&marker=${l.lat}%2C${l.lng}`;
 export const topoUrl = (l) => `https://apps.nationalmap.gov/viewer/?center=${l.lng},${l.lat}&level=15`;
 
-// Google photo URLs can expire; fall back to the generated featured image if one fails to load.
-export const imgFallback = (l) => (l.os?.photo ? `this.onerror=null;this.src='${imageFor(l.url)}'` : undefined);
-export const listingImage = (l) => l.os?.photo || imageFor(l.url);
-export const listingImageAlt = (l) =>
-  l.os?.photo ? `Photo of ${l.name} near ${l.city.name}, ${l.stateCode}` : `Illustrated featured image for ${l.name} in ${l.county ? `${l.county} County, ` : ''}${l.state}`;
+// Hosted lifestyle photos. If a file is missing, the card swaps to the generated illustration.
+export const imgFallback = (l) => {
+  const photo = listingPhoto(l);
+  return photo.fallback ? `this.onerror=null;this.src='${photo.fallback}'` : undefined;
+};
+export const listingImage = (l) => listingPhoto(l).src;
+export const listingImageAlt = (l) => listingPhoto(l).alt;
 
 export function nearText(l) {
   if (l.cityMiles < 0.5) return `in ${l.city.name}`;
