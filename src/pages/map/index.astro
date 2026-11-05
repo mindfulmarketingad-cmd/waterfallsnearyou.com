@@ -19,7 +19,7 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'Map', url: '/map' }];
 const faqs = [
   { q: 'How many waterfalls are on this map?', a: `The map shows ${fmtNum(listings.length)} waterfalls in ${states.length - 1} states and the District of Columbia. ${fmtNum(rated)} of them have Google visitor ratings, shown as green markers; gray markers are officially named falls that have not been rated yet.` },
   { q: 'Which state has the most waterfalls on the map?', a: `${ranked[0].name} has the most with ${ranked[0].listings.length}, followed by ${ranked[1].name} (${ranked[1].listings.length}) and ${ranked[2].name} (${ranked[2].listings.length}). Open the <a href="/map/${ranked[0].slug}">${ranked[0].name} waterfall map</a> to zoom in.` },
-  { q: 'Where does the map data come from?', a: 'Waterfall locations come from the U.S. Geological Survey Geographic Names Information System, enriched with ratings and photos from Google Maps listings. Map tiles are from OpenStreetMap.' },
+  { q: 'Where does the map data come from?', a: 'Waterfall locations come from the U.S. Geological Survey Geographic Names Information System, enriched with ratings from Google Maps listings. Map tiles are from OpenStreetMap.' },
   { q: 'How do I find waterfalls near me on the map?', a: 'Zoom into your area and tap the nearest markers, or pick your state below for a closer view. You can also use <a href="/search">search</a> to list the waterfalls closest to your location.' },
   { q: 'Are the marker locations exact?', a: 'Markers show the recorded position of each waterfall, not the trailhead or parking area. Use the directions on each waterfall page and check access before you go.' },
 ];

@@ -9,7 +9,7 @@ import { loadData } from '../../lib/core.mjs';
 import { fmtNum, fmtMiles, listJoin, countyUrl } from '../../lib/format.mjs';
 import { stateInsights, stateContent } from '../../lib/insights.mjs';
 import { listsForState, getCapitalLists } from '../../lib/bestof.mjs';
-import { pagePhoto, stateFeatured, sized } from '../../lib/photos.mjs';
+import { pagePhoto, stateFeatured, listingPhoto } from '../../lib/photos.mjs';
 import { features, FEATURES } from '../../lib/cards.mjs';
 import { getPosts, postsLinkingTo } from '../../lib/blog.mjs';
 import { SITE } from '../../config.mjs';
@@ -147,13 +147,13 @@ const schema = [
 
   {photos.length >= 3 && (
     <section class="wrap section-sm" aria-labelledby="photos-h">
-      <h2 id="photos-h">Photos from waterfalls in {state.name}</h2>
+      <h2 id="photos-h">Waterfall country in {state.name}</h2>
       <ul class="photo-strip">
-        {photos.map((l) => (
-          <li><a href={l.url}><img src={sized(l.os.photo, 400, 400)} alt={`Photo of ${l.name}, ${state.name}`} width="200" height="200" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('li').remove()" /><span>{l.name}</span></a></li>
-        ))}
+        {photos.map((l) => {
+          const ph = listingPhoto(l);
+          return <li><a href={l.url}><img src={ph.src} alt={ph.alt} width="200" height="200" loading="lazy" decoding="async" onerror={ph.fallback ? `this.onerror=null;this.src='${ph.fallback}'` : undefined} /><span>{l.name}</span></a></li>;
+        })}
       </ul>
-      <p class="muted small">Photos via Google Maps listings.</p>
     </section>
   )}
 

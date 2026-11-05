@@ -12,6 +12,7 @@
     "data:gnis": "node scripts/prepare-gnis.mjs",
     "data:heights": "node scripts/fetch-heights.mjs",
     "import:outscraper": "node scripts/import-outscraper.mjs",
+    "photos:lifestyle": "node scripts/fetch-lifestyle-photos.mjs",
     "predev": "node scripts/copy-vendor.mjs"
   },
   "dependencies": {
