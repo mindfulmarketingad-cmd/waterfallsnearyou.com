@@ -40,7 +40,7 @@ Rainbow Falls and Wailua Falls in Hawaii charge non-residents both per person an
 
 ### City parks
 
-City-owned falls are often the easiest free stops. [Ithaca Falls](/new-york/south-hill/ithaca-falls) in Ithaca, New York, is a two-minute walk from Lake Street with no fee, and there's even a city bus stop at the entrance. [Minnehaha Falls](/minnesota/mendota-heights/minnehaha-falls) in Minneapolis has no entry fee either, though some of its lots and street spaces are pay parking, with a free lot as well.
+City-owned falls are often the easiest free stops. [Ithaca Falls](/new-york/south-hill/ithaca-falls) in Ithaca, New York, is a two-minute walk from Lake Street with no fee, and there's even a city bus stop at the entrance. For a full Finger Lakes loop that pairs it with fee parks, see the [Ithaca and Finger Lakes waterfalls road trip](/blog/ithaca-finger-lakes-waterfalls-road-trip). [Minnehaha Falls](/minnesota/mendota-heights/minnehaha-falls) in Minneapolis has no entry fee either, though some of its lots and street spaces are pay parking, with a free lot as well.
 
 ### Fee-free national park units
 

@@ -131,6 +131,6 @@ Fire is the other big one. The Eagle Creek Fire in 2017 burned across much of th
 
 ## Where to Go Next
 
-If you have a second day, the Washington side of the river has its own falls, and the Mount Hood area to the south adds alpine waterfalls like [Ramona Falls](/oregon/mount-hood-village/ramona-falls). Browse every [waterfall in Oregon](/states/oregon) to plan the rest of your trip, or see how Oregon stacks up in our ranking of the [states with the most waterfalls](/blog/states-with-the-most-waterfalls).
+If you have a second day, the Washington side of the river has its own falls, and the Mount Hood area to the south adds alpine waterfalls like [Ramona Falls](/oregon/mount-hood-village/ramona-falls). For the broader Portland day-trip list, including Sahalie Falls and Narada Falls, see [waterfalls near Portland](/waterfalls-near/portland). Browse every [waterfall in Oregon](/states/oregon) to plan the rest of your trip, or see how Oregon stacks up in our ranking of the [states with the most waterfalls](/blog/states-with-the-most-waterfalls).
 
 For the official word on permits and conditions, start with the U.S. Forest Service's [Multnomah Falls page](https://www.fs.usda.gov/r06/columbiarivergorge/recreation/multnomah-falls) and the [Multnomah Falls timed use permit](https://www.recreation.gov/timed-entry/10089144) on Recreation.gov.

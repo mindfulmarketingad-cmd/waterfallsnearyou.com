@@ -42,5 +42,27 @@
       "Farther out, US 2 passes Deception Falls east of Gold Bar, Mount Rainier National Park has Narada and Christine Falls right off the road to Paradise, and Olympic National Park's Marymere and Sol Duc Falls make a long day or an overnight from the city. Up north, Nooksack Falls is on the Mount Baker Highway.",
       "Flow is highest from late fall through spring, when rain and snowmelt feed the Cascades. National forest trailheads usually need a Northwest Forest Pass or day pass, state parks need a Discover Pass, and the national parks charge entrance fees, so check which one covers your stop. Winter snow closes some trailhead roads, including Franklin Falls's."
     ]
+  },
+  {
+    "name": "Portland",
+    "st": "OR",
+    "slug": "portland",
+    "published": "2026-11-05",
+    "intro": [
+      "Portland sits closer to a dense stretch of public waterfalls than almost any other big U.S. city. Multnomah Falls, the most reviewed waterfall in the country on this site, is about 27 miles east in the Columbia River Gorge, and the Historic Columbia River Highway strings Latourell, Bridal Veil and Horsetail Falls within a few miles of each other. You can see several of them in a morning without leaving paved paths.",
+      "Farther out, still inside a two-hour radius, Sahalie and Koosah Falls on the McKenzie River and Narada Falls on the road to Paradise in Mount Rainier National Park make full-day drives. Closer south and west, Abiqua Falls, Drift Creek Falls and Moulton Falls fill in shorter trips when Gorge parking is packed.",
+      "Gorge flow is strongest in winter and spring. Summer brings timed-entry rules at Multnomah's I-84 lot and heavy traffic on the Historic Highway, so weekday starts and early arrivals matter more than they do in March."
+    ]
+  },
+  {
+    "name": "Atlanta",
+    "st": "GA",
+    "slug": "atlanta",
+    "published": "2026-11-05",
+    "intro": [
+      "Atlanta does not have a famous waterfall inside the city limits, but north Georgia's national forest and state parks put several strong day trips within about an hour and a half. Amicalola Falls, Georgia's tallest cascade at 729 feet, is about 57 miles north in Amicalola Falls State Park, with a short accessible overlook trail if you skip the 604 stairs. Anna Ruby Falls near Helen and Helton Creek Falls near Vogel State Park sit a little farther out in Chattahoochee-Oconee National Forest.",
+      "West and northwest, Noccalula Falls in Gadsden and De Soto Falls near Fort Payne, Alabama, stretch the same radius and pair well with a Talladega or Little River Canyon loop. Most of these stops are short walks from a parking lot, so you can stack two or three in a day if you start early.",
+      "Late winter and spring after rain give the best flow. Summer weekends fill forest pullouts like Helton Creek early, and Georgia's state park day pass is now $10 per vehicle, so plan parking before you leave the metro."
+    ]
   }
 ]

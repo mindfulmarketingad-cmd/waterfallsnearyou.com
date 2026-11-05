@@ -766,5 +766,461 @@
         "https://www.fs.usda.gov/r06/deschutes/recreation/tumalo-falls-day-use-area"
       ]
     ]
+  },
+  "/idaho/ashton/upper-mesa-falls": {
+    "checked": "2026-11-05",
+    "hike": "Short accessible boardwalk and trail from the visitor center to Upper Mesa Falls overlooks; Mesa Falls Nature Trail is about 1 mile one way to a Lower Mesa Falls overlook (when open)",
+    "difficulty": "Easy to the Upper Falls overlooks; easy on the Nature Trail",
+    "parking": "Lots at the Upper Mesa Falls visitor center and at Lower Mesa Falls Grandview overlook on Mesa Falls Scenic Byway (Highway 47)",
+    "fees": "$5 per vehicle per day when open ($1 for motorcycles, bicycles, horses and hikers; $25 for tour buses). As of fall 2026 both Upper and Lower Mesa Falls were closed for construction, with reopening aimed for spring 2027",
+    "free": false,
+    "dogs": "Leashed pets welcome when the site is open (per Visit Idaho recreation guidance)",
+    "swimming": "Stay on boardwalks and overlooks; do not climb down toward the river",
+    "accessibility": "Accessible trail and boardwalk from the visitor center to Upper Falls overlooks (when open); trail paving and boardwalk replacement were part of the 2026–27 work",
+    "bestSeason": "Summer; Scenic Byway 47 is typically closed to vehicles in winter and groomed for snowmobiles",
+    "sources": [
+      [
+        "U.S. Forest Service: Mesa Falls Visitor Center",
+        "https://www.fs.usda.gov/r04/caribou-targhee/recreation/mesa-falls-visitor-center"
+      ],
+      [
+        "U.S. Forest Service: Closures at Mesa Falls (Sept. 16, 2026)",
+        "https://www.fs.usda.gov/r04/caribou-targhee/newsroom/releases/closures-mesa-falls-remain-effect-public-safety"
+      ]
+    ]
+  },
+  "/georgia/dawsonville/amicalola-falls": {
+    "checked": "2026-11-05",
+    "hike": "West Ridge Falls Access Trail is about 0.3 mile to falls overlooks without stairs; the climb beside the falls uses about 604 stairs from the Reflection Pool to the top; East Ridge Loop options are about 2 miles",
+    "elevationGain": "About 600–780 feet for the full stair/loop climbs; minimal on the West Ridge Access Trail",
+    "difficulty": "Easy on the West Ridge Access Trail; strenuous on the 604-stair climb",
+    "parking": "Lots near the Reflection Pool and visitor center; $10 daily ParkPass required for vehicles",
+    "fees": "$10 per vehicle per day Georgia State Park Pass, or $70 annual ParkPass",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet on trails and in the campground; not in the lodge or Hike Inn",
+    "swimming": "Not at the falls; stay off wet rock and out of the water beside the falls",
+    "accessibility": "West Ridge Falls Access Trail is a short, recycled-tire-surface path to overlooks with no stairs; accessible parking and restrooms near the falls lot",
+    "bestSeason": "Spring for strongest flow; late October for typical peak fall color in north Georgia",
+    "sources": [
+      [
+        "Georgia State Parks: Amicalola Falls State Park & Lodge",
+        "https://gastateparks.org/AmicalolaFalls/"
+      ],
+      [
+        "Georgia State Parks: ParkPass",
+        "https://gastateparks.org/ParkPass"
+      ],
+      [
+        "Georgia DNR LE: Park Rules",
+        "https://gadnrle.org/ParkRules"
+      ]
+    ]
+  },
+  "/georgia/blairsville/helton-creek-falls": {
+    "checked": "2026-11-05",
+    "hike": "Helton Creek Falls Trail is an easy 0.2 mile hike with abrupt grade changes to observation decks for the upper and lower falls",
+    "difficulty": "Easy, with short steep and uneven sections",
+    "parking": "Small pullout on Helton Creek Road about 2.2 miles from US 19/129; fills on summer weekends, with roadside overflow",
+    "fees": "Free; no day-use fee",
+    "free": true,
+    "dogs": "Leashed pets allowed in developed recreation sites; pets (except service animals) are not allowed in swimming areas on the Chattahoochee-Oconee National Forest",
+    "swimming": "People commonly swim at the base; Forest Service warns against climbing on or jumping from waterfalls and playing in water above falls",
+    "bestSeason": "Open year-round; strongest flow after rain and in spring",
+    "sources": [
+      [
+        "U.S. Forest Service: Helton Creek Falls",
+        "https://www.fs.usda.gov/r08/chattahoochee-oconee/recreation/helton-creek-falls"
+      ],
+      [
+        "U.S. Forest Service: Waterfall dangers alert",
+        "https://www.fs.usda.gov/r08/chattahoochee-oconee/alerts/caution-waterfall-dangers"
+      ]
+    ]
+  },
+  "/virginia/nellysford/crabtree-falls": {
+    "checked": "2026-11-05",
+    "hike": "Moderate 2.7-mile Forest Service trail past five major cascades totaling about 1,200 feet of drop; first overlook is a short paved walk from the lot",
+    "elevationGain": "About 1,000–1,120 feet for the full climb to the upper overlook",
+    "difficulty": "Easy to the first overlook; moderate for the full trail",
+    "parking": "Upper and lower lots at Crabtree Falls Day Use Area off SR 56; vault toilets at the trailhead",
+    "fees": "$3 per vehicle per day; America the Beautiful and George Washington & Jefferson National Forests seasonal day-use passes accepted",
+    "free": false,
+    "dogs": "Must be leashed at all times on a leash no longer than 6 feet in the recreation area",
+    "swimming": "No; stay on the trail. Leaving the trail onto wet rock has caused numerous fatalities",
+    "accessibility": "First waterfall overlook is universally accessible via a short paved trail",
+    "bestSeason": "Open year-round, sunrise to sunset; best after rain; lots fill on nice weekends",
+    "sources": [
+      [
+        "U.S. Forest Service: Crabtree Falls Day Use Area",
+        "https://www.fs.usda.gov/r08/gwj/recreation/crabtree-falls-day-use-area"
+      ]
+    ]
+  },
+  "/new-mexico/carlsbad/sitting-bull-falls": {
+    "checked": "2026-11-05",
+    "hike": "ADA-accessible path from the parking lot to the falls viewing area; additional hiking trails in the recreation area",
+    "difficulty": "Easy to the main viewing area",
+    "parking": "Day-use lot at the end of Forest Road 276 / County Road 409 west of Carlsbad; picnic sites, restrooms and potable water on site",
+    "fees": "$10 per vehicle per day or $25 per multi-passenger vehicle; New Mexico Enchantment Pass and interagency passes accepted",
+    "free": false,
+    "dogs": "Allowed on leash in developed recreation sites; pets are not allowed in swimming areas under Forest Service developed-site rules",
+    "swimming": "Spring-fed pool below the falls is commonly used for wading when water is present; stay off wet rock around the cliffs",
+    "accessibility": "ADA-accessible path to the falls viewing area",
+    "bestSeason": "Open daily 8:30 a.m. to 4:00 p.m.; entry gate closes by 3:30 p.m.; cooler months are more comfortable in the Chihuahuan Desert",
+    "sources": [
+      [
+        "U.S. Forest Service: Sitting Bull Falls Recreation Area",
+        "https://www.fs.usda.gov/r03/lincoln/recreation/sitting-bull-falls-recreation-area"
+      ]
+    ]
+  },
+  "/georgia/cleveland/dukes-creek-falls": {
+    "checked": "2026-11-05",
+    "hike": "Moderate day-hike trail from the Russell-Brasstown Scenic Highway recreation area to Dukes Creek Falls overlooks",
+    "difficulty": "Moderate",
+    "parking": "Day-use lot at 1699 Richard Russell Hwy (Hwy 348) near Helen; day-use only, no overnight parking",
+    "fees": "$4 per vehicle per day; America the Beautiful passes accepted; pay by credit card, fee envelope, or Recreation.gov Scan & Pay",
+    "free": false,
+    "dogs": "Leashed pets allowed in developed recreation sites",
+    "swimming": "Forest Service waterfall-danger alert covers this site; stay on trail and observation areas",
+    "bestSeason": "Open year-round, sunrise to sunset",
+    "sources": [
+      [
+        "U.S. Forest Service: Dukes Creek Falls Recreation Area",
+        "https://www.fs.usda.gov/r08/chattahoochee-oconee/recreation/dukes-creek-falls-recreation-area"
+      ]
+    ]
+  },
+  "/tennessee/baxter/burgess-falls": {
+    "checked": "2026-11-05",
+    "hike": "River Trail / Service Road loop of about 1.5 miles round trip past a series of falls on Falling Water River",
+    "difficulty": "Moderate",
+    "parking": "Park lots; capacity can be limited during construction or peak weekends—use designated spaces only",
+    "fees": "No entrance or parking fee",
+    "free": true,
+    "dogs": "Allowed on leash in day-use areas",
+    "swimming": "No designated swim area; swimming is not permitted at the falls",
+    "accessibility": "Some paved paths and overlooks; confirm current accessible routes with the park during construction periods",
+    "bestSeason": "Spring for strongest flow; park open during daylight hours",
+    "sources": [
+      [
+        "Tennessee State Parks: Burgess Falls",
+        "https://tnstateparks.com/parks/burgess-falls"
+      ],
+      [
+        "Tennessee State Parks: Burgess Falls hiking",
+        "https://tnstateparks.com/parks/burgess-falls/hiking"
+      ]
+    ]
+  },
+  "/tennessee/rockwood/ozone-falls": {
+    "checked": "2026-11-05",
+    "hike": "Short trail from the Highway 70 pullout to the overlook and a steep, rocky path toward the plunge pool (about 0.3 mile one way to the base area)",
+    "difficulty": "Easy to the overlook; difficult and slippery to the base",
+    "parking": "Roadside pullout / small lot along US 70 at Ozone Falls State Natural Area; free",
+    "fees": "Free; no entrance fee",
+    "free": true,
+    "dogs": "Allowed on leash; terrain to the base is poor for most dogs",
+    "swimming": "Plunge pool is sometimes used for swimming; no lifeguards, cold water and currents possible",
+    "bestSeason": "Open sunrise to sunset; strongest after rain",
+    "sources": [
+      [
+        "Tennessee Department of Environment & Conservation: Ozone Falls State Natural Area",
+        "https://www.tn.gov/environment/program-areas/na-natural-areas/natural-areas-east-tennessee/na-na-ozone-falls.html"
+      ]
+    ]
+  },
+  "/oregon/oakridge/salt-creek-falls-lane": {
+    "checked": "2026-11-05",
+    "hike": "Wheelchair-accessible observation platform about 50 yards from the parking lot; short paved Salt Creek Falls Trail #3673 loop along the rim; steep stair trail to the base is not wheelchair accessible",
+    "difficulty": "Easy to the overlook; moderate with stairs to the base",
+    "parking": "Lot off Highway 58 / Forest Road 5893 east of Oakridge; overflow at Salt Creek Sno-Park 0.4 mile up the road; do not park on Highway 58",
+    "fees": "$5 per vehicle per day, or Northwest Forest Pass / interagency recreation pass",
+    "free": false,
+    "dogs": "On a leash no longer than 6 feet, or otherwise under physical control, in developed recreation sites",
+    "swimming": "No; viewing from overlooks and trails only",
+    "accessibility": "Observation platform is wheelchair accessible with railings that accommodate wheelchair sight lines",
+    "bestSeason": "Late spring through fall; lot not maintained for snow and ice in winter (access then via Sno-Park on foot)",
+    "sources": [
+      [
+        "U.S. Forest Service: Salt Creek Falls Observation Site",
+        "https://www.fs.usda.gov/r06/willamette/recreation/salt-creek-falls-observation-site-and-picnic-area"
+      ]
+    ]
+  },
+  "/new-hampshire/tamworth/sabbaday-falls": {
+    "checked": "2026-11-05",
+    "hike": "Easy gravel trail from the paved Kancamagus Highway lot; about a 15-minute walk with a stone staircase beside the falls",
+    "difficulty": "Easy",
+    "parking": "Paved lot on the Kancamagus Highway about 15 miles west of Conway; fills quickly on summer weekends",
+    "fees": "Recreation day-use pass required spring through fall ($5 day pass, White Mountain annual, or interagency pass); no fee in winter when the site is not fee-operated",
+    "free": false,
+    "dogs": "Allowed on leash",
+    "swimming": "Not allowed",
+    "bestSeason": "Late spring through fall for easiest road access; winter visits possible but expect ice",
+    "sources": [
+      [
+        "U.S. Forest Service: Sabbaday Falls Observation Site",
+        "https://www.fs.usda.gov/r09/whitemountain/recreation/sabbaday-falls-observation-site"
+      ],
+      [
+        "U.S. Forest Service: White Mountain National Forest passes",
+        "https://www.fs.usda.gov/r09/whitemountain/passes"
+      ]
+    ]
+  },
+  "/michigan/munising/miners-falls": {
+    "checked": "2026-11-05",
+    "hike": "0.6 mile one way on a gently rolling gravel and dirt path to two viewing platforms; 64 steps down to the lower platform",
+    "difficulty": "Easy to moderate",
+    "parking": "Lot about 4 miles north of Alger County Road H-58 off Miners Castle Road (H-11)",
+    "fees": "Pictured Rocks National Lakeshore entrance pass required ($25 per private vehicle for 7 days, or $45 annual park pass); America the Beautiful pass accepted. Michigan Recreation Passport is not a substitute",
+    "free": false,
+    "dogs": "Leashed pets (6-foot leash) allowed on the trail and viewing platforms",
+    "swimming": "No; viewing from platforms only",
+    "bestSeason": "Spring for wildflowers and strong flow; summer for easiest road access",
+    "sources": [
+      [
+        "NPS: Pictured Rocks waterfalls",
+        "https://www.nps.gov/piro/planyourvisit/waterfalls.htm"
+      ],
+      [
+        "NPS: Pictured Rocks fees & passes",
+        "https://www.nps.gov/piro/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/california/bolinas/alamere-falls": {
+    "checked": "2026-11-05",
+    "hike": "No park-sanctioned shortcut. Recommended routes go to Wildcat Campground then about 1.1 miles south on Wildcat Beach at low tide: about 13 miles round trip minimum (roughly 6.5 miles one way from Palomarin via Coast Trail, or longer from Bear Valley or Five Brooks)",
+    "elevationGain": "Varies by trailhead; Five Brooks / Stewart Trail climbs over Inverness Ridge (about 1,300 feet)",
+    "difficulty": "Strenuous day hike",
+    "parking": "Palomarin (~75 spaces; fills early and may close when full), Bear Valley trailhead gravel lot (~210 spaces), or Five Brooks (~50 spaces). No parking or entrance fee",
+    "fees": "No parking or entrance fee at Point Reyes National Seashore",
+    "free": true,
+    "dogs": "Dogs and other pets prohibited on trails to Alamere Falls (service dogs excepted)",
+    "swimming": "Ocean swimming not recommended due to surf and currents; Bass Lake swimming rules are separate—check current NPS guidance",
+    "bestSeason": "Summer and fall usually have more beach sand for the Wildcat Beach approach; always check tide and surf forecasts before the beach walk",
+    "sources": [
+      [
+        "NPS: Alamere Falls",
+        "https://www.nps.gov/pore/planyourvisit/alamere_falls.htm"
+      ],
+      [
+        "NPS: Point Reyes fees & passes",
+        "https://www.nps.gov/pore/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/oregon/sisters/sahalie-falls": {
+    "checked": "2026-11-05",
+    "hike": "Viewpoint a short walk from the Sahalie Falls lot; Waterfalls Loop Trail / McKenzie River Trail connects Sahalie and Koosah Falls (about 0.4–2.5 miles depending on out-and-back vs. full loop)",
+    "difficulty": "Easy to the viewpoint; easy to moderate for the loop",
+    "parking": "Lot on Highway 126 about 0.5 mile north of the Koosah Falls turnoff; do not park on the highway. Lots are not maintained for snow and ice in winter",
+    "fees": "No fees required",
+    "free": true,
+    "dogs": "On a leash no longer than 6 feet, or otherwise under physical control, in developed recreation sites",
+    "swimming": "No; powerful river and falls—view from trails and platforms",
+    "accessibility": "Sahalie Falls viewpoint near the east-side parking area is a short, relatively level walk suitable for many strollers and wheelchairs in dry conditions",
+    "bestSeason": "Spring for peak flow; day use 6 a.m. to 10 p.m.",
+    "sources": [
+      [
+        "U.S. Forest Service: Sahalie and Koosah Falls",
+        "https://www.fs.usda.gov/r06/willamette/recreation/sahalie-and-koosah-falls"
+      ]
+    ]
+  },
+  "/north-carolina/franklin/bridal-veil-falls": {
+    "checked": "2026-11-05",
+    "hike": "Roadside stop on US 64 in the Cullasaja Gorge; short walk along the old roadbed that passes behind the falls",
+    "difficulty": "Easy",
+    "parking": "Small roadside pull-offs beside US 64; limited spaces",
+    "fees": "Free; no fee or permit",
+    "free": true,
+    "dogs": "Allowed; keep leashed near the highway and wet rock",
+    "swimming": "No; roadside viewing only",
+    "bestSeason": "Year-round when US 64 is open; strongest after rain",
+    "sources": [
+      [
+        "U.S. Forest Service: Cullasaja Gorge",
+        "https://www.fs.usda.gov/r08/northcarolina/recreation/cullasaja-gorge"
+      ]
+    ]
+  },
+  "/hawaii/pepeekeo/akaka-falls": {
+    "checked": "2026-11-05",
+    "hike": "ʻAkaka Falls Loop Trail is a 0.4-mile paved loop with steps to viewpoints of Kahuna Falls and 442-foot ʻAkaka Falls; a shorter spur left at the first junction reaches ʻAkaka Falls alone",
+    "difficulty": "Easy to moderate (paved with steps)",
+    "parking": "Lot at the end of ʻAkaka Falls Road (Highway 220), 3.6 miles southwest of Honomu",
+    "fees": "Credit card only. Non-residents: $5 per person (ages 4+) plus $10 per non-commercial vehicle. Hawaiʻi residents free for entry and parking with valid ID. Children 3 and under free",
+    "free": false,
+    "dogs": "Not allowed (service animals excepted)",
+    "swimming": "No; viewpoint trail only",
+    "accessibility": "Not wheelchair accessible due to multiple steps",
+    "bestSeason": "Open daily 8:30 a.m. to 5:00 p.m.; pay before arrival when possible due to limited cell reception",
+    "sources": [
+      [
+        "Hawaiʻi Division of State Parks: ʻAkaka Falls State Park",
+        "https://dlnr.hawaii.gov/dsp/parks/hawaii/akaka-falls-state-park/"
+      ]
+    ]
+  },
+  "/colorado/alamosa-east/zapata-falls": {
+    "checked": "2026-11-05",
+    "hike": "About 0.5 mile one way from the day-use lot to the falls; final approach requires carefully walking upstream in a rocky creek slot",
+    "difficulty": "Easy to moderate; cold water and slippery rock on the final stretch",
+    "parking": "BLM Zapata Falls Day Use Area lot south of Great Sand Dunes; free, fills on weekends",
+    "fees": "No day-use fee",
+    "free": true,
+    "dogs": "Allowed on leash and under control",
+    "swimming": "Wading to view the falls is common; swimming is not the purpose of the site—water is cold and the slot is confined",
+    "bestSeason": "Late spring through early fall; snow and ice linger at the falls into spring",
+    "sources": [
+      [
+        "BLM: Zapata Falls Day Use Area",
+        "https://www.blm.gov/visit/zapata-falls-day-use-area"
+      ]
+    ]
+  },
+  "/idaho/marsing/jump-creek-falls": {
+    "checked": "2026-11-05",
+    "hike": "Short canyon walk from the lower lot to the falls, about 0.25 mile one way",
+    "difficulty": "Easy",
+    "parking": "Lower lot for the falls trail at Jump Creek Recreation Site southwest of Marsing; open 6 a.m. to 9 p.m.",
+    "fees": "$5 day-use pass or $25 annual pass (BLM)",
+    "free": false,
+    "dogs": "Allowed",
+    "swimming": "Swimming and wading at the base of the falls are common when water levels allow",
+    "bestSeason": "Spring for stronger flow; summer for swimming (water can be low by late summer)",
+    "sources": [
+      [
+        "BLM: Jump Creek",
+        "https://www.blm.gov/visit/jump-creek"
+      ]
+    ]
+  },
+  "/west-virginia/hinton/sandstone-falls": {
+    "checked": "2026-11-05",
+    "hike": "Accessible wooden boardwalk about 1/4 mile along Sandstone Falls; optional Island Loop Trail adds about another 1/4 mile off the boardwalk",
+    "difficulty": "Easy",
+    "parking": "Sandstone Falls day-use lot on New River Road / WV-26 south of Hinton; includes accessible spaces next to the boardwalk entrance",
+    "fees": "No activity fee; New River Gorge National Park & Preserve does not charge an entrance fee here",
+    "free": true,
+    "dogs": "Allowed on a leash 6 feet or shorter; pick up after pets",
+    "swimming": "Viewing from the boardwalk; the New River is powerful—stay on designated paths",
+    "accessibility": "Boardwalk is accessible; two handicapped parking spaces next to the boardwalk start",
+    "bestSeason": "Year-round; strong flow in spring",
+    "sources": [
+      [
+        "NPS: Stroll on the Sandstone Boardwalk",
+        "https://www.nps.gov/thingstodo/stroll-on-the-sandstone-boardwalk.htm"
+      ],
+      [
+        "NPS: Sandstone Falls",
+        "https://www.nps.gov/places/sandstone-falls.htm"
+      ]
+    ]
+  },
+  "/oregon/cascade-locks/horsetail-falls": {
+    "checked": "2026-11-05",
+    "hike": "Roadside view of lower Horsetail Falls across the Historic Columbia River Highway; Horsetail Falls Trail #438 is a short, steep hike that passes behind Upper Horsetail Falls (Ponytail Falls) and connects to Oneonta Trail #424",
+    "difficulty": "Easy for the roadside view; moderate and steep for Trail #438, with cliff exposure",
+    "parking": "Lot on the north side of the Historic Columbia River Highway about 2.75 miles east of Multnomah Falls; includes accessible parking (you must cross the highway to the viewing area)",
+    "fees": "No fees required",
+    "free": true,
+    "dogs": "Allowed on leash on Forest Service trails",
+    "swimming": "No; powerful creek and cliffs",
+    "accessibility": "Roadside viewing area and picnic tables after crossing the highway; trail beyond is steep and not accessible",
+    "bestSeason": "Winter and spring for strongest Gorge flow; day use sunrise to sunset",
+    "sources": [
+      [
+        "U.S. Forest Service: Horsetail Falls Trailhead & Day Use",
+        "https://www.fs.usda.gov/r06/columbiarivergorge/recreation/horsetail-falls-trailhead-day-use"
+      ],
+      [
+        "U.S. Forest Service: Horsetail Falls Trail #438",
+        "https://www.fs.usda.gov/r06/columbiarivergorge/recreation/trails/horsetail-falls-trail-438"
+      ]
+    ]
+  },
+  "/virginia/covington/falling-spring-falls": {
+    "checked": "2026-11-05",
+    "hike": "Short paved walk from the parking area to the overlook; no trail beyond the overlook",
+    "difficulty": "Easy",
+    "parking": "Roadside lot on US 220 about 5 miles north of Covington; picnic area on site",
+    "fees": "Free; managed by Virginia State Parks (Douthat State Park)",
+    "free": true,
+    "dogs": "Allowed on leash at the overlook area",
+    "swimming": "No; no trespassing beyond the overlook (strictly enforced)",
+    "accessibility": "Paved walk from parking to overlook",
+    "bestSeason": "Year-round when US 220 is open; strongest after rain",
+    "sources": [
+      [
+        "Virginia DCR: Falling Spring Falls",
+        "https://www.dcr.virginia.gov/state-parks/falling-spring-falls"
+      ]
+    ]
+  },
+  "/pennsylvania/towamensing-trails/hawk-falls": {
+    "checked": "2026-11-05",
+    "hike": "Hawk Falls Trail is about 1.2 miles round trip through rhododendron to a roughly 25-foot waterfall on Hawk Run",
+    "difficulty": "Easy",
+    "parking": "Dedicated lots on PA Route 534 at Hickory Run State Park; can fill early on weekends",
+    "fees": "No day-use or parking fee at Hickory Run State Park",
+    "free": true,
+    "dogs": "Allowed on leash and attended at all times",
+    "swimming": "No designated swim area at Hawk Falls; enjoy from the trail and creek banks without climbing wet rock",
+    "bestSeason": "Spring and after rain; park open sunrise to sunset",
+    "sources": [
+      [
+        "Pennsylvania DCNR: Hickory Run State Park hiking",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/hickory-run-state-park/hiking"
+      ],
+      [
+        "Pennsylvania DCNR: Hickory Run State Park",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/hickory-run-state-park"
+      ]
+    ]
+  },
+  "/washington/eatonville/narada-falls": {
+    "checked": "2026-11-05",
+    "hike": "Upper roadside viewpoint of the top of the falls; steep 0.2-mile one-way trail (0.4 mile round trip) with about 200 feet of descent to the lower overlook of the full 168-foot falls",
+    "elevationGain": "About 200 feet of descent/ascent on the lower viewpoint trail",
+    "difficulty": "Easy for the upper viewpoint; moderate and slippery for the lower trail",
+    "parking": "Narada Falls parking and rest area on the road to Paradise, about 17 miles east of the Nisqually Entrance; picnic tables and accessible restrooms",
+    "fees": "Mount Rainier National Park entrance fee ($30 per private vehicle for up to 7 days, or annual park / America the Beautiful pass)",
+    "free": false,
+    "dogs": "Pets are not allowed on park trails, including the trail to the lower viewpoint; pets may stay in developed parking areas under control",
+    "swimming": "No",
+    "accessibility": "Accessible restroom at the parking area; lower viewpoint trail is steep, wet and not wheelchair accessible",
+    "bestSeason": "Summer and early fall for snow-free lower trail; upper pullout is open year-round but the lower trail is hazardous when snow-covered",
+    "sources": [
+      [
+        "NPS: Narada Falls",
+        "https://www.nps.gov/places/narada-falls.htm"
+      ],
+      [
+        "NPS: Mount Rainier fees & passes",
+        "https://www.nps.gov/mora/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/new-york/trumansburg/taughannock-falls": {
+    "checked": "2026-11-05",
+    "hike": "Gorge Trail is about 0.75 mile one way (about 1.5 miles round trip) on a wide, relatively flat path to the 215-foot falls; rim trails offer overlook views",
+    "difficulty": "Easy on the Gorge Trail",
+    "parking": "Lots at the upper (overlook / trails) and lower (lake / beach) entrances off Taughannock Blvd in Trumansburg",
+    "fees": "$10 per vehicle entrance fee collected daily sunup to sundown; Empire Pass accepted",
+    "free": false,
+    "dogs": "Maximum two pets in day-use areas; leash no more than 6 feet; not permitted in playgrounds, buildings, boardwalks, pools or guarded beaches (service animals excepted)",
+    "swimming": "Not in the gorge. Guarded Cayuga Lake beach swimming in 2026: June 26 through Labor Day, 11 a.m. to 7 p.m.",
+    "accessibility": "Gorge Trail is relatively flat and is among the more accessible Finger Lakes gorge walks; contact the park for current accessible-route details",
+    "bestSeason": "Spring for strongest flow; park open dawn to dusk year-round",
+    "sources": [
+      [
+        "NYS Parks: Taughannock Falls State Park",
+        "https://parks.ny.gov/visit/state-parks/taughannock-falls-state-park"
+      ]
+    ]
   }
 }
