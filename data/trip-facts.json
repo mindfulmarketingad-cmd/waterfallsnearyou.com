@@ -1222,5 +1222,494 @@
         "https://parks.ny.gov/visit/state-parks/taughannock-falls-state-park"
       ]
     ]
+  },
+  "/california/rancho-cucamonga/bonita-falls": {
+    "checked": "2026-11-06",
+    "hike": "About 1.5 miles round trip on an unmarked route up the South Fork Lytle Creek wash, then a short side path to the lower falls",
+    "elevationGain": "Roughly 350 to 450 feet, mostly near the falls",
+    "difficulty": "Easy to moderate: rocky creek wash, stream crossings and uneven footing; no signed trail",
+    "parking": "Bonita Falls day-use area and turnouts along Lytle Creek Road in San Bernardino National Forest, about a mile past the Lytle Creek ranger station; fills early on summer weekends",
+    "fees": "San Bernardino National Forest Adventure Pass for parking ($5 day or $30 annual) or America the Beautiful pass; no separate trail permit",
+    "free": false,
+    "dogs": "Allowed on leash in developed recreation areas and on trails under national forest rules",
+    "swimming": "No official swimming rule found; rockfall hazard is serious near the cliffs",
+    "accessibility": "Not wheelchair accessible; the wash route is rocky and uneven",
+    "bestSeason": "Winter and spring after rain, when flow is strongest; summer weekends fill parking early",
+    "sources": [
+      [
+        "USDA Forest Service: San Bernardino National Forest",
+        "https://www.fs.usda.gov/r05/sanbernardino"
+      ],
+      [
+        "USDA Forest Service: dogs on national forests",
+        "https://www.fs.usda.gov/about-agency/features/get-out-there-your-best-dog-friend"
+      ]
+    ]
+  },
+  "/california/yosemite-valley/bridalveil-fall": {
+    "checked": "2026-11-06",
+    "hike": "0.5 mile round trip on a paved trail from the Bridalveil Fall parking area (about 20 minutes); an alternate approach from Southside Drive roadside parking adds about 0.25 mile each way",
+    "elevationGain": "About 80 feet",
+    "difficulty": "Easy",
+    "parking": "Bridalveil Fall Parking Area off Wawona Road / Southside Drive; fills quickly in summer. Overflow roadside parking a few hundred yards east on Southside Drive",
+    "fees": "Yosemite National Park entrance fee ($35 per private vehicle for up to 7 days, or annual park / America the Beautiful pass)",
+    "free": false,
+    "dogs": "Leashed pets are allowed on the paved Bridalveil Fall trails",
+    "swimming": "Do not enter Bridalveil Creek at the viewpoint; rocks are slick and the creek is cold and swift. Parkwide swimming rules apply elsewhere",
+    "accessibility": "A wheelchair-accessible viewing platform sits about halfway up the trail from the main lot; the final viewpoint has a steeper grade and is not wheelchair accessible. Accessible family restroom at the parking area",
+    "bestSeason": "Spring and early summer for peak flow and heavy spray; flows year-round with a lighter, windswept look later in the year",
+    "sources": [
+      [
+        "NPS: Bridalveil Fall Trail",
+        "https://www.nps.gov/yose/planyourvisit/bridalveilfalltrail.htm"
+      ],
+      [
+        "NPS: Bridalveil Fall Viewing Area",
+        "https://www.nps.gov/places/000/bridalveil-fall.htm"
+      ],
+      [
+        "NPS: Yosemite fees & passes",
+        "https://www.nps.gov/yose/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/arizona/flagstaff/grand-falls": {
+    "checked": "2026-11-06",
+    "hike": "Historically a short walk from informal roadside parking to overlooks of the Little Colorado River falls; no maintained public trail while closed",
+    "difficulty": "Not applicable while closed to the public",
+    "parking": "Access road has been barricaded by local residents; do not attempt to park or drive in",
+    "fees": "Closed to the public. No permit currently authorizes a visit for non-residents",
+    "free": false,
+    "dogs": "Not applicable; site is closed. Navajo Nation parks generally restrict pets",
+    "swimming": "Not applicable; site is closed",
+    "accessibility": "Not verified; site is closed to the public",
+    "bestSeason": "Not open. Historically strongest flow in spring snowmelt and monsoon season on the Little Colorado River",
+    "sources": [
+      [
+        "Navajo Nation Parks & Recreation: rules & regulations",
+        "https://navajonationparks.org/rules-regulations/"
+      ],
+      [
+        "Arizona Republic: Grand Falls closed by Navajo communities (March 2023)",
+        "https://www.azcentral.com/story/news/local/arizona/2023/03/07/after-surge-in-visitors-navajo-residents-close-grand-falls-access/69976654007/"
+      ]
+    ]
+  },
+  "/arkansas/marshall/falling-water-falls": {
+    "checked": "2026-11-06",
+    "hike": "Roadside viewpoint from Forest Road 1205; a short, steep informal path leads to the base of the falls",
+    "difficulty": "Easy for the roadside view; moderate and steep if descending to the base",
+    "parking": "Gravel pull-offs along Forest Road 1205 in Ozark-St. Francis National Forest / Richland Creek area",
+    "fees": "No day-use or entrance fee listed for this roadside stop; forest road conditions vary",
+    "free": true,
+    "dogs": "Allowed on leash under national forest rules",
+    "swimming": "Visitors wade the creek pools; no separate agency swimming rule found for this pull-off—use caution on slick rock",
+    "accessibility": "Roadside view only for those who cannot manage the steep informal path to the base",
+    "bestSeason": "Winter and spring for strongest flow; gravel forest roads can be rough after rain",
+    "sources": [
+      [
+        "USDA Forest Service: Richland Creek Wilderness",
+        "https://www.fs.usda.gov/r08/ozark-stfrancis/recreation/richland-creek-wilderness"
+      ],
+      [
+        "University of Arkansas: Northwest Arkansas waterfall viewing guide",
+        "https://walton.uark.edu/outdoor-recreation/northwest-arkansas-waterfall-viewing-guide.php"
+      ]
+    ]
+  },
+  "/new-york/pulaski/salmon-river-falls": {
+    "checked": "2026-11-06",
+    "hike": "Accessible Falls Trail is 0.2 mile one way from the Falls Road parking area to the overlook. Optional steep Gorge Trail (about 600 feet) and River Bed Trail drop into the gorge when open",
+    "difficulty": "Easy on the accessible overlook trail; strenuous on the Gorge and River Bed trails",
+    "parking": "Falls Road parking area about one mile up Falls Road east of County Route 22 (Orwell / Altmar area)",
+    "fees": "Free",
+    "free": true,
+    "dogs": "Keep pets under control and on a leash when other visitors are present",
+    "swimming": "No. Public access is prohibited in the restricted area around the cliff face and plunge pool, including swimming and wading",
+    "accessibility": "Falls Trail is wheelchair accessible: 0.2 mile, gentle grade (max about 10%), firm compacted stone, minimum 3-foot width",
+    "bestSeason": "Year-round for the overlook; Gorge and River Bed trails are closed Nov. 15 to May 1 and during high water (ice climbers may use the Gorge Trail in winter with daily registration)",
+    "sources": [
+      [
+        "NYSDEC: Salmon River Falls Unique Area",
+        "https://dec.ny.gov/places/salmon-river-falls-unique-area"
+      ]
+    ]
+  },
+  "/colorado/pagosa-springs/treasure-falls": {
+    "checked": "2026-11-06",
+    "hike": "Treasure Falls Trail 563 is 0.4 mile one way (about 0.8 mile round trip) from the paved US-160 lot to viewpoints and a mist deck at the roughly 100-foot falls",
+    "elevationGain": "About 260 feet (trail elevation 8,120 to 8,380 feet)",
+    "difficulty": "Easy to moderate short climb; Forest Service describes it as a short accessible interpretive trail",
+    "parking": "Paved lot directly off US Highway 160 about 16 miles east of Pagosa Springs; often crowded at peak times",
+    "fees": "No fee listed for this day-use trailhead",
+    "free": true,
+    "dogs": "Allowed on leash under national forest rules",
+    "swimming": "No swimming area; stay on the trail and viewing decks",
+    "accessibility": "Forest Service lists it as an accessible interpretive trail with a paved parking area; expect some uphill grade to the falls",
+    "bestSeason": "Late spring through early fall for snow-free footing; trail can be icy in winter",
+    "sources": [
+      [
+        "USDA Forest Service: Treasure Falls Trail",
+        "https://www.fs.usda.gov/r02/sanjuan/recreation/trails/treasure-falls-trail"
+      ]
+    ]
+  },
+  "/north-carolina/brevard/triple-falls": {
+    "checked": "2026-11-06",
+    "hike": "About 1 mile round trip from the Hooker Falls Access Area on Staton Road, or about 2.2 miles round trip from the High Falls / visitor center parking",
+    "difficulty": "Moderate: short distance with a steep section and stairs at the overlook",
+    "parking": "Hooker Falls Access Area or High Falls Access Area; free, first come, first served. Lots fill early—N.C. Forest Service suggests before 9 a.m. or after about 4–5 p.m.",
+    "fees": "No entry or parking fee",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "swimming": "No swimming or wading within 300 feet upstream of waterfalls; no climbing, jumping or diving at waterfalls. Hooker Falls downstream is the usual swimming spot when conditions allow",
+    "accessibility": "The Triple Falls trail is not wheelchair accessible. Limited-mobility visitors may request a free vehicle-access permit to High Falls (advance request)",
+    "bestSeason": "Spring for flow; weekdays or early/late hours to avoid parking closures when lots fill",
+    "sources": [
+      [
+        "N.C. Forest Service: DuPont State Recreational Forest FAQ",
+        "https://www.ncagr.gov/divisions/nc-forest-service/state-forests/dupont-state-recreational-forest/faq"
+      ],
+      [
+        "Friends of DuPont Forest",
+        "https://www.dupontforest.com/"
+      ]
+    ]
+  },
+  "/tennessee/tullahoma/machine-falls": {
+    "checked": "2026-11-06",
+    "hike": "Machine Falls Trail in Short Springs State Natural Area; loop options with Adams / Busby Falls are commonly about 2 to 3 miles round trip depending on route",
+    "difficulty": "Moderate: descent into the gorge with rocky, rooty footing",
+    "parking": "Small lot on Short Springs Road opposite the water tower northeast of Tullahoma; extremely limited (about a dozen spaces). Do not park outside designated spots—if full, return later",
+    "fees": "Free public access; no entry fee listed",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "swimming": "No swimming facilities; cascades and wet rock make wading hazardous",
+    "accessibility": "Not wheelchair accessible; steep gorge trails",
+    "bestSeason": "Spring for wildflowers and strongest seeps; winter–spring for flow. Weekdays recommended for parking",
+    "sources": [
+      [
+        "Tennessee Division of Natural Areas: Short Springs",
+        "https://www.tn.gov/environment/natural-areas/what-we-do/sna/er/short-springs.html"
+      ]
+    ]
+  },
+  "/washington/eatonville/little-mashel-falls": {
+    "checked": "2026-11-06",
+    "hike": "About 5 miles round trip via UW Pack Forest roads/trails to Lower, Middle and Upper (Tom Tom) Falls, or a shorter approach on the Bud Blancher Trail; both meet near the falls",
+    "elevationGain": "About 500 feet via Pack Forest",
+    "difficulty": "Moderate; footing near the falls can be slick",
+    "parking": "Pack Forest entrance off Highway 7 near Eatonville (limited spaces at the trailhead plus overflow near administration buildings), or Bud Blancher Trail parking in Eatonville",
+    "fees": "No parking pass or entry fee",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "swimming": "Not recommended; slick rock and strong current at the falls. Fatalities have occurred near Middle Falls",
+    "accessibility": "Not wheelchair accessible; crushed-rock roads and steep side trails",
+    "bestSeason": "Late fall through spring for strong flow; avoid peak flood when spray and footing are worst",
+    "sources": [
+      [
+        "Washington Trails Association: Little Mashel Falls - Pack Forest",
+        "https://www.wta.org/go-hiking/hikes/little-mashel-falls"
+      ]
+    ]
+  },
+  "/california/yosemite-valley/vernal-fall": {
+    "checked": "2026-11-06",
+    "hike": "Mist Trail to the top of Vernal Fall is 2.4 miles round trip from Happy Isles with about 1,000 feet of elevation gain; continue to Nevada Fall for a longer day",
+    "elevationGain": "About 1,000 feet to the top of Vernal Fall",
+    "difficulty": "Moderate to strenuous: steep granite stairs, wet and slippery in high spray",
+    "parking": "Use Yosemite Valley day-use parking and the free Valley shuttle to Happy Isles (Stop 16); trailhead parking is limited",
+    "fees": "Yosemite National Park entrance fee ($35 per private vehicle for up to 7 days, or annual park / America the Beautiful pass)",
+    "free": false,
+    "dogs": "Pets are not allowed on the Mist Trail or John Muir Trail",
+    "swimming": "Swimming and wading are prohibited at Emerald Pool and the Silver Apron above Vernal Fall; stay out of the river near the falls",
+    "accessibility": "Not wheelchair accessible; steep stairs and uneven granite",
+    "bestSeason": "Late spring and early summer for full Mist Trail spray; winter ice can close or make stairs hazardous",
+    "sources": [
+      [
+        "NPS: Vernal Fall and Nevada Fall Trails",
+        "https://www.nps.gov/yose/planyourvisit/vernalnevadatrail.htm"
+      ],
+      [
+        "NPS: Yosemite fees & passes",
+        "https://www.nps.gov/yose/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/pennsylvania/dunbar/cucumber-falls": {
+    "checked": "2026-11-06",
+    "hike": "Short stair/path from the Cucumber Falls parking area on Ohiopyle Road to the falls, or about 1 mile one way on Meadow Run Trail from other park lots",
+    "difficulty": "Easy to moderate; stairs and rocky footing near the falls",
+    "parking": "Cucumber Falls lot on Ohiopyle Road in Ohiopyle State Park, or Meadow Run Trail parking for the longer approach",
+    "fees": "No Pennsylvania state park entrance fee for day use",
+    "free": true,
+    "dogs": "Allowed on leash and attended on park trails",
+    "swimming": "Not a designated swimming area; currents and slick rock are hazardous",
+    "accessibility": "Cucumber Falls access is not listed as ADA; other park features (including parts of the Great Allegheny Passage) are accessible",
+    "bestSeason": "Spring for strongest flow; trail can flood in high water",
+    "sources": [
+      [
+        "PA DCNR: Hiking at Ohiopyle State Park",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/hiking"
+      ],
+      [
+        "PA DCNR: Ohiopyle State Park accessibility",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/accessibility"
+      ]
+    ]
+  },
+  "/indiana/cloverdale/upper-cataract-falls": {
+    "checked": "2026-11-06",
+    "hike": "Short trails within Cataract Falls State Recreation Area link the upper falls viewpoints; commonly under 1 mile round trip for the main overlooks",
+    "difficulty": "Easy",
+    "parking": "Lots inside Cataract Falls SRA (Cagles Mill Lake / Lieber SRA complex) near Cloverdale",
+    "fees": "Indiana State Park entrance fee: $7 in-state / $9–$15 out-of-state per vehicle depending on current DNR rates (verify at gate)",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet and attended",
+    "swimming": "No swimming along the creek or at the waterfalls",
+    "accessibility": "Some paved overlook areas; confirm current accessible routes with Indiana DNR",
+    "bestSeason": "Spring for strongest Mill Creek flow",
+    "sources": [
+      [
+        "Indiana DNR: Cagles Mill Lake (Lieber and Cataract Falls SRA)",
+        "https://www.in.gov/dnr/state-parks/parks-lakes/cagles-mill-lake-lieber-and-cataract-falls-sra/"
+      ],
+      [
+        "Indiana DNR: State park entrance fees",
+        "https://www.in.gov/dnr/state-parks/rates-and-fees/entrance-fees/"
+      ]
+    ]
+  },
+  "/north-carolina/brevard/hooker-falls": {
+    "checked": "2026-11-06",
+    "hike": "About 0.5 to 0.8 mile round trip on an easy, mostly flat trail from the Hooker Falls Access Area to the base of the falls",
+    "difficulty": "Easy",
+    "parking": "Hooker Falls Access Area on Staton Road; free lots fill early on weekends",
+    "fees": "No entry or parking fee",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "swimming": "Swimming is allowed in the pool below Hooker Falls when conditions are safe; never swim or wade above the falls or within 300 feet upstream of any DuPont waterfall",
+    "accessibility": "Relatively flat approach compared with Triple and High Falls, but not a certified wheelchair route; surfaces can be uneven",
+    "bestSeason": "Late spring through summer for swimming; year-round for viewing",
+    "sources": [
+      [
+        "N.C. Forest Service: DuPont State Recreational Forest FAQ",
+        "https://www.ncagr.gov/divisions/nc-forest-service/state-forests/dupont-state-recreational-forest/faq"
+      ],
+      [
+        "Friends of DuPont Forest: Hooker Falls",
+        "https://www.dupontforest.com/explore/hooker-falls/"
+      ]
+    ]
+  },
+  "/vermont/morristown/moss-glen-falls": {
+    "checked": "2026-11-06",
+    "hike": "About 0.5 mile round trip from the small lot at the end of Moss Glen Falls Road (Stowe area) to the falls",
+    "difficulty": "Easy",
+    "parking": "Small free lot at the end of Moss Glen Falls Road; do not block the bus turnaround. Fills quickly on summer weekends",
+    "fees": "No fee listed",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "swimming": "People wade the pool below the falls; cold water and slick rock—no lifeguard",
+    "accessibility": "Short path but not a certified accessible route",
+    "bestSeason": "Spring for strongest flow; summer for swimming weather",
+    "sources": [
+      [
+        "Trailfinder: Moss Glen Falls",
+        "https://www.trailfinder.info/trails/trail/moss-glen-falls"
+      ]
+    ]
+  },
+  "/pennsylvania/milford-pike/raymondskill-falls": {
+    "checked": "2026-11-06",
+    "hike": "0.3-mile loop / out-and-back with about 178 feet of elevation change between upper and lower viewing areas; a seasonal spur leads about 0.25 mile one way to Raymondskill Creek (not to the base of the falls)",
+    "elevationGain": "About 178 feet",
+    "difficulty": "Easy to moderate: short but steep and uneven",
+    "parking": "Upper and lower lots on Raymondskill Road in Delaware Water Gap National Recreation Area; upper lot closed early January to mid-April. Restrooms at the upper lot when open",
+    "fees": "No entrance or parking fee at Raymondskill Falls",
+    "free": true,
+    "dogs": "Pets are not permitted on the trail (trained service animals excepted)",
+    "swimming": "Swimming and wading are not permitted within 50 feet upstream of waterfalls or in the waterfalls themselves",
+    "accessibility": "Trail is steep and uneven; not wheelchair accessible",
+    "bestSeason": "Spring for strongest flow; summer shuttle may operate—check NPS for current operations",
+    "sources": [
+      [
+        "NPS: Raymondskill Creek Trail",
+        "https://www.nps.gov/dewa/planyourvisit/raymondskill-creek-trail.htm"
+      ],
+      [
+        "NPS: Delaware Water Gap fees & passes",
+        "https://www.nps.gov/dewa/planyourvisit/fees.htm"
+      ],
+      [
+        "NPS: Pets in Delaware Water Gap",
+        "https://www.nps.gov/dewa/planyourvisit/pets.htm"
+      ]
+    ]
+  },
+  "/new-york/niagara-falls/american-falls": {
+    "checked": "2026-11-06",
+    "hike": "Paved park paths and overlooks at Prospect Point and nearby viewpoints; Observation Tower and other ticketed attractions are optional",
+    "difficulty": "Easy for main paved viewpoints",
+    "parking": "Niagara Falls State Park Lots 1–3; rates change by season (Lot 1/2 commonly about $10/day in peak periods; Lot 3 has free days/seasonal free periods—check current park parking page)",
+    "fees": "Park grounds and main American Falls viewpoints are free; parking and ticketed attractions (Observation Tower, Cave of the Winds, Maid of the Mist) cost extra",
+    "free": true,
+    "dogs": "Leashed pets (6 feet or less) allowed on green space and footpaths with falls views; not in buildings, attractions or boardwalks",
+    "swimming": "No swimming in the Niagara River gorge",
+    "accessibility": "Park pathways and many viewpoints are ADA accessible; confirm elevator/tower access for Observation Tower tickets",
+    "bestSeason": "Year-round; illumination and ice make winter distinctive, summer has longest hours and biggest crowds",
+    "sources": [
+      [
+        "Niagara Falls State Park: parking",
+        "https://www.niagarafallsstatepark.com/park-information/parking/"
+      ],
+      [
+        "Niagara Falls State Park: pet-friendly policies",
+        "https://www.niagarafallsstatepark.com/park-information/pet-friendly-park-policies/"
+      ],
+      [
+        "NYS Parks: Niagara Falls State Park",
+        "https://parks.ny.gov/visit/state-parks/niagara-falls-state-park"
+      ]
+    ]
+  },
+  "/michigan/k-i-sawyer-air-force-base/laughing-whitefish-falls": {
+    "checked": "2026-11-06",
+    "hike": "About 1 mile round trip (0.5 mile each way) on a natural-surface trail to three viewing platforms",
+    "difficulty": "Easy to the upper platform; moderate with many stairs to the lower platforms (about 20 stairs to middle, about 137 to lower)",
+    "parking": "Trailhead lot reached by a seasonal dirt road that can be muddy and is not plowed in winter",
+    "fees": "Michigan Recreation Passport required for vehicles ($12 day or $42 annual for out-of-state; in-state passport via vehicle registration)",
+    "free": false,
+    "dogs": "Allowed on a 6-foot leash under immediate control; pack out waste",
+    "swimming": "No designated swimming; gorge and stairs are for viewing",
+    "accessibility": "Upper platform is stair-free but the trail is natural surface; middle and lower platforms require stairs. Accessible vault toilet at the trailhead",
+    "bestSeason": "Late spring through fall when the access road is firm; winter access is unreliable",
+    "sources": [
+      [
+        "Michigan DNR: Laughing Whitefish Falls State Park",
+        "https://www.michigan.gov/recsearch/parks/laughingwhitefish"
+      ]
+    ]
+  },
+  "/indiana/cloverdale/lower-cataract-falls": {
+    "checked": "2026-11-06",
+    "hike": "Short trails within Cataract Falls State Recreation Area connect the lower falls viewpoints; typically a short walk from nearby parking",
+    "difficulty": "Easy",
+    "parking": "Lots inside Cataract Falls SRA near the lower falls",
+    "fees": "Indiana State Park entrance fee: $7 in-state / out-of-state rates higher (verify current DNR gate fees)",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet and attended",
+    "swimming": "No swimming along the creek or at the waterfalls",
+    "accessibility": "Some paved areas near overlooks; confirm current accessible routes with Indiana DNR",
+    "bestSeason": "Spring for strongest Mill Creek flow",
+    "sources": [
+      [
+        "Indiana DNR: Cagles Mill Lake (Lieber and Cataract Falls SRA)",
+        "https://www.in.gov/dnr/state-parks/parks-lakes/cagles-mill-lake-lieber-and-cataract-falls-sra/"
+      ],
+      [
+        "Indiana DNR: State park entrance fees",
+        "https://www.in.gov/dnr/state-parks/rates-and-fees/entrance-fees/"
+      ]
+    ]
+  },
+  "/tennessee/tracy-city/foster-falls": {
+    "checked": "2026-11-06",
+    "hike": "Overlook about 0.4 mile round trip; steep rocky Base Trail about 0.6 mile round trip down to the plunge pool",
+    "difficulty": "Easy to the overlook; moderate to strenuous on the Base Trail",
+    "parking": "Fiery Gizzard South / Foster Falls trailhead at 498 Foster Falls Road, Sequatchie; restrooms and picnic area at the trailhead",
+    "fees": "Tennessee State Parks charge no day-use entrance fee",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "swimming": "Swimming is allowed in the plunge pool when conditions allow; no lifeguard, depth and current vary",
+    "accessibility": "Overlook path is the easier option; Base Trail is steep and not wheelchair accessible. Park hours typically 8 a.m. to 30 minutes before sunset",
+    "bestSeason": "Late spring through early fall for swimming weather; spring for stronger flow",
+    "sources": [
+      [
+        "Tennessee State Parks: Fiery Gizzard State Park",
+        "https://tnstateparks.com/parks/fiery-gizzard"
+      ],
+      [
+        "Tennessee State Parks: FAQ (no day-use entrance fee)",
+        "https://tnstateparks.com/about/frequently-asked-questions"
+      ]
+    ]
+  },
+  "/washington/gold-bar/deception-falls": {
+    "checked": "2026-11-06",
+    "hike": "About 0.5-mile interpretive loop (Trail 1078) with bridges and viewing platforms; a platform near the parking area views the falls",
+    "difficulty": "Easy",
+    "parking": "Paved day-use lot at US Highway 2 milepost 56 (north side), Mount Baker-Snoqualmie National Forest",
+    "fees": "No fees required for this site",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "swimming": "No; viewing platforms and picnic area only",
+    "accessibility": "Accessible covered picnic shelter; short loop includes wooden platforms and bridges—confirm current accessible segments with the Skykomish Ranger Station",
+    "bestSeason": "Spring runoff for strongest flow; open year-round when Highway 2 is open",
+    "sources": [
+      [
+        "USDA Forest Service: Deception Falls Picnic Area and Interpretive Trail",
+        "https://www.fs.usda.gov/r06/mbs/recreation/deception-falls-picnic-area"
+      ]
+    ]
+  },
+  "/oregon/lyons/abiqua-falls": {
+    "checked": "2026-11-06",
+    "hike": "About 0.8 mile round trip from the usual high-clearance parking near the canyon rim, with a steep, rocky, rope-assisted descent into the amphitheater",
+    "elevationGain": "Roughly 200 to 300 feet of steep descent/ascent",
+    "difficulty": "Moderate to strenuous because of the scramble; not a built trail",
+    "parking": "Limited roadside / spur parking reached via Crooked Finger Road; high-clearance recommended. Lower-clearance vehicles often park at Crooked Finger OHV Area and walk farther",
+    "fees": "No parking permit or day-use fee listed for the current informal access (Oregon State Parks has approved a future recreation-area purchase—rules may change)",
+    "free": true,
+    "dogs": "Allowed on leash, but the steep rope section is difficult for most dogs",
+    "swimming": "People wade the pool at the base; cold water and slick rock—no lifeguard",
+    "accessibility": "Not wheelchair or stroller accessible",
+    "bestSeason": "Late spring through early fall for drier roads and safer rock; avoid after heavy rain when the descent is slick",
+    "sources": [
+      [
+        "Oregon Hikers Field Guide: Abiqua Falls Hike",
+        "https://www.oregonhikers.org/field_guide/Abiqua_Falls_Hike"
+      ]
+    ]
+  },
+  "/north-carolina/tryon/pearsons-falls": {
+    "checked": "2026-11-06",
+    "hike": "Short preserve trail from the parking area to the falls inside Pearson's Falls & Glen (Thermal Belt area near Saluda / Tryon)",
+    "difficulty": "Easy to moderate",
+    "parking": "On-site parking at Pearson's Falls & Glen; reservation required for entry",
+    "fees": "$10 per person ages 13+; ages 12 and under free (confirm current rates when booking)",
+    "free": false,
+    "dogs": "Dogs are not allowed",
+    "swimming": "No swimming; viewing only from preserve paths",
+    "accessibility": "Contact the preserve for current accessible-path details before visiting",
+    "bestSeason": "Spring for flowers and flow; book ahead on weekends",
+    "sources": [
+      [
+        "Pearson's Falls & Glen: plan your visit",
+        "https://www.pearsonsfallsandglen.org/plan-your-visit"
+      ],
+      [
+        "Pearson's Falls & Glen: FAQ",
+        "https://www.pearsonsfallsandglen.org/faq"
+      ]
+    ]
+  },
+  "/michigan/lanse/canyon-falls": {
+    "checked": "2026-11-06",
+    "hike": "About 0.5 mile one way on the Canyon Gorge Trail from Canyon Falls Roadside Park to the main falls; longer gorge walks continue beyond",
+    "difficulty": "Easy to the main falls",
+    "parking": "Canyon Falls Roadside Park day-use lot on US-41 near L'Anse; spaces for cars and RVs",
+    "fees": "Free; no Michigan Recreation Passport required at this MDOT roadside park",
+    "free": true,
+    "dogs": "Allowed on a leash of 6 feet or less and attended",
+    "swimming": "Not a swimming area; stay behind railings at overlooks",
+    "accessibility": "Short natural-surface trail; not a certified wheelchair route to the gorge overlooks",
+    "bestSeason": "Late spring through fall; roadside park is day-use",
+    "sources": [
+      [
+        "Outdoor Michigan: Canyon Falls Roadside Park",
+        "https://outdoormichigan.org/feature/11737"
+      ]
+    ]
   }
 }
