@@ -1,0 +1,144 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Your account | WaterfallsNearYou" description="Lists, alerts, and billing for Waterfalls Near You Plus." noindex>
+  <section class="wrap section-sm narrow">
+    <h1>Account</h1>
+    <p id="who" role="status">Loading your account...</p>
+    <div id="app" hidden>
+      <div class="li-actions">
+        <button class="btn btn-green" type="button" id="portal">Manage billing</button>
+        <a class="btn btn-outline" href="/planner">Trip planner</a>
+        <a class="btn btn-outline" href="/plus/deals">Member deals</a>
+        <button class="btn btn-outline" type="button" id="logout">Sign out</button>
+      </div>
+      <p class="small muted">Canceling happens in the Stripe billing portal. Access lasts until the period ends, then it turns off on its own. Complimentary access is managed separately by the site owner.</p>
+      <h2>Alerts</h2>
+      <label><input type="checkbox" id="alerts" /> Email me when a saved waterfall’s conditions change</label>
+      <ul id="watches"></ul>
+      <h2>Lists</h2>
+      <form id="new-list" class="inline-form">
+        <input name="name" placeholder="New list name" maxlength="80" required />
+        <button class="btn btn-outline" type="submit">Create</button>
+      </form>
+      <div id="lists"></div>
+    </div>
+  </section>
+</Base>
+<script>
+  const who = document.getElementById('who');
+  const app = document.getElementById('app');
+  const listsEl = document.getElementById('lists');
+  const watchesEl = document.getElementById('watches');
+
+  function li(text, href) {
+    const node = document.createElement('li');
+    if (href) {
+      const a = document.createElement('a');
+      a.href = href;
+      a.textContent = text;
+      node.append(a);
+    } else node.textContent = text;
+    return node;
+  }
+
+  async function load() {
+    const me = await fetch('/api/me', { credentials: 'same-origin' }).then((r) => r.json());
+    if (!me.signedIn) {
+      location.href = '/signin?next=/account';
+      return;
+    }
+    if (!me.plus) {
+      location.href = '/plus?checkout=1';
+      return;
+    }
+    const when = me.currentPeriodEnd ? new Date(me.currentPeriodEnd).toLocaleDateString() : '';
+    who.textContent = `${me.email} · ${me.complimentary ? 'complimentary Plus' : me.status}${me.planInterval ? ` · ${me.planInterval}` : ''}${when ? ` · renews or ends ${when}` : ''}${me.cancelAtPeriodEnd ? ' · set to cancel' : ''}`;
+    app.hidden = false;
+    const data = await fetch('/api/lists', { credentials: 'same-origin' }).then((r) => r.json());
+    const alerts = document.getElementById('alerts') as HTMLInputElement;
+    alerts.checked = me.alertsEnabled !== false;
+    watchesEl.replaceChildren(...(data.watches || []).map((w) => {
+      const node = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = w.url;
+      a.textContent = w.name;
+      const label = document.createElement('label');
+      const box = document.createElement('input');
+      box.type = 'checkbox';
+      box.checked = !w.muted;
+      box.addEventListener('change', () => fetch('/api/alerts/watch', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ listing: w.url, muted: !box.checked }) }));
+      label.append(box, ' Watch');
+      node.append(a, ' ', label);
+      return node;
+    }));
+    if (!data.watches?.length) watchesEl.append(li('Save a waterfall and alerts turn on for it. You can mute each one here.'));
+    listsEl.replaceChildren(...(data.lists || []).map((list) => {
+      const wrap = document.createElement('section');
+      const h = document.createElement('h3');
+      h.textContent = list.name;
+      wrap.append(h);
+      const ol = document.createElement('ol');
+      for (const item of list.items) {
+        const node = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = item.url;
+        a.textContent = `${item.day ? `Day ${item.day}: ` : ''}${item.name}`;
+        node.append(a);
+        ol.append(node);
+      }
+      wrap.append(ol);
+      const bar = document.createElement('p');
+      const share = document.createElement('button');
+      share.className = 'btn btn-outline';
+      share.type = 'button';
+      share.textContent = 'Share read-only link';
+      share.addEventListener('click', async () => {
+        const res = await fetch('/api/lists/share', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ listId: list.id }) });
+        const body = await res.json();
+        if (body.url) prompt('Read-only link', body.url);
+      });
+      const packet = document.createElement('a');
+      packet.className = 'btn btn-outline';
+      packet.href = `/packet?list=${encodeURIComponent(list.id)}`;
+      packet.textContent = 'Print packet';
+      bar.append(share, ' ', packet);
+      if (list.kind !== 'saved') {
+        const del = document.createElement('button');
+        del.className = 'btn btn-outline';
+        del.type = 'button';
+        del.textContent = 'Delete list';
+        del.addEventListener('click', async () => {
+          await fetch('/api/lists', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id: list.id, remove: true }) });
+          load();
+        });
+        bar.append(' ', del);
+      }
+      wrap.append(bar);
+      return wrap;
+    }));
+  }
+
+  document.getElementById('alerts').addEventListener('change', (e) => {
+    fetch('/api/alerts/watch', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ alertsEnabled: (e.target as HTMLInputElement).checked }) });
+  });
+  document.getElementById('portal').addEventListener('click', async () => {
+    const res = await fetch('/api/stripe/portal', { method: 'POST', credentials: 'same-origin' });
+    const body = await res.json();
+    if (body.url) location.href = body.url;
+    else who.textContent = body.error || 'Billing portal is unavailable.';
+  });
+  document.getElementById('logout').addEventListener('click', () => fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin' }).then(() => { location.href = '/plus'; }));
+  document.getElementById('new-list').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = new FormData(e.target as HTMLFormElement).get('name');
+    await fetch('/api/lists', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name }) });
+    (e.target as HTMLFormElement).reset();
+    load();
+  });
+  load();
+</script>
+<style>
+  .inline-form { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .inline-form input { font: inherit; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; }
+</style>

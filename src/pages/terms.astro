@@ -2,7 +2,7 @@
 import StaticPage from '../components/StaticPage.astro';
 import { SITE } from '../config.mjs';
 ---
-<StaticPage title="Terms of Use | WaterfallsNearYou" h1="Terms of Use" eyebrow="Legal" description="The terms that govern your use of WaterfallsNearYou.com, including acceptable use, content ownership, third-party data, disclaimers and limitation of liability." updated="October 2, 2026">
+<StaticPage title="Terms of Use | WaterfallsNearYou" h1="Terms of Use" eyebrow="Legal" description="The terms that govern your use of WaterfallsNearYou.com, including Plus subscriptions, cancellation, alert emails, acceptable use, and disclaimers." updated="November 8, 2026">
   <p>By accessing or using WaterfallsNearYou.com (the "Site"), you agree to these Terms of Use. If you do not agree, please do not use the Site.</p>
 
   <h2>1. Use of the Site</h2>
@@ -32,15 +32,21 @@ import { SITE } from '../config.mjs';
   <h2>7. Indemnification</h2>
   <p>You agree to indemnify and hold harmless WaterfallsNearYou.com and its operators from any claims arising out of your use of the Site or your violation of these Terms.</p>
 
-  <h2>8. Links and advertising</h2>
-  <p>The Site contains links to third-party websites and displays ads served by Google. We are not responsible for third-party content, products or services.</p>
+  <h2>8. Waterfalls Near You Plus</h2>
+  <p>Plus is an optional subscription sold by the Site’s operator, David F. The public directory, including waterfall, city, state, and blog pages, stays available without a subscription. Plus adds planning tools described on the <a href="/plus">Plus page</a>.</p>
+  <p>The annual price is $35.99 per year, with a 7-day free trial, unless a different price is shown in Stripe Checkout. A monthly price of $4.99 may be offered. Checkout, payment methods, invoices, and cancellation are provided by Stripe. You can cancel anytime in the billing portal linked from your account. Cancellation stops future renewal. Access continues until the trial or the paid period ends, and then ends automatically. We do not bill you outside Stripe.</p>
+  <p>Condition emails are informational. They are based on public weather data and, only when a gauge name matches, public stream-gauge data. They are not a measurement of a specific waterfall, not a road-closure notice from a land manager, and not a promise that a place is safe. You can unsubscribe in the email or from your account.</p>
+  <p>Trip plans, printable packets, and filters use data already published on the Site. If a fact is not in that data, the tool leaves it out. You are still responsible for permits, closures, and your own route.</p>
 
-  <h2>9. Changes and termination</h2>
+  <h2>9. Links and advertising</h2>
+  <p>The Site contains links to third-party websites and displays ads served by Google to visitors who are not Plus members. We are not responsible for third-party content, products or services.</p>
+
+  <h2>10. Changes and termination</h2>
   <p>We may change these Terms or any part of the Site at any time. Continued use after changes means you accept the revised Terms. We may restrict access to anyone who violates them.</p>
 
-  <h2>10. Governing law</h2>
+  <h2>11. Governing law</h2>
   <p>These Terms are governed by the laws of the United States and the state in which the Site's operator is based, without regard to conflict-of-law rules.</p>
 
-  <h2>11. Contact</h2>
+  <h2>12. Contact</h2>
   <p>Questions about these Terms: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
 </StaticPage>

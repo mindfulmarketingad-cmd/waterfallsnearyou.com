@@ -4,6 +4,7 @@ import TripCta from '../../components/TripCta.astro';
 import { findForState } from '../../lib/find.mjs';
 import PageBand from '../../components/PageBand.astro';
 import StateCard from '../../components/StateCard.astro';
+import PlusFilters from '../../components/PlusFilters.astro';
 import Faq from '../../components/Faq.astro';
 import { loadData } from '../../lib/core.mjs';
 import { fmtNum, fmtMiles, listJoin, countyUrl } from '../../lib/format.mjs';
@@ -91,6 +92,7 @@ const schema = [
         <button type="button" class="btn btn-outline f-near">Show distance from me</button>
         <span class="f-status muted small" role="status" aria-live="polite"><span data-count>{fmtNum(n)}</span> waterfalls</span>
       </div>
+      <PlusFilters mode="external" />
     </form>
 
     <div class="state-map" hidden aria-label={`Map of waterfalls in ${state.name}`}></div>
@@ -312,6 +314,11 @@ const schema = [
       if (town.value && d.town !== town.value) return false;
       if (county.value && d.county !== county.value) return false;
       if (feature.value && !d.features.split(' ').includes(feature.value)) return false;
+      const plusRoot = root.querySelector<HTMLElement>('[data-plus-filters]');
+      if (plusRoot?.dataset.unlocked === '1') {
+        const active = [...plusRoot.querySelectorAll<HTMLInputElement>('[data-plus-filter]:checked')].map((el) => el.value);
+        if (active.length && !active.every((f) => (d.plus || '').split(' ').includes(f))) return false;
+      }
       return true;
     });
     const by = {
@@ -344,8 +351,10 @@ const schema = [
   let t;
   q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(apply, 150); });
   [town, county, feature, sort].forEach((s) => s.addEventListener('change', () => apply()));
+  root.addEventListener('plus-filters', () => apply());
   root.querySelectorAll('.f-reset').forEach((b) => b.addEventListener('click', () => {
     q.value = ''; town.value = ''; county.value = ''; feature.value = ''; sort.value = me ? 'near' : 'top';
+    root.querySelectorAll<HTMLInputElement>('[data-plus-filter]').forEach((el) => { el.checked = false; });
     apply();
   }));
 

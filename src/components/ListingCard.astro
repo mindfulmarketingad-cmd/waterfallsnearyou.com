@@ -2,10 +2,12 @@
 import Photo from './Photo.astro';
 import { listingPhoto } from '../lib/photos.mjs';
 import { fmtMiles, stars } from '../lib/format.mjs';
+import { tripFacts } from '../lib/tripfacts.mjs';
+import { plusFlagList } from '../lib/plus/flags.mjs';
 interface Props { listing: any; miles?: number; direction?: string }
 const { listing: l, miles, direction } = Astro.props;
 ---
-<article class="card">
+<article class="card" data-plus={plusFlagList(l, tripFacts(l.url)).join(' ')}>
   <Photo photo={listingPhoto(l)} />
   <div class="body">
     <h3><a href={l.url}>{l.name}</a></h3>

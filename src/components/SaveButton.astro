@@ -1,0 +1,29 @@
+---
+interface Props { url: string }
+const { url } = Astro.props;
+---
+<button type="button" class="btn btn-outline" data-save={url}>Save</button>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach((btn) => {
+    if (btn.dataset.bound) return;
+    btn.dataset.bound = '1';
+    btn.addEventListener('click', async () => {
+      const listing = btn.dataset.save;
+      const res = await fetch('/api/lists/save', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ listing }),
+      });
+      if (res.status === 401) {
+        location.href = `/signin?next=${encodeURIComponent(location.pathname)}`;
+        return;
+      }
+      if (res.status === 403) {
+        location.href = '/plus?checkout=1';
+        return;
+      }
+      btn.textContent = res.ok ? 'Saved' : 'Could not save';
+    });
+  });
+</script>

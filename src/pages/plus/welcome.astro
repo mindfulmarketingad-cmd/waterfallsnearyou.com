@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Welcome to Plus | WaterfallsNearYou" description="Confirming your Waterfalls Near You Plus subscription." noindex>
+  <section class="wrap section narrow">
+    <h1>You’re almost in</h1>
+    <p id="status" role="status">Confirming the subscription with Stripe. This usually takes a few seconds.</p>
+    <p><a class="btn btn-green" href="/account" id="go" hidden>Go to your account</a></p>
+  </section>
+</Base>
+<script>
+  const status = document.getElementById('status');
+  const go = document.getElementById('go');
+  let tries = 0;
+  async function poll() {
+    tries += 1;
+    const me = await fetch('/api/me', { credentials: 'same-origin' }).then((r) => r.json()).catch(() => null);
+    if (me?.plus) {
+      status.textContent = 'Plus is active. Saved lists, conditions, the planner, packets, and alerts are ready.';
+      go.hidden = false;
+      return;
+    }
+    if (tries > 15) {
+      status.textContent = 'The payment page finished, but Plus is not on this account yet. If you completed checkout, wait a moment and refresh. Access is granted by the Stripe webhook, not by this page.';
+      return;
+    }
+    setTimeout(poll, 2000);
+  }
+  poll();
+</script>

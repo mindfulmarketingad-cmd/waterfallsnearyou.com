@@ -60,7 +60,7 @@ const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })
 const isProd = import.meta.env.PROD;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-prod={isProd ? '1' : '0'} data-ads={SITE.adsenseClient}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -101,7 +101,34 @@ const isProd = import.meta.env.PROD;
 
       gtag('config', 'G-26DN17F33R');
     </script>}
-    {isProd && <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}`} crossorigin="anonymous"></script>}
+    <script is:inline>
+      (function () {
+        var plus = document.cookie.indexOf('wny_plus=1') !== -1;
+        if (plus) document.documentElement.classList.add('is-plus');
+        function loadAds() {
+          if (document.documentElement.classList.contains('is-plus')) return;
+          if (document.querySelector('script[data-adsense]')) return;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + (document.documentElement.dataset.ads || '');
+          s.crossOrigin = 'anonymous';
+          s.setAttribute('data-adsense', '1');
+          document.head.appendChild(s);
+        }
+        var prod = document.documentElement.dataset.prod === '1';
+        if (!prod) return;
+        if (document.cookie.indexOf('wny_auth=1') === -1) { loadAds(); return; }
+        var done = false;
+        var timer = setTimeout(function () { if (!done) { done = true; loadAds(); } }, 1200);
+        fetch('/api/me', { credentials: 'same-origin' }).then(function (r) { return r.json(); }).then(function (me) {
+          if (done) return;
+          done = true;
+          clearTimeout(timer);
+          document.documentElement.classList.toggle('is-plus', !!(me && me.plus));
+          loadAds();
+        }).catch(function () { if (!done) { done = true; loadAds(); } });
+      })();
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>

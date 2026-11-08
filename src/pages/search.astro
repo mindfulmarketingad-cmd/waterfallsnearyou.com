@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import SearchForm from '../components/SearchForm.astro';
+import PlusFilters from '../components/PlusFilters.astro';
 import { loadData, imageFor } from '../lib/core.mjs';
 import { getPosts } from '../lib/blog.mjs';
 import { fmtNum } from '../lib/format.mjs';
@@ -19,6 +20,7 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }];
     <h1>Search Waterfalls</h1>
     <p class="lead">Search {fmtNum(listings.length)} waterfalls, {fmtNum(cities.length)} towns and {states.length - 1} states plus DC. Try a waterfall name, a town such as "Asheville", or a county.</p>
     <SearchForm bordered id="search-q" />
+    <PlusFilters mode="external" />
     <p style="margin-top:14px"><button class="btn btn-outline" type="button" id="near-me">Show waterfalls near my location</button></p>
     <p id="search-status" class="muted small" role="status" aria-live="polite"></p>
     <ul class="results" id="results"></ul>
@@ -81,12 +83,15 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }];
     for (const c of index.c) { const sc = scoreText(`${c[0]} ${c[2]}`); if (sc) out.push({ kind: 'Town', title: `Waterfalls near ${c[0]}, ${c[2]}`, sub: `${c[3]} waterfalls within 30 miles`, url: c[1], score: sc + 3 }); }
     for (const l of index.l) {
       const sc = Math.max(scoreText(`${l[0]} ${l[10]}`) * 1.5, scoreText(`${l[0]} ${l[2]} ${l[3]} ${l[6]} county ${l[10]}`));
-      if (sc) out.push({ kind: 'Waterfall', title: l[0], sub: `${l[2]}, ${l[3]}${l[6] ? ` · ${l[6]} County` : ''}`, url: l[1], score: sc + l[11] / 10 });
+      if (sc) out.push({ kind: 'Waterfall', title: l[0], sub: `${l[2]}, ${l[3]}${l[6] ? ` · ${l[6]} County` : ''}`, url: l[1], flags: l[13] || '', score: sc + l[11] / 10 });
     }
     for (const b of index.b) { const sc = scoreText(`${b[0]} ${b[2]}`); if (sc) out.push({ kind: 'Guide', title: b[0], sub: b[2], url: b[1], score: sc - 0.5 }); }
     out.sort((a, b) => b.score - a.score);
-    const shown = out.slice(0, 60);
-    status.textContent = out.length ? `${out.length} result${out.length === 1 ? '' : 's'} for "${raw}"${out.length > 60 ? ' (showing top 60)' : ''}` : `No results for "${raw}". Try a town or state name, or use your location.`;
+    const root = document.querySelector('[data-plus-filters]');
+    const active = root && root.dataset.unlocked === '1' ? [...root.querySelectorAll('[data-plus-filter]:checked')].map((el) => el.value) : [];
+    const filtered = active.length ? out.filter((r) => r.kind === 'Waterfall' && active.every((f) => (r.flags || '').split(' ').includes(f))) : out;
+    const shown = filtered.slice(0, 60);
+    status.textContent = filtered.length ? `${filtered.length} result${filtered.length === 1 ? '' : 's'} for "${raw}"${filtered.length > 60 ? ' (showing top 60)' : ''}${active.length ? ' with Plus filters' : ''}` : `No results for "${raw}". Try a town or state name, or use your location.`;
     render(shown);
   }
 
@@ -97,6 +102,7 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }];
     }
     let t;
     input.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => search(index, input.value), 160); });
+    document.addEventListener('plus-filters', () => { if (input.value.trim()) search(index, input.value); });
   }).catch(() => { status.textContent = 'Search is temporarily unavailable. Browse waterfalls by state instead.'; });
 
   document.getElementById('near-me').addEventListener('click', async () => {

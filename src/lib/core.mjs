@@ -336,5 +336,5 @@ export { DAY_ORDER };
 export const imageFor = (url) => `/images/gen${url === '/' ? '/home' : url}.webp`;
 
 export function staticPagePaths() {
-  return ['/', '/states', '/blog', '/search', '/about', '/contact', '/disclaimer', '/privacy', '/terms', '/sitemap'];
+  return ['/', '/states', '/blog', '/search', '/about', '/contact', '/disclaimer', '/privacy', '/terms', '/sitemap', '/plus'];
 }
