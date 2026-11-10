@@ -12,8 +12,8 @@
 
 ## Daily routine progress (counters)
 
-- Trip facts (data/trip-facts.json, shown as "Plan Your Visit" on waterfall pages): 86 waterfalls covered. Newly covered 2026-11-06 include Bonita, Bridalveil, Grand Falls (closed), Falling Water, Salmon River, Treasure, Triple, Machine, Little Mashel, Vernal, Cucumber, Upper/Lower Cataract, Hooker, Moss Glen, Raymondskill, American Falls, Laughing Whitefish, Foster, Deception, Abiqua, Pearsons, Canyon Falls. Next uncovered by reviews: Hoʻopiʻi Falls HI, Mossbrae Falls CA, then remaining high-review gaps; still prioritize city-hub picks lacking facts.
-- City hubs (/waterfalls-near/[city], intros in data/city-hubs.json): 8 of 50 published (New York City, Los Angeles, Philadelphia, Seattle, Portland, Atlanta, Charlotte, Fresno). Chicago, Houston, Phoenix, Dallas, Fort Worth, El Paso, Memphis, Milwaukee, Miami, Omaha, Mesa, Virginia Beach, Tampa have 0 indexed falls within 100 mi, so skip them for now. Next with enough picks: Nashville (18), Boston (16), Washington DC (13), Denver (11), Sacramento (11), Minneapolis (10), San Jose (9), San Francisco (8), Pittsburgh (14).
+- Trip facts (data/trip-facts.json, shown as "Plan Your Visit" on waterfall pages): 105 waterfalls covered. Newly covered 2026-11-10: Marymere, Linville, Crabtree (NC), Rocky Falls (MO), Great Falls (Paterson), Jackson Falls, Stillhouse Hollow, Virgin Falls, Wagner, Glen Ellis, Tahquitz, Doane, Royalston, Glendale, Chapman, Blue Hen, Rainbow (Mammoth), Upper Falls of the Yellowstone, Toccoa. Skipped Hoʻopiʻi and Mossbrae (no official access/source pages; Mossbrae access is via railroad tracks). Previously: Newly covered 2026-11-06 include Bonita, Bridalveil, Grand Falls (closed), Falling Water, Salmon River, Treasure, Triple, Machine, Little Mashel, Vernal, Cucumber, Upper/Lower Cataract, Hooker, Moss Glen, Raymondskill, American Falls, Laughing Whitefish, Foster, Deception, Abiqua, Pearsons, Canyon Falls. Next uncovered by reviews: Boulder Falls CO, Nooksack WA, Falling Creek FL, Eagle Falls WA, Isaqueena SC, Doughnut Falls UT, Kinlock AL, Twin Falls ID, plus Nashville picks (Cane Creek, Piney Creek, Rutledge, Bluehole, Rattlesnake) and Boston picks (Stepstone, Chapel, Yantic, Danforth, Wildcat); still prioritize city-hub picks lacking facts.
+- City hubs (/waterfalls-near/[city], intros in data/city-hubs.json): 10 of 50 published (New York City, Los Angeles, Philadelphia, Seattle, Portland, Atlanta, Charlotte, Fresno, Nashville, Boston). Chicago, Houston, Phoenix, Dallas, Fort Worth, El Paso, Memphis, Milwaukee, Miami, Omaha, Mesa, Virginia Beach, Tampa have 0 indexed falls within 100 mi, so skip them for now. Next with enough picks: Washington DC (13), Denver (11), Sacramento (11), Minneapolis (10), San Jose (9), San Francisco (8), Pittsburgh (14).
 - Filter pages (dog-friendly, swimmable, accessible...): not started; wait until trip facts cover enough falls per state.
 - Friday data studies done: (1) waterfall density by state (per 1,000 sq mi and per resident) — 2026-11-06. Next: (2) waterfall deserts (biggest US cities farthest from any waterfall).
 
@@ -28,6 +28,7 @@
 2026-11-05 | site | Waterfall cards no longer hotlink Google Maps photos. Those `lh3.googleusercontent.com` URLs return HTTP 403, so every card was falling through `onerror` to `public/images/gen/`. Cards, hubs, find results and blog featured images now use committed Pexels/Unsplash WebPs in `public/images/lifestyle/` (`data/lifestyle-photos.json`, `src/lib/lifestyle.mjs`). Refresh with `npm run photos:lifestyle`. Do not point card `src` back at Google photo URLs.
 
 2026-11-06 | site | Trip facts for 23 more falls (86 total); Waterfalls Near Charlotte and Fresno hubs; Friday data study on waterfall density by state; linked density study from states-with-the-most-waterfalls.
+2026-11-10 | site | Trip facts for 19 more falls (105 total); Waterfalls Near Nashville and Boston hubs; Blue Ridge Parkway waterfalls guide; linked it from the fees guide. (Mon 2026-11-09 run failed, nothing committed.)
 
 ## Posts
 date | slug | primary keyword | GSC basis
@@ -35,3 +36,4 @@ date | slug | primary keyword | GSC basis
 2026-11-04 | waterfall-fees-permits-parking-passes | waterfall fees and parking passes | no GSC data (content-gap list: free vs. paid/permit falls; built from data/trip-facts.json)
 2026-11-05 | ithaca-finger-lakes-waterfalls-road-trip | ithaca finger lakes waterfalls | no GSC data (content-gap list: waterfall road trips / Ithaca)
 2026-11-06 | waterfall-density-by-state | waterfall density by state | Friday data study #1 (per 1,000 sq mi and per resident)
+2026-11-10 | blue-ridge-parkway-waterfalls | blue ridge parkway waterfalls | no GSC data (content-gap list: waterfall road trips; NPS/USFS sources)

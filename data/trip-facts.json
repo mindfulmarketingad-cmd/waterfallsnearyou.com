@@ -1711,5 +1711,307 @@
         "https://outdoormichigan.org/feature/11737"
       ]
     ]
+  },
+  "/washington/port-angeles/marymere-falls": {
+    "checked": "2026-11-10",
+    "hike": "0.9 mile one way (1.8 miles round trip) from Storm King Ranger Station on Lake Crescent; also reachable from Lake Crescent Lodge",
+    "difficulty": "Easy, with stairs up to the upper and lower viewpoints at the falls",
+    "dogs": "Not allowed; Olympic National Park permits pets only on a few trails, such as the Spruce Railroad Trail",
+    "accessibility": "The first 0.5 mile is accessible; stairs lead to the waterfall viewpoints",
+    "bestSeason": "Year-round; flow is strongest during the wet season from fall through spring",
+    "sources": [
+      [
+        "NPS: Marymere Falls Trailhead",
+        "https://www.nps.gov/places/000/marymere-falls-trailhead.htm"
+      ],
+      [
+        "NPS: Day Hiking at Olympic",
+        "https://www.nps.gov/olym/planyourvisit/day-hiking-at-olympic.htm"
+      ]
+    ]
+  },
+  "/north-carolina/spruce-pine/linville-falls": {
+    "checked": "2026-11-10",
+    "hike": "All trails start at the Linville Falls Visitor Center (Blue Ridge Parkway): Erwins View Trail 1.6 miles round trip with four overlooks; Plunge Basin Overlook 1 mile round trip; Linville Gorge Trail to the base 1.4 miles round trip",
+    "difficulty": "Erwins View is moderate with a strenuous stretch near Chimney View; the Plunge Basin and Gorge trails are strenuous",
+    "parking": "Linville Falls Visitor Center lot off the Blue Ridge Parkway",
+    "fees": "No fee; the Blue Ridge Parkway has no entrance fee",
+    "free": true,
+    "swimming": "No; swimming in the Linville River and climbing on the rocks is not allowed",
+    "bestSeason": "Spring for wildflowers and high water; October for fall color",
+    "sources": [
+      [
+        "NPS: Linville Falls Hiking Trails",
+        "https://www.nps.gov/blri/planyourvisit/linville-falls-trails.htm"
+      ]
+    ]
+  },
+  "/north-carolina/spruce-pine/crabtree-falls": {
+    "checked": "2026-11-10",
+    "hike": "2.5-mile loop from Blue Ridge Parkway milepost 339.5 to the base of the 60-foot falls; you can return the way you came or continue past the top of the falls to close the loop",
+    "parking": "Crabtree Falls area at Parkway milepost 339.5, which also has a seasonal campground and picnic area",
+    "fees": "No fee to hike; the Blue Ridge Parkway has no entrance fee (camping is extra)",
+    "free": true,
+    "bestSeason": "Late spring through fall; facilities are seasonal, and pink turtlehead blooms along the trail in late summer",
+    "sources": [
+      [
+        "NPS: Crabtree Falls, Milepost 339.5",
+        "https://www.nps.gov/blri/planyourvisit/crabtree-falls.htm"
+      ]
+    ]
+  },
+  "/missouri/winona/rocky-falls": {
+    "checked": "2026-11-10",
+    "hike": "0.4-mile trail from the parking area on Route NN; the falls and pool are right by the picnic area",
+    "parking": "Free lot at the picnic area and trailhead on State Highway NN, off Route H east of Eminence and Winona",
+    "fees": "No fee; Ozark National Scenic Riverways has no entrance fee",
+    "free": true,
+    "swimming": "Yes, the pool below the falls is a popular spring and summer swimming hole; rocks are slippery",
+    "accessibility": "Trail is 0.4 mile with slopes under 5% and a firm surface, plus benches, an accessible restroom and accessible parking",
+    "bestSeason": "Spring for the strongest flow; summer for swimming. Open year-round",
+    "sources": [
+      [
+        "NPS: Rocky Falls",
+        "https://www.nps.gov/places/rocky-falls.htm"
+      ],
+      [
+        "NPS: Rocky Falls (Ozark NSR)",
+        "https://www.nps.gov/ozar/learn/nature/rocky-falls.htm"
+      ]
+    ]
+  },
+  "/new-jersey/paterson/great-falls": {
+    "checked": "2026-11-10",
+    "hike": "Overlooks are a short walk from the park lot at 72 McBride Avenue Extension in Paterson",
+    "parking": "Free national park lot at 72 McBride Avenue Extension (closes after dark, reopens 7:45 to 8:45 a.m.); nearby municipal garages charge",
+    "fees": "No entrance fee",
+    "free": true,
+    "dogs": "Allowed on a six-foot non-retractable leash",
+    "bestSeason": "Spring and after heavy rain; some paths and facilities close in winter. Grounds are open 24 hours, but daylight is best",
+    "sources": [
+      [
+        "NPS: Paterson Great Falls Basic Information",
+        "https://www.nps.gov/pagr/planyourvisit/basicinfo.htm"
+      ]
+    ]
+  },
+  "/tennessee/centerville/jackson-falls": {
+    "checked": "2026-11-10",
+    "hike": "Paved 900-foot trail from the Natchez Trace Parkway rest area at milepost 404.7 down to the falls (go right from the restrooms)",
+    "difficulty": "Short but steep; you climb back up on the return. Do not climb on the falls, the rock is very slick",
+    "parking": "Jackson Falls rest area at Natchez Trace Parkway milepost 404.7",
+    "fees": "No fee; the Natchez Trace Parkway has no entrance fee",
+    "free": true,
+    "sources": [
+      [
+        "NPS: Trails in the Northern Section of the Parkway",
+        "https://www.nps.gov/natr/planyourvisit/trails-north.htm"
+      ]
+    ]
+  },
+  "/tennessee/mount-pleasant/stillhouse-hollow-falls-state-natural-area": {
+    "checked": "2026-11-10",
+    "hike": "The falls are about 2/3 mile along the Stillhouse Hollow Falls trail; the full loop is about 1.2 miles",
+    "parking": "Small lot on US-43 about 3 miles northeast of Summertown; parking is extremely limited and you may not park outside marked spaces, so go on a weekday or early",
+    "fees": "No fee",
+    "free": true,
+    "dogs": "Allowed on leash",
+    "bestSeason": "Spring for wildflowers and strongest flow",
+    "sources": [
+      [
+        "TDEC: Stillhouse Hollow Falls State Natural Area",
+        "https://www.tn.gov/environment/natural-areas/what-we-do/sna/wr/stillhouse-hollow-falls.html"
+      ],
+      [
+        "Maury County: Local Trails",
+        "https://www.maurycounty-tn.gov/613/Local-Trails"
+      ]
+    ]
+  },
+  "/tennessee/sparta/virgin-falls": {
+    "checked": "2026-11-10",
+    "hike": "About 8.5 miles round trip (4.3 miles one way) on the Virgin Falls Trail in Scott's Gulf",
+    "difficulty": "Strenuous; roughly 1,000 feet of descent and climb back out. Allow most of a day",
+    "sources": [
+      [
+        "TDEC: Virgin Falls State Natural Area",
+        "https://www.tn.gov/environment/natural-areas/what-we-do/sna/cu/virgin-falls.html"
+      ],
+      [
+        "Tennessee State Parks: Scott's Gulf hiking",
+        "https://tnstateparks.com/parks/activity-detail/scotts-gulf-hiking"
+      ]
+    ]
+  },
+  "/michigan/munising/wagner-falls": {
+    "checked": "2026-11-10",
+    "hike": "0.1-mile packed-gravel trail and boardwalk to an observation platform",
+    "difficulty": "Easy",
+    "parking": "Small lot for 8 to 10 cars on M-94 about 0.3 mile west of M-28, 1.5 miles south of Munising",
+    "fees": "Michigan Recreation Passport required for vehicle entry",
+    "free": false,
+    "accessibility": "Packed gravel and boardwalk with a few steps to the platform; no restrooms or water on site",
+    "bestSeason": "Spring melt for the most water; early October for fall color",
+    "sources": [
+      [
+        "Michigan DNR: Wagner Falls Scenic Site",
+        "https://www.michigan.gov/recsearch/parks/wagnerfalls"
+      ]
+    ]
+  },
+  "/new-hampshire/gorham/glen-ellis-falls": {
+    "checked": "2026-11-10",
+    "hike": "Short trail from the Glen Ellis Falls lot on the west side of NH-16, through a tunnel under the highway to the 66-foot falls",
+    "difficulty": "Short but involves more than 150 stone steps down to the base, which you climb back up",
+    "parking": "Glen Ellis Scenic Area lot on the west side of NH-16 in Pinkham Notch; no restrooms or drinking water",
+    "fees": "White Mountain National Forest recreation fee charged",
+    "free": false,
+    "dogs": "Allowed on leash",
+    "sources": [
+      [
+        "USFS: Glen Ellis Scenic Area",
+        "https://www.fs.usda.gov/r09/whitemountain/recreation/glen-ellis-scenic-area"
+      ],
+      [
+        "Trail Finder: Glen Ellis Falls",
+        "https://www.trailfinder.info/trails/trail/glen-ellis-falls?lid=14"
+      ]
+    ]
+  },
+  "/california/palm-springs/tahquitz-falls": {
+    "checked": "2026-11-10",
+    "hike": "About 1.8 miles round trip from the Tahquitz Canyon Visitor Center, 500 W Mesquite Ave, Palm Springs",
+    "difficulty": "Desert canyon trail; water is required to go on the trail",
+    "fees": "Admission $15 adults, $7 ages 6 to 12, free for U.S. military with ID; tickets at the visitor center. Ranger-led hikes are included",
+    "free": false,
+    "dogs": "No animals allowed",
+    "bestSeason": "Winter and spring after rain. Open 7:30 a.m. to 5 p.m. daily Oct. 1 to July 5 (Fridays to Sundays only in summer); last hikers start at 3:30 p.m.",
+    "sources": [
+      [
+        "Tahquitz Canyon (Agua Caliente): Admission and Hours",
+        "https://www.tahquitzcanyon.com/hours"
+      ],
+      [
+        "Tahquitz Canyon: Trail Maps",
+        "https://www.tahquitzcanyon.com/trail_maps"
+      ]
+    ]
+  },
+  "/massachusetts/royalston/doane-falls": {
+    "checked": "2026-11-10",
+    "hike": "Half-mile trail down the west side of Lawrence Brook past a series of drops; part of the Tully Trail",
+    "difficulty": "Moderate, strenuous in places",
+    "parking": "Main lot on Athol Road holds 3 cars; a lower lot on Doane Hill Road serves the accessible trail",
+    "fees": "Free; open daily sunrise to sunset",
+    "free": true,
+    "dogs": "Allowed on leash at all times",
+    "swimming": "No; swimming, diving and wading are banned after fatalities and serious injuries, and access to the water is prohibited",
+    "accessibility": "An accessible trail of about 0.15 mile runs from the lower lot on Doane Hill Road to the lower falls",
+    "sources": [
+      [
+        "The Trustees: Doane's Falls",
+        "https://thetrustees.org/place/doanes-falls/"
+      ]
+    ]
+  },
+  "/massachusetts/royalston/royalston-falls": {
+    "checked": "2026-11-10",
+    "hike": "Enter on the marked Tully Trail from Route 32 and descend to a granite gorge with a 45-foot falls; the reservation is also on the New England National Scenic Trail",
+    "difficulty": "Strenuous and very slippery in places; not recommended for children under 6",
+    "parking": "Lot on Route 32, 1.7 miles north of the end of Route 68; not plowed in winter",
+    "fees": "Free; open daily sunrise to sunset",
+    "free": true,
+    "dogs": "Allowed on leash at all times",
+    "sources": [
+      [
+        "The Trustees: Royalston Falls",
+        "https://thetrustees.org/place/royalston-falls/"
+      ]
+    ]
+  },
+  "/massachusetts/becket/glendale-falls": {
+    "checked": "2026-11-10",
+    "hike": "A quarter-mile trail leads down along the falls to the bottom, where the property ends; do not continue downstream onto private land",
+    "difficulty": "Moderate, strenuous in places",
+    "parking": "Lot for about 7 cars on Clark Wright Road, Middlefield, 0.4 mile from East River Road",
+    "fees": "Free; open daily sunrise to sunset",
+    "free": true,
+    "dogs": "Allowed on leash at all times",
+    "bestSeason": "Spring, when Glendale Brook runs high",
+    "sources": [
+      [
+        "The Trustees: Glendale Falls",
+        "https://thetrustees.org/place/glendale-falls/"
+      ]
+    ]
+  },
+  "/connecticut/moodus/chapman-falls": {
+    "checked": "2026-11-10",
+    "parking": "Devil's Hopyard State Park, 366 Hopyard Rd., East Haddam; buses seating 30 or more are not allowed",
+    "fees": "No fee; open daily 8 a.m. to sunset",
+    "free": true,
+    "dogs": "Allowed on leash in picnic areas and on trails; not in the campground",
+    "sources": [
+      [
+        "CT State Parks: Devil's Hopyard State Park",
+        "https://ctparks.com/parks/devils-hopyard-state-park"
+      ]
+    ]
+  },
+  "/ohio/peninsula/blue-hen-falls": {
+    "checked": "2026-11-10",
+    "hike": "About 3 miles round trip on the Buckeye Trail from the Boston Mill Visitor Center / Boston Trailhead, including a road crossing",
+    "difficulty": "Steep, rocky and often muddy",
+    "parking": "Boston Mill Visitor Center or Boston Trailhead; parking along the road is prohibited",
+    "fees": "No fee; Cuyahoga Valley National Park has no entrance fee",
+    "free": true,
+    "sources": [
+      [
+        "NPS: Hike to Blue Hen Falls from Boston",
+        "https://www.nps.gov/thingstodo/hike-to-blue-hen-falls.htm"
+      ]
+    ]
+  },
+  "/california/mammoth-lakes/rainbow-falls": {
+    "checked": "2026-11-10",
+    "hike": "About 1.5 miles one way (3 miles round trip) from the Rainbow Falls Trailhead in Devils Postpile National Monument",
+    "fees": "During shuttle season most visitors must ride the Reds Meadow shuttle, which charges a fare; check NPS for current rates and road status",
+    "free": false,
+    "bestSeason": "Summer to early fall, when the Reds Meadow road and shuttle are running",
+    "sources": [
+      [
+        "NPS: Devils Postpile Fees and Passes",
+        "https://www.nps.gov/depo/planyourvisit/fees.htm"
+      ],
+      [
+        "NPS: Devils Postpile map",
+        "https://www.nps.gov/depo/planyourvisit/upload/DEPOmap1.pdf"
+      ]
+    ]
+  },
+  "/wyoming/cody/upper-falls-of-the-yellowstone-river": {
+    "checked": "2026-11-10",
+    "hike": "The Brink of the Upper Falls is a short walk from its own parking area off the Grand Loop Road to a fenced overlook at the top of the 109-foot falls",
+    "difficulty": "Easy",
+    "fees": "Yellowstone National Park entrance fee required",
+    "free": false,
+    "bestSeason": "Late spring and early summer for peak snowmelt flow; park roads are seasonal",
+    "sources": [
+      [
+        "NPS: Grand Canyon of the Yellowstone",
+        "https://www.nps.gov/thingstodo/yell-grand-canyon-of-the-yellowstone.htm"
+      ]
+    ]
+  },
+  "/georgia/toccoa/toccoa-falls": {
+    "checked": "2026-11-10",
+    "fees": "$2 admission, paid inside the Gate Cottage Gift Shop. Hours Monday to Friday 10 a.m. to 4 p.m., Saturday and Sunday noon to 4 p.m. (may change for holidays or campus events)",
+    "free": false,
+    "sources": [
+      [
+        "University of Toccoa Falls: Visiting Toccoa Falls",
+        "https://utf.edu/the-waterfall/visiting-toccoa-falls/"
+      ]
+    ]
   }
 }

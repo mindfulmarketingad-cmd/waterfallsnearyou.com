@@ -64,7 +64,7 @@ Most confusion about waterfall fees comes from passes. There are three main kind
 
 National forest waterfalls usually charge a small day-use fee or accept an annual pass. At [Franklin Falls](/washington/tanner/franklin-falls) in Mount Baker-Snoqualmie National Forest, the trailhead takes a $5 National Forest Day Pass, a $30 Northwest Forest Pass, or an interagency pass. [Tumalo Falls](/oregon/deschutes-river-woods/tumalo-falls) near Bend is $5 per vehicle per day, or a Northwest Forest Pass or interagency pass. [Dry Falls](/north-carolina/franklin/dry-falls) in western North Carolina is $3 per vehicle, and a $15 annual pass there also covers Whiteside Mountain and Whitewater Falls.
 
-Some forest sites charge per person instead. [Anna Ruby Falls](/georgia/cleveland/anna-ruby-falls) in Georgia is $6 per visitor age 16 and up, and [Sliding Rock](/north-carolina/brevard/sliding-rock) near Brevard is $6 per person (5 and under free) during the staffed season.
+Some forest sites charge per person instead. [Anna Ruby Falls](/georgia/cleveland/anna-ruby-falls) in Georgia is $6 per visitor age 16 and up, and [Sliding Rock](/north-carolina/brevard/sliding-rock) near Brevard is $6 per person (5 and under free) during the staffed season. By contrast, the waterfall trailheads on the Blue Ridge Parkway itself are free; see our [Blue Ridge Parkway waterfalls guide](/blog/blue-ridge-parkway-waterfalls).
 
 National parks that charge an entrance fee cover their waterfalls with it. [Mystic Falls](/wyoming/moose-wilson-road/mystic-falls) has no trail fee, but you pay Yellowstone's entrance fee to get there. [Great Falls](/maryland/potomac/great-falls) on the Maryland side of the Potomac sits inside the C&O Canal fee area, which charges $20 per vehicle, card only.
 

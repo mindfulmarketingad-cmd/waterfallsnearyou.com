@@ -86,5 +86,27 @@
       "Outside Yosemite, Tokopah Falls in Sequoia National Park and Rainbow Falls near Mammoth Lakes stretch the same day-trip radius in other directions. Closer foothill stops such as Corlieu Falls and Angel Falls near Oakhurst fill shorter half-days when you want to skip park entrance lines.",
       "Snowmelt makes late spring and early summer the strongest season in the Sierra. Yosemite charges a vehicle entrance fee, Mist Trail dogs are not allowed, and Valley parking fills on peak weekends, so check current entrance and shuttle details before you drive."
     ]
+  },
+  {
+    "name": "Nashville",
+    "st": "TN",
+    "slug": "nashville",
+    "published": "2026-11-10",
+    "intro": [
+      "Nashville sits on the edge of some of the best waterfall country in the Southeast. Head east toward the Cumberland Plateau and the Highland Rim and the streams start dropping over limestone and sandstone ledges, which is why so many of the falls on this page are within a 60- to 90-minute drive of downtown.",
+      "The closest is Jackson Falls, right off the Natchez Trace Parkway at milepost 404.7 southwest of the city, where a short, steep paved path drops to the pool. Stillhouse Hollow Falls near Summertown is another easy half-day. Going east, Burgess Falls and Cummins Falls are the classic pair. Cummins requires a Gorge Access Permit, bought in advance, to go down to the base. Fall Creek Falls State Park, with Cane Creek and Piney Creek Falls, is worth a full day, as is the long hike to Virgin Falls.",
+      "Flow peaks from winter through spring. Many plateau streams drop low in late summer and fall, so check recent rainfall before a long drive."
+    ]
+  },
+  {
+    "name": "Boston",
+    "st": "MA",
+    "slug": "boston",
+    "published": "2026-11-10",
+    "intro": [
+      "Boston is not a big-waterfall city, and the falls within 100 miles are smaller and quieter than the ones in the White Mountains farther north. Most of them sit in wooded state and land-trust reservations in central and western Massachusetts, southern New Hampshire, Rhode Island and eastern Connecticut. They make good half-day or full-day trips, especially in spring.",
+      "The nearest on this list is Danforth Falls in Hudson, about 27 miles west of downtown in a straight line. In the Royalston area of north-central Massachusetts, Doane's Falls and Royalston Falls are both free Trustees properties. Doane's Falls bans swimming and wading, and the trail into Royalston Falls is steep and slippery. Stepstone Falls in western Rhode Island and Chapman Falls in Connecticut's Devil's Hopyard State Park are good to the south. Glendale Falls in the Berkshire foothills is one of the longest runs in the state.",
+      "Snowmelt in April and May brings the most water. By August many of these brooks are thin, and some parking areas are not plowed in winter."
+    ]
   }
 ]
