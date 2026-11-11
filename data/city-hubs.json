@@ -108,5 +108,27 @@
       "The nearest on this list is Danforth Falls in Hudson, about 27 miles west of downtown in a straight line. In the Royalston area of north-central Massachusetts, Doane's Falls and Royalston Falls are both free Trustees properties. Doane's Falls bans swimming and wading, and the trail into Royalston Falls is steep and slippery. Stepstone Falls in western Rhode Island and Chapman Falls in Connecticut's Devil's Hopyard State Park are good to the south. Glendale Falls in the Berkshire foothills is one of the longest runs in the state.",
       "Snowmelt in April and May brings the most water. By August many of these brooks are thin, and some parking areas are not plowed in winter."
     ]
+  },
+  {
+    "name": "Washington",
+    "st": "DC",
+    "slug": "washington-dc",
+    "published": "2026-11-11",
+    "intro": [
+      "The best waterfall near Washington, DC is barely outside the Beltway. The Great Falls of the Potomac, about 14 miles from downtown in a straight line, drops through a rocky gorge that you can see from the Olmsted Island boardwalk on the Maryland side in Chesapeake and Ohio Canal National Historical Park. It is an easy half-day trip, and the boardwalk is accessible.",
+      "For a full day, head west to Shenandoah National Park. Dark Hollow Falls, Rose River Falls and Whiteoak Canyon are all off Skyline Drive in the park's Central District, and Overall Run Falls, the tallest in the park at 93 feet, is reached from Mathews Arm in the North District. These are real hikes with climbs of roughly 400 to 1,300 feet, and the park charges a $30 vehicle entrance fee good for seven days. North of the city, Cunningham Falls State Park near Thurmont, Maryland, has a short Lower Trail and a fully accessible boardwalk to its 78-foot cascade.",
+      "Spring and the days after a soaking rain are the best times to go. Several Shenandoah falls, Overall Run in particular, can slow to a trickle in a dry summer or fall."
+    ]
+  },
+  {
+    "name": "Denver",
+    "st": "CO",
+    "slug": "denver",
+    "published": "2026-11-11",
+    "intro": [
+      "The waterfalls near Denver are mountain falls fed by snowmelt, and most of them are in or near Rocky Mountain National Park, about an hour or more from the city. The closest on this list, Elk Falls in Staunton State Park, is roughly 28 miles southwest of downtown in a straight line but takes a long day hike of about 12 miles to reach. Boulder Falls in Boulder Canyon is closer to the road, but the City of Boulder has kept it closed since a 2024 rockfall while it designs a new viewing platform.",
+      "In Rocky Mountain National Park, Copeland Falls is a flat 0.6-mile round trip from the Wild Basin Trailhead, and the same trail continues to Ouzel Falls at 2.7 miles each way. Alberta Falls is a 1.6-mile round trip from Glacier Gorge on Bear Lake Road, Chasm Falls is a short walk from Old Fall River Road, and Adams Falls is an easy stroll from the East Inlet Trailhead in Grand Lake. Pets are not allowed on park trails, and from late May to mid-October you may need a timed entry reservation as well as an entrance pass. To the south, Helen Hunt Falls in North Cheyenne Cañon Park near Colorado Springs is a roadside stop.",
+      "June and early July bring the biggest flow. Many high trails stay icy into late spring, and Old Fall River Road closes for the winter."
+    ]
   }
 ]

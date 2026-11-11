@@ -9,6 +9,7 @@ import { getPosts } from './blog.mjs';
 import { getSmallest, getRoadside } from './bestof.mjs';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
+import { tripFacts } from './tripfacts.mjs';
 // Read hub slugs directly (cityhubs.mjs imports this module).
 const hubUrls = () => JSON.parse(readFileSync(path.join(process.cwd(), 'data/city-hubs.json'), 'utf8')).map((h) => `/waterfalls-near/${h.slug}`);
 
@@ -17,8 +18,9 @@ export const MIN_USGS_TEXT = 200;
 export const MIN_CITY_LISTINGS = 3;
 const NOINDEX_STATIC = new Set(['/search']);
 
+// A hand-checked trip-facts entry (data/trip-facts.json) with sources also counts as real content.
 export const richListing = (l) =>
-  !!(l.os?.rating && l.os.reviews >= MIN_REVIEWS) || ((l.gnisDescription || '') + (l.gnisHistory || '')).length >= MIN_USGS_TEXT;
+  !!(l.os?.rating && l.os.reviews >= MIN_REVIEWS) || !!tripFacts(l.url)?.sources?.length || ((l.gnisDescription || '') + (l.gnisHistory || '')).length >= MIN_USGS_TEXT;
 export const richCity = (c) => c.assigned.filter(richListing).length >= MIN_CITY_LISTINGS;
 
 let set = null;

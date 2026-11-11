@@ -18,7 +18,7 @@ faqs:
     a: "Not all of it. In November 2026 the Park Service still listed a closed section between mileposts 344.2 and 355.3, from NC Highway 80 to Mount Mitchell State Park, with recreation prohibited there. Crabtree Falls at milepost 339.5 is just south of that gap, so plan your route around it and check the closure page before you go."
 ---
 
-The Blue Ridge Parkway is one of the easiest ways to see a lot of Appalachian waterfalls in a few days. The road runs 469 miles along the mountains from Shenandoah National Park in Virginia to Great Smoky Mountains National Park in North Carolina, and the best waterfall stops sit either right on the road or a short side trip away. The densest stretch is in North Carolina, between Linville Falls (milepost 316) and Graveyard Fields (milepost 418.8).
+The Blue Ridge Parkway is one of the easiest ways to see a lot of Appalachian waterfalls in a few days. The road runs 469 miles along the mountains from [Shenandoah National Park](/blog/shenandoah-national-park-waterfalls) in Virginia to Great Smoky Mountains National Park in North Carolina, and the best waterfall stops sit either right on the road or a short side trip away. The densest stretch is in North Carolina, between Linville Falls (milepost 316) and Graveyard Fields (milepost 418.8).
 
 This guide goes from north to south by milepost, which is how the Parkway itself is signed. Trail lengths and rules come from the National Park Service and U.S. Forest Service pages linked below. Hurricane Helene damage is still being repaired in places, so treat this as a plan and confirm the current [road status](https://www.nps.gov/blri/planyourvisit/roadclosures.htm) the week you go.
 

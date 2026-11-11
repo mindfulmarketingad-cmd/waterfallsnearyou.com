@@ -2013,5 +2013,440 @@
         "https://utf.edu/the-waterfall/visiting-toccoa-falls/"
       ]
     ]
+  },
+  "/virginia/stanley/dark-hollow-falls": {
+    "checked": "2026-11-11",
+    "hike": "1.4-mile round trip: 0.75 mile down to the falls from the Dark Hollow Falls parking area (Skyline Drive mile 50.7), then back up the same way",
+    "elevationGain": "440 feet",
+    "difficulty": "Moderate (NPS): short but very steep and rocky; the climb back up is the hard part",
+    "parking": "Dark Hollow Falls parking area at Skyline Drive mile 50.7",
+    "fees": "Shenandoah National Park entrance pass required: $30 per private vehicle for 7 days, $15 per person on foot or bike; cashless (card only); annual and interagency passes accepted",
+    "free": false,
+    "dogs": "Not allowed on this trail; NPS suggests the Rose River Loop from Fishers Gap instead",
+    "sources": [
+      [
+        "NPS: Dark Hollow Falls",
+        "https://www.nps.gov/thingstodo/dark-hollow-falls.htm"
+      ],
+      [
+        "NPS: Shenandoah fees and passes",
+        "https://www.nps.gov/shen/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/virginia/stanley/rose-river-falls": {
+    "checked": "2026-11-11",
+    "hike": "4-mile circuit from Fishers Gap parking area (Skyline Drive mile 49.4) on the Skyland-Big Meadows Horse Trail and blue-blazed Rose River Loop Trail past the 67-foot falls",
+    "elevationGain": "910 feet",
+    "difficulty": "Moderate (NPS); steep, rocky section past cascades on the return",
+    "parking": "Fishers Gap parking area at Skyline Drive mile 49.4",
+    "fees": "Shenandoah National Park entrance pass required: $30 per private vehicle for 7 days, $15 per person on foot or bike; cashless (card only); annual and interagency passes accepted",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet",
+    "sources": [
+      [
+        "NPS: Rose River Falls",
+        "https://www.nps.gov/thingstodo/rose-river-falls.htm"
+      ],
+      [
+        "NPS: Shenandoah fees and passes",
+        "https://www.nps.gov/shen/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/virginia/stanley/upper-whiteoak-falls": {
+    "checked": "2026-11-11",
+    "hike": "4.6-mile round trip from the Whiteoak Canyon parking area (Skyline Drive mile 42.6) to a rocky ledge with a view of the upper falls, about 2.3 miles in",
+    "elevationGain": "1,040 feet",
+    "difficulty": "Moderate (NPS)",
+    "parking": "Whiteoak Canyon parking area at Skyline Drive mile 42.6",
+    "fees": "Shenandoah National Park entrance pass required: $30 per private vehicle for 7 days, $15 per person on foot or bike; cashless (card only); annual and interagency passes accepted",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet",
+    "sources": [
+      [
+        "NPS: Whiteoak Falls (Upper)",
+        "https://www.nps.gov/thingstodo/upper-whiteoak-falls.htm"
+      ],
+      [
+        "NPS: Shenandoah fees and passes",
+        "https://www.nps.gov/shen/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/virginia/stanley/lower-whiteoak-falls": {
+    "checked": "2026-11-11",
+    "hike": "2-mile round trip from the Whiteoak Canyon boundary parking area on Route 600, keeping right at the Cedar Run Trail junction to the base of the lower falls",
+    "elevationGain": "500 feet",
+    "difficulty": "Easiest (NPS rating)",
+    "parking": "Whiteoak Canyon boundary trailhead lot at the end of Route 600 (outside Skyline Drive)",
+    "fees": "Shenandoah National Park entrance pass required: $30 per private vehicle for 7 days, $15 per person on foot or bike; cashless (card only); annual and interagency passes accepted; passes are sold at the Whiteoak Canyon lower trailhead",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet",
+    "accessibility": "Trail does not meet ADA accessibility guidelines",
+    "sources": [
+      [
+        "NPS: Whiteoak Falls (Lower)",
+        "https://www.nps.gov/thingstodo/lower-whiteoak-falls.htm"
+      ],
+      [
+        "NPS: Shenandoah fees and passes",
+        "https://www.nps.gov/shen/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/virginia/stanardsville/south-river-falls": {
+    "checked": "2026-11-11",
+    "hike": "3.3-mile circuit from just below the South River Picnic Grounds comfort station (Skyline Drive mile 62.7) to an observation point and the base of the 83-foot falls, with one stream crossing",
+    "elevationGain": "910 feet",
+    "difficulty": "Moderate (NPS)",
+    "parking": "South River Picnic Grounds at Skyline Drive mile 62.7",
+    "fees": "Shenandoah National Park entrance pass required: $30 per private vehicle for 7 days, $15 per person on foot or bike; cashless (card only); annual and interagency passes accepted",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet",
+    "sources": [
+      [
+        "NPS: South River Falls",
+        "https://www.nps.gov/thingstodo/south-river-falls.htm"
+      ],
+      [
+        "NPS: Shenandoah fees and passes",
+        "https://www.nps.gov/shen/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/virginia/washington/overall-run-falls": {
+    "checked": "2026-11-11",
+    "hike": "5.1-mile round trip from the Mathews Arm Campground registration parking area via Traces Trail, Mathews Arm Trail and Tuscarora-Overall Run Trail to views of the 93-foot falls, the park's tallest; about 1 mile longer from Skyline Drive mile 21 when the campground is closed",
+    "elevationGain": "1,291 feet",
+    "difficulty": "Moderately strenuous (NPS)",
+    "parking": "Mathews Arm Campground registration parking area (mile 22.2); Appalachian Trail parking at mile 21 when the campground is closed",
+    "fees": "Shenandoah National Park entrance pass required: $30 per private vehicle for 7 days, $15 per person on foot or bike; cashless (card only); annual and interagency passes accepted",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet",
+    "bestSeason": "After plentiful rain; NPS notes the falls may have minimal to no flow otherwise",
+    "sources": [
+      [
+        "NPS: Overall Run Falls",
+        "https://www.nps.gov/thingstodo/overall-run-falls.htm"
+      ],
+      [
+        "NPS: Shenandoah fees and passes",
+        "https://www.nps.gov/shen/planyourvisit/fees.htm"
+      ]
+    ]
+  },
+  "/maryland/thurmont/cunningham-falls": {
+    "checked": "2026-11-11",
+    "hike": "Lower Trail is 1/2 mile each way from the William Houck Area lake to the 78-foot falls; the rougher Cliff Trail (3/4 mile) makes a 1.5-mile round trip; a separate 1/4-mile Boardwalk Trail reaches the base",
+    "difficulty": "Lower Trail easy to moderate; Cliff Trail strenuous over rock outcrops",
+    "parking": "William Houck Area day-use lot, with overflow at the South Beach and North Beach lots; the Boardwalk Trail lot is only for vehicles with a disability placard",
+    "fees": "Houck Area day use: Maryland residents $3 and out-of-state $5 per vehicle off-season; per person ($3 to $7) from Memorial Day weekend through Labor Day",
+    "free": false,
+    "dogs": "Leashed pets welcome on the Lower Trail",
+    "swimming": "Not at the falls; the creek is protected",
+    "accessibility": "Boardwalk Trail is fully accessible and ends at the base of the falls; Lower Trail is passable with a large-wheeled stroller",
+    "sources": [
+      [
+        "Maryland DNR: Cunningham Falls hiking",
+        "https://dnr.maryland.gov/publiclands/Pages/western/CunninghamFalls/Hiking-CunninghamFalls.aspx"
+      ],
+      [
+        "Maryland DNR: accessible park trails",
+        "https://dnr.maryland.gov/publiclands/Pages/accessibleactivities.aspx?activity=accessibleparktrails"
+      ],
+      [
+        "Maryland DNR: park fees",
+        "https://dnr.maryland.gov/publiclands/pages/oc.aspx"
+      ],
+      [
+        "NPS: Exploring Cunningham Falls State Park",
+        "https://www.nps.gov/articles/000/exploring-cunningham-falls-state-park.htm"
+      ]
+    ]
+  },
+  "/colorado/nederland/boulder-falls": {
+    "checked": "2026-11-11",
+    "hike": "Closed indefinitely: the City of Boulder closed the Boulder Falls area after a late-2024 rockfall and plans a new viewing platform; do not enter the closed trail",
+    "sources": [
+      [
+        "City of Boulder: OSMP closures",
+        "https://bouldercolorado.gov/services/osmp-closures"
+      ],
+      [
+        "City of Boulder: new visitor access for Boulder Falls (Jan. 2026)",
+        "https://bouldercolorado.gov/news/city-boulder-moves-forward-design-new-visitor-access-boulder-falls"
+      ]
+    ]
+  },
+  "/colorado/granby/adams-falls": {
+    "checked": "2026-11-11",
+    "hike": "About 3/4 mile round trip from the East Inlet Trailhead near Grand Lake on the East Inlet and Adams Falls trails",
+    "elevationGain": "About 150 feet",
+    "difficulty": "Easy",
+    "parking": "East Inlet Trailhead at the end of West Portal Road, Grand Lake",
+    "fees": "RMNP entrance pass required year-round: $30 per vehicle for 1 day or $35 for 7 days (card only); from May 22 to Oct. 12, 2026 a timed entry reservation ($2 Recreation.gov fee) was also needed to enter between 9 a.m. and 2 p.m.; display the reservation on the dashboard at East Inlet",
+    "free": false,
+    "dogs": "No pets on Rocky Mountain National Park trails",
+    "sources": [
+      [
+        "COTREX (Colorado Trail Explorer): Adams Falls",
+        "https://trails.colorado.gov/routes/16"
+      ],
+      [
+        "NPS: Rocky Mountain fees and passes",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm"
+      ],
+      [
+        "NPS: Rocky Mountain timed entry",
+        "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm"
+      ]
+    ]
+  },
+  "/colorado/estes-park/ouzel-falls": {
+    "checked": "2026-11-11",
+    "hike": "5.4-mile round trip (2.7 miles each way) from the Wild Basin Ranger Station, passing Copeland Falls and Calypso Cascades",
+    "elevationGain": "950 feet",
+    "parking": "Wild Basin Trailhead at the Wild Basin Ranger Station (8,500 feet)",
+    "fees": "RMNP entrance pass required year-round: $30 per vehicle for 1 day or $35 for 7 days (card only); from May 22 to Oct. 12, 2026 a timed entry reservation ($2 Recreation.gov fee) was also needed to enter between 9 a.m. and 2 p.m.",
+    "free": false,
+    "dogs": "No pets on Rocky Mountain National Park trails",
+    "sources": [
+      [
+        "NPS: Rocky Mountain list of hiking trails",
+        "https://www.nps.gov/romo/planyourvisit/list_hiking_trails.htm"
+      ],
+      [
+        "NPS: Rocky Mountain fees and passes",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm"
+      ],
+      [
+        "NPS: Rocky Mountain timed entry",
+        "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm"
+      ]
+    ]
+  },
+  "/colorado/estes-park/alberta-falls": {
+    "checked": "2026-11-11",
+    "hike": "1.6-mile round trip (0.8 mile each way) from Glacier Gorge Junction on Bear Lake Road",
+    "elevationGain": "160 feet",
+    "parking": "Glacier Gorge Trailhead fills early; the free Bear Lake shuttle runs from the Park & Ride in summer",
+    "fees": "RMNP entrance pass required year-round: $30 per vehicle for 1 day or $35 for 7 days (card only); from May 22 to Oct. 12, 2026 a timed entry reservation ($2 Recreation.gov fee) was also needed to enter between 9 a.m. and 2 p.m. Bear Lake Road needed a Timed Entry + Bear Lake Road reservation from 5 a.m. to 6 p.m., May 22 to Oct. 18, 2026",
+    "free": false,
+    "dogs": "No pets on Rocky Mountain National Park trails",
+    "sources": [
+      [
+        "NPS: Rocky Mountain list of hiking trails",
+        "https://www.nps.gov/romo/planyourvisit/list_hiking_trails.htm"
+      ],
+      [
+        "NPS: Rocky Mountain fees and passes",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm"
+      ],
+      [
+        "NPS: Rocky Mountain timed entry",
+        "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm"
+      ]
+    ]
+  },
+  "/colorado/estes-park/chasm-falls": {
+    "checked": "2026-11-11",
+    "hike": "About 0.1 mile walk down from a pullout on Old Fall River Road; 2.2 miles round trip from the winter closure gate when the road is closed",
+    "parking": "Pullouts along one-way, gravel Old Fall River Road",
+    "fees": "RMNP entrance pass required year-round: $30 per vehicle for 1 day or $35 for 7 days (card only); from May 22 to Oct. 12, 2026 a timed entry reservation ($2 Recreation.gov fee) was also needed to enter between 9 a.m. and 2 p.m.",
+    "free": false,
+    "dogs": "No pets on Rocky Mountain National Park trails",
+    "accessibility": "Not a paved trail",
+    "sources": [
+      [
+        "NPS: Hike to Chasm Falls",
+        "https://home.nps.gov/thingstodo/romo_chasmfalls.htm"
+      ],
+      [
+        "NPS: Rocky Mountain fees and passes",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm"
+      ],
+      [
+        "NPS: Rocky Mountain timed entry",
+        "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm"
+      ]
+    ]
+  },
+  "/colorado/estes-park/copeland-falls": {
+    "checked": "2026-11-11",
+    "hike": "0.6-mile round trip along the St. Vrain River from the Wild Basin Trailhead to Upper and Lower Copeland Falls",
+    "elevationGain": "15 feet",
+    "difficulty": "Easy (NPS)",
+    "parking": "Wild Basin Trailhead at the Wild Basin Ranger Station",
+    "fees": "RMNP entrance pass required year-round: $30 per vehicle for 1 day or $35 for 7 days (card only); from May 22 to Oct. 12, 2026 a timed entry reservation ($2 Recreation.gov fee) was also needed to enter between 9 a.m. and 2 p.m.",
+    "free": false,
+    "dogs": "No pets on Rocky Mountain National Park trails",
+    "swimming": "No; NPS warns of fast-moving water and slippery rocks",
+    "accessibility": "Not paved; rugged trail",
+    "sources": [
+      [
+        "NPS: Hike Copeland Falls",
+        "https://home.nps.gov/thingstodo/romo_copelandfalls.htm"
+      ],
+      [
+        "NPS: Rocky Mountain fees and passes",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm"
+      ],
+      [
+        "NPS: Rocky Mountain timed entry",
+        "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm"
+      ]
+    ]
+  },
+  "/colorado/estes-park/cascade-falls": {
+    "checked": "2026-11-11",
+    "hike": "7-mile round trip (3.5 miles each way) on the North Inlet Trail from the North Inlet Trailhead near Grand Lake",
+    "elevationGain": "300 feet",
+    "parking": "North Inlet Trailhead near Grand Lake",
+    "fees": "RMNP entrance pass required year-round: $30 per vehicle for 1 day or $35 for 7 days (card only); from May 22 to Oct. 12, 2026 a timed entry reservation ($2 Recreation.gov fee) was also needed to enter between 9 a.m. and 2 p.m.",
+    "free": false,
+    "dogs": "No pets on Rocky Mountain National Park trails",
+    "sources": [
+      [
+        "NPS: Rocky Mountain list of hiking trails",
+        "https://www.nps.gov/romo/planyourvisit/list_hiking_trails.htm"
+      ],
+      [
+        "NPS: Rocky Mountain fees and passes",
+        "https://www.nps.gov/romo/planyourvisit/fees.htm"
+      ],
+      [
+        "NPS: Rocky Mountain timed entry",
+        "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm"
+      ]
+    ]
+  },
+  "/colorado/evergreen/elk-falls": {
+    "checked": "2026-11-11",
+    "hike": "Elk Falls Trail in Staunton State Park is listed at 12 miles; CPW says the average hiker takes four to five hours for the full trip",
+    "difficulty": "Moderate (CPW)",
+    "fees": "Staunton State Park daily vehicle pass $10 to $15, or $4 per person",
+    "free": false,
+    "dogs": "Leashed dogs allowed; CPW lists the Elk Falls Trail as dog friendly",
+    "accessibility": "Staunton runs a Track Chair (all-terrain wheelchair) program on designated trails by reservation",
+    "sources": [
+      [
+        "Colorado Parks and Wildlife: Staunton activities and trails",
+        "https://cpw.state.co.us/state-parks/staunton-state-park/staunton-state-park-activities-trails"
+      ]
+    ]
+  },
+  "/utah/snyderville/doughnut-falls": {
+    "checked": "2026-11-11",
+    "hike": "Starts at the Donut Falls Trailhead, 8.9 miles up Big Cottonwood Canyon (Highway 190), reached by a short gravel road",
+    "parking": "Small dirt lot with limited spaces and two accessible vault toilets",
+    "fees": "Day use $10 per vehicle for 3 days, $20 for 7 days or $60 per season; interagency passes accepted",
+    "free": false,
+    "dogs": "No dogs or other domestic animals (protected watershed)",
+    "swimming": "No swimming, wading or playing in the water (protected watershed)",
+    "sources": [
+      [
+        "USFS: Donut Falls Trailhead",
+        "https://www.fs.usda.gov/r04/uinta-wasatch-cache/recreation/donut-falls-trailhead"
+      ]
+    ]
+  },
+  "/georgia/blairsville/desoto-falls": {
+    "checked": "2026-11-11",
+    "hike": "Two waterfalls on the DeSoto Falls trails from the day-use lot in the DeSoto Falls Scenic Area off US 19/129",
+    "parking": "Day-use lot immediately on the left after entering the recreation area",
+    "fees": "$5 per vehicle per day, paid on site with the Recreation.gov app; Chattahoochee-Oconee Forest Annual Pass ($25) accepted",
+    "free": false,
+    "dogs": "Leashed",
+    "bestSeason": "October for fall color",
+    "sources": [
+      [
+        "USFS: DeSoto Falls Recreation Area",
+        "https://www.fs.usda.gov/r08/chattahoochee-oconee/recreation/desoto-falls-recreation-area"
+      ]
+    ]
+  },
+  "/tennessee/benton/benton-falls": {
+    "checked": "2026-11-11",
+    "hike": "Benton Falls Trail is 1.5 miles each way (3 miles round trip) to the 65-foot falls from the Chilhowee Recreation Area",
+    "difficulty": "Easy (USFS)",
+    "parking": "Chilhowee day-use area, 7.2 miles up Forest Road 77 from US 64",
+    "fees": "$3 day-use fee at Chilhowee",
+    "free": false,
+    "sources": [
+      [
+        "USFS: Benton Falls Hike",
+        "https://www.fs.usda.gov/r08/cherokee/recreation/benton-falls-hike"
+      ]
+    ]
+  },
+  "/oregon/sisters/koosah-falls": {
+    "checked": "2026-11-11",
+    "hike": "Viewpoint near the Koosah Falls parking area; the Waterfalls Loop Trail (#3503) links Koosah and Sahalie Falls and can be looped with the McKenzie River Trail",
+    "parking": "Koosah Falls lot at the Ice Cap Campground turnoff off Highway 126; do not park on the highway shoulder; lots are not plowed in winter",
+    "fees": "No fee",
+    "free": true,
+    "dogs": "On a leash no longer than 6 feet within developed sites",
+    "bestSeason": "Snow-free months; winter trail is unmarked and snowshoes are recommended",
+    "sources": [
+      [
+        "USFS: Sahalie and Koosah Falls",
+        "https://www.fs.usda.gov/r06/willamette/recreation/sahalie-and-koosah-falls"
+      ],
+      [
+        "USFS: Waterfalls Loop Trail #3503",
+        "https://www.fs.usda.gov/r06/willamette/recreation/trails/waterfalls-loop-trail-3503"
+      ]
+    ]
+  },
+  "/south-carolina/walhalla/isaqueena-falls": {
+    "checked": "2026-11-11",
+    "hike": "0.4-mile round trip on a natural and boardwalk path from the Stumphouse Tunnel parking area to a viewing platform for the 100-foot cascade",
+    "difficulty": "Easy",
+    "parking": "Stumphouse Tunnel Park lot, 6.9 miles west of Walhalla on SC 28",
+    "fees": "$5 per vehicle (cash or QR-code online payment)",
+    "free": false,
+    "dogs": "Pets allowed",
+    "sources": [
+      [
+        "SC Trails: Issaqueena Falls",
+        "https://www.sctrails.net/trails/trail/issaqueena-falls"
+      ]
+    ]
+  },
+  "/idaho/kimberly/twin-falls": {
+    "checked": "2026-11-11",
+    "hike": "Viewpoint with interpretive panels in Idaho Power's 10-acre Twin Falls Park, two miles upstream of Shoshone Falls",
+    "parking": "Park lot off Falls Avenue; open daily 8 a.m. to dark",
+    "fees": "Day use is free; the reservable picnic shelter is $75 per day",
+    "free": true,
+    "accessibility": "Idaho Power lists the park as accessible, with restrooms",
+    "sources": [
+      [
+        "Idaho Power: Twin Falls Park",
+        "https://www.idahopower.com/recreation/parks-and-campgrounds/twin-falls-park/"
+      ]
+    ]
+  },
+  "/virginia/grottoes/doyles-river-falls": {
+    "checked": "2026-11-11",
+    "hike": "3.3-mile round trip from the Doyles River parking area (Skyline Drive mile 81.1) on the blue-blazed Doyles River Trail to the upper and lower falls, with a stream crossing",
+    "elevationGain": "1,189 feet",
+    "difficulty": "Moderate (NPS)",
+    "parking": "Doyles River parking area at Skyline Drive mile 81.1",
+    "fees": "Shenandoah National Park entrance pass required: $30 per private vehicle for 7 days, $15 per person on foot or bike; cashless (card only); annual and interagency passes accepted",
+    "free": false,
+    "dogs": "Allowed on a leash no longer than 6 feet",
+    "accessibility": "Trail does not meet ADA accessibility guidelines",
+    "sources": [
+      [
+        "NPS: Doyles River Falls",
+        "https://www.nps.gov/thingstodo/doyles-river-falls.htm"
+      ],
+      [
+        "NPS: Shenandoah fees and passes",
+        "https://www.nps.gov/shen/planyourvisit/fees.htm"
+      ]
+    ]
   }
 }
