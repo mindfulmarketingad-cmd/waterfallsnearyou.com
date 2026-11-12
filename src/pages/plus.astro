@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config.mjs';
+const title = 'Waterfalls Near You Plus';
+const description = 'Plus is $35.99 a year after a 7-day free trial. Flow and conditions, saved lists, a trip planner, printable day packets, and alerts. The public waterfall directory stays free.';
+const schema = [{
+  '@type': 'Product',
+  name: 'Waterfalls Near You Plus',
+  description,
+  brand: { '@type': 'Brand', name: SITE.name },
+  offers: {
+    '@type': 'Offer',
+    price: '35.99',
+    priceCurrency: 'USD',
+    url: `${SITE.url}/plus`,
+    description: 'Annual subscription with a 7-day free trial. Cancel anytime.',
+  },
+}];
+---
+<Base title={`${title} | ${SITE.name}`} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="wrap narrow">
+      <span class="eyebrow">Membership</span>
+      <h1>Waterfalls Near You Plus</h1>
+      <p class="sub">The directory of waterfalls stays free. Plus is the planning layer: conditions, lists, a trip planner, printable packets, and email alerts.</p>
+      <p class="price-line"><strong>$35.99/year</strong> after a 7-day free trial. Cancel anytime.</p>
+      <p id="monthly-line" hidden>Or <strong>$4.99/month</strong>, also with the 7-day trial.</p>
+      <div class="li-actions">
+        <button class="btn btn-green" type="button" data-checkout="year">Start the annual trial</button>
+        <button class="btn btn-outline" type="button" data-checkout="month" id="month-btn" hidden>Monthly trial</button>
+        <a class="btn btn-outline" href="/signin?next=/account">Sign in</a>
+      </div>
+      <p id="checkout-note" class="small muted" role="status"></p>
+    </div>
+  </section>
+  <section class="wrap section-sm narrow prose">
+    <h2>Free vs Plus</h2>
+    <table>
+      <thead><tr><th></th><th>Free</th><th>Plus</th></tr></thead>
+      <tbody>
+        <tr><td>Waterfall, city, state, and blog pages</td><td>Full public pages</td><td>The same pages, without ads</td></tr>
+        <tr><td>Season note</td><td>Shown when the page already has one</td><td>Plus adds rain, snowmelt, weather, cautions, and a gauge only when it matches</td></tr>
+        <tr><td>Directory filters</td><td>Today’s search, town, county, and feature filters</td><td>Extra planner filters for swimming, dogs, access, photography, and lighter-traffic falls</td></tr>
+        <tr><td>Lists and trip planner</td><td></td><td>Save falls, build a day-by-day trip, share a read-only link</td></tr>
+        <tr><td>Offline packet</td><td></td><td>Print or download a PDF of notes already on the site</td></tr>
+        <tr><td>Alerts</td><td></td><td>Email when saved falls hit a flow, freeze, or weather signal. Unsubscribe any time.</td></tr>
+      </tbody>
+    </table>
+    <h2>Billing</h2>
+    <p>Checkout and receipts are handled by Stripe. The trial is 7 days. You can update your card or cancel in the Stripe customer portal from your account page. Canceling stops renewal. Access continues until the trial or paid period ends, then the webhook removes Plus. Complimentary access, if the site owner grants it, is separate from Stripe.</p>
+    <p>The price you confirm is the Stripe price, $35.99 per year on the annual plan. A $4.99 monthly plan is offered when it is configured. Taxes are not added in checkout unless the owner later turns on Stripe Tax.</p>
+    <p><a href="/plus/deals">Member deals</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
+  </section>
+</Base>
+
+<script>
+  const note = document.getElementById('checkout-note');
+  const params = new URLSearchParams(location.search);
+  if (params.get('checkout') === 'cancel') note.textContent = 'Checkout was canceled. You can start again whenever you want.';
+
+  fetch('/api/plus/plans').then((r) => r.json()).then((plans) => {
+    if (plans.monthly) {
+      document.getElementById('monthly-line').hidden = false;
+      document.getElementById('month-btn').hidden = false;
+    }
+  }).catch(() => {});
+
+  async function start(interval: string) {
+    note.textContent = 'Opening checkout...';
+    const res = await fetch('/api/stripe/checkout', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ interval }),
+    });
+    if (res.status === 401) {
+      location.href = `/signin?next=${encodeURIComponent('/plus?checkout=1')}`;
+      return;
+    }
+    const body = await res.json().catch(() => ({}));
+    if (body.url) location.href = body.url;
+    else note.textContent = body.error || 'Checkout is unavailable.';
+  }
+  document.querySelectorAll<HTMLButtonElement>('[data-checkout]').forEach((btn) => btn.addEventListener('click', () => start(btn.dataset.checkout || 'year')));
+  if (params.get('checkout') === '1') start('year');
+</script>
+
+<style>
+  .price-line { font-size: 1.25rem; }
+</style>

@@ -5,6 +5,15 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "crons": [
+    { "path": "/api/cron/conditions", "schedule": "0 11 * * *" },
+    { "path": "/api/cron/alerts", "schedule": "30 11 * * *" }
+  ],
+  "functions": {
+    "api/cron/conditions.js": { "maxDuration": 60 },
+    "api/cron/alerts.js": { "maxDuration": 60 },
+    "api/stripe/webhook.js": { "maxDuration": 60 }
+  },
   "headers": [
     {
       "source": "/(.*)",
@@ -76,6 +85,19 @@
       ]
     },
     {
+      "source": "/(account|admin|signin|planner|packet|plus/deals|plus/welcome|plus/share)(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex" },
+        { "key": "Cache-Control", "value": "private, no-store" }
+      ]
+    },
+    {
       "source": "/ads.txt",
       "headers": [
         {
@@ -119,6 +141,11 @@
     {
       "source": "/Contact",
       "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/plus",
       "permanent": true
     },
     {

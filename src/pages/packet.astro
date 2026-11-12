@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Day packet | WaterfallsNearYou" description="A printable waterfall day packet for Plus members." noindex>
+  <section class="wrap section-sm packet">
+    <p class="no-print" id="status" role="status">Preparing the packet...</p>
+    <div class="no-print li-actions" id="actions" hidden>
+      <button class="btn btn-green" type="button" id="print">Print</button>
+      <a class="btn btn-outline" id="pdf" href="#">Download PDF</a>
+    </div>
+    <article id="sheet"></article>
+  </section>
+</Base>
+<script>
+  const params = new URLSearchParams(location.search);
+  const listing = params.get('listing') || '';
+  const list = params.get('list') || '';
+  const status = document.getElementById('status');
+  const sheet = document.getElementById('sheet');
+  const qs = listing ? `listing=${encodeURIComponent(listing)}` : list ? `list=${encodeURIComponent(list)}` : '';
+  if (!qs) status.textContent = 'Open a packet from a waterfall or a saved list.';
+  else fetch(`/api/packet?${qs}`, { credentials: 'same-origin' }).then(async (res) => {
+    if (res.status === 401) { location.href = `/signin?next=${encodeURIComponent(location.pathname + location.search)}`; return; }
+    if (res.status === 403) { location.href = '/plus?checkout=1'; return; }
+    const body = await res.json();
+    if (!res.ok) { status.textContent = body.error || 'Could not build the packet.'; return; }
+    status.textContent = 'Use Print or the PDF. The file is meant to be readable without a signal.';
+    document.getElementById('actions').hidden = false;
+    document.getElementById('pdf').setAttribute('href', `/api/packet-pdf?${qs}`);
+    const h = document.createElement('h1');
+    h.textContent = body.title;
+    sheet.append(h);
+    for (const note of body.notes || []) {
+      const p = document.createElement('p');
+      p.textContent = note;
+      sheet.append(p);
+    }
+    for (const place of body.places || []) {
+      const h2 = document.createElement('h2');
+      h2.textContent = place.name;
+      sheet.append(h2);
+      for (const line of [place.where, place.coords && `Coordinates: ${place.coords}`, ...(place.notes || [])]) {
+        if (!line) continue;
+        const p = document.createElement('p');
+        p.textContent = line;
+        sheet.append(p);
+      }
+      if (place.map) {
+        const p = document.createElement('p');
+        const a = document.createElement('a');
+        a.href = place.map;
+        a.textContent = 'Directions link';
+        const b = document.createElement('a');
+        b.href = place.osm;
+        b.textContent = 'OpenStreetMap';
+        p.append(a, ' · ', b);
+        sheet.append(p);
+      }
+      if (place.nearby?.length) {
+        const ul = document.createElement('ul');
+        for (const n of place.nearby) {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = n.url;
+          a.textContent = `${n.name} (${n.miles} mi ${n.direction || ''})`;
+          li.append(a);
+          ul.append(li);
+        }
+        sheet.append(ul);
+      }
+    }
+  }).catch(() => { status.textContent = 'Could not build the packet.'; });
+  document.getElementById('print').addEventListener('click', () => window.print());
+</script>
+<style>
+  @media print {
+    :global(.site-header), :global(.site-footer), :global(.promo), :global(.skip), .no-print { display: none !important; }
+    .packet { padding: 0; }
+  }
+</style>

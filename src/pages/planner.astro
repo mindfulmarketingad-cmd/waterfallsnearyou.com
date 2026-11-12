@@ -1,0 +1,108 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Trip planner | WaterfallsNearYou" description="Build a day-by-day waterfall itinerary from the public directory." noindex>
+  <section class="wrap section-sm narrow">
+    <h1>Trip planner</h1>
+    <p>The planner only uses waterfalls, towns, and visit notes already on this site. Drive time is a straight-line estimate, not a routed drive.</p>
+    <form id="plan" class="stack">
+      <label>Town or state <input name="area" required placeholder="Bend, OR" /></label>
+      <label>Days <input name="days" type="number" min="1" max="10" value="2" /></label>
+      <label>Start date <input name="start" type="date" /></label>
+      <label>Max estimated drive from the base (hours) <input name="maxDriveHours" type="number" min="0.5" max="6" step="0.5" value="2" /></label>
+      <label>Difficulty
+        <select name="difficulty"><option value="any">Any</option><option value="easy">Easy notes only</option><option value="moderate">Easy or moderate</option></select>
+      </label>
+      <label><input type="checkbox" name="swimming" /> Swimming allowed in the visit notes</label>
+      <label><input type="checkbox" name="dogs" /> Dogs allowed in the visit notes</label>
+      <label><input type="checkbox" name="crowds" /> Prefer less-crowded (under 80 Google reviews)</label>
+      <button class="btn btn-green" type="submit">Build the itinerary</button>
+    </form>
+    <p id="status" role="status"></p>
+    <div id="choices"></div>
+    <div id="result"></div>
+  </section>
+</Base>
+<script>
+  const status = document.getElementById('status');
+  const result = document.getElementById('result');
+  const choices = document.getElementById('choices');
+  const form = document.getElementById('plan') as HTMLFormElement;
+
+  async function run(area: string) {
+    const data = new FormData(form);
+    status.textContent = 'Planning...';
+    const res = await fetch('/api/planner', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        area,
+        days: Number(data.get('days')),
+        start: data.get('start') || '',
+        maxDriveHours: Number(data.get('maxDriveHours')),
+        difficulty: data.get('difficulty'),
+        swimming: data.get('swimming') === 'on',
+        dogs: data.get('dogs') === 'on',
+        crowds: data.get('crowds') === 'on' ? 'less' : 'any',
+        save: true,
+      }),
+    });
+    if (res.status === 401) { location.href = '/signin?next=/planner'; return; }
+    if (res.status === 403) { location.href = '/plus?checkout=1'; return; }
+    const body = await res.json();
+    choices.replaceChildren();
+    if (body.choices) {
+      status.textContent = 'More than one town matches. Pick one.';
+      choices.replaceChildren(...body.choices.map((c) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'btn btn-outline';
+        b.textContent = `${c.label} (${c.n})`;
+        b.addEventListener('click', () => run(c.query));
+        return b;
+      }));
+      return;
+    }
+    if (!res.ok) { status.textContent = body.error || 'Could not plan that trip.'; return; }
+    status.textContent = body.listId ? 'Saved to your lists.' : '';
+    const notes = document.createElement('ul');
+    for (const note of body.notes || []) {
+      const li = document.createElement('li');
+      li.textContent = note;
+      notes.append(li);
+    }
+    const days = document.createElement('div');
+    for (const day of body.days || []) {
+      const h = document.createElement('h2');
+      h.textContent = day.date ? `Day ${day.day} · ${day.date}` : `Day ${day.day}`;
+      const ol = document.createElement('ol');
+      for (const stop of day.stops) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = stop.url;
+        a.textContent = stop.name;
+        li.append(a, ` · about ${stop.driveHours} h from ${body.anchor.label}`);
+        if (stop.hike) li.append(document.createElement('br'), document.createTextNode(stop.hike));
+        ol.append(li);
+      }
+      days.append(h, ol);
+    }
+    const links = document.createElement('p');
+    if (body.listId) {
+      const a = document.createElement('a');
+      a.href = `/packet?list=${encodeURIComponent(body.listId)}`;
+      a.textContent = 'Print this trip';
+      links.append(a);
+    }
+    result.replaceChildren(notes, days, links);
+  }
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    run(String(new FormData(form).get('area') || ''));
+  });
+</script>
+<style>
+  .stack { display: grid; gap: 10px; max-width: 460px; }
+  .stack input, .stack select { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; }
+</style>

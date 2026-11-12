@@ -4,6 +4,8 @@
 import { listingPhoto, sized } from '../lib/photos.mjs';
 import { stars, fmtNum, addressText, hoursSummary, directionsUrl, countyUrl, ratingsUrl, mapUrl } from '../lib/format.mjs';
 import { features, perfectFor, cardSummary, FEATURES } from '../lib/cards.mjs';
+import { tripFacts } from '../lib/tripfacts.mjs';
+import { plusFlagList } from '../lib/plus/flags.mjs';
 import { heightOf, fmtHeight } from '../lib/heights.mjs';
 interface Props { listing: any; rank: number }
 const { listing: l, rank } = Astro.props;
@@ -27,6 +29,7 @@ const onerror = photo.fallback ? `this.onerror=null;this.src='${photo.fallback}'
   data-lat={l.lat.toFixed(5)}
   data-lng={l.lng.toFixed(5)}
   data-features={feats.join(' ')}
+  data-plus={plusFlagList(l, tripFacts(l.url)).join(' ')}
   data-url={l.url}
 >
   <span class="sc-num" aria-hidden="true">{rank}</span>

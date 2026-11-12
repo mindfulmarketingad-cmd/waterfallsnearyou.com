@@ -18,6 +18,8 @@ import { SITE } from '../../../config.mjs';
 import { heightOf, fmtHeight } from '../../../lib/heights.mjs';
 import { postsLinkingTo } from '../../../lib/blog.mjs';
 import { tripFacts, tripRows } from '../../../lib/tripfacts.mjs';
+import PlusPanel from '../../../components/PlusPanel.astro';
+import SaveButton from '../../../components/SaveButton.astro';
 
 export function getStaticPaths() {
   return loadData().listings.map((l) => ({
@@ -115,6 +117,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
           <a class="btn btn-outline" href="#map"><Icon name="map" />View map</a>
           <a class="btn btn-outline" href="#weather"><Icon name="clock" />Weather</a>
           {guide && <a class="btn btn-outline" href={guide.url}><Icon name="book" />Visitor guide</a>}
+          <SaveButton url={l.url} />
           {os?.site && <a class="btn btn-outline" href={os.site} rel="nofollow noopener ugc" target="_blank"><Icon name="globe" />Website</a>}
         </div>
       </div>
@@ -154,6 +157,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
 
       <Weather lat={l.lat} lng={l.lng} name={l.name} />
       <Conditions listing={l} />
+      <PlusPanel listing={l} />
 
       <h2 id="map">Map and Directions</h2>
       <p>The marker shows the USGS-recorded position of {l.name}. Trailheads and parking can be some distance from the falls themselves, so plan your route with an up-to-date trail map.</p>

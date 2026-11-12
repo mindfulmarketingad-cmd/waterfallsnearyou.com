@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import dealsFile from '../../../data/member-deals.json';
+const deals = (dealsFile.deals || []).filter((d) => d && d.partner && d.offer);
+---
+<Base title="Plus member deals | WaterfallsNearYou" description="Partner offers for Waterfalls Near You Plus members." noindex>
+  <section class="wrap section-sm narrow prose">
+    <span class="eyebrow">Plus</span>
+    <h1>Member deals</h1>
+    <p>This page lists only offers a partner has actually confirmed. There are no placeholder coupon codes.</p>
+    {deals.length === 0 ? (
+      <p>No partner deals are live yet. When one is confirmed, it will show here with the partner’s name and the terms they provided.</p>
+    ) : (
+      <ul>
+        {deals.map((d) => (
+          <li>
+            <strong>{d.partner}</strong> — {d.offer}
+            {d.url ? <> <a href={d.url} rel="sponsored noopener" target="_blank">View offer</a></> : null}
+            {d.expires ? <> Ends {d.expires}.</> : null}
+          </li>
+        ))}
+      </ul>
+    )}
+    <p><a href="/plus">About Plus</a> · <a href="/account">Account</a></p>
+  </section>
+</Base>

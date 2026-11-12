@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Users | WaterfallsNearYou" description="Manage Plus members." noindex>
+  <section class="wrap section-sm">
+    <h1>Plus users</h1>
+    <p id="status" role="status">Checking access...</p>
+    <form id="find" class="inline-form" hidden>
+      <input name="q" placeholder="Email" />
+      <select name="status">
+        <option value="">Any status</option>
+        <option value="trialing">Trialing</option>
+        <option value="active">Active</option>
+        <option value="complimentary">Complimentary</option>
+        <option value="past_due">Past due</option>
+        <option value="canceled">Canceled</option>
+        <option value="none">None</option>
+      </select>
+      <button class="btn btn-outline" type="submit">Search</button>
+    </form>
+    <div class="table-wrap"><table id="users" hidden>
+      <thead><tr><th>Email</th><th>Created</th><th>Status</th><th>Plan</th><th>Stripe customer</th><th>Trial / renewal</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </section>
+</Base>
+<script>
+  const status = document.getElementById('status');
+  const form = document.getElementById('find') as HTMLFormElement;
+  const table = document.getElementById('users');
+  const body = table.querySelector('tbody');
+
+  function cell(text: string) {
+    const td = document.createElement('td');
+    td.textContent = text || '';
+    return td;
+  }
+  async function act(userId: string, action: string) {
+    const res = await fetch('/api/admin/users', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ userId, action }) });
+    const payload = await res.json();
+    status.textContent = res.ok ? 'Saved.' : (payload.error || 'Could not update that user.');
+    if (res.ok) search();
+  }
+  async function search() {
+    const q = new FormData(form);
+    const params = new URLSearchParams({ q: String(q.get('q') || ''), status: String(q.get('status') || '') });
+    const res = await fetch(`/api/admin/users?${params}`, { credentials: 'same-origin' });
+    const payload = await res.json();
+    if (res.status === 401) { location.href = '/signin?next=/admin/users'; return; }
+    if (!res.ok) { status.textContent = payload.error || 'Could not load users.'; return; }
+    status.textContent = `${payload.users.length} user${payload.users.length === 1 ? '' : 's'}.`;
+    table.hidden = false;
+    body.replaceChildren(...payload.users.map((user) => {
+      const tr = document.createElement('tr');
+      const dates = [user.trialEnd ? `trial ${user.trialEnd.slice(0, 10)}` : '', user.currentPeriodEnd ? `through ${user.currentPeriodEnd.slice(0, 10)}` : ''].filter(Boolean).join(' · ');
+      tr.append(
+        cell(user.email),
+        cell(user.createdAt ? String(user.createdAt).slice(0, 10) : ''),
+        cell(`${user.complimentary ? 'complimentary' : user.status}${user.plus ? ' · has Plus' : ''}${user.billingHold ? ` · hold ${user.billingHoldReason || ''}` : ''}`),
+        cell(user.planInterval || ''),
+        cell(user.stripeCustomerId || ''),
+        cell(dates),
+      );
+      const actions = document.createElement('td');
+      for (const [label, action] of [['Grant complimentary', 'grant'], ['Revoke complimentary', 'revoke'], ['Cancel Stripe subscription', 'cancel']] as const) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'btn btn-outline';
+        b.textContent = label;
+        b.addEventListener('click', () => act(user.id, action));
+        actions.append(b, ' ');
+      }
+      tr.append(actions);
+      return tr;
+    }));
+  }
+  fetch('/api/me', { credentials: 'same-origin' }).then((r) => r.json()).then((me) => {
+    if (!me.signedIn) { location.href = '/signin?next=/admin/users'; return; }
+    if (!me.admin) { status.textContent = 'This page is only for the site owner.'; return; }
+    form.hidden = false;
+    form.addEventListener('submit', (e) => { e.preventDefault(); search(); });
+    search();
+  });
+</script>
+<style>
+  .inline-form { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+  .inline-form input, .inline-form select { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; }
+  td .btn { margin: 0 0 6px; }
+</style>

@@ -1,0 +1,106 @@
+---
+import { tripFacts } from '../lib/tripfacts.mjs';
+interface Props { listing: { url: string; name: string } }
+const { listing } = Astro.props;
+const season = tripFacts(listing.url)?.bestSeason || '';
+---
+<section class="flow" id="flow" data-listing={listing.url} aria-labelledby="flow-h">
+  <h2 id="flow-h">Flow and conditions</h2>
+  {season ? (
+    <div class="flow-free">
+      <h3>Seasonal overview</h3>
+      <p>{season}</p>
+      <p class="small muted">From the visit notes on this page. This is not a live reading of the falls.</p>
+    </div>
+  ) : (
+    <p class="small muted">A short seasonal overview is shown here only when this page already has a checked season note. This waterfall does not have one.</p>
+  )}
+  <div class="flow-teaser" data-teaser>
+    <p>Plus members get a conditions panel for {listing.name}: the season window when a note exists, recent rain and snow near these coordinates, a weather snapshot, ice or high-water cautions when those signals exist, and a USGS gauge only when its name matches this fall. If a gauge cannot be matched, the panel says so.</p>
+    <p><a class="btn btn-green" href={`/signin?next=${encodeURIComponent(listing.url)}`}>Try Plus free for 7 days</a> <a href="/plus">What’s included</a></p>
+  </div>
+  <div class="flow-detail" data-detail hidden></div>
+  <p class="small"><a href={`/packet?listing=${encodeURIComponent(listing.url)}`}>Printable day packet</a> is a Plus download for the notes already on this page.</p>
+</section>
+
+<style>
+  .flow { margin: 1.6em 0; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; background: #fff; }
+  .flow h2 { margin-top: 0; }
+  .flow-free { background: var(--mist-2); border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; }
+  .flow-free h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .flow-free p:last-child { margin-bottom: 0; }
+  .flow :global(.flow-block) { margin: 12px 0; }
+  .flow :global(.flow-block h3) { margin: 0 0 4px; font-size: 1.02rem; }
+  .flow :global(.caution) { border-left: 4px solid #b4432c; background: #fbefec; border-radius: 8px; padding: 8px 12px; margin: 8px 0; }
+</style>
+
+<script>
+  const box = document.querySelector<HTMLElement>('.flow');
+  if (box && (document.cookie.includes('wny_plus=1') || document.cookie.includes('wny_auth=1'))) {
+    const listing = box.dataset.listing || '';
+    fetch(`/api/conditions?listing=${encodeURIComponent(listing)}`, { credentials: 'same-origin' })
+      .then((r) => r.ok ? r.json() : null)
+      .then((report) => { if (report && !report.error) render(report); })
+      .catch(() => {});
+  }
+
+  function p(text: string) {
+    const node = document.createElement('p');
+    node.textContent = text;
+    return node;
+  }
+  function block(title: string, ...nodes: Node[]) {
+    const wrap = document.createElement('div');
+    wrap.className = 'flow-block';
+    const h = document.createElement('h3');
+    h.textContent = title;
+    wrap.append(h, ...nodes);
+    return wrap;
+  }
+
+  function render(report: any) {
+    const detail = box.querySelector<HTMLElement>('[data-detail]');
+    const teaser = box.querySelector<HTMLElement>('[data-teaser]');
+    if (!detail) return;
+    const nodes: Node[] = [];
+    if (report.unavailable) nodes.push(p(report.message || 'Conditions are unavailable right now.'));
+    if (report.season?.text) nodes.push(block('Season window', p(report.season.text), p(report.season.note || '')));
+    else nodes.push(block('Season window', p(report.season?.note || 'No verified season window is on file.')));
+    if (report.precip) nodes.push(block('Recent precipitation', p(`About ${report.precip.last48in} in over the last 2 days, and ${report.precip.last7in} in over the last 7, near these coordinates.`), p(report.precip.note)));
+    else nodes.push(block('Recent precipitation', p('Precipitation data is unavailable right now.')));
+    if (report.snowmelt) nodes.push(block('Snowmelt', p(report.snowmelt.note)));
+    if (report.weather?.summary) nodes.push(block('Weather snapshot', p(`${report.weather.summary}${report.weather.temperature != null ? ` · ${report.weather.temperature}°${report.weather.temperatureUnit || 'F'}` : ''}${report.weather.wind ? ` · wind ${report.weather.wind}` : ''}`)));
+    else nodes.push(block('Weather snapshot', p('The National Weather Service snapshot is unavailable right now.')));
+    if (report.cautions?.length) {
+      const wrap = document.createElement('div');
+      wrap.className = 'flow-block';
+      const h = document.createElement('h3');
+      h.textContent = 'Cautions';
+      wrap.append(h);
+      for (const c of report.cautions) {
+        const d = document.createElement('div');
+        d.className = 'caution';
+        d.textContent = c.text;
+        wrap.append(d);
+      }
+      nodes.push(wrap);
+    } else nodes.push(block('Cautions', p('No ice, high-water, or weather-alert signal is in the current data.')));
+    const gauge = report.gauge || {};
+    if (gauge.matched) {
+      const link = document.createElement('p');
+      if (gauge.link) {
+        const a = document.createElement('a');
+        a.href = gauge.link;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = 'Open the USGS gauge';
+        link.append(a);
+      }
+      nodes.push(block('Stream gauge', p(`${Number(gauge.value).toLocaleString('en-US')} ${gauge.unit || 'ft³/s'} at ${gauge.name}, ${gauge.miles} mi away${gauge.time ? ` (as of ${gauge.time})` : ''}.`), p(gauge.reason), link));
+    } else nodes.push(block('Stream gauge', p(gauge.reason || 'No gauge could be confidently matched.')));
+    if (report.fetchedAt) nodes.push(p(`Updated ${new Date(report.fetchedAt).toLocaleString()}${report.stale ? ' (cached; a fresh pull failed)' : ''}.`));
+    detail.replaceChildren(...nodes);
+    detail.hidden = false;
+    if (teaser) teaser.hidden = true;
+  }
+</script>

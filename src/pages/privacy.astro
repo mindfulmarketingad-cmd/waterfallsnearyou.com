@@ -2,11 +2,16 @@
 import StaticPage from '../components/StaticPage.astro';
 import { SITE } from '../config.mjs';
 ---
-<StaticPage title="Privacy Policy | WaterfallsNearYou" h1="Privacy Policy" eyebrow="Legal" description="How WaterfallsNearYou handles location, cookies and Google AdSense advertising data, and the choices you have about personalized ads." updated="October 2, 2026">
-  <p>This Privacy Policy explains what information WaterfallsNearYou.com ("we", "us") collects when you use the site, how it is used, and the choices you have.</p>
+<StaticPage title="Privacy Policy | WaterfallsNearYou" h1="Privacy Policy" eyebrow="Legal" description="How WaterfallsNearYou handles accounts, payments, alert emails, location, cookies, and Google AdSense advertising data." updated="November 8, 2026">
+  <p>This Privacy Policy explains what information WaterfallsNearYou.com ("we", "us", operated by David F.) collects when you use the site, how it is used, and the choices you have. The public waterfall directory does not require an account.</p>
 
-  <h2>Information we do not collect</h2>
-  <p>We do not offer accounts, we do not ask for your name, and we do not sell personal information. The site has no forms that store data on our servers.</p>
+  <h2>Accounts</h2>
+  <p>Waterfalls Near You Plus uses an email sign-in link. We store the email address you submit, the time you created the account, session cookies, and the lists, trip plans, and alert settings you save. We do not ask you to create a password. Sign-in links expire quickly and work once.</p>
+  <p>Payments are processed by Stripe. We store Stripe’s customer id, subscription status, price, and trial or renewal dates so we know whether Plus is active. We do not store your card number. Stripe’s privacy policy describes what they collect at checkout and in the billing portal.</p>
+  <p>You can cancel in the Stripe billing portal from your account page. When a subscription ends, our records update from Stripe’s webhooks and Plus features turn off. The site owner can also grant or revoke complimentary Plus, or cancel a Stripe subscription, from a private admin page. That admin page is limited to email addresses listed in the site configuration.</p>
+
+  <h2>Condition alerts</h2>
+  <p>If you save a waterfall, alert emails are on until you mute that waterfall or turn alerts off. A scheduled job reads public weather and stream-gauge data for those waterfalls and emails you when the signals described on the site are met. The email includes an unsubscribe link that turns alerts off. We do not sell the email list.</p>
 
   <h2>Location</h2>
   <p>To show "Waterfalls Near You" on the homepage, the site may estimate your general area from your IP address using our hosting provider's geolocation service. This estimate is calculated per request, returned only to your browser and not stored by us.</p>
@@ -28,13 +33,13 @@ import { SITE } from '../config.mjs';
   <p>Visitors in the European Economic Area, the United Kingdom and Switzerland are shown a consent message before personalized ads are served, as required by Google's EU user consent policy.</p>
 
   <h2>Weather and conditions data</h2>
-  <p>Waterfall pages request forecasts and alerts from the National Weather Service, elevation from the USGS Elevation Point Query Service, and stream gauge readings from the USGS Water Data API. These requests are made from your browser and contain only the waterfall's coordinates, not your location. Like any website, those government services receive your IP address when your browser contacts them.</p>
+  <p>Waterfall pages request forecasts and alerts from the National Weather Service, elevation from the USGS Elevation Point Query Service, and stream gauge readings from the USGS Water Data API. On public pages these requests are made from your browser and contain only the waterfall's coordinates, not your location. Plus conditions and alert emails are fetched by our server for the waterfall's coordinates, still not your device location. Like any website, those services receive the IP address of whoever contacts them. We cache the result so we are not asking on every page view.</p>
 
   <h2>Embedded maps and external links</h2>
   <p>Maps on this site use free vector map tiles from <a href="https://openfreemap.org" rel="noopener" target="_blank">OpenFreeMap</a>, built from <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">OpenStreetMap</a> data. Your browser requests map tiles from OpenFreeMap's servers when you view a map; OpenFreeMap states it uses no cookies and no user tracking. Waterfall photos on this site are files we host. Links to Google Maps, Apple Maps and other sites take you to services with their own privacy policies.</p>
 
   <h2>Your rights</h2>
-  <p>Depending on where you live, including California (CCPA/CPRA) and the EU/UK (GDPR), you may have rights to access, delete or correct personal information and to opt out of the sale or sharing of personal information for targeted advertising. Because we do not keep personal profiles, most requests are best directed to Google using the links above. You can also contact us and we will help.</p>
+  <p>Depending on where you live, including California (CCPA/CPRA) and the EU/UK (GDPR), you may have rights to access, delete or correct personal information and to opt out of the sale or sharing of personal information for targeted advertising. Advertising choices are best directed to Google using the links above. For an account, email us from the address on the account and we will export or delete the Plus profile, lists, and alert settings we store. Stripe keeps its own billing record under its policy. We do not sell personal information.</p>
 
   <h2>Children</h2>
   <p>This site is intended for a general audience and is not directed to children under 13. We do not knowingly collect personal information from children.</p>

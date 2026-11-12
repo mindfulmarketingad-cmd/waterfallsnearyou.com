@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Shared waterfall list | WaterfallsNearYou" description="A read-only waterfall list." noindex>
+  <section class="wrap section-sm narrow">
+    <h1 id="title">Shared list</h1>
+    <p id="status" class="muted" role="status">Loading the list...</p>
+    <ol id="items"></ol>
+  </section>
+</Base>
+<script>
+  const token = new URLSearchParams(location.search).get('token') || '';
+  const status = document.getElementById('status');
+  const title = document.getElementById('title');
+  const list = document.getElementById('items');
+  if (!token) status.textContent = 'This link is missing a list token.';
+  else fetch(`/api/lists/share?token=${encodeURIComponent(token)}`).then(async (r) => {
+    const body = await r.json();
+    if (!r.ok) { status.textContent = body.error || 'List not found.'; return; }
+    title.textContent = body.name;
+    status.textContent = 'Read-only. Saving and alerts stay with the member who shared it.';
+    list.replaceChildren(...(body.items || []).map((item) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = item.url;
+      a.textContent = item.name;
+      li.append(item.day ? `Day ${item.day}: ` : '', a, item.city ? ` — ${item.city}, ${item.stateCode || ''}` : '');
+      return li;
+    }));
+  }).catch(() => { status.textContent = 'The list could not be loaded.'; });
+</script>

@@ -1,0 +1,71 @@
+---
+import { PLUS_FILTERS } from '../lib/plus/flags.mjs';
+interface Props { mode?: 'self' | 'external'; target?: string }
+const { mode = 'self', target = '' } = Astro.props;
+---
+<div class="plus-filters" data-plus-filters data-mode={mode} data-target={target}>
+  <p class="plus-filters-label">Plus planner filters <a href="/plus">Waterfalls Near You Plus</a></p>
+  <div class="plus-filters-row">
+    {PLUS_FILTERS.map((f) => (
+      <label title={f.hint}>
+        <input type="checkbox" data-plus-filter value={f.value} disabled />
+        {f.label}
+      </label>
+    ))}
+  </div>
+  <p class="plus-filters-lock small" hidden>These filters stay locked until you have Plus. The directory below is still the full public list. <a href="/plus">Start a 7-day trial</a>.</p>
+  <p class="plus-filters-status small muted" data-plus-status></p>
+</div>
+
+<style>
+  .plus-filters { margin: 12px 0; padding: 12px 14px; border: 1px dashed var(--line); border-radius: 12px; background: #fff; }
+  .plus-filters-label { margin: 0 0 8px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--slate-soft); }
+  .plus-filters-row { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+  .plus-filters-row label { display: inline-flex; align-items: center; gap: 6px; font-size: 0.92rem; }
+  .plus-filters-lock { margin: 8px 0 0; }
+</style>
+
+<script>
+  const roots = document.querySelectorAll<HTMLElement>('[data-plus-filters]');
+  const plusCookie = document.cookie.split('; ').includes('wny_plus=1');
+
+  function applySelf(root: HTMLElement) {
+    const selectors = (root.dataset.target || '').split(',').map((s) => s.trim()).filter(Boolean);
+    const targets = selectors.length ? selectors.map((s) => document.querySelector(s)).filter(Boolean) : [root.parentElement];
+    const nodes = targets.flatMap((target) => [...target.querySelectorAll<HTMLElement>('[data-plus]')]);
+    const active = [...root.querySelectorAll<HTMLInputElement>('[data-plus-filter]:checked')].map((el) => el.value);
+    let shown = 0;
+    nodes.forEach((node) => {
+      const flags = (node.dataset.plus || '').split(' ').filter(Boolean);
+      const ok = root.dataset.unlocked !== '1' || !active.length || active.every((f) => flags.includes(f));
+      node.hidden = !ok;
+      if (ok) shown += 1;
+    });
+    const status = root.querySelector('[data-plus-status]');
+    if (status) status.textContent = active.length && root.dataset.unlocked === '1' ? `${shown} shown with Plus filters. Uncheck to see the full list again.` : '';
+  }
+
+  function unlock(root: HTMLElement, on: boolean) {
+    root.dataset.unlocked = on ? '1' : '0';
+    root.querySelectorAll<HTMLInputElement>('[data-plus-filter]').forEach((input) => { input.disabled = !on; if (!on) input.checked = false; });
+    const lock = root.querySelector<HTMLElement>('.plus-filters-lock');
+    if (lock) lock.hidden = on;
+  }
+
+  async function init(root: HTMLElement) {
+    let on = plusCookie;
+    if (!on && document.cookie.includes('wny_auth=1')) {
+      try {
+        const me = await fetch('/api/me', { credentials: 'same-origin' }).then((r) => r.json());
+        on = !!me.plus;
+      } catch { on = false; }
+    }
+    unlock(root, on);
+    root.querySelectorAll('input').forEach((input) => input.addEventListener('change', () => {
+      if (root.dataset.unlocked !== '1') return;
+      if (root.dataset.mode === 'self') applySelf(root);
+      else root.dispatchEvent(new CustomEvent('plus-filters', { bubbles: true }));
+    }));
+  }
+  roots.forEach((root) => { init(root); });
+</script>

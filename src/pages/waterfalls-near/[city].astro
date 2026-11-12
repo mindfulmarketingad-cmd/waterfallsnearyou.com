@@ -6,6 +6,9 @@ import Faq from '../../components/Faq.astro';
 import { getCityHubs, HUB_RADIUS } from '../../lib/cityhubs.mjs';
 import { pagePhoto } from '../../lib/photos.mjs';
 import { fmtMiles, fmtNum } from '../../lib/format.mjs';
+import { tripFacts } from '../../lib/tripfacts.mjs';
+import { plusFlagList } from '../../lib/plus/flags.mjs';
+import PlusFilters from '../../components/PlusFilters.astro';
 import { SITE } from '../../config.mjs';
 
 export function getStaticPaths() {
@@ -36,13 +39,15 @@ const schema = [
       {h.intro.map((p) => <p>{p}</p>)}
       <p class="small muted">By David F. · Published {new Date(h.published + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })} · Distances are straight-line miles from the center of {h.name}.</p>
 
+      <PlusFilters target="#hub-results, #hub-picks" />
+      <div id="hub-results">
       <h2>Day-Trip Waterfalls at a Glance</h2>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Waterfall</th><th>State</th><th>Distance</th><th>Google rating</th>{anyTrip && <><th>Fee</th><th>Dogs</th></>}</tr></thead>
           <tbody>
             {h.picks.map((p) => (
-              <tr>
+              <tr data-plus={plusFlagList(p.listing, p.trip || tripFacts(p.listing.url)).join(' ')}>
                 <td><a href={p.listing.url}>{p.listing.name}</a></td>
                 <td>{p.listing.stateCode}</td>
                 <td>{fmtMiles(p.miles)} {p.direction}</td>
@@ -55,10 +60,11 @@ const schema = [
         </table>
       </div>
       {anyTrip && <p class="small muted">"Not checked" means we haven't verified that detail yet, not that the answer is no. Open a waterfall's page for its trail, parking and swimming details where we have them.</p>}
+      </div>
     </article>
 
     <h2 style="margin-top:32px">The Picks</h2>
-    <div class="grid-3">
+    <div class="grid-3" id="hub-picks">
       {h.picks.map((p) => <ListingCard listing={p.listing} miles={p.miles} direction={p.direction} />)}
     </div>
 

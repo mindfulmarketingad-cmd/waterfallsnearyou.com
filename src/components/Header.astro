@@ -7,6 +7,7 @@ const links = [
   { href: '/states', label: 'States' },
   { href: '/find', label: 'Find' },
   { href: '/map', label: 'Map' },
+  { href: '/plus', label: 'Plus' },
   { href: '/about', label: 'About' },
 ];
 const isCurrent = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(href + '/')) ? 'page' : undefined;
@@ -19,6 +20,7 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path === href
     <nav class="nav" aria-label="Main">
       <ul>
         {links.map((l) => <li><a href={l.href} aria-current={isCurrent(l.href)}>{l.label}</a></li>)}
+        <li><a href="/account" aria-current={isCurrent('/account')}>Account</a></li>
         <li><a href="/search" class="nav-search" aria-current={isCurrent('/search')}><Icon name="search" />Search</a></li>
       </ul>
     </nav>
@@ -26,6 +28,7 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path === href
       <summary aria-label="Open menu"><Icon name="menu" /></summary>
       <nav class="menu-panel" aria-label="Mobile">
         {links.map((l) => <a href={l.href} aria-current={isCurrent(l.href)}>{l.label}</a>)}
+        <a href="/account">Account</a>
         <a href="/search">Search</a>
       </nav>
     </details>
