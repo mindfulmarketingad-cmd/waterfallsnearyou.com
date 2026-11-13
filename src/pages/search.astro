@@ -7,9 +7,10 @@ import { fmtNum } from '../lib/format.mjs';
 
 const { listings, states, cities } = loadData();
 const topStates = [...states].sort((a, b) => b.listings.length - a.listings.length).slice(0, 12);
-const topTowns = [...cities].sort((a, b) => b.nearby.filter((n) => n.miles <= 30).length - a.nearby.filter((n) => n.miles <= 30).length).slice(0, 18);
+const topTowns = cities.filter(publishedCity).sort((a, b) => b.nearby.filter((n) => n.miles <= 30).length - a.nearby.filter((n) => n.miles <= 30).length).slice(0, 18);
 const posts = getPosts().slice(0, 4);
 import { featuredPhoto } from '../lib/photos.mjs';
+import { publishedCity } from '../lib/publish.mjs';
 const image = featuredPhoto('/search').src;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }];
 ---
@@ -29,7 +30,7 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }];
     <div class="wrap">
       <h2>Popular States</h2>
       <ul class="tile-list">{topStates.map((s) => <li><a href={s.url}><span>{s.name}</span><span class="count">{s.listings.length}</span></a></li>)}</ul>
-      <h2 style="margin-top:36px">Towns With the Most Waterfalls Nearby</h2>
+      <h2 style="margin-top:36px">Towns With Waterfall Guides</h2>
       <ul class="tile-list">{topTowns.map((c) => <li><a href={c.url}><span>{c.name}, {c.stateCode}</span><span class="count">{c.nearby.filter((n) => n.miles <= 30).length}</span></a></li>)}</ul>
     </div>
   </section>
@@ -81,7 +82,7 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }];
     for (const c of index.c) { const sc = scoreText(`${c[0]} ${c[2]}`); if (sc) out.push({ kind: 'Town', title: `Waterfalls near ${c[0]}, ${c[2]}`, sub: `${c[3]} waterfalls within 30 miles`, url: c[1], score: sc + 3 }); }
     for (const l of index.l) {
       const sc = Math.max(scoreText(`${l[0]} ${l[10]}`) * 1.5, scoreText(`${l[0]} ${l[2]} ${l[3]} ${l[6]} county ${l[10]}`));
-      if (sc) out.push({ kind: 'Waterfall', title: l[0], sub: `${l[2]}, ${l[3]}${l[6] ? ` · ${l[6]} County` : ''}`, url: l[1], score: sc + l[11] / 10 });
+      if (sc) out.push({ kind: 'Waterfall', title: l[0], sub: `${l[2]}, ${l[3]}${l[6] ? ` · ${l[6]} County` : ''}`, url: l[13] || l[1], score: sc + l[11] / 10 });
     }
     for (const b of index.b) { const sc = scoreText(`${b[0]} ${b[2]}`); if (sc) out.push({ kind: 'Guide', title: b[0], sub: b[2], url: b[1], score: sc - 0.5 }); }
     out.sort((a, b) => b.score - a.score);
@@ -103,7 +104,7 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }];
     status.textContent = 'Finding your location...';
     try {
       const [pos, index] = await Promise.all([browserLocation(), loadIndex()]);
-      const rows = nearest(index, pos, 25).map(({ row, d }) => ({ kind: `${fmt(d)} mi`, title: row[0], sub: `${row[2]}, ${row[3]}${row[6] ? ` · ${row[6]} County` : ''}`, url: row[1] }));
+      const rows = nearest(index, pos, 25).map(({ row, d }) => ({ kind: `${fmt(d)} mi`, title: row[0], sub: `${row[2]}, ${row[3]}${row[6] ? ` · ${row[6]} County` : ''}`, url: row[13] || row[1] }));
       status.textContent = 'The 25 closest waterfalls to your location (straight-line distance):';
       render(rows);
       void imageOf;

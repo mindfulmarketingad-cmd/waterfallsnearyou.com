@@ -2,19 +2,23 @@
 import StaticPage from '../components/StaticPage.astro';
 import { loadData } from '../lib/core.mjs';
 import { fmtNum } from '../lib/format.mjs';
+import { publishedCity, publishedListing } from '../lib/publish.mjs';
 import { SITE } from '../config.mjs';
 const { listings, states, cities } = loadData();
+const pages = listings.filter(publishedListing);
+const towns = cities.filter(publishedCity);
 const schema = [{ '@type': 'AboutPage', name: 'About WaterfallsNearYou', url: `${SITE.url}/about`, about: { '@id': `${SITE.url}/#organization` }, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` } }];
 ---
-<StaticPage title="About WaterfallsNearYou | Our Data and Mission" h1="About WaterfallsNearYou" eyebrow="Our story" description={`WaterfallsNearYou is a free directory of ${fmtNum(listings.length)} named US waterfalls built from official USGS data. Learn where our data comes from and how we keep it accurate.`} intro="A free, data-first directory that helps people find waterfalls near them and visit them safely." schema={schema}>
+<StaticPage title="About WaterfallsNearYou | Our Data and Mission" h1="About WaterfallsNearYou" eyebrow="Our story" description={`WaterfallsNearYou lists ${fmtNum(listings.length)} named US waterfalls from official USGS data, with full pages for the ${fmtNum(pages.length)} falls that have visitor or written records.`} intro="A free, data-first directory that helps people find waterfalls near them and visit them safely." schema={schema}>
   <h2>Why WaterfallsNearYou exists</h2>
-  <p>Search for "waterfalls near me" and you usually get the same handful of famous falls. Meanwhile, thousands of named waterfalls sit a short drive from where people live, recorded on federal topographic maps but missing from most travel sites. WaterfallsNearYou was built to close that gap: one page for every officially named waterfall in the United States, organized around the towns people actually live in and travel to.</p>
+  <p>Search for "waterfalls near me" and you usually get the same handful of famous falls. Meanwhile, thousands of named waterfalls sit a short drive from where people live, recorded on federal topographic maps but missing from most travel sites. WaterfallsNearYou lists every officially named waterfall we can tie to a public record, and it gives a full page to the falls where visitors or the USGS have left something specific to say.</p>
 
   <h2>What you will find here</h2>
   <ul>
-    <li><strong>{fmtNum(listings.length)} waterfall pages</strong>, each with GPS coordinates, county, the USGS 7.5-minute topographic map name, named landmarks nearby, the closest other waterfalls and links to directions.</li>
-    <li><strong>{fmtNum(cities.length)} town guides</strong> that rank every nearby waterfall by distance, so you can start from a place you know.</li>
-    <li><strong>{states.length} state guides</strong> covering the {states.length - 1} states with a named waterfall plus the District of Columbia.</li>
+    <li><strong>{fmtNum(pages.length)} waterfall pages</strong> for falls with a Google rating from 25 or more reviews, a sourced trip guide, or a substantial USGS description. Each of those pages has coordinates, directions, nearby falls and whatever hours, fees or access notes the sources support.</li>
+    <li><strong>{fmtNum(listings.length - pages.length)} more named falls</strong> listed on their state page with county, nearest town and coordinates. They do not get a separate page until there is something specific to add. We would rather leave a field blank than invent a height, a trail length or a quote.</li>
+    <li><strong>{fmtNum(towns.length)} town guides</strong> for places with at least three of those full waterfall pages nearby.</li>
+    <li><strong>{states.length} state guides</strong> covering the {states.length - 1} states with a named waterfall plus the District of Columbia. Each one opens with how and where the water falls in that state, then the waterfall pages, then the name-and-coordinate list.</li>
     <li><strong>Practical guides</strong> on <a href="/blog/waterfall-safety-tips">safety</a>, <a href="/blog/best-time-to-visit-waterfalls">timing</a>, <a href="/blog/waterfall-photography-tips">photography</a> and <a href="/blog/leave-no-trace-at-waterfalls">Leave No Trace</a>.</li>
   </ul>
 

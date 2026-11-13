@@ -23,7 +23,7 @@ const toGeoJSON = (points, highlight) => ({
   features: points.map((p) => ({
     type: 'Feature',
     geometry: { type: 'Point', coordinates: [p.ln, p.la] },
-    properties: { n: p.n, u: p.u, t: p.t, r: p.r || 0, c: p.c || 0, h: highlight && p.u === highlight ? 1 : 0 },
+    properties: { n: p.n, u: p.u, t: p.t, r: p.r || 0, c: p.c || 0, k: p.k || '', h: highlight && p.u === highlight ? 1 : 0 },
   })),
 });
 
@@ -44,7 +44,7 @@ function popupNode(props) {
   const go = document.createElement('div');
   const link = document.createElement('a');
   link.href = props.u;
-  link.textContent = 'View waterfall';
+  link.textContent = props.k === 'ref' ? 'See it on the state list' : 'View waterfall';
   go.append(link);
   box.append(a, meta, go);
   return box;

@@ -1,9 +1,10 @@
-// Which URLs search engines should index. Everything else is still built and linkable, but gets
-// <meta name="robots" content="noindex, follow"> and is left out of sitemap.xml and /sitemap.
-// Rule: index only pages with substantial unique content. Hand-written posts, state hubs, static
-// pages, the /find and /map hubs, town hubs with 3+ indexable waterfalls, and waterfall pages with real visitor data (25+ Google reviews) or a USGS description/history
-// of 200+ characters. Data-generated list/guide pages and all /find and /map sub-pages, and town hubs with fewer
-// than 3 indexable waterfalls are noindexed as thin or templated.
+// Which URLs search engines should index. Rule: index only pages with substantial unique content.
+// Hand-written posts, state hubs, static pages, the /find and /map hubs, town hubs with 3+ indexable
+// waterfalls, and waterfall pages with real visitor data (25+ Google reviews), a sourced trip guide,
+// or a USGS description/history of 200+ characters.
+// Thinner waterfall and town URLs are not built. They 301 to the town page or the state gazetteer
+// (see src/lib/publish.mjs). Data-generated list pages and /find and /map sub-pages are still built
+// where the list itself is the content, but they are noindexed and do not carry ads.
 import { loadData, staticPagePaths } from './core.mjs';
 import { getPosts } from './blog.mjs';
 import { getSmallest, getRoadside } from './bestof.mjs';

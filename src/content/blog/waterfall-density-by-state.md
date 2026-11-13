@@ -159,7 +159,7 @@ Divide by people instead of acres and the Mountain West takes over. Wyoming and 
 - **Wyoming and Montana lead** because sparse population magnifies mid-size waterfall inventories.
 - **Maine and Hawaii appear near the top on both lists**, a rare combination of high areal density and high per-resident availability.
 - **Big coastal states fall.** California and New York have large named-falls inventories, but tens of millions of residents pull their per-capita ranks down.
-- **A high per-resident score is not a travel guide by itself.** Alaska ranks well per resident while remaining hard to reach; always check access, seasons and land ownership on the individual waterfall pages.
+- **A high per-resident score is not a travel guide by itself.** Alaska ranks well per resident while remaining hard to reach; always check access, seasons and land ownership on the waterfall's page or its state list.
 
 ## How to Use These Rankings
 
