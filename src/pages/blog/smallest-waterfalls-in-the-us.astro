@@ -13,6 +13,7 @@ import { listingImage, listingImageAlt, imgFallback, directionsUrl, fmtNum, star
 import { SITE } from '../../config.mjs';
 import Photo from '../../components/Photo.astro';
 import { pagePhoto, listingPhoto } from '../../lib/photos.mjs';
+import { listingHref } from '../../lib/publish.mjs';
 
 const post = getSmallest();
 const { items } = post;
@@ -23,14 +24,14 @@ const minutes = Math.max(3, Math.round((items.length * 90 + 450) / 230));
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: 'Smallest Waterfalls in the US', url: post.url }];
 const states = [...new Set(items.map((i) => i.listing.state))];
 const faqs = [
-  { q: 'What is the smallest named waterfall in the US?', a: `Among named waterfalls with a recorded height, <a href="${items[0].listing.url}">${items[0].listing.name}</a> in ${items[0].listing.state} is the smallest at about ${items[0].h.feet} feet${items[1].h.feet === items[0].h.feet ? `, tied with <a href="${items[1].listing.url}">${items[1].listing.name}</a> in ${items[1].listing.state}` : ''}.` },
+  { q: 'What is the smallest named waterfall in the US?', a: `Among named waterfalls with a recorded height, <a href="${listingHref(items[0].listing)}">${items[0].listing.name}</a> in ${items[0].listing.state} is the smallest at about ${items[0].h.feet} feet${items[1].h.feet === items[0].h.feet ? `, tied with <a href="${listingHref(items[1].listing)}">${items[1].listing.name}</a> in ${items[1].listing.state}` : ''}.` },
   { q: 'How were these heights measured?', a: `Each height comes from an explicit figure in the waterfall's USGS Geographic Names Information System record or its Google listing description. We found stated heights for ${post.measured} of the named waterfalls in our directory; most named falls have no official height on record.` },
   { q: 'Why does a 3-foot drop count as a waterfall?', a: 'There is no minimum height in US naming standards. A feature is a waterfall if water drops steeply or vertically over a ledge, and the name is official once it is recorded in the federal gazetteer.' },
   { q: 'Are small waterfalls safer to visit?', a: 'Not always. Low ledges on big rivers can form recirculating currents that trap swimmers. Read <a href="/blog/swimming-at-waterfalls">is it safe to swim at waterfalls</a> before getting in the water.' },
 ];
 const schema = [
   { '@type': 'BlogPosting', headline: post.title, description: post.description, image: image.startsWith('http') ? image : `${SITE.url}${image}`, datePublished: LISTS_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${post.url}`, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` } },
-  { '@type': 'ItemList', name: post.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
+  { '@type': 'ItemList', name: post.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${listingHref(i.listing).split('#')[0]}`, name: i.listing.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---
@@ -52,7 +53,7 @@ const schema = [
         <p>Most named waterfalls have no official height on record. We searched the USGS Geographic Names Information System and Google listing descriptions for every waterfall in our directory and found an explicit height for {post.measured} of them. These ten are the smallest of that group, excluding falls recorded on private land. Heights are approximate and describe the drop, not the width.</p>
         <table>
           <thead><tr><th>#</th><th>Waterfall</th><th>State</th><th>Height</th></tr></thead>
-          <tbody>{items.map((i, n) => <tr><td>{n + 1}</td><td><a href={i.listing.url}>{displayName(i.listing)}</a></td><td><a href={`/states/${i.listing.stateSlug}`}>{i.listing.state}</a></td><td>About {i.h.feet} ft</td></tr>)}</tbody>
+          <tbody>{items.map((i, n) => <tr><td>{n + 1}</td><td><a href={listingHref(i.listing)}>{displayName(i.listing)}</a></td><td><a href={`/states/${i.listing.stateSlug}`}>{i.listing.state}</a></td><td>About {i.h.feet} ft</td></tr>)}</tbody>
         </table>
       </div>
       <ol class="pc-list" style="margin:22px 0 10px">

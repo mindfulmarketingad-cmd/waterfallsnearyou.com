@@ -1,17 +1,12 @@
 ---
-// One route for every single-segment blog URL: written guide articles (Markdown) and the
-// "[Waterfall] Guide Before Visiting" posts.
+// Hand-written guides in src/content/blog. Templated "before you visit" posts are not built;
+// their old URLs 301 to the waterfall page or the state list.
 import ArticlePost from '../../components/ArticlePost.astro';
-import WaterfallGuide from '../../components/WaterfallGuide.astro';
 import { getPosts } from '../../lib/blog.mjs';
-import { getGuides } from '../../lib/guides.mjs';
 
 export function getStaticPaths() {
-  const articles = getPosts().map((p) => ({ params: { slug: p.slug }, props: { kind: 'article', slug: p.slug, url: p.url } }));
-  const taken = new Set(getPosts().map((p) => p.slug));
-  const guides = getGuides().filter((g) => !taken.has(g.slug)).map((g) => ({ params: { slug: g.slug }, props: { kind: 'guide', slug: g.slug, url: g.url } }));
-  return [...articles, ...guides];
+  return getPosts().map((p) => ({ params: { slug: p.slug }, props: { slug: p.slug } }));
 }
-const { kind, slug, url } = Astro.props;
+const { slug } = Astro.props;
 ---
-{kind === 'guide' ? <WaterfallGuide url={url} /> : <ArticlePost slug={slug} />}
+<ArticlePost slug={slug} />

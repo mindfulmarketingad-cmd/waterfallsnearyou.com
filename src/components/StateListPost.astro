@@ -10,6 +10,7 @@ import { displayName, fmtNum, fmtMiles, listJoin } from '../lib/format.mjs';
 import { cardSummary } from '../lib/cards.mjs';
 import { pagePhoto } from '../lib/photos.mjs';
 import { SITE } from '../config.mjs';
+import { cityHref, listingHref } from '../lib/publish.mjs';
 
 interface Props { url: string }
 const post = getStateLists().find((p) => p.url === Astro.props.url);
@@ -21,7 +22,7 @@ const updated = new Date();
 const published = LISTS_PUBLISHED;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: post.title.replace(/ \(\d{4}( Updated)?\)$/, ''), url: post.url }];
 const first = items[0].listing;
-const towns = [...new Set(items.map((i) => i.listing.city))].slice(0, 6);
+const towns = [...new Set(items.map((i) => i.listing.city))].filter((c) => c.url === cityHref(c)).slice(0, 6);
 const siblings = listsForState(state).filter((p) => p !== post);
 const label = { best: 'best', beautiful: 'most beautiful', 'must-see': 'must-see', hiking: 'best hiking', 'most-visited': 'most visited' }[post.kind];
 const words = items.reduce((s, i) => s + i.why.join(' ').split(/\s+/).length + 40, 350);
@@ -34,7 +35,7 @@ const lead = {
   hiking: `These ${items.length} ${state.name} waterfalls are reached on foot and rated highly by the people who hiked them, led by ${listJoin(items.slice(0, 3).map((i) => displayName(i.listing)))}.`,
 }[post.kind];
 const faqs = [
-  { q: `What is the ${label === 'must-see' ? 'number one must-see' : label} waterfall in ${state.name}?`, a: `${first.name} tops our ${BEST_YEAR} list${first.os?.rating ? `, with a ${first.os.rating.toFixed(1)}-star rating from ${fmtNum(first.os.reviews)} Google reviews` : ''}. It is near <a href="${first.city.url}">${first.city.name}</a>${first.county ? ` in ${first.county} County` : ''}.` },
+  { q: `What is the ${label === 'must-see' ? 'number one must-see' : label} waterfall in ${state.name}?`, a: `${first.name} tops our ${BEST_YEAR} list${first.os?.rating ? `, with a ${first.os.rating.toFixed(1)}-star rating from ${fmtNum(first.os.reviews)} Google reviews` : ''}. It is near <a href="${cityHref(first.city)}">${first.city.name}</a>${first.county ? ` in ${first.county} County` : ''}.` },
   { q: `How was this list made?`, a: post.method },
   ...(post.route ? [{ q: `Can you see all five in one trip?`, a: `The five are about ${Math.round(post.route.total)} straight-line miles apart in total when visited in the order suggested above. Most people split them across two or more days.` }] : []),
   { q: `How many waterfalls are in ${state.name}?`, a: `Our directory lists ${fmtNum(state.listings.length)} waterfalls in ${state.name}. See every one, with filters and a map, on the <a href="${state.url}">${state.name} waterfalls page</a>.` },
@@ -92,8 +93,8 @@ const schema = [
         <h2>A Route Linking All Five</h2>
         <p>Starting from the northernmost pick and always heading to the nearest remaining one, the five cover about {Math.round(post.route.total)} straight-line miles. Road distances are longer.</p>
         <ol>
-          <li><a href={post.route.legs[0].from.url}>{post.route.legs[0].from.name}</a> (start, near <a href={post.route.legs[0].from.city.url}>{post.route.legs[0].from.city.name}</a>)</li>
-          {post.route.legs.map((g) => <li><a href={g.to.url}>{g.to.name}</a>, about {fmtMiles(g.miles)} {g.dir}</li>)}
+          <li><a href={listingHref(post.route.legs[0].from)}>{post.route.legs[0].from.name}</a> (start, near <a href={cityHref(post.route.legs[0].from.city)}>{post.route.legs[0].from.city.name}</a>)</li>
+          {post.route.legs.map((g) => <li><a href={listingHref(g.to)}>{g.to.name}</a>, about {fmtMiles(g.miles)} {g.dir}</li>)}
         </ol>
       </div>
     )}

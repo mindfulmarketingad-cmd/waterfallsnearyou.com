@@ -12,10 +12,12 @@ import { SITE } from '../config.mjs';
 import Photo from '../components/Photo.astro';
 import { featuredPhoto, pagePhoto } from '../lib/photos.mjs';
 import { getFind } from '../lib/find.mjs';
+import { publishedCity, publishedListing } from '../lib/publish.mjs';
 const splitPhoto = pagePhoto('/states', [...loadData().listings].filter((l) => l.os?.photo).sort((a, b) => b.os.reviews - a.os.reviews).slice(3));
 
 const { listings, states, cities } = loadData();
-const featured = [...listings].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name)).slice(0, 12);
+const featured = listings.filter(publishedListing).sort((a, b) => b.score - a.score || a.name.localeCompare(b.name)).slice(0, 12);
+const townGuides = cities.filter(publishedCity);
 const ranked = [...states].sort((a, b) => b.listings.length - a.listings.length);
 const posts = getPosts();
 const pick = (slug) => posts.find((p) => p.slug === slug) || posts[0];
@@ -80,7 +82,7 @@ const findTypes = getFind();
       <div class="split-copy">
         <span class="eyebrow light">Explore the directory</span>
         <h2>Visit {fmtNum(listings.length)} waterfalls in {states.length - 1} states and DC</h2>
-        <p>From the glacier-carved valleys of the Pacific Northwest to the Blue Ridge escarpment and the ledges of the Great Lakes, every named waterfall in the federal gazetteer has its own page with coordinates, the USGS topo map, nearby towns and directions.</p>
+        <p>From the glacier-carved valleys of the Pacific Northwest to the Blue Ridge escarpment and the ledges of the Great Lakes, every named waterfall in the federal gazetteer is listed with coordinates. Falls with visitor ratings, a written USGS record, or a checked trip guide also have their own page.</p>
         <a class="btn btn-light" href="/states">Browse waterfalls by state</a>
       </div>
     </div>
@@ -138,7 +140,7 @@ const findTypes = getFind();
         <span class="eyebrow">Why we built this</span>
         <h2>Hidden locations, real coordinates</h2>
         <p>Most waterfall lists repeat the same famous falls. We started from the official federal record instead: the U.S. Geological Survey's Geographic Names Information System, which catalogs every officially named waterfall in the country, including hundreds that rarely appear in guidebooks.</p>
-        <p>Each waterfall is matched to its nearest town, so you can open the page for a place you know and see every named fall around it, ranked by distance. Listings include GPS coordinates, the USGS topographic map name, nearby landmarks and one-tap directions.</p>
+        <p>Each waterfall is matched to its nearest town. Open a state to see every named fall, or open a town guide where several falls have enough information to plan a visit. Listings with their own page include GPS coordinates, the USGS topographic map name, nearby landmarks and one-tap directions.</p>
         <a class="btn btn-primary" href="/about">About WaterfallsNearYou</a>
       </div>
       <figure class="about-photo">
@@ -152,7 +154,7 @@ const findTypes = getFind();
       <div class="stats">
         <div><strong>{fmtNum(listings.length)}</strong><span>waterfalls listed</span></div>
         <div><strong>{states.length - 1}</strong><span>states plus DC</span></div>
-        <div><strong>{fmtNum(cities.length)}</strong><span>town guides</span></div>
+        <div><strong>{fmtNum(townGuides.length)}</strong><span>town guides</span></div>
         <div><strong>{ranked[0].listings.length}</strong><span>waterfalls in {ranked[0].name}</span></div>
       </div>
     </div>
@@ -242,7 +244,7 @@ const findTypes = getFind();
 </style>
 
 <script>
-  import { loadIndex, el, nearest, ipLocation, browserLocation, imageOf, store } from '../scripts/directory.js';
+  import { loadIndex, el, nearestPages, ipLocation, browserLocation, imageOf, store } from '../scripts/directory.js';
 
   // Hero video: pick the orientation that fits the screen, skip it for reduced motion / data saver.
   const video = document.getElementById('hero-video') as HTMLVideoElement;
@@ -274,7 +276,7 @@ const findTypes = getFind();
       el('article', { class: 'card' },
         photoEl(row),
         el('div', { class: 'body' },
-          el('h3', {}, el('a', { href: row[1] }, row[0])),
+          el('h3', {}, el('a', { href: row[13] || row[1] }, row[0])),
           el('div', { class: 'meta' }, `${row[2]}, ${row[3]} · ${fmt(d)} mi away`),
         ),
       ),
@@ -282,14 +284,13 @@ const findTypes = getFind();
 
   async function show(point, label) {
     const index = await loadIndex();
-    const rows = nearest(index, point, 12);
+    const rows = nearestPages(index, point, 12);
     if (!rows.length) return;
     carousel.replaceChildren(...rows.map(card));
     carousel.scrollTo({ left: 0 });
-    status.textContent = `The closest named waterfalls to ${label}, by straight-line distance.`;
-    const town = index.c
-      .map((c) => c)
-      .find((c) => c[1] === rows[0].row[1].split('/').slice(0, 3).join('/'));
+    status.textContent = `The closest waterfalls with a full guide near ${label}, by straight-line distance.`;
+    const cityPath = rows[0].row[1].split('/').slice(0, 3).join('/');
+    const town = index.c.find((c) => c[4] === cityPath);
     more.replaceChildren(...(town ? [el('a', { href: town[1] }, `See every waterfall near ${town[0]}, ${town[2]}`)] : []));
   }
 

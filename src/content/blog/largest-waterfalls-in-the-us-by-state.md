@@ -43,11 +43,11 @@ Rankings follow total height as listed by the World Waterfall Database, checked 
 
 ### 1. Oloʻupena Falls, Hawaii
 
-[Oloʻupena Falls](/hawaii/waialua/oloupena-falls) is usually cited as the tallest waterfall in the United States at about 2,953 feet (900 meters). It falls from a short, seasonal stream down the sea cliffs of northeastern Molokai, between Pelekunu and Wailau valleys, and it lands almost at the ocean. The height has never been formally surveyed, and in dry or windy weather the flow can fade partway down. There is no trail or road to it. Visitors see it from scenic flights or boats, best after heavy rain.
+[Oloʻupena Falls](/states/hawaii#wf-hawaii--waialua--oloupena-falls) is usually cited as the tallest waterfall in the United States at about 2,953 feet (900 meters). It falls from a short, seasonal stream down the sea cliffs of northeastern Molokai, between Pelekunu and Wailau valleys, and it lands almost at the ocean. The height has never been formally surveyed, and in dry or windy weather the flow can fade partway down. There is no trail or road to it. Visitors see it from scenic flights or boats, best after heavy rain.
 
 ### 2. Puʻukaʻōkū Falls, Hawaii
 
-[Puʻukaʻōkū Falls](/hawaii/waialua/puukaoku-falls) drops about 2,756 feet (840 meters) down the same stretch of Molokai sea cliffs. It is generally ranked the second-tallest waterfall in the country. There is no public access to the base. It can only be seen from the air or the water.
+[Puʻukaʻōkū Falls](/states/hawaii#wf-hawaii--waialua--puukaoku-falls) drops about 2,756 feet (840 meters) down the same stretch of Molokai sea cliffs. It is generally ranked the second-tallest waterfall in the country. There is no public access to the base. It can only be seen from the air or the water.
 
 ### 3. Waihilau Falls, Hawaii
 
@@ -79,7 +79,7 @@ Seahpo Peak Falls is about 2,200 feet tall and drops in six tiers. The largest i
 
 ### 10. Kahiwa Falls, Hawaii
 
-[Kahiwa Falls](/hawaii/waialua/kahiwa-falls) is a tiered waterfall on Molokai's north shore, between Wailau and Papalaua valleys. Its total height is often given as about 2,165 feet, though some sources count only about 1,749 feet of the main fall. It drops in six tiers, the tallest about 600 feet. In strong winds, the water can be blown back upward. Like the other Molokai falls, it can only be seen from the sea or the air.
+[Kahiwa Falls](/states/hawaii#wf-hawaii--waialua--kahiwa-falls) is a tiered waterfall on Molokai's north shore, between Wailau and Papalaua valleys. Its total height is often given as about 2,165 feet, though some sources count only about 1,749 feet of the main fall. It drops in six tiers, the tallest about 600 feet. In strong winds, the water can be blown back upward. Like the other Molokai falls, it can only be seen from the sea or the air.
 
 ### Top 10 Summary
 
@@ -98,7 +98,7 @@ Seahpo Peak Falls is about 2,200 feet tall and drops in six tiers. The largest i
 
 By state, that is five waterfalls in Hawaii, four in Washington and one in California. For more on the falls you can actually walk to in those states, see our ranked guides to the [best waterfalls in Hawaii](/blog/best-waterfalls-in-hawaii), the [best waterfalls in Washington](/blog/best-waterfalls-in-washington) and the [best waterfalls in California](/blog/best-waterfalls-in-california).
 
-Just outside the top 10, Yosemite has two more giants that are easier to see than most of the falls above. The NPS lists [Sentinel Fall](/california/yosemite-valley/sentinel-fall) at about 2,000 feet and [Ribbon Fall](/california/yosemite-valley/ribbon-fall) at 1,612 feet. Both usually flow only in spring.
+Just outside the top 10, Yosemite has two more giants that are easier to see than most of the falls above. The NPS lists [Sentinel Fall](/california/yosemite-valley#wf-california--yosemite-valley--sentinel-fall) at about 2,000 feet and [Ribbon Fall](/california/yosemite-valley#wf-california--yosemite-valley--ribbon-fall) at 1,612 feet. Both usually flow only in spring.
 
 ## The Largest US Waterfalls by Volume
 
@@ -114,12 +114,12 @@ Few states have an undisputed tallest waterfall. This table covers states where 
 
 | State | Waterfall | Approx. height (ft) | Notes |
 |---|---|---|---|
-| [Hawaii](/states/hawaii) | [Oloʻupena Falls](/hawaii/waialua/oloupena-falls) | 2,950 | Tallest in the US; never formally surveyed |
+| [Hawaii](/states/hawaii) | [Oloʻupena Falls](/states/hawaii#wf-hawaii--waialua--oloupena-falls) | 2,950 | Tallest in the US; never formally surveyed |
 | [Washington](/states/washington) | Colonial Creek Falls | 2,568 | Tallest in the lower 48 per the World Waterfall Database |
 | [California](/states/california) | [Yosemite Falls](/california/yosemite-valley/yosemite-falls) | 2,425 | NPS figure; three tiers |
 | [Georgia](/states/georgia) | [Amicalola Falls](/georgia/dawsonville/amicalola-falls) | 729 | Often called the tallest cascading waterfall in the Southeast |
 | [Oregon](/states/oregon) | [Multnomah Falls](/oregon/cascade-locks/multnomah-falls) | 620 | Upper drop of 542 ft and lower drop of 69 ft |
-| [North Carolina](/states/north-carolina) | [Whitewater Falls](/north-carolina/brevard/whitewater-falls) | 411 | U.S. Forest Service figure for the upper falls; some argue it is lower |
+| [North Carolina](/states/north-carolina) | [Whitewater Falls](/north-carolina/brevard#wf-north-carolina--brevard--whitewater-falls) | 411 | U.S. Forest Service figure for the upper falls; some argue it is lower |
 | [New York](/states/new-york) | [Kaaterskill Falls](/new-york/palenville/kaaterskill-falls) | 230–260 | Two tiers; the commonly cited 260 ft has been questioned |
 
 For easier-to-reach eastern falls, see our guides to the [best waterfalls in Georgia](/blog/best-waterfalls-in-georgia) and the [best waterfalls in North Carolina](/blog/best-waterfalls-in-north-carolina).

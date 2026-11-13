@@ -386,5 +386,10 @@
       "destination": "/states/wyoming",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    { "source": "/:a/:b", "destination": "/api/redirect?a=:a&b=:b" },
+    { "source": "/:a/:b/:c", "destination": "/api/redirect?a=:a&b=:b&c=:c" },
+    { "source": "/:a/:b/:c/:d", "destination": "/api/redirect?a=:a&b=:b&c=:c&d=:d" }
   ]
 }

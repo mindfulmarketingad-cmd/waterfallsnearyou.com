@@ -58,6 +58,8 @@ const graph = [
 ];
 const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
 const isProd = import.meta.env.PROD;
+// Auto ads only on indexable pages. Thin, noindexed and utility pages must not request ads.
+const showAds = isProd && isIndexable(path) && path !== '/sitemap';
 ---
 <!doctype html>
 <html lang="en">
@@ -101,7 +103,7 @@ const isProd = import.meta.env.PROD;
 
       gtag('config', 'G-26DN17F33R');
     </script>}
-    {isProd && <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}`} crossorigin="anonymous"></script>}
+    {showAds && <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}`} crossorigin="anonymous"></script>}
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>

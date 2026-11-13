@@ -4,8 +4,11 @@ import { listingPhoto, sized } from '../lib/photos.mjs';
 import { stars, fmtNum, addressText, directionsUrl, countyUrl, ratingsUrl, mapUrl, displayName } from '../lib/format.mjs';
 import { features, FEATURES } from '../lib/cards.mjs';
 import { heightOf, fmtHeight } from '../lib/heights.mjs';
+import { cityHref, listingHref, publishedListing } from '../lib/publish.mjs';
 interface Props { listing: any; rank: number; lead?: string; why?: string[]; anchor?: string }
 const { listing: l, rank, lead, why = [], anchor } = Astro.props;
+const href = listingHref(l);
+const own = publishedListing(l);
 const photo = listingPhoto(l);
 const thumb = sized(photo.src, 320, 214);
 const onerror = photo.fallback ? `this.onerror=null;this.src='${photo.fallback}'` : undefined;
@@ -18,18 +21,18 @@ const more = lead ? why : why.slice(1);
 <li class="pc" id={anchor || `w${rank}`}>
   <span class="pc-num" aria-hidden="true">{rank}</span>
   <div class="pc-main">
-    <a class="pc-thumb" href={l.url} tabindex="-1" aria-hidden="true">
+    <a class="pc-thumb" href={href} tabindex="-1" aria-hidden="true">
       <img src={thumb} alt="" width="160" height="107" loading={rank <= 2 ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" onerror={onerror} />
     </a>
     <div class="pc-body">
-      <h2 class="pc-name"><span class="sr-only">{rank}. </span><a href={l.url}>{displayName(l)}</a></h2>
+      <h2 class="pc-name"><span class="sr-only">{rank}. </span><a href={href}>{displayName(l)}</a></h2>
       <p class="pc-meta">
-        {l.os?.rating ? <a class="pc-rating" href={ratingsUrl(l)}><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span> <strong>{l.os.rating.toFixed(1)}</strong> <span class="muted">{fmtNum(l.os.reviews)} reviews</span></a> : null}
-        <a href={l.city.url}>{l.city.name}, {l.stateCode}</a>
+        {l.os?.rating && own ? <a class="pc-rating" href={ratingsUrl(l)}><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span> <strong>{l.os.rating.toFixed(1)}</strong> <span class="muted">{fmtNum(l.os.reviews)} reviews</span></a> : l.os?.rating ? <span class="pc-rating"><span class="stars" aria-hidden="true">{stars(l.os.rating)}</span> <strong>{l.os.rating.toFixed(1)}</strong> <span class="muted">{fmtNum(l.os.reviews)} reviews</span></span> : null}
+        <a href={cityHref(l.city)}>{l.city.name}, {l.stateCode}</a>
         {l.county && <a href={countyUrl(l)}>{l.county} County</a>}
       </p>
       {summary && <p class="pc-sum">{summary}</p>}
-      <p class="pc-addr"><a href={mapUrl(l)}>{addressText(l)}</a></p>
+      <p class="pc-addr">{own ? <a href={mapUrl(l)}>{addressText(l)}</a> : addressText(l)}</p>
       {height && <p class="pc-height">Height: <strong>{fmtHeight(height)}</strong> <span class="muted">(source: {height.url ? <a href={height.url} rel="nofollow noopener" target="_blank">{height.source}</a> : height.source})</span></p>}
       {(feats.length > 0 || tags.length > 0) && (
         <p class="pc-tags">
@@ -44,7 +47,7 @@ const more = lead ? why : why.slice(1);
         </details>
       )}
       <p class="pc-actions">
-        <a class="btn btn-green" href={l.url}>View details</a>
+        <a class="btn btn-green" href={href}>{own ? 'View details' : 'On the state list'}</a>
         <a class="btn btn-outline" href={directionsUrl(l)} rel="nofollow noopener" target="_blank">Directions</a>
       </p>
     </div>

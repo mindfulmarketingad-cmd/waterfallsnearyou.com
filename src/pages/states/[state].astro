@@ -13,6 +13,8 @@ import { pagePhoto, stateFeatured, listingPhoto } from '../../lib/photos.mjs';
 import { features, FEATURES } from '../../lib/cards.mjs';
 import { getPosts, postsLinkingTo } from '../../lib/blog.mjs';
 import { SITE } from '../../config.mjs';
+import Gazetteer from '../../components/Gazetteer.astro';
+import { cityHref, listingHref, publishedCity, publishedListing } from '../../lib/publish.mjs';
 
 export function getStaticPaths() {
   return loadData().states.map((s) => ({ params: { state: s.slug }, props: { name: s.name } }));
@@ -32,9 +34,12 @@ const n = ins.count;
 const gnisN = state.listings.filter((l) => l.source === 'gnis').length;
 const isDC = state.code === 'DC';
 const all = state.listings; // already ranked by rating and review volume
-const towns = [...new Set(all.map((l) => l.city))].sort((a, b) => a.name.localeCompare(b.name));
-const counties = [...new Set(all.map((l) => l.county).filter(Boolean))].sort();
-const featCounts = Object.keys(FEATURES).map((k) => ({ k, label: FEATURES[k], count: all.filter((l) => features(l).includes(k)).length })).filter((f) => f.count > 0);
+const pages = all.filter(publishedListing);
+const gazetteer = all.filter((l) => !publishedListing(l)).sort((a, b) => a.name.localeCompare(b.name));
+const guideTowns = [...state.cities].filter(publishedCity).sort((a, b) => a.name.localeCompare(b.name));
+const towns = [...new Set(pages.map((l) => l.city))].sort((a, b) => a.name.localeCompare(b.name));
+const counties = [...new Set(pages.map((l) => l.county).filter(Boolean))].sort();
+const featCounts = Object.keys(FEATURES).map((k) => ({ k, label: FEATURES[k], count: pages.filter((l) => features(l).includes(k)).length })).filter((f) => f.count > 0);
 const topCounties = ins.counties.slice(0, 3);
 const regions = (content?.regions || []).map((r) => {
   const set = new Set(r.counties.map((c) => c.toLowerCase()));
@@ -52,25 +57,41 @@ const lead = ins.mostReviewed[0];
 
 const faqs = [
   { q: `How many waterfalls are in ${state.name}?`, a: `Our directory lists ${fmtNum(n)} waterfall${n === 1 ? '' : 's'} in ${state.name}${gnisN < n ? ` (${fmtNum(gnisN)} officially named in the USGS Geographic Names Information System and ${fmtNum(n - gnisN)} added from Google Maps listings)` : ', all officially named in the USGS Geographic Names Information System'}, ${ordinal(ins.rank)} among the ${states.length} jurisdictions in our directory.${ins.counties.length > 2 ? ` ${ins.top3CountyShare}% of them are in just three counties: ${listJoin(topCounties.map((c) => `<a href="${countyUrl({ stateSlug: state.slug, county: c.name })}">${c.name}</a>`))}.` : ''}` },
-  ...(lead ? [{ q: `What is the most visited waterfall in ${state.name}?`, a: `By Google review count, <a href="${lead.url}">${lead.name}</a> near <a href="${lead.city.url}">${lead.city.name}</a> leads with ${fmtNum(lead.os.reviews)} reviews and a ${lead.os.rating.toFixed(1)} rating.${ins.mostReviewed[1] ? ` <a href="${ins.mostReviewed[1].url}">${ins.mostReviewed[1].name}</a> is next.` : ''}` }] : []),
+  ...(lead ? [{ q: `What is the most visited waterfall in ${state.name}?`, a: `By Google review count, <a href="${listingHref(lead)}">${lead.name}</a> near <a href="${cityHref(lead.city)}">${lead.city.name}</a> leads with ${fmtNum(lead.os.reviews)} reviews and a ${lead.os.rating.toFixed(1)} rating.${ins.mostReviewed[1] ? ` <a href="${listingHref(ins.mostReviewed[1])}">${ins.mostReviewed[1].name}</a> is next.` : ''}` }] : []),
   ...(content?.faqs || []),
-  ...(ins.busiestTown && n > 3 ? [{ q: `Which ${state.name} town has the most waterfalls nearby?`, a: `<a href="${ins.busiestTown.url}">${ins.busiestTown.name}</a> has ${ins.busiestTown.nearby.filter((x) => x.miles <= 30).length} named waterfalls within 30 miles, the most of any town in our ${state.name} directory.` }] : []),
+  ...(ins.busiestTown && n > 3 ? [{ q: `Which ${state.name} town has the most waterfalls nearby?`, a: `<a href="${cityHref(ins.busiestTown)}">${ins.busiestTown.name}</a> has ${ins.busiestTown.nearby.filter((x) => x.miles <= 30).length} named waterfalls within 30 miles, the most of any town in our ${state.name} directory.` }] : []),
 ];
 const schema = [
   { '@type': 'CollectionPage', name: title, url: `${SITE.url}${state.url}`, about: { '@type': isDC ? 'AdministrativeArea' : 'State', name: state.name }, description },
-  { '@type': 'ItemList', name: title, numberOfItems: all.length, itemListElement: all.slice(0, 50).map((l, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${l.url}`, name: l.name })) },
+  { '@type': 'ItemList', name: title, numberOfItems: pages.length, itemListElement: pages.slice(0, 50).map((l, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${l.url}`, name: l.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---
 <Base title={title} description={description} image={photo.src} imageAlt={photo.alt} breadcrumbs={crumbs} bandCrumbs schema={schema}>
   <PageBand title={title} crumbs={crumbs}>
-    <p>Every waterfall we track in {state.name}, ranked by rating and review volume across {fmtNum(towns.length)} towns. Search by name or town, or filter by feature. Always confirm access and conditions before you head out; trails and roads can close after storms.</p>
-    {guides.length > 0 && <p class="band-links">Guides: {guides.map((p, i) => <>{i ? <span class="sep">·</span> : ''}<a href={p.url}>{p.short}</a></>)}</p>}
+    <p>{fmtNum(n)} named waterfall{n === 1 ? '' : 's'} in {state.name}. {pages.length ? `${fmtNum(pages.length)} have a full page, with ratings, directions and conditions. ` : ''}The rest are listed by name and coordinates further down. Confirm access before you go. Trails and roads can close after storms.</p>
   </PageBand>
 
+  {content && (
+    <section class="wrap section-sm prose" aria-labelledby="overview">
+      <h2 id="overview">{n > 20 ? `Why ${state.name} Has So Many Waterfalls` : n > 3 ? `Where ${state.name}'s Waterfalls Are` : `Why ${state.name} Has So Few Waterfalls`}</h2>
+      {content.overview.map((p) => <p>{p}</p>)}
+    </section>
+  )}
+
+  {content && (
+    <section class="wrap section-sm prose" aria-labelledby="plan-h">
+      <h2 id="plan-h">Planning a {state.name} waterfall trip</h2>
+      <p>{content.bestTime}</p>
+      <p>{content.planning}</p>
+      {pages.length > 0 && <p><a class="btn btn-outline" href="#waterfalls" data-open-map>Search the {state.name} map</a></p>}
+    </section>
+  )}
+
+  {pages.length > 0 && (
   <section class="wrap section-sm" id="waterfalls" aria-labelledby="list-h">
     <div class="list-head">
-      <h2 id="list-h" class="list-count"><span data-count>{fmtNum(n)}</span> waterfalls on this page <a class="full-map" href={`/map/${state.slug}`}>Open the {state.name} waterfall map</a></h2>
+      <h2 id="list-h" class="list-count"><span data-count>{fmtNum(pages.length)}</span> waterfall {pages.length === 1 ? 'page' : 'pages'} <a class="full-map" href={`/map/${state.slug}`}>Open the {state.name} waterfall map</a></h2>
       <div class="view-toggle" role="group" aria-label="View" hidden>
         <button type="button" class="vt-btn" data-view="list" aria-pressed="true">List</button>
         <button type="button" class="vt-btn" data-view="map" aria-pressed="false">Map</button>
@@ -96,19 +117,22 @@ const schema = [
     <div class="state-map" hidden aria-label={`Map of waterfalls in ${state.name}`}></div>
 
     <ol class="sc-list">
-      {all.map((l, i) => <StateCard listing={l} rank={i + 1} />)}
+      {pages.map((l, i) => <StateCard listing={l} rank={i + 1} />)}
     </ol>
     <p class="no-results muted" hidden>No waterfalls match those filters. <button type="button" class="linkish f-reset">Reset filters</button></p>
     <TripCta place={state.name} />
   </section>
+  )}
 
+  {guideTowns.length > 0 && (
   <section class="wrap section-sm" aria-labelledby="towns-h">
-    <h2 id="towns-h">Waterfalls by town in {state.name}</h2>
-    <p class="muted small">Pick a town to see every waterfall around it, ranked by distance.</p>
+    <h2 id="towns-h">Waterfall guides by town in {state.name}</h2>
+    <p class="muted small">These towns have several waterfalls with enough visitor or official information for their own page.</p>
     <ul class="town-grid">
-      {[...state.cities].sort((a, b) => a.name.localeCompare(b.name)).map((c) => <li><a href={c.url}><span>{c.name}</span><span aria-hidden="true">›</span></a></li>)}
+      {guideTowns.map((c) => <li><a href={c.url}><span>{c.name}</span><span aria-hidden="true">›</span></a></li>)}
     </ul>
   </section>
+  )}
 
   {featCounts.length > 0 && (
     <section class="wrap section-sm" aria-labelledby="feat-h">
@@ -136,31 +160,15 @@ const schema = [
     </ul>
   </section>
 
-  {content && (
-    <section class="wrap section-sm prose" aria-labelledby="plan-h">
-      <h2 id="plan-h">Planning a {state.name} waterfall trip</h2>
-      <p>{content.bestTime}</p>
-      <p>{content.planning}</p>
-      <p><a class="btn btn-outline" href="#waterfalls" data-open-map>Search the {state.name} map</a></p>
-    </section>
-  )}
-
   {photos.length >= 3 && (
     <section class="wrap section-sm" aria-labelledby="photos-h">
       <h2 id="photos-h">Waterfall country in {state.name}</h2>
       <ul class="photo-strip">
         {photos.map((l) => {
           const ph = listingPhoto(l);
-          return <li><a href={l.url}><img src={ph.src} alt={ph.alt} width="200" height="200" loading="lazy" decoding="async" onerror={ph.fallback ? `this.onerror=null;this.src='${ph.fallback}'` : undefined} /><span>{l.name}</span></a></li>;
+          return <li><a href={listingHref(l)}><img src={ph.src} alt={ph.alt} width="200" height="200" loading="lazy" decoding="async" onerror={ph.fallback ? `this.onerror=null;this.src='${ph.fallback}'` : undefined} /><span>{l.name}</span></a></li>;
         })}
       </ul>
-    </section>
-  )}
-
-  {content && (
-    <section class="wrap section-sm prose" aria-labelledby="overview">
-      <h2 id="overview">{n > 20 ? `Why ${state.name} Has So Many Waterfalls` : n > 3 ? `Where ${state.name}'s Waterfalls Are` : `Why ${state.name} Has So Few Waterfalls`}</h2>
-      {content.overview.map((p) => <p>{p}</p>)}
     </section>
   )}
 
@@ -173,7 +181,7 @@ const schema = [
             <h3>{r.name}</h3>
             <p class="muted small">{r.listings.length} waterfall{r.listings.length === 1 ? '' : 's'} · {r.counties.map((c, i) => <>{i ? ', ' : ''}<a href={countyUrl({ stateSlug: state.slug, county: c })}>{c} County</a></>)}</p>
             <p>{r.text}</p>
-            {r.highlights.length > 0 && <p class="small"><strong>Start with:</strong> {r.highlights.map((l, i) => <>{i ? ', ' : ''}<a href={l.url}>{l.name}</a></>)}</p>}
+            {r.highlights.length > 0 && <p class="small"><strong>Start with:</strong> {r.highlights.map((l, i) => <>{i ? ', ' : ''}<a href={listingHref(l)}>{l.name}</a></>)}</p>}
           </article>
         ))}
       </div>
@@ -188,7 +196,7 @@ const schema = [
             <>
               <h2>Highest rated in {state.name}</h2>
               <ol class="ranked">
-                {ins.topRated.map((l) => <li><a href={l.url}>{l.name}</a> <span class="muted small">{l.os.rating.toFixed(1)} from {fmtNum(l.os.reviews)} reviews · <a href={l.city.url}>{l.city.name}</a></span></li>)}
+                {ins.topRated.map((l) => <li><a href={listingHref(l)}>{l.name}</a> <span class="muted small">{l.os.rating.toFixed(1)} from {fmtNum(l.os.reviews)} reviews · <a href={cityHref(l.city)}>{l.city.name}</a></span></li>)}
               </ol>
             </>
           )}
@@ -196,7 +204,7 @@ const schema = [
             <>
               <h2>What visitors mention</h2>
               <ul>
-                {tagLines.map((t) => <li>Reviews of {t.ls.length} {state.name} waterfall{t.ls.length === 1 ? '' : 's'} mention {t.label}, including {t.ls.slice(0, 3).map((l, i) => <>{i ? (i === Math.min(t.ls.length, 3) - 1 ? ' and ' : ', ') : ''}<a href={l.url}>{l.name}</a></>)}.</li>)}
+                {tagLines.map((t) => <li>Reviews of {t.ls.length} {state.name} waterfall{t.ls.length === 1 ? '' : 's'} mention {t.label}, including {t.ls.slice(0, 3).map((l, i) => <>{i ? (i === Math.min(t.ls.length, 3) - 1 ? ' and ' : ', ') : ''}<a href={listingHref(l)}>{l.name}</a></>)}.</li>)}
               </ul>
             </>
           )}
@@ -206,7 +214,7 @@ const schema = [
             <>
               <h2>{state.name} waterfalls by the compass</h2>
               <ul class="nearby-list">
-                {ins.extremes.map((e) => <li><a href={e.l.url}><span><strong>{e.label}:</strong> {e.l.name}</span><span class="d">near {e.l.city.name}</span></a></li>)}
+                {ins.extremes.map((e) => <li><a href={listingHref(e.l)}><span><strong>{e.label}:</strong> {e.l.name}</span><span class="d">near {e.l.city.name}</span></a></li>)}
               </ul>
               <p class="small muted" style="margin-top:10px">The farthest-apart named falls in {state.name} are about {fmtMiles(ins.spanMiles).replace(' mi', ' miles')} apart.</p>
             </>
@@ -216,13 +224,21 @@ const schema = [
     </section>
   )}
 
+  {gazetteer.length > 0 && (
+    <section class="wrap section-sm" id="gazetteer" aria-labelledby="gaz-h">
+      <h2 id="gaz-h">Other named waterfalls in {state.name}</h2>
+      <p class="muted">These {fmtNum(gazetteer.length)} falls are in the USGS record or a Google Maps listing, and they do not have a separate guide yet. The coordinates are the mapped position of the falls, not a trailhead or parking area. Towns are the nearest place with 1,000 or more residents.</p>
+      <Gazetteer rows={gazetteer} />
+    </section>
+  )}
+
   {ins.counties.length > 0 && (
     <section class="wrap section-sm prose">
       <h2>Waterfalls by county</h2>
       <table>
         <thead><tr><th>County</th><th>Waterfalls</th><th>Share</th><th>Most visited</th></tr></thead>
         <tbody>
-          {ins.counties.map((c) => <tr><td><a href={countyUrl({ stateSlug: state.slug, county: c.name })}>{c.name}</a></td><td>{c.listings.length}</td><td>{c.share}%</td><td><a href={c.best.url}>{c.best.name}</a></td></tr>)}
+          {ins.counties.map((c) => <tr><td><a href={countyUrl({ stateSlug: state.slug, county: c.name })}>{c.name}</a></td><td>{c.listings.length}</td><td>{c.share}%</td><td>{c.best ? <a href={listingHref(c.best)}>{c.best.name}</a> : '—'}</td></tr>)}
         </tbody>
       </table>
     </section>
@@ -271,6 +287,7 @@ const schema = [
 
 <script>
   const root = document.getElementById('waterfalls');
+  if (root) {
   const list = root.querySelector('.sc-list') as HTMLElement;
   const cards = [...list.querySelectorAll<HTMLElement>('.sc')];
   const form = root.querySelector('.filters') as HTMLFormElement;
@@ -418,4 +435,5 @@ const schema = [
   document.querySelectorAll('[data-open-map]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); root.scrollIntoView({ behavior: 'smooth' }); openMap(); }));
 
   if ([...params.keys()].length) apply(false);
+  }
 </script>

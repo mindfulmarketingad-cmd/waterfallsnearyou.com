@@ -37,6 +37,16 @@ export function nearest(index, point, count = 12) {
     .slice(0, count);
 }
 
+// Closest waterfalls that have their own page. Used by the homepage so the carousel
+// does not open a name-and-coordinates row.
+export function nearestPages(index, point, count = 12) {
+  return index.l
+    .filter((row) => row[14] === 1)
+    .map((row) => ({ row, d: miles(point, { lat: row[4], lng: row[5] }) }))
+    .sort((a, b) => a.d - b.d)
+    .slice(0, count);
+}
+
 export async function ipLocation() {
   try {
     const r = await fetch('/api/geo', { headers: { Accept: 'application/json' } });

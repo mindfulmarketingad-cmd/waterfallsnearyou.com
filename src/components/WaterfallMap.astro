@@ -1,7 +1,7 @@
 ---
 // Interactive waterfall map (MapLibre GL + OpenFreeMap tiles). Points are embedded as JSON; every
 // marker opens a popup linking to that waterfall's listing page.
-interface Point { n: string; u: string; la: number; ln: number; t: string; r?: number; c?: number }
+interface Point { n: string; u: string; la: number; ln: number; t: string; r?: number; c?: number; k?: string }
 interface Props { points: Point[]; label: string; bounds?: [[number, number], [number, number]]; height?: number }
 const { points, label, bounds, height = 640 } = Astro.props;
 // MapLibre bounds are [[west, south], [east, north]] in lng/lat order.
@@ -10,7 +10,7 @@ const data = JSON.stringify({ points, bounds: lngLatBounds }).replace(/</g, '\\u
 ---
 <div class="wmap-wrap">
   <div class="wmap" style={`--h:${height}px`} role="region" aria-label={label}></div>
-  <p class="wmap-legend small muted"><span class="dot"></span> Waterfall with visitor ratings <span class="dot dot-u"></span> Not yet rated · Tap a marker for the waterfall page. Use two fingers (or Ctrl + scroll) to zoom.</p>
+  <p class="wmap-legend small muted"><span class="dot"></span> Waterfall with visitor ratings <span class="dot dot-u"></span> Not yet rated · Tap a marker for the guide, or for its place on the state list when there is no guide yet. Use two fingers (or Ctrl + scroll) to zoom.</p>
   <noscript><p>The interactive map needs JavaScript. Browse the waterfall pages linked below instead.</p></noscript>
   <script type="application/json" class="wmap-data" set:html={data} />
 </div>

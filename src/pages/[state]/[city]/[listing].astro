@@ -7,7 +7,6 @@ import Photo from '../../../components/Photo.astro';
 import Weather from '../../../components/Weather.astro';
 import Conditions from '../../../components/Conditions.astro';
 import { point } from '../../../lib/maps.mjs';
-import { guideFor } from '../../../lib/guides.mjs';
 import { listingPhoto } from '../../../lib/photos.mjs';
 import { loadData, hoursSummary } from '../../../lib/core.mjs';
 import {
@@ -18,9 +17,10 @@ import { SITE } from '../../../config.mjs';
 import { heightOf, fmtHeight } from '../../../lib/heights.mjs';
 import { postsLinkingTo } from '../../../lib/blog.mjs';
 import { tripFacts, tripRows } from '../../../lib/tripfacts.mjs';
+import { cityHref, listingHref, publishedListing } from '../../../lib/publish.mjs';
 
 export function getStaticPaths() {
-  return loadData().listings.map((l) => ({
+  return loadData().listings.filter(publishedListing).map((l) => ({
     params: { state: l.stateSlug, city: l.city.slug, listing: l.slug },
     props: { id: l.id },
   }));
@@ -29,13 +29,15 @@ const { id } = Astro.props;
 const l = loadData().listings.find((x) => x.id === id);
 const os = l.os;
 const state = loadData().states.find((s) => s.name === l.state);
-const sameCity = l.city.assigned.filter((x) => x !== l).slice(0, 12);
+const sameCity = l.city.assigned.filter((x) => x !== l && publishedListing(x)).slice(0, 12);
+const nearbyPages = l.nearby.filter((n) => publishedListing(n.listing));
+const nearbyRest = l.nearby.filter((n) => !publishedListing(n.listing));
 const hours = hoursSummary(os);
 const crumbs = [
   { name: 'Home', url: '/' },
   { name: 'States', url: '/states' },
   { name: l.state, url: state.url },
-  { name: l.city.name, url: l.city.url },
+  { name: l.city.name, url: cityHref(l.city) },
   { name: l.name, url: l.url },
 ];
 const dupName = l.city.assigned.some((x) => x !== l && x.name === l.name);
@@ -47,7 +49,6 @@ const description = os?.rating
 const photo = listingPhoto(l);
 const height = heightOf(l);
 const featuredIn = postsLinkingTo(l.url);
-const guide = guideFor(l);
 const ownImage = photo.src;
 const nearest = l.nearby[0];
 const trip = tripFacts(l.url);
@@ -56,9 +57,9 @@ const fmtChecked = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US',
 
 const faqs = [
   { q: `Where is ${l.name} located?`, a: `${l.name} is in ${l.county ? `${l.county} County, ` : ''}${l.state}, ${nearText(l)}. Its coordinates are ${l.lat.toFixed(5)}, ${l.lng.toFixed(5)} (${l.latText}, ${l.lngText}).` },
-  { q: `What town is closest to ${l.name}?`, a: `The closest town with 1,000 or more residents is <a href="${l.city.url}">${l.city.name}, ${l.stateCode}</a>, about ${fmtMiles(l.cityMiles).replace(' mi', ' miles')} away in a straight line. Driving distance is usually longer, so check the route before you go.` },
+  { q: `What town is closest to ${l.name}?`, a: `The closest town with 1,000 or more residents is <a href="${cityHref(l.city)}">${l.city.name}, ${l.stateCode}</a>, about ${fmtMiles(l.cityMiles).replace(' mi', ' miles')} away in a straight line. Driving distance is usually longer, so check the route before you go.` },
   ...(hours ? [{ q: `What are the hours for ${l.name}?`, a: `Listed hours: ${hours}. Hours can change seasonally or after storms, so confirm with the managing agency before visiting.` }] : []),
-  ...(nearest ? [{ q: `What waterfalls are near ${l.name}?`, a: `The closest is <a href="${nearest.listing.url}">${nearest.listing.name}</a> (${fmtMiles(nearest.miles)} ${nearest.direction}). ${l.nearby.length > 1 ? `Others within reach include ${listJoin(l.nearby.slice(1, 4).map((n) => `<a href="${n.listing.url}">${n.listing.name}</a> (${fmtMiles(n.miles)})`))}.` : ''}` }] : []),
+  ...(nearest ? [{ q: `What waterfalls are near ${l.name}?`, a: `The closest is <a href="${listingHref(nearest.listing)}">${nearest.listing.name}</a> (${fmtMiles(nearest.miles)} ${nearest.direction}). ${l.nearby.length > 1 ? `Others within reach include ${listJoin(l.nearby.slice(1, 4).map((n) => `<a href="${listingHref(n.listing)}">${n.listing.name}</a> (${fmtMiles(n.miles)})`))}.` : ''}` }] : []),
   ...(trip?.dogs ? [{ q: `Are dogs allowed at ${l.name}?`, a: `${trip.dogs}. Rules can change, so check with the managing agency before you bring a dog.` }] : []),
   ...(trip?.swimming ? [{ q: `Can you swim at ${l.name}?`, a: `${trip.swimming}.` }] : []),
   ...(trip?.fees ? [{ q: `Does ${l.name} charge a fee?`, a: `${trip.fees}. Prices were checked on ${fmtChecked(trip.checked)} and can change.` }] : []),
@@ -114,7 +115,6 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
           <a class="btn btn-green" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Get directions</a>
           <a class="btn btn-outline" href="#map"><Icon name="map" />View map</a>
           <a class="btn btn-outline" href="#weather"><Icon name="clock" />Weather</a>
-          {guide && <a class="btn btn-outline" href={guide.url}><Icon name="book" />Visitor guide</a>}
           {os?.site && <a class="btn btn-outline" href={os.site} rel="nofollow noopener ugc" target="_blank"><Icon name="globe" />Website</a>}
         </div>
       </div>
@@ -209,22 +209,19 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
       )}
 
       <h2>Before You Visit</h2>
-      <ul>
-        <li>Water levels change quickly. Flow is usually strongest after rain and during snowmelt; see <a href="/blog/best-time-to-visit-waterfalls">the best time to visit waterfalls</a>.</li>
-        <li>Stay back from the brink and off wet rock. Our <a href="/blog/waterfall-safety-tips">waterfall safety guide</a> covers the most common hazards.</li>
-        <li>Check land ownership and access before you go. Some named falls sit on private property or in areas without a maintained trail.</li>
-        <li>Download offline maps and save the coordinates <strong>{l.lat.toFixed(5)}, {l.lng.toFixed(5)}</strong>. Use our <a href="/blog/what-to-pack-for-a-waterfall-hike">waterfall hike packing list</a>.</li>
-      </ul>
+      <p>Water levels, access and slick rock change with the weather. Read the <a href="/blog/waterfall-safety-tips">waterfall safety guide</a> and the <a href="/blog/what-to-pack-for-a-waterfall-hike">packing list</a>, and save the coordinates <strong>{l.lat.toFixed(5)}, {l.lng.toFixed(5)}</strong> before you lose cell service. Some named falls are on private land or have no maintained trail.</p>
 
       {l.nearby.length > 0 && (
         <>
           <h2>Waterfalls Near {l.name}</h2>
-          <div class="grid-3">
-            {l.nearby.slice(0, 6).map((n) => <ListingCard listing={n.listing} miles={n.miles} direction={n.direction} />)}
-          </div>
-          {l.nearby.length > 6 && (
+          {nearbyPages.length > 0 && (
+            <div class="grid-3">
+              {nearbyPages.slice(0, 6).map((n) => <ListingCard listing={n.listing} miles={n.miles} direction={n.direction} />)}
+            </div>
+          )}
+          {nearbyRest.length > 0 && (
             <ul class="nearby-list" style="margin-top:16px">
-              {l.nearby.slice(6).map((n) => <li><a href={n.listing.url}><span>{n.listing.name}, {n.listing.stateCode}</span><span class="d">{fmtMiles(n.miles)} {n.direction}</span></a></li>)}
+              {nearbyRest.slice(0, 12).map((n) => <li><a href={listingHref(n.listing)}><span>{n.listing.name}, {n.listing.stateCode}</span><span class="d">{fmtMiles(n.miles)} {n.direction}</span></a></li>)}
             </ul>
           )}
         </>
@@ -242,7 +239,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
           {os && <div><dt>Address</dt><dd>{addressText(l)}</dd></div>}
           <div><dt>County</dt><dd>{l.county ? `${l.county} County` : 'Not recorded'}</dd></div>
           <div><dt>State</dt><dd><a href={state.url}>{l.state}</a></dd></div>
-          <div><dt>Nearest town</dt><dd><a href={l.city.url}>{l.city.name}</a> ({fmtMiles(l.cityMiles)})</dd></div>
+          <div><dt>Nearest town</dt><dd><a href={cityHref(l.city)}>{l.city.name}</a> ({fmtMiles(l.cityMiles)})</dd></div>
           <div><dt>Coordinates</dt><dd>{l.lat.toFixed(5)}, {l.lng.toFixed(5)}<br /><span class="muted small">{l.latText}, {l.lngText}</span></dd></div>
           {os?.plusCode && <div><dt>Plus code</dt><dd>{os.plusCode}</dd></div>}
           {os?.phone && <div><dt>Phone</dt><dd><a href={`tel:${os.phone.replace(/[^\d+]/g, '')}`}>{os.phone}</a></dd></div>}
@@ -263,10 +260,9 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
       <div class="panel">
         <h2>Explore the Area</h2>
         <ul class="nearby-list">
-          {guide && <li><a href={guide.url}><span>{l.name} visitor guide</span><span class="d">Guide</span></a></li>}
           {featuredIn.map((p) => <li><a href={p.url}><span>{p.title}</span><span class="d">Featured</span></a></li>)}
-          <li><a href={l.city.url}><span>Waterfalls near {l.city.name}</span><span class="d">{l.city.nearby.length}</span></a></li>
-          <li><a href={state.url}><span>All {l.state} waterfalls</span><span class="d">{state.listings.length}</span></a></li>
+          <li><a href={cityHref(l.city)}><span>Waterfalls near {l.city.name}</span></a></li>
+          <li><a href={state.url}><span>All {l.state} waterfalls</span></a></li>
         </ul>
         {sameCity.length > 0 && (
           <>

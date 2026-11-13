@@ -1,0 +1,31 @@
+---
+// Compact official-name list for waterfalls that do not have their own page.
+import { publishedCity } from '../lib/publish.mjs';
+interface Props { rows: any[] }
+const { rows } = Astro.props;
+---
+<div class="table-wrap">
+  <table class="gazetteer">
+    <thead>
+      <tr><th>Name</th><th>County</th><th>Nearest town</th><th>Coordinates</th></tr>
+    </thead>
+    <tbody>
+      {rows.map((l) => (
+        <tr id={`wf-${l.id}`}>
+          <td>{l.name}</td>
+          <td>{l.county || '—'}</td>
+          <td>{publishedCity(l.city) ? <a href={l.city.url}>{l.city.name}</a> : l.city.name}, {l.stateCode}</td>
+          <td>{l.lat.toFixed(5)}, {l.lng.toFixed(5)}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .gazetteer { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  .gazetteer th, .gazetteer td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .gazetteer th { font-size: 0.78rem; letter-spacing: 0.02em; color: var(--slate-soft); font-weight: 600; }
+  .gazetteer td:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .gazetteer a { color: var(--forest); }
+</style>

@@ -46,6 +46,12 @@ const config = {
     { source: '/search-index.json', headers: [{ key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=86400' }] },
     { source: '/ads.txt', headers: [{ key: 'Content-Type', value: 'text/plain; charset=utf-8' }] },
   ],
+  rewrites: [
+    // Filesystem matches win, so these only run for URLs we stopped building.
+    { source: '/:a/:b', destination: '/api/redirect?a=:a&b=:b' },
+    { source: '/:a/:b/:c', destination: '/api/redirect?a=:a&b=:b&c=:c' },
+    { source: '/:a/:b/:c/:d', destination: '/api/redirect?a=:a&b=:b&c=:c&d=:d' },
+  ],
   redirects: [
     { source: '/Blog', destination: '/blog', permanent: true },
     { source: '/Blog/:path*', destination: '/blog/:path*', permanent: true },

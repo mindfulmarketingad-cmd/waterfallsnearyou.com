@@ -7,10 +7,11 @@ import PageBand from '../../../components/PageBand.astro';
 import Byline from '../../../components/Byline.astro';
 import PostCard from '../../../components/PostCard.astro';
 import TripCta from '../../../components/TripCta.astro';
-import { findPages, findForState, findCitiesFor, FIND_PUBLISHED, FIND_YEAR } from '../../../lib/find.mjs';
+import { findPages, findForState, FIND_PUBLISHED, FIND_YEAR } from '../../../lib/find.mjs';
 import { cardSummary } from '../../../lib/cards.mjs';
 import { pagePhoto } from '../../../lib/photos.mjs';
 import { displayName, fmtNum, listJoin } from '../../../lib/format.mjs';
+import { cityHref, listingHref, publishedCity } from '../../../lib/publish.mjs';
 import { SITE } from '../../../config.mjs';
 
 export function getStaticPaths() {
@@ -23,20 +24,20 @@ const photo = pagePhoto(page.url, items.map((i) => i.listing));
 const abs = (u) => (u.startsWith('http') ? u : `${SITE.url}${u}`);
 const updated = new Date();
 const first = items[0].listing;
-const towns = [...new Set(items.map((i) => i.listing.city))].slice(0, 6);
+const towns = [...new Set(items.map((i) => i.listing.city))].filter(publishedCity).slice(0, 6);
 const counties = [...new Set(items.map((i) => i.listing.county).filter(Boolean))];
 const minutes = Math.max(2, Math.round(items.reduce((s, i) => s + i.why.join(' ').split(/\s+/).length + 40, 300) / 230));
 const lower = type.short.toLowerCase();
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Find', url: '/find' }, { name: type.name, url: type.url }, { name: state.name, url: page.url }];
 const faqs = [
-  { q: `What is the best ${lower.replace(/s$/, '')} in ${state.name}?`, a: `<a href="${first.url}">${first.name}</a> tops our ${FIND_YEAR} list. ${items[0].why[0]} It is near <a href="${first.city.url}">${first.city.name}</a>${first.county ? ` in ${first.county} County` : ''}.` },
+  { q: `What is the best ${lower.replace(/s$/, '')} in ${state.name}?`, a: `<a href="${listingHref(first)}">${first.name}</a> tops our ${FIND_YEAR} list. ${items[0].why[0]} It is near <a href="${cityHref(first.city)}">${first.city.name}</a>${first.county ? ` in ${first.county} County` : ''}.` },
   { q: `How many ${lower} are in ${state.name}?`, a: `${fmtNum(page.candidates)} of the ${fmtNum(state.listings.length)} waterfalls we track in ${state.name} qualify. This page ranks the top ${items.length}; every waterfall in the state is on the <a href="${state.url}">${state.name} waterfalls page</a>.` },
   { q: 'How was this list made?', a: page.method },
   ...(counties.length > 1 ? [{ q: `Which counties are they in?`, a: `The ${items.length} on this list are in ${listJoin(counties.slice(0, 6).map((c) => `${c} County`))}${counties.length > 6 ? ' and others' : ''}.` }] : []),
 ];
 const schema = [
   { '@type': 'Article', headline: page.title, description: page.description, image: abs(photo.src), datePublished: FIND_PUBLISHED.toISOString(), dateModified: updated.toISOString(), mainEntityOfPage: `${SITE.url}${page.url}`, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` }, publisher: { '@id': `${SITE.url}/#organization` }, about: { '@type': 'State', name: state.name } },
-  { '@type': 'ItemList', name: page.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${i.listing.url}`, name: i.listing.name })) },
+  { '@type': 'ItemList', name: page.title, numberOfItems: items.length, itemListElement: items.map((i, n) => ({ '@type': 'ListItem', position: n + 1, url: `${SITE.url}${listingHref(i.listing).split('#')[0]}`, name: i.listing.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---
@@ -72,13 +73,6 @@ const schema = [
     <TripCta place={state.name} />
 
     <div style="margin:34px 0"><Faq faqs={faqs} heading="Frequently asked questions" /></div>
-
-    {findCitiesFor(type, state).length > 0 && (
-      <div class="prose">
-        <h2>{type.name} near {state.name} Cities</h2>
-        <ul>{findCitiesFor(type, state).map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
-      </div>
-    )}
 
     {others.length > 0 && (
       <div class="prose">
