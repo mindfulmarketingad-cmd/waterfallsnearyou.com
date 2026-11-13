@@ -1,7 +1,7 @@
 // 301s for directory URLs we no longer build: thin waterfall and town pages, empty /partners
 // stubs, templated "guide before visiting" posts, and near-duplicate /find city lists.
 // vercel.json rewrites only the paths that are not real files, so published pages are untouched.
-import map from '../data/thin-redirects.json' with { type: 'json' };
+import map from '../data/thin-redirects.mjs';
 
 export const config = { runtime: 'edge' };
 
