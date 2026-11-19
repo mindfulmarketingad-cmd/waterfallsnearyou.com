@@ -9,7 +9,9 @@ import { loadData } from '../../lib/core.mjs';
 import { fmtNum, fmtMiles, listJoin, countyUrl } from '../../lib/format.mjs';
 import { stateInsights, stateContent } from '../../lib/insights.mjs';
 import { listsForState, getCapitalLists } from '../../lib/bestof.mjs';
-import { pagePhoto, stateFeatured, listingPhoto } from '../../lib/photos.mjs';
+import { stateFeatured, listingPhoto } from '../../lib/photos.mjs';
+import { stateHero } from '../../lib/state-heroes.mjs';
+import StateHero from '../../components/StateHero.astro';
 import { features, FEATURES } from '../../lib/cards.mjs';
 import { getPosts, postsLinkingTo } from '../../lib/blog.mjs';
 import { SITE } from '../../config.mjs';
@@ -50,7 +52,8 @@ const regions = (content?.regions || []).map((r) => {
   return { ...r, listings: ls, highlights: [...ls].sort((a, b) => (b.os?.reviews || 0) - (a.os?.reviews || 0)).slice(0, 5) };
 }).filter((r) => r.listings.length);
 const photos = stateFeatured(state).slice(0, 5);
-const photo = pagePhoto(state.url, stateFeatured(state));
+const hero = stateHero(state.slug);
+if (!hero) throw new Error(`Missing state hero for ${state.slug}`);
 const title = `${fmtNum(n)} Waterfalls Near Me in ${state.name}`;
 const description = `All ${fmtNum(n)} waterfalls we track in ${state.name}, ranked by rating and reviews, with a map, filters by town and feature, hours, directions and photos.`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'States', url: '/states' }, { name: state.name, url: state.url }];
@@ -68,13 +71,22 @@ const faqs = [
   ...(ins.busiestTown && n > 3 ? [{ q: `Which ${state.name} town has the most waterfalls nearby?`, a: `<a href="${cityHref(ins.busiestTown)}">${ins.busiestTown.name}</a> has ${ins.busiestTown.nearby.filter((x) => x.miles <= 30).length} named waterfalls within 30 miles, the most of any town in our ${state.name} directory.` }] : []),
 ];
 const schema = [
-  { '@type': 'CollectionPage', name: title, url: `${SITE.url}${state.url}`, about: { '@type': isDC ? 'AdministrativeArea' : 'State', name: state.name }, description },
+  {
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${SITE.url}${state.url}`,
+    about: { '@type': isDC ? 'AdministrativeArea' : 'State', name: state.name },
+    description,
+    image: `${SITE.url}${hero.src}`,
+    primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE.url}${hero.src}`, width: hero.width, height: hero.height, caption: hero.alt },
+  },
   { '@type': 'ItemList', name: title, numberOfItems: pages.length, itemListElement: pages.slice(0, 50).map((l, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${l.url}`, name: l.name })) },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 ---
-<Base title={title} description={description} image={photo.src} imageAlt={photo.alt} breadcrumbs={crumbs} bandCrumbs schema={schema}>
+<Base title={title} description={description} image={hero.src} imageAlt={hero.alt} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={hero.src} preloadSrcset={hero.srcset} preloadSizes={hero.sizes}>
   <PageBand title={title} crumbs={crumbs}>
+    <StateHero hero={hero} />
     <p>{fmtNum(n)} named waterfall{n === 1 ? '' : 's'} in {state.name}. {pages.length ? `${fmtNum(pages.length)} have a full page, with ratings, directions and conditions. ` : ''}The rest are listed by name and coordinates further down. Confirm access before you go. Trails and roads can close after storms.</p>
   </PageBand>
 

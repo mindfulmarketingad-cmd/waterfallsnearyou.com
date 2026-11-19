@@ -24,10 +24,12 @@ interface Props {
   breadcrumbs?: { name: string; url: string }[];
   schema?: object[];
   preloadImage?: string;
+  preloadSrcset?: string;
+  preloadSizes?: string;
   /** The page renders its own breadcrumbs (inside a PageBand); schema is still emitted. */
   bandCrumbs?: boolean;
 }
-const { title, description, image, imageAlt, imageWidth = 1200, imageHeight = 630, noindex: noindexProp = false, type = 'website', published, modified, breadcrumbs, schema = [], preloadImage, bandCrumbs = false } = Astro.props;
+const { title, description, image, imageAlt, imageWidth = 1200, imageHeight = 630, noindex: noindexProp = false, type = 'website', published, modified, breadcrumbs, schema = [], preloadImage, preloadSrcset, preloadSizes, bandCrumbs = false } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const noindex = noindexProp || !isIndexable(path);
 const canonical = new URL(path, SITE.url).href.replace(/\/$/, path === '/' ? '/' : '');
@@ -79,7 +81,7 @@ const showAds = isProd && isIndexable(path) && path !== '/sitemap';
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} imagesrcset={preloadSrcset} imagesizes={preloadSizes} fetchpriority="high" />}
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content={SITE.locale} />
     <meta property="og:type" content={type} />
