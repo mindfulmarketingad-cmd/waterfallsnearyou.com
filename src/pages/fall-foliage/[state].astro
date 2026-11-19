@@ -1,0 +1,177 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageBand from '../../components/PageBand.astro';
+import Faq from '../../components/Faq.astro';
+import { getFoliagePages } from '../../lib/foliage.mjs';
+import { fmtNum } from '../../lib/format.mjs';
+import { SITE } from '../../config.mjs';
+
+export function getStaticPaths() {
+  return getFoliagePages().map((page) => ({ params: { state: page.slug }, props: { slug: page.slug } }));
+}
+const { slug } = Astro.props;
+const page = getFoliagePages().find((p) => p.slug === slug);
+const hero = page.images[0];
+const rest = page.images.slice(1);
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Fall Foliage', url: '/fall-foliage' },
+  { name: page.name, url: page.url },
+];
+const title = `Fall foliage in ${page.name}`;
+const description = page.dek.length <= 160 ? page.dek : `${page.dek.slice(0, 157).replace(/\s+\S*$/, '')}...`;
+const sources = [];
+const add = (titleText, url) => {
+  if (!url || sources.some((s) => s.url === url)) return;
+  sources.push({ title: titleText, url });
+};
+for (const region of page.regions) add(region.sourceTitle, region.sourceUrl);
+if (page.report) add(page.report.title, page.report.url);
+for (const species of page.species || []) add(species.sourceTitle, species.sourceUrl);
+for (const extra of page.sources || []) add(extra.title, extra.url);
+for (const img of page.images) add(img.fileTitle || 'Photograph', img.sourceUrl);
+const schema = [
+  {
+    '@type': 'Article',
+    headline: title,
+    url: `${SITE.url}${page.url}`,
+    description: page.dek,
+    dateModified: '2026-11-19',
+    author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
+    ...(hero ? { image: `${SITE.url}${hero.src}` } : {}),
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: page.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+    })),
+  },
+];
+if (page.stops.length) {
+  schema.push({
+    '@type': 'ItemList',
+    name: `Waterfalls to pair with fall color in ${page.name}`,
+    numberOfItems: page.stops.length,
+    itemListElement: page.stops.map((f, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${f.url}`, name: f.name })),
+  });
+}
+---
+<Base title={`${title} | WaterfallsNearYou`} description={description} image={hero?.src} imageAlt={hero?.alt} breadcrumbs={crumbs} bandCrumbs schema={schema} type="article">
+  <PageBand title={title} crumbs={crumbs}>
+    <p>{page.dek}</p>
+  </PageBand>
+  <article class="wrap narrow section-sm prose">
+    {hero && (
+      <figure class="park-photo">
+        <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" decoding="async" />
+        <figcaption>{hero.caption} <span class="credit">Photo: {hero.credit}. {hero.license}.</span></figcaption>
+      </figure>
+    )}
+    <div class="byline">
+      <span class="avatar" aria-hidden="true">DF</span>
+      <div>
+        <div class="by-name">By <a href="/about">David F.</a></div>
+        <div class="by-meta">Field notes checked November 19, 2026. Timing is cited in the regional section. Waterfall stats come from our directory, trail file, and USGS gazetteer text.</div>
+      </div>
+    </div>
+
+    {page.overview.map((p) => <p>{p}</p>)}
+    <p class="note">{page.varies}</p>
+
+    <h2>When color usually arrives</h2>
+    {page.regions.map((region) => (
+      <section>
+        <h3>{region.name}</h3>
+        <p>{region.text}</p>
+        <p class="small muted">{region.season}. Source: <a href={region.sourceUrl} rel="noopener" target="_blank">{region.sourceTitle}</a>.</p>
+      </section>
+    ))}
+
+    <h2>The live report</h2>
+    <p>{page.report.text} <a href={page.report.url} rel="noopener" target="_blank">{page.report.title}</a>.</p>
+    {page.hotline && (
+      <p>{page.hotline.label}: {page.hotline.url ? <a href={page.hotline.url}>{page.hotline.value}</a> : page.hotline.value}</p>
+    )}
+
+    <h2>Waterfalls to see with the color</h2>
+    <p>{page.fallsIntro}</p>
+    {page.stops.length === 0 && page.directoryUrl && <p>Named falls that did not meet the bar for their own page are listed on <a href={page.directoryUrl}>{page.name}'s waterfall directory</a>.</p>}
+    {page.stops.length === 0 && !page.directoryUrl && <p>This directory has no waterfall record in {page.name}.</p>}
+    {page.stops.map((f) => (
+      <section class="park-fall">
+        <h3><a href={f.url}>{f.name}</a></h3>
+        <p class="muted small">{f.county ? `${f.county} County` : 'County not listed'}{f.city ? <> · nearest listed town <a href={f.cityUrl}>{f.city}</a></> : ''}</p>
+        <dl class="facts">
+          {f.trailName && <div><dt>Trail</dt><dd>{f.trailName}</dd></div>}
+          {f.distanceText && <div><dt>Distance</dt><dd>{f.distanceText}</dd></div>}
+          {f.elevationText && <div><dt>Elevation</dt><dd>{f.elevationText}</dd></div>}
+          {f.difficulty && <div><dt>Difficulty</dt><dd>{f.difficulty}</dd></div>}
+          {f.heightFeet && <div><dt>Drop</dt><dd>{fmtNum(f.heightFeet)} ft in the USGS gazetteer text</dd></div>}
+          {f.reviews > 0 && <div><dt>Reviews</dt><dd>{fmtNum(f.reviews)}{f.rating ? ` · ${f.rating.toFixed(1)} stars` : ''}</dd></div>}
+        </dl>
+      </section>
+    ))}
+    {page.stops.length > 0 && <p class="small muted">Trail name, distance, elevation, and difficulty come from data/trails.json or a hand-checked trip note when one exists. A missing row means that field was not in those files. Drop is shown only when the USGS gazetteer text states a height.</p>}
+
+    <h2>{page.driveTitle}</h2>
+    {page.drive.map((p) => <p>{p}</p>)}
+    {page.legs.length > 0 && (
+      <div class="table-wrap">
+        <table>
+          <caption class="small">Straight-line miles between the coordinates in our directory. This is not a driving distance and not a claim that the falls share a road.</caption>
+          <thead><tr><th>From</th><th>To</th><th>Straight-line miles</th></tr></thead>
+          <tbody>
+            {page.legs.map((leg) => (
+              <tr><td>{leg.from}</td><td>{leg.to}</td><td>{leg.miles.toFixed(1)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )}
+
+    {page.parks.length > 0 && (
+      <>
+        <h2>National parks on our guides</h2>
+        {page.parksNote && <p>{page.parksNote}</p>}
+        <ul>
+          {page.parks.map((park) => (
+            <li><a href={park.url}>{park.name}</a> — {park.inState} published {park.inState === 1 ? 'waterfall' : 'waterfalls'} filed in {page.name}{park.total !== park.inState ? `, ${park.total} on the park guide` : ''}</li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    {page.species?.length > 0 && (
+      <>
+        <h2>Trees and the colors they are credited with</h2>
+        <ul>
+          {page.species.map((tree) => (
+            <li><strong>{tree.name}.</strong> {tree.text} (<a href={tree.sourceUrl} rel="noopener" target="_blank">{tree.sourceTitle}</a>)</li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    <Faq faqs={page.faqs} />
+
+    {rest.length > 0 && (
+      <>
+        <h2>Photographs</h2>
+        {rest.map((img) => (
+          <figure class="park-photo">
+            <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
+            <figcaption>{img.caption} <span class="credit">Photo: {img.credit}. {img.license}.</span></figcaption>
+          </figure>
+        ))}
+      </>
+    )}
+
+    <h2>Sources</h2>
+    <ul>
+      {sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
+    </ul>
+    <p><a href="/fall-foliage">All fall foliage guides</a>{page.directoryUrl ? <> · <a href={page.directoryUrl}>Waterfalls in {page.name}</a></> : ''}</p>
+  </article>
+</Base>
