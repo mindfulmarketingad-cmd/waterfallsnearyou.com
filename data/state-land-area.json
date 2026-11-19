@@ -1,0 +1,266 @@
+{
+  "source": "U.S. Census Bureau, 2024 Gazetteer Files, national state file",
+  "sourceUrl": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2024_Gazetteer/2024_Gaz_state_national.zip",
+  "documentationUrl": "https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html",
+  "file": "2024_Gaz_state_national.txt",
+  "field": "ALAND_SQMI",
+  "notes": "Land area in square miles. Excludes inland water. Puerto Rico is omitted. Retrieved 2026-11-19 for the named-waterfall study.",
+  "retrieved": "2026-11-19",
+  "areas": {
+    "Alabama": {
+      "usps": "AL",
+      "geoid": "01",
+      "landSqMi": 50651.031
+    },
+    "Alaska": {
+      "usps": "AK",
+      "geoid": "02",
+      "landSqMi": 571241.632
+    },
+    "Arizona": {
+      "usps": "AZ",
+      "geoid": "04",
+      "landSqMi": 113655.399
+    },
+    "Arkansas": {
+      "usps": "AR",
+      "geoid": "05",
+      "landSqMi": 51991.947
+    },
+    "California": {
+      "usps": "CA",
+      "geoid": "06",
+      "landSqMi": 155859.191
+    },
+    "Colorado": {
+      "usps": "CO",
+      "geoid": "08",
+      "landSqMi": 103637.149
+    },
+    "Connecticut": {
+      "usps": "CT",
+      "geoid": "09",
+      "landSqMi": 4842.493
+    },
+    "Delaware": {
+      "usps": "DE",
+      "geoid": "10",
+      "landSqMi": 1948.539
+    },
+    "District of Columbia": {
+      "usps": "DC",
+      "geoid": "11",
+      "landSqMi": 61.126
+    },
+    "Florida": {
+      "usps": "FL",
+      "geoid": "12",
+      "landSqMi": 53654.835
+    },
+    "Georgia": {
+      "usps": "GA",
+      "geoid": "13",
+      "landSqMi": 57716.778
+    },
+    "Hawaii": {
+      "usps": "HI",
+      "geoid": "15",
+      "landSqMi": 6422.587
+    },
+    "Idaho": {
+      "usps": "ID",
+      "geoid": "16",
+      "landSqMi": 82645.365
+    },
+    "Illinois": {
+      "usps": "IL",
+      "geoid": "17",
+      "landSqMi": 55513.078
+    },
+    "Indiana": {
+      "usps": "IN",
+      "geoid": "18",
+      "landSqMi": 35825.145
+    },
+    "Iowa": {
+      "usps": "IA",
+      "geoid": "19",
+      "landSqMi": 55853.674
+    },
+    "Kansas": {
+      "usps": "KS",
+      "geoid": "20",
+      "landSqMi": 81758.611
+    },
+    "Kentucky": {
+      "usps": "KY",
+      "geoid": "21",
+      "landSqMi": 39485.417
+    },
+    "Louisiana": {
+      "usps": "LA",
+      "geoid": "22",
+      "landSqMi": 43212.89
+    },
+    "Maine": {
+      "usps": "ME",
+      "geoid": "23",
+      "landSqMi": 30845.084
+    },
+    "Maryland": {
+      "usps": "MD",
+      "geoid": "24",
+      "landSqMi": 9710.942
+    },
+    "Massachusetts": {
+      "usps": "MA",
+      "geoid": "25",
+      "landSqMi": 7800.963
+    },
+    "Michigan": {
+      "usps": "MI",
+      "geoid": "26",
+      "landSqMi": 56610.961
+    },
+    "Minnesota": {
+      "usps": "MN",
+      "geoid": "27",
+      "landSqMi": 79631.562
+    },
+    "Mississippi": {
+      "usps": "MS",
+      "geoid": "28",
+      "landSqMi": 46924.587
+    },
+    "Missouri": {
+      "usps": "MO",
+      "geoid": "29",
+      "landSqMi": 68746.42
+    },
+    "Montana": {
+      "usps": "MT",
+      "geoid": "30",
+      "landSqMi": 145550.251
+    },
+    "Nebraska": {
+      "usps": "NE",
+      "geoid": "31",
+      "landSqMi": 76815.01
+    },
+    "Nevada": {
+      "usps": "NV",
+      "geoid": "32",
+      "landSqMi": 109860.372
+    },
+    "New Hampshire": {
+      "usps": "NH",
+      "geoid": "33",
+      "landSqMi": 8953.791
+    },
+    "New Jersey": {
+      "usps": "NJ",
+      "geoid": "34",
+      "landSqMi": 7354.949
+    },
+    "New Mexico": {
+      "usps": "NM",
+      "geoid": "35",
+      "landSqMi": 121312.732
+    },
+    "New York": {
+      "usps": "NY",
+      "geoid": "36",
+      "landSqMi": 47123.445
+    },
+    "North Carolina": {
+      "usps": "NC",
+      "geoid": "37",
+      "landSqMi": 48624.15
+    },
+    "North Dakota": {
+      "usps": "ND",
+      "geoid": "38",
+      "landSqMi": 68994.266
+    },
+    "Ohio": {
+      "usps": "OH",
+      "geoid": "39",
+      "landSqMi": 40858.927
+    },
+    "Oklahoma": {
+      "usps": "OK",
+      "geoid": "40",
+      "landSqMi": 68596.7
+    },
+    "Oregon": {
+      "usps": "OR",
+      "geoid": "41",
+      "landSqMi": 95996.746
+    },
+    "Pennsylvania": {
+      "usps": "PA",
+      "geoid": "42",
+      "landSqMi": 44742.09
+    },
+    "Rhode Island": {
+      "usps": "RI",
+      "geoid": "44",
+      "landSqMi": 1033.892
+    },
+    "South Carolina": {
+      "usps": "SC",
+      "geoid": "45",
+      "landSqMi": 30064.102
+    },
+    "South Dakota": {
+      "usps": "SD",
+      "geoid": "46",
+      "landSqMi": 75807.946
+    },
+    "Tennessee": {
+      "usps": "TN",
+      "geoid": "47",
+      "landSqMi": 41224.339
+    },
+    "Texas": {
+      "usps": "TX",
+      "geoid": "48",
+      "landSqMi": 261258.624
+    },
+    "Utah": {
+      "usps": "UT",
+      "geoid": "49",
+      "landSqMi": 82595.704
+    },
+    "Vermont": {
+      "usps": "VT",
+      "geoid": "50",
+      "landSqMi": 9217.261
+    },
+    "Virginia": {
+      "usps": "VA",
+      "geoid": "51",
+      "landSqMi": 39481.396
+    },
+    "Washington": {
+      "usps": "WA",
+      "geoid": "53",
+      "landSqMi": 66455.442
+    },
+    "West Virginia": {
+      "usps": "WV",
+      "geoid": "54",
+      "landSqMi": 24041.236
+    },
+    "Wisconsin": {
+      "usps": "WI",
+      "geoid": "55",
+      "landSqMi": 54168.033
+    },
+    "Wyoming": {
+      "usps": "WY",
+      "geoid": "56",
+      "landSqMi": 97088.554
+    }
+  }
+}
