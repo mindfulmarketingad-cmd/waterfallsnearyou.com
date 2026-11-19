@@ -1,0 +1,954 @@
+{
+  "yosemite": [
+    {
+      "src": "/images/parks/yosemite/01.webp",
+      "width": 1600,
+      "height": 879,
+      "alt": "Upper Yosemite Falls as viewed from the trail leading to the top of the falls.",
+      "caption": "Upper Yosemite Falls as viewed from the trail leading to the top of the falls.",
+      "credit": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yosemite_Falls_from_trail,_Yosemite_NP,_CA,_US_-_Diliff.jpg",
+      "fileTitle": "File:Yosemite Falls from trail, Yosemite NP, CA, US - Diliff.jpg"
+    },
+    {
+      "src": "/images/parks/yosemite/02.webp",
+      "width": 1600,
+      "height": 1043,
+      "alt": "Yosemite National Park scenery",
+      "caption": "Yosemite National Park scenery",
+      "credit": "Nancyswikiaccount",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bridalveil_Fall_-_Yosemite_National_Park_2012-05-28.jpg",
+      "fileTitle": "File:Bridalveil Fall - Yosemite National Park 2012-05-28.jpg"
+    },
+    {
+      "src": "/images/parks/yosemite/03.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Rainbow at the Vernal Falls at Yosemite National Park",
+      "caption": "Rainbow at the Vernal Falls at Yosemite National Park",
+      "credit": "de:Benutzer:Jan2K",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yosemite_N.P.,_Vernal_Falls_Rainbow.jpg",
+      "fileTitle": "File:Yosemite N.P., Vernal Falls Rainbow.jpg"
+    },
+    {
+      "src": "/images/parks/yosemite/04.webp",
+      "width": 1600,
+      "height": 1876,
+      "alt": "Nevada Fall — as viewed from the Mist Trail in Yosemite National Park.",
+      "caption": "Nevada Fall — as viewed from the Mist Trail in Yosemite National Park.",
+      "credit": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nevada_Fall,_Yosemite_NP,_CA,_US_-_Diliff.jpg",
+      "fileTitle": "File:Nevada Fall, Yosemite NP, CA, US - Diliff.jpg"
+    }
+  ],
+  "shenandoah": [
+    {
+      "src": "/images/parks/shenandoah/01.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "Dark Hollow Falls, Summer 2007. Photo by W. Grotophorst",
+      "caption": "Dark Hollow Falls, Summer 2007. Photo by W. Grotophorst",
+      "credit": "W. Grotophorst",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dark_Hollow_Falls_Shenandoah_NP_2007.jpg",
+      "fileTitle": "File:Dark Hollow Falls Shenandoah NP 2007.jpg"
+    },
+    {
+      "src": "/images/parks/shenandoah/02.webp",
+      "width": 683,
+      "height": 1024,
+      "alt": "May 2005 by Gspatter",
+      "caption": "May 2005 by Gspatter",
+      "credit": "w:User:Gspatter",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whiteoak_Canyon_Shenandoah_NP_2005.jpg",
+      "fileTitle": "File:Whiteoak Canyon Shenandoah NP 2005.jpg"
+    },
+    {
+      "src": "/images/parks/shenandoah/03.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "Photo of South River Falls in Shenandoah, NP",
+      "caption": "Photo of South River Falls in Shenandoah, NP",
+      "credit": "Slserpent at English Wikipedia",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_River_Falls_Shenandoah_NP_2007.jpg",
+      "fileTitle": "File:South River Falls Shenandoah NP 2007.jpg"
+    },
+    {
+      "src": "/images/parks/shenandoah/04.webp",
+      "width": 1500,
+      "height": 1800,
+      "alt": "Rose River waterfall in Shenandoah National Park, VA",
+      "caption": "Rose River waterfall in Shenandoah National Park, VA",
+      "credit": "G. Edward Johnson",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rose_river_falls_Shenandoha_Virginia_USA.jpg",
+      "fileTitle": "File:Rose river falls Shenandoha Virginia USA.jpg"
+    }
+  ],
+  "yellowstone": [
+    {
+      "src": "/images/parks/yellowstone/01.webp",
+      "width": 1600,
+      "height": 1063,
+      "alt": "Grand Canyon and Yellowstone Fall at Yellowstone National Park . The canyon is up to 900 feet deep (275 m) and a half mile (0.8 km) in width. The canyon below the Lower Yellowstone",
+      "caption": "Grand Canyon and Yellowstone Fall at Yellowstone National Park . The canyon is up to 900 feet deep (275 m) and a half mile (0.8 km) in width. The canyon below the Lower Yellowstone Falls was at one time the site of a geyser basin that was the result of w:rhyolite w:lava flows, ex",
+      "credit": "Brocken Inaglory",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_canyon_of_Yellowstone_and_Yellowstone_fall_nn_edit1.jpg",
+      "fileTitle": "File:Grand canyon of Yellowstone and Yellowstone fall nn edit1.jpg"
+    },
+    {
+      "src": "/images/parks/yellowstone/02.webp",
+      "width": 1600,
+      "height": 1938,
+      "alt": "Grand Canyon of the Yellowstone Upper Falls",
+      "caption": "Grand Canyon of the Yellowstone Upper Falls",
+      "credit": "Tony Hisgett from Birmingham, UK",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_of_the_Yellowstone_Upper_Falls_(8044053340).jpg",
+      "fileTitle": "File:Grand Canyon of the Yellowstone Upper Falls (8044053340).jpg"
+    },
+    {
+      "src": "/images/parks/yellowstone/03.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "I took photo in August 2006.",
+      "caption": "I took photo in August 2006.",
+      "credit": "Billy Hathorn at en.wikipedia",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Firehole_Falls,_Yellowstone_National_Park_Picture_1200.jpg",
+      "fileTitle": "File:Firehole Falls, Yellowstone National Park Picture 1200.jpg"
+    },
+    {
+      "src": "/images/parks/yellowstone/04.webp",
+      "width": 1600,
+      "height": 2400,
+      "alt": "Mystic Falls , Little Firehole River , Yellowstone National Park , Wyoming",
+      "caption": "Mystic Falls , Little Firehole River , Yellowstone National Park , Wyoming",
+      "credit": "Rklawton",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mystic_Falls_Yellowstone.JPG",
+      "fileTitle": "File:Mystic Falls Yellowstone.JPG"
+    }
+  ],
+  "rocky-mountain": [
+    {
+      "src": "/images/parks/rocky-mountain/01.webp",
+      "width": 1600,
+      "height": 1067,
+      "alt": "Popular 30' waterfall in Rocky Mountain National Park, Colorado, US on Glacier Creek. Accessible from the Bear Lake trail head. Alberta Falls are no where near Alberta (the Canadia",
+      "caption": "Popular 30' waterfall in Rocky Mountain National Park, Colorado, US on Glacier Creek. Accessible from the Bear Lake trail head. Alberta Falls are no where near Alberta (the Canadian province), which is fine since they are actually named for Abner Sprague's wife Alberta Sprague. A",
+      "credit": "Christian Collins",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alberta_falls_(36796418134).jpg",
+      "fileTitle": "File:Alberta falls (36796418134).jpg"
+    },
+    {
+      "src": "/images/parks/rocky-mountain/02.webp",
+      "width": 1600,
+      "height": 2376,
+      "alt": "ADAMS FALLS; ACCESS THE FALLS VIA EAST INLET TRAILHEAD. ROUND TRIP DISTANCE FROM TRAILHEAD VIA EAST INLET TRAIL IS 0.6 MILES.",
+      "caption": "ADAMS FALLS; ACCESS THE FALLS VIA EAST INLET TRAILHEAD. ROUND TRIP DISTANCE FROM TRAILHEAD VIA EAST INLET TRAIL IS 0.6 MILES.",
+      "credit": "JERRYE AND ROY KLOTZ MD",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:ADAMS_FALLS,_ROCKY_MOUNTAIN_NAT%27L_PARK,_COLORADO.jpg",
+      "fileTitle": "File:ADAMS FALLS, ROCKY MOUNTAIN NAT'L PARK, COLORADO.jpg"
+    },
+    {
+      "src": "/images/parks/rocky-mountain/03.webp",
+      "width": 1200,
+      "height": 2016,
+      "alt": "Ouzel Falls",
+      "caption": "Ouzel Falls",
+      "credit": "Charles M. Sauer -- Charlessauer",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ouzelfalls.jpg",
+      "fileTitle": "File:Ouzelfalls.jpg"
+    },
+    {
+      "src": "/images/parks/rocky-mountain/04.webp",
+      "width": 1600,
+      "height": 2407,
+      "alt": "Copeland Falls, Wild Basin, Rocky Mountain National Park. Colorado.",
+      "caption": "Copeland Falls, Wild Basin, Rocky Mountain National Park. Colorado.",
+      "credit": "MostlyDross",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:20120611D40R72_1084_(7377090940).jpg",
+      "fileTitle": "File:20120611D40R72 1084 (7377090940).jpg"
+    }
+  ],
+  "glacier": [
+    {
+      "src": "/images/parks/glacier/01.webp",
+      "width": 1600,
+      "height": 1482,
+      "alt": "Glacier National Park. A panoramic view of Running Eagle Falls in the Two Medicine valley. The falls' two streams of water, one behind the other, are visible in the center.",
+      "caption": "Glacier National Park. A panoramic view of Running Eagle Falls in the Two Medicine valley. The falls' two streams of water, one behind the other, are visible in the center.",
+      "credit": "No machine-readable author provided. Smack assumed (based on copyright claims).",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glacier_Running_Eagle_Falls_pan.jpg",
+      "fileTitle": "File:Glacier Running Eagle Falls pan.jpg"
+    },
+    {
+      "src": "/images/parks/glacier/02.webp",
+      "width": 1600,
+      "height": 1067,
+      "alt": "A cascade of water tumbles into a small pool with forest in the background.",
+      "caption": "A cascade of water tumbles into a small pool with forest in the background.",
+      "credit": "GlacierNPS",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Small_Waterfall_near_Virginia_Falls_(54005567295).jpg",
+      "fileTitle": "File:Small Waterfall near Virginia Falls (54005567295).jpg"
+    },
+    {
+      "src": "/images/parks/glacier/03.webp",
+      "width": 1024,
+      "height": 819,
+      "alt": "Bird Woman Falls with Mount Oberlin and Mount Cannon and Clements Mountain in Glacier National Park , Montana",
+      "caption": "Bird Woman Falls with Mount Oberlin and Mount Cannon and Clements Mountain in Glacier National Park , Montana",
+      "credit": "National Park Service",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bird_Woman_Falls_NPS.jpg",
+      "fileTitle": "File:Bird Woman Falls NPS.jpg"
+    },
+    {
+      "src": "/images/parks/glacier/04.webp",
+      "width": 1600,
+      "height": 2133,
+      "alt": "The McDonald Falls in Glacier National Park",
+      "caption": "The McDonald Falls in Glacier National Park",
+      "credit": "Martin Kraft",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MK01846_McDonald_Falls.jpg",
+      "fileTitle": "File:MK01846 McDonald Falls.jpg"
+    }
+  ],
+  "great-smoky-mountains": [
+    {
+      "src": "/images/parks/great-smoky-mountains/01.webp",
+      "width": 1600,
+      "height": 2133,
+      "alt": "Laurel Falls is one of the most popular destinations in the Great Smoky Mountains National Park. It is seen here during slight drought conditions in July of 2007.",
+      "caption": "Laurel Falls is one of the most popular destinations in the Great Smoky Mountains National Park. It is seen here during slight drought conditions in July of 2007.",
+      "credit": "Scott Basford",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laurel_Falls.JPG",
+      "fileTitle": "File:Laurel Falls.JPG"
+    },
+    {
+      "src": "/images/parks/great-smoky-mountains/02.webp",
+      "width": 1600,
+      "height": 1004,
+      "alt": "Title: Ramsey Cascades in the Great Smoky Mountains National Park Subjects: Waterfalls Places: Great Smoky Mountains Notes: Title from item. Extent: 1 print (postcard) : linen text",
+      "caption": "Title: Ramsey Cascades in the Great Smoky Mountains National Park Subjects: Waterfalls Places: Great Smoky Mountains Notes: Title from item. Extent: 1 print (postcard) : linen texture, color ; 3 1/2 x 5 1/2 in. Accession #: 06_10_019476",
+      "credit": "Pub. by The Asheville Post Card Co., Asheville, N. C.",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ramsey_Cascades_in_the_Great_Smoky_Mountains_National_Park_(87655).jpg",
+      "fileTitle": "File:Ramsey Cascades in the Great Smoky Mountains National Park (87655).jpg"
+    },
+    {
+      "src": "/images/parks/great-smoky-mountains/03.webp",
+      "width": 1600,
+      "height": 1158,
+      "alt": "Roaring Fork in the Great Smoky Mountains of East Tennessee, with Grotto Falls in the distance.",
+      "caption": "Roaring Fork in the Great Smoky Mountains of East Tennessee, with Grotto Falls in the distance.",
+      "credit": "Brian Stansberry",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roaringfork-gf1.jpg",
+      "fileTitle": "File:Roaringfork-gf1.jpg"
+    },
+    {
+      "src": "/images/parks/great-smoky-mountains/04.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "The Abrams Falls Trail leads from Cade's Cove, an old valley homesite, now the most visited area of the Great Smoky Mountains National Park . The trail itself is one of the valley'",
+      "caption": "The Abrams Falls Trail leads from Cade's Cove, an old valley homesite, now the most visited area of the Great Smoky Mountains National Park . The trail itself is one of the valley's most frequented destinations up to the waterfall from which it is named. Photo taken by myself, Sc",
+      "credit": "No machine-readable author provided. Blinutne assumed (based on copyright claims).",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abrams_Falls_Trailhead.JPG",
+      "fileTitle": "File:Abrams Falls Trailhead.JPG"
+    }
+  ],
+  "mount-rainier": [
+    {
+      "src": "/images/parks/mount-rainier/01.webp",
+      "width": 1600,
+      "height": 2133,
+      "alt": "Narada Falls in Mount Rainier National Park. The Narada Falls Bridge is on the National Register of Historic Places.",
+      "caption": "Narada Falls in Mount Rainier National Park. The Narada Falls Bridge is on the National Register of Historic Places.",
+      "credit": "Deathgleaner",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Rainier_National_Park_Narada_Falls_Panorama-part1.jpg",
+      "fileTitle": "File:Mount Rainier National Park Narada Falls Panorama-part1.jpg"
+    },
+    {
+      "src": "/images/parks/mount-rainier/02.webp",
+      "width": 1600,
+      "height": 1605,
+      "alt": "Comet Falls, Washington",
+      "caption": "Comet Falls, Washington",
+      "credit": "J Brew",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Comet_Falls.jpg",
+      "fileTitle": "File:Comet Falls.jpg"
+    },
+    {
+      "src": "/images/parks/mount-rainier/03.webp",
+      "width": 1393,
+      "height": 1023,
+      "alt": "Christine Falls in Mount Rainier National Park , in the US state of Washington",
+      "caption": "Christine Falls in Mount Rainier National Park , in the US state of Washington",
+      "credit": "Mr.Z-man",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Christine_Falls.jpg",
+      "fileTitle": "File:Christine Falls.jpg"
+    },
+    {
+      "src": "/images/parks/mount-rainier/04.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Mount Rainier National Park",
+      "caption": "Mount Rainier National Park",
+      "credit": "Samuel Kerr",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Rainier_from_above_Myrtle_Falls_in_August.JPG",
+      "fileTitle": "File:Mount Rainier from above Myrtle Falls in August.JPG"
+    }
+  ],
+  "cuyahoga-valley": [
+    {
+      "src": "/images/parks/cuyahoga-valley/01.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Brandywine Falls - Cuyahoga Valley National Park - Ohio",
+      "caption": "Brandywine Falls - Cuyahoga Valley National Park - Ohio",
+      "credit": "Dougtone",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brandywine_Falls_-_Cuyahoga_Valley_National_Park_-_Ohio_-_15936453092.jpg",
+      "fileTitle": "File:Brandywine Falls - Cuyahoga Valley National Park - Ohio - 15936453092.jpg"
+    },
+    {
+      "src": "/images/parks/cuyahoga-valley/02.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Blue Hen Falls in the Cuyahoga Valley National Park",
+      "caption": "Blue Hen Falls in the Cuyahoga Valley National Park",
+      "credit": "David Fulmer",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Hen_Falls.jpg",
+      "fileTitle": "File:Blue Hen Falls.jpg"
+    },
+    {
+      "src": "/images/parks/cuyahoga-valley/03.webp",
+      "width": 1600,
+      "height": 1067,
+      "alt": "Blue Hen Fall, Cuyahoga Valley National Park, Ohio",
+      "caption": "Blue Hen Fall, Cuyahoga Valley National Park, Ohio",
+      "credit": "Niagara66",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cuyahoga_Valley_National_Park_01.jpg",
+      "fileTitle": "File:Cuyahoga Valley National Park 01.jpg"
+    },
+    {
+      "src": "/images/parks/cuyahoga-valley/04.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "A photo taken of a portion of the Ohio and Erie Canal Towpath Trail during the month of October in the city of Peninsula, Ohio at Cuyahoga Valley National Park .",
+      "caption": "A photo taken of a portion of the Ohio and Erie Canal Towpath Trail during the month of October in the city of Peninsula, Ohio at Cuyahoga Valley National Park .",
+      "credit": "Kevin Payravi",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ohio_and_Erie_Canal_Towpath_Trail_Section_in_October.JPG",
+      "fileTitle": "File:Ohio and Erie Canal Towpath Trail Section in October.JPG"
+    }
+  ],
+  "katmai": [
+    {
+      "src": "/images/parks/katmai/01.webp",
+      "width": 1482,
+      "height": 1041,
+      "alt": "Brown bear at the Brooks Falls in Katmai National Park and Preserve",
+      "caption": "Brown bear at the Brooks Falls in Katmai National Park and Preserve",
+      "credit": "Aconcagua",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brown_bear_Brooks_Falls_Katmai.jpg",
+      "fileTitle": "File:Brown bear Brooks Falls Katmai.jpg"
+    },
+    {
+      "src": "/images/parks/katmai/02.webp",
+      "width": 1600,
+      "height": 1064,
+      "alt": "Three bears fishing for sockeye salmon on the brink of Brooks Falls. Keywords: bear; brown; brooks; falls; river; camp; waterfall",
+      "caption": "Three bears fishing for sockeye salmon on the brink of Brooks Falls. Keywords: bear; brown; brooks; falls; river; camp; waterfall",
+      "credit": "NPS",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bears_on_Brooks_Falls_(2ad2bce3-1dd8-b71c-07aa-52e8e06d4d62).jpg",
+      "fileTitle": "File:Bears on Brooks Falls (2ad2bce3-1dd8-b71c-07aa-52e8e06d4d62).jpg"
+    },
+    {
+      "src": "/images/parks/katmai/03.webp",
+      "width": 1000,
+      "height": 805,
+      "alt": "Brown bear at Brooks Falls Katmai National Park Photograped by Brocken Inaglory in July of 1998 The picture is a digital picture of my old film picture.",
+      "caption": "Brown bear at Brooks Falls Katmai National Park Photograped by Brocken Inaglory in July of 1998 The picture is a digital picture of my old film picture.",
+      "credit": "Brocken Inaglory",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brown_bear_at_Brooks_Falls.jpg",
+      "fileTitle": "File:Brown bear at Brooks Falls.jpg"
+    },
+    {
+      "src": "/images/parks/katmai/04.webp",
+      "width": 1400,
+      "height": 936,
+      "alt": "Katmai National Park and Preserve, Alaska. Southeast up the Valley of Ten Thousand Smokes, viewed from the Overlook Cabin. The valley is filled with up to 200 meters (660 feet) of ",
+      "caption": "Katmai National Park and Preserve, Alaska. Southeast up the Valley of Ten Thousand Smokes, viewed from the Overlook Cabin. The valley is filled with up to 200 meters (660 feet) of ash-flow deposits from the June 1912 eruption of Novarupta Volcano. The rim of Katmai Caldera is on ",
+      "credit": "R. McGimsey",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Valley_of_Ten_Thousand_Smokes_from_Overlook_Cabin.jpg",
+      "fileTitle": "File:Valley of Ten Thousand Smokes from Overlook Cabin.jpg"
+    }
+  ],
+  "kings-canyon": [
+    {
+      "src": "/images/parks/kings-canyon/01.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Kings Canyon National Park - Kings River near Zumwalt Meadow",
+      "caption": "Kings Canyon National Park - Kings River near Zumwalt Meadow",
+      "credit": "Daniel Mayer (mav)",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kings_Canyon_National_Park_-_Kings_River_near_Zumwalt_Meadow.JPG",
+      "fileTitle": "File:Kings Canyon National Park - Kings River near Zumwalt Meadow.JPG"
+    },
+    {
+      "src": "/images/parks/kings-canyon/02.webp",
+      "width": 1600,
+      "height": 1205,
+      "alt": "Kings Canyon National Park is an American national park in the southern Sierra Nevada, in Fresno and Tulare Counties, California. Originally established in 1890 as General Grant Na",
+      "caption": "Kings Canyon National Park is an American national park in the southern Sierra Nevada, in Fresno and Tulare Counties, California. Originally established in 1890 as General Grant National Park, the park was greatly expanded and renamed to Kings Canyon National Park on March 4, 194",
+      "credit": "RuggyBearLA",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_Fork_Kings_River_Kings_Canyon_National_Park_-_51719246188.jpg",
+      "fileTitle": "File:South Fork Kings River Kings Canyon National Park - 51719246188.jpg"
+    },
+    {
+      "src": "/images/parks/kings-canyon/03.webp",
+      "width": 1488,
+      "height": 1984,
+      "alt": "Waterfall in Kings Canyon National Park USA",
+      "caption": "Waterfall in Kings Canyon National Park USA",
+      "credit": "Joseph Cesare ( talk · contribs )",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:KingsCanyonWaterfall.JPG",
+      "fileTitle": "File:KingsCanyonWaterfall.JPG"
+    }
+  ],
+  "haleakala": [
+    {
+      "src": "/images/parks/haleakala/01.webp",
+      "width": 960,
+      "height": 1280,
+      "alt": "Waimoku Falls - Haleakala National Park / Kipahulu section - Maui",
+      "caption": "Waimoku Falls - Haleakala National Park / Kipahulu section - Maui",
+      "credit": "Didier B ( Sam67fr )",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waimoku_Falls.jpg",
+      "fileTitle": "File:Waimoku Falls.jpg"
+    },
+    {
+      "src": "/images/parks/haleakala/02.webp",
+      "width": 1600,
+      "height": 1280,
+      "alt": "Haleakalā National Park 209 Flickr Explore May 20th 2015",
+      "caption": "Haleakalā National Park 209 Flickr Explore May 20th 2015",
+      "credit": "Thomas from Philadelphia Area, USA",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waimoku_Falls_-_Flickr_-_Thomas_James_Caldwell.jpg",
+      "fileTitle": "File:Waimoku Falls - Flickr - Thomas James Caldwell.jpg"
+    },
+    {
+      "src": "/images/parks/haleakala/03.webp",
+      "width": 1600,
+      "height": 1271,
+      "alt": "A beautiful wall of green... Makahiku Falls, beautiful cascade on the way to Waimoku falls, 'Ohe'o Gulch Stream, Haleakala National Park",
+      "caption": "A beautiful wall of green... Makahiku Falls, beautiful cascade on the way to Waimoku falls, 'Ohe'o Gulch Stream, Haleakala National Park",
+      "credit": "Angela Sevin from SF Bay Area, US",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Makahiku_Falls_green_wall.jpg",
+      "fileTitle": "File:Makahiku Falls green wall.jpg"
+    },
+    {
+      "src": "/images/parks/haleakala/04.webp",
+      "width": 1600,
+      "height": 2400,
+      "alt": "Location Haleakala National Park Description This special place vibrates with stories of ancient and modern Hawaiian culture and protects the bond between the land and its people. ",
+      "caption": "Location Haleakala National Park Description This special place vibrates with stories of ancient and modern Hawaiian culture and protects the bond between the land and its people. The park also cares for endangered species some of which exist nowhere else. Come visit this special",
+      "credit": "National Park Service Digital Image Archives",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Haleakala_National_Park_HALE1830.jpg",
+      "fileTitle": "File:Haleakala National Park HALE1830.jpg"
+    }
+  ],
+  "olympic": [
+    {
+      "src": "/images/parks/olympic/01.webp",
+      "width": 1200,
+      "height": 1600,
+      "alt": "Marymere Falls, Washington",
+      "caption": "Marymere Falls, Washington",
+      "credit": "Yukinobu Zengame",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marymere_Falls.jpg",
+      "fileTitle": "File:Marymere Falls.jpg"
+    },
+    {
+      "src": "/images/parks/olympic/02.webp",
+      "width": 1600,
+      "height": 2400,
+      "alt": "Sol Duc Falls, Olympic National Park, Washington, USA",
+      "caption": "Sol Duc Falls, Olympic National Park, Washington, USA",
+      "credit": "Alaskan Dude",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sol_Duc_Falls_Olympic_National_Park.jpg",
+      "fileTitle": "File:Sol Duc Falls Olympic National Park.jpg"
+    },
+    {
+      "src": "/images/parks/olympic/03.webp",
+      "width": 1600,
+      "height": 2133,
+      "alt": "Madison Creek Falls in Olympic National Park , Washington state, United States",
+      "caption": "Madison Creek Falls in Olympic National Park , Washington state, United States",
+      "credit": "Bigfathairymarmot ( talk · contribs )",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Madisoncreekfalls.jpg",
+      "fileTitle": "File:Madisoncreekfalls.jpg"
+    }
+  ],
+  "grand-canyon": [
+    {
+      "src": "/images/parks/grand-canyon/01.webp",
+      "width": 1536,
+      "height": 2048,
+      "alt": "Ribbon Falls is a true gem of the North Kaibab Trail. The waterfall is located in a grotto on the west side of Bright Angel Creek, so reaching it is a short but extremely rewarding",
+      "caption": "Ribbon Falls is a true gem of the North Kaibab Trail. The waterfall is located in a grotto on the west side of Bright Angel Creek, so reaching it is a short but extremely rewarding side trip. Hikers caught in the heat of the day should consider taking a siesta here from 10 a.m. t",
+      "credit": "Grand Canyon National Park",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_National_Park_Ribbon_Falls_06950_(5738136875).jpg",
+      "fileTitle": "File:Grand Canyon National Park Ribbon Falls 06950 (5738136875).jpg"
+    },
+    {
+      "src": "/images/parks/grand-canyon/02.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Ribbon Falls is a true gem of the North Kaibab Trail. The waterfall is located in a grotto on the west side of Bright Angel Creek, so reaching it is a short but extremely rewarding",
+      "caption": "Ribbon Falls is a true gem of the North Kaibab Trail. The waterfall is located in a grotto on the west side of Bright Angel Creek, so reaching it is a short but extremely rewarding side trip. Hikers caught in the heat of the day should consider taking a siesta here from 10 a.m. t",
+      "credit": "Grand Canyon National Park",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_National_Park_Ribbon_Falls_06947_(5738136329).jpg",
+      "fileTitle": "File:Grand Canyon National Park Ribbon Falls 06947 (5738136329).jpg"
+    },
+    {
+      "src": "/images/parks/grand-canyon/03.webp",
+      "width": 1200,
+      "height": 1598,
+      "alt": "Nps personnel planting trout from a metal milk can into clear creek. Photographer unknown, grca staff. Circa 1940. Copyright nps. The Clear Creek Trail was built in 1934 and 1935 b",
+      "caption": "Nps personnel planting trout from a metal milk can into clear creek. Photographer unknown, grca staff. Circa 1940. Copyright nps. The Clear Creek Trail was built in 1934 and 1935 by the Civilian Conservation Corp (Company 818). It was originally built as a mule trail so visitors ",
+      "credit": "Grand Canyon National Park",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:01302_Grand_Canyon_Historic_Clear_Creek_Trail_(7421391468).jpg",
+      "fileTitle": "File:01302 Grand Canyon Historic Clear Creek Trail (7421391468).jpg"
+    },
+    {
+      "src": "/images/parks/grand-canyon/04.webp",
+      "width": 1600,
+      "height": 1067,
+      "alt": "Grand Canyon, Arizona. The canyon, created by the Colorado River over 6 million years, is 277 miles (446 km) long, ranges in width from 4 to 18 miles (6.4 to 24 kilometers), and at",
+      "caption": "Grand Canyon, Arizona. The canyon, created by the Colorado River over 6 million years, is 277 miles (446 km) long, ranges in width from 4 to 18 miles (6.4 to 24 kilometers), and attains a depth of more than a mile (1.6 km). Arizona, USA.",
+      "credit": "Luca Galuzzi ( Lucag )",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:USA_09847_Grand_Canyon_Luca_Galuzzi_2007.jpg",
+      "fileTitle": "File:USA 09847 Grand Canyon Luca Galuzzi 2007.jpg"
+    }
+  ],
+  "death-valley": [
+    {
+      "src": "/images/parks/death-valley/01.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Bleak, dry view from trail head for Darwin Falls in Death Valley National Park",
+      "caption": "Bleak, dry view from trail head for Darwin Falls in Death Valley National Park",
+      "credit": "Bobak Ha'Eri",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_view_of_Darwin_Canyon_from_the_trail_head,_Death_Valley_National_Park,_California,_USA.jpg",
+      "fileTitle": "File:The view of Darwin Canyon from the trail head, Death Valley National Park, California, USA.jpg"
+    },
+    {
+      "src": "/images/parks/death-valley/02.webp",
+      "width": 1600,
+      "height": 1204,
+      "alt": "Death Valley National Park is an American national park that straddles the California–Nevada border, east of the Sierra Nevada. The park boundaries include Death Valley, the northe",
+      "caption": "Death Valley National Park is an American national park that straddles the California–Nevada border, east of the Sierra Nevada. The park boundaries include Death Valley, the northern section of Panamint Valley, the southern section of Eureka Valley, and most of Saline Valley. The",
+      "credit": "RuggyBearLA",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Death_Valley_National_Park_-_53668253217.jpg",
+      "fileTitle": "File:Death Valley National Park - 53668253217.jpg"
+    },
+    {
+      "src": "/images/parks/death-valley/03.webp",
+      "width": 1600,
+      "height": 461,
+      "alt": "Three-photo panoramic image of Zabriskie Point, Death Valley, California taken and uploaded by the photographer, Jlkramer 15:40, 12 February 2007 (UTC).",
+      "caption": "Three-photo panoramic image of Zabriskie Point, Death Valley, California taken and uploaded by the photographer, Jlkramer 15:40, 12 February 2007 (UTC).",
+      "credit": "The original uploader was Jlkramer at English Wikipedia .",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zabriskie_Point,_Death_Valley,_California,_panorama.jpg",
+      "fileTitle": "File:Zabriskie Point, Death Valley, California, panorama.jpg"
+    }
+  ],
+  "lassen-volcanic": [
+    {
+      "src": "/images/parks/lassen-volcanic/01.webp",
+      "width": 400,
+      "height": 358,
+      "alt": "Kings Creek Falls at Lassen Volcanic National Park, California, USA.",
+      "caption": "Kings Creek Falls at Lassen Volcanic National Park, California, USA.",
+      "credit": "NPS",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kings_Creek_Falls.jpg",
+      "fileTitle": "File:Kings Creek Falls.jpg"
+    },
+    {
+      "src": "/images/parks/lassen-volcanic/02.webp",
+      "width": 1142,
+      "height": 1464,
+      "alt": "Lassen National Park Image Number: 4-03-08-014 4258 September 21, 1923, Warner Creek, 6600 feet, King Falls, Lassen National Park, Joseph Dixon Collection, Print Series IV: Prints ",
+      "caption": "Lassen National Park Image Number: 4-03-08-014 4258 September 21, 1923, Warner Creek, 6600 feet, King Falls, Lassen National Park, Joseph Dixon Collection, Print Series IV: Prints Keywords: 4-03-08-14.jpg; archive projects; cascade; joseph dixon collection; king falls; lassen nat",
+      "credit": "Joseph Dixon",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lassen_National_Park_(d64e1ee2df6941808fc8725397353a35).jpg",
+      "fileTitle": "File:Lassen National Park (d64e1ee2df6941808fc8725397353a35).jpg"
+    },
+    {
+      "src": "/images/parks/lassen-volcanic/03.webp",
+      "width": 1600,
+      "height": 1163,
+      "alt": "Bumpass Hell geothermal area in Lassen Volcanic National Park",
+      "caption": "Bumpass Hell geothermal area in Lassen Volcanic National Park",
+      "credit": "Daniel Schwen",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:USA_Lassen_Bumpass_Hell_1_CA.jpg",
+      "fileTitle": "File:USA Lassen Bumpass Hell 1 CA.jpg"
+    },
+    {
+      "src": "/images/parks/lassen-volcanic/04.webp",
+      "width": 1600,
+      "height": 461,
+      "alt": "Snowy meadow in Lassen Volcanic NP. Red hue is due to algae growth on the snow.",
+      "caption": "Snowy meadow in Lassen Volcanic NP. Red hue is due to algae growth on the snow.",
+      "credit": "Daniel Schwen",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:USA_Lassen_NP_algae_snow_meadow_CA.jpg",
+      "fileTitle": "File:USA Lassen NP algae snow meadow CA.jpg"
+    }
+  ],
+  "sequoia": [
+    {
+      "src": "/images/parks/sequoia/01.webp",
+      "width": 1600,
+      "height": 1088,
+      "alt": "Steep stairs on Moro Rock in Sequoia National park",
+      "caption": "Steep stairs on Moro Rock in Sequoia National park",
+      "credit": "Tuxyso",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stairs_on_Moro_Rock_with_People_2013.jpg",
+      "fileTitle": "File:Stairs on Moro Rock with People 2013.jpg"
+    },
+    {
+      "src": "/images/parks/sequoia/04.webp",
+      "width": 960,
+      "height": 1280,
+      "alt": "General Sherman Tree, Sequoia National Park",
+      "caption": "General Sherman Tree, Sequoia National Park",
+      "credit": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:General_Sherman_Tree,_Sequoia_National_Park.JPG",
+      "fileTitle": "File:General Sherman Tree, Sequoia National Park.JPG"
+    },
+    {
+      "src": "/images/parks/sequoia/03.webp",
+      "width": 1600,
+      "height": 2400,
+      "alt": "These two parks testify to nature's size, beauty, and diversity: Immense mountains, rugged foothills, deep canyons, vast caverns, and the world’s largest trees!",
+      "caption": "These two parks testify to nature's size, beauty, and diversity: Immense mountains, rugged foothills, deep canyons, vast caverns, and the world’s largest trees!",
+      "credit": "National Park Service Digital Image Archives",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokopah_Falls,_Sequoia_and_Kings_Canyon_National_Parks_SEKI4542.jpg",
+      "fileTitle": "File:Tokopah Falls, Sequoia and Kings Canyon National Parks SEKI4542.jpg"
+    }
+  ],
+  "new-river-gorge": [
+    {
+      "src": "/images/parks/new-river-gorge/01.webp",
+      "width": 1600,
+      "height": 1042,
+      "alt": "It was a picture perfect day on the New River in WV. Fishermen and waders enjoy the Lower Falls.",
+      "caption": "It was a picture perfect day on the New River in WV. Fishermen and waders enjoy the Lower Falls.",
+      "credit": "John Mueller",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandstone_Falls,_WV_(Lower_Falls).jpg",
+      "fileTitle": "File:Sandstone Falls, WV (Lower Falls).jpg"
+    },
+    {
+      "src": "/images/parks/new-river-gorge/02.webp",
+      "width": 1209,
+      "height": 806,
+      "alt": "Waterfalls at lower portion of Keeny's Creek West Virginia in the New River Gorge",
+      "caption": "Waterfalls at lower portion of Keeny's Creek West Virginia in the New River Gorge",
+      "credit": "ForestWander",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Keenys-Creek-Waterfalls.jpg",
+      "fileTitle": "File:Keenys-Creek-Waterfalls.jpg"
+    },
+    {
+      "src": "/images/parks/new-river-gorge/03.webp",
+      "width": 1600,
+      "height": 497,
+      "alt": "Panoramic view from the National Park Service's New River Gorge Bridge Overlook, opposite from Fayetteville, WV, USA. On the left, the New River is visible as it flows through its ",
+      "caption": "Panoramic view from the National Park Service's New River Gorge Bridge Overlook, opposite from Fayetteville, WV, USA. On the left, the New River is visible as it flows through its deep gorge towards the viewer and continuing to the right. The sight of the river is blocked by tree",
+      "credit": "Gabor Eszes ( UED77 )",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_River_Gorge_Bridge_Overlook.jpg",
+      "fileTitle": "File:New River Gorge Bridge Overlook.jpg"
+    },
+    {
+      "src": "/images/parks/new-river-gorge/04.webp",
+      "width": 960,
+      "height": 1279,
+      "alt": "visitors overlooking waterfall from wooden viewing deck. The viewing deck at the end of the boardwalk offers outstanding views of Sandstone Falls.",
+      "caption": "visitors overlooking waterfall from wooden viewing deck. The viewing deck at the end of the boardwalk offers outstanding views of Sandstone Falls.",
+      "credit": "NPS photo",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_viewing_deck_at_the_end_of_the_boardwalk_offers_outstanding_views_of_Sandstone_Falls._(0db13426-4851-4dc8-9043-750a1398b535).jpeg",
+      "fileTitle": "File:The viewing deck at the end of the boardwalk offers outstanding views of Sandstone Falls. (0db13426-4851-4dc8-9043-750a1398b535).jpeg"
+    }
+  ],
+  "grand-teton": [
+    {
+      "src": "/images/parks/grand-teton/01.webp",
+      "width": 510,
+      "height": 766,
+      "alt": "Hidden Falls in Grand Teton National Park",
+      "caption": "Hidden Falls in Grand Teton National Park",
+      "credit": "Smaldone",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hidden_Falls_Smaldone.jpg",
+      "fileTitle": "File:Hidden Falls Smaldone.jpg"
+    },
+    {
+      "src": "/images/parks/grand-teton/02.webp",
+      "width": 1600,
+      "height": 1063,
+      "alt": "This is a view of Jenny Lake at Grand Teton National Park looking north. Grand Teton National Park lies in Northwestern Wyoming about ten miles south of Yellowstone National Park. ",
+      "caption": "This is a view of Jenny Lake at Grand Teton National Park looking north. Grand Teton National Park lies in Northwestern Wyoming about ten miles south of Yellowstone National Park. This park, which includes most of the northern sections of the Jackson Hole valley, contains the maj",
+      "credit": "MichaelKirsh",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_Tetons_Jenny_Lake_North_View.jpg",
+      "fileTitle": "File:Grand Tetons Jenny Lake North View.jpg"
+    },
+    {
+      "src": "/images/parks/grand-teton/03.webp",
+      "width": 1194,
+      "height": 976,
+      "alt": "Cascade Canyon in Grand Teton National Park",
+      "caption": "Cascade Canyon in Grand Teton National Park",
+      "credit": "National Park Service",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cascade_Canyon_from_Jackson_Hole.jpg",
+      "fileTitle": "File:Cascade Canyon from Jackson Hole.jpg"
+    },
+    {
+      "src": "/images/parks/grand-teton/04.webp",
+      "width": 1600,
+      "height": 1067,
+      "alt": "Location Grand Teton National Park and John D. Rockefeller, Jr. Memorial Parkway Description Grand Teton National Park preserves a spectacular landscape rich with majestic mountain",
+      "caption": "Location Grand Teton National Park and John D. Rockefeller, Jr. Memorial Parkway Description Grand Teton National Park preserves a spectacular landscape rich with majestic mountains, pristine lakes and extraordinary wildlife. The abrupt vertical rise of the jagged Teton Range con",
+      "credit": "National Park Service Digital Image Archives",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_Teton_National_Park_and_John_D._Rockefeller,_Jr._Memorial_Parkway_GRTE1769.jpg",
+      "fileTitle": "File:Grand Teton National Park and John D. Rockefeller, Jr. Memorial Parkway GRTE1769.jpg"
+    }
+  ],
+  "saguaro": [
+    {
+      "src": "/images/parks/saguaro/01.webp",
+      "width": 1600,
+      "height": 1067,
+      "alt": "Cactus at Saguaro National Park West",
+      "caption": "Cactus at Saguaro National Park West",
+      "credit": "dconvertini",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cactus_at_Saguaro_National_Park_West,_Arizona,_USA_2024-5_5.jpg",
+      "fileTitle": "File:Cactus at Saguaro National Park West, Arizona, USA 2024-5 5.jpg"
+    },
+    {
+      "src": "/images/parks/saguaro/02.webp",
+      "width": 1126,
+      "height": 1200,
+      "alt": "Short, nodding green plant. Two bulbs are attached, covered with spiky plant material. Datura, Saguaro National Park (Rincon Mountain District), Arizona Keywords: saguaro national ",
+      "caption": "Short, nodding green plant. Two bulbs are attached, covered with spiky plant material. Datura, Saguaro National Park (Rincon Mountain District), Arizona Keywords: saguaro national park; rincon mountain district; arizona; datura",
+      "credit": "Alice Wondrak-Biel",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Datura,_Saguaro_National_Park_(Rincon_Mountain_District),_Arizona_(1eaf1351-eb42-4307-b89a-9743ec9187c4).jpg",
+      "fileTitle": "File:Datura, Saguaro National Park (Rincon Mountain District), Arizona (1eaf1351-eb42-4307-b89a-9743ec9187c4).jpg"
+    },
+    {
+      "src": "/images/parks/saguaro/03.webp",
+      "width": 1600,
+      "height": 1600,
+      "alt": "A large cactus (Carnegiea gigantea) with a human next to it for scale at Saguaro National Park",
+      "caption": "A large cactus (Carnegiea gigantea) with a human next to it for scale at Saguaro National Park",
+      "credit": "Matthew T Rader",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_large_cactus_(Carnegiea_gigantea)_at_Saguaro_National_Park.jpg",
+      "fileTitle": "File:A large cactus (Carnegiea gigantea) at Saguaro National Park.jpg"
+    },
+    {
+      "src": "/images/parks/saguaro/04.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "I was up above the saguaros at this point (about 1450 meters or 4760 feet). Tanque Verde Ridge Trail, Saguaro National Park East Unit, Rincon Mountains.",
+      "caption": "I was up above the saguaros at this point (about 1450 meters or 4760 feet). Tanque Verde Ridge Trail, Saguaro National Park East Unit, Rincon Mountains.",
+      "credit": "brewbooks from near Seattle, USA",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grasslands_(32492404775).jpg",
+      "fileTitle": "File:Grasslands (32492404775).jpg"
+    }
+  ],
+  "acadia": [
+    {
+      "src": "/images/parks/acadia/01.webp",
+      "width": 1600,
+      "height": 778,
+      "alt": "Acadia National Park Eagle Lake Bridge",
+      "caption": "Acadia National Park Eagle Lake Bridge",
+      "credit": "Pi3.124",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acadia_National_Park_Eagle_Lake_Bridge.jpg",
+      "fileTitle": "File:Acadia National Park Eagle Lake Bridge.jpg"
+    },
+    {
+      "src": "/images/parks/acadia/02.webp",
+      "width": 1600,
+      "height": 1067,
+      "alt": "Jordan Pond in Acadia National Park",
+      "caption": "Jordan Pond in Acadia National Park",
+      "credit": "Thomsonmg2000",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jordan_Pond_Maine.JPG",
+      "fileTitle": "File:Jordan Pond Maine.JPG"
+    },
+    {
+      "src": "/images/parks/acadia/03.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "Image title: Maine rocky coast is pictured at Acadia national park Image from Public domain images website, http://www.public-domain-image.com/full-image/nature-landscapes-public-d",
+      "caption": "Image title: Maine rocky coast is pictured at Acadia national park Image from Public domain images website, http://www.public-domain-image.com/full-image/nature-landscapes-public-domain-images-pictures/national-parks-reserves-public-domain-images-pictures/maine-rocky-coast-is-pic",
+      "credit": "Pos, Robert H, U.S. Fish and Wildlife Service",
+      "license": "Public domain",
+      "licenseUrl": "",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maine_rocky_coast_is_pictured_at_Acadia_national_park.jpg",
+      "fileTitle": "File:Maine rocky coast is pictured at Acadia national park.jpg"
+    },
+    {
+      "src": "/images/parks/acadia/04.webp",
+      "width": 1600,
+      "height": 778,
+      "alt": "Acadia National Park Duck Brook Bridge",
+      "caption": "Acadia National Park Duck Brook Bridge",
+      "credit": "Pi3.124",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acadia_National_Park_Duck_Brook_Bridge.jpg",
+      "fileTitle": "File:Acadia National Park Duck Brook Bridge.jpg"
+    }
+  ]
+}

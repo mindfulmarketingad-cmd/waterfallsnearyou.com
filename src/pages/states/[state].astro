@@ -15,6 +15,7 @@ import { getPosts, postsLinkingTo } from '../../lib/blog.mjs';
 import { SITE } from '../../config.mjs';
 import Gazetteer from '../../components/Gazetteer.astro';
 import { cityHref, listingHref, publishedCity, publishedListing } from '../../lib/publish.mjs';
+import { parksForState } from '../../lib/parks.mjs';
 
 export function getStaticPaths() {
   return loadData().states.map((s) => ({ params: { state: s.slug }, props: { name: s.name } }));
@@ -54,6 +55,7 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'States', url: '/states' }, 
 const tagLabels = { swim: 'swimming', easy: 'easy access', family: 'families and kids', dogs: 'dogs' };
 const tagLines = Object.entries(ins.tagCounts).filter(([, ls]) => ls.length).map(([k, ls]) => ({ k, label: tagLabels[k], ls }));
 const lead = ins.mostReviewed[0];
+const stateParks = parksForState(state.slug);
 
 const faqs = [
   { q: `How many waterfalls are in ${state.name}?`, a: `Our directory lists ${fmtNum(n)} waterfall${n === 1 ? '' : 's'} in ${state.name}${gnisN < n ? ` (${fmtNum(gnisN)} officially named in the USGS Geographic Names Information System and ${fmtNum(n - gnisN)} added from Google Maps listings)` : ', all officially named in the USGS Geographic Names Information System'}, ${ordinal(ins.rank)} among the ${states.length} jurisdictions in our directory.${ins.counties.length > 2 ? ` ${ins.top3CountyShare}% of them are in just three counties: ${listJoin(topCounties.map((c) => `<a href="${countyUrl({ stateSlug: state.slug, county: c.name })}">${c.name}</a>`))}.` : ''}` },
@@ -147,6 +149,20 @@ const schema = [
       <ul class="guide-list">
         {findForState(state).filter((p) => !p.external).map((p) => <li><a href={p.url}>{p.title}</a></li>)}
         <li><a href="/find">All waterfall types</a></li>
+      </ul>
+    </section>
+  )}
+
+  {stateParks.length > 0 && (
+    <section class="wrap section-sm" aria-labelledby="parks-h">
+      <h2 id="parks-h">National parks in {state.name}</h2>
+      <p class="muted small">These parks have published waterfall pages whose coordinates fall inside the park, or, for Acadia, a USGS place name confirmed by the National Park Service.</p>
+      <ul class="guide-list">
+        {stateParks.map((p) => {
+          const n = p.falls.filter((f) => f.stateSlug === state.slug).length;
+          return <li><a href={p.url}>{p.name}</a> <span class="muted small">({n} {n === 1 ? 'waterfall' : 'waterfalls'})</span></li>;
+        })}
+        <li><a href="/national-parks">All national park waterfalls</a></li>
       </ul>
     </section>
   )}

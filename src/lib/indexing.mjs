@@ -11,6 +11,7 @@ import { getSmallest, getRoadside } from './bestof.mjs';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { tripFacts } from './tripfacts.mjs';
+import { parkRecords } from './park-copy.mjs';
 // Read hub slugs directly (cityhubs.mjs imports this module).
 const hubUrls = () => JSON.parse(readFileSync(path.join(process.cwd(), 'data/city-hubs.json'), 'utf8')).map((h) => `/waterfalls-near/${h.slug}`);
 
@@ -40,7 +41,18 @@ export function indexableUrls() {
     ...states.map((s) => s.url),
     ...cities.filter(richCity).map((c) => c.url),
     ...listings.filter(richListing).map((l) => l.url),
+    ...parkPaths(listings),
   ]);
   return set;
 }
+function parkPaths(listings) {
+  const published = new Set(listings.filter(richListing).map((l) => l.url));
+  const urls = ['/national-parks'];
+  for (const rec of parkRecords) {
+    const n = rec.falls.filter((f) => published.has(f.url)).length;
+    if (n >= 2 || (n >= 1 && rec.substantial)) urls.push(`/national-parks/${rec.slug}`);
+  }
+  return urls;
+}
+
 export const isIndexable = (path) => indexableUrls().has(path.replace(/\/$/, '') || '/');

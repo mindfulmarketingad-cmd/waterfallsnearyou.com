@@ -19,6 +19,7 @@ import { postsLinkingTo } from '../../../lib/blog.mjs';
 import { tripFacts, tripRows } from '../../../lib/tripfacts.mjs';
 import { trailFor, trailRows, trailPlaceSchema } from '../../../lib/trails.mjs';
 import { cityHref, listingHref, publishedListing } from '../../../lib/publish.mjs';
+import { parkForListing } from '../../../lib/parks.mjs';
 
 export function getStaticPaths() {
   return loadData().listings.filter(publishedListing).map((l) => ({
@@ -54,6 +55,7 @@ const ownImage = photo.src;
 const nearest = l.nearby[0];
 const trip = tripFacts(l.url);
 const trail = trailFor(l.url);
+const park = parkForListing(l.url);
 const hiking = trailRows(trail);
 const hideTrip = new Set();
 if (hiking.length && trip) {
@@ -120,6 +122,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <span class="eyebrow">Waterfall · {l.county ? `${l.county} County, ` : ''}{l.state}</span>
         <h1>{l.name}</h1>
         <p class="sub">Waterfall {nearText(l)}, {l.stateCode}.{l.variants?.length ? ` Also known as ${listJoin(l.variants)}.` : ''}</p>
+        {park && <p class="sub"><a href={park.url}>Part of {park.name}</a></p>}
         {os?.rating ? (
           <p class="rating"><a class="rating-link" href="#ratings"><span class="stars" aria-hidden="true">{stars(os.rating)}</span>{os.rating.toFixed(1)} <span class="count">· {fmtNum(os.reviews)} Google reviews</span></a></p>
         ) : (

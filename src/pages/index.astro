@@ -13,6 +13,7 @@ import Photo from '../components/Photo.astro';
 import { featuredPhoto, pagePhoto } from '../lib/photos.mjs';
 import { getFind } from '../lib/find.mjs';
 import { publishedCity, publishedListing } from '../lib/publish.mjs';
+import { getParks, parkQualifies } from '../lib/parks.mjs';
 const splitPhoto = pagePhoto('/states', [...loadData().listings].filter((l) => l.os?.photo).sort((a, b) => b.os.reviews - a.os.reviews).slice(3));
 
 const { listings, states, cities } = loadData();
@@ -37,6 +38,7 @@ const schema = [
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
 const findTypes = getFind();
+const parkGuides = getParks().filter(parkQualifies).sort((a, b) => b.falls.length - a.falls.length);
 ---
 <Base title={title} description={description} image="/media/hero-landscape.webp" imageAlt="A waterfall pouring into a green swimming hole surrounded by wildflowers" schema={schema}>
   <section class="hero">
@@ -130,7 +132,7 @@ const findTypes = getFind();
           </li>
         ))}
       </ul>
-      <p style="margin-top:20px"><a class="btn btn-outline" href="/find">All waterfall types</a> <a class="btn btn-outline" href="/waterfalls-near">Waterfalls near big cities</a></p>
+      <p style="margin-top:20px"><a class="btn btn-outline" href="/find">All waterfall types</a> <a class="btn btn-outline" href="/waterfalls-near">Waterfalls near big cities</a> <a class="btn btn-outline" href="/national-parks">National park waterfalls</a></p>
     </div>
   </section>
 
