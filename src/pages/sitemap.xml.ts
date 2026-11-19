@@ -7,6 +7,7 @@ import { SITE } from '../config.mjs';
 import { isIndexable } from '../lib/indexing.mjs';
 import { getCityHubs } from '../lib/cityhubs.mjs';
 import { getParks, parkQualifies } from '../lib/parks.mjs';
+import { getFoliagePages, getFoliageHub } from '../lib/foliage.mjs';
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 export function GET() {
@@ -30,6 +31,8 @@ export function GET() {
     ...cities.map((c) => ({ loc: c.url, lastmod: today, img: `/images/gen${c.url}.webp` })),
     ...listings.map((l) => ({ loc: l.url, lastmod: l.gnisEdited || today, img: l.os?.photo || `/images/gen${l.url}.webp` })),
     ...getParks().filter(parkQualifies).map((p) => ({ loc: p.url, lastmod: '2026-11-19', img: p.images[0]?.src || null })),
+    { loc: getFoliageHub().url, lastmod: '2026-11-19', img: getFoliageHub().images[0]?.src || null },
+    ...getFoliagePages().map((p) => ({ loc: p.url, lastmod: '2026-11-19', img: p.images[0]?.src || null })),
   ].filter((e) => isIndexable(e.loc));
   const abs = (u) => (u.startsWith('http') ? u : `${SITE.url}${u === '/' ? '' : u}`);
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
