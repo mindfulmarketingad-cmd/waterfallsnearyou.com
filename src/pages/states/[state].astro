@@ -16,6 +16,7 @@ import { SITE } from '../../config.mjs';
 import Gazetteer from '../../components/Gazetteer.astro';
 import { cityHref, listingHref, publishedCity, publishedListing } from '../../lib/publish.mjs';
 import { parksForState } from '../../lib/parks.mjs';
+import { getHowMany } from '../../lib/how-many.mjs';
 
 export function getStaticPaths() {
   return loadData().states.map((s) => ({ params: { state: s.slug }, props: { name: s.name } }));
@@ -56,9 +57,11 @@ const tagLabels = { swim: 'swimming', easy: 'easy access', family: 'families and
 const tagLines = Object.entries(ins.tagCounts).filter(([, ls]) => ls.length).map(([k, ls]) => ({ k, label: tagLabels[k], ls }));
 const lead = ins.mostReviewed[0];
 const stateParks = parksForState(state.slug);
+const howMany = getHowMany(state.slug);
+const countStudy = '/blog/states-with-the-most-waterfalls';
 
 const faqs = [
-  { q: `How many waterfalls are in ${state.name}?`, a: `Our directory lists ${fmtNum(n)} waterfall${n === 1 ? '' : 's'} in ${state.name}${gnisN < n ? ` (${fmtNum(gnisN)} officially named in the USGS Geographic Names Information System and ${fmtNum(n - gnisN)} added from Google Maps listings)` : ', all officially named in the USGS Geographic Names Information System'}, ${ordinal(ins.rank)} among the ${states.length} jurisdictions in our directory.${ins.counties.length > 2 ? ` ${ins.top3CountyShare}% of them are in just three counties: ${listJoin(topCounties.map((c) => `<a href="${countyUrl({ stateSlug: state.slug, county: c.name })}">${c.name}</a>`))}.` : ''}` },
+  { q: `How many waterfalls are in ${state.name}?`, a: `${howMany ? `<a href="${howMany.url}">How many waterfalls are in ${state.name}?</a> counts <strong>${fmtNum(gnisN)}</strong> named Falls features in the USGS Geographic Names Information System.` : `The USGS Geographic Names Information System names ${fmtNum(gnisN)} waterfall${gnisN === 1 ? '' : 's'} in ${state.name}. States with very few named falls are discussed in <a href="${countStudy}">which state has the most waterfalls</a> instead of a separate count page.`} Our directory lists ${fmtNum(n)} place${n === 1 ? '' : 's'}${gnisN < n ? `, including ${fmtNum(n - gnisN)} added from Google Maps listings that are not in that GNIS extract` : ''}, ${ordinal(ins.rank)} among the ${states.length} jurisdictions in the directory.${ins.counties.length > 2 ? ` ${ins.top3CountyShare}% of the directory listings are in just three counties: ${listJoin(topCounties.map((c) => `<a href="${countyUrl({ stateSlug: state.slug, county: c.name })}">${c.name}</a>`))}.` : ''}` },
   ...(lead ? [{ q: `What is the most visited waterfall in ${state.name}?`, a: `By Google review count, <a href="${listingHref(lead)}">${lead.name}</a> near <a href="${cityHref(lead.city)}">${lead.city.name}</a> leads with ${fmtNum(lead.os.reviews)} reviews and a ${lead.os.rating.toFixed(1)} rating.${ins.mostReviewed[1] ? ` <a href="${listingHref(ins.mostReviewed[1])}">${ins.mostReviewed[1].name}</a> is next.` : ''}` }] : []),
   ...(content?.faqs || []),
   ...(ins.busiestTown && n > 3 ? [{ q: `Which ${state.name} town has the most waterfalls nearby?`, a: `<a href="${cityHref(ins.busiestTown)}">${ins.busiestTown.name}</a> has ${ins.busiestTown.nearby.filter((x) => x.miles <= 30).length} named waterfalls within 30 miles, the most of any town in our ${state.name} directory.` }] : []),
@@ -170,6 +173,8 @@ const schema = [
   <section class="wrap section-sm" aria-labelledby="guides-h">
     <h2 id="guides-h">{state.name} waterfall guides</h2>
     <ul class="guide-list">
+      {howMany && <li><a href={howMany.url}>How many waterfalls are in {state.name}?</a></li>}
+      {!howMany && <li><a href={countStudy}>Which state has the most waterfalls?</a></li>}
       {guides.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
       {aboutState.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
       {generalGuides.map((p) => <li><a href={p.url}>{p.title}</a></li>)}

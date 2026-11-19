@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageBand from '../../components/PageBand.astro';
+import Byline from '../../components/Byline.astro';
+import Faq from '../../components/Faq.astro';
+import { getHowManyPages } from '../../lib/how-many.mjs';
+import { howManyImage } from '../../lib/how-many-images.mjs';
+import { SITE } from '../../config.mjs';
+
+export function getStaticPaths() {
+  return getHowManyPages().map((p) => ({ params: { state: p.slug }, props: { slug: p.slug } }));
+}
+const { slug } = Astro.props;
+const page = getHowManyPages().find((p) => p.slug === slug);
+const hero = howManyImage(page.slug);
+const heroAbs = new URL(hero.src, SITE.url).href;
+const published = `${page.date}T00:00:00.000Z`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: page.title, url: page.url }];
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    headline: page.title,
+    description: page.description,
+    image: heroAbs,
+    datePublished: published,
+    dateModified: published,
+    wordCount: page.words,
+    articleSection: 'Data',
+    mainEntityOfPage: `${SITE.url}${page.url}`,
+    author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
+    publisher: { '@id': `${SITE.url}/#organization` },
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: page.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') },
+    })),
+  },
+];
+---
+<Base title={page.title} description={page.description} image={hero.src} imageAlt={hero.alt} imageWidth={hero.width} imageHeight={hero.height} type="article" published={published} modified={published} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={hero.src}>
+  <PageBand title={page.title} crumbs={crumbs} narrow />
+  <article>
+    <div class="wrap narrow">
+      <figure class="how-hero">
+        <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" decoding="async" />
+        <figcaption>
+          {hero.alt}. Photo: <a href={hero.sourceUrl} rel="noopener">{hero.credit}</a>.
+          {hero.licenseUrl ? <a href={hero.licenseUrl} rel="noopener">{hero.license}</a> : hero.license}.
+        </figcaption>
+      </figure>
+      <Byline published={new Date(published)} updated={new Date(published)} minutes={Math.max(1, Math.round(page.words / 230))} />
+      <nav class="jump" aria-label="Jump to">
+        <strong>Jump to:</strong>
+        {page.sections.map((s, i) => <>{i ? <span class="sep">·</span> : ''}<a href={`#${s.id}`}>{s.heading}</a></>)}
+      </nav>
+      <p class="lead">{page.lead}</p>
+      <div class="prose">
+        {page.sections.map((s) => (
+          <section>
+            <h2 id={s.id}>{s.heading}</h2>
+            <Fragment set:html={s.html} />
+          </section>
+        ))}
+      </div>
+      <div style="margin-top:40px"><Faq faqs={page.faqs} heading="Frequently asked questions" /></div>
+      <div class="panel" style="margin:40px 0">
+        <h2>Keep going</h2>
+        <ul>
+          {page.related.map((r) => <li><a href={r.href}>{r.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .how-hero { margin: 8px 0 18px; }
+  .how-hero img { width: 100%; height: auto; border-radius: 12px; display: block; background: var(--mist); }
+  .how-hero figcaption { font-size: 0.85rem; color: var(--slate); margin-top: 8px; }
+</style>
