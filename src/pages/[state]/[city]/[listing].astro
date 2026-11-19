@@ -17,6 +17,7 @@ import { SITE } from '../../../config.mjs';
 import { heightOf, fmtHeight } from '../../../lib/heights.mjs';
 import { postsLinkingTo } from '../../../lib/blog.mjs';
 import { tripFacts, tripRows } from '../../../lib/tripfacts.mjs';
+import { trailFor, trailRows, trailPlaceSchema } from '../../../lib/trails.mjs';
 import { cityHref, listingHref, publishedListing } from '../../../lib/publish.mjs';
 
 export function getStaticPaths() {
@@ -52,7 +53,18 @@ const featuredIn = postsLinkingTo(l.url);
 const ownImage = photo.src;
 const nearest = l.nearby[0];
 const trip = tripFacts(l.url);
-const tripList = tripRows(trip);
+const trail = trailFor(l.url);
+const hiking = trailRows(trail);
+const hideTrip = new Set();
+if (hiking.length && trip) {
+  if (trail.notes || trail.distanceSource === 'trip-facts') hideTrip.add('hike');
+  if (trail.elevationGain) hideTrip.add('elevationGain');
+  if (trail.difficulty) hideTrip.add('difficulty');
+  if (trail.dogs) hideTrip.add('dogs');
+  if (trail.fees) hideTrip.add('fees');
+  if (trail.trailhead || trail.parking) hideTrip.add('parking');
+}
+const tripList = tripRows(trip).filter((r) => !hideTrip.has(r.key));
 const fmtChecked = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
 const faqs = [
@@ -97,6 +109,8 @@ const schema = [
   },
   { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
+const trailLd = trailPlaceSchema(trail, `${SITE.url}${l.url}#trail`);
+if (trailLd) schema.push(trailLd);
 const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerScore) as number[]) : 0;
 ---
 <Base title={title} description={description} image={ownImage} imageAlt={photo.alt || listingImageAlt(l)} breadcrumbs={crumbs} schema={schema} preloadImage={photo.src}>
@@ -129,6 +143,24 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
       {os?.description && <p>{os.description}</p>}
       {l.gnisDescription && <p><strong>USGS gazetteer description:</strong> {l.gnisDescription}</p>}
       {l.gnisHistory && <p><strong>Name history:</strong> {l.gnisHistory}</p>}
+
+      {hiking.length > 0 && (
+        <>
+          <h2 id="hiking-trail">Hiking trail</h2>
+          <dl class="facts trip-facts">
+            {hiking.map((r) => (
+              <div>
+                <dt>{r.label}</dt>
+                <dd>
+                  {r.text}
+                  {r.href && <>{' '}<a href={r.href} rel="noopener" target="_blank">{r.hrefLabel}</a></>}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <p class="small muted" style="margin-top:8px">{trail.sources.length > 1 ? 'Sources: ' : 'Source: '}{trail.sources.map((s, i) => <>{i > 0 && (i === trail.sources.length - 1 ? ' and ' : ', ')}<a href={s.url} rel="noopener" target="_blank">{s.title}</a></>)}.{trail.checked && <> Hand-checked {fmtChecked(trail.checked)}.</>}</p>
+        </>
+      )}
 
       {tripList.length > 0 && (
         <>
