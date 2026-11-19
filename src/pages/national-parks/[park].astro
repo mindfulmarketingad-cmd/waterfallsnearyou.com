@@ -1,0 +1,213 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageBand from '../../components/PageBand.astro';
+import { getParks, parkQualifies, MONTH_NAMES } from '../../lib/parks.mjs';
+import { fmtNum } from '../../lib/format.mjs';
+import { SITE } from '../../config.mjs';
+
+export function getStaticPaths() {
+  return getParks().filter(parkQualifies).map((p) => ({ params: { park: p.slug }, props: { slug: p.slug } }));
+}
+const { slug } = Astro.props;
+const park = getParks().find((p) => p.slug === slug);
+const story = park.narrative;
+const hero = park.images[0];
+const rest = park.images.slice(1);
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'National Parks', url: '/national-parks' },
+  { name: park.name, url: park.url },
+];
+const title = `${park.name} waterfalls`;
+const description = story.dek.length <= 160 ? story.dek : `${story.dek.slice(0, 157).replace(/\s+\S*$/, '')}...`;
+const milesLabel = (f) => f.distanceText || '';
+const kindLabel = (k) => (k === 'one-way' ? 'one way' : k === 'round-trip' ? 'round trip' : k === 'loop' ? 'loop' : '');
+const schema = [
+  {
+    '@type': 'TouristAttraction',
+    name: `${park.name} waterfalls`,
+    url: `${SITE.url}${park.url}`,
+    description: story.dek,
+    ...(hero ? { image: `${SITE.url}${hero.src}` } : {}),
+    author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
+  },
+  {
+    '@type': 'ItemList',
+    name: `Waterfalls in ${park.name}`,
+    numberOfItems: park.falls.length,
+    itemListElement: park.falls.map((f, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${f.url}`, name: f.name })),
+  },
+];
+---
+<Base title={`${title} | WaterfallsNearYou`} description={description} image={hero?.src} imageAlt={hero?.alt} breadcrumbs={crumbs} bandCrumbs schema={schema} type="article">
+  <PageBand title={title} crumbs={crumbs}>
+    <p>{story.dek}</p>
+  </PageBand>
+  <article class="wrap narrow section-sm prose">
+    {hero && (
+      <figure class="park-photo">
+        <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" decoding="async" />
+        <figcaption>{hero.caption} <span class="credit">Photo: {hero.credit}. {hero.license}.</span></figcaption>
+      </figure>
+    )}
+    <div class="byline">
+      <span class="avatar" aria-hidden="true">DF</span>
+      <div>
+        <div class="by-name">By <a href="/about">David F.</a></div>
+        <div class="by-meta">Field notes checked November 19, 2026. Facts are cited at the bottom. Analysis is computed from those sources.</div>
+      </div>
+    </div>
+
+    {story.overview.map((p) => <p>{p}</p>)}
+
+    <h2>The falls on our maps</h2>
+    <p>{story.fallsIntro}</p>
+    {park.falls.map((f) => (
+      <section class="park-fall">
+        <h3><a href={f.url}>{f.name}</a></h3>
+        <p class="muted small">{f.county ? `${f.county} County, ` : ''}{f.state}{f.city ? <> · nearest listed town <a href={f.cityUrl}>{f.city}</a> ({f.cityMiles < 10 ? f.cityMiles.toFixed(1) : f.cityMiles.toFixed(0)} miles in a straight line)</> : ''}</p>
+        <dl class="facts">
+          {f.trailName && <div><dt>Trail</dt><dd>{f.trailName}</dd></div>}
+          {f.distanceText && <div><dt>Distance</dt><dd>{milesLabel(f)}{f.distanceKind ? ` (${kindLabel(f.distanceKind)})` : ''}</dd></div>}
+          {f.elevationText && <div><dt>Elevation</dt><dd>{f.elevationText}</dd></div>}
+          {f.difficulty && <div><dt>Difficulty</dt><dd>{f.difficulty}</dd></div>}
+          {f.heightFeet && <div><dt>Drop</dt><dd>{fmtNum(f.heightFeet)} ft in the USGS gazetteer text</dd></div>}
+          {f.reviews > 0 && <div><dt>Reviews</dt><dd>{fmtNum(f.reviews)}{f.rating ? ` · ${f.rating.toFixed(1)} stars` : ''}</dd></div>}
+          {f.season && <div><dt>Flow timing</dt><dd>{f.season}</dd></div>}
+        </dl>
+        {f.gnis && f.gnis.length > 40 && !/^Located in sec/i.test(f.gnis) && <p class="small">{f.gnis}</p>}
+      </section>
+    ))}
+
+    <h2>Side by side</h2>
+    <p>{story.tableLead}</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Waterfall</th><th>Distance</th><th>Elevation</th><th>Difficulty</th><th>USGS drop</th><th>Reviews</th><th>Flow note</th>
+          </tr>
+        </thead>
+        <tbody>
+          {park.falls.map((f) => (
+            <tr>
+              <td><a href={f.url}>{f.name}</a></td>
+              <td>{f.distanceText || '—'}</td>
+              <td>{f.elevationText || '—'}</td>
+              <td>{f.difficulty || '—'}</td>
+              <td>{f.heightFeet ? `${fmtNum(f.heightFeet)} ft` : '—'}</td>
+              <td>{f.reviews ? fmtNum(f.reviews) : '—'}</td>
+              <td>{f.season || '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted">A dash means that field is not in the USGS gazetteer text, the trail file, or the hand-checked trip notes for that fall. It is not a claim that the number is zero.</p>
+
+    {story.effort?.length > 0 && (
+      <>
+        <h2>Effort against attention</h2>
+        {story.effort.map((p) => <p>{p}</p>)}
+        {park.analysis.ranked.length > 1 && (
+          <ol>
+            {park.analysis.ranked.map((f) => (
+              <li><a href={f.url}>{f.name}</a>: {fmtNum(f.reviews)} reviews ÷ {f.miles < 0.2 ? `${Math.round(f.miles * 5280)} feet` : `${f.miles.toFixed(1)} miles`} = {f.score.toFixed(0)} reviews per published mile ({kindLabel(f.distanceKind)}).</li>
+            ))}
+          </ol>
+        )}
+      </>
+    )}
+
+    {story.plan?.length > 0 && (
+      <>
+        <h2>Seeing more than one</h2>
+        {story.plan.map((p) => <p>{p}</p>)}
+      </>
+    )}
+
+    {park.gauge && (
+      <>
+        <h2>When the nearest gauge runs high</h2>
+        {story.flow.map((p) => <p>{p}</p>)}
+        <div class="table-wrap">
+          <table>
+            <caption class="small">Mean daily discharge, cubic feet per second, USGS {park.gauge.site}. {park.gauge.period}.</caption>
+            <thead><tr>{MONTH_NAMES.map((m) => <th>{m.slice(0, 3)}</th>)}</tr></thead>
+            <tbody>
+              <tr>{park.gauge.monthlyCfs.map((cfs) => <td>{fmtNum(cfs)}</td>)}</tr>
+              <tr>
+                {park.gauge.monthlyCfs.map((cfs) => (
+                  <td><span class="flow-bar" style={`width:${Math.max(8, Math.round((cfs / park.gauge.peakCfs) * 100))}%`}></span></td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </>
+    )}
+
+    {park.fees?.length > 0 && (
+      <>
+        <h2>Fees, passes, and entry rules</h2>
+        {story.feesLead && <p>{story.feesLead}</p>}
+        <dl class="facts">
+          {park.fees.map((row) => <div><dt>{row.label}</dt><dd>{row.text}</dd></div>)}
+        </dl>
+      </>
+    )}
+
+    {story.access?.length > 0 && (
+      <>
+        <h2>Getting there</h2>
+        {story.access.map((p) => <p>{p}</p>)}
+      </>
+    )}
+
+    {story.safety?.length > 0 && (
+      <>
+        <h2>What this park warns about</h2>
+        {story.safety.map((p) => <p>{p}</p>)}
+      </>
+    )}
+
+    {story.tips?.length > 0 && (
+      <>
+        <h2>Small things the official pages mention</h2>
+        <ul>
+          {story.tips.map((t) => <li>{t.text} (<a href={t.url} rel="noopener" target="_blank">{t.title}</a>)</li>)}
+        </ul>
+      </>
+    )}
+
+    {park.analysis.towns.length > 0 && (
+      <>
+        <h2>Towns our directory files these falls under</h2>
+        <p>{story.towns}</p>
+        <ul>
+          {park.analysis.towns.map((t) => <li><a href={t.url}>{t.name}, {t.state}</a> — {t.count} of these falls, closest about {t.miles.toFixed(0)} miles in a straight line</li>)}
+        </ul>
+      </>
+    )}
+
+    {rest.length > 0 && (
+      <>
+        <h2>Photographs</h2>
+        {rest.map((img) => (
+          <figure class="park-photo">
+            <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
+            <figcaption>{img.caption} <span class="credit">Photo: {img.credit}. {img.license}.</span></figcaption>
+          </figure>
+        ))}
+      </>
+    )}
+
+    <h2>How this page was built</h2>
+    <p>{story.method}</p>
+
+    <h2>Sources</h2>
+    <ul>
+      {park.sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
+    </ul>
+  </article>
+</Base>
