@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "prebuild": "node scripts/copy-vendor.mjs && node scripts/import-outscraper.mjs && node scripts/build-redirects.mjs && node scripts/build-assets.mjs",
     "build": "astro build",
-    "test": "node scripts/build-redirects.mjs && node --test test/publish.test.mjs test/parks.test.mjs test/state-heroes.test.mjs",
+    "test": "node scripts/build-redirects.mjs && node --test test/publish.test.mjs test/parks.test.mjs test/falls-census.test.mjs test/nearby-photos.test.mjs test/foliage.test.mjs test/state-heroes.test.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "data:gnis": "node scripts/prepare-gnis.mjs",

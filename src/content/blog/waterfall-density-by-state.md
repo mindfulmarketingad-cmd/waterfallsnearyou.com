@@ -20,7 +20,7 @@ faqs:
 
 Raw waterfall counts answer which states have the most named falls. They do not tell you which states are packed with them, or which ones give each resident the most named falls to chase. For this Friday data study we took every named waterfall in our USGS-based directory, divided by Census land area and by 2020 Census population, and ranked all 50 states plus the District of Columbia both ways.
 
-This is the companion to our earlier count ranking, [states with the most waterfalls](/blog/states-with-the-most-waterfalls). Same source data, different lens.
+This is the companion to [which state has the most waterfalls](/blog/states-with-the-most-waterfalls). That ranking uses only USGS GNIS Falls records (Oregon has 241). The densities below use every listing in the directory, including a small number of Google Maps places that are not in that GNIS extract, which is why some state totals here are higher. The land areas below are an earlier Census land-area series. The named-falls study uses the 2024 Gazetteer ALAND_SQMI figures and cites them on that page.
 
 ## Methodology
 

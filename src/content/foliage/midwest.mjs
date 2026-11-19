@@ -1,0 +1,367 @@
+export const midwest = [
+  {
+    slug: 'ohio',
+    name: 'Ohio',
+    dek: 'For 2026, Ohio DNR expected the far north to peak in mid-October and southern Ohio at the end of October into early November.',
+    indexLine: '2026 forecast: far north mid-October, south at the end of October and early November.',
+    overview: [
+      'The ODNR Division of Forestry’s September 24, 2026 forecast is a one-year outlook, and this page labels it that way. A separate “usually” map of northern versus southern weeks did not turn up on the forestry pages opened here. The 2026 sentence is: peak in the far north in mid-October, in central and northern Ohio in mid-to-late October, and in southern Ohio at the end of October and the beginning of November. Weekly color updates were scheduled to start October 1, 2026.',
+      'Cuyahoga Valley is the northern waterfall cluster on this site. Brandywine and Blue Hen are Summit County. Cedar Falls is Hocking County, which is the southern end of that forecast. The two weeks are the reason not to tour both on the same Saturday and call each one peak.',
+    ],
+    regions: [
+      { name: 'Far north, then central and northern Ohio', text: 'The 2026 forecast expected the far north in mid-October and central and northern Ohio in mid-to-late October. Summit County, where the Cuyahoga falls sit, is in that northern and central band rather than in the Hocking Hills.', season: '2026 ODNR Division of Forestry forecast', sourceTitle: 'ODNR, fall color forecast 2026', sourceUrl: 'https://ohiodnr.gov/discover-and-learn/safety-conservation/about-ODNR/news/fall-color-forecast-2026' },
+      { name: 'Southern Ohio', text: 'The same forecast put southern Ohio at the end of October and the beginning of November. Hocking County is the southern waterfall page in this set.', season: '2026 forecast', sourceTitle: 'ODNR, fall color forecast 2026', sourceUrl: 'https://ohiodnr.gov/discover-and-learn/safety-conservation/about-ODNR/news/fall-color-forecast-2026' },
+    ],
+    report: { title: 'ODNR fall color page', url: 'https://ohiodnr.gov/go-and-do/featured/fall-color', text: 'Weekly updates were set to begin October 1, 2026. The press contact on the forecast release is 614-202-4756, a media line, not a public hotline.' },
+    species: [
+      { name: 'Hickory, sweetgum, sugar maple, dogwood', text: 'Update No. 4 on October 22, 2026 said hickories were brilliant yellow and sweetgums were red and purple. Update No. 3 on October 15 said sugar maples were still strong and dogwoods were settling into reds and purples. Those are 2026 status lines.', sourceTitle: 'ODNR fall color updates, 2026', sourceUrl: 'https://ohiodnr.gov/go-and-do/featured/fall-color' },
+    ],
+    stops: ['/ohio/boston-heights/brandywine-falls', '/ohio/peninsula/blue-hen-falls', '/ohio/logan/cedar-falls'],
+    fallsIntro: 'Brandywine Falls has an 86-foot drop in the USGS text and a short walk in the trail file, about 0.3 miles round trip. It is in Boston Heights, Summit County, with Blue Hen Falls on the Buckeye Trail nearby. Both are Cuyahoga Valley pages, on the 2026 northern and central window. Cedar Falls is in Hocking County, the southern window at the end of October and early November. The gazetteer does not give Cedar a height this page can quote.',
+    driveTitle: 'Summit County one week, Hocking if the south is the week you caught',
+    drive: [
+      'Boston Heights and Peninsula are the same valley. Logan is not. The 2026 forecast separated them by roughly two weeks. If the October 15 update still had sugar maples going in the north, that was the Brandywine week. If you are traveling at the end of October, the forecast’s southern sentence is the one that points at Hocking.',
+    ],
+    parksNote: 'Cuyahoga Valley National Park is the guide that overlaps Summit County. Brandywine and Blue Hen are among its published falls. The 2026 northern window is the foliage timing. The park guide itself is the trail comparison.',
+    faqs: [
+      { q: 'Is the Ohio calendar a normal year?', a: 'It is the September 24, 2026 forestry forecast: far north in mid-October, central and northern Ohio mid-to-late October, southern Ohio at the end of October and early November. A multi-year average was not on the page.' },
+      { q: 'Which falls are in the north?', a: 'Brandywine Falls and Blue Hen Falls, both Summit County, on the Cuyahoga Valley guide. Cedar Falls in Hocking County is the southern page.' },
+      { q: 'What trees did the 2026 updates name?', a: 'On October 15, sugar maple and dogwood. On October 22, yellow hickory and red-to-purple sweetgum.' },
+    ],
+  },
+  {
+    slug: 'michigan',
+    name: 'Michigan',
+    dek: 'Pure Michigan starts color in the Upper Peninsula, with the western U.P. in mid-September and southern cities in late October.',
+    indexLine: 'Western U.P. mid-September to early October. Ann Arbor and Kalamazoo late October into early November.',
+    overview: [
+      'Pure Michigan’s fall color map says peak colors move through the state with the season, beginning in the northern Upper Peninsula and unfolding into the Lower Peninsula. The articles under that program are more specific than the map’s one sentence, and they do not all use the same kind of date. Some say “typically.” Some say “should be.” This page keeps that distinction.',
+      'The western Upper Peninsula is the early drive. An Ironwood–Silver City–Wakefield road-trip article says those roads tint the countryside from mid-September to early October. A separate Upper Peninsula county-road page says peak for the Upper Peninsula should be early October. Northern Lower Michigan is late September to early October in the Traverse City article, and one county-road page says northern Michigan peak should be October 7–14. Kalamazoo and Ann Arbor are the late end: late October and early November.',
+    ],
+    regions: [
+      { name: 'Western Upper Peninsula', text: 'The Ironwood to Wakefield drive is dated mid-September to early October. Bond Falls, in Ontonagon County, sits in that western U.P. country. The broader U.P. line, “should be early October,” is a different sentence and is not a 10-year average.', season: 'Pure Michigan road-trip window, plus the U.P. “should be” line', sourceTitle: 'Pure Michigan, Ironwood–Silver City–Wakefield', sourceUrl: 'https://www.michigan.org/article/road-trip/ironwood-silver-city-wakefield' },
+      { name: 'Central and eastern Upper Peninsula', text: 'Marquette’s leaf-peeping article says trees start to turn in mid-to-late September. Munising is the Pictured Rocks side of that central U.P. The Huron-Manistee National Forest, which is northern Lower Peninsula rather than the U.P., said on October 8, 2026 that peak was rapidly approaching and was expected to continue about two weeks.', season: 'Pure Michigan place articles; Huron-Manistee note is 2026', sourceTitle: 'Pure Michigan, leaf-peeping in Marquette', sourceUrl: 'https://www.michigan.org/article/trip-idea/leaf-peeping-weekends-michigan-marquette' },
+      { name: 'Northern Lower Peninsula, then the south', text: 'Traverse City: northern Michigan turns from late September to early October. The northern Lower Peninsula county-road page says peak should be October 7–14. Kalamazoo: maples and beeches in late October and early November. Ann Arbor: late October and early November.', season: 'Pure Michigan city guides', sourceTitle: 'Pure Michigan, leaf-peeping in Ann Arbor', sourceUrl: 'https://www.michigan.org/article/trip-idea/leaf-peeping-weekends-ann-arbor' },
+    ],
+    report: { title: 'Pure Michigan fall color map', url: 'https://www.michigan.org/fallcolormap', text: 'The map is the live view. The Forest Service also posted a 2026 story map for the Huron-Manistee, described as active until November 20, 2026.' },
+    species: [
+      { name: 'Maple, oak, aspen, poplar, dogwood, beech', text: 'The Huron-Manistee 2026 release says maples give scarlet, orange-red, and yellow; oaks go red, brown, or russet; aspens and yellow-poplars go golden; dogwoods go purplish red; beech goes tan. That is the northern Lower Peninsula forest, not the Keweenaw.', sourceTitle: 'Huron-Manistee National Forest, October 8, 2026', sourceUrl: 'https://www.fs.usda.gov/r09/huron-manistee/newsroom/releases/huron-manistee-national-forest-launches-interactive-fall-0' },
+    ],
+    stops: ['/michigan/iron-river/bond-falls', '/michigan/munising/munising-falls', '/michigan/munising/miners-falls', '/michigan/newberry/upper-falls', '/michigan/rogers-city/ocqueoc-falls'],
+    fallsIntro: 'Bond Falls is Ontonagon County. The USGS text calls it 50 feet. It is the western U.P. page, on the mid-September to early October drive. Munising Falls and Miners Falls are Alger County. The trail file gives Munising Falls 800 feet one way and Miners Falls 0.6 miles one way. Upper Falls near Newberry is Luce County, farther east. Ocqueoc Falls is Presque Isle County, in the northern Lower Peninsula, which is the late-September to mid-October band rather than the Ann Arbor band. The big southern cities do not have a published waterfall page in this set.',
+    driveTitle: 'West to east across the Upper Peninsula',
+    drive: [
+      'Iron River and Ontonagon are the early stop. Alger County is the next. Luce County is farther east. Ocqueoc is across the bridge, and the Traverse City article’s late-September to early-October line is the Lower Peninsula timing to compare with it, not the Kalamazoo line. The straight-line miles will show this is a peninsula, not a park loop.',
+      'The Forest Service Eastern Region names M-22 and the Huron-Manistee for maple, oak, and poplar near Lake Michigan. That is a Lower Peninsula drive. It is not the road to Bond Falls.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'Where does Michigan color start?', a: 'Pure Michigan says the northern Upper Peninsula, unfolding into the Lower Peninsula. The western U.P. drive article says mid-September to early October from Ironwood toward the Porcupine Mountains.' },
+      { q: 'When are Ann Arbor and Kalamazoo?', a: 'Late October and early November in the Pure Michigan city guides. That is weeks after the western U.P. window.' },
+      { q: 'Which falls are in the western U.P.?', a: 'Bond Falls in Ontonagon County. Munising and Miners are Alger County. Upper Falls near Newberry is Luce County. Ocqueoc is Presque Isle County in the northern Lower Peninsula.' },
+    ],
+  },
+  {
+    slug: 'wisconsin',
+    name: 'Wisconsin',
+    dek: 'Wisconsin DNR puts the far north in late September and early October, and the south in the latter half of October.',
+    indexLine: 'North Woods: last week of September and first week of October. South: latter half of October.',
+    overview: [
+      'The Department of Natural Resources has repeated the same three-part calendar in more than one news release: far northern Wisconsin in the last week of September and the first week of October, central Wisconsin in mid-October, southern Wisconsin in the latter half of October. Timing still varies by species and by the September and October weather. Forest ecologist Colleen Matula’s line, quoted by the department, is that bright days and cool frost-free nights make the reds, and warm nights mute them. Drought can start the change earlier and shorten it.',
+      'Travel Wisconsin hosts the weekly color report the DNR points people to. The DNR releases are the typical weeks. The weekly report is the year you are actually in.',
+    ],
+    regions: [
+      { name: 'Far northern Wisconsin', text: 'Last week of September and first week of October. A September release used the red maples then showing in lowlands as the start, and said upland forests were only about 10 percent turned at that moment. That percentage was the week of the release, not a permanent fact.', season: 'Typical window, Wisconsin DNR', sourceTitle: 'Wisconsin DNR, fall color in the Northwoods', sourceUrl: 'https://dnr.wisconsin.gov/newsroom/release/38081' },
+      { name: 'Central Wisconsin', text: 'Mid-October, in the same releases. Later copy says “during mid-October” without moving the north or south lines.', season: 'Typical window, Wisconsin DNR', sourceTitle: 'Wisconsin DNR, trails and fall color', sourceUrl: 'https://dnr.wisconsin.gov/newsroom/release/38261' },
+      { name: 'Southern Wisconsin', text: 'The latter half of October. One  release shortens the phrase to “late October.” The department treats that as the same southern tier.', season: 'Typical window, Wisconsin DNR', sourceTitle: 'Wisconsin DNR, plan a fall color trip', sourceUrl: 'https://dnr.wisconsin.gov/newsroom/release/50421' },
+    ],
+    report: { title: 'Travel Wisconsin fall color report', url: 'https://www.travelwisconsin.com/fall-color-report', text: 'The DNR points to Travel Wisconsin for the weekly report. The releases above are the typical regional weeks.' },
+    species: [
+      { name: 'Red maple first in the lowlands', text: 'Matula told the DNR that early red in the Northwoods was mostly red maple stressed by high water, while upland color was just starting. She also said cooler nights brighten reds and purples and warmer nights mute them.', sourceTitle: 'Wisconsin DNR, Northwoods release', sourceUrl: 'https://dnr.wisconsin.gov/newsroom/release/38081' },
+    ],
+    stops: ['/wisconsin/superior/big-manitou-falls', '/wisconsin/hurley/potato-river-falls', '/wisconsin/hurley/superior-falls', '/wisconsin/niagara/daves-falls'],
+    fallsIntro: 'Big Manitou Falls is Douglas County, on the Lake Superior side, in the far-north week. Potato River Falls and Superior Falls are Iron County, Hurley country, also north. Daves Falls and Long Slide Falls are Marinette County, which is north-woods rather than the southern agricultural tier. This set does not include a published southern-Wisconsin waterfall, so the latter-half-of-October line does not have a falls page to hang on. Use it for the southern counties, and use these pages for the early northern week.',
+    driveTitle: 'Lake Superior and the Iron County line while the north is on',
+    drive: [
+      'Superior, Hurley, and Niagara are all in the far-north window. They are not in the southern half of October. If the weekly Travel Wisconsin report says the Northwoods have dropped and the south has not, these four trailheads are the wrong list. The straight-line miles are a north-woods spacing, not a drive down I-39 to Madison.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'When is the Northwoods?', a: 'Wisconsin DNR says the last week of September and the first week of October. Central Wisconsin is mid-October. Southern Wisconsin is the latter half of October.' },
+      { q: 'What makes the reds brighter?', a: 'The DNR quotes its forest ecologist: sunny days and cool nights that are not freezing. Warm nights mute reds and purples. Drought can make leaves turn earlier and drop sooner.' },
+      { q: 'Which falls are in the north?', a: 'Big Manitou in Douglas County, Potato River and Superior Falls in Iron County, and Daves Falls in Marinette County.' },
+    ],
+  },
+  {
+    slug: 'minnesota',
+    name: 'Minnesota',
+    dek: 'The Minnesota DNR says color typically peaks from late September through mid-October, starting in the far northwest and ending toward the southeast.',
+    indexLine: 'Northwest and north-central first. Southeast last. Peak usually about a week in each area.',
+    overview: [
+      'A September 9, 2026 DNR release states the pattern as typical, not as that year’s guess: fall colors usually peak from late September through mid-October, starting in the far northwest and north-central regions and working toward the southeast. Peak usually lasts about a week in each area. The Fall Color Finder map is two different things at once. Through today’s date it is this year’s observed progression. Future dates on the slider are historical averages, and the page says they are not a prediction for this year.',
+      'Explore Minnesota’s drive guide puts numbers on corridors. The North Shore, Iron Range, Edge of the Wilderness, and Mississippi headwaters are mid-September to early October. The North Shore article splits that further: highland color from mid-September through early October, and the shoreline from late September through mid-October. The Mississippi River valley from Red Wing to La Crescent is mid-October. Twin Cities drives are late September to mid-October.',
+    ],
+    regions: [
+      { name: 'Far northwest and north-central', text: 'The DNR says the season starts there and works southeast, with about a week of peak in each area, across late September through mid-October overall. Explore Minnesota dates the North Shore highlands, the Iron Range, and the headwaters to mid-September through early October.', season: 'Typical pattern, Minnesota DNR and Explore Minnesota', sourceTitle: 'Minnesota DNR, September 9, 2026 foliage release', sourceUrl: 'https://www.dnr.state.mn.us/news/2026/09/09/celebrate-autumn-minnesota-dnrs-2026-foliage-predictions-fall-color-finder-map-weekly-newsletter-and-more' },
+      { name: 'North Shore shoreline versus the ridge', text: 'Explore Minnesota says the highland peak begins in mid-September and can run through early October, while the later shoreline peak starts in late September and runs through mid-October. Inland maples first, then aspen and birch along the shore, in that article’s wording.', season: 'Typical split, Explore Minnesota', sourceTitle: 'Explore Minnesota, North Shore fall colors', sourceUrl: 'https://www.exploreminnesota.com/regions/north-shore/fall-colors-minnesota-north-shore' },
+      { name: 'Twin Cities and the southeast bluffs', text: 'Drive peaks for the St. Croix, Twin Cities, and Minnesota River are listed as late September to mid-October. The Mississippi valley from Red Wing to La Crescent is mid-October. An October 1, 2026 DNR note said central Minnesota typically sees its last 75 to 100 percent color over MEA weekend, which that release set as October 15–18, 2026, and that peak then moves into the metro and the south.', season: 'Drive guide, plus the 2026 MEA-weekend note', sourceTitle: 'Explore Minnesota, fall color drives', sourceUrl: 'https://www.exploreminnesota.com/road-trips/fall-color-drives-minnesota' },
+    ],
+    report: { title: 'Minnesota DNR Fall Color Finder', url: 'https://www.dnr.state.mn.us/fall_colors/index.html', text: 'The map is updated with the current season. Future dates on the slider are historical averages. The general DNR line is 888-646-6367. Explore Minnesota’s trip line is 888-847-4866. Neither page called those numbers a foliage-only hotline.' },
+    species: [
+      { name: 'Tamarack, maple, aspen, birch', text: 'The DNR commissioner’s September 9, 2026 note pairs bronze prairie grasses in the southwest, golden tamarack up north, and deep red maples. The North Shore page puts scarlet maples inland and yellow aspen and birch on the shore. The southeast bluffs are described as red, russet, and gold.', sourceTitle: 'Minnesota DNR, September 9, 2026', sourceUrl: 'https://www.dnr.state.mn.us/news/2026/09/09/celebrate-autumn-minnesota-dnrs-2026-foliage-predictions-fall-color-finder-map-weekly-newsletter-and-more' },
+    ],
+    stops: ['/minnesota/two-harbors/gooseberry-falls', '/minnesota/mendota-heights/minnehaha-falls', '/minnesota/north-mankato/minneopa-falls'],
+    fallsIntro: 'Gooseberry Falls is the North Shore page, filed at Two Harbors. That is the highland-versus-shoreline split: mid-September into early October on the ridge, late September through mid-October on the shore. Minnehaha Falls is the Hennepin County page, in the Twin Cities band of late September to mid-October. Minneopa Falls is Nicollet County, near Mankato, which is south of the metro and closer to the mid-October southeast timing than to the North Shore start. The Forest Service names the Gunflint Trail for birch, aspen, and tamarack. Gooseberry is the Lake Superior drive, not the Gunflint.',
+    driveTitle: 'North Shore first, the Minnesota River later',
+    drive: [
+      'Two Harbors is the early page. Minnehaha is the metro page. Minneopa is farther south. The DNR’s own order is northwest to southeast, and these three stops run north to south along that idea even though the northwest angle of the state is not where the waterfall pages are. Do not schedule Gooseberry and Minneopa as one peak day. The straight-line gap is the reason, and the drive guide’s different weeks are the other reason.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'When does Minnesota usually peak?', a: 'The DNR says late September through mid-October, starting in the far northwest and north-central regions and moving toward the southeast, with about a week of peak in each area.' },
+      { q: 'What is the North Shore split?', a: 'Explore Minnesota says highlands from mid-September through early October, and the shoreline from late September through mid-October.' },
+      { q: 'Are future dates on the DNR map a forecast?', a: 'No. The department says dates ahead of today are historical averages, not a prediction for this year. The observed progression is what the map shows up through today.' },
+    ],
+  },
+  {
+    slug: 'illinois',
+    name: 'Illinois',
+    dek: 'Illinois DNR says color normally starts in the north in the third or fourth week of September and peaks in the southern third in late October or early November.',
+    indexLine: 'North and central peak by mid-October. Southern third late October or early November.',
+    overview: [
+      'The Department of Natural Resources education page gives the standing calendar: color normally starts in northern counties by the third or fourth week of September, begins in central Illinois during the second week of October, and begins in the south in the last two weeks of October. Peak normally arrives by mid-October in the north and center, and by late October or early November in the southern third.',
+      'The tourism trip planner, which the state says is powered by IDNR, prints estimated peaks that are a bit tighter: Galena, Starved Rock, and Chicago in the second week of October; central Illinois in late October; southwest and southern Illinois in the last week of October. A “week of November 9” status on that page said the north and center had already peaked and dropped, and the south still had a week or two. That status is one season. The education page is the normal year.',
+    ],
+    regions: [
+      { name: 'Northern Illinois', text: 'Color normally starts in the third or fourth week of September. Peak by mid-October, with the trip planner’s estimate for Galena, Starved Rock, and Chicago at the second week of October.', season: 'IDNR normal calendar, plus the trip-planner estimate', sourceTitle: 'Illinois DNR, Illinois fall colors', sourceUrl: 'https://dnr.illinois.gov/education/atoz/ilfallcolors.html' },
+      { name: 'Central Illinois', text: 'Change begins during the second week of October. Peak by mid-October on the DNR page. The trip planner says late October for central Illinois. Both are official, and they are not identical. The weekly status is what breaks the tie in a given year.', season: 'IDNR page and the Enjoy Illinois trip planner', sourceTitle: 'Enjoy Illinois fall colors trip planner', sourceUrl: 'https://www.enjoyillinois.com/plan-your-trip/seasonal-adventures/fall-in-illinois/fall-colors-trip-planner/' },
+      { name: 'Southern third', text: 'Change in the last two weeks of October. Peak in late October or early November on the DNR page, and in the last week of October on the trip planner. Burden Falls, in Pope County, is in this southern band.', season: 'IDNR normal calendar', sourceTitle: 'Illinois DNR, Illinois fall colors', sourceUrl: 'https://dnr.illinois.gov/education/atoz/ilfallcolors.html' },
+    ],
+    report: { title: 'Illinois fall colors trip planner', url: 'https://www.enjoyillinois.com/plan-your-trip/seasonal-adventures/fall-in-illinois/fall-colors-trip-planner/', text: 'The planner is the in-season page and says it is powered by IDNR. The DNR contact printed on the colors page is 217-782-6302.' },
+    species: [
+      { name: 'Oak, sugar maple, sweet gum, hickory', text: 'IDNR lists deep red, bronze, and orange on red oak, sugar maple, flowering dogwood, persimmon, sweet gum, sumac, and tupelo, and bright orange and yellow on sugar maple, cottonwood, black cherry, ash, birch, hickory, sassafras, and tulip tree. A southern status report added white oak beginning to turn dark red.', sourceTitle: 'Illinois DNR, Illinois fall colors', sourceUrl: 'https://dnr.illinois.gov/education/atoz/ilfallcolors.html' },
+    ],
+    stops: ['/illinois/carrier-mills/burden-falls'],
+    fallsIntro: 'Burden Falls, in Pope County near Carrier Mills, is the only published waterfall page. Pope County is the southern third, so the window is late October or early November on the DNR page, not the second week of October that the trip planner gives Chicago and Starved Rock. Shawnee National Forest country is the landscape. The northern peak does not apply to this trailhead.',
+    driveTitle: 'Pope County on the southern week',
+    drive: [
+      'There is no second published waterfall to connect. If you are in northern Illinois during the mid-October peak, Burden Falls is early. If the weekly note says the north has dropped and the south has not, Pope County is the waterfall page that matches. IDNR’s species list is the color key. The date key is the southern third.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'When does northern Illinois normally peak?', a: 'By mid-October, after color starts in the third or fourth week of September. The trip planner estimates Galena, Starved Rock, and Chicago in the second week of October.' },
+      { q: 'When is the southern third?', a: 'DNR says peak in late October or early November. The trip planner says the last week of October. Burden Falls in Pope County is in that southern band.' },
+      { q: 'Why are there two calendars?', a: 'The DNR education page is the normal-year description. The trip planner is a tighter estimate and also carries a current-week status. When they differ by a few days, the current status wins for this season.' },
+    ],
+  },
+  {
+    slug: 'indiana',
+    name: 'Indiana',
+    dek: 'Visit Indiana says most of the state usually peaks in mid-to-late October, with the Evansville and Mount Vernon area later in the month.',
+    indexLine: 'Most of the state mid-to-late October. Far southwest late October.',
+    overview: [
+      'Visit Indiana’s fall-color guide, posted October 10, 2017 and still the state tourism explanation of the timing, says that for most of Indiana the greatest diversity of color is usually predicted for mid-to-late October. The area around Mount Vernon and Evansville, in the southwest, usually comes in late October. A separate week for the northern counties, beyond “most of Indiana,” was not in that guide.',
+      'Indiana DNR calls Brown County State Park a traditional fall-color hot spot. The park phone is 812-988-6406. Cataract Falls, the main published waterfall, is in Owen County, which is west of Brown County and still in the south-central hills rather than on the Ohio River at Evansville. This page puts Owen County in the “most of the state” mid-to-late October line and does not pretend the Evansville sentence applies to it.',
+    ],
+    regions: [
+      { name: 'Most of Indiana', text: 'Mid-to-late October for the greatest mix of color, in the Visit Indiana guide. Brown County is the DNR’s named hot spot inside that broad area. Owen County, where Cataract Falls sits, is not given a private week.', season: 'Typical prediction, Visit Indiana, October 10, 2017 guide', sourceTitle: 'Visit Indiana, fall colors guide', sourceUrl: 'https://visitindiana.in.gov/blog/post/fall-colors/' },
+      { name: 'Mount Vernon and Evansville', text: 'Late October, in the same guide. That is the far southwest corner. It is not a statewide delay.', season: 'Typical, Visit Indiana', sourceTitle: 'Visit Indiana, fall colors guide', sourceUrl: 'https://visitindiana.in.gov/blog/post/fall-colors/' },
+    ],
+    report: { title: 'Visit Indiana fall foliage', url: 'https://visitindiana.in.gov/blog/post/fall-foliage-across-indiana/', text: 'Tourism points to a Brown County leaf cam for a daily look. No statewide DNR weekly table was found for this guide. Brown County State Park’s phone is 812-988-6406.' },
+    species: [
+      { name: 'Hickory, ash, maple, oak, dogwood', text: 'The 2017 guide says yellow and orange are common on hickory, ash, maple, birch, and cottonwood, and reds and purples on maple, oaks, dogwoods, and cherry. It is a general hardwood key, not an Owen County inventory.', sourceTitle: 'Visit Indiana, fall colors guide', sourceUrl: 'https://visitindiana.in.gov/blog/post/fall-colors/' },
+    ],
+    stops: ['/indiana/cloverdale/upper-cataract-falls', '/indiana/cloverdale/lower-cataract-falls', '/indiana/shoals/hindostan-falls'],
+    fallsIntro: 'Upper and Lower Cataract Falls are both Owen County, filed at Cloverdale. The trail note on the upper fall is under a mile round trip. Hindostan Falls is Martin County, also in the south-central hills, not in the Evansville pocket. All three take the mid-to-late October line. The late-October Evansville sentence is for the Ohio River corner, where this directory does not have a published waterfall page.',
+    driveTitle: 'Owen and Martin counties in the main week',
+    drive: [
+      'The two Cataract pages are the same park. Hindostan is the next county south. Mid-to-late October is the Visit Indiana window for most of the state, and Brown County is the famous neighboring hotspot if you want a ridge drive after the falls. Do not delay this cluster until the Evansville week unless the leaves in Owen County are visibly behind, which the 2017 guide does not predict.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'When is most of Indiana?', a: 'Visit Indiana says mid-to-late October. The Evansville and Mount Vernon area is late October in that same guide.' },
+      { q: 'Where is the famous color park?', a: 'Brown County State Park, which Indiana DNR calls a traditional hot spot. The phone there is 812-988-6406. Cataract Falls is in neighboring Owen County, not inside Brown County.' },
+      { q: 'Which falls share a park?', a: 'Upper and Lower Cataract Falls, both filed at Cloverdale. Hindostan Falls is Martin County.' },
+    ],
+  },
+  {
+    slug: 'iowa',
+    name: 'Iowa',
+    dek: 'Iowa DNR says the northeast peaks, on average, the weekend closest to October 10, and the south comes later.',
+    indexLine: 'Northeast: weekend closest to October 10. Southern third: second through fourth weeks of October.',
+    overview: [
+      'The Iowa DNR fall color report answers “when do colors peak?” directly. In northeast Iowa, on average, it is the weekend closest to October 10. Peak comes progressively later the farther south you go. A September 11, 2026 release splits the state into thirds: the northern third the weekend closest to October 10, the center the first to third weeks of October, and the southern third the second through fourth weeks of October, all depending on weather.',
+      'The 2026 forester table on the report page estimated mid-October for the northwest, north-central, central, and west-central districts, late October for the southeast and southwest, and the last week of October for south-central. On November 2, 2026 the northeast was still marked “now,” with leaves dropping, and the department called that report the last of the season. The average and the 2026 table are both printed here because they are not the same document.',
+    ],
+    regions: [
+      { name: 'Northeast and the northern third', text: 'Average peak is the weekend closest to October 10. The 2026 release uses that same weekend for the whole northern third, weather permitting.', season: 'Iowa DNR average, restated in the September 11, 2026 release', sourceTitle: 'Iowa DNR fall color report', sourceUrl: 'https://www.iowadnr.gov/programs-services/forestry-resources/fall-color-report' },
+      { name: 'Central third', text: 'First to third weeks of October in the 2026 release. The forester table that year said mid-October for central and west-central.', season: '2026 DNR release and that year’s table', sourceTitle: 'Iowa DNR, September 11, 2026', sourceUrl: 'https://www.iowadnr.gov/programs-services/forestry-resources/fall-color-report' },
+      { name: 'Southern third', text: 'Second through fourth weeks of October in the release. The 2026 table said late October for the southeast and southwest, and the last week of October for south-central.', season: '2026 DNR materials', sourceTitle: 'Iowa DNR fall color report', sourceUrl: 'https://www.iowadnr.gov/programs-services/forestry-resources/fall-color-report' },
+    ],
+    report: { title: 'Iowa DNR fall color report', url: 'https://www.iowadnr.gov/programs-services/forestry-resources/fall-color-report', text: 'Weekly notes run from about September 30 through the last week of October. The general line is 515-725-8200. The November 2, 2026 report was marked as the last of that season.' },
+    species: [
+      { name: 'Hard maple, oaks, hickory, ash', text: 'The report page assigns hard maple a brilliant flame red, red oak a brilliant red, white oak a more subdued purple, bur oak buff to yellow, hickory yellow, green ash yellow, white ash a purplish cast, and soft maple yellow.', sourceTitle: 'Iowa DNR fall color report', sourceUrl: 'https://www.iowadnr.gov/programs-services/forestry-resources/fall-color-report' },
+    ],
+    stops: [],
+    fallsIntro: 'Iowa has waterfall names in the directory and no page that met the bar for its own guide. The foliage trip is the DNR calendar, especially the northeast around the weekend closest to October 10. The state list is the place to see the unpublished names and coordinates.',
+    driveTitle: 'Northeast Iowa on the average weekend',
+    drive: [
+      'Without a published waterfall page, the drive is the one the DNR’s own geography implies: be in the northeast near October 10, and move south if that weekend has already passed. The 2026 table is a reminder that “central” can read mid-October while south-central reads the last week. Check the weekly report before you pick a county.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'When is northeast Iowa, on average?', a: 'The weekend closest to October 10, according to the Iowa DNR. The south is later.' },
+      { q: 'How did 2026 differ?', a: 'Foresters estimated mid-October for much of the north and center, late October for the southeast and southwest, and the last week of October for south-central. On November 2 the northeast was still dropping leaves, and that was the last report.' },
+      { q: 'Which trees does the DNR color-code?', a: 'Hard maple flame red, red oak brilliant red, white oak subdued purple, bur oak buff to yellow, hickory and green ash yellow, white ash purplish, soft maple yellow.' },
+    ],
+  },
+  {
+    slug: 'missouri',
+    name: 'Missouri',
+    dek: 'The Missouri Department of Conservation says peak is usually around mid-October, starting in the north and west and finishing by mid-November.',
+    indexLine: 'Usually mid-October at the height. North and west first. Often finished by mid-November.',
+    overview: [
+      'MDC’s fall color page gives a species sequence and a regional direction. Sassafras, sumac, and Virginia creeper begin in mid-September. By late September, black gum, bittersweet, and dogwood are turning. Peak is usually around mid-October, when maples, ashes, hickories, and oaks are at their height. By late October colors are usually fading. The season usually finishes by mid-November. The progression usually starts earliest in northern and western Missouri and moves south and east.',
+      'Visit Missouri’s September 28, 2026 leaf-peeping article says the season runs from the end of September through the middle of November, begins in the north, and peaks in mid-to-late October. That is a slightly later peak phrase than MDC’s “around mid-October.” Both are official. The weekly MDC posts are the tie-breaker. On November 12, 2026, MDC still had central, northeast, and northwest at peak, and Kansas City, the southeast, the southwest, and St. Louis past peak.',
+    ],
+    regions: [
+      { name: 'North and west first', text: 'MDC says the change usually starts earliest in northern and western Missouri and moves south and east. Visit Missouri says the same north-to-south direction, with peak in mid-to-late October.', season: 'Typical pattern, MDC and Visit Missouri', sourceTitle: 'Missouri Department of Conservation, fall color', sourceUrl: 'https://mdc.mo.gov/trees-plants/fall-color' },
+      { name: 'Mid-October height', text: 'MDC says peak is usually around mid-October, when maples, ashes, hickories, and oaks are up. The early shrubs of mid-September are not that peak. They are the start.', season: 'Typical, MDC', sourceTitle: 'Missouri Department of Conservation, fall color', sourceUrl: 'https://mdc.mo.gov/trees-plants/fall-color' },
+      { name: 'What November 12, 2026 actually showed', text: 'Central, northeast, and northwest were still called peak. Kansas City, southeast, southwest, and St. Louis were past peak. That is one Wednesday, and it shows the south and the cities can be done while the north-central is not.', season: 'MDC status posted November 12, 2026', sourceTitle: 'Missouri Department of Conservation, fall color', sourceUrl: 'https://mdc.mo.gov/trees-plants/fall-color' },
+    ],
+    report: { title: 'MDC fall color reports', url: 'https://mdc.mo.gov/trees-plants/fall-color', text: 'Weekly reports usually post by Thursday evening from the second half of September into mid-November.' },
+    species: [
+      { name: 'From sassafras to oak', text: 'MDC’s order: sassafras, sumac, and Virginia creeper in mid-September; black gum, bittersweet, and dogwood by late September; maples, ashes, hickories, and oaks at the mid-October peak. The November 12, 2026 notes added sugar maple, dogwood, and sassafras in orange, yellow sycamore, red sumac, hickory and white oak in the northwest, and cinnamon bald-cypress needles in the southeast.', sourceTitle: 'Missouri Department of Conservation, fall color', sourceUrl: 'https://mdc.mo.gov/trees-plants/fall-color' },
+    ],
+    stops: ['/missouri/ironton/mina-sauk-falls', '/missouri/winona/rocky-falls', '/missouri/joplin/shoal-creek-falls'],
+    fallsIntro: 'Mina Sauk Falls is Iron County, in the St. Francois Mountains. Rocky Falls is Shannon County, in the Ozark interior. Both are south and east of the “starts in the north and west” line, so they belong nearer the mid-October peak and the slide toward November than to the first northern tint. Shoal Creek Falls is Newton County, in the southwest, which the November 12, 2026 status had already called past peak. The Forest Service names the Glade Top Trail for hickory, oak, and sassafras. That trail is Ozark color. It is not the Joplin page.',
+    driveTitle: 'Ozark interior at the mid-October height',
+    drive: [
+      'Ironton and Winona are the Ozark pair to hold for the usual mid-October peak. Joplin is the southwestern page, and in 2026 that corner was already past on November 12 while the northeast was not. Use the Thursday MDC post to see which of those three sentences is true this week. The straight-line gap from Shannon County to Newton County is large enough that they are separate days.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'When is Missouri’s usual peak?', a: 'MDC says around mid-October. Visit Missouri says mid-to-late October. Both say the north starts first. Weekly MDC reports settle a given year.' },
+      { q: 'What turns before the oaks?', a: 'MDC says sassafras, sumac, and Virginia creeper in mid-September, then black gum, bittersweet, and dogwood by late September. Maples, ashes, hickories, and oaks are the mid-October height.' },
+      { q: 'Which falls are in the southwest?', a: 'Shoal Creek Falls in Newton County. Mina Sauk is Iron County. Rocky Falls is Shannon County.' },
+    ],
+  },
+  {
+    slug: 'kansas',
+    name: 'Kansas',
+    dek: 'Kansas Tourism’s 2026 note put the first half of the state in mid-October and the second half from late October into early November.',
+    indexLine: '2026 tourism note: northwest-leaning half October 13–20, the other half October 20–November 3.',
+    overview: [
+      'The Kansas Tourism fall page describes a 2026 progression and does not, in the text used here, present it as a multi-year average. In 2026, the first half of the state was expected to begin changing in mid-October, dated October 13–20, and the second half from mid-to-late October into early November, dated October 20 through November 3. The page also says that by late October most of Kansas should be in the midst of peak. The dates are footnoted on the page. The footnote text was not in the copy retrieved, so this guide does not upgrade them into a “normal year.”',
+      'The page tells readers who want live updates to check explorefall.com. That third-party map is not a source for the dates on this site. Butcher Falls, in Chautauqua County, is the published waterfall page. Chautauqua is in the southeast, which the 2026 wording puts in the later half.',
+    ],
+    regions: [
+      { name: 'First half of the state, 2026', text: 'Leaves were expected to begin changing October 13–20. The page describes this as the first half of Kansas. It does not print a county list in the sentences used here.', season: '2026 Kansas Tourism note, not labeled a long-term average', sourceTitle: 'Kansas Tourism, fall', sourceUrl: 'https://www.travelks.com/plan-your-trip/travel-seasons/fall/' },
+      { name: 'Second half, 2026', text: 'The second half was expected to start around October 20 and run through November 3. By late October, the page says, most of the state should be in the midst of peak.', season: '2026 Kansas Tourism note', sourceTitle: 'Kansas Tourism, fall', sourceUrl: 'https://www.travelks.com/plan-your-trip/travel-seasons/fall/' },
+    ],
+    report: { title: 'Kansas Tourism fall page', url: 'https://www.travelks.com/plan-your-trip/travel-seasons/fall/', text: 'The page is the state note for 2026. It points at an outside map for live updates. This guide does not treat that map as a citation for peak weeks.' },
+    species: [],
+    stops: ['/kansas/sedan/butcher-falls'],
+    fallsIntro: 'Butcher Falls, in Chautauqua County at Sedan, is the only published waterfall page. Southeast Kansas is the later half of the 2026 note, October 20 through November 3, if the page’s “second half” means the southeast. The tourism page’s own wording is “second half,” not “Chautauqua County.” Use the later window as the closer fit, and do not pretend a Flint Hills week was printed.',
+    driveTitle: 'One southeast waterfall on the later 2026 half',
+    drive: [
+      'There is no second published fall to connect. Sedan is a southeast stop. If you are traveling October 13–20, the 2026 note is about the first half of the state, and this waterfall is the wrong half to assume. Late October is when the page says most of Kansas should be in peak, which is the safer week to put on a southeast page.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'Are the Kansas dates a typical year?', a: 'The tourism page presents them as 2026: October 13–20 for the first half, October 20 through November 3 for the second half, with most of the state in peak by late October. A footnote was not readable in the copy used here, so they are not upgraded to a normal-year average.' },
+      { q: 'Where is the waterfall?', a: 'Butcher Falls in Chautauqua County. It is the only published waterfall page, and it sits in the southeast.' },
+      { q: 'Does this page use the explorefall map?', a: 'No. Kansas Tourism mentions it for live updates. The dates here are the sentences on the state tourism page.' },
+    ],
+  },
+  {
+    slug: 'nebraska',
+    name: 'Nebraska',
+    dek: 'Nebraska Game and Parks says color shows up in the northwest around the first of October and peaks in southeastern woods just before Halloween.',
+    indexLine: 'Northwest around October 1. Southeastern woodlands just before Halloween.',
+    overview: [
+      'Nebraskaland, the Game and Parks magazine, gives the state a direction rather than a grid. As a general reference, fall color comes into view in northwestern Nebraska around the first of October and peaks in southeastern woodlands just before Halloween. The article calls October the month leaves turn in the state. One drive, from Arbor Lodge to Indian Cave, is recommended for mid-to-late October.',
+      'The published waterfall pages are not in the southeast. Smith Falls, Snake River Falls, and Fort Falls are all filed at Valentine, in Cherry County, which is north-central. That is closer to the “first of October” northwest start than to the Halloween southeast peak. The article’s general reference is what this page uses, and it says the northwest is the early end.',
+    ],
+    regions: [
+      { name: 'Northwestern Nebraska', text: 'Around the first of October, color comes into view. The magazine offers that as a general reference, not as a surveyed peak day.', season: 'General reference, Nebraskaland, September 29, 2025', sourceTitle: 'Nebraskaland Magazine, the colors of October', sourceUrl: 'https://magazine.outdoornebraska.gov/blogs/in-the-wild/the-vibrant-colors-of-october/' },
+      { name: 'Southeastern woodlands', text: 'Peak just prior to Halloween. The Arbor Lodge to Indian Cave drive is the mid-to-late October recommendation, which sits on this later end of the state.', season: 'General reference, Nebraska Game and Parks', sourceTitle: 'Nebraskaland Magazine, the colors of October', sourceUrl: 'https://magazine.outdoornebraska.gov/blogs/in-the-wild/the-vibrant-colors-of-october/' },
+    ],
+    report: { title: 'Nebraskaland fall color essay', url: 'https://magazine.outdoornebraska.gov/blogs/in-the-wild/the-vibrant-colors-of-october/', text: 'No weekly foliage map was found. The Game and Parks essay is the timing source, and it is explicit that the dates are a general reference.' },
+    species: [
+      { name: 'Yellow is the common color', text: 'The essay says yellow is the most common fall leaf color in the state. It names sugar maple, red maple, oaks, green ash, cottonwood, quaking aspen, smooth sumac, and Virginia creeper. Green ash is one of the first to turn yellow, and its leaves fall shortly after.', sourceTitle: 'Nebraskaland Magazine', sourceUrl: 'https://magazine.outdoornebraska.gov/blogs/in-the-wild/the-vibrant-colors-of-october/' },
+    ],
+    stops: ['/nebraska/valentine/smith-falls', '/nebraska/valentine/snake-river-falls', '/nebraska/valentine/fort-falls'],
+    fallsIntro: 'All three published pages are in Cherry County at Valentine: Smith Falls, Snake River Falls, and Fort Falls. That is Niobrara country, in the north, so the first-of-October end of the Game and Parks reference is the closer fit. The Halloween peak is the southeastern woods, a different trip, and the magazine’s mid-to-late October drive is Arbor Lodge to Indian Cave, not the Niobrara.',
+    driveTitle: 'Valentine on the early end of the month',
+    drive: [
+      'The three falls share a town in the directory, so the straight-line gaps should be short. Early October is the northwestern and northern reference. If you only have the week before Halloween, the essay is pointing you at southeastern woodlands, and these waterfall pages may already be past. The species note that matters on the river is cottonwood and ash, which the essay says yellow up, with ash dropping soon after it turns.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'When does northwestern Nebraska start to show color?', a: 'Around the first of October, as a general reference in the Game and Parks magazine. Southeastern woodlands peak just before Halloween.' },
+      { q: 'What color should you expect?', a: 'The essay says yellow is the most common. Green ash turns early and drops soon after. Maples, oaks, cottonwood, aspen, sumac, and Virginia creeper are the other plants it names.' },
+      { q: 'Where are the waterfall pages?', a: 'Smith Falls, Snake River Falls, and Fort Falls, all filed at Valentine in Cherry County, on the early end of the state’s calendar.' },
+    ],
+  },
+  {
+    slug: 'north-dakota',
+    name: 'North Dakota',
+    dek: 'North Dakota Tourism says foliage begins in early September and reaches its peak by mid-October, depending on the place.',
+    indexLine: 'Early September start. Peak by mid-October, depending on location. Grand Forks is called early.',
+    overview: [
+      'The state tourism division says fall foliage begins in early September and reaches its peak by mid-October, depending on the location. It points at a prediction map and says weather and wind move the estimate, and that each year unfolds a little differently. The page does not print a county-by-county week. It does mark Grand Forks, in the northern Red River Valley, for early changes along the river and in shelterbelts. Fargo, to the south on the same river, is listed without the word “early.”',
+      'The place list is the useful part, because the state has no published waterfall page. Turtle River State Park at Arvilla, Pembina Gorge at Walhalla, the Turtle Mountains, Fort Ransom on the Sheyenne, the Badlands units of Theodore Roosevelt National Park, Cross Ranch on the Missouri, and the capitol arboretum trail in Bismarck are all named. The only dated bracket for all of them is early September through a mid-October peak, varying by place.',
+    ],
+    regions: [
+      { name: 'Northern Red River and the northeast', text: 'Grand Forks is the place the tourism page tells you to look for early changes, along the Red River and in field shelterbelts. Pembina Gorge, near the Canadian border at Walhalla, and Turtle River State Park at Arvilla are the wooded stops in that same northeast. They are not given a private week.', season: 'Tourism place notes inside an early-September to mid-October season', sourceTitle: 'North Dakota Tourism, best places for fall foliage', sourceUrl: 'https://www.ndtourism.com/best-places/best-places-view-fall-foliage-north-dakota' },
+      { name: 'Sheyenne, the Missouri, and the Badlands', text: 'Fort Ransom is the southern Sheyenne. Fort Abraham Lincoln and Cross Ranch are Missouri River bottom forests. Theodore Roosevelt’s north and south units are river-bottom trees in the Badlands. The page says those trees begin their annual change. It does not say they peak before or after Grand Forks. The only shared dates remain early September for the start and mid-October for the peak, depending on location.', season: 'Statewide bracket, North Dakota Tourism', sourceTitle: 'North Dakota Tourism, best places for fall foliage', sourceUrl: 'https://www.ndtourism.com/best-places/best-places-view-fall-foliage-north-dakota' },
+    ],
+    report: { title: 'North Dakota Tourism foliage guide', url: 'https://www.ndtourism.com/best-places/best-places-view-fall-foliage-north-dakota', text: 'The page mentions a prediction map and does not print zone dates beyond the statewide bracket. The tourism line is 1-800-435-5663.' },
+    hotline: { label: 'North Dakota Tourism', value: '1-800-435-5663', url: 'https://www.ndtourism.com/best-places/best-places-view-fall-foliage-north-dakota' },
+    species: [],
+    stops: [],
+    fallsIntro: 'The directory has a North Dakota waterfall name and no page that cleared the publish bar. Coordinates stay on the state list. The foliage stops are the parks and river bottoms the tourism division already named.',
+    driveTitle: 'Grand Forks if you want the early changes, the Badlands if you want the river cottonwoods later in the same season',
+    drive: [
+      'The page’s only “early” label is Grand Forks. Pembina Gorge is the border woodland if you are already in the northeast. The Badlands and Cross Ranch are a western trip inside the same early-September to mid-October bracket, not a second season. Because the division did not date them separately, this guide will not claim the Badlands peak a week after Grand Forks. It will claim they are different landscapes inside one sourced season.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'When does North Dakota peak?', a: 'Tourism says the change begins in early September and reaches its peak by mid-October, depending on the location. Weather and wind move it.' },
+      { q: 'Which place is called early?', a: 'Grand Forks, for early changes along the Red River and in shelterbelts. Fargo is listed on the same river without that word.' },
+      { q: 'Are there published waterfall guides?', a: 'No. Named falls that did not get their own page are on the state directory.' },
+    ],
+  },
+  {
+    slug: 'south-dakota',
+    name: 'South Dakota',
+    dek: 'Travel South Dakota says the Black Hills peak earlier than the lower country, inside a mid-September through mid-October season.',
+    indexLine: 'Black Hills earlier. Spearfish canyon bottom usually mid-October. Season mid-September through mid-October.',
+    overview: [
+      'Travel South Dakota’s viewing guide says prime season is mid-September through mid-October. High-elevation country such as the Black Hills typically peaks earlier, and lower-lying areas follow a week or two behind. Spearfish Canyon is split again: higher elevations turn as early as late September into early October, and the canyon bottom usually peaks in mid-October. Custer State Park’s hills turn in late September and early October.',
+      'The Forest Service names Spearfish Canyon for maples, birch, and oak against limestone, and it does not add a date. The tourism guide is the calendar. Spearfish Falls and Roughlock Falls are the canyon pages. Cascade Falls, in Fall River County at Hot Springs, is south of the canyon and closer to the “lower country a week or two later” line than to the canyon-bottom mid-October sentence. This page does not force Hot Springs onto the canyon date.',
+    ],
+    regions: [
+      { name: 'Black Hills high ground', text: 'Typically earlier than the lower country, inside a prime season of mid-September through mid-October. Custer State Park’s rolling hills turn in late September and early October.', season: 'Typical, Travel South Dakota', sourceTitle: 'Travel South Dakota, fall colors viewing guide', sourceUrl: 'https://www.travelsouthdakota.com/trip-ideas/fall-colors-viewing-guide' },
+      { name: 'Spearfish Canyon', text: 'Higher elevations as early as late September into early October. Canyon bottom usually mid-October. The tourism photo essay is the source of that split. The Forest Service description of maple, birch, and oak is the species note, without dates.', season: 'Typical, Travel South Dakota photo essay', sourceTitle: 'Travel South Dakota, Spearfish Canyon', sourceUrl: 'https://www.travelsouthdakota.com/trip-ideas/amazing-autumn-leaf-colors-spearfish-canyon-photo-essay' },
+      { name: 'Lower country', text: 'A week or two behind the Black Hills, in the viewing guide. No separate Badlands or prairie week was printed beyond that lag.', season: 'Typical lag, Travel South Dakota', sourceTitle: 'Travel South Dakota, fall colors viewing guide', sourceUrl: 'https://www.travelsouthdakota.com/trip-ideas/fall-colors-viewing-guide' },
+    ],
+    report: { title: 'Travel South Dakota fall colors guide', url: 'https://www.travelsouthdakota.com/trip-ideas/fall-colors-viewing-guide', text: 'No weekly field report was found. The viewing guide and the Spearfish essay are the timing sources.' },
+    species: [
+      { name: 'Aspen, birch, maple, and oak', text: 'The viewing guide puts golden aspen and birch against spruce and pine. The Spearfish essay names aspen and birch, with Black Hills spruce, ponderosa pine, and quaking aspen in the mix. The Forest Service adds maple and oak in the canyon.', sourceTitle: 'USDA Forest Service, Fall Colors', sourceUrl: 'https://www.fs.usda.gov/visit/fall-colors' },
+    ],
+    stops: ['/south-dakota/lead/spearfish-falls', '/south-dakota/lead/roughlock-falls', '/south-dakota/hot-springs/cascade-falls'],
+    fallsIntro: 'Spearfish Falls and Roughlock Falls are both Lawrence County, filed at Lead, in the canyon the tourism essay splits by elevation. The trail file names a canyon-floor nature trail at Spearfish Falls, which is the canyon-bottom case: usually mid-October, not the late-September rim. Cascade Falls is Fall River County. It is the lower-country page, a week or two after the Hills in the viewing guide, and it is not a Spearfish trailhead.',
+    driveTitle: 'The canyon floor in mid-October',
+    drive: [
+      'Lead is the pair to schedule on the canyon-bottom week if you are walking the floor trail. High pullouts in the same canyon can be earlier, which the essay says outright. Hot Springs is the extra stop if you are still in the state a week or two after the Hills have peaked. The straight-line gap is the spacing. It is not a Forest Service scenic-byway log. The byway they name is Spearfish Canyon itself.',
+    ],
+    parksNote: '',
+    faqs: [
+      { q: 'When is prime season in South Dakota?', a: 'Mid-September through mid-October. The Black Hills typically peak earlier than lower country, which follows a week or two behind.' },
+      { q: 'When is the bottom of Spearfish Canyon?', a: 'Usually mid-October. Higher elevations in the canyon turn as early as late September into early October. Custer State Park’s hills are late September and early October.' },
+      { q: 'Which falls are in the canyon?', a: 'Spearfish Falls and Roughlock Falls, both Lawrence County. Cascade Falls at Hot Springs is the Fall River County page, outside that canyon date.' },
+    ],
+  },
+];
