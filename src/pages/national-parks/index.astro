@@ -36,6 +36,7 @@ const schema = [{
       </div>
     </div>
     {hubCopy.paragraphs.map((p) => <p>{p}</p>)}
+    <p>Heights for the falls in these parks, set next to every other state, are in <a href="/blog/largest-waterfalls-in-the-us-by-state">Largest waterfalls in the United States, by state</a>. That guide uses a park sentence or a USGS sentence and leaves the height blank when neither exists.</p>
     <p>{fmtNum(parks.length)} parks qualify, covering {fmtNum(parks.reduce((s, p) => s + p.falls.length, 0))} published waterfall pages. The list is grouped by the state of those falls. A park on a state line appears in each state where one of its falls sits.</p>
     <label class="small" for="park-sort">Sort</label>
     <select id="park-sort">

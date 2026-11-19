@@ -197,6 +197,9 @@ p { margin: 0 0 1em; }
 .prose th, .prose td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; }
 .prose th { background: var(--mist); color: var(--slate-dark); }
 .prose blockquote { border-left: 4px solid var(--forest); margin: 1.2em 0; padding: 4px 18px; color: var(--slate); background: var(--mist-2); }
+.prose figure { margin: 1.4em 0 1.6em; }
+.prose figure img { width: 100%; height: auto; border-radius: 12px; display: block; background: var(--mist); }
+.prose figcaption { font-size: 0.85rem; color: var(--slate); margin-top: 8px; }
 .map-frame { width: 100%; aspect-ratio: 16 / 10; border: 0; border-radius: var(--radius); background: var(--mist); }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
 .gallery img { border-radius: 10px; aspect-ratio: 4 / 3; object-fit: cover; width: 100%; background: var(--mist); }

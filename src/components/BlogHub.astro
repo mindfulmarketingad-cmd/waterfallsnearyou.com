@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import PageBand from './PageBand.astro';
 import { getFeed, pageCount, pageUrl, PER_PAGE } from '../lib/blogfeed.mjs';
 import { getPosts } from '../lib/blog.mjs';
+import { getHowManyPages } from '../lib/how-many.mjs';
 import { featuredPhoto } from '../lib/photos.mjs';
 import { SITE } from '../config.mjs';
 interface Props { page: number }
@@ -48,6 +49,15 @@ const schema = [{ '@type': 'Blog', name: 'WaterfallsNearYou Guides', url: `${SIT
       {page < total ? <a class="btn btn-outline" href={pageUrl(page + 1)} rel="next">Older</a> : <span></span>}
     </nav>
   </section>
+  {page === 1 && (
+    <section class="wrap section-sm" aria-labelledby="how-many-h">
+      <h2 id="how-many-h">How many waterfalls are in each state?</h2>
+      <p class="muted">Named Falls features from the USGS GNIS, ranked in <a href="/blog/states-with-the-most-waterfalls">which state has the most waterfalls</a>. States with fewer than 10 named falls are covered there instead of on a separate page.</p>
+      <ul class="essentials">
+        {getHowManyPages().map((p) => <li><a href={p.url}>{p.title}</a></li>)}
+      </ul>
+    </section>
+  )}
   {page === 1 && (
     <section class="wrap section-sm prose" aria-labelledby="about-blog">
       <h2 id="about-blog">What we write about</h2>

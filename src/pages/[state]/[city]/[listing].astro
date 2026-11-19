@@ -7,7 +7,7 @@ import Photo from '../../../components/Photo.astro';
 import Weather from '../../../components/Weather.astro';
 import Conditions from '../../../components/Conditions.astro';
 import { point } from '../../../lib/maps.mjs';
-import { listingPhoto } from '../../../lib/photos.mjs';
+import { listingPhoto, nearbyPhotos } from '../../../lib/photos.mjs';
 import { loadData, hoursSummary } from '../../../lib/core.mjs';
 import {
   fmtMiles, fmtNum, stars, gnisUrl, directionsUrl, appleMapsUrl, osmUrl, topoUrl,
@@ -32,8 +32,11 @@ const l = loadData().listings.find((x) => x.id === id);
 const os = l.os;
 const state = loadData().states.find((s) => s.name === l.state);
 const sameCity = l.city.assigned.filter((x) => x !== l && publishedListing(x)).slice(0, 12);
-const nearbyPages = l.nearby.filter((n) => publishedListing(n.listing));
-const nearbyRest = l.nearby.filter((n) => !publishedListing(n.listing));
+const nearbyPages = l.nearby.filter((n) => publishedListing(n.listing)).slice(0, 6);
+const nearbyRest = l.nearby.filter((n) => !publishedListing(n.listing)).slice(0, 12);
+const nearbyPhotoList = nearbyPhotos([...nearbyPages, ...nearbyRest].map((n) => n.listing));
+const nearbyPagePhotos = nearbyPhotoList.slice(0, nearbyPages.length);
+const nearbyRestPhotos = nearbyPhotoList.slice(nearbyPages.length);
 const hours = hoursSummary(os);
 const crumbs = [
   { name: 'Home', url: '/' },
@@ -247,19 +250,29 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
       <p>Water levels, access and slick rock change with the weather. Read the <a href="/blog/waterfall-safety-tips">waterfall safety guide</a> and the <a href="/blog/what-to-pack-for-a-waterfall-hike">packing list</a>, and save the coordinates <strong>{l.lat.toFixed(5)}, {l.lng.toFixed(5)}</strong> before you lose cell service. Some named falls are on private land or have no maintained trail.</p>
 
       {l.nearby.length > 0 && (
-        <>
+        <div class="nearby-falls">
           <h2>Waterfalls Near {l.name}</h2>
           {nearbyPages.length > 0 && (
             <div class="grid-3">
-              {nearbyPages.slice(0, 6).map((n) => <ListingCard listing={n.listing} miles={n.miles} direction={n.direction} />)}
+              {nearbyPages.map((n, i) => <ListingCard listing={n.listing} miles={n.miles} direction={n.direction} photo={nearbyPagePhotos[i]} />)}
             </div>
           )}
           {nearbyRest.length > 0 && (
-            <ul class="nearby-list" style="margin-top:16px">
-              {nearbyRest.slice(0, 12).map((n) => <li><a href={listingHref(n.listing)}><span>{n.listing.name}, {n.listing.stateCode}</span><span class="d">{fmtMiles(n.miles)} {n.direction}</span></a></li>)}
+            <ul class="nearby-list">
+              {nearbyRest.map((n, i) => {
+                const photo = nearbyRestPhotos[i];
+                return (
+                  <li>
+                    <a href={listingHref(n.listing)}>
+                      <img class="nearby-photo" src={photo.src} alt={photo.alt} width="1200" height="630" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror={photo.fallback ? `this.onerror=null;this.src='${photo.fallback}'` : undefined} />
+                      <span class="nearby-copy"><span>{n.listing.name}, {n.listing.stateCode}</span><span class="d">{fmtMiles(n.miles)} {n.direction}</span></span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           )}
-        </>
+        </div>
       )}
 
       <div style="margin-top:36px"><Faq faqs={faqs} /></div>
@@ -312,6 +325,31 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
     </aside>
   </div>
 </Base>
+
+<style>
+  .nearby-falls .nearby-list { margin-top: 16px; }
+  .nearby-falls .nearby-list a { align-items: center; }
+  .nearby-falls .nearby-copy {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2px 12px;
+    min-width: 0;
+  }
+  .nearby-falls .nearby-photo {
+    width: 42%;
+    max-width: 220px;
+    min-width: 108px;
+    height: auto;
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+    border-radius: 8px;
+    flex: none;
+    background: var(--mist);
+  }
+</style>
 
 <script>
   // Small interactive map: loads MapLibre only when the map scrolls near the viewport.

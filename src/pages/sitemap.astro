@@ -8,6 +8,7 @@ const posts = getPosts();
 import { getFind, findPages, getFindCities } from '../lib/find.mjs';
 import { isIndexable } from '../lib/indexing.mjs';
 import { getParks, parkQualifies } from '../lib/parks.mjs';
+import { getHowManyPages } from '../lib/how-many.mjs';
 import { getFoliagePages } from '../lib/foliage.mjs';
 ---
 <StaticPage title="Sitemap | All Pages on WaterfallsNearYou" h1="Sitemap" eyebrow="Every page" description="An overview of every section of WaterfallsNearYou: state guides, town guides, blog articles and site information pages." intro="State guides list every named waterfall. Town guides and individual waterfall pages are the ones with enough visitor or official information to be useful on their own.">
@@ -27,6 +28,8 @@ import { getFoliagePages } from '../lib/foliage.mjs';
   <ul class="link-cols">{getParks().filter(parkQualifies).map((p) => <li><a href={p.url}>{p.name}</a></li>)}</ul>
   <h2>Blog</h2>
   <ul>{posts.map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
+  <h2>How many waterfalls are in each state</h2>
+  <ul class="link-cols">{getHowManyPages().map((p) => <li><a href={p.url}>{p.name}</a></li>)}</ul>
   <h2>State waterfall lists</h2>
   <ul class="link-cols">{[getRoadside(), getSmallest(), ...getCapitalLists(), ...getStateLists()].filter((p) => isIndexable(p.url)).map((p) => <li><a href={p.url}>{p.title}</a></li>)}</ul>
   <h2>Waterfalls by type</h2>

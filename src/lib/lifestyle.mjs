@@ -57,10 +57,21 @@ function poolFor(biome) {
 }
 
 export function lifestyleForListing(l) {
+  const choices = lifestyleChoices(l);
+  return choices[0];
+}
+
+// Same regional pool as lifestyleForListing, ordered from that listing's stable
+// pick. Callers can skip a photo already used on the previous card.
+export function lifestyleChoices(l) {
   const biome = BIOME[l?.stateCode] || 'forest';
   const pool = poolFor(biome);
+  if (!pool.length) return [];
   const key = l?.url || l?.name || biome;
-  return present(pool[hash(key) % pool.length]);
+  const start = hash(key) % pool.length;
+  const out = [];
+  for (let i = 0; i < pool.length; i++) out.push(present(pool[(start + i) % pool.length]));
+  return out;
 }
 
 // Hand-written posts get distinct photos. Other keys hash into the full catalog.
