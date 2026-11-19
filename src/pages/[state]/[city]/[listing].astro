@@ -6,6 +6,7 @@ import ListingCard from '../../../components/ListingCard.astro';
 import Photo from '../../../components/Photo.astro';
 import Weather from '../../../components/Weather.astro';
 import Conditions from '../../../components/Conditions.astro';
+import WaterConditions from '../../../components/WaterConditions.astro';
 import { point } from '../../../lib/maps.mjs';
 import { listingPhoto } from '../../../lib/photos.mjs';
 import { loadData, hoursSummary } from '../../../lib/core.mjs';
@@ -189,6 +190,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
 
       <Weather lat={l.lat} lng={l.lng} name={l.name} />
       <Conditions listing={l} />
+      <WaterConditions listing={l} />
 
       <h2 id="map">Map and Directions</h2>
       <p>The marker shows the USGS-recorded position of {l.name}. Trailheads and parking can be some distance from the falls themselves, so plan your route with an up-to-date trail map.</p>
