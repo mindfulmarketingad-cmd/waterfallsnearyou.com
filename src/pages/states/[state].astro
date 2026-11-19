@@ -29,6 +29,7 @@ const lists = listsForState(state);
 const capitalPost = getCapitalLists().find((p) => p.state === state);
 const guides = [...(capitalPost ? [capitalPost] : []), ...lists];
 const aboutState = postsLinkingTo(state.url);
+const pillar = getPosts().find((p) => p.slug === 'largest-waterfalls-in-the-us-by-state');
 const generalGuides = getPosts().filter((p) => !aboutState.includes(p)).filter((p) => ['best-time-to-visit-waterfalls', 'waterfall-safety-tips', 'what-to-pack-for-a-waterfall-hike', 'waterfall-hikes-with-kids', 'swimming-at-waterfalls', 'waterfall-photography-tips'].includes(p.slug));
 const ordinal = (n) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
 const n = ins.count;
@@ -170,6 +171,7 @@ const schema = [
   <section class="wrap section-sm" aria-labelledby="guides-h">
     <h2 id="guides-h">{state.name} waterfall guides</h2>
     <ul class="guide-list">
+      {pillar && !aboutState.includes(pillar) && <li><a href={pillar.url}>{pillar.title}</a></li>}
       {guides.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
       {aboutState.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
       {generalGuides.map((p) => <li><a href={p.url}>{p.title}</a></li>)}
