@@ -7,6 +7,8 @@ import { SITE } from '../config.mjs';
 import { isIndexable } from '../lib/indexing.mjs';
 import { getCityHubs } from '../lib/cityhubs.mjs';
 import { getParks, parkQualifies } from '../lib/parks.mjs';
+import { getHowManyPages } from '../lib/how-many.mjs';
+import { howManyImage } from '../lib/how-many-images.mjs';
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 export function GET() {
@@ -16,6 +18,7 @@ export function GET() {
   const entries = [
     ...staticPagePaths().map((p) => ({ loc: p, lastmod: today, img: null })),
     ...posts.map((p) => ({ loc: p.url, lastmod: p.updated.toISOString().slice(0, 10), img: `/images/gen${p.url}.webp` })),
+    ...getHowManyPages().map((p) => ({ loc: p.url, lastmod: p.date, img: howManyImage(p.slug).src })),
     ...[...getStateLists(), ...getCapitalLists(), getSmallest(), getRoadside()].map((p) => ({ loc: p.url, lastmod: today, img: `/images/gen${p.url}.webp` })),
     { loc: '/find', lastmod: today, img: null },
     ...getFind().map((t) => ({ loc: t.url, lastmod: today, img: null })),
