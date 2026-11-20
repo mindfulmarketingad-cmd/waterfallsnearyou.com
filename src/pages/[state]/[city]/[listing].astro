@@ -20,6 +20,7 @@ import { tripFacts, tripRows } from '../../../lib/tripfacts.mjs';
 import { trailFor, trailRows, trailPlaceSchema } from '../../../lib/trails.mjs';
 import { cityHref, listingHref, publishedListing } from '../../../lib/publish.mjs';
 import { parkForListing } from '../../../lib/parks.mjs';
+import FishNearby from '../../../components/FishNearby.astro';
 
 export function getStaticPaths() {
   return loadData().listings.filter(publishedListing).map((l) => ({
@@ -232,6 +233,8 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
           {os.reviewsLink && <p class="small" style="margin-top:10px"><a href={os.reviewsLink} rel="nofollow noopener" target="_blank">Read reviews on Google</a></p>}
         </>
       )}
+
+      <FishNearby id={l.id} name={l.name} />
 
       {l.landmarks?.length > 0 && (
         <>
