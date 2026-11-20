@@ -1,0 +1,50 @@
+---
+import { fishForListing, fishHref, fishLabel } from '../lib/fish.mjs';
+interface Props { id: string; name: string }
+const { id, name } = Astro.props;
+const block = fishForListing(id);
+const species = block?.species || [];
+---
+{species.length > 0 && (
+  <section class="fish-nearby" aria-labelledby="fish-nearby-h">
+    <h2 id="fish-nearby-h">Fish recorded nearby</h2>
+    <p>
+      These species have been recorded in {block.stream} near {name}. A record counts only when it names that stream, sits within 5 km of the mapped falls, dates from 2005 through 2026, and is licensed CC0 or CC BY.
+      The USGS flowline used for {block.stream} passes about {block.streamMeters} m from the falls.
+      This is not a claim that the fish uses the plunge pool or occurs above the drop.
+      {' '}<a href="/fish-species">How this list is built</a>.
+    </p>
+    <ul class="fish-list">
+      {species.map((s) => (
+        <li>
+          <a class="fish-row" href={fishHref(s)}>
+            {s.photo ? (
+              <img src={s.photo.src} alt={s.photo.alt} width="72" height="72" loading="lazy" decoding="async" />
+            ) : (
+              <span class="fish-nophoto" aria-hidden="true">No photo</span>
+            )}
+            <span class="fish-copy">
+              <span class="fish-name">{fishLabel(s)}{s.commonName ? <em> {s.scientificName}</em> : null}</span>
+              <span class="fish-meta">Recorded in {block.stream} near {name}. {s.recordCount} record{s.recordCount === 1 ? '' : 's'}, {s.yearMin === s.yearMax ? s.yearMin : `${s.yearMin}–${s.yearMax}`}.</span>
+              <span class="fish-meta">Source: {s.datasets.slice(0, 2).map((d) => d.name).join('; ')} via GBIF.{s.page ? '' : ' Listed on the fish hub; fewer than five falls, so no species page.'}</span>
+              {s.photo && <span class="fish-meta">Photo: {s.photo.creator}, {s.photo.license}, {s.photo.source}.</span>}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .fish-nearby { margin-top: 0.4em; }
+  .fish-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .fish-row { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: inherit; background: #fff; }
+  .fish-row:hover { border-color: var(--forest); }
+  .fish-row img, .fish-nophoto { width: 72px; height: 72px; object-fit: cover; border-radius: 8px; background: var(--mist); }
+  .fish-nophoto { display: flex; align-items: center; justify-content: center; font-size: 0.68rem; color: var(--slate-soft); text-align: center; padding: 6px; }
+  .fish-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .fish-name { font-weight: 650; color: var(--slate-dark); }
+  .fish-name em { font-weight: 450; color: var(--slate-soft); font-style: italic; }
+  .fish-meta { font-size: 0.86rem; color: var(--slate); line-height: 1.4; }
+</style>

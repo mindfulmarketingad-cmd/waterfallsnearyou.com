@@ -10,6 +10,7 @@ import { isIndexable } from '../lib/indexing.mjs';
 import { getParks, parkQualifies } from '../lib/parks.mjs';
 import { getHowManyPages } from '../lib/how-many.mjs';
 import { getFoliagePages } from '../lib/foliage.mjs';
+import { fishPages, fishLabel } from '../lib/fish.mjs';
 ---
 <StaticPage title="Sitemap | All Pages on WaterfallsNearYou" h1="Sitemap" eyebrow="Every page" description="An overview of every section of WaterfallsNearYou: state guides, town guides, blog articles and site information pages." intro="State guides list every named waterfall. Town guides and individual waterfall pages are the ones with enough visitor or official information to be useful on their own.">
   <h2>Main pages</h2>
@@ -20,10 +21,13 @@ import { getFoliagePages } from '../lib/foliage.mjs';
     <li><a href="/find">Find Waterfalls by Type</a></li>
     <li><a href="/national-parks">National park waterfalls</a></li>
     <li><a href="/fall-foliage">Fall foliage by state</a></li>
+    <li><a href="/fish-species">Fish species</a></li>
     <li><a href="/sitemap.xml">XML sitemap</a></li>
   </ul>
   <h2>Fall foliage</h2>
   <ul class="link-cols">{getFoliagePages().map((p) => <li><a href={p.url}>{p.name}</a></li>)}</ul>
+  <h2>Fish species</h2>
+  <ul class="link-cols"><li><a href="/fish-species">Fish recorded near waterfalls</a></li>{fishPages().map((s) => <li><a href={`/fish-species/${s.slug}`}>{fishLabel(s)}</a></li>)}</ul>
   <h2>National parks</h2>
   <ul class="link-cols">{getParks().filter(parkQualifies).map((p) => <li><a href={p.url}>{p.name}</a></li>)}</ul>
   <h2>Blog</h2>

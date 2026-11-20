@@ -10,6 +10,7 @@ import { getParks, parkQualifies } from '../lib/parks.mjs';
 import { getHowManyPages } from '../lib/how-many.mjs';
 import { howManyImage } from '../lib/how-many-images.mjs';
 import { getFoliagePages, getFoliageHub } from '../lib/foliage.mjs';
+import { fishPages } from '../lib/fish.mjs';
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 export function GET() {
@@ -36,6 +37,7 @@ export function GET() {
     ...getParks().filter(parkQualifies).map((p) => ({ loc: p.url, lastmod: '2026-11-19', img: p.images[0]?.src || null })),
     { loc: getFoliageHub().url, lastmod: '2026-11-19', img: getFoliageHub().images[0]?.src || null },
     ...getFoliagePages().map((p) => ({ loc: p.url, lastmod: '2026-11-19', img: p.images[0]?.src || null })),
+    ...fishPages().map((s) => ({ loc: `/fish-species/${s.slug}`, lastmod: '2026-11-19', img: s.photo?.src || null })),
   ].filter((e) => isIndexable(e.loc));
   const abs = (u) => (u.startsWith('http') ? u : `${SITE.url}${u === '/' ? '' : u}`);
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

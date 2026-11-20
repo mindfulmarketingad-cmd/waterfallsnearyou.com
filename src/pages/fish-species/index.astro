@@ -1,0 +1,165 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageBand from '../../components/PageBand.astro';
+import Byline from '../../components/Byline.astro';
+import Faq from '../../components/Faq.astro';
+import { fishCatalog, fishSpecies, fishPages, fishHref, fishLabel, nasFlagged } from '../../lib/fish.mjs';
+import { fmtNum } from '../../lib/format.mjs';
+import { SITE } from '../../config.mjs';
+
+const catalog = fishCatalog();
+const species = fishSpecies();
+const pages = fishPages();
+const withPhoto = species.filter((s) => s.photo).length;
+const flagged = species.filter(nasFlagged).length;
+const title = 'Fish Recorded Near US Waterfalls';
+const description = catalog
+  ? `${fmtNum(species.length)} fish species recorded on the same named stream within 5 km of a published waterfall, from CC0 and CC BY occurrence records dated ${catalog.yearMin}–${catalog.yearMax}.`
+  : 'Fish species recorded on named streams near published waterfalls.';
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Fish Species', url: '/fish-species' }];
+const faqs = [
+  {
+    q: 'Does a listing here mean the fish lives in the waterfall?',
+    a: 'No. A species is listed only when a public occurrence record names the same stream or water body as the waterfall and the point is within 5 km. The wording on every page is “recorded in [stream] near [falls].” We do not claim the fish was seen in the plunge pool, or that it occurs above the drop.',
+  },
+  {
+    q: 'Which records are allowed?',
+    a: catalog
+      ? `GBIF occurrences of fishes from ${catalog.yearMin} through ${catalog.yearMax}, licensed CC0 or CC BY, with coordinates. If the publisher reports a coordinate uncertainty above ${catalog.uncertaintyMaxM / 1000} km, the record is dropped. CC BY-NC, CC BY-ND, and records with no license are not used. iNaturalist research-grade rows are included only when the license is CC0 or CC BY.`
+      : 'Only licensed GBIF occurrence records with coordinates on the same named stream.',
+  },
+  {
+    q: 'How is the stream chosen?',
+    a: catalog
+      ? `The stream is the USGS 3D Hydrography Program flowline, or an NHDPlus High Resolution flowline from the same GNIS-name rule, nearest the waterfall, and only when that line passes within ${catalog.streamMaxM} m. Unnamed flowlines and names that are only “North Fork” or a similar fragment are skipped. The record’s water body, locality, or verbatim locality has to contain that same name.`
+      : 'The stream is the nearest named USGS flowline.',
+  },
+  {
+    q: 'Why do some species have no page of their own?',
+    a: catalog
+      ? `A species page is published only when the species is recorded near at least ${catalog.pageMinFalls} of our published waterfalls. Species under that threshold stay on this hub so we are not standing up thin pages.`
+      : 'Species pages are limited to species recorded near several published waterfalls.',
+  },
+  {
+    q: 'What does the non-native flag mean?',
+    a: 'It means USGS Nonindigenous Aquatic Species has at least one introduction record for that species in a state where we also matched it to a waterfall. NAS is not used as evidence the fish was recorded at the falls. A missing flag is not a finding that the species is native.',
+  },
+];
+const schema = [
+  { '@type': 'CollectionPage', name: title, description, url: `${SITE.url}/fish-species`, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` } },
+  { '@type': 'ItemList', name: title, numberOfItems: species.length, itemListElement: species.slice(0, 50).map((s, n) => ({ '@type': 'ListItem', position: n + 1, name: fishLabel(s), url: `${SITE.url}${fishHref(s)}` })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base title={`${title} | WaterfallsNearYou`} description={description} image={pages.find((s) => s.photo)?.photo.src} imageAlt={pages.find((s) => s.photo)?.photo.alt || 'Fish recorded near waterfalls'} breadcrumbs={crumbs} bandCrumbs schema={schema}>
+  <PageBand title={title} crumbs={crumbs}>
+    <p class="sub">Occurrence records on the named stream within 5 km of a published waterfall. Not a stocking list, and not a statement that a fish lives in the falls.</p>
+  </PageBand>
+  <div class="wrap section-sm">
+    <Byline published={new Date(`${catalog?.generated || '2026-11-19'}T12:00:00Z`)} minutes={7} />
+    {catalog ? (
+      <>
+        <p class="lead">This hub lists {fmtNum(species.length)} fish species recorded near {fmtNum(catalog.fallsWithFish)} published waterfalls. {fmtNum(pages.length)} of those species are recorded near at least {catalog.pageMinFalls} falls and have their own page. {fmtNum(withPhoto)} species have a hosted photograph. {fmtNum(flagged)} are flagged from USGS NAS as nonindigenous in at least one of the states where a waterfall matched.</p>
+        <p>We started from the {fmtNum(catalog.publishedFallsConsidered)} waterfall pages already published on this site. For each one, the nearest named flowline in USGS hydrography (the 3D Hydrography Program, and the same GNIS-name rule on NHDPlus High Resolution where that service answered first) had to pass within {catalog.streamMaxM} metres. That left {fmtNum(catalog.fallsWithNamedStream)} falls on a named stream. A fish counts for a fall only when a GBIF occurrence from {catalog.yearMin}–{catalog.yearMax} uses that stream name, lies inside a {catalog.radiusKm} km radius, and carries a CC0 or CC BY license. Museum and agency surveys and iNaturalist research-grade observations are both in GBIF; the license filter is what decides whether a row is kept.</p>
+        <p>Every species page and every “Fish recorded nearby” note uses the same sentence pattern: recorded in the stream near the falls. Source dataset, record count, and year range are stored with the match. If a field is missing from the source, it is left blank.</p>
+
+        <div class="fish-tools">
+          <label>Search species <input id="fish-q" type="search" placeholder="Trout, bass, Salmo…" autocomplete="off" /></label>
+          <div class="chips" role="group" aria-label="Filter species">
+            <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span class="n">{species.length}</span></button>
+            <button type="button" class="chip" data-filter="page" aria-pressed="false">Species pages <span class="n">{pages.length}</span></button>
+            <button type="button" class="chip" data-filter="nas" aria-pressed="false">NAS nonindigenous flag <span class="n">{flagged}</span></button>
+            <button type="button" class="chip" data-filter="photo" aria-pressed="false">With a photo <span class="n">{withPhoto}</span></button>
+          </div>
+          <p class="small muted" id="fish-count" aria-live="polite"></p>
+        </div>
+
+        <ul class="fish-hub" id="fish-hub">
+          {species.map((s) => (
+            <li id={s.slug} data-name={`${s.commonName} ${s.scientificName}`.toLowerCase()} data-page={s.page ? '1' : '0'} data-nas={nasFlagged(s) ? '1' : '0'} data-photo={s.photo ? '1' : '0'}>
+              <a class="fish-card" href={fishHref(s)}>
+                {s.photo ? <img src={s.photo.src} alt={s.photo.alt} width="160" height="120" loading="lazy" decoding="async" /> : <span class="fish-nophoto">No compatible photo</span>}
+                <span class="fish-card-body">
+                  <span class="fish-card-title">{fishLabel(s)}</span>
+                  {s.commonName && <em>{s.scientificName}</em>}
+                  <span class="fish-card-meta">{s.fallsCount} waterfall{s.fallsCount === 1 ? '' : 's'} · {fmtNum(s.recordCount)} record{s.recordCount === 1 ? '' : 's'} · {s.yearMin}–{s.yearMax}</span>
+                  <span class="fish-card-meta">{s.states.join(', ')}{s.family ? ` · ${s.family}` : ''}</span>
+                  <span class="fish-card-meta">{nasFlagged(s) ? 'USGS NAS has a nonindigenous record in at least one of these states.' : 'No USGS NAS nonindigenous record in these states. That is not a native-range finding.'}</span>
+                  {s.photo && <span class="fish-card-meta">Photo: {s.photo.creator}, {s.photo.license}, {s.photo.source}.</span>}
+                  {!s.page && <span class="fish-card-meta">Hub listing only. A page needs {catalog.pageMinFalls} or more waterfalls.</span>}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <h2>Data sources and licenses</h2>
+        <ul>
+          <li><a href="https://www.gbif.org/" rel="noopener" target="_blank">GBIF</a> occurrence search, accessed {catalog.generated}. Only CC0 and CC BY records. Each species page lists the dataset names and links.</li>
+          <li><a href="https://www.usgs.gov/3d-hydrography-program" rel="noopener" target="_blank">USGS 3D Hydrography Program</a> and <a href="https://www.usgs.gov/national-hydrography/nhdplus-high-resolution" rel="noopener" target="_blank">NHDPlus High Resolution</a> flowline names, public domain, for the stream snapped to each waterfall.</li>
+          <li><a href="https://nas.er.usgs.gov/" rel="noopener" target="_blank">USGS Nonindigenous Aquatic Species</a>, public domain, for non-native flags by state. NAS introductions are not treated as waterfall occurrences.</li>
+          <li>Species facts that appear as measurements or habitat classes come from <a href="https://www.wikidata.org/" rel="noopener" target="_blank">Wikidata</a> (CC0). Barrier notes, when present, are paraphrased from the English Wikipedia article and cited on the species page (CC BY-SA). FishBase was not used; its database license is not compatible with this site.</li>
+          <li>Photographs are downloaded and hosted as WebP. Credits and licenses sit on the hub row, the species page, and the waterfall note. Wikimedia Commons images are limited to public domain, CC0, CC BY, and CC BY-SA. iNaturalist photos are limited to CC0 and CC BY.</li>
+        </ul>
+        <p class="small muted">Occurrence data are mediated by GBIF. Cite the original datasets linked from each species page if you reuse the counts. State fishing rules are not copied here; species pages link to the state agency.</p>
+        <Faq faqs={faqs} />
+      </>
+    ) : (
+      <p>The fish catalog has not been generated.</p>
+    )}
+  </div>
+</Base>
+
+<script>
+  const q = document.querySelector<HTMLInputElement>('#fish-q');
+  const list = document.querySelector('#fish-hub');
+  const count = document.querySelector('#fish-count');
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  if (q && list && count) {
+    let filter = 'all';
+    const apply = () => {
+      const query = q.value.trim().toLowerCase();
+      let shown = 0;
+      for (const li of list.querySelectorAll<HTMLElement>('li')) {
+        const nameOk = !query || (li.dataset.name || '').includes(query);
+        const flagOk = filter === 'all'
+          || (filter === 'page' && li.dataset.page === '1')
+          || (filter === 'nas' && li.dataset.nas === '1')
+          || (filter === 'photo' && li.dataset.photo === '1');
+        const on = nameOk && flagOk;
+        li.hidden = !on;
+        if (on) shown++;
+      }
+      count.textContent = `${shown} species shown`;
+    };
+    q.addEventListener('input', apply);
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        filter = button.dataset.filter || 'all';
+        for (const other of buttons) other.setAttribute('aria-pressed', other === button ? 'true' : 'false');
+        apply();
+      });
+    }
+    apply();
+  }
+</script>
+
+<style>
+  .fish-tools { display: flex; flex-direction: column; gap: 12px; margin: 8px 0 22px; }
+  .fish-tools label { font-weight: 600; display: flex; flex-direction: column; gap: 6px; max-width: 420px; }
+  .fish-tools input { font: inherit; padding: 10px 12px; border-radius: 10px; border: 1.5px solid var(--line); }
+  button.chip { font: inherit; cursor: pointer; }
+  .fish-hub { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 14px; }
+  .fish-card { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; min-height: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 14px; background: #fff; text-decoration: none; color: inherit; }
+  .fish-card:hover { border-color: var(--forest); }
+  .fish-card img, .fish-nophoto { width: 120px; height: 96px; object-fit: cover; border-radius: 8px; background: var(--mist); }
+  .fish-nophoto { display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.75rem; color: var(--slate-soft); padding: 8px; }
+  .fish-card-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .fish-card-title { font-family: var(--font-head); font-size: 1.2rem; color: var(--slate-dark); line-height: 1.2; }
+  .fish-card em { color: var(--slate-soft); }
+  .fish-card-meta { font-size: 0.84rem; color: var(--slate); line-height: 1.35; }
+  @media (max-width: 560px) {
+    .fish-card { grid-template-columns: 84px minmax(0, 1fr); }
+    .fish-card img, .fish-nophoto { width: 84px; height: 84px; }
+  }
+</style>

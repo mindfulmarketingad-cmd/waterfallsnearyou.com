@@ -1,0 +1,248 @@
+---
+import Base from '../../layouts/Base.astro';
+import Byline from '../../components/Byline.astro';
+import Faq from '../../components/Faq.astro';
+import { fishPages, fishCatalog, fishLabel } from '../../lib/fish.mjs';
+import { fmtNum } from '../../lib/format.mjs';
+import { SITE } from '../../config.mjs';
+
+export function getStaticPaths() {
+  return fishPages().map((species) => ({ params: { slug: species.slug }, props: { slug: species.slug } }));
+}
+const { slug } = Astro.props;
+const catalog = fishCatalog();
+const species = fishPages().find((s) => s.slug === slug);
+if (!species || !catalog) throw new Error(`Missing fish species ${slug}`);
+const label = fishLabel(species);
+const title = `${label} recorded near waterfalls`;
+const streamCount = new Set(species.waterfalls.map((w) => w.stream.toLowerCase())).size;
+const description = `${label} (${species.scientificName}) is recorded in ${streamCount} named stream${streamCount === 1 ? '' : 's'} within 5 km of ${species.fallsCount} published waterfalls, from ${species.recordCount} CC0 or CC BY occurrences, ${species.yearMin}–${species.yearMax}.`.slice(0, 180);
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Fish Species', url: '/fish-species' },
+  { name: label, url: `/fish-species/${species.slug}` },
+];
+const regs = species.states.map((code) => catalog.regulations?.[code]).filter(Boolean);
+const nasStates = species.states.map((code) => ({ code, ...(species.nas?.byState?.[code] || { count: 0, statuses: [] }) }));
+const flaggedStates = nasStates.filter((s) => s.count > 0);
+const gbifUrl = species.gbifSpeciesKey ? `https://www.gbif.org/species/${species.gbifSpeciesKey}` : 'https://www.gbif.org/';
+
+const idBits = [
+  `${label} (${species.scientificName}) is the binomial used on the GBIF occurrences matched to these waterfalls${species.family ? `, in the family ${species.family}` : ''}${species.order ? ` (${species.order})` : ''}.`,
+];
+if (species.commonName && species.nas?.commonName) {
+  idBits.push(`The common name “${species.nas.commonName}” is the USGS NAS species-level name for ${species.scientificName}.`);
+} else if (species.commonName && !species.nas?.commonName) {
+  idBits.push(`The English common name “${species.commonName}” is the name stored for this taxon on Wikidata (CC0).`);
+}
+if (species.facts.lengthCm) {
+  idBits.push(`Wikidata (CC0) records a length of ${species.facts.lengthCm} cm for this taxon. That figure is a catalog measurement, not a size from the occurrence records below.`);
+}
+if (species.facts.iucn) {
+  idBits.push(`The IUCN category stored on Wikidata is ${species.facts.iucn}.`);
+}
+
+const habitatBits = [];
+if (species.facts.habitats?.length) {
+  habitatBits.push(`Wikidata (CC0) classifies habitat for ${species.scientificName} as ${species.facts.habitats.join(', ')}.`);
+}
+if (species.facts.barrier?.kind === 'blocks') {
+  habitatBits.push(`A paraphrased reading of the English Wikipedia article “${species.facts.barrier.title}” is that waterfalls, dams, or similar drops are described as barriers that can limit upstream movement for this species. That is a life-history note from that article, not a survey of the falls in the table. It does not say whether any record below was upstream or downstream of the drop.`);
+}
+if (species.facts.barrier?.kind === 'passes') {
+  habitatBits.push(`A paraphrased reading of the English Wikipedia article “${species.facts.barrier.title}” is that this species is described as able to pass some waterfalls, for example by leaping. That does not mean it passes the falls listed here. The table only reports records on the named stream within 5 km.`);
+}
+
+const placeList = species.waterfalls.slice(0, 4).map((w) => `${w.stream} near ${w.name}, ${w.stateCode}`).join('; ');
+const faqs = [
+  {
+    q: `Where has ${label} been recorded near waterfalls on this site?`,
+    a: `In ${placeList}${species.waterfalls.length > 4 ? `; and ${species.waterfalls.length - 4} more published falls` : ''}. Each match is a CC0 or CC BY occurrence from ${species.yearMin}–${species.yearMax} that names the stream and falls within 5 km of the mapped waterfall.`,
+  },
+  {
+    q: `Does that mean ${label} lives in those waterfalls?`,
+    a: `No. The records show the species was recorded in the named stream near the falls. They do not show which side of the drop the animal was on, and they are not a population estimate.`,
+  },
+  {
+    q: `Is ${label} native in these states?`,
+    a: flaggedStates.length
+      ? `USGS NAS has nonindigenous records in ${flaggedStates.map((s) => s.code).join(', ')}. ${nasStates.filter((s) => !s.count).length ? `NAS returned no nonindigenous record for ${nasStates.filter((s) => !s.count).map((s) => s.code).join(', ')}. That absence is not a native-range finding.` : 'See the status table for the statuses NAS publishes, such as established or failed.'}`
+      : `USGS NAS returned no nonindigenous record for ${label} in ${species.states.join(', ')}. That is not a finding that the species is native there.`,
+  },
+  {
+    q: `Can you fish for ${label} at these waterfalls?`,
+    a: regs.length
+      ? `License and season rules are set by the state, not by this site. Agency pages we checked on ${catalog.generated}: ${regs.map((r) => `${r.state} (${r.url})`).join('; ')}. Confirm the water is open and what gear is legal before you fish.`
+      : `State agency pages for ${species.states.join(', ')} were not confirmed when this page was built. Check the state wildlife agency before you fish.`,
+  },
+  {
+    q: 'Which datasets are these counts from?',
+    a: `${species.datasets.map((d) => `${d.name} (${d.count} record${d.count === 1 ? '' : 's'})`).join('; ')}. All of those rows reached us through GBIF under a CC0 or CC BY license. Dataset pages: ${species.datasets.map((d) => `https://www.gbif.org/dataset/${d.key}`).join(', ')}.`,
+  },
+];
+const schema = [
+  {
+    '@type': 'Article',
+    headline: title,
+    description,
+    url: `${SITE.url}/fish-species/${species.slug}`,
+    datePublished: catalog.generated,
+    dateModified: catalog.generated,
+    author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
+    image: species.photo ? `${SITE.url}${species.photo.src}` : undefined,
+    about: { '@type': 'Taxon', name: species.scientificName, taxonRank: 'https://www.wikidata.org/entity/Q7432', vernacularName: species.commonName || undefined },
+  },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+const fieldLabel = { waterBody: 'water body', verbatimWaterBody: 'verbatim water body', locality: 'locality', verbatimLocality: 'verbatim locality' };
+const fieldText = (fields: Record<string, number>) => Object.entries(fields).map(([k, n]) => `${fieldLabel[k as keyof typeof fieldLabel] || k} (${n})`).join(', ');
+---
+<Base title={`${title} | WaterfallsNearYou`} description={description} image={species.photo?.src} imageAlt={species.photo?.alt} breadcrumbs={crumbs} schema={schema} type="article" published={catalog.generated} modified={catalog.generated} preloadImage={species.photo?.src}>
+  <section class="page-hero">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">Fish species · recorded near waterfalls</span>
+        <h1>{label} recorded near waterfalls</h1>
+        <p class="sub">{species.commonName ? <em>{species.scientificName}</em> : species.scientificName} is recorded in {streamCount} named stream{streamCount === 1 ? '' : 's'} near {species.fallsCount} published waterfalls. {fmtNum(species.recordCount)} occurrence record{species.recordCount === 1 ? '' : 's'}, {species.yearMin}–{species.yearMax}.</p>
+        <Byline published={new Date(`${catalog.generated}T12:00:00Z`)} minutes={Math.max(4, Math.min(9, 3 + Math.ceil(species.fallsCount / 6)))} />
+      </div>
+      {species.photo ? (
+        <figure class="fish-shot">
+          <img src={species.photo.src} alt={species.photo.alt} width="960" height="640" fetchpriority="high" decoding="async" />
+          <figcaption>Photo: {species.photo.creator}. {species.photo.license}{species.photo.shareAlike ? ' (share-alike)' : ''}. <a href={species.photo.sourceUrl} rel="noopener" target="_blank">{species.photo.source}</a>{species.photo.licenseUrl ? <> · <a href={species.photo.licenseUrl} rel="noopener" target="_blank">license</a></> : null}.</figcaption>
+        </figure>
+      ) : (
+        <p class="panel">No Wikimedia Commons, USFWS, NOAA, or CC0/CC BY iNaturalist photograph with a compatible license was found for {species.scientificName}. The page does not use a substitute image.</p>
+      )}
+    </div>
+  </section>
+
+  <div class="wrap section-sm detail">
+    <article class="prose">
+      <h2>Identification</h2>
+      {idBits.map((p) => <p>{p}</p>)}
+      <p>The name on each matched record resolves to this binomial. Subspecies and varieties were rolled up to the species. Genus-only identifications were not counted. The GBIF taxon page is <a href={gbifUrl} rel="noopener" target="_blank">{species.scientificName} on GBIF</a>.</p>
+
+      {(habitatBits.length > 0) && (
+        <>
+          <h2>Habitat and barriers</h2>
+          {habitatBits.map((p) => <p>{p}</p>)}
+          {species.facts.barrier && (
+            <p class="small muted">Barrier note paraphrased from <a href={species.facts.barrier.url} rel="noopener" target="_blank">{species.facts.barrier.title}</a> on the English Wikipedia, {species.facts.barrier.license}, accessed {species.facts.barrier.accessed}. The article’s text was not copied.</p>
+          )}
+        </>
+      )}
+
+      <h2>Waterfalls where it is recorded</h2>
+      <p>
+        Each row is a published waterfall whose nearest named USGS hydrography flowline is the stream in the record, with the flowline within {catalog.streamMaxM} m of the falls and the occurrence within {catalog.radiusKm} km.
+        Read every row as “recorded in [stream] near [falls].”
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Waterfall</th>
+            <th>Stream</th>
+            <th>Records</th>
+            <th>Years</th>
+            <th>Distance</th>
+            <th>Name matched in</th>
+          </tr>
+        </thead>
+        <tbody>
+          {species.waterfalls.map((w) => (
+            <tr>
+              <td><a href={w.url}>{w.name}</a><br /><span class="small muted">{w.city ? `${w.city}, ` : ''}{w.state}</span></td>
+              <td>{w.stream}{w.streamGnisId ? <><br /><span class="small muted">GNIS {w.streamGnisId}</span></> : null}</td>
+              <td>{w.recordCount}</td>
+              <td>{w.yearMin === w.yearMax ? w.yearMin : `${w.yearMin}–${w.yearMax}`}</td>
+              <td>{w.kmMin === w.kmMax ? `${w.kmMin} km` : `${w.kmMin}–${w.kmMax} km`}</td>
+              <td>{fieldText(w.fields)}{w.example ? <><br /><span class="small muted">Example: {w.example}</span></> : null}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2>Native or nonindigenous status</h2>
+      {species.nas?.speciesId ? (
+        <p>
+          USGS NAS {species.nas.nativeExotic ? `lists the species-level record as “${species.nas.nativeExotic}”` : 'tracks this species'}.
+          That label describes the NAS species record, which can be native in part of the country and introduced elsewhere.
+          {species.nas.profileUrl && <> The fact sheet is <a href={species.nas.profileUrl} rel="noopener" target="_blank">NAS species {species.nas.speciesId}</a>.</>}
+          Counts below are NAS introduction records, not the GBIF counts in the table above.
+        </p>
+      ) : (
+        <p>USGS NAS has no species-level fish record under the name {species.scientificName}. The state queries below still check the genus and species epithet.</p>
+      )}
+      <table>
+        <thead>
+          <tr><th>State</th><th>NAS nonindigenous records</th><th>Statuses in the sample</th><th>Years in the sample</th></tr>
+        </thead>
+        <tbody>
+          {nasStates.map((s) => (
+            <tr>
+              <td>{s.code}</td>
+              <td>{s.count ? fmtNum(s.count) : 'None returned'}</td>
+              <td>{s.statuses?.length ? s.statuses.join(', ') : '—'}</td>
+              <td>{s.yearMin ? (s.yearMin === s.yearMax ? s.yearMin : `${s.yearMin}–${s.yearMax}`) : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="small muted">NAS public responses are capped, so statuses and years describe the records returned (up to 100 per state), while the count is the number NAS reported. A state with no NAS row is not marked native.</p>
+
+      <h2>Fishing rules in these states</h2>
+      {regs.length ? (
+        <>
+          <p>These links go to the state agency fishing pages, reviewed {catalog.generated}. Seasons, limits, and which streams are open change, and a waterfall record is not a statement that fishing is legal there.</p>
+          <ul>
+            {regs.map((r) => <li><a href={r.url} rel="noopener" target="_blank">{r.state} fishing regulations</a></li>)}
+          </ul>
+        </>
+      ) : (
+        <p>No state fishing page for {species.states.join(', ')} passed a live check on {catalog.generated}, so this page does not guess a URL.</p>
+      )}
+
+      <h2>Sources for the occurrence counts</h2>
+      <ul>
+        {species.datasets.map((d) => (
+          <li><a href={`https://www.gbif.org/dataset/${d.key}`} rel="noopener" target="_blank">{d.name}</a> — {fmtNum(d.count)} matched record{d.count === 1 ? '' : 's'}, via <a href="https://www.gbif.org/" rel="noopener" target="_blank">GBIF</a> ({catalog.licenses.join(' or ')} only).</li>
+        ))}
+      </ul>
+      <p class="small muted">Accessed {catalog.generated}. Records before {catalog.yearMin}, records with coordinate uncertainty over {catalog.uncertaintyMaxM / 1000} km, and records whose license was not CC0 or CC BY were excluded. Please cite the original datasets if you reuse the figures.</p>
+
+      <Faq faqs={faqs} />
+    </article>
+    <aside>
+      <div class="panel">
+        <h2>At a glance</h2>
+        <dl class="facts">
+          <div><dt>Species</dt><dd>{species.scientificName}</dd></div>
+          {species.commonName && <div><dt>Common name</dt><dd>{species.commonName}</dd></div>}
+          {species.family && <div><dt>Family</dt><dd>{species.family}</dd></div>}
+          <div><dt>Waterfalls</dt><dd>{species.fallsCount} published</dd></div>
+          <div><dt>Streams</dt><dd>{streamCount} named</dd></div>
+          <div><dt>Records</dt><dd>{fmtNum(species.recordCount)}</dd></div>
+          <div><dt>Years</dt><dd>{species.yearMin}–{species.yearMax}</dd></div>
+          <div><dt>States</dt><dd>{species.states.join(', ')}</dd></div>
+          <div><dt>NAS flag</dt><dd>{flaggedStates.length ? `Nonindigenous records in ${flaggedStates.map((s) => s.code).join(', ')}` : 'No NAS nonindigenous record in these states'}</dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <h2>On this site</h2>
+        <ul class="nearby-list">
+          <li><a href="/fish-species"><span>All fish species</span></a></li>
+          {species.waterfalls.slice(0, 6).map((w) => <li><a href={w.url}><span>{w.name}</span><span class="d">{w.stateCode}</span></a></li>)}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</Base>
+
+<style>
+  .fish-shot { margin: 0; }
+  .fish-shot img { width: 100%; height: auto; max-height: 460px; object-fit: contain; background: var(--mist); border-radius: var(--radius); }
+  .fish-shot figcaption { margin-top: 8px; font-size: 0.86rem; color: var(--slate-soft); }
+  article.prose table, article.prose th, article.prose td { overflow-wrap: normal; word-break: normal; }
+  article.prose th { white-space: nowrap; }
+</style>
