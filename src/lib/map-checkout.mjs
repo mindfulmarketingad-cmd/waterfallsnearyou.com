@@ -20,10 +20,82 @@ const PRESIGN_MS = 5 * 60 * 1000;
 const DELEGATION_MS = 60 * 60 * 1000;
 const delegationCache = new Map();
 
+const MISSING_STRIPE_KEY = 'STRIPE_SECRET_KEY is not configured';
+
 function stripeClient(env, injected) {
   if (injected) return injected;
   if (!env.STRIPE_SECRET_KEY) return null;
   return new Stripe(env.STRIPE_SECRET_KEY, { apiVersion: STRIPE_API_VERSION });
+}
+
+function isWebRequest(input) {
+  if (!input) return false;
+  if (typeof Request !== 'undefined' && input instanceof Request) return true;
+  return typeof input.headers?.get === 'function' && typeof input.url === 'string' && /^https?:\/\//.test(input.url);
+}
+
+function headerEntries(headers) {
+  if (!headers) return [];
+  if (typeof headers.entries === 'function') return [...headers.entries()];
+  return Object.entries(headers);
+}
+
+function firstHeader(value) {
+  const raw = Array.isArray(value) ? value[0] : value;
+  return String(raw || '').split(',')[0].trim();
+}
+
+async function readNodeBody(input) {
+  const body = input?.body;
+  if (typeof body === 'string' || body instanceof Uint8Array) return body;
+  if (typeof Buffer !== 'undefined' && Buffer.isBuffer?.(body)) return body;
+  if (body && typeof body === 'object' && typeof body.pipe !== 'function' && typeof body.getReader !== 'function' && typeof body[Symbol.asyncIterator] !== 'function') {
+    return JSON.stringify(body);
+  }
+  const stream = body && (typeof body[Symbol.asyncIterator] === 'function' || typeof body.getReader === 'function')
+    ? body
+    : body == null && input && typeof input[Symbol.asyncIterator] === 'function'
+      ? input
+      : null;
+  if (!stream) return undefined;
+  const chunks = [];
+  let total = 0;
+  for await (const chunk of stream) {
+    const buf = typeof chunk === 'string' ? Buffer.from(chunk) : Buffer.from(chunk);
+    total += buf.length;
+    if (total > 2000) {
+      const err = new Error('Request is too large.');
+      err.status = 413;
+      throw err;
+    }
+    chunks.push(buf);
+  }
+  return chunks.length ? Buffer.concat(chunks) : undefined;
+}
+
+// Vercel's Node.js function passes an IncomingMessage: headers are a plain object
+// and url is a path. The Web fetch export passes a Request. Either becomes a Request.
+export async function toWebRequest(input) {
+  if (isWebRequest(input)) return input;
+  const headers = new Headers();
+  for (const [key, value] of headerEntries(input?.headers)) {
+    if (value == null) continue;
+    headers.set(key, Array.isArray(value) ? value.map(String).join(', ') : String(value));
+  }
+  const proto = firstHeader(headers.get('x-forwarded-proto')) || 'https';
+  const host = firstHeader(headers.get('x-forwarded-host')) || headers.get('host') || 'www.waterfallsnearyou.com';
+  let path = typeof input?.url === 'string' && input.url ? input.url : '/';
+  if (!/^https?:\/\//.test(path)) {
+    if (!path.startsWith('/')) path = `/${path}`;
+    path = `${proto}://${host}${path}`;
+  }
+  const method = input?.method || 'GET';
+  const init = { method, headers };
+  if (method !== 'GET' && method !== 'HEAD') {
+    const body = await readNodeBody(input);
+    if (body != null) init.body = body;
+  }
+  return new Request(path, init);
 }
 
 function escapeHtml(value) {
@@ -84,6 +156,11 @@ async function readState(request) {
 }
 
 export async function handleMapCheckout(request, deps = {}) {
+  try {
+    request = await toWebRequest(request);
+  } catch (err) {
+    return json(err?.status || 400, { error: err?.status === 413 ? 'Request is too large.' : 'Choose a state map book.' });
+  }
   if (request.method !== 'POST') return json(405, { error: 'Method not allowed.' });
   const env = deps.env || process.env;
   const catalog = deps.catalog || loadMapBooks();
@@ -94,10 +171,11 @@ export async function handleMapCheckout(request, deps = {}) {
   const decision = bookForCheckout(typeof parsed.state === 'string' ? parsed.state : '', catalog);
   if (!decision.ok) return fail(asJson, decision.status, decision.error);
 
+  if (!env.STRIPE_SECRET_KEY) return json(500, { error: MISSING_STRIPE_KEY });
   const priceId = env.STRIPE_MAP_PRICE_ID || '';
-  if (!env.STRIPE_SECRET_KEY || !PRICE_ID.test(priceId)) {
-    console.error('map checkout is not configured');
-    return fail(asJson, 500, 'Checkout is unavailable right now.');
+  if (!PRICE_ID.test(priceId)) {
+    console.error('map checkout price is not configured');
+    return json(500, { error: 'Checkout is unavailable right now.' });
   }
   const stripe = stripeClient(env, deps.stripe);
   const origin = deps.origin || publicOrigin(request);
@@ -142,18 +220,26 @@ export async function presignPrivatePdf({ pathname, env = process.env, now = Dat
 }
 
 export async function handleMapDownload(request, deps = {}) {
+  try {
+    request = await toWebRequest(request);
+  } catch (err) {
+    return html(err?.status || 400, 'Download link', err?.status === 413 ? 'Request is too large.' : 'This page needs the checkout session from Stripe.');
+  }
   if (request.method !== 'GET' && request.method !== 'HEAD') return html(405, 'Method not allowed', 'Use the download link from the thank-you page.');
-  const url = new URL(request.url);
+  let url;
+  try {
+    url = new URL(request.url);
+  } catch {
+    return html(400, 'Download link', 'This page needs the checkout session from Stripe.');
+  }
   const sessionId = url.searchParams.get('session_id') || '';
   if (!SESSION_ID.test(sessionId)) return html(400, 'Download link', 'This page needs the checkout session from Stripe.');
 
   const env = deps.env || process.env;
   const catalog = deps.catalog || loadMapBooks();
+  if (!env.STRIPE_SECRET_KEY && !deps.stripe) return json(500, { error: MISSING_STRIPE_KEY });
   const stripe = stripeClient(env, deps.stripe);
-  if (!stripe) {
-    console.error('map download is not configured');
-    return html(500, 'Download unavailable', 'The download is unavailable right now.');
-  }
+  if (!stripe) return json(500, { error: MISSING_STRIPE_KEY });
 
   let session;
   try {

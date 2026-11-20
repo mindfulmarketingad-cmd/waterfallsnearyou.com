@@ -16,6 +16,8 @@ import {
   publicOrigin,
 } from '../src/lib/map-books.mjs';
 import { handleMapCheckout, handleMapDownload } from '../src/lib/map-checkout.mjs';
+import checkoutApi from '../api/maps/checkout.js';
+import downloadApi from '../api/maps/download.js';
 
 const PRICE = 'price_1MapBookTest123';
 const ENV = { STRIPE_SECRET_KEY: 'sk_test_example', STRIPE_MAP_PRICE_ID: PRICE };
@@ -85,10 +87,10 @@ test('the catalog ships Oregon only, with the stated book contents', () => {
   assert.equal(oregon.falls, 68);
   assert.equal(oregon.areaMaps, 9);
   assert.equal(oregon.featuredPage, 'Silver Falls');
-  assert.equal(oregon.sizeMB, null);
+  assert.equal(oregon.sizeMB, 13.2);
   assert.equal(loadData().states.some((state) => state.slug === 'oregon'), true);
   assert.equal(bookBySlug('washington'), null);
-  assert.equal(previewPublicPath('oregon'), null);
+  assert.equal(previewPublicPath('oregon'), '/images/maps/oregon-preview.webp');
   assert.equal(previewPublicPath('../secrets'), null);
 });
 
@@ -142,6 +144,7 @@ test('Stripe is not called for a slug that is not for sale', async () => {
   assert.equal(stripe.calls.create.length, 0);
   const unconfigured = await handleMapCheckout(checkoutRequest('oregon'), { stripe, env: {} });
   assert.equal(unconfigured.status, 500);
+  assert.match((await unconfigured.json()).error, /STRIPE_SECRET_KEY/);
   assert.equal(stripe.calls.create.length, 0);
 });
 
@@ -232,6 +235,80 @@ test('the download route redirects only after Stripe says the session is paid', 
   const bare = await handleMapDownload(downloadRequest('nope'), { stripe: ignored, env: ENV, presign, now: NOW });
   assert.equal(bare.status, 400);
   assert.equal(ignored.calls.retrieve.length, 0);
+});
+
+function nodeRequest({ method, url, headers = {}, body }) {
+  return { method, url, headers, body };
+}
+
+test('Vercel Node invocation gets a Web Request and does not turn bad input into a 500', async () => {
+  const checkoutFetch = checkoutApi.fetch || checkoutApi.default?.fetch;
+  const downloadFetch = downloadApi.fetch || downloadApi.default?.fetch;
+  assert.equal(typeof checkoutFetch, 'function');
+  assert.equal(typeof downloadFetch, 'function');
+  const nodeCheckout = nodeRequest({
+    method: 'POST',
+    url: '/api/maps/checkout',
+    headers: { host: 'www.waterfallsnearyou.com', 'content-type': 'application/json', 'x-forwarded-proto': 'https' },
+    body: JSON.stringify({ state: 'not-a-book' }),
+  });
+  assert.equal(typeof nodeCheckout.headers.get, 'undefined');
+  assert.throws(() => new URL(nodeCheckout.url), TypeError);
+
+  const unknown = await checkoutFetch(nodeCheckout);
+  assert.equal(unknown.status, 404);
+
+  const invalid = await checkoutFetch(nodeRequest({
+    method: 'POST',
+    url: '/api/maps/checkout',
+    headers: { host: 'www.waterfallsnearyou.com', 'content-type': 'application/json' },
+    body: '{',
+  }));
+  assert.equal(invalid.status, 400);
+
+  const missingSession = await downloadFetch(nodeRequest({
+    method: 'GET',
+    url: '/api/maps/download',
+    headers: { host: 'www.waterfallsnearyou.com', 'x-forwarded-proto': 'https' },
+  }));
+  assert.equal(missingSession.status, 400);
+
+  const savedKey = process.env.STRIPE_SECRET_KEY;
+  const savedPrice = process.env.STRIPE_MAP_PRICE_ID;
+  delete process.env.STRIPE_SECRET_KEY;
+  delete process.env.STRIPE_MAP_PRICE_ID;
+  try {
+    const checkout = await checkoutFetch(nodeRequest({
+      method: 'POST',
+      url: '/api/maps/checkout',
+      headers: { host: 'www.waterfallsnearyou.com', 'content-type': 'application/json', 'x-forwarded-host': 'www.waterfallsnearyou.com', 'x-forwarded-proto': 'https' },
+      body: JSON.stringify({ state: 'oregon' }),
+    }));
+    assert.equal(checkout.status, 500);
+    assert.match((await checkout.json()).error, /STRIPE_SECRET_KEY/);
+
+    const download = await downloadFetch(nodeRequest({
+      method: 'GET',
+      url: `/api/maps/download?session_id=${PAID_ID}`,
+      headers: { host: 'www.waterfallsnearyou.com' },
+    }));
+    assert.equal(download.status, 500);
+    assert.match((await download.json()).error, /STRIPE_SECRET_KEY/);
+  } finally {
+    if (savedKey == null) delete process.env.STRIPE_SECRET_KEY;
+    else process.env.STRIPE_SECRET_KEY = savedKey;
+    if (savedPrice == null) delete process.env.STRIPE_MAP_PRICE_ID;
+    else process.env.STRIPE_MAP_PRICE_ID = savedPrice;
+  }
+
+  const unpaid = mockStripe(paidSession({ payment_status: 'unpaid', status: 'open' }));
+  const denied = await handleMapDownload(nodeRequest({
+    method: 'GET',
+    url: `/api/maps/download?session_id=${PAID_ID}`,
+    headers: { host: 'www.waterfallsnearyou.com', 'x-forwarded-proto': 'https' },
+  }), { stripe: unpaid, env: ENV, presign: async () => { throw new Error('should not sign'); }, now: NOW });
+  assert.equal(denied.status, 403);
+  assert.equal(unpaid.calls.retrieve[0], PAID_ID);
 });
 
 test('a signed URL has to be a private map-book blob, and path overrides stay under map-books/', () => {
