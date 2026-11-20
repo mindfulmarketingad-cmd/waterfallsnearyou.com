@@ -5,7 +5,10 @@ import ArticlePost from '../../components/ArticlePost.astro';
 import { getPosts } from '../../lib/blog.mjs';
 
 export function getStaticPaths() {
-  return getPosts().map((p) => ({ params: { slug: p.slug }, props: { slug: p.slug } }));
+  // The pillar has its own page so the state lists can be built from the gazetteer.
+  return getPosts()
+    .filter((p) => p.slug !== 'largest-waterfalls-in-the-us-by-state')
+    .map((p) => ({ params: { slug: p.slug }, props: { slug: p.slug } }));
 }
 const { slug } = Astro.props;
 ---

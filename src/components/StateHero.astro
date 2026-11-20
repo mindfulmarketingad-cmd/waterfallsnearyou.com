@@ -1,0 +1,66 @@
+---
+interface Hero {
+  slug: string;
+  kind: 'waterfall' | 'landscape';
+  falls: string | null;
+  placePhrase: string | null;
+  href: string | null;
+  alt: string;
+  caption: string | null;
+  credit: string;
+  license: string;
+  licenseUrl: string;
+  sourceUrl: string;
+  width: number;
+  height: number;
+  src: string;
+  srcset: string;
+  sizes: string;
+}
+interface Props { hero: Hero }
+const { hero } = Astro.props;
+---
+<figure class="state-hero">
+  <img
+    src={hero.src}
+    srcset={hero.srcset}
+    sizes={hero.sizes}
+    alt={hero.alt}
+    width={hero.width}
+    height={hero.height}
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+  <figcaption>
+    {hero.kind === 'waterfall' ? (
+      <>
+        {hero.href ? <a href={hero.href}>{hero.falls}</a> : hero.falls}{' '}{hero.placePhrase}.
+      </>
+    ) : (
+      <>{hero.caption}</>
+    )}
+    <span class="credit">
+      Photo: <a href={hero.sourceUrl} rel="noopener noreferrer">{hero.credit}</a>{hero.licenseUrl ? <>, <a href={hero.licenseUrl} rel="license noopener noreferrer">{hero.license}</a></> : <>, {hero.license}</>}. Cropped and converted to WebP.
+    </span>
+  </figcaption>
+</figure>
+
+<style>
+  .state-hero { margin: 2px 0 16px; }
+  .state-hero img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #fff;
+  }
+  .state-hero figcaption {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--slate);
+  }
+  .state-hero .credit { display: block; color: var(--slate-soft); font-size: 0.78rem; }
+</style>

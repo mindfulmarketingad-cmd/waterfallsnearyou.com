@@ -31,7 +31,7 @@ export function getPosts() {
         return `<a href="${href}"${title ? ` title="${title}"` : ''}${external ? ' rel="noopener" target="_blank"' : ''}>${text}</a>`;
       };
       const html = marked.parse(body, { renderer, gfm: true });
-      const words = body.split(/\s+/).filter(Boolean).length;
+      const words = Number.isFinite(Number(data.wordCount)) ? Number(data.wordCount) : body.split(/\s+/).filter(Boolean).length;
       const links = [...new Set([...body.matchAll(/\]\((\/[^)#\s]*)/g)].map((m) => m[1].replace(/\/$/, '')))];
       const slug = file.replace(/\.md$/, '');
       const date = data.pubDate instanceof Date ? data.pubDate : new Date(data.pubDate);

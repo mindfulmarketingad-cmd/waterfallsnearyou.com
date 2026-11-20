@@ -3,6 +3,7 @@ import { listingPhoto } from '../lib/photos.mjs';
 import { getPosts } from '../lib/blog.mjs';
 import { getStateLists, getSmallest, getRoadside, getCapitalLists } from '../lib/bestof.mjs';
 import { listingHref, cityHref, publishedListing } from '../lib/publish.mjs';
+import { getFoliagePages, getFoliageHub } from '../lib/foliage.mjs';
 
 export function GET() {
   const { listings, cities, states } = loadData();
@@ -10,7 +11,7 @@ export function GET() {
     l: listings.map((l) => { const ph = listingPhoto(l); return [l.name, l.url, l.city.name, l.stateCode, +l.lat.toFixed(4), +l.lng.toFixed(4), l.county || '', ph.fallback ? ph.src : '', l.os?.rating || 0, l.os?.reviews || 0, (l.variants || []).join('|'), Math.round(l.score * 10) / 10, ph.caption || '', listingHref(l), publishedListing(l) ? 1 : 0]; }),
     c: cities.map((c) => [c.name, cityHref(c), c.stateCode, c.nearby.filter((n) => n.miles <= 30).length, c.url]),
     s: states.map((s) => [s.name, s.url, s.code, s.listings.length]),
-    b: [...getPosts().map((p) => [p.title, p.url, p.description]), ...[getRoadside(), getSmallest(), ...getCapitalLists(), ...getStateLists()].map((p) => [p.title, p.url, p.description])],
+    b: [...getPosts().map((p) => [p.title, p.url, p.description]), ...[getRoadside(), getSmallest(), ...getCapitalLists(), ...getStateLists()].map((p) => [p.title, p.url, p.description]), ['Fall foliage by state', getFoliageHub().url, getFoliageHub().dek], ...getFoliagePages().map((p) => [`Fall foliage in ${p.name}`, p.url, p.dek])],
   };
   return new Response(JSON.stringify(body), { headers: { 'Content-Type': 'application/json; charset=utf-8' } });
 }

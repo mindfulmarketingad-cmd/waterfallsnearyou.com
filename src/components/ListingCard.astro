@@ -3,12 +3,17 @@ import Photo from './Photo.astro';
 import { listingPhoto } from '../lib/photos.mjs';
 import { fmtMiles, stars } from '../lib/format.mjs';
 import { listingHref } from '../lib/publish.mjs';
-interface Props { listing: any; miles?: number; direction?: string }
-const { listing: l, miles, direction } = Astro.props;
+interface Props {
+  listing: any;
+  miles?: number;
+  direction?: string;
+  photo?: { src: string; alt: string; caption?: string | null; fallback?: string | null };
+}
+const { listing: l, miles, direction, photo } = Astro.props;
 const href = listingHref(l);
 ---
 <article class="card">
-  <Photo photo={listingPhoto(l)} />
+  <Photo photo={photo || listingPhoto(l)} />
   <div class="body">
     <h3><a href={href}>{l.name}</a></h3>
     <div class="meta">{l.city.name}, {l.stateCode}{typeof miles === 'number' ? ` · ${fmtMiles(miles)}${direction ? ` ${direction}` : ''}` : l.county ? ` · ${l.county} County` : ''}</div>

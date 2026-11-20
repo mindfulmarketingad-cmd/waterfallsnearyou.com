@@ -1,0 +1,107 @@
+---
+// Same-stream temperature and water-quality facts. Renders nothing when no record matched.
+import { waterView } from '../lib/water.mjs';
+interface Props { listing: any }
+const view = waterView(Astro.props.listing);
+const live = view?.temperature?.live;
+---
+{view && (
+  <section class="water" id="water-conditions" aria-labelledby="water-h">
+    <h2 id="water-h">Water conditions</h2>
+    {view.temperature && (
+      <div class="water-block">
+        <h3>Water temperature</h3>
+        {view.temperature.reading && (
+          <p
+            class="water-now"
+            {...(live ? { 'data-live-temp': '', 'data-site': live.siteId, 'data-tz': live.tz, 'data-time': live.time } : {})}
+          >
+            <strong>{view.temperature.reading}</strong>
+            {view.temperature.when && <span class="water-when">{view.temperature.when}</span>}
+          </p>
+        )}
+        {view.temperature.monthly.length > 0 && (
+          <>
+            <ul class="water-months">
+              {view.temperature.monthly.map((month) => (
+                <li>
+                  <span>{month.label}</span>
+                  <strong>{month.text}</strong>
+                  <span>{month.years} yr</span>
+                </li>
+              ))}
+            </ul>
+            <p class="small muted">{view.temperature.caption}</p>
+          </>
+        )}
+        <p class="small">{view.temperature.detail}{' '}<a href={view.temperature.sourceUrl} rel="noopener" target="_blank">{view.temperature.sourceLabel}</a>.</p>
+      </div>
+    )}
+    {view.quality && (
+      <div class="water-block">
+        <h3>Water quality</h3>
+        {view.quality.attains && (
+          <p>
+            {view.quality.attains.text}
+            {view.quality.attains.url && <>{' '}<a href={view.quality.attains.url} rel="noopener" target="_blank">EPA How's My Waterway report</a>.</>}
+          </p>
+        )}
+        {view.quality.samples.map((sample) => (
+          <p>
+            {sample.text}
+            {sample.url && <>{' '}<a href={sample.url} rel="noopener" target="_blank">{sample.label}</a>.</>}
+          </p>
+        ))}
+      </div>
+    )}
+    <p class="small muted">{view.note}</p>
+  </section>
+)}
+
+<style>
+  .water { margin: 1.6em 0; min-width: 0; max-width: 100%; }
+  .water h2 { margin-bottom: 8px; }
+  .water h3 { font-size: 1.05rem; margin: 14px 0 8px; }
+  .water-now { margin: 0 0 8px; }
+  .water-now strong { display: block; font-family: var(--font-head); font-size: 1.45rem; font-weight: 600; color: var(--slate-dark); line-height: 1.15; }
+  .water-when { display: block; color: var(--slate); margin-top: 2px; }
+  .water-months { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 8px; }
+  .water-months li { border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 8px; min-width: 4.8rem; background: #fff; }
+  .water-months span, .water-months strong { display: block; }
+  .water-months strong { font-size: 0.92rem; font-weight: 650; }
+  .water-block p { overflow-wrap: anywhere; }
+</style>
+
+<script>
+  const box = document.querySelector<HTMLElement>('[data-live-temp]');
+  if (box) {
+    const site = box.dataset.site;
+    const tz = box.dataset.tz || 'UTC';
+    const previous = Date.parse(box.dataset.time || '');
+    const fmt = (value: number) => value.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    fetch(`https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?f=json&monitoring_location_id=${encodeURIComponent(site || '')}&parameter_code=00010&limit=20`, { headers: { Accept: 'application/json' } })
+      .then((response) => { if (!response.ok) throw new Error(String(response.status)); return response.json(); })
+      .then((payload) => {
+        const readings = (payload.features || [])
+          .map((feature: { properties?: Record<string, string> }) => feature.properties)
+          .filter((props: Record<string, string> | undefined) => props && String(props.parameter_code) === '00010' && String(props.statistic_id) === '00011' && props.value != null && props.time)
+          .sort((a: Record<string, string>, b: Record<string, string>) => Date.parse(b.time) - Date.parse(a.time));
+        const latest = readings[0];
+        if (!latest) return;
+        const time = Date.parse(latest.time);
+        const celsius = Number(latest.value);
+        if (!Number.isFinite(time) || !Number.isFinite(celsius)) return;
+        if (Date.now() - time > 48 * 60 * 60 * 1000) return;
+        if (Number.isFinite(previous) && time < previous) return;
+        const strong = box.querySelector('strong');
+        const when = box.querySelector('.water-when');
+        if (strong) strong.textContent = `${fmt(celsius * 9 / 5 + 32)}°F (${fmt(celsius)}°C)`;
+        if (when) {
+          const stamp = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: tz }).format(new Date(time));
+          const provisional = String(latest.qualifier || '').toUpperCase() === 'P' ? ' USGS marks this value provisional.' : '';
+          when.textContent = `Instantaneous reading, ${stamp}.${provisional}`;
+        }
+      })
+      .catch(() => { /* the reading stored with the page stays */ });
+  }
+</script>

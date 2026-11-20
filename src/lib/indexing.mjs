@@ -12,6 +12,8 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { tripFacts } from './tripfacts.mjs';
 import { parkRecords } from './park-copy.mjs';
+import { howManyPaths } from './falls-census.mjs';
+import { publishedFoliagePaths } from '../content/foliage/index.mjs';
 import { fishPages } from './fish.mjs';
 // Read hub slugs directly (cityhubs.mjs imports this module).
 const hubUrls = () => JSON.parse(readFileSync(path.join(process.cwd(), 'data/city-hubs.json'), 'utf8')).map((h) => `/waterfalls-near/${h.slug}`);
@@ -43,6 +45,8 @@ export function indexableUrls() {
     ...cities.filter(richCity).map((c) => c.url),
     ...listings.filter(richListing).map((l) => l.url),
     ...parkPaths(listings),
+    ...howManyPaths(),
+    ...publishedFoliagePaths,
     ...fishPages().map((s) => `/fish-species/${s.slug}`),
   ]);
   return set;
