@@ -28,8 +28,10 @@ interface Props {
   preloadSizes?: string;
   /** The page renders its own breadcrumbs (inside a PageBand); schema is still emitted. */
   bandCrumbs?: boolean;
+  /** Off for the map-book thank-you page, whose address contains a checkout session id. */
+  analytics?: boolean;
 }
-const { title, description, image, imageAlt, imageWidth = 1200, imageHeight = 630, noindex: noindexProp = false, type = 'website', published, modified, breadcrumbs, schema = [], preloadImage, preloadSrcset, preloadSizes, bandCrumbs = false } = Astro.props;
+const { title, description, image, imageAlt, imageWidth = 1200, imageHeight = 630, noindex: noindexProp = false, type = 'website', published, modified, breadcrumbs, schema = [], preloadImage, preloadSrcset, preloadSizes, bandCrumbs = false, analytics = true } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const noindex = noindexProp || !isIndexable(path);
 const canonical = new URL(path, SITE.url).href.replace(/\/$/, path === '/' ? '/' : '');
@@ -99,8 +101,8 @@ const showAds = isProd && isIndexable(path) && path !== '/sitemap';
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={ld} />
-    {isProd && <script async src="https://www.googletagmanager.com/gtag/js?id=G-26DN17F33R"></script>}
-    {isProd && <script is:inline>
+    {isProd && analytics && <script async src="https://www.googletagmanager.com/gtag/js?id=G-26DN17F33R"></script>}
+    {isProd && analytics && <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());

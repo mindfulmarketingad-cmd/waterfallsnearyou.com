@@ -1,6 +1,6 @@
 # WaterfallsNearYou.com
 
-Static, SEO-first directory of US waterfalls built with Astro. Every page is pre-rendered HTML, so there is no server, database or admin panel to attack.
+Static, SEO-first directory of US waterfalls built with Astro. Pages are pre-rendered HTML. The only on-demand routes are map-book checkout and PDF download. There is no database or admin panel.
 
 ## Commands
 
@@ -39,6 +39,8 @@ Every imported record also gets `/partners/[business-name]`, which redirects to 
 /blog/[waterfall]                           "[Waterfall] Guide Before Visiting" (waterfalls with 25+ reviews,
                                             a Google description or USGS naming history; 821 today)
 /map  ->  /map/[state]              Interactive waterfall maps (MapLibre GL + OpenFreeMap tiles)
+/maps                             Printable map books for sale ($2.99 PDF per state)
+/maps/thank-you                   Post-checkout download page (noindex)
 /search                             Site-wide search
 /about /contact /disclaimer /privacy /terms /sitemap   /sitemap.xml /robots.txt /ads.txt
 ```
@@ -87,9 +89,33 @@ node scripts/fetch-lifestyle-photos.mjs --force
 - Towns: GeoNames cities with 1,000+ residents (CC BY 4.0; attribution is in the footer).
 - Business details: Outscraper (Google Maps) exports.
 
+## Map books
+
+Optional paid PDFs, one per state, sold for $2.99 USD through Stripe Checkout. The directory stays free. `src/data/map-books.json` lists what is for sale. Oregon is the first entry (15 pages, 68 falls, 9 area maps, and a featured Silver Falls page). Other states stay out of that file until a book exists.
+
+PDFs are not in git. They go to a private Vercel Blob store at `map-books/<slug>.pdf`. `api/maps/download.js` checks that the Checkout Session is paid and not older than 7 days, then redirects to a presigned URL that lasts 5 minutes. The function does not stream the file. A missing page-1 preview at `public/images/maps/<slug>-preview.webp` shows a placeholder.
+
+Environment variables, set in Vercel and never committed:
+
+- `STRIPE_SECRET_KEY`
+- `STRIPE_MAP_PRICE_ID` — one Stripe Price in USD, $2.99, one-time, used for every state
+- `BLOB_READ_WRITE_TOKEN`
+- `MAP_BOOK_BLOB_PATHS` — optional JSON object of slug to pathname, only if a file is stored somewhere other than `map-books/<slug>.pdf`
+
+Upload, from a directory of `<slug>.pdf` files:
+
+```
+node scripts/upload-map-books.mjs /path/to/pdfs
+node scripts/upload-map-books.mjs --write-size /path/to/pdfs
+```
+
+The script reads `BLOB_READ_WRITE_TOKEN` from the environment, `.env.local`, or `.env`. `--write-size` records each file's size as `sizeMB` in the catalog. It does not print the token.
+
+Local `astro dev` does not serve `api/`. Checkout and download run as Vercel Node functions (`vercel dev`, or a preview deployment).
+
 ## Deploying (Vercel)
 
-Import the repo in Vercel. The settings come from `vercel.json`: the Astro preset, security headers (CSP, HSTS, frame denial and others), caching, and 301 redirects. `api/geo.js` is an Edge Function that returns the visitor's approximate location from Vercel's IP headers so the homepage can show nearby waterfalls without a permission prompt. If `vercel.json` is regenerated, run `node scripts/make-vercel-config.mjs`.
+Import the repo in Vercel. The settings come from `vercel.json`: the Astro preset, security headers (CSP, HSTS, frame denial and others), caching, and 301 redirects. `api/geo.js` is an Edge Function that returns the visitor's approximate location from Vercel's IP headers so the homepage can show nearby waterfalls without a permission prompt. `api/maps/checkout.js` and `api/maps/download.js` are Node functions for the map books. If `vercel.json` is regenerated, run `node scripts/make-vercel-config.mjs`.
 
 ## Settings to confirm
 

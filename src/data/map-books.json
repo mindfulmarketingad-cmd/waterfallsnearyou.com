@@ -1,0 +1,14 @@
+{
+  "books": [
+    {
+      "slug": "oregon",
+      "name": "Oregon",
+      "pages": 15,
+      "falls": 68,
+      "areaMaps": 9,
+      "featuredPage": "Silver Falls",
+      "sizeMB": null,
+      "available": true
+    }
+  ]
+}
