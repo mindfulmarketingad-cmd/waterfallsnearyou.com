@@ -1,0 +1,2632 @@
+{
+  "meta": {
+    "generated": "2026-11-19",
+    "publishedListings": 725,
+    "threshold": {
+      "networkKm": 12,
+      "straightLineKm": 12,
+      "snapMeters": 400,
+      "hintMeters": 1000,
+      "unnamedAnchorMeters": 200,
+      "attainsMeters": 1000,
+      "nameGapMeters": 150,
+      "typicalYearsMin": 3,
+      "recentDays": 120,
+      "currentHours": 48,
+      "sampleYears": 10,
+      "ecoliBeachActionValue": 235
+    },
+    "sources": {
+      "stream": "USGS gazetteer phrase or the waterfall name when it names the creek or river. Confirmed by USGS NLDI mainstem navigation, not by borrowing a nearby gauge.",
+      "network": "USGS NLDI mainstem UM and DM, 12 km",
+      "temperature": "USGS NWIS parameter 00010: instantaneous values newer than 48 hours, otherwise a daily mean from the last 120 days, plus monthly means of approved daily values for months with at least 3 years",
+      "samples": "Water Quality Portal results from the last 10 years (USGS, EPA, and state agencies)",
+      "assessment": "EPA ATTAINS assessment lines within 1 km of the falls, name-matched to the stream, linked to How's My Waterway",
+      "notUsed": "Coastal beach and state swim-advisory feeds. They do not identify the named inland stream at a waterfall."
+    },
+    "counts": {
+      "published": 725,
+      "temperature": 3,
+      "quality": 62,
+      "both": 2,
+      "attains": 50,
+      "samples": 28,
+      "sameStreamTemperature": 3,
+      "receivingTemperature": 0,
+      "lookupErrors": 0
+    },
+    "examples": [
+      "/california/yosemite-valley/vernal-fall",
+      "/california/yosemite-valley/nevada-fall",
+      "/alabama/fort-payne/little-river-falls"
+    ]
+  },
+  "listings": {
+    "/alabama/albertville/short-creek-falls": {
+      "fallsStream": "Short Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Short Creek",
+          "auId": "AL06030001-0805-110",
+          "auName": "Short Creek",
+          "organization": "Alabama Department of Environmental Management",
+          "cycle": 2024,
+          "status": "Fully Supporting",
+          "category": "1",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21AWIC/AL06030001-0805-110/2024",
+          "distanceKm": 0
+        },
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "4",
+            "unit": "ppm",
+            "date": "2022-07-16",
+            "detected": true,
+            "siteName": "Short Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/AWW_WQX/AWW_WQX-aww_1113/",
+            "distanceKm": 5.5,
+            "along": "downstream",
+            "waterName": "Short Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Turbidity",
+            "value": "2",
+            "unit": "JTU",
+            "date": "2022-05-20",
+            "detected": true,
+            "siteName": "Short Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/AWW_WQX/AWW_WQX-aww_1113/",
+            "distanceKm": 5.5,
+            "along": "downstream",
+            "waterName": "Short Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "31",
+            "unit": "deg C",
+            "date": "2022-07-16",
+            "detected": true,
+            "siteName": "Short Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/AWW_WQX/AWW_WQX-aww_1113/",
+            "distanceKm": 5.5,
+            "along": "downstream",
+            "waterName": "Short Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/alabama/fort-payne/little-river-falls": {
+      "fallsStream": "Little River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Little River",
+          "auId": "AL03150105-0806-100",
+          "auName": "Little River",
+          "organization": "Alabama Department of Environmental Management",
+          "cycle": 2024,
+          "status": "Fully Supporting",
+          "category": "1",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21AWIC/AL03150105-0806-100/2024",
+          "distanceKm": 0.02
+        },
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "39.3",
+            "unit": "MPN/100mL",
+            "date": "2022-09-21",
+            "detected": true,
+            "siteName": "Little River at Highway 35 Bridge",
+            "url": "https://www.waterqualitydata.us/provider/STORET/11NPSWRD_WQX/11NPSWRD_WQX-LIRI_HBLR/",
+            "distanceKm": 0.06,
+            "along": "same-reach",
+            "waterName": "Little River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "8.45",
+            "unit": "mg/L",
+            "date": "2022-09-21",
+            "detected": true,
+            "siteName": "Little River at Highway 35 Bridge",
+            "url": "https://www.waterqualitydata.us/provider/STORET/11NPSWRD_WQX/11NPSWRD_WQX-LIRI_HBLR/",
+            "distanceKm": 0.06,
+            "along": "same-reach",
+            "waterName": "Little River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "6.81",
+            "unit": "",
+            "date": "2022-09-21",
+            "detected": true,
+            "siteName": "Little River at Highway 35 Bridge",
+            "url": "https://www.waterqualitydata.us/provider/STORET/11NPSWRD_WQX/11NPSWRD_WQX-LIRI_HBLR/",
+            "distanceKm": 0.06,
+            "along": "same-reach",
+            "waterName": "Little River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Turbidity",
+            "value": "0.0318",
+            "unit": "NTU",
+            "date": "2022-09-21",
+            "detected": false,
+            "siteName": "Little River at Highway 35 Bridge",
+            "url": "https://www.waterqualitydata.us/provider/STORET/11NPSWRD_WQX/11NPSWRD_WQX-LIRI_HBLR/",
+            "distanceKm": 0.06,
+            "along": "same-reach",
+            "waterName": "Little River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/alabama/munford/salt-creek-falls": {
+      "fallsStream": "Salt Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Salt Creek",
+          "auId": "AL03150106-0508-100",
+          "auName": "Salt Creek",
+          "organization": "Alabama Department of Environmental Management",
+          "cycle": 2024,
+          "status": "Fully Supporting",
+          "category": "1",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21AWIC/AL03150106-0508-100/2024",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/california/burney/hatchet-creek-falls": {
+      "fallsStream": "Hatchet Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Hatchet Creek",
+          "auId": "CAR5261401020200109029221",
+          "auName": "Hatchet Creek (Shasta County)",
+          "organization": "California",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/CA_SWRCB/CAR5261401020200109029221/2026",
+          "distanceKm": 0.02
+        },
+        "samples": []
+      }
+    },
+    "/california/chester/deer-creek-falls": {
+      "fallsStream": "Deer Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Deer Creek",
+          "auId": "CAR5092004220110820075549",
+          "auName": "Deer Creek (Tehama County)",
+          "organization": "California",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/CA_SWRCB/CAR5092004220110820075549/2026",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/california/chester/kings-creek-falls": {
+      "fallsStream": "Kings Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Kings Creek",
+          "auId": "CAR5184402020190410042777",
+          "auName": "Kings Creek (Shasta and Plumas County)",
+          "organization": "California",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/CA_SWRCB/CAR5184402020190410042777/2026",
+          "distanceKm": 0.03
+        },
+        "samples": []
+      }
+    },
+    "/california/lewiston/crystal-creek-falls": {
+      "fallsStream": "Crystal Creek",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "pH",
+            "value": "7.9",
+            "unit": "std units",
+            "date": "2020-08-20",
+            "detected": true,
+            "siteName": "CRYSTAL C NR MOUTH NR FRENCH GULCH CA",
+            "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-CA/USGS-403958122390001/",
+            "distanceKm": 2.63,
+            "along": "same-reach",
+            "waterName": "Crystal Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "16.1",
+            "unit": "deg C",
+            "date": "2020-08-20",
+            "detected": true,
+            "siteName": "CRYSTAL C NR MOUTH NR FRENCH GULCH CA",
+            "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-CA/USGS-403958122390001/",
+            "distanceKm": 2.63,
+            "along": "same-reach",
+            "waterName": "Crystal Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/california/yosemite-valley/nevada-fall": {
+      "fallsStream": "Merced River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Merced River",
+          "auId": "CAR5375003020200903038980",
+          "auName": "Merced River (Mariposa and Madera Counties)",
+          "organization": "California",
+          "cycle": 2026,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "pH"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/CA_SWRCB/CAR5375003020200903038980/2026",
+          "distanceKm": 0.03
+        },
+        "samples": []
+      }
+    },
+    "/california/yosemite-valley/vernal-fall": {
+      "fallsStream": "Merced River",
+      "temperature": {
+        "source": "usgs",
+        "relationship": "same-stream",
+        "waterName": "Merced River",
+        "siteId": "11264500",
+        "siteName": "MERCED R A HAPPY ISLES BRIDGE NR YOSEMITE CA",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-11264500/",
+        "distanceKm": 1.16,
+        "along": "downstream",
+        "recent": {
+          "celsius": 3.5,
+          "time": "2026-11-19T20:30:00.000Z",
+          "date": "2026-11-19",
+          "kind": "instantaneous",
+          "provisional": false
+        },
+        "monthly": {
+          "1": {
+            "c": 2.29,
+            "years": 4
+          },
+          "2": {
+            "c": 2.41,
+            "years": 5
+          },
+          "3": {
+            "c": 3.42,
+            "years": 6
+          },
+          "4": {
+            "c": 5.81,
+            "years": 6
+          },
+          "5": {
+            "c": 8.36,
+            "years": 6
+          },
+          "6": {
+            "c": 12.12,
+            "years": 6
+          },
+          "7": {
+            "c": 15.41,
+            "years": 6
+          },
+          "8": {
+            "c": 15.32,
+            "years": 6
+          },
+          "9": {
+            "c": 12.43,
+            "years": 6
+          },
+          "10": {
+            "c": 8.35,
+            "years": 5
+          },
+          "11": {
+            "c": 5.68,
+            "years": 5
+          },
+          "12": {
+            "c": 2.46,
+            "years": 6
+          }
+        },
+        "begin": "2016-12",
+        "end": "2022-09",
+        "live": true
+      },
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Merced River",
+          "auId": "CAR5375003020200903038980",
+          "auName": "Merced River (Mariposa and Madera Counties)",
+          "organization": "California",
+          "cycle": 2026,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "pH"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/CA_SWRCB/CAR5375003020200903038980/2026",
+          "distanceKm": 0.2
+        },
+        "samples": []
+      }
+    },
+    "/colorado/creede/north-clear-creek-falls": {
+      "fallsStream": "North Clear Creek",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "8.71",
+            "unit": "mg/L",
+            "date": "2025-11-04",
+            "detected": true,
+            "siteName": "NORTH CLEAR CK @ USGS GAGE BELOW CONTINENTAL RES",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21COL001_WQX/21COL001_WQX-8156/",
+            "distanceKm": 6.42,
+            "along": "upstream",
+            "waterName": "North Clear Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.83",
+            "unit": "",
+            "date": "2025-11-04",
+            "detected": true,
+            "siteName": "NORTH CLEAR CK @ USGS GAGE BELOW CONTINENTAL RES",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21COL001_WQX/21COL001_WQX-8156/",
+            "distanceKm": 6.42,
+            "along": "upstream",
+            "waterName": "North Clear Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "7.372",
+            "unit": "deg C",
+            "date": "2025-11-04",
+            "detected": true,
+            "siteName": "NORTH CLEAR CK @ USGS GAGE BELOW CONTINENTAL RES",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21COL001_WQX/21COL001_WQX-8156/",
+            "distanceKm": 6.42,
+            "along": "upstream",
+            "waterName": "North Clear Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/colorado/steamboat-springs/fish-creek-falls": {
+      "fallsStream": "Fish Creek",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "9.45",
+            "unit": "mg/L",
+            "date": "2025-09-18",
+            "detected": true,
+            "siteName": "FISH CK AT STEAMBOAT",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21COL001_WQX/21COL001_WQX-12874/",
+            "distanceKm": 1.22,
+            "along": "same-reach",
+            "waterName": "Fish Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.48",
+            "unit": "",
+            "date": "2025-09-18",
+            "detected": true,
+            "siteName": "FISH CK AT STEAMBOAT",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21COL001_WQX/21COL001_WQX-12874/",
+            "distanceKm": 1.22,
+            "along": "same-reach",
+            "waterName": "Fish Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "7.1",
+            "unit": "deg C",
+            "date": "2025-09-18",
+            "detected": true,
+            "siteName": "FISH CK AT STEAMBOAT",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21COL001_WQX/21COL001_WQX-12874/",
+            "distanceKm": 1.22,
+            "along": "same-reach",
+            "waterName": "Fish Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/florida/five-points/falling-creek-falls": {
+      "fallsStream": "Falling Creek",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "199",
+            "unit": "MPN/100mL",
+            "date": "2018-06-19",
+            "detected": true,
+            "siteName": "FALLING CREEK @ US 441",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21FLA_WQX/21FLA_WQX-21010064/",
+            "distanceKm": 3.09,
+            "along": "same-reach",
+            "waterName": "Falling Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "4.8",
+            "unit": "mg/L",
+            "date": "2018-06-19",
+            "detected": true,
+            "siteName": "FALLING CREEK @ US 441",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21FLA_WQX/21FLA_WQX-21010064/",
+            "distanceKm": 3.09,
+            "along": "same-reach",
+            "waterName": "Falling Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "5.41",
+            "unit": "",
+            "date": "2018-06-19",
+            "detected": true,
+            "siteName": "FALLING CREEK @ US 441",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21FLA_WQX/21FLA_WQX-21010064/",
+            "distanceKm": 3.09,
+            "along": "same-reach",
+            "waterName": "Falling Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Turbidity",
+            "value": "2",
+            "unit": "NTU",
+            "date": "2018-06-19",
+            "detected": true,
+            "siteName": "FALLING CREEK @ US 441",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21FLA_WQX/21FLA_WQX-21010064/",
+            "distanceKm": 3.09,
+            "along": "same-reach",
+            "waterName": "Falling Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/georgia/blairsville/helton-creek-falls": {
+      "fallsStream": "Helton Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Helton Creek",
+          "auId": "GAR060200020520",
+          "auName": "Helton Creek",
+          "organization": "Georgia Environmental Protection Division",
+          "cycle": 2026,
+          "status": "Not Supporting",
+          "category": "4A",
+          "impaired": true,
+          "on303d": false,
+          "causes": [
+            "impaired biota of unknown cause"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21GAEPD/GAR060200020520/2026",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/georgia/cleveland/dukes-creek-falls": {
+      "fallsStream": "Dukes Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Dukes Creek",
+          "auId": "GAR031300010109",
+          "auName": "Dukes Creek",
+          "organization": "Georgia Environmental Protection Division",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "1",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21GAEPD/GAR031300010109/2026",
+          "distanceKm": 0.05
+        },
+        "samples": []
+      }
+    },
+    "/georgia/dahlonega/cane-creek-falls": {
+      "fallsStream": "Cane Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Cane Creek",
+          "auId": "GAR031300010613",
+          "auName": "Cane Creek",
+          "organization": "Georgia Environmental Protection Division",
+          "cycle": 2026,
+          "status": "Not Supporting",
+          "category": "4A",
+          "impaired": true,
+          "on303d": false,
+          "causes": [
+            "impaired biota of unknown cause"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21GAEPD/GAR031300010613/2026",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/georgia/dahlonega/clay-creek-falls": {
+      "fallsStream": "Clay Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Clay Creek",
+          "auId": "GAR031300010610",
+          "auName": "Clay Creek",
+          "organization": "Georgia Environmental Protection Division",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "1",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21GAEPD/GAR031300010610/2026",
+          "distanceKm": 0.03
+        },
+        "samples": []
+      }
+    },
+    "/georgia/mountain-city/mud-creek-falls": {
+      "fallsStream": "Mud Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Mud Creek",
+          "auId": "GAR060102020104",
+          "auName": "Mud Creek",
+          "organization": "Georgia Environmental Protection Division",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21GAEPD/GAR060102020104/2026",
+          "distanceKm": 0
+        },
+        "samples": []
+      }
+    },
+    "/idaho/orofino/elk-creek-falls": {
+      "fallsStream": "Elk Creek",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "37.3",
+            "unit": "MPN/100mL",
+            "date": "2021-08-25",
+            "detected": true,
+            "siteName": "Elk Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/IDEQ_WQX/IDEQ_WQX-2021SLEWA014/",
+            "distanceKm": 0.5,
+            "along": "same-reach",
+            "waterName": "Elk Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "8.83",
+            "unit": "",
+            "date": "2021-07-21",
+            "detected": true,
+            "siteName": "Elk Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/IDEQ_WQX/IDEQ_WQX-2021SLEWA014/",
+            "distanceKm": 0.5,
+            "along": "same-reach",
+            "waterName": "Elk Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "24.9",
+            "unit": "deg C",
+            "date": "2021-07-21",
+            "detected": true,
+            "siteName": "Elk Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/IDEQ_WQX/IDEQ_WQX-2021SLEWA014/",
+            "distanceKm": 0.5,
+            "along": "same-reach",
+            "waterName": "Elk Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/maine/mexico/rumford-falls": {
+      "fallsStream": "Androscoggin River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Androscoggin River",
+          "auId": "ME0104000204_422R",
+          "auName": "Androscoggin R",
+          "organization": "Maine",
+          "cycle": 2024,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "dioxins",
+            "PCBs"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MEDEP/ME0104000204_422R/2024",
+          "distanceKm": 0
+        },
+        "samples": []
+      }
+    },
+    "/maryland/oakland/muddy-creek-falls": {
+      "fallsStream": "Muddy Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Muddy Creek",
+          "auId": "MD-050202010010-Muddy_Creek",
+          "auName": "Muddy_Creek",
+          "organization": "Maryland",
+          "cycle": 2024,
+          "status": "Not Supporting",
+          "category": "4A",
+          "impaired": true,
+          "on303d": false,
+          "causes": [
+            "pH"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MDE_EASP/MD-050202010010-Muddy_Creek/2024",
+          "distanceKm": 0
+        },
+        "samples": []
+      }
+    },
+    "/massachusetts/adams/tannery-falls": {
+      "fallsStream": "Tannery Brook",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Tannery Brook",
+          "auId": "MA33-86",
+          "auName": "Tannery Brook",
+          "organization": "Massachusetts",
+          "cycle": 2022,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MA_DEP/MA33-86/2022",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/massachusetts/ashfield/chapel-falls": {
+      "fallsStream": "Chapel Brook",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Chapel Brook",
+          "auId": "MA33-44",
+          "auName": "Chapel Brook",
+          "organization": "Massachusetts",
+          "cycle": 2022,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MA_DEP/MA33-44/2022",
+          "distanceKm": 0.06
+        },
+        "samples": []
+      }
+    },
+    "/massachusetts/becket/glendale-falls": {
+      "fallsStream": "Glendale Brook",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Glendale Brook",
+          "auId": "MA32-10",
+          "auName": "Glendale Brook",
+          "organization": "Massachusetts",
+          "cycle": 2022,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MA_DEP/MA32-10/2022",
+          "distanceKm": 0
+        },
+        "samples": []
+      }
+    },
+    "/massachusetts/holyoke/south-hadley-falls": {
+      "fallsStream": "Connecticut River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Connecticut River",
+          "auId": "MA34-05",
+          "auName": "Connecticut River",
+          "organization": "Massachusetts",
+          "cycle": 2022,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "pathogens",
+            "PCBs"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MA_DEP/MA34-05/2022",
+          "distanceKm": 0.11
+        },
+        "samples": []
+      }
+    },
+    "/massachusetts/ludlow/wallamanumps-falls": {
+      "fallsStream": "Chicopee River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Chicopee River",
+          "auId": "MA36-24",
+          "auName": "Chicopee River",
+          "organization": "Massachusetts",
+          "cycle": 2022,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "noxious aquatic plants",
+            "pathogens"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MA_DEP/MA36-24/2022",
+          "distanceKm": 0
+        },
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "69",
+            "unit": "MPN/100 ml",
+            "date": "2021-12-16",
+            "detected": true,
+            "siteName": "CHICOPEE RIVER AT INDIAN ORCHARD, MA",
+            "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-MA/USGS-01177000/",
+            "distanceKm": 2.49,
+            "along": "downstream",
+            "waterName": "Chicopee River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "8.1",
+            "unit": "std units",
+            "date": "2024-02-20",
+            "detected": true,
+            "siteName": "CHICOPEE RIVER AT INDIAN ORCHARD, MA",
+            "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-MA/USGS-01177000/",
+            "distanceKm": 2.49,
+            "along": "downstream",
+            "waterName": "Chicopee River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Turbidity",
+            "value": "1.4",
+            "unit": "NTRU",
+            "date": "2024-02-20",
+            "detected": true,
+            "siteName": "CHICOPEE RIVER AT INDIAN ORCHARD, MA",
+            "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-MA/USGS-01177000/",
+            "distanceKm": 2.49,
+            "along": "downstream",
+            "waterName": "Chicopee River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "1.6",
+            "unit": "deg C",
+            "date": "2024-02-20",
+            "detected": true,
+            "siteName": "CHICOPEE RIVER AT INDIAN ORCHARD, MA",
+            "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-MA/USGS-01177000/",
+            "distanceKm": 2.49,
+            "along": "downstream",
+            "waterName": "Chicopee River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/massachusetts/new-marlborough/campbell-falls": {
+      "fallsStream": "Whiting River",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "7.740000",
+            "unit": "mg/L",
+            "date": "2018-07-02",
+            "detected": true,
+            "siteName": "Whiting River, Unnamed tributary to",
+            "url": "https://www.waterqualitydata.us/provider/STORET/CT_DEP01_WQX/CT_DEP01_WQX-19696/",
+            "distanceKm": 3.17,
+            "along": "downstream",
+            "waterName": "Whiting River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.370000",
+            "unit": "",
+            "date": "2018-07-02",
+            "detected": true,
+            "siteName": "Whiting River, Unnamed tributary to",
+            "url": "https://www.waterqualitydata.us/provider/STORET/CT_DEP01_WQX/CT_DEP01_WQX-19696/",
+            "distanceKm": 3.17,
+            "along": "downstream",
+            "waterName": "Whiting River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "18.75075",
+            "unit": "deg C",
+            "date": "2018-05-19",
+            "detected": true,
+            "siteName": "Whiting River, Unnamed tributary to",
+            "url": "https://www.waterqualitydata.us/provider/STORET/CT_DEP01_WQX/CT_DEP01_WQX-19696/",
+            "distanceKm": 3.17,
+            "along": "downstream",
+            "waterName": "Whiting River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/massachusetts/royalston/doane-falls": {
+      "fallsStream": "Lawrence Brook",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Lawrence Brook",
+          "auId": "MA35-13",
+          "auName": "Lawrence Brook",
+          "organization": "Massachusetts",
+          "cycle": 2022,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "PCBs"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MA_DEP/MA35-13/2022",
+          "distanceKm": 0.01
+        },
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "9.6",
+            "unit": "mg/L",
+            "date": "2020-08-20",
+            "detected": true,
+            "siteName": "Lawrence Brook",
+            "url": "https://www.waterqualitydata.us/provider/STORET/MASSDEP/MASSDEP-W2956/",
+            "distanceKm": 4.55,
+            "along": "upstream",
+            "waterName": "Lawrence Brook",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "6.6",
+            "unit": "",
+            "date": "2020-08-20",
+            "detected": true,
+            "siteName": "Lawrence Brook",
+            "url": "https://www.waterqualitydata.us/provider/STORET/MASSDEP/MASSDEP-W2956/",
+            "distanceKm": 4.55,
+            "along": "upstream",
+            "waterName": "Lawrence Brook",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "16.8",
+            "unit": "deg C",
+            "date": "2020-08-20",
+            "detected": true,
+            "siteName": "Lawrence Brook",
+            "url": "https://www.waterqualitydata.us/provider/STORET/MASSDEP/MASSDEP-W2956/",
+            "distanceKm": 4.55,
+            "along": "upstream",
+            "waterName": "Lawrence Brook",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/massachusetts/sheffield/race-brook-falls": {
+      "fallsStream": "Race Brook",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Race Brook",
+          "auId": "MA21-42",
+          "auName": "Race Brook",
+          "organization": "Massachusetts",
+          "cycle": 2022,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MA_DEP/MA21-42/2022",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/missouri/glasgow-village/chain-of-rocks": {
+      "fallsStream": "Mississippi River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Mississippi River",
+          "auId": "MO_1707.01",
+          "auName": "Mississippi R.",
+          "organization": "Missouri",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MDNR/MO_1707.01/2026",
+          "distanceKm": 0.11
+        },
+        "samples": []
+      }
+    },
+    "/missouri/joplin/shoal-creek-falls": {
+      "fallsStream": "Shoal Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Shoal Creek",
+          "auId": "MO_3222.00",
+          "auName": "Shoal Creek",
+          "organization": "Missouri",
+          "cycle": 2026,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "metals other than mercury",
+            "pathogens"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/MDNR/MO_3222.00/2026",
+          "distanceKm": 0.03
+        },
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "7.91000000000000",
+            "unit": "mg/L",
+            "date": "2026-06-03",
+            "detected": true,
+            "siteName": "Trib. To Shoal Cr. From Maiden Lane AML",
+            "url": "https://www.waterqualitydata.us/provider/STORET/MDNR/MDNR-3982/0.2/",
+            "distanceKm": 1.11,
+            "along": "upstream",
+            "waterName": "Shoal Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.14000000000000",
+            "unit": "",
+            "date": "2026-06-03",
+            "detected": true,
+            "siteName": "Trib. To Shoal Cr. From Maiden Lane AML",
+            "url": "https://www.waterqualitydata.us/provider/STORET/MDNR/MDNR-3982/0.2/",
+            "distanceKm": 1.11,
+            "along": "upstream",
+            "waterName": "Shoal Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "18.6000000000000",
+            "unit": "deg C",
+            "date": "2026-06-03",
+            "detected": true,
+            "siteName": "Trib. To Shoal Cr. From Maiden Lane AML",
+            "url": "https://www.waterqualitydata.us/provider/STORET/MDNR/MDNR-3982/0.2/",
+            "distanceKm": 1.11,
+            "along": "upstream",
+            "waterName": "Shoal Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/nebraska/valentine/snake-river-falls": {
+      "fallsStream": "Snake River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Snake River",
+          "auId": "NE-NI3-22400",
+          "auName": "Snake River",
+          "organization": "Nebraska",
+          "cycle": 2022,
+          "status": "Fully Supporting",
+          "category": "1",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21NEB001/NE-NI3-22400/2022",
+          "distanceKm": 0.06
+        },
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "5",
+            "unit": "MPN/100mL",
+            "date": "2024-12-02",
+            "detected": true,
+            "siteName": "Snake River downstream of Merritt Reservoir",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21NEB001_WQX/21NEB001_WQX-SNI3SNAKE195/",
+            "distanceKm": 2.33,
+            "along": "upstream",
+            "waterName": "Snake River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "12.3",
+            "unit": "mg/L",
+            "date": "2024-12-02",
+            "detected": true,
+            "siteName": "Snake River downstream of Merritt Reservoir",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21NEB001_WQX/21NEB001_WQX-SNI3SNAKE195/",
+            "distanceKm": 2.33,
+            "along": "upstream",
+            "waterName": "Snake River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "8.8",
+            "unit": "",
+            "date": "2024-12-02",
+            "detected": true,
+            "siteName": "Snake River downstream of Merritt Reservoir",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21NEB001_WQX/21NEB001_WQX-SNI3SNAKE195/",
+            "distanceKm": 2.33,
+            "along": "upstream",
+            "waterName": "Snake River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Turbidity",
+            "value": "4",
+            "unit": "NTU",
+            "date": "2024-12-02",
+            "detected": true,
+            "siteName": "Snake River downstream of Merritt Reservoir",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21NEB001_WQX/21NEB001_WQX-SNI3SNAKE195/",
+            "distanceKm": 2.33,
+            "along": "upstream",
+            "waterName": "Snake River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/new-york/philadelphia/childs-falls": {
+      "fallsStream": "Black Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Black Creek",
+          "auId": "NY0906-0045",
+          "auName": "Black Creek, Lower, and tribs",
+          "organization": "New York",
+          "cycle": 2022,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21NYDECA/NY0906-0045/2022",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/new-york/pulaski/salmon-river-falls": {
+      "fallsStream": "Salmon River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Salmon River",
+          "auId": "NY0303-0016",
+          "auName": "Salmon River, Lower, and minor tribs",
+          "organization": "New York",
+          "cycle": 2022,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "pesticides",
+            "PCBs"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21NYDECA/NY0303-0016/2022",
+          "distanceKm": 0.05
+        },
+        "samples": []
+      }
+    },
+    "/new-york/rochester/high-falls": {
+      "fallsStream": "Genesee River",
+      "temperature": {
+        "source": "usgs",
+        "relationship": "same-stream",
+        "waterName": "Genesee River",
+        "siteId": "04231600",
+        "siteName": "GENESEE RIVER AT FORD STREET BRIDGE, ROCHESTER NY",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04231600/",
+        "distanceKm": 2.2,
+        "along": "same-reach",
+        "recent": {
+          "celsius": 8,
+          "time": "2026-11-19T22:30:00.000Z",
+          "date": "2026-11-19",
+          "kind": "instantaneous",
+          "provisional": false
+        },
+        "monthly": {
+          "1": {
+            "c": 0.77,
+            "years": 15
+          },
+          "2": {
+            "c": 0.86,
+            "years": 16
+          },
+          "3": {
+            "c": 4.12,
+            "years": 15
+          },
+          "4": {
+            "c": 9.39,
+            "years": 14
+          },
+          "5": {
+            "c": 16.07,
+            "years": 16
+          },
+          "6": {
+            "c": 21.46,
+            "years": 16
+          },
+          "7": {
+            "c": 24.62,
+            "years": 13
+          },
+          "8": {
+            "c": 23.73,
+            "years": 16
+          },
+          "9": {
+            "c": 20.57,
+            "years": 13
+          },
+          "10": {
+            "c": 13.72,
+            "years": 12
+          },
+          "11": {
+            "c": 6.68,
+            "years": 15
+          },
+          "12": {
+            "c": 2.31,
+            "years": 14
+          }
+        },
+        "begin": "2011-01",
+        "end": "2026-08",
+        "live": true
+      },
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Genesee River",
+          "auId": "NY0401-0001",
+          "auName": "Genesee River, Lower, Main Stem",
+          "organization": "New York",
+          "cycle": 2022,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "dioxins",
+            "metals other than mercury",
+            "pathogens",
+            "pesticides",
+            "PCBs"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21NYDECA/NY0401-0001/2022",
+          "distanceKm": 0.02
+        },
+        "samples": [
+          {
+            "characteristic": "pH",
+            "value": "7.8",
+            "unit": "std units",
+            "date": "2024-02-06",
+            "detected": true,
+            "siteName": "GENESEE RIVER AT FORD STREET BRIDGE, ROCHESTER NY",
+            "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-NY/USGS-04231600/",
+            "distanceKm": 2.2,
+            "along": "same-reach",
+            "waterName": "Genesee River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Turbidity",
+            "value": "57",
+            "unit": "FNU",
+            "date": "2024-02-06",
+            "detected": true,
+            "siteName": "GENESEE RIVER AT FORD STREET BRIDGE, ROCHESTER NY",
+            "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-NY/USGS-04231600/",
+            "distanceKm": 2.2,
+            "along": "same-reach",
+            "waterName": "Genesee River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "2.3",
+            "unit": "deg C",
+            "date": "2024-02-06",
+            "detected": true,
+            "siteName": "GENESEE RIVER AT FORD STREET BRIDGE, ROCHESTER NY",
+            "url": "https://www.waterqualitydata.us/provider/NWIS/USGS-NY/USGS-04231600/",
+            "distanceKm": 2.2,
+            "along": "same-reach",
+            "waterName": "Genesee River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/new-york/rochester/lower-falls": {
+      "fallsStream": "Genesee River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Genesee River",
+          "auId": "NY0401-0001",
+          "auName": "Genesee River, Lower, Main Stem",
+          "organization": "New York",
+          "cycle": 2022,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "dioxins",
+            "metals other than mercury",
+            "pathogens",
+            "pesticides",
+            "PCBs"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21NYDECA/NY0401-0001/2022",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/new-york/rochester/middle-falls": {
+      "fallsStream": "Genesee River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Genesee River",
+          "auId": "NY0401-0001",
+          "auName": "Genesee River, Lower, Main Stem",
+          "organization": "New York",
+          "cycle": 2022,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "dioxins",
+            "metals other than mercury",
+            "pathogens",
+            "pesticides",
+            "PCBs"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21NYDECA/NY0401-0001/2022",
+          "distanceKm": 0.03
+        },
+        "samples": []
+      }
+    },
+    "/north-carolina/spruce-pine/grassy-creek-falls": {
+      "fallsStream": "Grassy Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Grassy Creek",
+          "auId": "NC7-2-40",
+          "auName": "Grassy Creek",
+          "organization": "N.C. Dept. of Environmental Quality",
+          "cycle": 2022,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "impaired biota of unknown cause"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21NC01WQ/NC7-2-40/2022",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/north-carolina/weaverville/reems-creek-falls": {
+      "fallsStream": "Reems Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Reems Creek",
+          "auId": "NC6-87-(10)",
+          "auName": "Reems Creek",
+          "organization": "N.C. Dept. of Environmental Quality",
+          "cycle": 2022,
+          "status": "Fully Supporting",
+          "category": "1",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21NC01WQ/NC6-87-(10)/2022",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/ohio/newburgh-heights/mill-creek-falls": {
+      "fallsStream": "Mill Creek",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "10.2",
+            "unit": "mg/L",
+            "date": "2018-09-24",
+            "detected": true,
+            "siteName": "MILL CREEK @ BROADWAY RD.",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21OHIO_WQX/21OHIO_WQX-F01P09/",
+            "distanceKm": 2.07,
+            "along": "same-reach",
+            "waterName": "Mill Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.84",
+            "unit": "",
+            "date": "2018-09-12",
+            "detected": true,
+            "siteName": "MILL CREEK @ BROADWAY RD.",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21OHIO_WQX/21OHIO_WQX-F01P09/",
+            "distanceKm": 2.07,
+            "along": "same-reach",
+            "waterName": "Mill Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "16.9",
+            "unit": "deg C",
+            "date": "2018-09-24",
+            "detected": true,
+            "siteName": "MILL CREEK @ BROADWAY RD.",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21OHIO_WQX/21OHIO_WQX-F01P09/",
+            "distanceKm": 2.07,
+            "along": "same-reach",
+            "waterName": "Mill Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/oklahoma/sulphur/little-niagara-falls": {
+      "fallsStream": "Travertine Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Travertine Creek",
+          "auId": "OK310800020121_00",
+          "auName": "Travertine Creek",
+          "organization": "Oklahoma",
+          "cycle": 2024,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/OKDEQ/OK310800020121_00/2024",
+          "distanceKm": 0.29
+        },
+        "samples": []
+      }
+    },
+    "/oregon/florence/sweet-creek-falls": {
+      "fallsStream": "Sweet Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Sweet Creek",
+          "auId": "OR_SR_1710020608_02_105072",
+          "auName": "Sweet Creek",
+          "organization": "Oregon",
+          "cycle": 2024,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/OREGONDEQ/OR_SR_1710020608_02_105072/2024",
+          "distanceKm": 0
+        },
+        "samples": []
+      }
+    },
+    "/oregon/gearhart/youngs-river-falls": {
+      "fallsStream": "Youngs River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Youngs River",
+          "auId": "OR_SR_1708000602_05_100324",
+          "auName": "Youngs River",
+          "organization": "Oregon",
+          "cycle": 2024,
+          "status": "Not Supporting",
+          "category": "4A",
+          "impaired": true,
+          "on303d": false,
+          "causes": [
+            "temperature"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/OREGONDEQ/OR_SR_1708000602_05_100324/2024",
+          "distanceKm": 0.02
+        },
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "67",
+            "unit": "MPN/100mL",
+            "date": "2026-07-20",
+            "detected": true,
+            "siteName": "Youngs River at Youngs River Loop Road",
+            "url": "https://www.waterqualitydata.us/provider/STORET/OREGONDEQ/OREGONDEQ-12187-ORDEQ/",
+            "distanceKm": 0.44,
+            "along": "same-reach",
+            "waterName": "Youngs River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "10.1",
+            "unit": "mg/L",
+            "date": "2026-07-20",
+            "detected": true,
+            "siteName": "Youngs River at Youngs River Loop Road",
+            "url": "https://www.waterqualitydata.us/provider/STORET/OREGONDEQ/OREGONDEQ-12187-ORDEQ/",
+            "distanceKm": 0.44,
+            "along": "same-reach",
+            "waterName": "Youngs River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.5",
+            "unit": "",
+            "date": "2026-07-20",
+            "detected": true,
+            "siteName": "Youngs River at Youngs River Loop Road",
+            "url": "https://www.waterqualitydata.us/provider/STORET/OREGONDEQ/OREGONDEQ-12187-ORDEQ/",
+            "distanceKm": 0.44,
+            "along": "same-reach",
+            "waterName": "Youngs River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Turbidity",
+            "value": "2",
+            "unit": "NTU",
+            "date": "2026-07-20",
+            "detected": true,
+            "siteName": "Youngs River at Youngs River Loop Road",
+            "url": "https://www.waterqualitydata.us/provider/STORET/OREGONDEQ/OREGONDEQ-12187-ORDEQ/",
+            "distanceKm": 0.44,
+            "along": "same-reach",
+            "waterName": "Youngs River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/oregon/la-pine/paulina-creek-falls": {
+      "fallsStream": "Paulina Creek",
+      "temperature": {
+        "source": "usgs",
+        "relationship": "same-stream",
+        "waterName": "Paulina Creek",
+        "siteId": "14063300",
+        "siteName": "PAULINA CREEK NEAR LAPINE, OR.",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-14063300/",
+        "distanceKm": 0.31,
+        "along": "same-reach",
+        "recent": null,
+        "monthly": {
+          "1": {
+            "c": 1.61,
+            "years": 3
+          },
+          "2": {
+            "c": 1.81,
+            "years": 3
+          },
+          "4": {
+            "c": 4.28,
+            "years": 3
+          },
+          "7": {
+            "c": 16.51,
+            "years": 3
+          },
+          "8": {
+            "c": 17.4,
+            "years": 3
+          },
+          "9": {
+            "c": 14.51,
+            "years": 4
+          },
+          "10": {
+            "c": 10.03,
+            "years": 3
+          },
+          "11": {
+            "c": 4.19,
+            "years": 3
+          },
+          "12": {
+            "c": 1.79,
+            "years": 4
+          }
+        },
+        "begin": "1991-12",
+        "end": "1995-09",
+        "live": false
+      },
+      "quality": null
+    },
+    "/oregon/reedsport/smith-river-falls": {
+      "fallsStream": "Smith River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Smith River",
+          "auId": "OR_SR_1710030307_02_105196",
+          "auName": "Smith River",
+          "organization": "Oregon",
+          "cycle": 2024,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "temperature"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/OREGONDEQ/OR_SR_1710030307_02_105196/2024",
+          "distanceKm": 0.07
+        },
+        "samples": []
+      }
+    },
+    "/oregon/rose-lodge/drift-creek-falls": {
+      "fallsStream": "Drift Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Drift Creek",
+          "auId": "OR_SR_1710020407_02_105990",
+          "auName": "Drift Creek",
+          "organization": "Oregon",
+          "cycle": 2024,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "temperature"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/OREGONDEQ/OR_SR_1710020407_02_105990/2024",
+          "distanceKm": 0.07
+        },
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "10.65",
+            "unit": "mg/L",
+            "date": "2017-09-11",
+            "detected": true,
+            "siteName": "Drift Creek at second bridge above camp",
+            "url": "https://www.waterqualitydata.us/provider/STORET/VM_SDCWC_AW/VM_SDCWC_AW-40554-ORDEQ/",
+            "distanceKm": 5.96,
+            "along": "downstream",
+            "waterName": "Drift Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "14.319623",
+            "unit": "deg C",
+            "date": "2017-09-11",
+            "detected": true,
+            "siteName": "Drift Creek at second bridge above camp",
+            "url": "https://www.waterqualitydata.us/provider/STORET/VM_SDCWC_AW/VM_SDCWC_AW-40554-ORDEQ/",
+            "distanceKm": 5.96,
+            "along": "downstream",
+            "waterName": "Drift Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/oregon/sisters/chush-falls": {
+      "fallsStream": "Whychus Creek",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "pH",
+            "value": "6.69",
+            "unit": "",
+            "date": "2022-07-30",
+            "detected": true,
+            "siteName": "Whychus Creek Wild and Scenic River-44.15.121.68",
+            "url": "https://www.waterqualitydata.us/provider/STORET/ADVENTURESCIENTISTS/ADVENTURESCIENTISTS-44.15.121.68/",
+            "distanceKm": 0.07,
+            "along": "same-reach",
+            "waterName": "Whychus Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/pennsylvania/dunbar/jonathan-run-falls": {
+      "fallsStream": "Jonathan Run",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "175",
+            "unit": "#/100mL",
+            "date": "2018-07-12",
+            "detected": true,
+            "siteName": "Jonathan Run on Holland Hill Road",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21PA_WQX/21PA_WQX-JONA_34/",
+            "distanceKm": 1.81,
+            "along": "upstream",
+            "waterName": "Jonathan Run",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Fecal Coliform",
+            "value": "50",
+            "unit": "#/100mL",
+            "date": "2018-07-12",
+            "detected": true,
+            "siteName": "Jonathan Run on Holland Hill Road",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21PA_WQX/21PA_WQX-JONA_34/",
+            "distanceKm": 1.81,
+            "along": "upstream",
+            "waterName": "Jonathan Run",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "102.3",
+            "unit": "%",
+            "date": "2018-07-12",
+            "detected": true,
+            "siteName": "Jonathan Run on Holland Hill Road",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21PA_WQX/21PA_WQX-JONA_34/",
+            "distanceKm": 1.81,
+            "along": "upstream",
+            "waterName": "Jonathan Run",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.24",
+            "unit": "",
+            "date": "2018-07-12",
+            "detected": true,
+            "siteName": "Jonathan Run on Holland Hill Road",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21PA_WQX/21PA_WQX-JONA_34/",
+            "distanceKm": 1.81,
+            "along": "upstream",
+            "waterName": "Jonathan Run",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/pennsylvania/milford/cole-run-falls": {
+      "fallsStream": "Cole Run",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "9.78",
+            "unit": "mg/L",
+            "date": "2023-05-30",
+            "detected": true,
+            "siteName": "Cole Run",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21PA_WQX/21PA_WQX-COLERUN/",
+            "distanceKm": 0.75,
+            "along": "downstream",
+            "waterName": "Cole Run",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "5.01",
+            "unit": "",
+            "date": "2023-05-30",
+            "detected": true,
+            "siteName": "Cole Run",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21PA_WQX/21PA_WQX-COLERUN/",
+            "distanceKm": 0.75,
+            "along": "downstream",
+            "waterName": "Cole Run",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "12.9",
+            "unit": "deg C",
+            "date": "2023-05-30",
+            "detected": true,
+            "siteName": "Cole Run",
+            "url": "https://www.waterqualitydata.us/provider/STORET/21PA_WQX/21PA_WQX-COLERUN/",
+            "distanceKm": 0.75,
+            "along": "downstream",
+            "waterName": "Cole Run",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/tennessee/madisonville/bald-river-falls": {
+      "fallsStream": "Bald River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Bald River",
+          "auId": "TN06010204044_0700",
+          "auName": "Bald River",
+          "organization": "Tennessee",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "1",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/TDECWR/TN06010204044_0700/2026",
+          "distanceKm": 0.04
+        },
+        "samples": []
+      }
+    },
+    "/tennessee/mountain-city/gentry-creek-falls": {
+      "fallsStream": "Gentry Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Gentry Creek",
+          "auId": "TN060101020250_0400",
+          "auName": "Gentry Creek",
+          "organization": "Tennessee",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/TDECWR/TN060101020250_0400/2026",
+          "distanceKm": 0.05
+        },
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "1",
+            "unit": "MPN/100mL",
+            "date": "2023-04-25",
+            "detected": true,
+            "siteName": "Gentry Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000001980/",
+            "distanceKm": 3.12,
+            "along": "downstream",
+            "waterName": "Gentry Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "8.77",
+            "unit": "mg/L",
+            "date": "2026-07-17",
+            "detected": true,
+            "siteName": "Gentry Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000001980/",
+            "distanceKm": 3.12,
+            "along": "downstream",
+            "waterName": "Gentry Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "6.04",
+            "unit": "",
+            "date": "2026-07-17",
+            "detected": true,
+            "siteName": "Gentry Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000001980/",
+            "distanceKm": 3.12,
+            "along": "downstream",
+            "waterName": "Gentry Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Turbidity",
+            "value": "1.09",
+            "unit": "NTU",
+            "date": "2023-04-25",
+            "detected": true,
+            "siteName": "Gentry Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000001980/",
+            "distanceKm": 3.12,
+            "along": "downstream",
+            "waterName": "Gentry Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/tennessee/spencer/cane-creek-falls": {
+      "fallsStream": "Cane Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Cane Creek",
+          "auId": "TN05130108027_2000",
+          "auName": "Cane Creek",
+          "organization": "Tennessee",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "1",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/TDECWR/TN05130108027_2000/2026",
+          "distanceKm": 0.02
+        },
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "276",
+            "unit": "MPN/100mL",
+            "date": "2023-06-06",
+            "detected": true,
+            "siteName": "Cane Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000000931/",
+            "distanceKm": 0.41,
+            "along": "same-reach",
+            "waterName": "Cane Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "8.67",
+            "unit": "mg/L",
+            "date": "2023-06-06",
+            "detected": true,
+            "siteName": "Cane Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000000931/",
+            "distanceKm": 0.41,
+            "along": "same-reach",
+            "waterName": "Cane Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.41",
+            "unit": "",
+            "date": "2023-06-06",
+            "detected": true,
+            "siteName": "Cane Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000000931/",
+            "distanceKm": 0.41,
+            "along": "same-reach",
+            "waterName": "Cane Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "19.89",
+            "unit": "deg C",
+            "date": "2023-06-06",
+            "detected": true,
+            "siteName": "Cane Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000000931/",
+            "distanceKm": 0.41,
+            "along": "same-reach",
+            "waterName": "Cane Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/tennessee/spencer/fall-creek-falls": {
+      "fallsStream": "Fall Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Fall Creek",
+          "auId": "TN05130108027_0600",
+          "auName": "Fall Creek",
+          "organization": "Tennessee",
+          "cycle": 2026,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "habitat alterations",
+            "hydrologic alteration",
+            "metals other than mercury"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/TDECWR/TN05130108027_0600/2026",
+          "distanceKm": 0.04
+        },
+        "samples": []
+      }
+    },
+    "/tennessee/spencer/piney-creek-falls": {
+      "fallsStream": "Piney Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Piney Creek",
+          "auId": "TN05130108027_0700",
+          "auName": "Piney Creek",
+          "organization": "Tennessee",
+          "cycle": 2026,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "an unknown cause"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/TDECWR/TN05130108027_0700/2026",
+          "distanceKm": 0
+        },
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "66",
+            "unit": "MPN/100mL",
+            "date": "2023-06-06",
+            "detected": true,
+            "siteName": "Piney Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000004808/",
+            "distanceKm": 0.07,
+            "along": "same-reach",
+            "waterName": "Piney Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "8.66",
+            "unit": "mg/L",
+            "date": "2023-06-06",
+            "detected": true,
+            "siteName": "Piney Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000004808/",
+            "distanceKm": 0.07,
+            "along": "same-reach",
+            "waterName": "Piney Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.3",
+            "unit": "",
+            "date": "2023-06-06",
+            "detected": true,
+            "siteName": "Piney Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000004808/",
+            "distanceKm": 0.07,
+            "along": "same-reach",
+            "waterName": "Piney Creek",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "18.33",
+            "unit": "deg C",
+            "date": "2023-06-06",
+            "detected": true,
+            "siteName": "Piney Creek",
+            "url": "https://www.waterqualitydata.us/provider/STORET/TDECWR_WQX/TDECWR_WQX-TNW000004808/",
+            "distanceKm": 0.07,
+            "along": "same-reach",
+            "waterName": "Piney Creek",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/utah/kamas/provo-river-falls": {
+      "fallsStream": "Provo River",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "1",
+            "unit": "MPN/100mL",
+            "date": "2018-09-24",
+            "detected": false,
+            "siteName": "PROVO R AB PROVO R FALLS OVERLOOK",
+            "url": "https://www.waterqualitydata.us/provider/STORET/UTAHDWQ_WQX/UTAHDWQ_WQX-4999100/",
+            "distanceKm": 0.17,
+            "along": "upstream",
+            "waterName": "Provo River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "10.31",
+            "unit": "mg/L",
+            "date": "2024-11-13",
+            "detected": true,
+            "siteName": "PROVO R AB PROVO R FALLS OVERLOOK",
+            "url": "https://www.waterqualitydata.us/provider/STORET/UTAHDWQ_WQX/UTAHDWQ_WQX-4999100/",
+            "distanceKm": 0.17,
+            "along": "upstream",
+            "waterName": "Provo River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.82",
+            "unit": "",
+            "date": "2024-11-13",
+            "detected": true,
+            "siteName": "PROVO R AB PROVO R FALLS OVERLOOK",
+            "url": "https://www.waterqualitydata.us/provider/STORET/UTAHDWQ_WQX/UTAHDWQ_WQX-4999100/",
+            "distanceKm": 0.17,
+            "along": "upstream",
+            "waterName": "Provo River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "-0.09",
+            "unit": "deg C",
+            "date": "2024-11-13",
+            "detected": true,
+            "siteName": "PROVO R AB PROVO R FALLS OVERLOOK",
+            "url": "https://www.waterqualitydata.us/provider/STORET/UTAHDWQ_WQX/UTAHDWQ_WQX-4999100/",
+            "distanceKm": 0.17,
+            "along": "upstream",
+            "waterName": "Provo River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/utah/loa/lower-calf-creek-falls": {
+      "fallsStream": "Calf Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Calf Creek",
+          "auId": "UT14070005-007_00",
+          "auName": "Calf Creek",
+          "organization": "Utah",
+          "cycle": 2026,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "temperature"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/UTAHDWQ/UT14070005-007_00/2026",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/utah/loa/upper-calf-creek-falls": {
+      "fallsStream": "Calf Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Calf Creek",
+          "auId": "UT14070005-007_00",
+          "auName": "Calf Creek",
+          "organization": "Utah",
+          "cycle": 2026,
+          "status": "Not Supporting",
+          "category": "5",
+          "impaired": true,
+          "on303d": true,
+          "causes": [
+            "temperature"
+          ],
+          "url": "https://mywaterway.epa.gov/waterbody-report/UTAHDWQ/UT14070005-007_00/2026",
+          "distanceKm": 0
+        },
+        "samples": []
+      }
+    },
+    "/virginia/grottoes/doyles-river-falls": {
+      "fallsStream": "Doyles River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Doyles River",
+          "auId": "VAV-H24R_DYL02A10",
+          "auName": "Doyles River",
+          "organization": "Virginia",
+          "cycle": 2024,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21VASWCB/VAV-H24R_DYL02A10/2024",
+          "distanceKm": 0
+        },
+        "samples": [
+          {
+            "characteristic": "pH",
+            "value": "6.8086",
+            "unit": "",
+            "date": "2021-04-24",
+            "detected": true,
+            "siteName": "Doyles River",
+            "url": "https://www.waterqualitydata.us/provider/STORET/11NPSWRD_WQX/11NPSWRD_WQX-SHEN_AB06/",
+            "distanceKm": 0.88,
+            "along": "downstream",
+            "waterName": "Doyles River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/virginia/stanardsville/south-river-falls": {
+      "fallsStream": "South River",
+      "temperature": null,
+      "quality": {
+        "attains": null,
+        "samples": [
+          {
+            "characteristic": "pH",
+            "value": "6.7563",
+            "unit": "",
+            "date": "2021-04-24",
+            "detected": true,
+            "siteName": "South River",
+            "url": "https://www.waterqualitydata.us/provider/STORET/11NPSWRD_WQX/11NPSWRD_WQX-SHEN_GR07/",
+            "distanceKm": 0.48,
+            "along": "downstream",
+            "waterName": "South River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/virginia/stanley/rose-river-falls": {
+      "fallsStream": "Rose River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Rose River",
+          "auId": "VAN-E14R_ROE02A06",
+          "auName": "Rose River",
+          "organization": "Virginia",
+          "cycle": 2024,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21VASWCB/VAN-E14R_ROE02A06/2024",
+          "distanceKm": 0.03
+        },
+        "samples": []
+      }
+    },
+    "/virginia/washington/overall-run-falls": {
+      "fallsStream": "Overall Run",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Overall Run",
+          "auId": "VAV-B40R_OVL01A00",
+          "auName": "Overall Run",
+          "organization": "Virginia",
+          "cycle": 2024,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/21VASWCB/VAV-B40R_OVL01A00/2024",
+          "distanceKm": 0
+        },
+        "samples": [
+          {
+            "characteristic": "pH",
+            "value": "6.7216",
+            "unit": "",
+            "date": "2021-04-24",
+            "detected": true,
+            "siteName": "Overall Run",
+            "url": "https://www.waterqualitydata.us/provider/STORET/11NPSWRD_WQX/11NPSWRD_WQX-SHEN_WN01/",
+            "distanceKm": 4.01,
+            "along": "same-reach",
+            "waterName": "Overall Run",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/west-virginia/richwood/falls-of-hills-creek": {
+      "fallsStream": "Hills Creek",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Hills Creek",
+          "auId": "WV-KNG-155-0.1B-3_01_SS",
+          "auName": "Hills Creek",
+          "organization": "West Virginia",
+          "cycle": 2024,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/WVDEP/WV-KNG-155-0.1B-3_01_SS/2024",
+          "distanceKm": 0.01
+        },
+        "samples": []
+      }
+    },
+    "/wisconsin/hurley/potato-river-falls": {
+      "fallsStream": "Potato River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Potato River",
+          "auId": "WI10023302",
+          "auName": "Potato River",
+          "organization": "Wisconsin",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/WIDNR/WI10023302/2026",
+          "distanceKm": 0.02
+        },
+        "samples": [
+          {
+            "characteristic": "Escherichia coli",
+            "value": "20",
+            "unit": "cfu/100mL",
+            "date": "2023-09-20",
+            "detected": true,
+            "siteName": "Potato River at Rte 169",
+            "url": "https://www.waterqualitydata.us/provider/STORET/BADRIVER_WQX/BADRIVER_WQX-PotatoHWY169/",
+            "distanceKm": 1.6,
+            "along": "upstream",
+            "waterName": "Potato River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Fecal Coliform",
+            "value": "1040",
+            "unit": "cfu/100mL",
+            "date": "2023-09-20",
+            "detected": true,
+            "siteName": "Potato River at Rte 169",
+            "url": "https://www.waterqualitydata.us/provider/STORET/BADRIVER_WQX/BADRIVER_WQX-PotatoHWY169/",
+            "distanceKm": 1.6,
+            "along": "upstream",
+            "waterName": "Potato River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "9.77",
+            "unit": "mg/L",
+            "date": "2024-10-30",
+            "detected": true,
+            "siteName": "Potato River at Rte 169",
+            "url": "https://www.waterqualitydata.us/provider/STORET/BADRIVER_WQX/BADRIVER_WQX-PotatoHWY169/",
+            "distanceKm": 1.6,
+            "along": "upstream",
+            "waterName": "Potato River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.5",
+            "unit": "",
+            "date": "2024-10-30",
+            "detected": true,
+            "siteName": "Potato River at Rte 169",
+            "url": "https://www.waterqualitydata.us/provider/STORET/BADRIVER_WQX/BADRIVER_WQX-PotatoHWY169/",
+            "distanceKm": 1.6,
+            "along": "upstream",
+            "waterName": "Potato River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    },
+    "/wisconsin/somerset/apple-river-falls": {
+      "fallsStream": "Apple River",
+      "temperature": null,
+      "quality": {
+        "attains": {
+          "relationship": "same-stream",
+          "waterName": "Apple River",
+          "auId": "WI10038440",
+          "auName": "Apple River",
+          "organization": "Wisconsin",
+          "cycle": 2026,
+          "status": "Fully Supporting",
+          "category": "2",
+          "impaired": false,
+          "on303d": false,
+          "causes": [],
+          "url": "https://mywaterway.epa.gov/waterbody-report/WIDNR/WI10038440/2026",
+          "distanceKm": 0.38
+        },
+        "samples": [
+          {
+            "characteristic": "Dissolved oxygen (DO)",
+            "value": "8.8",
+            "unit": "mg/L",
+            "date": "2023-06-14",
+            "detected": true,
+            "siteName": "APPLE RIVER - BELOW APPLE FALLS FLOWAGE DAM",
+            "url": "https://www.waterqualitydata.us/provider/STORET/WIDNR_WQX/WIDNR_WQX-563142/",
+            "distanceKm": 0.4,
+            "along": "same-reach",
+            "waterName": "Apple River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "pH",
+            "value": "7.9",
+            "unit": "",
+            "date": "2023-06-14",
+            "detected": true,
+            "siteName": "APPLE RIVER - BELOW APPLE FALLS FLOWAGE DAM",
+            "url": "https://www.waterqualitydata.us/provider/STORET/WIDNR_WQX/WIDNR_WQX-563142/",
+            "distanceKm": 0.4,
+            "along": "same-reach",
+            "waterName": "Apple River",
+            "relationship": "same-stream"
+          },
+          {
+            "characteristic": "Temperature, water",
+            "value": "19.3",
+            "unit": "deg C",
+            "date": "2023-06-14",
+            "detected": true,
+            "siteName": "APPLE RIVER - BELOW APPLE FALLS FLOWAGE DAM",
+            "url": "https://www.waterqualitydata.us/provider/STORET/WIDNR_WQX/WIDNR_WQX-563142/",
+            "distanceKm": 0.4,
+            "along": "same-reach",
+            "waterName": "Apple River",
+            "relationship": "same-stream"
+          }
+        ]
+      }
+    }
+  }
+}
