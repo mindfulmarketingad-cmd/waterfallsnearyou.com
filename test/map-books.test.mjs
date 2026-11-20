@@ -263,6 +263,27 @@ test('the state page offers the book beside the map, and the thank-you page is n
   assert.equal(isIndexable('/'), true);
   const offer = readFileSync('src/components/MapBookOffer.astro', 'utf8');
   assert.match(offer, /Download the \$\{book\.name\} Waterfall Map Book/);
+  assert.match(offer, />Download<\/button>/);
+  assert.match(offer, /\{book\.pages\} pages and covers \{book\.falls\} falls/);
+  assert.match(offer, /trail-scale area/);
+  assert.match(offer, /trails, trailheads, parking, terrain and contours/);
+  assert.match(offer, /ready to use offline/);
+  assert.match(offer, /index with heights, hikes and GPS/);
   assert.match(offer, /previewPublicPath/);
-  assert.doesNotMatch(offer, /sk_live_|sk_test_|BLOB_READ_WRITE_TOKEN|price_/);
+  const listing = readFileSync('src/pages/[state]/[city]/[listing].astro', 'utf8');
+  const mapHeading = listing.indexOf('id="map"');
+  const ctaAt = listing.indexOf('<MapBookListingCta');
+  assert.ok(mapHeading > 0 && ctaAt > mapHeading);
+  const cta = readFileSync('src/components/MapBookListingCta.astro', 'utf8');
+  assert.match(cta, /book\?\.available/);
+  assert.match(cta, />Download map PDF<\/button>/);
+  assert.match(cta, /book\.falls - 1/);
+  assert.match(cta, /detailed trail maps/);
+  assert.match(cta, /Printable/);
+  assert.match(cta, /action="\/api\/maps\/checkout"/);
+  for (const file of [offer, cta, readFileSync('src/pages/maps/index.astro', 'utf8'), readFileSync('src/pages/maps/thank-you.astro', 'utf8')]) {
+    assert.equal(file.includes('2.99'), false);
+    assert.equal(file.includes('MAP_BOOK_PRICE'), false);
+    assert.doesNotMatch(file, /\$\d/);
+  }
 });

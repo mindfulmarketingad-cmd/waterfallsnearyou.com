@@ -1,5 +1,5 @@
 ---
-import { DOWNLOAD_WINDOW_DAYS, MAP_BOOK_PRICE_LABEL, formatSizeMB, previewPublicPath } from '../lib/map-books.mjs';
+import { DOWNLOAD_WINDOW_DAYS, formatSizeMB, previewPublicPath } from '../lib/map-books.mjs';
 
 interface Props {
   book: {
@@ -18,8 +18,8 @@ interface Props {
 const { book, showStateLink = false, showHubLink = true, anchor = 'map-book' } = Astro.props;
 const preview = previewPublicPath(book.slug);
 const size = formatSizeMB(book.sizeMB);
-const title = `Download the ${book.name} Waterfall Map Book (${MAP_BOOK_PRICE_LABEL})`;
-const mapsLabel = book.areaMaps === 1 ? 'map' : 'maps';
+const title = `Download the ${book.name} Waterfall Map Book`;
+const mapsLabel = book.areaMaps === 1 ? 'map shows' : 'maps showing';
 ---
 <section class="wrap section-sm" id={anchor} aria-labelledby={`${anchor}-h`}>
   <div class="map-book">
@@ -35,20 +35,20 @@ const mapsLabel = book.areaMaps === 1 ? 'map' : 'maps';
     <div>
       <p class="eyebrow">Printable map book</p>
       <h2 id={`${anchor}-h`}>{title}</h2>
-      <p>A PDF you can print or save. One payment of {MAP_BOOK_PRICE_LABEL}. The waterfall pages on this site stay free.</p>
+      <p>A printable PDF, ready to use offline. This book is {book.pages} pages and covers {book.falls} falls. The waterfall pages on this site stay free.</p>
       <ul>
         <li>Statewide overview</li>
-        <li>{book.areaMaps} detailed trail-scale area {mapsLabel} with trails, trailheads, parking, terrain and contours</li>
+        <li>{book.areaMaps} trail-scale area {mapsLabel} trails, trailheads, parking, terrain and contours</li>
         {book.featuredPage && <li>A featured {book.featuredPage} page</li>}
         <li>An index with heights, hikes and GPS</li>
       </ul>
-      <p class="muted small">{book.pages} pages, covering {book.falls} falls.{size ? ` ${size}.` : ''}</p>
+      {size && <p class="muted small">{size}.</p>}
       <form method="post" action="/api/maps/checkout" data-map-form>
         <input type="hidden" name="state" value={book.slug} />
-        <button class="btn btn-green" type="submit">{title}</button>
+        <button class="btn btn-green" type="submit">Download</button>
         <p class="map-book-status muted small" data-map-status role="status" hidden></p>
       </form>
-      <p class="muted small">Checkout collects an email for the receipt. The download link works for {DOWNLOAD_WINDOW_DAYS} days after payment. Card details stay with Stripe.</p>
+      <p class="muted small">Checkout collects an email for the receipt. The download link on the next page works for {DOWNLOAD_WINDOW_DAYS} days. Card details stay with Stripe.</p>
       {showStateLink && <p class="small"><a href={`/states/${book.slug}`}>The {book.name} waterfall guide</a> stays free. This PDF is separate.</p>}
       {showHubLink && <p class="small"><a href="/maps">All waterfall map books</a></p>}
     </div>
@@ -56,44 +56,8 @@ const mapsLabel = book.areaMaps === 1 ? 'map' : 'maps';
 </section>
 
 <script>
-  const checkoutUrl = /^https:\/\/checkout\.stripe\.com\//;
-  for (const form of document.querySelectorAll('[data-map-form]')) {
-    if (form instanceof HTMLFormElement && form.dataset.bound === '1') continue;
-    if (form instanceof HTMLFormElement) form.dataset.bound = '1';
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      if (!(form instanceof HTMLFormElement)) return;
-      const button = form.querySelector('button');
-      const status = form.querySelector('[data-map-status]');
-      if (button instanceof HTMLButtonElement && button.disabled) return;
-      if (button instanceof HTMLButtonElement) {
-        button.disabled = true;
-        button.setAttribute('aria-busy', 'true');
-      }
-      if (status instanceof HTMLElement) {
-        status.hidden = false;
-        status.textContent = 'Opening checkout.';
-      }
-      try {
-        const state = new FormData(form).get('state');
-        const res = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'content-type': 'application/json', accept: 'application/json' },
-          body: JSON.stringify({ state }),
-        });
-        const data = await res.json().catch(() => null);
-        const url = data && typeof data.url === 'string' ? data.url : '';
-        if (!res.ok || !checkoutUrl.test(url)) throw new Error('unavailable');
-        window.location.assign(url);
-      } catch {
-        if (status instanceof HTMLElement) status.textContent = 'Checkout is unavailable right now. Please try again in a moment.';
-        if (button instanceof HTMLButtonElement) {
-          button.disabled = false;
-          button.removeAttribute('aria-busy');
-        }
-      }
-    });
-  }
+  import { bindMapCheckout } from '../scripts/map-book-checkout.js';
+  bindMapCheckout();
 </script>
 
 <style>

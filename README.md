@@ -39,7 +39,7 @@ Every imported record also gets `/partners/[business-name]`, which redirects to 
 /blog/[waterfall]                           "[Waterfall] Guide Before Visiting" (waterfalls with 25+ reviews,
                                             a Google description or USGS naming history; 821 today)
 /map  ->  /map/[state]              Interactive waterfall maps (MapLibre GL + OpenFreeMap tiles)
-/maps                             Printable map books for sale ($2.99 PDF per state)
+/maps                             Printable map books (one PDF per state)
 /maps/thank-you                   Post-checkout download page (noindex)
 /search                             Site-wide search
 /about /contact /disclaimer /privacy /terms /sitemap   /sitemap.xml /robots.txt /ads.txt
@@ -91,14 +91,14 @@ node scripts/fetch-lifestyle-photos.mjs --force
 
 ## Map books
 
-Optional paid PDFs, one per state, sold for $2.99 USD through Stripe Checkout. The directory stays free. `src/data/map-books.json` lists what is for sale. Oregon is the first entry (15 pages, 68 falls, 9 area maps, and a featured Silver Falls page). Other states stay out of that file until a book exists.
+Optional PDFs, one per state, sold through Stripe Checkout. The site does not display a price; Checkout does. The directory stays free. `src/data/map-books.json` lists what is for sale. Oregon is the first entry (15 pages, 68 falls, 9 area maps, and a featured Silver Falls page). Other states stay out of that file until a book exists.
 
 PDFs are not in git. They go to a private Vercel Blob store at `map-books/<slug>.pdf`. `api/maps/download.js` checks that the Checkout Session is paid and not older than 7 days, then redirects to a presigned URL that lasts 5 minutes. The function does not stream the file. A missing page-1 preview at `public/images/maps/<slug>-preview.webp` shows a placeholder.
 
 Environment variables, set in Vercel and never committed:
 
 - `STRIPE_SECRET_KEY`
-- `STRIPE_MAP_PRICE_ID` — one Stripe Price in USD, $2.99, one-time, used for every state
+- `STRIPE_MAP_PRICE_ID` — one one-time Stripe Price, used for every state. Checkout shows the amount; the site does not.
 - `BLOB_READ_WRITE_TOKEN`
 - `MAP_BOOK_BLOB_PATHS` — optional JSON object of slug to pathname, only if a file is stored somewhere other than `map-books/<slug>.pdf`
 

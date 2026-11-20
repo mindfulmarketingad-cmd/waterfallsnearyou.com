@@ -5,8 +5,6 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import catalog from '../data/map-books.json' with { type: 'json' };
 
-export const MAP_BOOK_PRICE_CENTS = 299;
-export const MAP_BOOK_PRICE_LABEL = '$2.99';
 export const DOWNLOAD_WINDOW_DAYS = 7;
 export const DOWNLOAD_WINDOW_MS = DOWNLOAD_WINDOW_DAYS * 24 * 60 * 60 * 1000;
 export const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

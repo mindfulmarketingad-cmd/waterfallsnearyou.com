@@ -4,14 +4,14 @@ import PageBand from '../../components/PageBand.astro';
 import Faq from '../../components/Faq.astro';
 import MapBookOffer from '../../components/MapBookOffer.astro';
 import { SITE } from '../../config.mjs';
-import { DOWNLOAD_WINDOW_DAYS, MAP_BOOK_PRICE_LABEL, availableMapBooks } from '../../lib/map-books.mjs';
+import { DOWNLOAD_WINDOW_DAYS, availableMapBooks } from '../../lib/map-books.mjs';
 
 const books = availableMapBooks();
 const title = 'Printable Waterfall Map Books';
-const description = `Download a printable waterfall map book for ${MAP_BOOK_PRICE_LABEL}. Each PDF is a one-time purchase, with a statewide overview, trail-scale area maps and an index. The state guides stay free.`;
+const description = 'Printable waterfall map books you can save and use offline. Each PDF is one state, with a statewide overview, trail-scale area maps and an index of heights, hikes and GPS. The state guides stay free.';
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Map books', url: '/maps' }];
 const faqs = [
-  { q: 'How much does a map book cost?', a: `Each state PDF is ${MAP_BOOK_PRICE_LABEL}, charged once through Stripe. Buying one state does not include the others.` },
+  { q: 'What is in a map book?', a: 'Each PDF is one state. It has a statewide overview, trail-scale area maps showing trails, trailheads, parking, terrain and contours, and an index with heights, hikes and GPS. The page count and the number of falls are listed on that book. The file is printable and can be used offline.' },
   { q: 'Do I need an account?', a: 'No. Stripe Checkout asks for an email address so it can send a receipt. Card details stay with Stripe.' },
   { q: 'How long does the download link work?', a: `The thank-you page links to the PDF for ${DOWNLOAD_WINDOW_DAYS} days after checkout. Each click checks that the payment succeeded, then opens a short-lived link to the file.` },
   { q: 'Are the state guides still free?', a: 'Yes. The directory, maps, town pages and articles stay free. The PDF is a separate file.' },
@@ -24,7 +24,7 @@ const schema = [
 ---
 <Base title={title} description={description} breadcrumbs={crumbs} bandCrumbs schema={schema}>
   <PageBand title={title} crumbs={crumbs}>
-    <p>Printable PDFs, one state at a time, for {MAP_BOOK_PRICE_LABEL}. Each book has a statewide overview, trail-scale area maps and an index. The guides on this site stay free.</p>
+    <p>Printable PDFs you can save and take offline. Each book is one state: a statewide overview, trail-scale area maps showing trails, trailheads, parking, terrain and contours, and an index with heights, hikes and GPS. The guides on this site stay free.</p>
   </PageBand>
   {books.length === 0 ? (
     <section class="wrap section-sm">

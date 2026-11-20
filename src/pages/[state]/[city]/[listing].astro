@@ -22,6 +22,7 @@ import { trailFor, trailRows, trailPlaceSchema } from '../../../lib/trails.mjs';
 import { cityHref, listingHref, publishedListing } from '../../../lib/publish.mjs';
 import { parkForListing } from '../../../lib/parks.mjs';
 import FishNearby from '../../../components/FishNearby.astro';
+import MapBookListingCta from '../../../components/MapBookListingCta.astro';
 
 export function getStaticPaths() {
   return loadData().listings.filter(publishedListing).map((l) => ({
@@ -213,6 +214,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <a class="btn btn-outline" href={osmUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="map" />OpenStreetMap</a>
         <a class="btn btn-outline" href={topoUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="mountain" />USGS topo viewer</a>
       </div>
+      <MapBookListingCta stateSlug={l.stateSlug} fallName={l.name} />
 
       {os?.about && (
         <>
