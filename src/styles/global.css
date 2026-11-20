@@ -403,6 +403,7 @@ a.sc-tag:hover { background: var(--forest); color: #fff; }
 .park-index a:hover strong { color: var(--forest); }
 .foliage-map { margin: 1.2em 0 1.6em; }
 .foliage-map iframe { width: 100%; height: 520px; border: 0; border-radius: var(--radius); background: var(--mist); }
+.prose .falls-legend { list-style: none; padding-left: 0; margin-left: 0; }
 .prose .note { border-left: 4px solid var(--forest); margin: 1.2em 0; padding: 4px 18px; background: var(--mist-2); }
 #park-sort { display: block; margin: 0 0 1.2em; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
 .flow-bar { display: block; height: 8px; background: var(--forest); border-radius: 99px; }

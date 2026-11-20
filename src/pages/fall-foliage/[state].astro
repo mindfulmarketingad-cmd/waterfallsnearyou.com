@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import PageBand from '../../components/PageBand.astro';
 import Faq from '../../components/Faq.astro';
+import FoliageMap from '../../components/FoliageMap.astro';
 import { getFoliagePages } from '../../lib/foliage.mjs';
 import { fmtNum } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
@@ -88,6 +89,8 @@ if (page.stops.length) {
         <p class="small muted">{region.season}. Source: <a href={region.sourceUrl} rel="noopener" target="_blank">{region.sourceTitle}</a>.</p>
       </section>
     ))}
+
+    <FoliageMap slug={page.slug} name={page.name} featuredUrls={page.stops.map((s) => s.url)} mapHref={page.directoryUrl ? `/map/${page.slug}` : null} />
 
     <h2>The live report</h2>
     <p>{page.report.text} <a href={page.report.url} rel="noopener" target="_blank">{page.report.title}</a>.</p>
