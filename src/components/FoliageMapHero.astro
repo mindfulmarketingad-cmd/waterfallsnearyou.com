@@ -1,0 +1,100 @@
+---
+interface LegendItem {
+  label: string;
+  color: string;
+  startDoy: number;
+  endDoy: number;
+}
+interface MapHero {
+  slug: string;
+  name: string;
+  mode: 'bands' | 'outline';
+  alt: string;
+  caption: string;
+  credit: string;
+  license: string;
+  licenseUrl: string;
+  sourceUrl: string;
+  sourceTitle: string;
+  outlineCredit: string;
+  outlineSourceUrl: string;
+  outlineSourceTitle: string;
+  accessed: string;
+  width: number;
+  height: number;
+  src: string;
+  srcset: string;
+  sizes: string;
+  legend: LegendItem[];
+}
+interface Props { hero: MapHero }
+const { hero } = Astro.props;
+---
+<figure class="foliage-hero">
+  <img
+    src={hero.src}
+    srcset={hero.srcset}
+    sizes={hero.sizes}
+    alt={hero.alt}
+    width={hero.width}
+    height={hero.height}
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+  <figcaption>
+    {hero.caption}
+    {hero.legend.length > 0 && (
+      <ul class="legend">
+        {hero.legend.map((item) => (
+          <li>
+            <span class="swatch" style={`background:${item.color}`}></span>
+            {item.label}
+          </li>
+        ))}
+      </ul>
+    )}
+    <span class="credit">
+      Map: <a href={hero.sourceUrl} rel="noopener noreferrer">{hero.credit}</a>, <a href={hero.licenseUrl} rel="license noopener noreferrer">{hero.license}</a>. Dataset accessed {hero.accessed}. Outline: <a href={hero.outlineSourceUrl} rel="noopener noreferrer">{hero.outlineCredit}</a> cartographic boundaries, public domain. {hero.mode === 'bands' ? 'Colored cells are grouped into seven-day bands.' : 'No peak-week bands are drawn on this state.'} Rendered for this page as WebP.
+    </span>
+  </figcaption>
+</figure>
+
+<style>
+  .foliage-hero { margin: 2px 0 16px; }
+  .foliage-hero img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #f6f3ec;
+  }
+  .foliage-hero figcaption {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--slate);
+  }
+  .foliage-hero .legend {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+  .foliage-hero .legend li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .foliage-hero .swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(36, 48, 56, 0.35);
+    flex: none;
+  }
+  .foliage-hero .credit { display: block; margin-top: 6px; color: var(--slate-soft); font-size: 0.78rem; }
+</style>
