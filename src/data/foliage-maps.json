@@ -1,0 +1,3321 @@
+{
+  "alabama": {
+    "slug": "alabama",
+    "name": "Alabama",
+    "mode": "bands",
+    "alt": "Map of Alabama colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 6–12. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Alabama are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 6–12. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/alabama-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      }
+    ],
+    "autumnCells": 25873,
+    "landCells": 26127
+  },
+  "alaska": {
+    "slug": "alaska",
+    "name": "Alaska",
+    "mode": "outline",
+    "alt": "Outline map of Alaska. Peak-week color bands are not shown because the 2001–2017 mid-greendown grid does not cover it.",
+    "caption": "Outline only. The USA National Phenology Network mid-greendown grid covers the contiguous United States and has no cells in Alaska, so peak-week bands are not drawn. The regional window already stated on this page: Arctic and Interior mid-August to mid-September. Southcentral in September. Inside Passage late September into early October.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/alaska-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [],
+    "autumnCells": 0,
+    "landCells": 0
+  },
+  "arizona": {
+    "slug": "arizona",
+    "name": "Arizona",
+    "mode": "bands",
+    "alt": "Map of Arizona colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Nov 10–16. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Arizona are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Nov 10–16. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/arizona-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      },
+      {
+        "label": "Oct 27–Nov 2",
+        "color": "#e6c43e",
+        "startDoy": 300,
+        "endDoy": 306
+      },
+      {
+        "label": "Nov 3–9",
+        "color": "#d4cd58",
+        "startDoy": 307,
+        "endDoy": 313
+      },
+      {
+        "label": "Nov 10–16",
+        "color": "#b8c86a",
+        "startDoy": 314,
+        "endDoy": 320
+      }
+    ],
+    "autumnCells": 19455,
+    "landCells": 58640
+  },
+  "arkansas": {
+    "slug": "arkansas",
+    "name": "Arkansas",
+    "mode": "bands",
+    "alt": "Map of Arkansas colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Arkansas are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/arkansas-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 26557,
+    "landCells": 27524
+  },
+  "california": {
+    "slug": "california",
+    "name": "California",
+    "mode": "bands",
+    "alt": "Map of California colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Nov 24–30. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of California are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Nov 24–30. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/california-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      },
+      {
+        "label": "Oct 27–Nov 2",
+        "color": "#e6c43e",
+        "startDoy": 300,
+        "endDoy": 306
+      },
+      {
+        "label": "Nov 3–9",
+        "color": "#d4cd58",
+        "startDoy": 307,
+        "endDoy": 313
+      },
+      {
+        "label": "Nov 10–16",
+        "color": "#b8c86a",
+        "startDoy": 314,
+        "endDoy": 320
+      },
+      {
+        "label": "Nov 17–23",
+        "color": "#93be72",
+        "startDoy": 321,
+        "endDoy": 327
+      },
+      {
+        "label": "Nov 24–30",
+        "color": "#6aad7a",
+        "startDoy": 328,
+        "endDoy": 334
+      }
+    ],
+    "autumnCells": 23022,
+    "landCells": 84422
+  },
+  "colorado": {
+    "slug": "colorado",
+    "name": "Colorado",
+    "mode": "bands",
+    "alt": "Map of Colorado colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 20–26. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Colorado are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 20–26. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/colorado-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 36048,
+    "landCells": 56880
+  },
+  "connecticut": {
+    "slug": "connecticut",
+    "name": "Connecticut",
+    "mode": "bands",
+    "alt": "Map of Connecticut colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 22–28 through Oct 13–19. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of Connecticut are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 22–28 through Oct 13–19. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/connecticut-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 2819,
+    "landCells": 2832
+  },
+  "delaware": {
+    "slug": "delaware",
+    "name": "Delaware",
+    "mode": "bands",
+    "alt": "Map of Delaware colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 8–14 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Delaware are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 8–14 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/delaware-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 1093,
+    "landCells": 1110
+  },
+  "georgia": {
+    "slug": "georgia",
+    "name": "Georgia",
+    "mode": "bands",
+    "alt": "Map of Georgia colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Georgia are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/georgia-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 29388,
+    "landCells": 29704
+  },
+  "idaho": {
+    "slug": "idaho",
+    "name": "Idaho",
+    "mode": "bands",
+    "alt": "Map of Idaho colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 20–26. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Idaho are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 20–26. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/idaho-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 21576,
+    "landCells": 49527
+  },
+  "illinois": {
+    "slug": "illinois",
+    "name": "Illinois",
+    "mode": "bands",
+    "alt": "Map of Illinois colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of Illinois are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/illinois-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 31133,
+    "landCells": 31236
+  },
+  "indiana": {
+    "slug": "indiana",
+    "name": "Indiana",
+    "mode": "bands",
+    "alt": "Map of Indiana colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 20–26. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of Indiana are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 20–26. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/indiana-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 19971,
+    "landCells": 20000
+  },
+  "iowa": {
+    "slug": "iowa",
+    "name": "Iowa",
+    "mode": "bands",
+    "alt": "Map of Iowa colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 8–14 through Oct 13–19. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of Iowa are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 8–14 through Oct 13–19. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/iowa-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 32039,
+    "landCells": 32048
+  },
+  "kansas": {
+    "slug": "kansas",
+    "name": "Kansas",
+    "mode": "bands",
+    "alt": "Map of Kansas colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Kansas are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/kansas-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 27085,
+    "landCells": 44588
+  },
+  "kentucky": {
+    "slug": "kentucky",
+    "name": "Kentucky",
+    "mode": "bands",
+    "alt": "Map of Kentucky colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 6–12. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Kentucky are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 6–12. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/kentucky-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      }
+    ],
+    "autumnCells": 21245,
+    "landCells": 21619
+  },
+  "maine": {
+    "slug": "maine",
+    "name": "Maine",
+    "mode": "bands",
+    "alt": "Map of Maine colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 8–14 through Oct 6–12. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Maine are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 8–14 through Oct 6–12. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/maine-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      }
+    ],
+    "autumnCells": 19521,
+    "landCells": 19942
+  },
+  "maryland": {
+    "slug": "maryland",
+    "name": "Maryland",
+    "mode": "bands",
+    "alt": "Map of Maryland colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Maryland are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/maryland-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 5438,
+    "landCells": 5649
+  },
+  "massachusetts": {
+    "slug": "massachusetts",
+    "name": "Massachusetts",
+    "mode": "bands",
+    "alt": "Map of Massachusetts colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 22–28 through Oct 20–26. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Massachusetts are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 22–28 through Oct 20–26. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/massachusetts-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 4640,
+    "landCells": 4707
+  },
+  "michigan": {
+    "slug": "michigan",
+    "name": "Michigan",
+    "mode": "bands",
+    "alt": "Map of Michigan colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 15–21 through Oct 20–26. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Michigan are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 15–21 through Oct 20–26. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/michigan-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 34238,
+    "landCells": 34612
+  },
+  "minnesota": {
+    "slug": "minnesota",
+    "name": "Minnesota",
+    "mode": "bands",
+    "alt": "Map of Minnesota colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Minnesota are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/minnesota-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 50693,
+    "landCells": 51815
+  },
+  "mississippi": {
+    "slug": "mississippi",
+    "name": "Mississippi",
+    "mode": "bands",
+    "alt": "Map of Mississippi colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Mississippi are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/mississippi-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 23102,
+    "landCells": 24028
+  },
+  "missouri": {
+    "slug": "missouri",
+    "name": "Missouri",
+    "mode": "bands",
+    "alt": "Map of Missouri colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Missouri are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/missouri-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 36116,
+    "landCells": 37705
+  },
+  "montana": {
+    "slug": "montana",
+    "name": "Montana",
+    "mode": "bands",
+    "alt": "Map of Montana colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Montana are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/montana-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 24034,
+    "landCells": 91344
+  },
+  "nebraska": {
+    "slug": "nebraska",
+    "name": "Nebraska",
+    "mode": "bands",
+    "alt": "Map of Nebraska colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 6–12. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Nebraska are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 6–12. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/nebraska-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      }
+    ],
+    "autumnCells": 37860,
+    "landCells": 43767
+  },
+  "nevada": {
+    "slug": "nevada",
+    "name": "Nevada",
+    "mode": "bands",
+    "alt": "Map of Nevada colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through After Dec 31. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Nevada are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through After Dec 31. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/nevada-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      },
+      {
+        "label": "Oct 27–Nov 2",
+        "color": "#e6c43e",
+        "startDoy": 300,
+        "endDoy": 306
+      },
+      {
+        "label": "Nov 3–9",
+        "color": "#d4cd58",
+        "startDoy": 307,
+        "endDoy": 313
+      },
+      {
+        "label": "Nov 10–16",
+        "color": "#b8c86a",
+        "startDoy": 314,
+        "endDoy": 320
+      },
+      {
+        "label": "Nov 17–23",
+        "color": "#93be72",
+        "startDoy": 321,
+        "endDoy": 327
+      },
+      {
+        "label": "Nov 24–30",
+        "color": "#6aad7a",
+        "startDoy": 328,
+        "endDoy": 334
+      },
+      {
+        "label": "Dec 29–31",
+        "color": "#2a4554",
+        "startDoy": 363,
+        "endDoy": 365
+      },
+      {
+        "label": "After Dec 31",
+        "color": "#243844",
+        "startDoy": 366,
+        "endDoy": 400
+      }
+    ],
+    "autumnCells": 4401,
+    "landCells": 60714
+  },
+  "new-hampshire": {
+    "slug": "new-hampshire",
+    "name": "New Hampshire",
+    "mode": "bands",
+    "alt": "Map of New Hampshire colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 15–21 through Oct 6–12. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of New Hampshire are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 15–21 through Oct 6–12. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/new-hampshire-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      }
+    ],
+    "autumnCells": 5420,
+    "landCells": 5442
+  },
+  "new-mexico": {
+    "slug": "new-mexico",
+    "name": "New Mexico",
+    "mode": "bands",
+    "alt": "Map of New Mexico colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 27–Nov 2. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of New Mexico are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 27–Nov 2. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/new-mexico-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      },
+      {
+        "label": "Oct 27–Nov 2",
+        "color": "#e6c43e",
+        "startDoy": 300,
+        "endDoy": 306
+      }
+    ],
+    "autumnCells": 51349,
+    "landCells": 62469
+  },
+  "new-york": {
+    "slug": "new-york",
+    "name": "New York",
+    "mode": "bands",
+    "alt": "Map of New York colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 15–21 through Oct 20–26. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of New York are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 15–21 through Oct 20–26. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/new-york-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 27985,
+    "landCells": 28355
+  },
+  "north-carolina": {
+    "slug": "north-carolina",
+    "name": "North Carolina",
+    "mode": "bands",
+    "alt": "Map of North Carolina colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 8–14 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of North Carolina are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 8–14 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/north-carolina-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 25606,
+    "landCells": 25983
+  },
+  "north-dakota": {
+    "slug": "north-dakota",
+    "name": "North Dakota",
+    "mode": "bands",
+    "alt": "Map of North Dakota colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 6–12. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of North Dakota are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 6–12. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/north-dakota-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      }
+    ],
+    "autumnCells": 23963,
+    "landCells": 44365
+  },
+  "ohio": {
+    "slug": "ohio",
+    "name": "Ohio",
+    "mode": "bands",
+    "alt": "Map of Ohio colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 8–14 through Oct 20–26. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of Ohio are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 8–14 through Oct 20–26. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/ohio-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 22912,
+    "landCells": 22979
+  },
+  "oklahoma": {
+    "slug": "oklahoma",
+    "name": "Oklahoma",
+    "mode": "bands",
+    "alt": "Map of Oklahoma colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 20–26. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Oklahoma are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 20–26. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/oklahoma-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 25648,
+    "landCells": 36586
+  },
+  "oregon": {
+    "slug": "oregon",
+    "name": "Oregon",
+    "mode": "bands",
+    "alt": "Map of Oregon colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Nov 10–16. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Oregon are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Nov 10–16. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/oregon-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      },
+      {
+        "label": "Oct 27–Nov 2",
+        "color": "#e6c43e",
+        "startDoy": 300,
+        "endDoy": 306
+      },
+      {
+        "label": "Nov 3–9",
+        "color": "#d4cd58",
+        "startDoy": 307,
+        "endDoy": 313
+      },
+      {
+        "label": "Nov 10–16",
+        "color": "#b8c86a",
+        "startDoy": 314,
+        "endDoy": 320
+      }
+    ],
+    "autumnCells": 24967,
+    "landCells": 57120
+  },
+  "pennsylvania": {
+    "slug": "pennsylvania",
+    "name": "Pennsylvania",
+    "mode": "bands",
+    "alt": "Map of Pennsylvania colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 15–21 through Oct 20–26. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of Pennsylvania are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 15–21 through Oct 20–26. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/pennsylvania-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 25432,
+    "landCells": 25484
+  },
+  "rhode-island": {
+    "slug": "rhode-island",
+    "name": "Rhode Island",
+    "mode": "bands",
+    "alt": "Map of Rhode Island colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 22–28 through Oct 20–26. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Rhode Island are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 22–28 through Oct 20–26. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/rhode-island-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 581,
+    "landCells": 616
+  },
+  "south-carolina": {
+    "slug": "south-carolina",
+    "name": "South Carolina",
+    "mode": "bands",
+    "alt": "Map of South Carolina colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of South Carolina are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/south-carolina-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 15583,
+    "landCells": 15924
+  },
+  "south-dakota": {
+    "slug": "south-dakota",
+    "name": "South Dakota",
+    "mode": "bands",
+    "alt": "Map of South Dakota colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 6–12. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of South Dakota are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 6–12. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/south-dakota-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      }
+    ],
+    "autumnCells": 23563,
+    "landCells": 45610
+  },
+  "tennessee": {
+    "slug": "tennessee",
+    "name": "Tennessee",
+    "mode": "bands",
+    "alt": "Map of Tennessee colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 13–19. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of Tennessee are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 13–19. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/tennessee-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 21961,
+    "landCells": 22082
+  },
+  "texas": {
+    "slug": "texas",
+    "name": "Texas",
+    "mode": "bands",
+    "alt": "Map of Texas colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Nov 10–16. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Texas are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Nov 10–16. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/texas-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      },
+      {
+        "label": "Oct 27–Nov 2",
+        "color": "#e6c43e",
+        "startDoy": 300,
+        "endDoy": 306
+      },
+      {
+        "label": "Nov 3–9",
+        "color": "#d4cd58",
+        "startDoy": 307,
+        "endDoy": 313
+      },
+      {
+        "label": "Nov 10–16",
+        "color": "#b8c86a",
+        "startDoy": 314,
+        "endDoy": 320
+      }
+    ],
+    "autumnCells": 80044,
+    "landCells": 132432
+  },
+  "utah": {
+    "slug": "utah",
+    "name": "Utah",
+    "mode": "bands",
+    "alt": "Map of Utah colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Dec 29–31. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Utah are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Dec 29–31. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/utah-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      },
+      {
+        "label": "Oct 27–Nov 2",
+        "color": "#e6c43e",
+        "startDoy": 300,
+        "endDoy": 306
+      },
+      {
+        "label": "Nov 3–9",
+        "color": "#d4cd58",
+        "startDoy": 307,
+        "endDoy": 313
+      },
+      {
+        "label": "Dec 29–31",
+        "color": "#2a4554",
+        "startDoy": 363,
+        "endDoy": 365
+      }
+    ],
+    "autumnCells": 14925,
+    "landCells": 46518
+  },
+  "vermont": {
+    "slug": "vermont",
+    "name": "Vermont",
+    "mode": "bands",
+    "alt": "Map of Vermont colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 15–21 through Oct 27–Nov 2. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Vermont are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 15–21 through Oct 27–Nov 2. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/vermont-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      },
+      {
+        "label": "Oct 27–Nov 2",
+        "color": "#e6c43e",
+        "startDoy": 300,
+        "endDoy": 306
+      }
+    ],
+    "autumnCells": 5566,
+    "landCells": 5648
+  },
+  "virginia": {
+    "slug": "virginia",
+    "name": "Virginia",
+    "mode": "bands",
+    "alt": "Map of Virginia colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 8–14 through Oct 13–19. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Virginia are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 8–14 through Oct 13–19. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/virginia-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      }
+    ],
+    "autumnCells": 21399,
+    "landCells": 21760
+  },
+  "washington": {
+    "slug": "washington",
+    "name": "Washington",
+    "mode": "bands",
+    "alt": "Map of Washington colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 20–26. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Washington are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 20–26. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/washington-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 24778,
+    "landCells": 42414
+  },
+  "west-virginia": {
+    "slug": "west-virginia",
+    "name": "West Virginia",
+    "mode": "bands",
+    "alt": "Map of West Virginia colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 15–21 through Oct 6–12. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of West Virginia are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 15–21 through Oct 6–12. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/west-virginia-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      }
+    ],
+    "autumnCells": 13138,
+    "landCells": 13142
+  },
+  "wisconsin": {
+    "slug": "wisconsin",
+    "name": "Wisconsin",
+    "mode": "bands",
+    "alt": "Map of Wisconsin colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 15–21 through Oct 20–26. Darker red is an earlier week and gold to olive is later.",
+    "caption": "Color bands on this map of Wisconsin are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 15–21 through Oct 20–26. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/wisconsin-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 33200,
+    "landCells": 33433
+  },
+  "wyoming": {
+    "slug": "wyoming",
+    "name": "Wyoming",
+    "mode": "bands",
+    "alt": "Map of Wyoming colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 20–26. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week.",
+    "caption": "Color bands on this map of Wyoming are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 20–26. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/wyoming-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      }
+    ],
+    "autumnCells": 13706,
+    "landCells": 56689
+  },
+  "united-states": {
+    "slug": "united-states",
+    "name": "the United States",
+    "mode": "bands",
+    "alt": "Map of the United States colored by median mid-greendown week, 2001 to 2017, from the USA National Phenology Network. The legend runs from Sept 1–7 through Oct 27–Nov 2. Darker red is an earlier week and gold to olive is later. Tan areas are not assigned a fall-color week. Gray areas are outside the data grid.",
+    "caption": "Color bands on this map of the United States are seven-day groups of the median mid-greendown day for 2001–2017, from the USA National Phenology Network. Mid-greendown is the day satellite greenness last fell halfway from its annual peak, which that network uses as a metric of autumn leaf-color change. The legend lists Sept 1–7 through Oct 27–Nov 2. Cells before September 1, and cells with no reading, are left tan and are not given a fall-color week. Gray land is outside that grid, so it is an outline rather than a week band. Weeks with fewer than 0.5 percent of the colored cells stay on the map in their own color and are left off the legend. This is not a ranger forecast for this year.",
+    "credit": "USA National Phenology Network",
+    "license": "CC BY",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sourceUrl": "https://www.usanpn.org/data/maps/land_surface_phenology",
+    "sourceTitle": "USA National Phenology Network, Land Surface Phenology 2001–2017",
+    "outlineCredit": "U.S. Census Bureau",
+    "outlineSourceUrl": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "outlineSourceTitle": "U.S. Census Bureau cartographic boundary files",
+    "accessed": "November 20, 2026",
+    "width": 1200,
+    "height": 630,
+    "src": "/images/foliage-maps/united-states-1200.webp",
+    "variants": [
+      640,
+      1200,
+      1600
+    ],
+    "legend": [
+      {
+        "label": "Sept 1–7",
+        "color": "#6e1d3c",
+        "startDoy": 244,
+        "endDoy": 250
+      },
+      {
+        "label": "Sept 8–14",
+        "color": "#8a2340",
+        "startDoy": 251,
+        "endDoy": 257
+      },
+      {
+        "label": "Sept 15–21",
+        "color": "#a82e32",
+        "startDoy": 258,
+        "endDoy": 264
+      },
+      {
+        "label": "Sept 22–28",
+        "color": "#c44728",
+        "startDoy": 265,
+        "endDoy": 271
+      },
+      {
+        "label": "Sept 29–Oct 5",
+        "color": "#dc5e1c",
+        "startDoy": 272,
+        "endDoy": 278
+      },
+      {
+        "label": "Oct 6–12",
+        "color": "#ee7a16",
+        "startDoy": 279,
+        "endDoy": 285
+      },
+      {
+        "label": "Oct 13–19",
+        "color": "#f3961c",
+        "startDoy": 286,
+        "endDoy": 292
+      },
+      {
+        "label": "Oct 20–26",
+        "color": "#f0b02a",
+        "startDoy": 293,
+        "endDoy": 299
+      },
+      {
+        "label": "Oct 27–Nov 2",
+        "color": "#e6c43e",
+        "startDoy": 300,
+        "endDoy": 306
+      }
+    ],
+    "autumnCells": 1109219,
+    "landCells": 1661866
+  }
+}

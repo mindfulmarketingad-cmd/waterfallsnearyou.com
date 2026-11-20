@@ -1,12 +1,20 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageBand from '../../components/PageBand.astro';
+import FoliageMapHero from '../../components/FoliageMapHero.astro';
 import { getFoliageHub } from '../../lib/foliage.mjs';
+import { foliageHubMap } from '../../lib/foliage-maps.mjs';
 import { SITE } from '../../config.mjs';
 
 const hub = getFoliageHub();
-const hero = hub.images[0];
-const rest = hub.images.slice(1);
+const map = foliageHubMap();
+if (!map) throw new Error('Missing foliage map for the United States');
+const photos = hub.images;
+const sources = [
+  ...hub.sources,
+  { title: map.sourceTitle, url: map.sourceUrl },
+  { title: map.outlineSourceTitle, url: map.outlineSourceUrl },
+];
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Fall Foliage', url: '/fall-foliage' }];
 const title = 'Fall foliage by state';
 const description = hub.dek.length <= 160 ? hub.dek : `${hub.dek.slice(0, 157).replace(/\s+\S*$/, '')}...`;
@@ -15,20 +23,16 @@ const schema = [{
   name: title,
   url: `${SITE.url}/fall-foliage`,
   description: hub.dek,
+  image: `${SITE.url}${map.src}`,
   author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
 }];
 ---
-<Base title={`${title} | WaterfallsNearYou`} description={description} image={hero?.src} imageAlt={hero?.alt} breadcrumbs={crumbs} bandCrumbs schema={schema} type="article">
+<Base title={`${title} | WaterfallsNearYou`} description={description} image={map.src} imageAlt={map.alt} imageWidth={map.width} imageHeight={map.height} breadcrumbs={crumbs} bandCrumbs schema={schema} type="article" preloadImage={map.src} preloadSrcset={map.srcset} preloadSizes={map.sizes}>
   <PageBand title={title} crumbs={crumbs}>
+    <FoliageMapHero hero={map} />
     <p>{hub.dek}</p>
   </PageBand>
   <article class="wrap narrow section-sm prose">
-    {hero && (
-      <figure class="park-photo">
-        <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" decoding="async" />
-        <figcaption>{hero.caption} <span class="credit">Photo: {hero.credit}. {hero.license}.</span></figcaption>
-      </figure>
-    )}
     <div class="byline">
       <span class="avatar" aria-hidden="true">DF</span>
       <div>
@@ -87,10 +91,10 @@ const schema = [{
       </section>
     ))}
 
-    {rest.length > 0 && (
+    {photos.length > 0 && (
       <>
         <h2>Photographs</h2>
-        {rest.map((img) => (
+        {photos.map((img) => (
           <figure class="park-photo">
             <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
             <figcaption>{img.caption} <span class="credit">Photo: {img.credit}. {img.license}.</span></figcaption>
@@ -101,7 +105,7 @@ const schema = [{
 
     <h2>Sources</h2>
     <ul>
-      {hub.sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
+      {sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
     </ul>
   </article>
 </Base>

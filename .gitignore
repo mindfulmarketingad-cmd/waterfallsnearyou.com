@@ -1,5 +1,6 @@
 node_modules/
 data/fish/cache/
+data/cache/
 dist/
 .astro/
 .cache/

@@ -2,7 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import PageBand from '../../components/PageBand.astro';
 import Faq from '../../components/Faq.astro';
+import FoliageMapHero from '../../components/FoliageMapHero.astro';
 import { getFoliagePages } from '../../lib/foliage.mjs';
+import { foliageMap } from '../../lib/foliage-maps.mjs';
 import { fmtNum } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
 
@@ -11,8 +13,9 @@ export function getStaticPaths() {
 }
 const { slug } = Astro.props;
 const page = getFoliagePages().find((p) => p.slug === slug);
-const hero = page.images[0];
-const rest = page.images.slice(1);
+const map = foliageMap(page.slug);
+if (!map) throw new Error(`Missing foliage map for ${page.slug}`);
+const photos = page.images;
 const crumbs = [
   { name: 'Home', url: '/' },
   { name: 'Fall Foliage', url: '/fall-foliage' },
@@ -30,15 +33,17 @@ if (page.report) add(page.report.title, page.report.url);
 for (const species of page.species || []) add(species.sourceTitle, species.sourceUrl);
 for (const extra of page.sources || []) add(extra.title, extra.url);
 for (const img of page.images) add(img.fileTitle || 'Photograph', img.sourceUrl);
+add(map.sourceTitle, map.sourceUrl);
+add(map.outlineSourceTitle, map.outlineSourceUrl);
 const schema = [
   {
     '@type': 'Article',
     headline: title,
     url: `${SITE.url}${page.url}`,
     description: page.dek,
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-20',
     author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
-    ...(hero ? { image: `${SITE.url}${hero.src}` } : {}),
+    image: `${SITE.url}${map.src}`,
   },
   {
     '@type': 'FAQPage',
@@ -58,17 +63,12 @@ if (page.stops.length) {
   });
 }
 ---
-<Base title={`${title} | WaterfallsNearYou`} description={description} image={hero?.src} imageAlt={hero?.alt} breadcrumbs={crumbs} bandCrumbs schema={schema} type="article">
+<Base title={`${title} | WaterfallsNearYou`} description={description} image={map.src} imageAlt={map.alt} imageWidth={map.width} imageHeight={map.height} breadcrumbs={crumbs} bandCrumbs schema={schema} type="article" preloadImage={map.src} preloadSrcset={map.srcset} preloadSizes={map.sizes}>
   <PageBand title={title} crumbs={crumbs}>
+    <FoliageMapHero hero={map} />
     <p>{page.dek}</p>
   </PageBand>
   <article class="wrap narrow section-sm prose">
-    {hero && (
-      <figure class="park-photo">
-        <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" decoding="async" />
-        <figcaption>{hero.caption} <span class="credit">Photo: {hero.credit}. {hero.license}.</span></figcaption>
-      </figure>
-    )}
     <div class="byline">
       <span class="avatar" aria-hidden="true">DF</span>
       <div>
@@ -156,10 +156,10 @@ if (page.stops.length) {
 
     <Faq faqs={page.faqs} />
 
-    {rest.length > 0 && (
+    {photos.length > 0 && (
       <>
         <h2>Photographs</h2>
-        {rest.map((img) => (
+        {photos.map((img) => (
           <figure class="park-photo">
             <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
             <figcaption>{img.caption} <span class="credit">Photo: {img.credit}. {img.license}.</span></figcaption>
