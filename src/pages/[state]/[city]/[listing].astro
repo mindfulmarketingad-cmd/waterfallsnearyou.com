@@ -288,7 +288,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <h2>Quick Facts</h2>
         <dl class="facts">
           <div><dt>Type</dt><dd>{os?.category || 'Waterfall'}</dd></div>
-          {height && <div><dt>Height</dt><dd>{fmtHeight(height)} <span class="muted small">({height.source})</span></dd></div>}
+          {height && <div><dt>Height</dt><dd>{fmtHeight(height)} <span class="muted small">({height.url ? <a href={height.url} rel="nofollow noopener" target="_blank">{height.source}</a> : height.source})</span></dd></div>}
           {os && <div><dt>Address</dt><dd>{addressText(l)}</dd></div>}
           <div><dt>County</dt><dd>{l.county ? `${l.county} County` : 'Not recorded'}</dd></div>
           <div><dt>State</dt><dd><a href={state.url}>{l.state}</a></dd></div>

@@ -1,0 +1,849 @@
+{
+  "_about": "Heights for published waterfall listings that had none in Wikidata or in the USGS/Google text already parsed by the site. Each value is a number stated by the linked page: a land-management agency, or a Cataloged World Waterfall Database entry surveyed in person. exact is false when that page qualifies the figure (about, approximately, nearly). Listings that already show a height are omitted. Heights the source itself treats as unresolved are omitted.",
+  "/california/chester/deer-creek-falls": {
+    "feet": 18,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Deer-Creek-Falls-6840"
+  },
+  "/california/chester/kings-creek-falls": {
+    "feet": 46,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Kings-Creek-Falls-7039"
+  },
+  "/california/lewiston/crystal-creek-falls": {
+    "feet": 52,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Crystal-Creek-Falls-6663"
+  },
+  "/california/south-lake-tahoe/horsetail-falls": {
+    "feet": 815,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Horsetail-Falls-405"
+  },
+  "/california/yosemite-valley/chilnualna-fall": {
+    "feet": 185,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Chilnualna-Falls-208"
+  },
+  "/california/yosemite-valley/horsetail-fall": {
+    "feet": 1000,
+    "exact": true,
+    "source": "National Park Service",
+    "url": "https://www.nps.gov/yose/learn/nature/natural-resource-statistics.htm"
+  },
+  "/california/yosemite-valley/wildcat-falls": {
+    "feet": 715,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Wildcat-Falls-677"
+  },
+  "/california/yosemite-valley/yosemite-falls": {
+    "feet": 2425,
+    "exact": true,
+    "source": "National Park Service",
+    "url": "https://www.nps.gov/yose/planyourvisit/waterfalls.htm"
+  },
+  "/georgia/dawsonville/amicalola-falls": {
+    "feet": 729,
+    "exact": true,
+    "source": "Georgia State Parks",
+    "url": "https://gastateparks.org/Hiking"
+  },
+  "/idaho/bonners-ferry/copper-falls": {
+    "feet": 155,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Copper-Falls-3388"
+  },
+  "/idaho/bonners-ferry/snow-creek-falls": {
+    "feet": 170,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Snow-Creek-Falls-3390"
+  },
+  "/maine/bethel/screw-auger-falls": {
+    "feet": 43,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Screw-Auger-Falls-30518"
+  },
+  "/maine/kingfield/houston-brook-falls": {
+    "feet": 42,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Houston-Brook-Falls-30393"
+  },
+  "/maine/mexico/angel-falls": {
+    "feet": 370,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Angel-Falls-20409"
+  },
+  "/maine/phillips/smalls-falls": {
+    "feet": 66,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Smalls-Falls-20582"
+  },
+  "/massachusetts/adams/tannery-falls": {
+    "feet": 81,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Tannery-Falls-7418"
+  },
+  "/massachusetts/becket/glendale-falls": {
+    "feet": 126,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Glendale-Falls-7381"
+  },
+  "/massachusetts/new-marlborough/campbell-falls": {
+    "feet": 48,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Campbell-Falls-7367"
+  },
+  "/massachusetts/royalston/royalston-falls": {
+    "feet": 39,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Royalston-Falls-7408"
+  },
+  "/massachusetts/sheffield/bash-bish-falls": {
+    "feet": 210,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Bash-Bish-Falls-7359"
+  },
+  "/massachusetts/sheffield/race-brook-falls": {
+    "feet": 67,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Race-Brook-Falls-7405"
+  },
+  "/michigan/munising/miners-falls": {
+    "feet": 50,
+    "exact": false,
+    "source": "National Park Service",
+    "url": "https://www.nps.gov/piro/planyourvisit/waterfalls.htm"
+  },
+  "/michigan/munising/spray-falls": {
+    "feet": 70,
+    "exact": false,
+    "source": "National Park Service",
+    "url": "https://www.nps.gov/piro/planyourvisit/waterfalls.htm"
+  },
+  "/michigan/newberry/sable-falls": {
+    "feet": 75,
+    "exact": true,
+    "source": "National Park Service",
+    "url": "https://www.nps.gov/piro/planyourvisit/waterfalls.htm"
+  },
+  "/montana/columbia-falls/bird-woman-falls": {
+    "feet": 675,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Bird-Woman-Falls-430"
+  },
+  "/montana/columbia-falls/mcdonald-falls": {
+    "feet": 25,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/McDonald-Falls-10147"
+  },
+  "/montana/libby/kootenai-falls": {
+    "feet": 55,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Kootenai-Falls-120"
+  },
+  "/montana/libby/yaak-falls": {
+    "feet": 45,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Yaak-Falls-10340"
+  },
+  "/montana/north-browning/apikuni-falls": {
+    "feet": 170,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Apikuni-Falls-10170"
+  },
+  "/montana/north-browning/baring-falls": {
+    "feet": 45,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Baring-Falls-10166"
+  },
+  "/montana/north-browning/redrock-falls": {
+    "feet": 40,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Redrock-Falls-10174"
+  },
+  "/montana/north-browning/running-eagle-falls": {
+    "feet": 75,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Running-Eagle-Falls-10177"
+  },
+  "/montana/north-browning/virginia-falls": {
+    "feet": 165,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Virginia-Falls-10161"
+  },
+  "/montana/whitefish/martin-falls": {
+    "feet": 80,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Martin-Falls-10304"
+  },
+  "/new-hampshire/bristol/profile-falls": {
+    "feet": 35,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Profile-Falls-12977"
+  },
+  "/new-hampshire/colebrook/beaver-brook-falls": {
+    "feet": 112,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Beaver-Brook-Falls-12740"
+  },
+  "/new-hampshire/deerfield/ripley-falls": {
+    "feet": 108,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Ripley-Falls-12985"
+  },
+  "/new-hampshire/deerfield/upper-falls": {
+    "feet": 11,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Upper-Falls-13055"
+  },
+  "/new-hampshire/sandwich/beede-falls": {
+    "feet": 37,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Beede-Falls-12743"
+  },
+  "/new-hampshire/tamworth/sabbaday-falls": {
+    "feet": 38,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Sabbaday-Falls-12998"
+  },
+  "/new-hampshire/woodstock/georgiana-falls": {
+    "feet": 112,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Georgiana-Falls-12856"
+  },
+  "/new-york/cazenovia/chittenango-falls": {
+    "feet": 130,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Chittenango-Falls-8939"
+  },
+  "/new-york/montour-falls/aunt-sarahs-falls": {
+    "feet": 200,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Aunt-Sarahs-Falls-8627"
+  },
+  "/new-york/montour-falls/shequaga-falls": {
+    "feet": 164,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Shequaga-Falls-9267"
+  },
+  "/new-york/palenville/kaaterskill-falls": {
+    "feet": 231,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Kaaterskill-Falls-9115"
+  },
+  "/new-york/pulaski/salmon-river-falls": {
+    "feet": 111,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Salmon-River-Falls-9251"
+  },
+  "/new-york/south-hill/lucifer-falls": {
+    "feet": 122,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Lucifer-Falls-9143"
+  },
+  "/new-york/trumansburg/taughannock-falls": {
+    "feet": 215,
+    "exact": true,
+    "source": "New York State Parks",
+    "url": "https://parks.ny.gov/visit/state-parks/taughannock-falls-state-park"
+  },
+  "/new-york/watkins-glen/hector-falls": {
+    "feet": 189,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Hector-Falls-9055"
+  },
+  "/oregon/banks/fern-rock-falls": {
+    "feet": 35,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Fern-Rock-Falls-4089"
+  },
+  "/oregon/banks/university-falls": {
+    "feet": 63,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/University-Falls-4088"
+  },
+  "/oregon/cascade-locks/horsetail-falls": {
+    "feet": 176,
+    "exact": true,
+    "source": "U.S. Forest Service",
+    "url": "https://www.fs.usda.gov/r06/columbiarivergorge/recreation/trails/horsetail-falls-trail-438"
+  },
+  "/oregon/cascade-locks/punch-bowl-falls": {
+    "feet": 36,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Punch-Bowl-Falls-3881"
+  },
+  "/oregon/cascade-locks/triple-falls": {
+    "feet": 64,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Triple-Falls-4043"
+  },
+  "/oregon/cascade-locks/tunnel-falls": {
+    "feet": 160,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Tunnel-Falls-4019"
+  },
+  "/oregon/cascade-locks/wahclella-falls": {
+    "feet": 127,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Wahclella-Falls-4034"
+  },
+  "/oregon/cascade-locks/wiesendanger-falls": {
+    "feet": 52,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Wiesendanger-Falls-4049"
+  },
+  "/oregon/clatskanie/beaver-falls": {
+    "feet": 48,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Beaver-Falls-4104"
+  },
+  "/oregon/culp-creek/wildwood-falls": {
+    "feet": 15,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Wildwood-Falls-4152"
+  },
+  "/oregon/deschutes-river-woods/dillon-falls": {
+    "feet": 15,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Dillon-Falls-3700"
+  },
+  "/oregon/deschutes-river-woods/lava-island-falls": {
+    "feet": 15,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Lava-Island-Falls-3696"
+  },
+  "/oregon/florence/sweet-creek-falls": {
+    "feet": 70,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Sweet-Creek-Falls-3843"
+  },
+  "/oregon/gearhart/youngs-river-falls": {
+    "feet": 54,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Youngs-River-Falls-4120"
+  },
+  "/oregon/glide/grotto-falls": {
+    "feet": 78,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Grotto-Falls-4335"
+  },
+  "/oregon/glide/wolf-creek-falls": {
+    "feet": 175,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Wolf-Creek-Falls-4332"
+  },
+  "/oregon/glide/yakso-falls": {
+    "feet": 60,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Yakso-Falls-4330"
+  },
+  "/oregon/junction-city/alsea-falls": {
+    "feet": 30,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Alsea-Falls-4819"
+  },
+  "/oregon/la-pine/paulina-creek-falls": {
+    "feet": 78,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Paulina-Creek-Falls-4253"
+  },
+  "/oregon/lakeside/golden-falls": {
+    "feet": 254,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Golden-Falls-4291"
+  },
+  "/oregon/lakeside/silver-falls": {
+    "feet": 259,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Silver-Falls-4310"
+  },
+  "/oregon/lyons/abiqua-falls": {
+    "feet": 92,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Abiqua-Falls-4437"
+  },
+  "/oregon/lyons/butte-creek-falls": {
+    "feet": 78,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Butte-Creek-Falls-4443"
+  },
+  "/oregon/lyons/shellburg-falls": {
+    "feet": 100,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Shellburg-Falls-4433"
+  },
+  "/oregon/mill-city/salmon-falls": {
+    "feet": 24,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Salmon-Falls-4432"
+  },
+  "/oregon/mount-hood-village/umbrella-falls": {
+    "feet": 59,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Umbrella-Falls-3997"
+  },
+  "/oregon/oakridge/clearwater-falls": {
+    "feet": 29,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Clearwater-Falls-4338"
+  },
+  "/oregon/oakridge/lemolo-falls": {
+    "feet": 165,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Lemolo-Falls-4339"
+  },
+  "/oregon/oakridge/salt-creek-falls-lane": {
+    "feet": 286,
+    "exact": true,
+    "source": "U.S. Forest Service",
+    "url": "https://www.fs.usda.gov/r06/willamette/recreation/salt-creek-falls-observation-site-and-picnic-area"
+  },
+  "/oregon/oakridge/spirit-falls": {
+    "feet": 40,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Spirit-Falls-4151"
+  },
+  "/oregon/oakridge/watson-falls": {
+    "feet": 294,
+    "exact": true,
+    "source": "U.S. Forest Service",
+    "url": "https://www.fs.usda.gov/r06/umpqua/recreation/trails/watson-falls-trail"
+  },
+  "/oregon/oakridge/whitehorse-falls": {
+    "feet": 14,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Whitehorse-Falls-4334"
+  },
+  "/oregon/odell/tamanawas-falls": {
+    "feet": 111,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Tamanawas-Falls-3978"
+  },
+  "/oregon/philomath/green-peak-falls": {
+    "feet": 45,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Green-Peak-Falls-4820"
+  },
+  "/oregon/port-orford/coquille-river-falls": {
+    "feet": 115,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Coquille-River-Falls-3833"
+  },
+  "/oregon/redmond/cline-falls": {
+    "feet": 20,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Cline-Falls-3794"
+  },
+  "/oregon/reedsport/smith-river-falls": {
+    "feet": 17,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Smith-River-Falls-4824"
+  },
+  "/oregon/rose-lodge/drift-creek-falls": {
+    "feet": 66,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Drift-Creek-Falls-4856"
+  },
+  "/oregon/shady-cove/barr-creek-falls": {
+    "feet": 240,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Barr-Creek-Falls-4141"
+  },
+  "/oregon/sisters/chush-falls": {
+    "feet": 67,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Chush-Falls-3713"
+  },
+  "/oregon/sisters/koosah-falls": {
+    "feet": 74,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Koosah-Falls-4270"
+  },
+  "/oregon/sisters/proxy-falls": {
+    "feet": 226,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Proxy-Falls-4265"
+  },
+  "/oregon/sisters/sahalie-falls": {
+    "feet": 73,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Sahalie-Falls-4269"
+  },
+  "/oregon/sisters/tamolitch-falls": {
+    "feet": 49,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Tamolitch-Falls-4398"
+  },
+  "/oregon/sunriver/benham-falls": {
+    "feet": 25,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Benham-Falls-3698"
+  },
+  "/oregon/tillamook/munson-creek-falls-state-natural-site": {
+    "feet": 319,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Munson-Creek-Falls-4926"
+  },
+  "/oregon/troutdale/bridal-veil-falls": {
+    "feet": 120,
+    "exact": false,
+    "source": "Oregon State Parks",
+    "url": "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=107"
+  },
+  "/oregon/troutdale/latourell-falls": {
+    "feet": 224,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Latourell-Falls-4061"
+  },
+  "/oregon/troutdale/wahkeena-falls": {
+    "feet": 242,
+    "exact": true,
+    "source": "U.S. Forest Service",
+    "url": "https://www.fs.usda.gov/r06/columbiarivergorge/recreation/wahkeena-falls"
+  },
+  "/oregon/veneta/siuslaw-falls": {
+    "feet": 10,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Siuslaw-Falls-4700"
+  },
+  "/vermont/brandon/falls-of-lana": {
+    "feet": 124,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Lana-Falls-of-11455"
+  },
+  "/vermont/chester/buttermilk-falls": {
+    "feet": 20,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Buttermilk-Falls-11333"
+  },
+  "/vermont/morristown/bingham-falls": {
+    "feet": 91,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Bingham-Falls-11312"
+  },
+  "/vermont/morristown/moss-glen-falls": {
+    "feet": 112,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Moss-Glen-Falls-11505"
+  },
+  "/vermont/randolph/moss-glen-falls": {
+    "feet": 68,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Moss-Glen-Falls-11504"
+  },
+  "/vermont/randolph/texas-falls": {
+    "feet": 31,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Texas-Falls-11597"
+  },
+  "/virginia/nellysford/crabtree-falls": {
+    "feet": 1200,
+    "exact": true,
+    "source": "U.S. Forest Service",
+    "url": "https://www.fs.usda.gov/r08/gwj/recreation/crabtree-falls-day-use-area"
+  },
+  "/washington/camas/dougan-falls": {
+    "feet": 19,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Dougan-Falls-5198"
+  },
+  "/washington/camas/pothole-falls": {
+    "feet": 15,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Pothole-Falls-5212"
+  },
+  "/washington/carson/falls-creek-falls": {
+    "feet": 335,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Falls-Creek-Falls-5245"
+  },
+  "/washington/cle-elum/union-creek-falls": {
+    "feet": 80,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Union-Creek-Falls-3184"
+  },
+  "/washington/darrington/gorge-creek-falls": {
+    "feet": 242,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Gorge-Creek-Falls-4742"
+  },
+  "/washington/darrington/ladder-creek-falls": {
+    "feet": 108,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Ladder-Creek-Falls-2912"
+  },
+  "/washington/dayton/palouse-falls": {
+    "feet": 200,
+    "exact": true,
+    "source": "National Park Service",
+    "url": "https://www.nps.gov/places/palouse-falls-state-park.htm"
+  },
+  "/washington/eatonville/carter-falls": {
+    "feet": 53,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Carter-Falls-5373"
+  },
+  "/washington/eatonville/christine-falls": {
+    "feet": 69,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Christine-Falls-5372"
+  },
+  "/washington/eatonville/comet-falls": {
+    "feet": 462,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Comet-Falls-5430"
+  },
+  "/washington/eatonville/deschutes-falls": {
+    "feet": 50,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Deschutes-Falls-5324"
+  },
+  "/washington/eatonville/little-mashel-falls": {
+    "feet": 92,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Little-Mashel-Falls-4990"
+  },
+  "/washington/eatonville/narada-falls": {
+    "feet": 168,
+    "exact": true,
+    "source": "National Park Service",
+    "url": "https://www.nps.gov/mora/learn/nature/waterfalls.htm"
+  },
+  "/washington/eatonville/silver-falls": {
+    "feet": 95,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Silver-Falls-2981"
+  },
+  "/washington/forks/beaver-falls": {
+    "feet": 25,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Beaver-Falls-3322"
+  },
+  "/washington/gold-bar/alpine-falls": {
+    "feet": 34,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Alpine-Falls-4506"
+  },
+  "/washington/gold-bar/bridal-veil-falls": {
+    "feet": 1315,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Bridal-Veil-Falls-4662"
+  },
+  "/washington/gold-bar/deception-falls": {
+    "feet": 105,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Deception-Falls-4666"
+  },
+  "/washington/gold-bar/eagle-falls": {
+    "feet": 18,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Eagle-Falls-4657"
+  },
+  "/washington/granite-falls-snohomish/granite-falls": {
+    "feet": 40,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Granite-Falls-4680"
+  },
+  "/washington/morton/walupt-creek-falls": {
+    "feet": 221,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Walupt-Creek-Falls-5349"
+  },
+  "/washington/port-angeles/sol-duc-falls": {
+    "feet": 48,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Sol-Duc-Falls-3313"
+  },
+  "/washington/soap-lake/summer-falls": {
+    "feet": 92,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Summer-Falls-3050"
+  },
+  "/washington/tanner/franklin-falls": {
+    "feet": 151,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Franklin-Falls-4704"
+  },
+  "/washington/tanner/keekwulee-falls": {
+    "feet": 155,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Keekwulee-Falls-4986"
+  },
+  "/washington/tanner/teneriffe-falls": {
+    "feet": 390,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Kamikaze-Falls-2999"
+  },
+  "/washington/tanner/twin-falls": {
+    "feet": 230,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Twin-Falls-4707"
+  },
+  "/washington/woods-creek/explorer-falls": {
+    "feet": 50,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Explorer-Falls-4189"
+  },
+  "/washington/yacolt/lucia-falls": {
+    "feet": 10,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Lucia-Falls-5209"
+  },
+  "/washington/yacolt/moulton-falls": {
+    "feet": 11,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Moulton-Falls-5208"
+  },
+  "/washington/yacolt/sunset-falls": {
+    "feet": 14,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Sunset-Falls-5213"
+  },
+  "/washington/yacolt/yacolt-falls": {
+    "feet": 22,
+    "exact": true,
+    "source": "World Waterfall Database",
+    "url": "https://www.worldwaterfalldatabase.com/waterfall/Yacolt-Falls-4859"
+  },
+  "/wisconsin/superior/little-manitou-falls": {
+    "feet": 31,
+    "exact": true,
+    "source": "Wisconsin DNR",
+    "url": "https://dnr.wisconsin.gov/topic/parks/pattison"
+  },
+  "/wyoming/cody/lower-falls-of-the-yellowstone-river": {
+    "feet": 308,
+    "exact": true,
+    "source": "National Park Service",
+    "url": "https://www.nps.gov/yell/planyourvisit/canyonplan.htm"
+  },
+  "/wyoming/cody/upper-falls-of-the-yellowstone-river": {
+    "feet": 109,
+    "exact": true,
+    "source": "National Park Service",
+    "url": "https://www.nps.gov/yell/planyourvisit/canyonplan.htm"
+  }
+}
