@@ -1,0 +1,321 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import PageBand from '../../components/PageBand.astro';
+import Byline from '../../components/Byline.astro';
+import { SITE } from '../../config.mjs';
+import { STATE_NOTES } from '../../data/largest-waterfall-notes.mjs';
+import { getLargestGuide, heightText, PUBLISHED, UPDATED, YOSEMITE_FEET, CATALOG_TALLEST_FEET, PILLAR_URL } from '../../lib/largest-falls.mjs';
+
+const guide = getLargestGuide();
+const { sections } = guide;
+const title = 'Largest Waterfalls in the United States, by State';
+const description = 'The tallest US waterfalls by a sourced height, the largest by volume, and a state-by-state list that leaves unsourced heights blank.';
+const image = '/images/guides/yosemite.webp';
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Blog', url: '/blog' }, { name: title, url: PILLAR_URL }];
+
+const catalog = [
+  { name: 'Oloʻupena Falls', state: 'Hawaii', feet: 2953, drop: null, href: '/states/hawaii#wf-hawaii--waialua--oloupena-falls', note: 'In our gazetteer, on Molokai (Maui County). The archive leaves the tallest single drop blank. Wikipedia, citing this same database, calls the height unofficial.' },
+  { name: 'Puʻukaʻōkū Falls', state: 'Hawaii', feet: 2756, drop: null, href: '/states/hawaii#wf-hawaii--waialua--puukaoku-falls', note: 'Same Molokai sea-cliff coast. Tallest single drop not stated on the archived row.' },
+  { name: 'Waihilau Falls', state: 'Hawaii', feet: 2600, drop: '2,600 ft', href: '/states/hawaii', note: 'Not in our USGS file. The archive lists the tallest drop as the same 2,600 feet.' },
+  { name: 'Colonial Creek Falls', state: 'Washington', feet: 2584, drop: null, href: '/states/washington', note: 'Not in our USGS file. An earlier version of this guide said about 2,568 feet. The archived row says 2,584, so that is the number shown.' },
+  { name: 'Johannesburg Falls', state: 'Washington', feet: 2465, drop: '800 ft', href: '/states/washington', note: 'Not in our USGS file. The archive lists an 800-foot tallest drop inside the 2,465-foot total.' },
+  { name: 'Yosemite Falls', state: 'California', feet: 2425, drop: '1,430 ft', href: '/california/yosemite-valley/yosemite-falls', note: 'The National Park Service publishes the same 2,425-foot total and the 1,430-foot upper fall. This is the one number on this list that an agency and the catalog agree on.' },
+  { name: 'Manaʻwaiʻnui Falls', state: 'Hawaii', feet: 2360, drop: '2,360 ft', href: '/states/hawaii', note: 'On the archived list. Not in our USGS file, and the archive does not say the figure was surveyed. Not treated as a confirmed visit.' },
+  { name: 'Avalanche Basin Falls', state: 'Montana', feet: 2320, drop: '1,000 ft', href: '/states/montana', note: 'On the archived list. Not in our USGS file, and the archive does not say the figure was surveyed.' },
+  { name: 'Harrison Basin Falls', state: 'Montana', feet: 2320, drop: '1,120 ft', href: '/states/montana', note: 'Tied with Avalanche Basin on the archived list. Same limits: not in our file, survey status unstated.' },
+  { name: 'Hāloku Falls', state: 'Hawaii', feet: 2297, drop: null, href: '/states/hawaii#wf-hawaii--waialua--haloku-falls', note: 'In our gazetteer, on the Molokai sea cliffs. Tallest single drop left blank on the archived row.' },
+];
+const catalogByState = { Hawaii: 2953, Washington: 2584, California: 2425, Montana: 2320 };
+
+const faqs = [
+  { q: 'What is the tallest waterfall in the United States?', a: 'A 2008 archived World Waterfall Database list of total height puts Oloʻupena Falls on Molokai, Hawaii, first among U.S. entries at 2,953 feet. Wikipedia cites that database and calls the figure unofficial. It has not been ground-surveyed by the USGS or the National Park Service. The tallest total a federal agency publishes in the sources used here is Yosemite Falls, at 2,425 feet.' },
+  { q: 'What does “largest” mean on this page?', a: 'Largest by height means the greatest total vertical drop: every tier from the top of the first drop to the bottom of the last, when the source is measuring a total. A single plunge is labeled as a plunge. Largest by volume means the most water going over the crest. Those lists are not the same. Niagara is the volume fall. It is not in the height top ten.' },
+  { q: 'What is the largest U.S. waterfall by volume?', a: 'Niagara Falls. A 1950 treaty with Canada, as summarized by the International Joint Commission, requires at least 100,000 cubic feet per second over the falls in the daytime tourist-season hours, and at least 50,000 cubic feet per second the rest of the year. The American Falls and Bridal Veil Falls are in New York. Most of Horseshoe Falls is in Ontario.' },
+  { q: 'Why do some states have no ranked list?', a: 'A fall is ranked only when a USGS gazetteer sentence or a National Park Service, Forest Service, or state-agency page states a height. Twenty-one of the 51 sections have no such sentence in the sources used for this update, including Delaware, which has no named fall in the file, and the District of Columbia. Naming a tallest for them would mean inventing one. The section still says what is named and why the height is blank.' },
+  { q: 'Why do “tallest east of the Rockies” claims disagree?', a: 'They are measuring different things. The Forest Service’s 1,200-foot Crabtree Falls is five cascades added together. Georgia’s 729-foot Amicalola Falls is a cascade. Tennessee’s 256-foot Fall Creek Falls is one plunge. Each agency’s superlative is quoted with that limit, not treated as a single national record.' },
+  { q: 'Are the Molokai sea-cliff falls open to hikers?', a: 'No trail in our data reaches Oloʻupena, Puʻukaʻōkū, or Hāloku. They drop down roadless cliffs and are seen from the air or from the ocean. ʻAkaka Falls, at 442 feet, is the tall Hawaii fall a state park actually builds a path to.' },
+];
+
+const letters = [...new Set(sections.map((s) => s.name[0]))];
+// Counted from the rendered article, including the comparison table and every state section.
+const words = 13010;
+const minutes = Math.max(1, Math.round(words / 230));
+
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    image: `${SITE.url}${image}`,
+    datePublished: PUBLISHED.toISOString(),
+    dateModified: UPDATED.toISOString(),
+    wordCount: words,
+    articleSection: 'Data',
+    mainEntityOfPage: `${SITE.url}${PILLAR_URL}`,
+    author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
+    publisher: { '@id': `${SITE.url}/#organization` },
+  },
+  {
+    '@type': 'ItemList',
+    name: 'Tallest U.S. waterfalls by total height on the archived World Waterfall Database list',
+    numberOfItems: catalog.length,
+    itemListElement: catalog.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      url: `${SITE.url}${c.href.split('#')[0]}`,
+    })),
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<Base title={`${title} | WaterfallsNearYou`} description={description} image={image} imageAlt="Yosemite Falls dropping in three sections down a granite wall in Yosemite National Park" type="article" published={PUBLISHED.toISOString()} modified={UPDATED.toISOString()} breadcrumbs={crumbs} bandCrumbs schema={schema} preloadImage={image}>
+  <PageBand title={title} crumbs={crumbs} narrow />
+  <article class="wrap narrow">
+    <figure class="post-hero">
+      <img src={image} alt="Yosemite Falls seen from the trail, with the upper fall, middle cascades, and lower fall on a granite cliff" width="1400" height="769" fetchpriority="high" decoding="async" />
+      <figcaption>Yosemite Falls, Yosemite National Park. Photo by <a href="https://commons.wikimedia.org/wiki/User:Diliff">Diliff</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Yosemite_Falls_from_trail,_Yosemite_NP,_CA,_US_-_Diliff.jpg">Wikimedia Commons</a>.</figcaption>
+    </figure>
+    <Byline published={PUBLISHED} updated={UPDATED} minutes={minutes} />
+
+    <nav class="jump" aria-label="On this page">
+      <strong>On this page:</strong>
+      <a href="#how-largest">How “largest” is used</a>
+      <span class="sep">·</span>
+      <a href="#national-height">Tallest by height</a>
+      <span class="sep">·</span>
+      <a href="#national-volume">Largest by volume</a>
+      <span class="sep">·</span>
+      <a href="#compare">Compare states</a>
+      <span class="sep">·</span>
+      <a href="#states">Every state</a>
+      <span class="sep">·</span>
+      <a href="#method">Methodology</a>
+      <span class="sep">·</span>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="prose">
+      <p>People ask for the largest waterfalls in the United States and mean two different lists. One is height. The other is the amount of water. The tallest totals in the country are thin streams on Hawaiian sea cliffs and remote Cascade walls. The largest by volume is Niagara Falls, which is not in the height top ten. This page keeps both ideas apart, says which number comes from which document, and then gives every state the falls we can actually attach a height to.</p>
+      <p>A height is used only when it is written in the USGS Geographic Names Information System text already in this site, or on a National Park Service, Forest Service, or state-agency page. A Google Maps blurb is not a source. Where a famous fall has no such sentence, the height is left blank instead of copied from a roundup. {guide.withList} of the 51 sections have at least one sourced height. {guide.listed} falls are listed under them. The other {guide.empty.length} sections, Delaware and the District among them, have none.</p>
+    </div>
+
+    <div class="prose">
+      <h2 id="how-largest">How “largest” is used</h2>
+      <p><strong>Total height</strong> is the vertical distance from the top of the first drop to the bottom of the last one. Yosemite Falls is the clear example. The National Park Service total is 2,425 feet: Upper Yosemite Fall 1,430, the middle cascades 675, and Lower Yosemite Fall 320. Count only the tallest leap and the number is 1,430, not 2,425.</p>
+      <p><strong>A plunge</strong> is one free fall. Taughannock Falls, at 215 feet, and Fall Creek Falls, at 256 feet, are plunges. <strong>A cascade or a tiered fall</strong> loses that height in steps. Crabtree Falls at 1,200 feet is five cascades added together. Amicalola Falls at 729 feet is a cascade. Comparing those totals with a single plunge, as if they were the same kind of measurement, is how “tallest east of the Rockies” ended up with three different winners.</p>
+      <p><strong>Volume</strong> is discharge over the crest, in cubic feet per second or gallons per second. A 40-foot-wide river ledge can outrank a 2,000-foot ribbon. The volume section uses the 1950 Niagara treaty figures and Yellowstone’s published range. It does not invent a ranking beyond those documents.</p>
+      <p>Our guide to <a href="/blog/types-of-waterfalls">types of waterfalls</a> defines plunge, horsetail, cascade, and the rest. Seasonal flow is covered in <a href="/blog/best-time-to-visit-waterfalls">the best time to visit waterfalls</a>.</p>
+    </div>
+
+    <div class="prose">
+      <h2 id="national-height">The tallest by height</h2>
+      <p>The ordered list below is the United States entries on a <a href="https://web.archive.org/web/20081023160017/http://www.world-waterfalls.com/database.php?s=N&amp;t=H&amp;orderby=height&amp;sortLimit=300">World Waterfall Database total-height list archived on 23 October 2008</a>. The live database page did not return the table as ordinary HTML when it was requested for this update, so the numbers are the archived ones, not a claim that the catalog is unchanged. The archive’s own key distinguishes falls the compilers visited from falls that are only “confirmed” or less, and that status is not printed on the rows below. Treat them as catalog totals.</p>
+      <p><a href="https://en.wikipedia.org/wiki/Olo%CA%BBupena_Falls">Wikipedia’s Oloʻupena Falls article</a> still cites that database for 2,953 feet and says the height is unofficial. The falls have no trail. They are seen from a boat or a plane, and they thin out in dry weather.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Order</th><th>Waterfall</th><th>State</th><th>Total height</th><th>Tallest drop on that row</th></tr>
+          </thead>
+          <tbody>
+            {catalog.map((c, i) => (
+              <tr>
+                <td>{i + 1}</td>
+                <td><a href={c.href}>{c.name}</a></td>
+                <td>{c.state}</td>
+                <td>{c.feet.toLocaleString('en-US')} ft</td>
+                <td>{c.drop || 'Not stated'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        {catalog.map((c) => <li><strong>{c.name}.</strong> {c.note}</li>)}
+      </ul>
+      <p>Three falls that an earlier version of this guide put in the top ten are not on that archived page: Cloudcap Falls, Seahpo Peak Falls, and Kahiwa Falls. Their previous foot figures are not repeated. <a href="/states/hawaii#wf-hawaii--waialua--kahiwa-falls">Kahiwa Falls</a> is in the gazetteer, on the Molokai cliffs, with no USGS height. Cloudcap and Seahpo are not in the file.</p>
+      <h3>The next totals an agency actually publishes</h3>
+      <p>Under Yosemite Falls, the National Park Service statistics page lists Sentinel Fall at 2,000 feet (the park’s visitor page says about 2,000, and mostly March through June), Ribbon Fall at 1,612 feet, Silver Strand Fall at 1,170 feet, and Horsetail Fall at 1,000 feet. Bridalveil Fall is 620 feet on that page and in the USGS text, a plunge that is easy to walk to and far down the height list. Those five are in the California section, with links. They are the tallest falls in the country for which this guide can point at a park sentence rather than a catalog row.</p>
+    </div>
+
+    <figure class="guide-photo">
+      <img src="/images/guides/niagara.webp" alt="The American Falls and Bridal Veil Falls at Niagara Falls in winter, seen from the New York side" width="1400" height="1008" loading="lazy" decoding="async" />
+      <figcaption>American Falls and Bridal Veil Falls, New York. Photo by The Cosmonaut, editing by Wilfredor, <a href="https://creativecommons.org/licenses/by-sa/2.5/ca/deed.en">CC BY-SA 2.5 ca</a>, via <a href="https://commons.wikimedia.org/wiki/File:American_and_Bridal_Veil_Falls_winter.jpg">Wikimedia Commons</a>.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2 id="national-volume">The largest by volume</h2>
+      <p><strong>Niagara Falls</strong> is the volume fall. The <a href="https://www.ijc.org/sites/default/files/2019-10/Niagara_Public_Webinar_Oct2019_Final.pdf">International Joint Commission’s 2019 public briefing</a> summarizes the 1950 treaty with Canada: no diversion may cut the flow over the falls below 100,000 cubic feet per second from April 1 to September 15 between 8 a.m. and 10 p.m., or from September 16 to October 31 between 8 a.m. and 8 p.m., and below 50,000 cubic feet per second from November 1 to March 31. Those are minimums for scenic flow, not the river’s natural average, and much of the Niagara River is diverted for power outside those hours. <a href="/new-york/niagara-falls/american-falls">American Falls</a> and <a href="/new-york/niagara-falls/bridal-veil-falls">Bridal Veil Falls</a> are in New York. The border runs through Horseshoe Falls. The treaty briefing does not state a height, so this update does not print one. See the <a href="/states/new-york">New York</a> section for the state’s height rank, which is led by Taughannock Falls, not Niagara.</p>
+      <p><strong>Lower Falls of the Yellowstone</strong> is the tall fall that also publishes a volume. The <a href="https://www.nps.gov/yell/planyourvisit/canyonplan.htm">National Park Service canyon page</a> lists it at 308 feet and says the flow can run from 63,500 gallons per second at spring peak to 5,000 gallons per second in autumn. The Upper Falls, just upstream, is 109 feet. Both are in the Wyoming section and on our <a href="/national-parks/yellowstone">Yellowstone</a> guide.</p>
+      <p><strong>Willamette Falls</strong> and <strong>Shoshone Falls</strong> are the other big-river falls an older version of this guide ranked by volume. This update does not repeat a discharge or a height for either one, because the USGS sentences and the agency pages opened for this revision do not state those figures. <a href="/oregon/oregon-city/willamette-falls">Willamette Falls</a> remains in the directory at Oregon City. <a href="/idaho/twin-falls/shoshone-falls">Shoshone Falls</a> remains at Twin Falls. They are linked, not measured here.</p>
+    </div>
+
+    <figure class="guide-photo">
+      <img src="/images/guides/yellowstone.webp" alt="The Lower Falls of the Yellowstone River plunging into the yellow canyon" width="1400" height="930" loading="lazy" decoding="async" />
+      <figcaption>Lower Falls of the Yellowstone River. Photo by <a href="https://commons.wikimedia.org/wiki/User:BrockenInaglory">Brocken Inaglory</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Grand_canyon_of_Yellowstone_and_Yellowstone_fall_nn_edit1.jpg">Wikimedia Commons</a>.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2 id="compare">Compare states</h2>
+      <p>The table uses each state’s tallest <em>sourced</em> height: a USGS sentence or an agency page. It is not the 2008 catalog. Hawaii’s row is ʻAkaka Falls at 442 feet, not Oloʻupena, because the sea-cliff totals are catalog figures. The last column shows that catalog total only for the four states that appear on the archived U.S. rows. “Share of Yosemite” is the sourced height divided by 2,425. A blank share means we have no sourced height to divide.</p>
+      <label class="small" for="state-sort">Sort the table</label>
+      <select id="state-sort">
+        <option value="name">By state name</option>
+        <option value="height">By sourced height</option>
+        <option value="share">By share of Yosemite Falls</option>
+        <option value="count">By number of named falls</option>
+      </select>
+      <div class="table-wrap">
+        <table id="state-compare">
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Named falls</th>
+              <th>Sourced heights</th>
+              <th>Tallest sourced</th>
+              <th>Feet</th>
+              <th>Share of Yosemite Falls</th>
+              <th>2008 catalog total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sections.map((s) => (
+              <tr data-name={s.name} data-feet={s.tallest ? s.tallest.feet : -1} data-share={s.yosemiteShare ?? -1} data-count={s.directoryCount}>
+                <td><a href={`#${s.anchor}`}>{s.name}</a></td>
+                <td>{s.directoryCount}</td>
+                <td>{s.ranked.length}</td>
+                <td>{s.tallest ? s.tallest.name : 'None'}</td>
+                <td>{s.tallest ? heightText(s.tallest) : '—'}</td>
+                <td>{s.yosemiteShare == null ? '—' : `${s.yosemiteShare}%`}</td>
+                <td>{catalogByState[s.name] ? `${catalogByState[s.name].toLocaleString('en-US')} ft` : '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p>Yosemite Falls at {YOSEMITE_FEET.toLocaleString('en-US')} feet is the divisor because it is the tallest total the National Park Service publishes in the sources above. The catalog divisor, used in each state section, is Oloʻupena’s {CATALOG_TALLEST_FEET.toLocaleString('en-US')} feet. A state at 10% of Yosemite is still a serious waterfall. A state at under 2% is a ledge, and the section says so.</p>
+    </div>
+
+    <nav class="alpha" aria-label="States A to Z">
+      <strong>Jump to a state</strong>
+      <div class="alpha-letters">
+        {letters.map((letter) => <a href={`#letter-${letter}`}>{letter}</a>)}
+      </div>
+      <div class="alpha-states">
+        {sections.map((s) => <a href={`#${s.anchor}`}>{s.name}</a>)}
+      </div>
+    </nav>
+
+    <div class="prose" id="states">
+      <h2>Every state</h2>
+      <p>Ranks inside a state follow the sourced height, high to low. A tie at the cutoff is kept, so a state can show six falls when the fifth and sixth are the same height. Falls under 15 feet are left out when the state already has a sourced fall of 30 feet or more. Trail distance and difficulty appear only when our trail file, or the sourced notes that override it, has them. A park link appears when our <a href="/national-parks">national park guides</a> include that park.</p>
+      {sections.map((s, idx) => {
+        const letter = s.name[0];
+        const showLetter = idx === 0 || sections[idx - 1].name[0] !== letter;
+        return (
+          <section id={s.anchor} aria-labelledby={`${s.anchor}-h`}>
+            {showLetter && <h3 class="letter" id={`letter-${letter}`}>{letter}</h3>}
+            <h3 id={`${s.anchor}-h`}>{s.url ? <a href={s.url}>{s.name}</a> : s.name}</h3>
+            <p>{STATE_NOTES[s.slug]}</p>
+            {s.tallest ? (
+              <p class="compare-line"><strong>Compared with the national figures:</strong> {s.tallest.name} at {heightText(s.tallest)} is {s.yosemiteShare}% the height of Yosemite Falls ({YOSEMITE_FEET.toLocaleString('en-US')} ft) and {s.catalogShare}% of the 2,953-foot catalog figure for Oloʻupena Falls.{catalogByState[s.name] && s.tallest.feet !== catalogByState[s.name] ? ` The 2008 catalog’s tallest total filed under ${s.name} is ${catalogByState[s.name].toLocaleString('en-US')} ft, and it is not the number in this rank.` : ''}</p>
+            ) : (
+              <p class="compare-line"><strong>Compared with the national figures:</strong> no sourced height, so there is no percentage of Yosemite Falls or of Oloʻupena Falls.{catalogByState[s.name] ? ` The 2008 catalog still lists a ${catalogByState[s.name].toLocaleString('en-US')}-foot total in ${s.name}. It is not ranked, for the reason in the note above.` : ''}</p>
+            )}
+            {s.ranked.length > 0 && (
+              <ol class="fall-rank">
+                {s.ranked.map((f, n) => (
+                  <li>
+                    <div class="fall-head"><a href={f.href}>{f.name}</a><span class="ht">{heightText(f)}</span></div>
+                    <div class="meta">
+                      {f.type && <span>{f.type}</span>}
+                      {f.place && <span>{f.place}</span>}
+                      {f.county && !f.place && <span>{f.county} County</span>}
+                      {f.park && <a href={f.park.href}>{f.park.name} guide</a>}
+                    </div>
+                    <p>{f.detail}</p>
+                    <p class="src">Height: <a href={f.sourceUrl}>{f.sourceTitle}</a></p>
+                    {f.trail && (f.trail.name || f.trail.distance) && (
+                      <p class="src">Trail: {[f.trail.name, f.trail.distance, f.trail.difficulty].filter(Boolean).join(' · ')}{f.trail.sourceUrl ? <> · <a href={f.trail.sourceUrl}>{f.trail.sourceTitle || 'Trail source'}</a></> : null}</p>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            )}
+            {s.unranked.length > 0 && (
+              <>
+                <p>Named in the directory, with no height in the USGS text used here:</p>
+                <ul>
+                  {s.unranked.map((u) => <li><a href={u.href}>{u.name}</a>{u.county ? `, ${u.county} County` : ''}{u.reviews ? ` · ${u.reviews.toLocaleString('en-US')} Google reviews` : ''}</li>)}
+                </ul>
+              </>
+            )}
+          </section>
+        );
+      })}
+    </div>
+
+    <figure class="guide-photo">
+      <img src="/images/guides/multnomah.webp" alt="Multnomah Falls and the Benson Bridge in the Columbia River Gorge, with the historic lodge in the foreground" width="1400" height="933" loading="lazy" decoding="async" />
+      <figcaption>Multnomah Falls and Multnomah Falls Lodge, Columbia River Gorge National Scenic Area. U.S. Forest Service, Pacific Northwest Region. Public domain, via <a href="https://commons.wikimedia.org/wiki/File:Columbia_River_Gorge_NSA-_Multnomah_Falls_Lodge_-_3.jpg">Wikimedia Commons</a>.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2 id="method">Methodology</h2>
+      <p>The directory behind this page is the USGS Geographic Names Information System “Falls” file we already publish, joined to town and visitor records. A USGS height counts only when that file’s own description or history contains an explicit height phrase, the same test this site uses before it prints a height anywhere else. The phrase has to say the fall is a number of feet high or tall, or that the drop is a number of feet. “32-foot precipice” at Thunderhead Falls did not match that test, so it is quoted on its own and cited to the GNIS summary.</p>
+      <p>Agency heights were taken from pages retrieved for this update: National Park Service waterfall and place pages, Forest Service recreation pages, and state park or natural-resource pages. The sentence is linked on the fall. If the page says “about” or “nearly,” the number is marked about. If two of our sources disagree, both are mentioned. Colonial Creek is the clear case: this guide used to say about 2,568 feet, and the archived catalog row says 2,584.</p>
+      <p>The national height order is the 23 October 2008 World Waterfall Database archive linked above, restricted to the United States rows on that page. Wikipedia is used only where it points at that database and flags the Oloʻupena figure as unofficial. Google listing descriptions were not used, even when they contain a plausible number. Private-property records are left out of the ranks. Iowa’s only named fall is in that group.</p>
+      <p>Delaware is included because the question was every state. The extract has no falls feature there, and there is no state page to send you to. The District is included because it has one named rapids, Little Falls, and no height.</p>
+      <p>Nothing here is a new survey. Contour-map estimates, especially on the Molokai cliffs and the untrailed North Cascades, can move by tens or hundreds of feet depending on where a compiler puts the top and the bottom. The state ranks prefer the dull, citable number over the exciting uncited one.</p>
+      <p>Related reading: <a href="/blog/states-with-the-most-waterfalls">states with the most named waterfalls</a>, <a href="/blog/smallest-waterfalls-in-the-us">the smallest falls with a recorded height</a>, and <a href="/blog/waterfall-safety-tips">waterfall safety</a>. Park-by-park trail and fee notes are on the <a href="/national-parks">national park waterfall guides</a>.</p>
+    </div>
+
+    <Faq faqs={faqs} heading="Frequently asked questions" id="faq" />
+  </article>
+</Base>
+<script>
+  const select = document.getElementById('state-sort');
+  const table = document.getElementById('state-compare');
+  const body = table?.querySelector('tbody');
+  if (select && body) {
+    const original = [...body.querySelectorAll('tr')];
+    select.addEventListener('change', () => {
+      const rows = [...original];
+      const key = select.value;
+      rows.sort((a, b) => {
+        if (key === 'name') return a.dataset.name.localeCompare(b.dataset.name);
+        if (key === 'count') return Number(b.dataset.count) - Number(a.dataset.count) || a.dataset.name.localeCompare(b.dataset.name);
+        const av = Number(key === 'share' ? a.dataset.share : a.dataset.feet);
+        const bv = Number(key === 'share' ? b.dataset.share : b.dataset.feet);
+        return bv - av || a.dataset.name.localeCompare(b.dataset.name);
+      });
+      for (const row of rows) body.append(row);
+    });
+  }
+</script>
+<style>
+  .guide-photo { margin: 28px 0; }
+  .guide-photo img { width: 100%; height: auto; border-radius: 12px; display: block; background: var(--mist); }
+  .guide-photo figcaption { font-size: 0.8rem; color: var(--slate-soft); margin-top: 6px; }
+  .alpha { background: var(--mist); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin: 28px 0; }
+  .alpha-letters, .alpha-states { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 8px; }
+  .alpha-letters a { font-weight: 700; text-decoration: none; }
+  .alpha-states a { font-size: 0.88rem; }
+  .letter { margin-top: 2rem; padding-top: 0.4rem; border-top: 2px solid var(--line); }
+  .compare-line { background: var(--mist-2, var(--mist)); border-radius: 8px; padding: 10px 12px; }
+  .fall-rank { list-style: none; padding: 0; }
+  .fall-rank > li { border-top: 1px solid var(--line); padding: 14px 0; }
+  .fall-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .fall-rank .ht { font-weight: 700; white-space: nowrap; }
+  .fall-rank .meta { display: flex; flex-wrap: wrap; gap: 6px 12px; color: var(--slate-soft); font-size: 0.88rem; margin: 4px 0; }
+  .fall-rank .src { font-size: 0.88rem; margin: 4px 0; }
+  #state-sort { margin: 8px 0 12px; }
+</style>

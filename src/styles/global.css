@@ -82,11 +82,11 @@ p { margin: 0 0 1em; }
 .nav a.nav-search { border: 1.5px solid var(--line); }
 .nav svg { width: 17px; height: 17px; }
 .menu { display: none; }
-@media (max-width: 1120px) {
+@media (max-width: 1280px) {
   .nav a { font-size: 0.84rem; padding: 7px 7px; }
   .logo img { height: 34px; }
 }
-@media (max-width: 860px) {
+@media (max-width: 1100px) {
   .nav { display: none; }
   .menu { display: block; position: relative; }
   .menu summary { list-style: none; cursor: pointer; padding: 8px; border-radius: 10px; color: var(--slate); }
@@ -197,6 +197,9 @@ p { margin: 0 0 1em; }
 .prose th, .prose td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; }
 .prose th { background: var(--mist); color: var(--slate-dark); }
 .prose blockquote { border-left: 4px solid var(--forest); margin: 1.2em 0; padding: 4px 18px; color: var(--slate); background: var(--mist-2); }
+.prose figure { margin: 1.4em 0 1.6em; }
+.prose figure img { width: 100%; height: auto; border-radius: 12px; display: block; background: var(--mist); }
+.prose figcaption { font-size: 0.85rem; color: var(--slate); margin-top: 8px; }
 .map-frame { width: 100%; aspect-ratio: 16 / 10; border: 0; border-radius: var(--radius); background: var(--mist); }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
 .gallery img { border-radius: 10px; aspect-ratio: 4 / 3; object-fit: cover; width: 100%; background: var(--mist); }
@@ -398,5 +401,8 @@ a.sc-tag:hover { background: var(--forest); color: #fff; }
 .park-index li { display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-bottom: 1px solid var(--line); }
 .park-index a { text-decoration: none; color: var(--ink); }
 .park-index a:hover strong { color: var(--forest); }
+.foliage-map { margin: 1.2em 0 1.6em; }
+.foliage-map iframe { width: 100%; height: 520px; border: 0; border-radius: var(--radius); background: var(--mist); }
+.prose .note { border-left: 4px solid var(--forest); margin: 1.2em 0; padding: 4px 18px; background: var(--mist-2); }
 #park-sort { display: block; margin: 0 0 1.2em; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
 .flow-bar { display: block; height: 8px; background: var(--forest); border-radius: 99px; }

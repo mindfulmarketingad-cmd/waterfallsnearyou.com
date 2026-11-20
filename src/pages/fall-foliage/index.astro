@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageBand from '../../components/PageBand.astro';
+import { getFoliageHub } from '../../lib/foliage.mjs';
+import { SITE } from '../../config.mjs';
+
+const hub = getFoliageHub();
+const hero = hub.images[0];
+const rest = hub.images.slice(1);
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Fall Foliage', url: '/fall-foliage' }];
+const title = 'Fall foliage by state';
+const description = hub.dek.length <= 160 ? hub.dek : `${hub.dek.slice(0, 157).replace(/\s+\S*$/, '')}...`;
+const schema = [{
+  '@type': 'CollectionPage',
+  name: title,
+  url: `${SITE.url}/fall-foliage`,
+  description: hub.dek,
+  author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
+}];
+---
+<Base title={`${title} | WaterfallsNearYou`} description={description} image={hero?.src} imageAlt={hero?.alt} breadcrumbs={crumbs} bandCrumbs schema={schema} type="article">
+  <PageBand title={title} crumbs={crumbs}>
+    <p>{hub.dek}</p>
+  </PageBand>
+  <article class="wrap narrow section-sm prose">
+    {hero && (
+      <figure class="park-photo">
+        <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" decoding="async" />
+        <figcaption>{hero.caption} <span class="credit">Photo: {hero.credit}. {hero.license}.</span></figcaption>
+      </figure>
+    )}
+    <div class="byline">
+      <span class="avatar" aria-hidden="true">DF</span>
+      <div>
+        <div class="by-name">By <a href="/about">David F.</a></div>
+        <div class="by-meta">Sources checked November 19, 2026. Dates below are quoted from the Forest Service or a state report, and they still move with the weather.</div>
+      </div>
+    </div>
+
+    {hub.paragraphs.map((p) => <p>{p}</p>)}
+    <p class="note">{hub.varies}</p>
+
+    <h2>How the color moves</h2>
+    {hub.science.map((block) => (
+      <p>{block.text} (<a href={block.sourceUrl} rel="noopener" target="_blank">{block.sourceTitle}</a>)</p>
+    ))}
+
+    <h2>Regions the Forest Service describes</h2>
+    <p>{hub.regionLead}</p>
+    {hub.regions.map((region) => (
+      <section>
+        <h3>{region.name}</h3>
+        <p>{region.text} (<a href={region.sourceUrl} rel="noopener" target="_blank">{region.sourceTitle}</a>)</p>
+      </section>
+    ))}
+
+    <h2>A public foliage map</h2>
+    <p>{hub.esri.lead}</p>
+    <figure class="foliage-map">
+      <iframe
+        src={hub.esri.url}
+        title={hub.esri.title}
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        height="520"
+      ></iframe>
+      <figcaption>{hub.esri.caption} <a href={hub.esri.url} rel="noopener" target="_blank">Open the Esri experience</a>.</figcaption>
+    </figure>
+
+    <h2>State guides</h2>
+    <p>{hub.indexLead}</p>
+    <ul class="park-index">
+      {hub.states.map((s) => (
+        <li>
+          <a href={s.url}><strong>{s.name}</strong></a>
+          <span class="muted small">{s.indexLine}</span>
+        </li>
+      ))}
+    </ul>
+
+    <h2>Places without a separate guide</h2>
+    <p>{hub.foldedLead}</p>
+    {hub.folded.map((place) => (
+      <section>
+        <h3>{place.name}</h3>
+        <p set:html={place.html} />
+      </section>
+    ))}
+
+    {rest.length > 0 && (
+      <>
+        <h2>Photographs</h2>
+        {rest.map((img) => (
+          <figure class="park-photo">
+            <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
+            <figcaption>{img.caption} <span class="credit">Photo: {img.credit}. {img.license}.</span></figcaption>
+          </figure>
+        ))}
+      </>
+    )}
+
+    <h2>Sources</h2>
+    <ul>
+      {hub.sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
+    </ul>
+  </article>
+</Base>
