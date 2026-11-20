@@ -16,6 +16,7 @@ import { features, FEATURES } from '../../lib/cards.mjs';
 import { getPosts, postsLinkingTo } from '../../lib/blog.mjs';
 import { SITE } from '../../config.mjs';
 import Gazetteer from '../../components/Gazetteer.astro';
+import StateWaterfallMap from '../../components/StateWaterfallMap.astro';
 import { cityHref, listingHref, publishedCity, publishedListing } from '../../lib/publish.mjs';
 import { parksForState } from '../../lib/parks.mjs';
 import { getHowMany } from '../../lib/how-many.mjs';
@@ -105,6 +106,10 @@ const schema = [
       {pages.length > 0 && <p><a class="btn btn-outline" href="#waterfalls" data-open-map>Search the {state.name} map</a></p>}
     </section>
   )}
+
+  <section class="wrap section-sm" id="state-waterfall-map" aria-labelledby="state-waterfall-map-h">
+    <StateWaterfallMap slug={state.slug} name={state.name} mapHref={`/map/${state.slug}`} headingId="state-waterfall-map-h" />
+  </section>
 
   {pages.length > 0 && (
   <section class="wrap section-sm" id="waterfalls" aria-labelledby="list-h">

@@ -1,0 +1,65 @@
+---
+// Fall foliage map for one state: the hub's Esri experience, centered on the
+// Census bounding box, then the same state waterfall map with the itinerary highlighted.
+import StateWaterfallMap from './StateWaterfallMap.astro';
+import { foliageEmbed } from '../lib/foliage-map.mjs';
+
+interface Props {
+  slug: string;
+  name: string;
+  featuredUrls?: string[];
+  mapHref?: string | null;
+}
+const { slug, name, featuredUrls = [], mapHref = null } = Astro.props;
+const embed = foliageEmbed(slug, name);
+---
+<section class="foliage-state-map" id="fall-foliage-map" aria-labelledby="fall-foliage-map-h">
+  <h2 id="fall-foliage-map-h">Fall foliage map</h2>
+  <p>{embed.lead}</p>
+  <figure class="foliage-map-fig">
+    <div class="foliage-map-frame">
+      <iframe
+        src={embed.src}
+        title={embed.title}
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </div>
+    <figcaption>{embed.caption} <a href={embed.src} rel="noopener" target="_blank">Open the Esri experience</a>.</figcaption>
+  </figure>
+  <StateWaterfallMap
+    slug={slug}
+    name={name}
+    featuredUrls={featuredUrls}
+    level="h3"
+    mapHref={mapHref}
+    headingId="foliage-falls-map-h"
+  />
+</section>
+
+<style>
+  .foliage-map-frame {
+    position: relative;
+    width: 100%;
+    /* Square, not a short strip: inside a narrow column the experience uses its
+       tablet layout, and the state only fits when the iframe is about as tall
+       as it is wide. */
+    aspect-ratio: 1 / 1;
+    background: var(--mist);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .foliage-map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    border: 0;
+  }
+  .foliage-map-fig { margin: 1.2em 0 1.6em; }
+  .foliage-map-fig figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--slate); }
+  @media (max-width: 700px) {
+    .foliage-map-frame { aspect-ratio: 3 / 4; }
+  }
+</style>

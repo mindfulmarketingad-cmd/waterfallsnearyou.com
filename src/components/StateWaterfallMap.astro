@@ -1,0 +1,119 @@
+---
+// Census outline with one marker per published waterfall page. Featured
+// markers are the foliage itinerary. The SVG links work without JavaScript.
+import { stateMapModel } from '../lib/state-map.mjs';
+
+interface Props {
+  slug: string;
+  name: string;
+  featuredUrls?: string[];
+  heading?: string;
+  level?: 'h2' | 'h3';
+  mapHref?: string | null;
+  headingId?: string;
+}
+const {
+  slug,
+  name,
+  featuredUrls = [],
+  heading,
+  level = 'h2',
+  mapHref = null,
+  headingId = 'state-waterfall-map-h',
+} = Astro.props;
+const map = stateMapModel(slug, { featuredUrls, name });
+const Heading = level;
+const title = heading || map.title;
+const featured = map.markers.filter((m) => m.featured);
+const others = map.markers.filter((m) => !m.featured);
+const drawn = map.markers.filter((m) => m.x != null);
+const missed = map.markers.filter((m) => m.x == null);
+const labelFor = (m: { name: string; county: string; featured: boolean }) => {
+  const place = m.county ? `, ${m.county} County` : '';
+  const trip = m.featured ? ', on this foliage trip' : '';
+  return `${m.name}${place}${trip}`;
+};
+---
+<div class="falls-outline">
+  <Heading id={headingId}>{title}</Heading>
+  {featured.length > 0 ? (
+    <p>Larger gold markers are the waterfalls on this page's itinerary. {others.length ? `Smaller markers are the other published waterfall pages in ${map.name}. ` : ''}The outline is the U.S. Census Bureau cartographic boundary for the state (2017, public domain). A marker is the mapped position of the falls, not a trailhead.</p>
+  ) : map.markers.length > 0 ? (
+    <p>Every marker is a published waterfall page in {map.name}. The outline is the U.S. Census Bureau cartographic boundary for the state (2017, public domain). A marker is the mapped position of the falls, not a trailhead.</p>
+  ) : (
+    <p>No published waterfall page in {map.name} is plotted here. The outline is the U.S. Census Bureau cartographic boundary for the state (2017, public domain).</p>
+  )}
+  <figure class="falls-outline-fig">
+    <div class="falls-outline-frame">
+      <svg viewBox="0 0 100 100" role="group" aria-label={`${map.title}. Each marker links to a waterfall page.`}>
+        <rect width="100" height="100" fill="#eef3f1" />
+        <path d={map.outline} fill="#f7fbf8" stroke="#3f6f5a" stroke-width="0.7" stroke-linejoin="round" />
+        {drawn.map((m) => (
+          <a href={m.url} aria-label={labelFor(m)}>
+            <title>{labelFor(m)}</title>
+            <circle class="hit" cx={m.x} cy={m.y} r={m.featured ? 3.6 : 3.1} fill="transparent" />
+            <circle class:list={['mark', { 'is-featured': m.featured }]} cx={m.x} cy={m.y} r={m.featured ? 2.5 : 1.7} />
+          </a>
+        ))}
+      </svg>
+    </div>
+    <figcaption>
+      {map.source}
+      {missed.length > 0 && <> {missed.length === 1 ? 'One published page' : `${missed.length} published pages`} sit outside this inset and {missed.length === 1 ? 'is' : 'are'} listed below.</>}
+    </figcaption>
+  </figure>
+  {(others.length > 0 || featured.length > 0) && (
+    <p class="falls-key small muted">
+      {others.length > 0 && <><span class="swatch swatch-fall" aria-hidden="true"></span> Published waterfall page</>}
+      {featured.length > 0 && <><span class="swatch swatch-trip" aria-hidden="true"></span> On this foliage trip</>}
+    </p>
+  )}
+  {featured.length > 0 && (
+    <>
+      <p class="falls-kicker">On this trip</p>
+      <ul class="falls-legend">
+        {featured.map((m) => <li><a href={m.url}>{m.name}</a>{m.county ? <span class="muted">, {m.county} County</span> : ''}{m.x == null ? <span class="muted">, outside this inset</span> : ''}</li>)}
+      </ul>
+    </>
+  )}
+  {others.length > 0 && (
+    <>
+      <p class="falls-kicker">{featured.length ? `Other published waterfall pages in ${map.name}` : 'Published waterfall pages'}</p>
+      <ul class="falls-legend">
+        {others.map((m) => <li><a href={m.url}>{m.name}</a>{m.county ? <span class="muted">, {m.county} County</span> : ''}{m.x == null ? <span class="muted">, outside this inset</span> : ''}</li>)}
+      </ul>
+    </>
+  )}
+  {mapHref && <p class="small"><a href={mapHref}>Open the interactive {map.name} waterfall map</a>. That map also includes named falls that do not have their own page.</p>}
+</div>
+
+<style>
+  .falls-outline-frame {
+    width: min(100%, 520px);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    background: var(--mist);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .falls-outline-frame svg { width: 100%; height: 100%; display: block; }
+  .falls-outline-frame .mark { fill: #3f6f5a; stroke: #fff; stroke-width: 0.45; }
+  .falls-outline-frame .mark.is-featured { fill: #b8862f; stroke-width: 0.55; }
+  .falls-outline-frame a:focus-visible .mark { stroke: #1d3d2e; stroke-width: 1; }
+  .falls-outline figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--slate); }
+  .falls-key { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 8px 0 0; }
+  .swatch { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px currentColor; display: inline-block; }
+  .swatch-fall { background: #3f6f5a; color: #3f6f5a; }
+  .swatch-trip { background: #b8862f; color: #b8862f; }
+  .falls-kicker { font-weight: 600; margin: 0.9em 0 0.2em; }
+  .falls-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2px 16px;
+  }
+  .falls-legend a { text-decoration-thickness: 1px; }
+</style>
