@@ -17,6 +17,8 @@ import { getPosts, postsLinkingTo } from '../../lib/blog.mjs';
 import { SITE } from '../../config.mjs';
 import Gazetteer from '../../components/Gazetteer.astro';
 import StateWaterfallMap from '../../components/StateWaterfallMap.astro';
+import MapBookOffer from '../../components/MapBookOffer.astro';
+import { bookBySlug } from '../../lib/map-books.mjs';
 import { cityHref, listingHref, publishedCity, publishedListing } from '../../lib/publish.mjs';
 import { parksForState } from '../../lib/parks.mjs';
 import { getHowMany } from '../../lib/how-many.mjs';
@@ -64,6 +66,7 @@ const lead = ins.mostReviewed[0];
 const stateParks = parksForState(state.slug);
 const howMany = getHowMany(state.slug);
 const countStudy = '/blog/states-with-the-most-waterfalls';
+const mapBook = bookBySlug(state.slug);
 
 const faqs = [
   { q: `How many waterfalls are in ${state.name}?`, a: `${howMany ? `<a href="${howMany.url}">How many waterfalls are in ${state.name}?</a> counts <strong>${fmtNum(gnisN)}</strong> named Falls features in the USGS Geographic Names Information System.` : `The USGS Geographic Names Information System names ${fmtNum(gnisN)} waterfall${gnisN === 1 ? '' : 's'} in ${state.name}. States with very few named falls are discussed in <a href="${countStudy}">which state has the most waterfalls</a> instead of a separate count page.`} Our directory lists ${fmtNum(n)} place${n === 1 ? '' : 's'}${gnisN < n ? `, including ${fmtNum(n - gnisN)} added from Google Maps listings that are not in that GNIS extract` : ''}, ${ordinal(ins.rank)} among the ${states.length} jurisdictions in the directory.${ins.counties.length > 2 ? ` ${ins.top3CountyShare}% of the directory listings are in just three counties: ${listJoin(topCounties.map((c) => `<a href="${countyUrl({ stateSlug: state.slug, county: c.name })}">${c.name}</a>`))}.` : ''}` },
@@ -110,6 +113,8 @@ const schema = [
   <section class="wrap section-sm" id="state-waterfall-map" aria-labelledby="state-waterfall-map-h">
     <StateWaterfallMap slug={state.slug} name={state.name} mapHref={`/map/${state.slug}`} headingId="state-waterfall-map-h" />
   </section>
+
+  {mapBook?.available && <MapBookOffer book={mapBook} />}
 
   {pages.length > 0 && (
   <section class="wrap section-sm" id="waterfalls" aria-labelledby="list-h">

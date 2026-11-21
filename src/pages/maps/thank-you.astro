@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageBand from '../../components/PageBand.astro';
+import { DOWNLOAD_WINDOW_DAYS } from '../../lib/map-books.mjs';
+
+const title = 'Your map book';
+const description = `Download the waterfall map book PDF after checkout. The link works for ${DOWNLOAD_WINDOW_DAYS} days.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Map books', url: '/maps' }, { name: 'Download', url: '/maps/thank-you' }];
+---
+<Base title={title} description={description} noindex analytics={false} breadcrumbs={crumbs} bandCrumbs>
+  <PageBand title={title} crumbs={crumbs}>
+    <p>If Stripe completed the payment, the PDF is below. This page is not listed in search. The link keeps working for {DOWNLOAD_WINDOW_DAYS} days after checkout.</p>
+  </PageBand>
+  <section class="wrap section-sm narrow">
+    <p><a class="btn btn-green" id="map-book-download" hidden href="/api/maps/download" rel="nofollow" referrerpolicy="no-referrer">Download PDF</a></p>
+    <p id="map-book-download-missing">Open the link Stripe sent you back to. It includes the checkout session this download needs. You can also return to the <a href="/maps">map books</a> page.</p>
+    <p class="muted small">Each click checks the payment with Stripe, then opens a short-lived link to the file. The PDF is not sent through this page.</p>
+    <noscript><p>JavaScript reads the checkout session from this page's address and attaches it to the download button.</p></noscript>
+  </section>
+</Base>
+
+<script>
+  const id = new URLSearchParams(window.location.search).get('session_id') || '';
+  const link = document.getElementById('map-book-download');
+  const missing = document.getElementById('map-book-download-missing');
+  if (/^cs_(?:test|live)_[A-Za-z0-9]{8,200}$/.test(id) && link instanceof HTMLAnchorElement) {
+    link.href = `/api/maps/download?session_id=${encodeURIComponent(id)}`;
+    link.hidden = false;
+    if (missing instanceof HTMLElement) missing.hidden = true;
+  }
+</script>

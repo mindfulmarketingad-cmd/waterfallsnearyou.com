@@ -2,7 +2,7 @@
 import StaticPage from '../components/StaticPage.astro';
 import { SITE } from '../config.mjs';
 ---
-<StaticPage title="Terms of Use | WaterfallsNearYou" h1="Terms of Use" eyebrow="Legal" description="The terms that govern your use of WaterfallsNearYou.com, including acceptable use, content ownership, third-party data, disclaimers and limitation of liability." updated="October 2, 2026">
+<StaticPage title="Terms of Use | WaterfallsNearYou" h1="Terms of Use" eyebrow="Legal" description="The terms that govern your use of WaterfallsNearYou.com, including acceptable use, map books, content ownership, third-party data, disclaimers and limitation of liability." updated="November 20, 2026">
   <p>By accessing or using WaterfallsNearYou.com (the "Site"), you agree to these Terms of Use. If you do not agree, please do not use the Site.</p>
 
   <h2>1. Use of the Site</h2>
@@ -41,6 +41,9 @@ import { SITE } from '../config.mjs';
   <h2>10. Governing law</h2>
   <p>These Terms are governed by the laws of the United States and the state in which the Site's operator is based, without regard to conflict-of-law rules.</p>
 
-  <h2>11. Contact</h2>
+  <h2>11. Map books</h2>
+  <p>Some state pages offer a printable waterfall map book as a PDF. Stripe Checkout handles the payment. The directory, maps and articles stay free. After checkout, the thank-you page links to that state's PDF for 7 days. The file is for your personal use. Do not resell or redistribute it. Questions about a charge can be sent to the contact address below.</p>
+
+  <h2>12. Contact</h2>
   <p>Questions about these Terms: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
 </StaticPage>

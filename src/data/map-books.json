@@ -1,0 +1,437 @@
+{
+  "books": [
+    {
+      "slug": "alabama",
+      "name": "Alabama",
+      "pages": 8,
+      "falls": 11,
+      "areaMaps": 6,
+      "sizeMB": 3.8,
+      "available": true
+    },
+    {
+      "slug": "alaska",
+      "name": "Alaska",
+      "pages": 8,
+      "falls": 18,
+      "areaMaps": 6,
+      "sizeMB": 3.7,
+      "available": true
+    },
+    {
+      "slug": "arizona",
+      "name": "Arizona",
+      "pages": 6,
+      "falls": 9,
+      "areaMaps": 4,
+      "sizeMB": 2.8,
+      "available": true
+    },
+    {
+      "slug": "arkansas",
+      "name": "Arkansas",
+      "pages": 7,
+      "falls": 5,
+      "areaMaps": 5,
+      "sizeMB": 2.5,
+      "available": true
+    },
+    {
+      "slug": "california",
+      "name": "California",
+      "pages": 10,
+      "falls": 57,
+      "areaMaps": 6,
+      "sizeMB": 8.8,
+      "available": true
+    },
+    {
+      "slug": "colorado",
+      "name": "Colorado",
+      "pages": 9,
+      "falls": 22,
+      "areaMaps": 6,
+      "sizeMB": 8.7,
+      "available": true
+    },
+    {
+      "slug": "connecticut",
+      "name": "Connecticut",
+      "pages": 7,
+      "falls": 6,
+      "areaMaps": 5,
+      "sizeMB": 6.6,
+      "available": true
+    },
+    {
+      "slug": "florida",
+      "name": "Florida",
+      "pages": 4,
+      "falls": 2,
+      "areaMaps": 2,
+      "sizeMB": 1.4,
+      "available": true
+    },
+    {
+      "slug": "georgia",
+      "name": "Georgia",
+      "pages": 9,
+      "falls": 20,
+      "areaMaps": 6,
+      "featuredPage": "Amicalola Falls State Park",
+      "sizeMB": 7.1,
+      "available": true
+    },
+    {
+      "slug": "hawaii",
+      "name": "Hawaii",
+      "pages": 8,
+      "falls": 18,
+      "areaMaps": 6,
+      "sizeMB": 5.0,
+      "available": true
+    },
+    {
+      "slug": "idaho",
+      "name": "Idaho",
+      "pages": 8,
+      "falls": 16,
+      "areaMaps": 6,
+      "sizeMB": 3.1,
+      "available": true
+    },
+    {
+      "slug": "illinois",
+      "name": "Illinois",
+      "pages": 3,
+      "falls": 1,
+      "areaMaps": 1,
+      "sizeMB": 1.1,
+      "available": true
+    },
+    {
+      "slug": "indiana",
+      "name": "Indiana",
+      "pages": 5,
+      "falls": 4,
+      "areaMaps": 3,
+      "sizeMB": 1.5,
+      "available": true
+    },
+    {
+      "slug": "kansas",
+      "name": "Kansas",
+      "pages": 3,
+      "falls": 1,
+      "areaMaps": 1,
+      "sizeMB": 0.4,
+      "available": true
+    },
+    {
+      "slug": "kentucky",
+      "name": "Kentucky",
+      "pages": 6,
+      "falls": 6,
+      "areaMaps": 4,
+      "sizeMB": 2.5,
+      "available": true
+    },
+    {
+      "slug": "louisiana",
+      "name": "Louisiana",
+      "pages": 3,
+      "falls": 1,
+      "areaMaps": 1,
+      "sizeMB": 0.8,
+      "available": true
+    },
+    {
+      "slug": "maine",
+      "name": "Maine",
+      "pages": 8,
+      "falls": 9,
+      "areaMaps": 6,
+      "sizeMB": 4.5,
+      "available": true
+    },
+    {
+      "slug": "maryland",
+      "name": "Maryland",
+      "pages": 7,
+      "falls": 6,
+      "areaMaps": 5,
+      "sizeMB": 5.5,
+      "available": true
+    },
+    {
+      "slug": "massachusetts",
+      "name": "Massachusetts",
+      "pages": 8,
+      "falls": 12,
+      "areaMaps": 6,
+      "sizeMB": 8.7,
+      "available": true
+    },
+    {
+      "slug": "michigan",
+      "name": "Michigan",
+      "pages": 10,
+      "falls": 55,
+      "areaMaps": 6,
+      "sizeMB": 6.8,
+      "available": true
+    },
+    {
+      "slug": "minnesota",
+      "name": "Minnesota",
+      "pages": 9,
+      "falls": 14,
+      "areaMaps": 6,
+      "featuredPage": "Gooseberry Falls State Park",
+      "sizeMB": 8.3,
+      "available": true
+    },
+    {
+      "slug": "mississippi",
+      "name": "Mississippi",
+      "pages": 3,
+      "falls": 1,
+      "areaMaps": 1,
+      "sizeMB": 0.5,
+      "available": true
+    },
+    {
+      "slug": "missouri",
+      "name": "Missouri",
+      "pages": 7,
+      "falls": 5,
+      "areaMaps": 5,
+      "sizeMB": 3.0,
+      "available": true
+    },
+    {
+      "slug": "montana",
+      "name": "Montana",
+      "pages": 8,
+      "falls": 19,
+      "areaMaps": 6,
+      "sizeMB": 5.1,
+      "available": true
+    },
+    {
+      "slug": "nebraska",
+      "name": "Nebraska",
+      "pages": 4,
+      "falls": 3,
+      "areaMaps": 2,
+      "sizeMB": 0.9,
+      "available": true
+    },
+    {
+      "slug": "nevada",
+      "name": "Nevada",
+      "pages": 3,
+      "falls": 3,
+      "areaMaps": 1,
+      "sizeMB": 1.4,
+      "available": true
+    },
+    {
+      "slug": "new-hampshire",
+      "name": "New Hampshire",
+      "pages": 9,
+      "falls": 16,
+      "areaMaps": 6,
+      "featuredPage": "Franconia Notch State Park",
+      "sizeMB": 8.0,
+      "available": true
+    },
+    {
+      "slug": "new-jersey",
+      "name": "New Jersey",
+      "pages": 4,
+      "falls": 3,
+      "areaMaps": 2,
+      "sizeMB": 4.3,
+      "available": true
+    },
+    {
+      "slug": "new-mexico",
+      "name": "New Mexico",
+      "pages": 5,
+      "falls": 3,
+      "areaMaps": 3,
+      "sizeMB": 1.9,
+      "available": true
+    },
+    {
+      "slug": "new-york",
+      "name": "New York",
+      "pages": 12,
+      "falls": 57,
+      "areaMaps": 7,
+      "featuredPage": "Letchworth State Park",
+      "sizeMB": 9.4,
+      "available": true
+    },
+    {
+      "slug": "north-carolina",
+      "name": "North Carolina",
+      "pages": 9,
+      "falls": 41,
+      "areaMaps": 6,
+      "sizeMB": 7.5,
+      "available": true
+    },
+    {
+      "slug": "ohio",
+      "name": "Ohio",
+      "pages": 9,
+      "falls": 10,
+      "areaMaps": 6,
+      "featuredPage": "Hocking Hills State Park",
+      "sizeMB": 7.9,
+      "available": true
+    },
+    {
+      "slug": "oklahoma",
+      "name": "Oklahoma",
+      "pages": 4,
+      "falls": 2,
+      "areaMaps": 2,
+      "sizeMB": 1.1,
+      "available": true
+    },
+    {
+      "slug": "oregon",
+      "name": "Oregon",
+      "pages": 15,
+      "falls": 68,
+      "areaMaps": 9,
+      "featuredPage": "Silver Falls State Park",
+      "sizeMB": 13.5,
+      "available": true
+    },
+    {
+      "slug": "pennsylvania",
+      "name": "Pennsylvania",
+      "pages": 9,
+      "falls": 22,
+      "areaMaps": 6,
+      "sizeMB": 5.4,
+      "available": true
+    },
+    {
+      "slug": "rhode-island",
+      "name": "Rhode Island",
+      "pages": 3,
+      "falls": 1,
+      "areaMaps": 1,
+      "sizeMB": 1.4,
+      "available": true
+    },
+    {
+      "slug": "south-carolina",
+      "name": "South Carolina",
+      "pages": 6,
+      "falls": 8,
+      "areaMaps": 4,
+      "sizeMB": 4.9,
+      "available": true
+    },
+    {
+      "slug": "south-dakota",
+      "name": "South Dakota",
+      "pages": 5,
+      "falls": 4,
+      "areaMaps": 3,
+      "sizeMB": 1.8,
+      "available": true
+    },
+    {
+      "slug": "tennessee",
+      "name": "Tennessee",
+      "pages": 10,
+      "falls": 40,
+      "areaMaps": 6,
+      "featuredPage": "Fall Creek Falls State Park",
+      "sizeMB": 6.0,
+      "available": true
+    },
+    {
+      "slug": "texas",
+      "name": "Texas",
+      "pages": 7,
+      "falls": 5,
+      "areaMaps": 5,
+      "sizeMB": 4.3,
+      "available": true
+    },
+    {
+      "slug": "utah",
+      "name": "Utah",
+      "pages": 7,
+      "falls": 10,
+      "areaMaps": 5,
+      "sizeMB": 5.9,
+      "available": true
+    },
+    {
+      "slug": "vermont",
+      "name": "Vermont",
+      "pages": 5,
+      "falls": 6,
+      "areaMaps": 3,
+      "sizeMB": 3.4,
+      "available": true
+    },
+    {
+      "slug": "virginia",
+      "name": "Virginia",
+      "pages": 8,
+      "falls": 18,
+      "areaMaps": 6,
+      "sizeMB": 5.6,
+      "available": true
+    },
+    {
+      "slug": "washington",
+      "name": "Washington",
+      "pages": 11,
+      "falls": 47,
+      "areaMaps": 6,
+      "featuredPage": "Mount Rainier National Park",
+      "sizeMB": 10.0,
+      "available": true
+    },
+    {
+      "slug": "west-virginia",
+      "name": "West Virginia",
+      "pages": 9,
+      "falls": 7,
+      "areaMaps": 6,
+      "featuredPage": "Blackwater Falls State Park",
+      "sizeMB": 4.5,
+      "available": true
+    },
+    {
+      "slug": "wisconsin",
+      "name": "Wisconsin",
+      "pages": 9,
+      "falls": 19,
+      "areaMaps": 6,
+      "featuredPage": "Pattison State Park",
+      "sizeMB": 3.6,
+      "available": true
+    },
+    {
+      "slug": "wyoming",
+      "name": "Wyoming",
+      "pages": 8,
+      "falls": 14,
+      "areaMaps": 6,
+      "sizeMB": 3.9,
+      "available": true
+    }
+  ]
+}

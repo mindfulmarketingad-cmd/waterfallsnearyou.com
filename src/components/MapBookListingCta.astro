@@ -1,0 +1,55 @@
+---
+// Compact checkout strip for one waterfall page. The count is the state book
+// in src/data/map-books.json. No price is shown; Stripe Checkout does that.
+import { bookBySlug } from '../lib/map-books.mjs';
+
+interface Props {
+  stateSlug: string;
+  fallName: string;
+}
+const { stateSlug, fallName } = Astro.props;
+const book = bookBySlug(stateSlug);
+const others = book ? book.falls - 1 : 0;
+const otherLabel = others === 1 ? 'fall' : 'falls';
+---
+{book?.available && (
+  <div class="map-pdf" role="note" aria-label={`Printable ${book.name} waterfall map`}>
+    <p>
+      {fallName}{others > 0 ? `, plus ${others} other ${book.name} ${otherLabel}` : ''}, with detailed trail maps. Printable.
+    </p>
+    <form method="post" action="/api/maps/checkout" data-map-form>
+      <input type="hidden" name="state" value={book.slug} />
+      <button class="btn btn-green" type="submit">Download map PDF</button>
+      <p class="map-pdf-status" data-map-status role="status" hidden></p>
+    </form>
+  </div>
+)}
+
+<script>
+  import { bindMapCheckout } from '../scripts/map-book-checkout.js';
+  bindMapCheckout();
+</script>
+
+<style>
+  .map-pdf {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    position: static;
+    gap: 8px 14px;
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--mist-2);
+    max-width: 100%;
+  }
+  .map-pdf > p { margin: 0; flex: 1 1 12rem; min-width: 0; }
+  .map-pdf form { margin: 0; flex: 0 0 auto; }
+  .map-pdf-status { margin-top: 6px; font-size: 0.85rem; color: var(--slate); }
+  @media (max-width: 560px) {
+    .map-pdf { padding: 12px; }
+    .map-pdf form, .map-pdf .btn { width: 100%; justify-content: center; }
+  }
+</style>
