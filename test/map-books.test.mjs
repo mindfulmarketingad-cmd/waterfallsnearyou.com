@@ -353,15 +353,14 @@ test('the state page offers the book beside the map, and the thank-you page is n
   assert.match(offer, /index with heights, hikes and GPS/);
   assert.match(offer, /previewPublicPath/);
   const listing = readFileSync('src/pages/[state]/[city]/[listing].astro', 'utf8');
-  const mapHeading = listing.indexOf('id="map"');
+  const directionsAt = listing.indexOf('>Get directions</a>');
   const ctaAt = listing.indexOf('<MapBookListingCta');
-  assert.ok(mapHeading > 0 && ctaAt > mapHeading);
+  const mapHeading = listing.indexOf('id="map"');
+  assert.ok(directionsAt > 0 && ctaAt > directionsAt && ctaAt < mapHeading);
   const cta = readFileSync('src/components/MapBookListingCta.astro', 'utf8');
   assert.match(cta, /book\?\.available/);
   assert.match(cta, />Download map PDF<\/button>/);
-  assert.match(cta, /book\.falls - 1/);
-  assert.match(cta, /detailed trail maps/);
-  assert.match(cta, /Printable/);
+  assert.match(cta, /btn btn-outline/);
   assert.match(cta, /action="\/api\/maps\/checkout"/);
   for (const file of [offer, cta, readFileSync('src/pages/maps/index.astro', 'utf8'), readFileSync('src/pages/maps/thank-you.astro', 'utf8')]) {
     assert.equal(file.includes('2.99'), false);

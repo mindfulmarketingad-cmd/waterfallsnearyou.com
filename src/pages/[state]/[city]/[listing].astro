@@ -136,6 +136,7 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         )}
         <div class="li-actions">
           <a class="btn btn-green" href={directionsUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="route" />Get directions</a>
+          <MapBookListingCta stateSlug={l.stateSlug} />
           <a class="btn btn-outline" href="#map"><Icon name="map" />View map</a>
           <a class="btn btn-outline" href="#weather"><Icon name="clock" />Weather</a>
           {os?.site && <a class="btn btn-outline" href={os.site} rel="nofollow noopener ugc" target="_blank"><Icon name="globe" />Website</a>}
@@ -214,7 +215,6 @@ const maxScore = os?.reviewsPerScore ? Math.max(...Object.values(os.reviewsPerSc
         <a class="btn btn-outline" href={osmUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="map" />OpenStreetMap</a>
         <a class="btn btn-outline" href={topoUrl(l)} rel="nofollow noopener" target="_blank"><Icon name="mountain" />USGS topo viewer</a>
       </div>
-      <MapBookListingCta stateSlug={l.stateSlug} fallName={l.name} />
 
       {os?.about && (
         <>
