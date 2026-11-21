@@ -77,32 +77,37 @@ function downloadRequest(sessionId = PAID_ID) {
   return new Request(`https://www.waterfallsnearyou.com/api/maps/download${query}`);
 }
 
-test('the catalog ships Oregon only, with the stated book contents', () => {
+test('the catalog lists the available state books, including Oregon', () => {
   const books = loadMapBooks();
-  assert.deepEqual(books.map((book) => book.slug), ['oregon']);
+  const states = new Set(loadData().states.map((state) => state.slug));
+  assert.ok(books.length > 1);
+  for (const book of books) {
+    assert.equal(states.has(book.slug), true, book.slug);
+    assert.equal(book.available, true, book.slug);
+    assert.equal(previewPublicPath(book.slug), `/images/maps/${book.slug}-preview.webp`, book.slug);
+  }
   const oregon = bookBySlug('oregon');
-  assert.equal(oregon.available, true);
   assert.equal(oregon.name, 'Oregon');
   assert.equal(oregon.pages, 15);
   assert.equal(oregon.falls, 68);
   assert.equal(oregon.areaMaps, 9);
-  assert.equal(oregon.featuredPage, 'Silver Falls');
-  assert.equal(oregon.sizeMB, 13.2);
-  assert.equal(loadData().states.some((state) => state.slug === 'oregon'), true);
-  assert.equal(bookBySlug('washington'), null);
-  assert.equal(previewPublicPath('oregon'), '/images/maps/oregon-preview.webp');
+  assert.equal(oregon.featuredPage, 'Silver Falls State Park');
+  assert.equal(oregon.sizeMB, 13.5);
+  assert.equal(bookBySlug('washington')?.available, true);
+  assert.equal(bookBySlug('district-of-columbia'), null);
   assert.equal(previewPublicPath('../secrets'), null);
 });
 
 test('checkout rejects slugs that are not an available map book', () => {
   assert.equal(bookForCheckout('oregon').ok, true);
-  for (const slug of ['washington', 'Oregon', 'oregon.pdf', '../oregon', 'oregon/../../etc', '', 'district-of-columbia']) {
+  assert.equal(bookForCheckout('washington').ok, true);
+  for (const slug of ['Oregon', 'oregon.pdf', '../oregon', 'oregon/../../etc', '', 'district-of-columbia', 'not-a-book']) {
     const result = bookForCheckout(slug);
     assert.equal(result.ok, false, slug);
     assert.notEqual(result.status, 200, slug);
   }
   assert.equal(bookForCheckout('not a slug').status, 400);
-  assert.equal(bookForCheckout('washington').status, 404);
+  assert.equal(bookForCheckout('district-of-columbia').status, 404);
   const hidden = bookForCheckout('oregon', [{ ...bookBySlug('oregon'), available: false }]);
   assert.equal(hidden.ok, false);
   assert.equal(hidden.status, 404);
@@ -136,7 +141,7 @@ test('a forwarded host cannot steer the Stripe return URLs', () => {
 
 test('Stripe is not called for a slug that is not for sale', async () => {
   const stripe = mockStripe(paidSession());
-  const missing = await handleMapCheckout(checkoutRequest('washington'), { stripe, env: ENV });
+  const missing = await handleMapCheckout(checkoutRequest('district-of-columbia'), { stripe, env: ENV });
   assert.equal(missing.status, 404);
   assert.equal(stripe.calls.create.length, 0);
   const weird = await handleMapCheckout(checkoutRequest('../oregon'), { stripe, env: ENV });
@@ -183,7 +188,7 @@ test('download allows a paid session for 7 days and refuses anything else', () =
     paidSession({ status: 'expired', payment_status: 'unpaid' }),
     paidSession({ metadata: {} }),
     paidSession({ metadata: { state: '../oregon' } }),
-    paidSession({ metadata: { state: 'washington' } }),
+    paidSession({ metadata: { state: 'district-of-columbia' } }),
     null,
   ]) {
     assert.equal(assessDownload(session, { now: NOW }).ok, false);
