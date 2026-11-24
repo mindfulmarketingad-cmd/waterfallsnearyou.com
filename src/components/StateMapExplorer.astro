@@ -1,0 +1,263 @@
+---
+// Interactive map of EVERY waterfall we track in a state (published guide pages and gazetteer-only
+// falls), with filters, an "in view" / "nearest to you" panel and automatic use of the visitor's
+// location when the browser already allows it. Hidden until JavaScript runs; the static outline map
+// and link lists below it stay as the no-JS version.
+import { point } from '../lib/maps.mjs';
+import { fmtNum } from '../lib/format.mjs';
+
+interface Props { name: string; slug: string; listings: any[]; }
+const { name, slug, listings } = Astro.props;
+const pts = listings.map((l) => ({ ...point(l), co: l.county || '' }));
+const pageN = pts.filter((p) => p.k === 'page').length;
+const refN = pts.length - pageN;
+const counties = [...new Set(pts.map((p) => p.co).filter(Boolean))].sort();
+const json = JSON.stringify(pts).replace(/</g, '\\u003c');
+---
+<div class="sx" id="state-explorer" data-state={slug} hidden>
+  <h2 id="sx-h">Map of All {fmtNum(pts.length)} {name} Waterfalls</h2>
+  <p class="sx-lead">Every waterfall we track in {name} is on this map. Green dots have their own guide page. Gray dots are named in USGS or Google Maps records, with a mapped position only. Allow location in your browser and the map, the nearest-waterfalls list and the distances below update to where you are.</p>
+  <div class="sx-tools">
+    <button type="button" class="btn btn-outline sx-loc">Use my location</button>
+    <label><span>Show</span>
+      <select class="sx-show">
+        <option value="all">All waterfalls ({fmtNum(pts.length)})</option>
+        {pageN > 0 && <option value="page">With a guide page ({fmtNum(pageN)})</option>}
+        {pageN > 0 && refN > 0 && <option value="ref">Name and position only ({fmtNum(refN)})</option>}
+      </select>
+    </label>
+    {counties.length > 1 && (
+      <label><span>County</span>
+        <select class="sx-county"><option value="">All counties</option>{counties.map((c) => <option value={c}>{c}</option>)}</select>
+      </label>
+    )}
+    <label class="sx-find"><span>Find by name or town</span><input class="sx-q" type="search" placeholder="Search..." autocomplete="off" /></label>
+    <button type="button" class="btn btn-outline sx-reset">Reset</button>
+  </div>
+  <p class="sx-status small muted" role="status" aria-live="polite"></p>
+  <div class="sx-body">
+    <div class="sx-map" aria-label={`Interactive map of ${name} waterfalls`}></div>
+    <aside class="sx-panel" aria-labelledby="sx-ph">
+      <h3 id="sx-ph" class="sx-ph">Top waterfalls</h3>
+      <ol class="sx-list"></ol>
+      <p class="sx-more small muted"></p>
+    </aside>
+  </div>
+  <p class="sx-key small muted"><span class="sx-dot sx-dot-page"></span> Guide page <span class="sx-dot sx-dot-ref"></span> Name and position only <span class="sx-dot sx-dot-me"></span> You are here</p>
+  <script type="application/json" id="sx-data" set:html={json}></script>
+</div>
+
+<style is:global>
+  .sx-lead { max-width: 820px; }
+  .sx-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin: 14px 0 6px; }
+  .sx-tools label { display: flex; flex-direction: column; gap: 3px; font-size: 0.78rem; color: var(--slate-soft); min-width: 0; }
+  .sx-tools select, .sx-tools input { font: inherit; font-size: 0.92rem; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); min-width: 0; max-width: 100%; }
+  .sx-find { flex: 1 1 180px; }
+  .sx-tools .btn { padding: 8px 14px; font-size: 0.88rem; }
+  .sx-status { min-height: 1.4em; margin: 2px 0 8px; }
+  .sx-body { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 14px; align-items: start; }
+  .sx-map { height: 560px; border-radius: 12px; border: 1px solid var(--line); background: var(--mist); }
+  .sx-panel { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 12px 14px; height: 560px; overflow: auto; }
+  .sx-ph { font-size: 1rem; margin: 0 0 8px; }
+  .sx-list { list-style: none; margin: 0; padding: 0; }
+  .sx-list li { border-bottom: 1px solid var(--line); }
+  .sx-list li:last-child { border-bottom: 0; }
+  .sx-item { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; width: 100%; text-align: left; background: none; border: 0; padding: 8px 2px; font: inherit; color: inherit; cursor: pointer; }
+  .sx-item:hover .sx-n, .sx-item:focus-visible .sx-n { text-decoration: underline; }
+  .sx-n { font-weight: 600; color: var(--forest); }
+  .sx-d { font-size: 0.82rem; font-weight: 600; color: var(--slate); white-space: nowrap; }
+  .sx-sub { grid-column: 1 / -1; font-size: 0.8rem; color: var(--slate-soft); }
+  .sx-sub a { color: var(--forest); }
+  .sx-key { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 8px 0 0; }
+  .sx-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #6b7772; vertical-align: -2px; margin-right: 4px; }
+  .sx-dot-page { background: #2f6b52; }
+  .sx-dot-ref { background: #8a9690; }
+  .sx-dot-me { background: #1d6fe0; }
+  @media (max-width: 860px) {
+    .sx-body { grid-template-columns: minmax(0, 1fr); }
+    .sx-map { height: 420px; }
+    .sx-panel { height: auto; max-height: 360px; }
+    .sx-tools label, .sx-tools .btn { flex: 1 1 140px; }
+  }
+</style>
+
+<script>
+  import { createWaterfallMap } from '../scripts/wmap.js';
+  import { onLocation, requestLocation, autoLocate, miles, fmtMiles } from '../scripts/location.js';
+
+  const root = document.getElementById('state-explorer');
+  if (root) {
+    type P = { n: string; u: string; k: string; la: number; ln: number; t: string; co: string; r?: number; c?: number; d?: number };
+    const all: P[] = JSON.parse(document.getElementById('sx-data').textContent);
+    const $ = (s: string) => root.querySelector(s) as HTMLElement;
+    const mapEl = $('.sx-map');
+    const listEl = $('.sx-list');
+    const heading = $('.sx-ph');
+    const moreEl = $('.sx-more');
+    const statusEl = $('.sx-status');
+    const locBtn = $('.sx-loc') as HTMLButtonElement;
+    const showSel = $('.sx-show') as HTMLSelectElement;
+    const countySel = $('.sx-county') as HTMLSelectElement | null;
+    const q = $('.sx-q') as HTMLInputElement;
+    const stateName = (document.getElementById('sx-h').textContent.match(/Map of All [\d,]+ (.+) Waterfalls/) || [])[1] || 'this state';
+    const norm = (s: string) => s.normalize('NFKD').replace(/[̀-ͯʻ']/g, '').toLowerCase();
+
+    root.hidden = false;
+    document.getElementById('state-static')?.setAttribute('hidden', '');
+
+    let me: { lat: number; lng: number } | null = null;
+    let status = 'unknown';
+    let shown: P[] = all;
+    let api: any = null;
+    let started = false;
+    let fitted = false;
+
+    const withDist = () => {
+      for (const p of all) p.d = me ? miles(me, { lat: p.la, lng: p.ln }) : undefined;
+    };
+    const rank = (a: P, b: P) => (a.k === 'page' ? 0 : 1) - (b.k === 'page' ? 0 : 1) || (b.c || 0) - (a.c || 0);
+
+    function filtered(): P[] {
+      const term = norm(q.value.trim());
+      return all.filter((p) => {
+        if (showSel.value !== 'all' && p.k !== showSel.value) return false;
+        if (countySel?.value && p.co !== countySel.value) return false;
+        if (term && !norm(`${p.n} ${p.t}`).includes(term)) return false;
+        return true;
+      });
+    }
+
+    function renderPanel() {
+      let rows: P[];
+      let more = '';
+      if (me) {
+        rows = [...shown].sort((a, b) => a.d - b.d).slice(0, 10);
+        heading.textContent = 'Nearest to you';
+        more = shown.length > 10 ? `Showing the 10 closest of ${shown.length.toLocaleString('en-US')} on the map.` : '';
+      } else if (api && started) {
+        const b = api.map.getBounds();
+        const inView = shown.filter((p) => b.contains([p.ln, p.la]));
+        rows = [...inView].sort(rank).slice(0, 10);
+        heading.textContent = `In view on the map (${inView.length.toLocaleString('en-US')})`;
+        more = inView.length > 10 ? `Showing 10 of ${inView.length.toLocaleString('en-US')}. Zoom in to see the rest.` : '';
+      } else {
+        rows = [...shown].sort(rank).slice(0, 10);
+        heading.textContent = 'Top waterfalls';
+        more = '';
+      }
+      listEl.replaceChildren(...rows.map((p) => {
+        const li = document.createElement('li');
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'sx-item';
+        const n = document.createElement('span'); n.className = 'sx-n'; n.textContent = p.n;
+        const d = document.createElement('span'); d.className = 'sx-d'; d.textContent = p.d != null ? fmtMiles(p.d) : '';
+        const sub = document.createElement('span'); sub.className = 'sx-sub';
+        sub.textContent = `${p.t}${p.r ? ` · ${p.r.toFixed(1)} stars` : ''}${p.k === 'page' ? ' · guide page' : ''}`;
+        b.append(n, d, sub);
+        b.addEventListener('click', () => focusOn(p));
+        li.append(b);
+        return li;
+      }));
+      if (!rows.length) { const li = document.createElement('li'); li.className = 'small muted'; li.textContent = 'No waterfalls match these filters.'; listEl.append(li); }
+      moreEl.textContent = more;
+    }
+
+    function setStatus() {
+      if (status === 'denied') statusEl.textContent = 'Location is blocked for this site in your browser settings. Allow it there and this page updates on its own.';
+      else if (status === 'unsupported') statusEl.textContent = 'This browser cannot share a location.';
+      else if (status === 'error') statusEl.textContent = 'Could not get your location. Try again or search by name.';
+      else if (me && shown.length) {
+        const near = [...shown].sort((a, b) => a.d - b.d)[0];
+        statusEl.textContent = near.d > 250
+          ? `You are about ${fmtMiles(near.d)} from the nearest ${stateName} waterfall shown here (${near.n}).`
+          : `Using your location. The nearest waterfall here is ${near.n}, ${fmtMiles(near.d)} away. Your position stays in your browser.`;
+      } else statusEl.textContent = '';
+      locBtn.textContent = me ? 'Update my location' : status === 'denied' ? 'Location blocked' : 'Use my location';
+    }
+
+    const fitTo = (pts: P[], extra?: { lat: number; lng: number }) => {
+      if (!api || !pts.length) return;
+      let w = 180, s = 90, e = -180, n = -90;
+      for (const p of pts) { w = Math.min(w, p.ln); e = Math.max(e, p.ln); s = Math.min(s, p.la); n = Math.max(n, p.la); }
+      if (extra) { w = Math.min(w, extra.lng); e = Math.max(e, extra.lng); s = Math.min(s, extra.lat); n = Math.max(n, extra.lat); }
+      api.map.fitBounds([[w, s], [e, n]], { padding: 40, maxZoom: 11, duration: 600 });
+    };
+
+    function focusOn(p: P) {
+      if (!api) return;
+      api.map.flyTo({ center: [p.ln, p.la], zoom: Math.max(api.map.getZoom(), 11), duration: 700 });
+      api.map.once('moveend', () => api.showPopup(p));
+    }
+
+    function drawMe() {
+      if (!api) return;
+      const src = api.map.getSource('me');
+      const data = { type: 'FeatureCollection', features: me ? [{ type: 'Feature', geometry: { type: 'Point', coordinates: [me.lng, me.lat] }, properties: {} }] : [] };
+      if (src) src.setData(data);
+    }
+
+    function refresh(fit: boolean) {
+      shown = filtered();
+      api?.setPoints(shown, false);
+      if (fit) fitTo(shown);
+      renderPanel();
+      setStatus();
+    }
+
+    [showSel, countySel, q].forEach((el) => el?.addEventListener(el === q ? 'input' : 'change', () => refresh(true)));
+    $('.sx-reset').addEventListener('click', () => { showSel.value = 'all'; if (countySel) countySel.value = ''; q.value = ''; shown = all; api?.setPoints(all, false); fitTo(all); renderPanel(); setStatus(); });
+    locBtn.addEventListener('click', () => { statusEl.textContent = 'Finding your location...'; requestLocation(); });
+
+    onLocation(({ loc, status: st }) => {
+      const first = !me && !!loc;
+      me = loc;
+      status = st;
+      withDist();
+      shown = filtered();
+      drawMe();
+      renderPanel();
+      setStatus();
+      // First fix: frame you and your closest waterfalls when they are in reasonable reach.
+      if (first && api && shown.length) {
+        const nearest = [...shown].sort((a, b) => a.d - b.d).slice(0, 5);
+        if (nearest[0].d <= 250) fitTo(nearest, me); else api.map.easeTo({ center: [me.lng, me.lat], duration: 600 });
+      }
+    });
+
+    async function start() {
+      if (started) return;
+      started = true;
+      try {
+        api = await createWaterfallMap(mapEl, shown, { padding: 40, byKind: true, fullscreen: true, scale: true, popupExtra: (props: any) => {
+          if (!me) return '';
+          const p = all.find((x) => x.u === props.u && x.n === props.n);
+          return p?.d != null ? `${fmtMiles(p.d)} from you` : '';
+        } });
+      } catch { mapEl.textContent = 'The interactive map could not load. The lists below still work.'; return; }
+      await api.ready;
+      const m = api.map;
+      m.addSource('me', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+      m.addLayer({ id: 'me-halo', type: 'circle', source: 'me', paint: { 'circle-radius': 16, 'circle-color': '#1d6fe0', 'circle-opacity': 0.18 } });
+      m.addLayer({ id: 'me', type: 'circle', source: 'me', paint: { 'circle-radius': 7, 'circle-color': '#1d6fe0', 'circle-stroke-color': '#fff', 'circle-stroke-width': 2.5 } });
+      drawMe();
+      let t: any;
+      m.on('moveend', () => { clearTimeout(t); t = setTimeout(renderPanel, 120); });
+      if (me && shown.length) {
+        const nearest = [...shown].sort((a, b) => a.d - b.d).slice(0, 5);
+        if (nearest[0].d <= 250) fitTo(nearest, me);
+      }
+      fitted = true;
+      renderPanel();
+    }
+
+    // Load map tiles only once the section is near the screen; the list and location work before that.
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); start(); } }, { rootMargin: '300px' });
+      io.observe(mapEl);
+    } else start();
+
+    renderPanel();
+    autoLocate();
+  }
+</script>

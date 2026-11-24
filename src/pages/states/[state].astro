@@ -17,6 +17,7 @@ import { getPosts, postsLinkingTo } from '../../lib/blog.mjs';
 import { SITE } from '../../config.mjs';
 import Gazetteer from '../../components/Gazetteer.astro';
 import StateWaterfallMap from '../../components/StateWaterfallMap.astro';
+import StateMapExplorer from '../../components/StateMapExplorer.astro';
 import MapBookOffer from '../../components/MapBookOffer.astro';
 import { bookBySlug } from '../../lib/map-books.mjs';
 import { cityHref, listingHref, publishedCity, publishedListing } from '../../lib/publish.mjs';
@@ -110,7 +111,13 @@ const schema = [
     </section>
   )}
 
-  <section class="wrap section-sm" id="state-waterfall-map" aria-labelledby="state-waterfall-map-h">
+  {all.length > 0 && (
+    <section class="wrap section-sm" id="state-explorer-section" aria-labelledby="sx-h">
+      <StateMapExplorer name={state.name} slug={state.slug} listings={all} />
+    </section>
+  )}
+
+  <section class="wrap section-sm" id="state-static" aria-labelledby="state-waterfall-map-h">
     <StateWaterfallMap slug={state.slug} name={state.name} mapHref={`/map/${state.slug}`} headingId="state-waterfall-map-h" />
   </section>
 
@@ -331,6 +338,7 @@ const schema = [
 </style>
 
 <script>
+  import { onLocation, requestLocation, autoLocate, miles } from '../../scripts/location.js';
   const root = document.getElementById('waterfalls');
   if (root) {
   const list = root.querySelector('.sc-list') as HTMLElement;
@@ -351,11 +359,6 @@ const schema = [
   let me: { lat: number; lng: number } | null = null;
   let map, mapApi;
   const norm = (s: string) => s.normalize('NFKD').replace(/[̀-ͯʻ']/g, '').toLowerCase();
-  const miles = (a, b) => {
-    const r = Math.PI / 180, dLat = (b.lat - a.lat) * r, dLng = (b.lng - a.lng) * r;
-    const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLng / 2) ** 2;
-    return 2 * 3958.8 * Math.asin(Math.sqrt(h));
-  };
   const setIfOption = (sel: HTMLSelectElement, v: string | null) => { if (v && [...sel.options].some((o) => o.value === v)) sel.value = v; };
 
   // Initial state from the URL (?q=&town=&county=&feature=&sort=)
@@ -426,25 +429,37 @@ const schema = [
     root.scrollIntoView({ behavior: 'smooth' });
   });
 
-  nearBtn.addEventListener('click', () => {
-    if (!('geolocation' in navigator)) return;
-    nearBtn.textContent = 'Finding your location...';
-    navigator.geolocation.getCurrentPosition((pos) => {
-      me = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-      for (const c of cards) {
-        const d = miles(me, { lat: +c.dataset.lat, lng: +c.dataset.lng });
-        c.dataset.dist = String(d);
-        const out = c.querySelector('.sc-dist') as HTMLElement;
-        out.textContent = `· ${d < 10 ? d.toFixed(1) : Math.round(d)} mi away`;
-        out.hidden = false;
-      }
-      const opt = [...sort.options].find((o) => o.value === 'near');
-      opt.disabled = false;
-      sort.value = 'near';
-      nearBtn.textContent = 'Distances shown from your location';
+  // Distances follow the shared location: pressing the button asks once, and when the browser
+  // already allows location the list sorts itself by distance with no click.
+  let sortedByNear = false;
+  nearBtn.addEventListener('click', () => { nearBtn.textContent = 'Finding your location...'; requestLocation(); });
+  onLocation(({ loc, status }) => {
+    const opt = [...sort.options].find((o) => o.value === 'near');
+    if (!loc) {
+      for (const c of cards) { delete c.dataset.dist; (c.querySelector('.sc-dist') as HTMLElement).hidden = true; }
+      opt.disabled = true;
+      if (sort.value === 'near') sort.value = 'top';
+      me = null;
+      sortedByNear = false;
+      nearBtn.textContent = status === 'denied' ? 'Location blocked in browser settings' : status === 'unsupported' ? 'Location not supported' : status === 'error' ? 'Location unavailable. Try again' : 'Show distance from me';
       apply(false);
-    }, () => { nearBtn.textContent = 'Location unavailable'; }, { timeout: 12000, maximumAge: 600000 });
+      return;
+    }
+    me = { lat: loc.lat, lng: loc.lng };
+    for (const c of cards) {
+      const d = miles(me, { lat: +c.dataset.lat, lng: +c.dataset.lng });
+      c.dataset.dist = String(d);
+      const out = c.querySelector('.sc-dist') as HTMLElement;
+      out.textContent = `· ${d < 10 ? d.toFixed(1) : Math.round(d)} mi away`;
+      out.hidden = false;
+    }
+    opt.disabled = false;
+    if (!sortedByNear && !params.get('sort')) sort.value = 'near';
+    sortedByNear = true;
+    nearBtn.textContent = 'Distances shown from your location';
+    apply(false);
   });
+  autoLocate();
 
   // ---- Map view (MapLibre GL + OpenFreeMap tiles), loaded only when first opened ----
   const toPoint = (c: HTMLElement) => ({

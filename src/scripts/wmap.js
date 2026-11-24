@@ -33,7 +33,7 @@ function boundsOf(points) {
   return [[w, s], [e, n]];
 }
 
-function popupNode(props) {
+function popupNode(props, extra) {
   const box = document.createElement('div');
   box.className = 'wpop';
   const a = document.createElement('a');
@@ -41,12 +41,15 @@ function popupNode(props) {
   a.textContent = props.n;
   const meta = document.createElement('div');
   meta.textContent = `${props.t}${props.r ? ` · ${Number(props.r).toFixed(1)} stars (${Number(props.c).toLocaleString('en-US')} reviews)` : ''}`;
+  const away = extra ? extra(props) : '';
   const go = document.createElement('div');
   const link = document.createElement('a');
   link.href = props.u;
   link.textContent = props.k === 'ref' ? 'See it on the state list' : 'View waterfall';
   go.append(link);
-  box.append(a, meta, go);
+  box.append(a, meta);
+  if (away) { const d = document.createElement('div'); d.textContent = away; box.append(d); }
+  box.append(go);
   return box;
 }
 
@@ -71,6 +74,8 @@ export async function createWaterfallMap(el, points, opts = {}) {
     throw err;
   }
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
+  if (opts.fullscreen) map.addControl(new maplibregl.FullscreenControl(), 'top-right');
+  if (opts.scale) map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }), 'bottom-left');
   el.wmap = map; // handy for debugging and automated checks
   let pending = toGeoJSON(points, opts.highlight);
   const ready = new Promise((resolve) => map.on('load', resolve));
@@ -82,20 +87,28 @@ export async function createWaterfallMap(el, points, opts = {}) {
       source: 'falls',
       paint: {
         'circle-radius': ['case', ['==', ['get', 'h'], 1], 9, ['>', ['get', 'r'], 0], 6, 5],
-        'circle-color': ['case', ['==', ['get', 'h'], 1], '#b4432c', ['>', ['get', 'r'], 0], '#3f6f5a', '#9aa6a1'],
+        // byKind: green = has its own guide page, gray = name and coordinates only.
+        'circle-color': opts.byKind
+          ? ['case', ['==', ['get', 'h'], 1], '#b4432c', ['==', ['get', 'k'], 'ref'], '#8a9690', '#2f6b52']
+          : ['case', ['==', ['get', 'h'], 1], '#b4432c', ['>', ['get', 'r'], 0], '#3f6f5a', '#9aa6a1'],
         'circle-stroke-color': '#ffffff',
         'circle-stroke-width': 1.5,
       },
     });
     map.on('click', 'falls', (e) => {
       const f = e.features[0];
-      new maplibregl.Popup({ offset: 10, maxWidth: '260px' }).setLngLat(f.geometry.coordinates).setDOMContent(popupNode(f.properties)).addTo(map);
+      new maplibregl.Popup({ offset: 10, maxWidth: '260px' }).setLngLat(f.geometry.coordinates).setDOMContent(popupNode(f.properties, opts.popupExtra)).addTo(map);
     });
     map.on('mouseenter', 'falls', () => { map.getCanvas().style.cursor = 'pointer'; });
     map.on('mouseleave', 'falls', () => { map.getCanvas().style.cursor = ''; });
   });
   return {
     map,
+    ready,
+    maplibregl,
+    showPopup(p) {
+      new maplibregl.Popup({ offset: 10, maxWidth: '260px' }).setLngLat([p.ln, p.la]).setDOMContent(popupNode({ n: p.n, u: p.u, t: p.t, r: p.r || 0, c: p.c || 0, k: p.k || '' }, opts.popupExtra)).addTo(map);
+    },
     async setPoints(next, fit = true) {
       pending = toGeoJSON(next, opts.highlight);
       await ready;
