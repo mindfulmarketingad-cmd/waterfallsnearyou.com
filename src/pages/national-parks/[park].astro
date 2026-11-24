@@ -1,7 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageBand from '../../components/PageBand.astro';
+import Faq from '../../components/Faq.astro';
 import { getParks, parkQualifies, MONTH_NAMES } from '../../lib/parks.mjs';
+import { parkFaqs } from '../../lib/park-faq.mjs';
+import { parkTitle, parkTitleTag, stateLabel } from '../../lib/park-title.mjs';
+import { miles as distance } from '../../lib/core.mjs';
 import { fmtNum } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
 
@@ -9,23 +13,75 @@ export function getStaticPaths() {
   return getParks().filter(parkQualifies).map((p) => ({ params: { park: p.slug }, props: { slug: p.slug } }));
 }
 const { slug } = Astro.props;
-const park = getParks().find((p) => p.slug === slug);
+const all = getParks().filter(parkQualifies);
+const park = all.find((p) => p.slug === slug);
 const story = park.narrative;
 const hero = park.images[0];
 const rest = park.images.slice(1);
+const states = [...new Map(park.falls.map((f) => [f.stateSlug, { slug: f.stateSlug, name: f.state, code: f.stateCode }])).values()];
+const where = stateLabel(states);
+const title = parkTitle(park.name, states);
+const titleTag = parkTitleTag(park.name, states);
+const shortName = park.name.replace(/ National Park( and Preserve)?$/, '');
 const crumbs = [
   { name: 'Home', url: '/' },
-  { name: 'National Parks', url: '/national-parks' },
+  { name: 'National Parks With Waterfalls', url: '/national-parks' },
   { name: park.name, url: park.url },
 ];
-const title = `${park.name} waterfalls`;
 const description = story.dek.length <= 160 ? story.dek : `${story.dek.slice(0, 157).replace(/\s+\S*$/, '')}...`;
-const milesLabel = (f) => f.distanceText || '';
 const kindLabel = (k) => (k === 'one-way' ? 'one way' : k === 'round-trip' ? 'round trip' : k === 'loop' ? 'loop' : '');
+const walk = (f) => f.distanceText || '';
+
+// At a glance, from the same records the rest of the page uses.
+const walkable = park.falls.filter((f) => f.miles > 0).sort((a, b) => a.miles - b.miles);
+const reviewed = park.falls.filter((f) => f.reviews > 0).sort((a, b) => b.reviews - a.reviews);
+const fee = park.fees?.[0];
+const glance = [
+  ['Where', where],
+  ['Waterfalls we cover', String(park.falls.length)],
+  ...(park.analysis.towns[0] ? [['Nearest town', `${park.analysis.towns[0].name}, ${park.analysis.towns[0].state}`]] : []),
+  ...(walkable.length ? [['Shortest published walk', `${walkable[0].name}, ${walkable[0].distanceText}`]] : []),
+  ...(reviewed.length && park.falls.length > 1 ? [['Most reviewed', `${reviewed[0].name}${reviewed[0].rating ? ` (${reviewed[0].rating.toFixed(1)} stars)` : ''}`]] : []),
+  ...(park.gauge ? [['Water runs highest', `${park.gauge.peakMonth} (nearest stream gauge)`]] : []),
+  ...(fee ? [[fee.label, fee.text.split(/(?<=\.)\s/)[0].replace(/\.$/, '')]] : []),
+];
+
+// Comparison table: only columns that have data for at least one waterfall.
+const cols = [
+  ['Walk', (f) => f.distanceText],
+  ['Climb', (f) => f.elevationText],
+  ['Difficulty', (f) => f.difficulty],
+  ['Drop (USGS)', (f) => (f.heightFeet ? `${fmtNum(f.heightFeet)} ft` : '')],
+  ['Reviews', (f) => (f.reviews ? fmtNum(f.reviews) : '')],
+].filter(([, get]) => park.falls.some((f) => get(f)));
+const showTable = park.falls.length >= 3 && cols.length >= 2;
+
+// Related parks: same state first, then the closest others.
+const center = (p) => ({ lat: p.falls.reduce((s, f) => s + f.lat, 0) / p.falls.length, lng: p.falls.reduce((s, f) => s + f.lng, 0) / p.falls.length });
+const here = center(park);
+const stateSet = new Set(states.map((s) => s.slug));
+const related = all.filter((p) => p !== park)
+  .map((p) => ({ p, shared: p.falls.some((f) => stateSet.has(f.stateSlug)), d: distance(here, center(p)) }))
+  .sort((a, b) => Number(b.shared) - Number(a.shared) || a.d - b.d)
+  .slice(0, 4);
+
+const faqs = parkFaqs(park);
+const hasTips = story.tips?.length > 0;
+const toc = [
+  ['falls', `Waterfalls in ${shortName}`],
+  ...(story.plan?.length ? [['plan', 'Planning Your Day']] : []),
+  ...(park.gauge ? [['best-time', 'Best Time to Go']] : []),
+  ...(park.fees?.length ? [['fees', 'Fees and Entry']] : []),
+  ...(story.access?.length ? [['getting-there', 'Getting There']] : []),
+  ...(story.safety?.length ? [['safety', 'Safety Tips']] : []),
+  ...(hasTips ? [['tips', 'Park Service Tips']] : []),
+  ['faq', 'FAQ'],
+];
+
 const schema = [
   {
     '@type': 'TouristAttraction',
-    name: `${park.name} waterfalls`,
+    name: title,
     url: `${SITE.url}${park.url}`,
     description: story.dek,
     ...(hero ? { image: `${SITE.url}${hero.src}` } : {}),
@@ -37,9 +93,11 @@ const schema = [
     numberOfItems: park.falls.length,
     itemListElement: park.falls.map((f, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${f.url}`, name: f.name })),
   },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
 ];
+const external = (u) => /^https?:/.test(u);
 ---
-<Base title={`${title} | WaterfallsNearYou`} description={description} image={hero?.src} imageAlt={hero?.alt} breadcrumbs={crumbs} bandCrumbs schema={schema} type="article">
+<Base title={titleTag.length <= 44 ? `${titleTag} | WaterfallsNearYou` : titleTag} description={description} image={hero?.src} imageAlt={hero?.alt} breadcrumbs={crumbs} bandCrumbs schema={schema} type="article">
   <PageBand title={title} crumbs={crumbs}>
     <p>{story.dek}</p>
   </PageBand>
@@ -54,85 +112,72 @@ const schema = [
       <span class="avatar" aria-hidden="true">DF</span>
       <div>
         <div class="by-name">By <a href="/about">David F.</a></div>
-        <div class="by-meta">Field notes checked November 19, 2026. Facts are cited at the bottom. Analysis is computed from those sources.</div>
+        <div class="by-meta">Sources checked November 19, 2026. Facts are cited at the bottom of the page.</div>
       </div>
     </div>
 
     {story.overview.map((p) => <p>{p}</p>)}
 
-    <h2>The falls on our maps</h2>
-    <p>{story.fallsIntro}</p>
+    <dl class="glance" aria-label={`${park.name} at a glance`}>
+      {glance.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+    </dl>
+
+    <nav class="toc" aria-label="On this page">
+      <strong>On this page:</strong>
+      {toc.map(([id, label], i) => <>{i ? <span class="sep">·</span> : ''}<a href={`#${id}`}>{label}</a></>)}
+    </nav>
+
+    <h2 id="falls">Waterfalls in {park.name}</h2>
+    {story.fallsIntro && <p>{story.fallsIntro}</p>}
     {park.falls.map((f) => (
       <section class="park-fall">
         <h3><a href={f.url}>{f.name}</a></h3>
-        <p class="muted small">{f.county ? `${f.county} County, ` : ''}{f.state}{f.city ? <> · nearest listed town <a href={f.cityUrl}>{f.city}</a> ({f.cityMiles < 10 ? f.cityMiles.toFixed(1) : f.cityMiles.toFixed(0)} miles in a straight line)</> : ''}</p>
-        <dl class="facts">
-          {f.trailName && <div><dt>Trail</dt><dd>{f.trailName}</dd></div>}
-          {f.distanceText && <div><dt>Distance</dt><dd>{milesLabel(f)}{f.distanceKind ? ` (${kindLabel(f.distanceKind)})` : ''}</dd></div>}
-          {f.elevationText && <div><dt>Elevation</dt><dd>{f.elevationText}</dd></div>}
-          {f.difficulty && <div><dt>Difficulty</dt><dd>{f.difficulty}</dd></div>}
-          {f.heightFeet && <div><dt>Drop</dt><dd>{fmtNum(f.heightFeet)} ft in the USGS gazetteer text</dd></div>}
-          {f.reviews > 0 && <div><dt>Reviews</dt><dd>{fmtNum(f.reviews)}{f.rating ? ` · ${f.rating.toFixed(1)} stars` : ''}</dd></div>}
-          {f.season && <div><dt>Flow timing</dt><dd>{f.season}</dd></div>}
-        </dl>
+        <p class="muted small">{f.county ? `${f.county} County, ` : ''}{f.state}{f.city ? <> · near <a href={f.cityUrl}>{f.city}</a></> : ''}</p>
+        {(f.trailName || f.distanceText || f.elevationText || f.difficulty || f.heightFeet || f.reviews > 0 || f.season) && (
+          <dl class="facts">
+            {f.trailName && <div><dt>Trail</dt><dd>{f.trailName}</dd></div>}
+            {f.distanceText && <div><dt>Distance</dt><dd>{walk(f)}{f.distanceKind && !new RegExp(kindLabel(f.distanceKind).split(' ')[0], 'i').test(walk(f)) ? ` (${kindLabel(f.distanceKind)})` : ''}</dd></div>}
+            {f.elevationText && <div><dt>Climb</dt><dd>{f.elevationText}</dd></div>}
+            {f.difficulty && <div><dt>Difficulty</dt><dd>{f.difficulty}</dd></div>}
+            {f.heightFeet && <div><dt>Drop</dt><dd>{fmtNum(f.heightFeet)} ft (USGS)</dd></div>}
+            {f.reviews > 0 && <div><dt>Visitor reviews</dt><dd>{fmtNum(f.reviews)}{f.rating ? ` · ${f.rating.toFixed(1)} stars` : ''}</dd></div>}
+            {f.season && <div><dt>Best flow</dt><dd>{f.season}</dd></div>}
+          </dl>
+        )}
         {f.gnis && f.gnis.length > 40 && !/^Located in sec/i.test(f.gnis) && <p class="small">{f.gnis}</p>}
       </section>
     ))}
 
-    <h2>Side by side</h2>
-    <p>{story.tableLead}</p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Waterfall</th><th>Distance</th><th>Elevation</th><th>Difficulty</th><th>USGS drop</th><th>Reviews</th><th>Flow note</th>
-          </tr>
-        </thead>
-        <tbody>
-          {park.falls.map((f) => (
-            <tr>
-              <td><a href={f.url}>{f.name}</a></td>
-              <td>{f.distanceText || '—'}</td>
-              <td>{f.elevationText || '—'}</td>
-              <td>{f.difficulty || '—'}</td>
-              <td>{f.heightFeet ? `${fmtNum(f.heightFeet)} ft` : '—'}</td>
-              <td>{f.reviews ? fmtNum(f.reviews) : '—'}</td>
-              <td>{f.season || '—'}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    <p class="small muted">A dash means that field is not in the USGS gazetteer text, the trail file, or the hand-checked trip notes for that fall. It is not a claim that the number is zero.</p>
-
-    {story.effort?.length > 0 && (
+    {showTable && (
       <>
-        <h2>Effort against attention</h2>
-        {story.effort.map((p) => <p>{p}</p>)}
-        {park.analysis.ranked.length > 1 && (
-          <ol>
-            {park.analysis.ranked.map((f) => (
-              <li><a href={f.url}>{f.name}</a>: {fmtNum(f.reviews)} reviews ÷ {f.miles < 0.2 ? `${Math.round(f.miles * 5280)} feet` : `${f.miles.toFixed(1)} miles`} = {f.score.toFixed(0)} reviews per published mile ({kindLabel(f.distanceKind)}).</li>
-            ))}
-          </ol>
-        )}
+        <h3>Compare the Waterfalls</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Waterfall</th>{cols.map(([label]) => <th>{label}</th>)}</tr></thead>
+            <tbody>
+              {park.falls.map((f) => (
+                <tr><td><a href={f.url}>{f.name}</a></td>{cols.map(([, get]) => <td>{get(f) || 'Not listed'}</td>)}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </>
     )}
 
     {story.plan?.length > 0 && (
       <>
-        <h2>Seeing more than one</h2>
+        <h2 id="plan">Planning Your Day</h2>
         {story.plan.map((p) => <p>{p}</p>)}
       </>
     )}
 
     {park.gauge && (
       <>
-        <h2>When the nearest gauge runs high</h2>
+        <h2 id="best-time">Best Time to See Waterfalls in {shortName}</h2>
         {story.flow.map((p) => <p>{p}</p>)}
         <div class="table-wrap">
           <table>
-            <caption class="small">Mean daily discharge, cubic feet per second, USGS {park.gauge.site}. {park.gauge.period}.</caption>
+            <caption class="small">Average daily flow, cubic feet per second, USGS {park.gauge.site}. {park.gauge.period}.</caption>
             <thead><tr>{MONTH_NAMES.map((m) => <th>{m.slice(0, 3)}</th>)}</tr></thead>
             <tbody>
               <tr>{park.gauge.monthlyCfs.map((cfs) => <td>{fmtNum(cfs)}</td>)}</tr>
@@ -149,7 +194,7 @@ const schema = [
 
     {park.fees?.length > 0 && (
       <>
-        <h2>Fees, passes, and entry rules</h2>
+        <h2 id="fees">Fees and Entry</h2>
         {story.feesLead && <p>{story.feesLead}</p>}
         <dl class="facts">
           {park.fees.map((row) => <div><dt>{row.label}</dt><dd>{row.text}</dd></div>)}
@@ -159,40 +204,33 @@ const schema = [
 
     {story.access?.length > 0 && (
       <>
-        <h2>Getting there</h2>
+        <h2 id="getting-there">Getting There</h2>
         {story.access.map((p) => <p>{p}</p>)}
+        {park.analysis.towns.length > 0 && (
+          <p>Towns in our directory near these waterfalls: {park.analysis.towns.map((t, i) => <>{i ? ', ' : ''}<a href={t.url}>{t.name}, {t.state}</a></>)}.</p>
+        )}
       </>
     )}
 
     {story.safety?.length > 0 && (
       <>
-        <h2>What this park warns about</h2>
+        <h2 id="safety">Safety Tips</h2>
         {story.safety.map((p) => <p>{p}</p>)}
       </>
     )}
 
-    {story.tips?.length > 0 && (
+    {hasTips && (
       <>
-        <h2>Small things the official pages mention</h2>
+        <h2 id="tips">Tips From the Park Service</h2>
         <ul>
-          {story.tips.map((t) => <li>{t.text} (<a href={t.url} rel="noopener" target="_blank">{t.title}</a>)</li>)}
-        </ul>
-      </>
-    )}
-
-    {park.analysis.towns.length > 0 && (
-      <>
-        <h2>Towns our directory files these falls under</h2>
-        <p>{story.towns}</p>
-        <ul>
-          {park.analysis.towns.map((t) => <li><a href={t.url}>{t.name}, {t.state}</a> — {t.count} of these falls, closest about {t.miles.toFixed(0)} miles in a straight line</li>)}
+          {story.tips.map((t) => <li>{t.text} (<a href={t.url} {...(external(t.url) ? { rel: 'noopener', target: '_blank' } : {})}>{t.title}</a>)</li>)}
         </ul>
       </>
     )}
 
     {rest.length > 0 && (
       <>
-        <h2>Photographs</h2>
+        <h2>Photos of {shortName} Waterfalls</h2>
         {rest.map((img) => (
           <figure class="park-photo">
             <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
@@ -202,12 +240,33 @@ const schema = [
       </>
     )}
 
-    <h2>How this page was built</h2>
-    <p>{story.method}</p>
+    <Faq faqs={faqs} heading={`${park.name} Waterfalls: Frequently Asked Questions`} id="faq" />
 
-    <h2>Sources</h2>
-    <ul>
-      {park.sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
+    <h2>More National Parks With Waterfalls</h2>
+    <ul class="related">
+      {related.map(({ p }) => <li><a href={p.url}>{p.name}</a> <span class="muted small">{p.falls.length} {p.falls.length === 1 ? 'waterfall' : 'waterfalls'} in {stateLabel([...new Map(p.falls.map((f) => [f.stateSlug, { name: f.state }])).values()])}</span></li>)}
     </ul>
+    <p><a href="/national-parks">See all {all.length} national parks with waterfalls</a>, or browse every waterfall in {states.map((s, i) => <>{i ? ' and ' : ''}<a href={`/states/${s.slug}`}>{s.name}</a></>)}.</p>
+
+    <h2>About This Guide and Sources</h2>
+    <p>{story.method}</p>
+    <details class="sources">
+      <summary>Sources ({park.sources.length})</summary>
+      <ul>
+        {park.sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
+      </ul>
+    </details>
   </article>
 </Base>
+
+<style>
+  .glance { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 18px; margin: 22px 0; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--mist-2); }
+  .glance div { min-width: 0; }
+  .glance dt { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate-soft); }
+  .glance dd { margin: 2px 0 0; font-size: 0.95rem; color: var(--ink); }
+  .toc { margin: 0 0 26px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; font-size: 0.92rem; }
+  .toc .sep { margin: 0 8px; color: var(--slate-soft); }
+  .related { padding-left: 1.1em; }
+  .sources { margin-top: 10px; }
+  .sources summary { cursor: pointer; font-weight: 600; }
+</style>

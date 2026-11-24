@@ -11,6 +11,7 @@ import { trailFor } from './trails.mjs';
 import { tripFacts } from './tripfacts.mjs';
 import { statedHeight } from './bestof.mjs';
 import { parkRecords, parkNarrative } from './park-copy.mjs';
+import { parkFaqs } from './park-faq.mjs';
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -61,6 +62,22 @@ function gaugeFor(slug) {
   };
 }
 
+// Wikimedia captions arrive as long, sometimes first-person or metadata-laden text. Show one clean sentence.
+const META = /\b(Keywords|Subjects|Places|Notes|Extent|Image Number|Image title|Photographer|Location)\b\s*:?|\bDescription\b/;
+function cleanCaption(text, fileTitle, fallback) {
+  let t = String(text || '').replace(/\s+/g, ' ').trim();
+  t = t.replace(/\s*Keywords:.*$/i, '').replace(/^Title:\s*/i, '').split(/\s+(?:Subjects|Places|Notes|Extent)\s*:/)[0];
+  const ok = (s) => !/\b(I|my|me|we|our)\b/.test(s) && !META.test(s) && !/[0-9a-f]{20,}/.test(s);
+  let out = '';
+  for (const s of t.split(/(?<=[.!?])\s+/).filter(ok)) {
+    if (`${out} ${s}`.trim().length > 150) break;
+    out = `${out} ${s}`.trim();
+  }
+  if (out.length >= 15) return out;
+  const fromFile = String(fileTitle || '').replace(/^File:/i, '').replace(/\.(jpe?g|png|webp|tiff?)$/i, '').replace(/_/g, ' ').replace(/\s+-\s+[^-]*$/, '').replace(/\s+\d{4}-\d+.*$/, '').trim();
+  return fromFile.length >= 8 ? fromFile : fallback;
+}
+
 function imagesFor(slug) {
   const all = readJson('data/park-images.json');
   const list = all[slug];
@@ -73,7 +90,19 @@ function imagesFor(slug) {
     'death-valley': /coyote canyon|flash flood/i,
   };
   const re = banned[slug];
-  return list.filter((img) => img?.src && img.alt && img.credit && !(re && re.test(`${img.caption} ${img.fileTitle} ${img.alt}`)));
+  return list
+    .filter((img) => img?.src && img.alt && img.credit && !(re && re.test(`${img.caption} ${img.fileTitle} ${img.alt}`)))
+    .map((img) => {
+      const caption = cleanCaption(img.caption, img.fileTitle, 'National park photo');
+      return { ...img, caption, alt: cleanCaption(img.alt, img.fileTitle, caption) };
+    });
+}
+
+// Plain-language park copy lives in src/content/parks/<slug>.json. It replaces the generated prose
+// when present; the old generator in park-copy.mjs stays as a fallback and for tips.
+function humanCopy(slug) {
+  const file = path.join(process.cwd(), 'src/content/parks', `${slug}.json`);
+  return existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null;
 }
 
 function fallRecord(url, override) {
@@ -208,7 +237,25 @@ export function getParks() {
     const gauge = gaugeFor(rec.slug);
     const images = imagesFor(rec.slug);
     const ctx = { ...analysis, falls, gauge, name: rec.name };
-    const narrative = parkNarrative(rec.slug, ctx);
+    const generated = parkNarrative(rec.slug, ctx);
+    const human = humanCopy(rec.slug);
+    const narrative = human
+      ? {
+          ...generated,
+          ...human,
+          effort: [],
+          towns: '',
+          tableLead: '',
+          fallsIntro: human.fallsIntro || '',
+          plan: human.plan || [],
+          flow: human.flow || [],
+          feesLead: human.feesLead || '',
+          access: human.access || [],
+          safety: human.safety || [],
+          tips: human.tips || generated.tips,
+          method: human.method || `This guide to ${rec.name} brings together National Park Service pages, USGS records, our trail and map data, Google review totals and, where one is within 30 miles, a USGS stream gauge. When we don't have a number, we leave it out instead of guessing.`,
+        }
+      : generated;
     const sources = [];
     const add = (title, url) => {
       if (!url || sources.some((s) => s.url === url)) return;
@@ -251,7 +298,8 @@ export function parksForState(stateSlug) {
 
 export function parkQualifies(p) {
   if (!p?.falls?.length || !p.narrative?.overview?.length) return false;
-  const words = JSON.stringify(p.narrative).split(/\s+/).length;
+  // Count what the page actually shows: the copy, the fee table and the FAQ.
+  const words = JSON.stringify([p.narrative, p.fees || [], parkFaqs(p)]).replace(/<[^>]+>/g, '').split(/\s+/).length;
   return p.falls.length >= 2 || words >= 350;
 }
 

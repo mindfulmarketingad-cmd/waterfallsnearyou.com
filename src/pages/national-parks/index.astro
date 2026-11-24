@@ -1,33 +1,134 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageBand from '../../components/PageBand.astro';
-import { getParks, parkQualifies } from '../../lib/parks.mjs';
+import Faq from '../../components/Faq.astro';
 import { hubCopy } from '../../lib/park-copy.mjs';
-import { fmtNum } from '../../lib/format.mjs';
+import { parkCards, mileText, fmtNum } from '../../lib/park-cards.mjs';
+import { stateLabel } from '../../lib/park-title.mjs';
 import { SITE } from '../../config.mjs';
 
-const parks = getParks().filter(parkQualifies);
-const states = [...new Set(parks.flatMap((p) => p.falls.map((f) => f.state)))].sort();
-const groups = states.map((state) => ({
-  state,
-  parks: parks.filter((p) => p.falls.some((f) => f.state === state)).sort((a, b) => a.name.localeCompare(b.name)),
-}));
-const crumbs = [{ name: 'Home', url: '/' }, { name: 'National Parks', url: '/national-parks' }];
-const title = 'National park waterfalls';
-const description = `Waterfall guides for ${parks.length} US national parks, matched to official boundaries, with trail stats, fees, and stream-gauge timing where a source exists.`;
-const schema = [{
-  '@type': 'CollectionPage',
-  name: title,
-  url: `${SITE.url}/national-parks`,
-  description,
-  author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` },
-}];
+const cards = parkCards();
+const states = [...new Map(cards.flatMap((c) => c.states).map((s) => [s.slug, s])).values()].sort((a, b) => a.name.localeCompare(b.name));
+const towns = [...new Map(cards.flatMap((c) => c.towns).map((t) => [`${t.state}|${t.slug}`, t])).values()]
+  .sort((a, b) => a.name.localeCompare(b.name) || a.stateCode.localeCompare(b.stateCode));
+const total = cards.reduce((s, c) => s + c.count, 0);
+const byCount = [...cards].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+const link = (c) => `<a href="${c.url}">${c.name}</a>`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'National Parks With Waterfalls', url: '/national-parks' }];
+const title = 'National Parks With Waterfalls';
+const description = `Find a national park with a waterfall near you. Browse ${cards.length} parks in ${states.length} states, filter by state, nearby town or distance, and see the waterfalls in each.`;
+
+const easy = cards.filter((c) => c.easy).sort((a, b) => Number(a.easy.miles) - Number(b.easy.miles) || a.name.localeCompare(b.name)).slice(0, 5);
+const gauged = cards.filter((c) => c.peakMonth).sort((a, b) => a.name.localeCompare(b.name));
+const faqs = [
+  {
+    q: 'Which national parks have waterfalls?',
+    a: `${cards.length} national parks in ${states.length} states have waterfall pages on this site. The biggest collections are ${byCount.slice(0, 5).map((c) => `${link(c)} (${c.count})`).join(', ')}. Every park above links to its own guide with each waterfall, trail facts, fees and the best time to go.`,
+  },
+  {
+    q: 'Which national park has the most waterfalls?',
+    a: `Of the parks we cover, ${link(byCount[0])} has the most, with ${byCount[0].count} waterfalls we have published pages for, followed by ${link(byCount[1])} (${byCount[1].count}) and ${link(byCount[2])} (${byCount[2].count}). Those counts are the named falls in our directory that sit inside each park's official boundary, so they are not a count of every waterfall in the park.`,
+  },
+  {
+    q: 'How do I find a national park with a waterfall near me?',
+    a: `Press "Use my location" above the grid. Your browser asks permission once, then every park shows how many miles away it is and the closest waterfall in it, and the list sorts nearest first. Your location is used only inside your browser to do that math. It is never sent to us or stored. You can also pick your state or the nearest town, or type a park or place name.`,
+  },
+  {
+    q: 'Which national park waterfalls are the easiest to walk to?',
+    a: `The shortest published walks are ${easy.map((c) => `<a href="${c.easy.url}">${c.easy.name}</a> in ${c.name.replace(' National Park', '')} (${mileText(c.easy)})`).join(', ')}. Walk lengths come from our trail files or cited National Park Service pages. Parks that are not listed here either have no published trail length for their falls or a longer walk.`,
+  },
+  {
+    q: 'When is the best time to see waterfalls in a national park?',
+    a: `It depends on the park, because most waterfalls follow snowmelt or rain. Where a USGS stream gauge sits within 30 miles of a waterfall, the park guide charts monthly average flow for 2019 through 2024. The busiest month on those charts is ${gauged.slice(0, 8).map((c) => `${c.name.replace(' National Park', '')} in ${c.peakMonth}`).join(', ')}${gauged.length > 8 ? ' and more' : ''}. Treat these as the typical high-water month for the nearest stream, not a promise for a specific waterfall.`,
+  },
+  {
+    q: 'Do you have to pay to see waterfalls in a national park?',
+    a: `Waterfalls inside a national park are covered by that park's entrance rules. Each park sets its own fees, and a few charge none. The fee details we found on the National Park Service site are written out on each park's guide (${cards.filter((c) => c.hasFees).length} of the ${cards.length} parks here have a fee record), with a link to the official fee page so you can confirm the current price before you go.`,
+  },
+  {
+    q: 'How were these parks chosen?',
+    a: `A waterfall is included when its coordinates sit inside the National Park Service boundary for that park. National parks only are included. Lakeshores, parkways, monuments, seashores and recreation areas are left out even when an NPS page covers a waterfall. The full method is in the <a href="#method">How We Chose These Parks</a> section below.`,
+  },
+];
+
+const schema = [
+  { '@type': 'CollectionPage', name: title, url: `${SITE.url}/national-parks`, description, author: { '@type': 'Person', name: 'David F.', url: `${SITE.url}/about` } },
+  { '@type': 'ItemList', name: title, numberOfItems: cards.length, itemListElement: cards.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE.url}${c.url}`, name: `${c.name} Waterfalls in ${stateLabel(c.states)}` })) },
+  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) },
+];
 ---
-<Base title={`${title} | WaterfallsNearYou`} description={description} breadcrumbs={crumbs} bandCrumbs schema={schema}>
+<Base title={`${title} | WaterfallsNearYou`} description={description} image={cards.find((c) => c.image)?.image.full} breadcrumbs={crumbs} bandCrumbs schema={schema}>
   <PageBand title={title} crumbs={crumbs}>
     <p>{hubCopy.dek}</p>
   </PageBand>
-  <article class="wrap narrow section-sm prose">
+
+  <div class="wrap section-sm">
+    <p class="pk-lead">These are the <strong>{cards.length} national parks with waterfalls</strong> we cover, with <strong>{fmtNum(total)} waterfalls</strong> in all across {states.length} states. Pick your state or town, or let the page find the closest park to you.</p>
+
+    <h2 class="pk-h2" id="browse">Browse All {cards.length} National Parks With Waterfalls</h2>
+    <form class="pk-tools" id="pk-tools" aria-label="Find a national park" hidden>
+      <div class="pk-row">
+        <button type="button" class="btn btn-green" id="pk-locate">Use my location</button>
+        <label class="pk-field"><span>State</span>
+          <select id="pk-state"><option value="">All states</option>{states.map((s) => <option value={s.slug}>{s.name}</option>)}</select>
+        </label>
+        <label class="pk-field"><span>Nearest town</span>
+          <select id="pk-town"><option value="">All towns</option>{towns.map((t) => <option value={`${t.state}|${t.slug}`} data-state={t.state}>{t.name}, {t.stateCode}</option>)}</select>
+        </label>
+        <label class="pk-field"><span>Distance from me</span>
+          <select id="pk-dist" disabled><option value="">Any distance</option><option value="50">Within 50 miles</option><option value="100">Within 100 miles</option><option value="250">Within 250 miles</option><option value="500">Within 500 miles</option></select>
+        </label>
+        <label class="pk-field pk-grow"><span>Search</span>
+          <input type="search" id="pk-q" placeholder="Park, state or town" autocomplete="off" />
+        </label>
+        <label class="pk-field"><span>Sort</span>
+          <select id="pk-sort"><option value="count">Most waterfalls</option><option value="name">Park name</option><option value="near" disabled>Nearest to me</option></select>
+        </label>
+      </div>
+      <p class="pk-status" role="status" aria-live="polite"><span id="pk-count">{cards.length} parks</span> <button type="button" class="linkish" id="pk-reset" hidden>Reset filters</button></p>
+      <p class="pk-near" id="pk-near" hidden></p>
+    </form>
+
+    <ul class="pk-grid" id="pk-grid">
+      {byCount.map((c) => (
+        <li class="pk-card"
+          data-name={c.name} data-count={c.count}
+          data-states={c.states.map((s) => s.slug).join(',')}
+          data-towns={c.towns.map((t) => `${t.state}|${t.slug}`).join(',')}
+          data-search={c.searchText}
+          data-pts={JSON.stringify(c.points)}>
+          <a class="pk-img" href={c.url} tabindex="-1" aria-hidden="true">
+            {c.image
+              ? <img src={c.image.src} alt="" width="560" height="350" loading="lazy" decoding="async" />
+              : <span class="pk-noimg"></span>}
+          </a>
+          <div class="pk-body">
+            <h3 class="pk-name"><a href={c.url}>{c.name}</a></h3>
+            <p class="pk-states">{c.states.map((s) => s.name).join(' and ')}</p>
+            <p class="pk-dist" hidden></p>
+            <ul class="pk-facts">
+              <li><strong>{c.count}</strong> {c.count === 1 ? 'waterfall' : 'waterfalls'}</li>
+              {c.nearestTown && <li>Nearest town: {c.nearestTown.name}</li>}
+              {c.easy && <li>Shortest walk: {mileText(c.easy)}</li>}
+              {c.top && c.top.reviews > 0 && <li>Most reviewed: <a href={c.top.url}>{c.top.name}</a>{c.top.rating ? ` (${c.top.rating.toFixed(1)} stars)` : ''}</li>}
+              {c.peakMonth && <li>Peak stream flow: {c.peakMonth}</li>}
+            </ul>
+            <a class="pk-go" href={c.url}>See {c.name.replace(' National Park', '')} waterfalls</a>
+            {c.image && <p class="pk-credit">Photo: <a href={c.image.sourceUrl} rel="noopener" target="_blank">{c.image.credit}</a>, {c.image.license}</p>}
+          </div>
+        </li>
+      ))}
+    </ul>
+    <nav class="pk-pager" id="pk-pager" aria-label="Park pages" hidden>
+      <button type="button" class="btn btn-outline" id="pk-prev">Previous</button>
+      <span id="pk-page" class="muted small"></span>
+      <button type="button" class="btn btn-outline" id="pk-next">Next</button>
+    </nav>
+    <p class="pk-empty" id="pk-empty" hidden>No national parks match those filters. <button type="button" class="linkish" id="pk-reset2">Reset filters</button></p>
+  </div>
+
+  <section class="wrap narrow section-sm prose" id="method" aria-labelledby="method-h">
+    <h2 id="method-h">How We Chose These Parks</h2>
     <div class="byline">
       <span class="avatar" aria-hidden="true">DF</span>
       <div>
@@ -36,56 +137,158 @@ const schema = [{
       </div>
     </div>
     {hubCopy.paragraphs.map((p) => <p>{p}</p>)}
-    <p>Heights for the falls in these parks, set next to every other state, are in <a href="/blog/largest-waterfalls-in-the-us-by-state">Largest waterfalls in the United States, by state</a>. That guide uses a park sentence or a USGS sentence and leaves the height blank when neither exists.</p>
-    <p>{fmtNum(parks.length)} parks qualify, covering {fmtNum(parks.reduce((s, p) => s + p.falls.length, 0))} published waterfall pages. The list is grouped by the state of those falls. A park on a state line appears in each state where one of its falls sits.</p>
-    <label class="small" for="park-sort">Sort</label>
-    <select id="park-sort">
-      <option value="state">By state</option>
-      <option value="falls">By number of waterfalls</option>
-      <option value="name">By park name</option>
-    </select>
-    <div id="park-groups">
-      {groups.map((g) => (
-        <section class="park-group" data-state={g.state}>
-          <h2>{g.state}</h2>
-          <ul class="park-index">
-            {g.parks.map((p) => {
-              const inState = p.falls.filter((f) => f.state === g.state);
-              return (
-                <li data-name={p.name} data-count={p.falls.length}>
-                  <a href={p.url}><strong>{p.name}</strong></a>
-                  <span class="muted small">{inState.length} published {inState.length === 1 ? 'waterfall' : 'waterfalls'} in {g.state}{p.falls.length !== inState.length ? `, ${p.falls.length} in the park` : ''}</span>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      ))}
-    </div>
-  </article>
+    <p>Heights for the falls in these parks, set next to every other state, are in <a href="/blog/largest-waterfalls-in-the-us-by-state">Largest Waterfalls in the United States, by State</a>.</p>
+  </section>
+
+  <section class="wrap narrow section-sm">
+    <Faq faqs={faqs} heading="National Parks With Waterfalls: Frequently Asked Questions" />
+  </section>
 </Base>
+
+<style>
+  .pk-h2 { margin: 6px 0 14px; }
+  .pk-lead { max-width: 820px; font-size: 1.08rem; margin: 0 0 18px; }
+  .pk-tools { position: sticky; top: 64px; z-index: 20; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px 10px; margin-bottom: 20px; box-shadow: var(--shadow); }
+  .pk-row { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: flex-end; }
+  .pk-field { display: flex; flex-direction: column; gap: 3px; font-size: 0.78rem; font-weight: 600; color: var(--slate); min-width: 0; }
+  .pk-field select, .pk-field input { font: inherit; font-weight: 400; font-size: 0.95rem; padding: 9px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); min-width: 0; }
+  .pk-grow { flex: 1 1 180px; }
+  .pk-status { margin: 10px 0 0; font-size: 0.9rem; color: var(--slate); display: flex; gap: 14px; align-items: center; }
+  .pk-near { margin: 8px 0 2px; padding: 10px 14px; border-radius: 10px; background: var(--mist); font-size: 0.95rem; }
+  .pk-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  .pk-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; min-width: 0; }
+  .pk-img { display: block; aspect-ratio: 16 / 10; background: var(--mist); }
+  .pk-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pk-noimg { display: block; width: 100%; height: 100%; }
+  .pk-body { padding: 14px 16px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .pk-name { font-size: 1.15rem; margin: 0; line-height: 1.2; }
+  .pk-name a { color: var(--slate-dark); text-decoration: none; }
+  .pk-name a:hover { text-decoration: underline; }
+  .pk-states { margin: 0; font-size: 0.84rem; font-weight: 600; color: var(--forest); text-transform: uppercase; letter-spacing: 0.06em; }
+  .pk-dist { margin: 0; padding: 6px 10px; border-radius: 8px; background: var(--mist); font-size: 0.88rem; }
+  .pk-facts { list-style: none; margin: 2px 0 6px; padding: 0; font-size: 0.9rem; color: var(--slate); display: grid; gap: 3px; }
+  .pk-go { margin-top: auto; font-weight: 600; font-size: 0.92rem; }
+  .pk-credit { margin: 6px 0 0; font-size: 0.72rem; color: var(--slate-soft); }
+  .pk-pager { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 22px; }
+  .pk-empty { padding: 24px; text-align: center; color: var(--slate); }
+  .linkish { background: none; border: 0; padding: 0; color: var(--forest); text-decoration: underline; cursor: pointer; font: inherit; }
+  @media (max-width: 1100px) { .pk-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 820px) { .pk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pk-tools { position: static; } }
+  @media (max-width: 520px) { .pk-grid { grid-template-columns: minmax(0, 1fr); } .pk-field { flex: 1 1 140px; } }
+</style>
+
 <script>
-  const select = document.getElementById('park-sort');
-  const root = document.getElementById('park-groups');
-  const original = root.innerHTML;
-  select?.addEventListener('change', () => {
-    if (select.value === 'state') {
-      root.innerHTML = original;
-      return;
+  const $ = (id: string) => document.getElementById(id) as any;
+  const form = $('pk-tools');
+  const grid = $('pk-grid');
+  if (form && grid) {
+    form.hidden = false;
+    const cards: HTMLElement[] = [...grid.querySelectorAll('.pk-card')];
+    const el = { state: $('pk-state'), town: $('pk-town'), dist: $('pk-dist'), q: $('pk-q'), sort: $('pk-sort'), locate: $('pk-locate'), count: $('pk-count'), near: $('pk-near'), empty: $('pk-empty'), reset: $('pk-reset'), reset2: $('pk-reset2'), pager: $('pk-pager'), prev: $('pk-prev'), next: $('pk-next'), page: $('pk-page') };
+    // Pagination only switches on when more than PAGE_SIZE parks match; at 20 parks it never shows.
+    const PAGE_SIZE = 24;
+    let page = 1;
+    let me: { lat: number; lng: number } | null = null;
+
+    const miles = (a: number, b: number, c: number, d: number) => {
+      const r = Math.PI / 180;
+      const h = Math.sin(((c - a) * r) / 2) ** 2 + Math.cos(a * r) * Math.cos(c * r) * Math.sin(((d - b) * r) / 2) ** 2;
+      return 3958.8 * 2 * Math.asin(Math.sqrt(h));
+    };
+    const fmtMi = (n: number) => (n < 10 ? n.toFixed(1) : Math.round(n).toLocaleString('en-US'));
+
+    function locate(pos: { lat: number; lng: number }) {
+      me = pos;
+      for (const c of cards) {
+        const pts = JSON.parse(c.dataset.pts || '[]') as [number, number, string, string][];
+        let best: [number, number, string, string] | null = null;
+        let bd = Infinity;
+        for (const p of pts) { const d = miles(pos.lat, pos.lng, p[0], p[1]); if (d < bd) { bd = d; best = p; } }
+        c.dataset.dist = String(bd);
+        const line = c.querySelector('.pk-dist') as HTMLElement;
+        if (best) {
+          line.replaceChildren(`${fmtMi(bd)} miles from you. Closest waterfall: `);
+          const a = document.createElement('a'); a.href = best[3]; a.textContent = best[2]; line.append(a);
+          line.hidden = false;
+        }
+      }
+      el.dist.disabled = false;
+      el.sort.querySelector('option[value="near"]').disabled = false;
+      el.sort.value = 'near';
+      apply();
     }
-    const items = [...root.querySelectorAll('li')];
-    const seen = new Set();
-    const unique = items.filter((li) => {
-      const name = li.dataset.name;
-      if (seen.has(name)) return false;
-      seen.add(name);
-      return true;
-    });
-    unique.sort((a, b) => select.value === 'falls'
-      ? Number(b.dataset.count) - Number(a.dataset.count) || a.dataset.name.localeCompare(b.dataset.name)
-      : a.dataset.name.localeCompare(b.dataset.name));
-    root.innerHTML = `<section class="park-group"><h2>${select.value === 'falls' ? 'Most waterfalls on our pages' : 'All parks'}</h2><ul class="park-index"></ul></section>`;
-    const ul = root.querySelector('ul');
-    for (const li of unique) ul.append(li);
-  });
+
+    function apply(keepPage = false) {
+      if (keepPage !== true) page = 1;
+      const state = el.state.value, town = el.town.value, max = Number(el.dist.value) || Infinity, q = el.q.value.trim().toLowerCase();
+      for (const o of el.town.options) o.hidden = !!(state && o.dataset.state && o.dataset.state !== state);
+      if (town && state && el.town.selectedOptions[0]?.dataset.state !== state) el.town.value = '';
+      const t = el.town.value;
+      let shown: HTMLElement[] = [];
+      for (const c of cards) {
+        c.dataset.match = '';
+        const ok = (!state || c.dataset.states!.split(',').includes(state))
+          && (!t || c.dataset.towns!.split(',').includes(t))
+          && (!q || c.dataset.search!.includes(q))
+          && (!me || Number(c.dataset.dist) <= max);
+        if (ok) { shown.push(c); c.dataset.match = '1'; }
+      }
+      const by = el.sort.value;
+      shown.sort((a, b) => by === 'near' && me ? Number(a.dataset.dist) - Number(b.dataset.dist)
+        : by === 'name' ? a.dataset.name!.localeCompare(b.dataset.name!)
+        : Number(b.dataset.count) - Number(a.dataset.count) || a.dataset.name!.localeCompare(b.dataset.name!));
+      for (const c of shown) grid.append(c);
+      const pages = Math.max(1, Math.ceil(shown.length / PAGE_SIZE));
+      page = Math.min(page, pages);
+      const from = (page - 1) * PAGE_SIZE;
+      for (const c of cards) c.hidden = !(c.dataset.match === '1' && shown.indexOf(c) >= from && shown.indexOf(c) < from + PAGE_SIZE);
+      el.pager.hidden = pages <= 1;
+      el.page.textContent = `Page ${page} of ${pages}`;
+      el.prev.disabled = page <= 1;
+      el.next.disabled = page >= pages;
+      el.count.textContent = `${shown.length} ${shown.length === 1 ? 'park' : 'parks'}`;
+      el.empty.hidden = shown.length > 0;
+      const filtered = !!(state || t || q || Number(el.dist.value));
+      el.reset.hidden = !filtered;
+      if (me && shown.length) {
+        const nearest = [...shown].sort((a, b) => Number(a.dataset.dist) - Number(b.dataset.dist))[0];
+        const within = cards.filter((c) => Number(c.dataset.dist) <= 250).length;
+        el.near.replaceChildren(`Closest to you: `);
+        const a = document.createElement('a'); a.href = nearest.querySelector<HTMLAnchorElement>('.pk-name a')!.href; a.textContent = nearest.dataset.name!;
+        el.near.append(a, ` (${fmtMi(Number(nearest.dataset.dist))} miles away). ${within} ${within === 1 ? 'park has' : 'parks have'} a waterfall within 250 miles of you.`);
+        el.near.hidden = false;
+      } else el.near.hidden = true;
+      const p = new URLSearchParams();
+      if (state) p.set('state', state); if (t) p.set('town', t); if (q) p.set('q', el.q.value.trim());
+      history.replaceState(null, '', p.toString() ? `?${p}` : location.pathname);
+    }
+
+    function reset() { el.state.value = ''; el.town.value = ''; el.dist.value = ''; el.q.value = ''; apply(); }
+    for (const k of ['state', 'town', 'dist', 'sort']) el[k].addEventListener('change', () => apply());
+    el.prev.addEventListener('click', () => { page -= 1; apply(true); window.scrollTo({ top: grid.offsetTop - 120, behavior: 'smooth' }); });
+    el.next.addEventListener('click', () => { page += 1; apply(true); window.scrollTo({ top: grid.offsetTop - 120, behavior: 'smooth' }); });
+    el.q.addEventListener('input', () => apply());
+    el.reset.addEventListener('click', reset);
+    el.reset2.addEventListener('click', reset);
+    form.addEventListener('submit', (e: Event) => e.preventDefault());
+
+    const ask = () => {
+      if (!('geolocation' in navigator)) { el.near.textContent = 'Your browser cannot share a location. Pick your state or nearest town instead.'; el.near.hidden = false; return; }
+      el.locate.textContent = 'Finding you...';
+      navigator.geolocation.getCurrentPosition(
+        (p) => { el.locate.textContent = 'Location found'; locate({ lat: p.coords.latitude, lng: p.coords.longitude }); },
+        () => { el.locate.textContent = 'Use my location'; el.near.textContent = 'We could not get your location. Pick your state or nearest town instead.'; el.near.hidden = false; },
+        { maximumAge: 600000, timeout: 10000 },
+      );
+    };
+    el.locate.addEventListener('click', ask);
+
+    const params = new URLSearchParams(location.search);
+    el.state.value = params.get('state') || '';
+    el.town.value = params.get('town') || '';
+    el.q.value = params.get('q') || '';
+    apply();
+    // If the visitor already allowed location for this site, use it without another prompt.
+    (navigator as any).permissions?.query?.({ name: 'geolocation' }).then((s: any) => { if (s.state === 'granted') ask(); }).catch(() => {});
+  }
 </script>

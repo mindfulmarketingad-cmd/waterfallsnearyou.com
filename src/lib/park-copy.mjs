@@ -8,7 +8,7 @@ const mi = (m) => (m < 0.2 ? `${Math.round(m * 5280)} feet` : `${(Math.round(m *
 const find = (ctx, name) => ctx.falls.find((f) => f.name === name);
 
 export const hubCopy = {
-  dek: 'National parks in which our published waterfall pages actually sit, matched to official park boundaries and then compared with the trail and review data we already have.',
+  dek: 'Find a national park with a waterfall near you. Filter by state, nearby town or distance, then open a park to see its waterfalls, walking distances, fees and the best time to go.',
   paragraphs: [
     'This list is the national parks that contain waterfall pages we already publish. A fall is included when its coordinates fall inside the National Park Service administrative boundary. Hadlock Falls is the exception: the mapped point sits just outside the Acadia polygon, but the USGS gazetteer says "Located in Acadia NP" and the park describes the fall from Waterfall Bridge. National lakeshores, parkways, monuments, seashores, and recreation areas are not in this list, even when an NPS page covers the fall.',
     'Parks with one published fall are here only because the park itself has a sourced fee, season, or access record worth reading next to that fall. Parks with no published waterfall page are left off. Bridal Veil Falls in Bedford, Ohio, falls inside the Cuyahoga Valley boundary file but the USGS text places it in Bedford Reservation, so it is not treated as a park fall.',
