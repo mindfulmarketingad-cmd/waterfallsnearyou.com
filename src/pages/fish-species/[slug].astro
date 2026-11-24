@@ -96,6 +96,8 @@ const schema = [
 ];
 const fieldLabel = { waterBody: 'water body', verbatimWaterBody: 'verbatim water body', locality: 'locality', verbatimLocality: 'verbatim locality' };
 const fieldText = (fields: Record<string, number>) => Object.entries(fields).map(([k, n]) => `${fieldLabel[k as keyof typeof fieldLabel] || k} (${n})`).join(', ');
+import { loadData as __load } from '../../lib/core.mjs';
+const stateByCode = Object.fromEntries(__load().states.map((st) => [st.code, st]));
 ---
 <Base title={`${title} | WaterfallsNearYou`} description={description} image={species.photo?.src} imageAlt={species.photo?.alt} breadcrumbs={crumbs} schema={schema} type="article" published={catalog.generated} modified={catalog.generated} preloadImage={species.photo?.src}>
   <section class="page-hero">
@@ -224,7 +226,7 @@ const fieldText = (fields: Record<string, number>) => Object.entries(fields).map
           <div><dt>Streams</dt><dd>{streamCount} named</dd></div>
           <div><dt>Records</dt><dd>{fmtNum(species.recordCount)}</dd></div>
           <div><dt>Years</dt><dd>{species.yearMin}–{species.yearMax}</dd></div>
-          <div><dt>States</dt><dd>{species.states.join(', ')}</dd></div>
+          <div><dt>States</dt><dd>{species.states.map((c, i) => <>{i ? ', ' : ''}{stateByCode[c] ? <a href={`/states/${stateByCode[c].slug}`} title={`${stateByCode[c].name} waterfalls`}>{c}</a> : c}</>)}</dd></div>
           <div><dt>NAS flag</dt><dd>{flaggedStates.length ? `Nonindigenous records in ${flaggedStates.map((s) => s.code).join(', ')}` : 'No NAS nonindigenous record in these states'}</dd></div>
         </dl>
       </div>
