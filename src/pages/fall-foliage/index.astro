@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PageBand from '../../components/PageBand.astro';
 import { getFoliageHub } from '../../lib/foliage.mjs';
 import FoliageViewer from '../../components/FoliageViewer.astro';
+import FoliageTimelineMap from '../../components/FoliageTimelineMap.astro';
 import { foliageUsEmbed } from '../../lib/foliage-map.mjs';
 import { stateOutline } from '../../lib/state-outline.mjs';
 import { SITE } from '../../config.mjs';
@@ -27,7 +28,7 @@ const schema = [{
   <PageBand title={title} crumbs={crumbs}>
     <p>{hub.dek}</p>
   </PageBand>
-  <FoliageViewer embed={usEmbed} name="the United States" scope="us" nearest={nearest} />
+  <FoliageTimelineMap scope="us" />
   <article class="wrap narrow section-sm prose">
     {hero && (
       <figure class="park-photo">
@@ -97,4 +98,9 @@ const schema = [{
       {hub.sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
     </ul>
   </article>
+  <section class="wrap section-sm" aria-labelledby="live-h">
+    <h2 id="live-h">Live Supplement: Esri Fall Foliage Viewing</h2>
+    <p class="muted">The map above shows typical timing. This public Esri map is a separate, live-style supplement. Its colored forecast layer covers Massachusetts only, so use it for that state and treat the rest as a base map.</p>
+  </section>
+  <FoliageViewer embed={usEmbed} name="the United States" scope="us" nearest={nearest} />
 </Base>

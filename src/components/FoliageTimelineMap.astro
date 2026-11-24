@@ -1,0 +1,220 @@
+---
+// Wide fall foliage map: every state colored by its typical fall color stage on the date picked with
+// the slider, from data/foliage-peaks.json (summarized from the sources cited on each state guide).
+// This is typical timing, not a live observation. On a state page the map zooms to that state and
+// marks its waterfalls. The map follows the visitor's location when the browser already allows it.
+interface Props {
+  scope: 'us' | 'state';
+  slug?: string;
+  name?: string;
+  bounds?: { west: number; south: number; east: number; north: number };
+  falls?: { n: string; u: string; la: number; ln: number }[];
+}
+const { scope, slug = '', name = 'the United States', bounds, falls = [] } = Astro.props;
+const cfg = JSON.stringify({ scope, slug, name, bounds, falls }).replace(/</g, '\\u003c');
+---
+<section class="ft" id="foliage-timeline" aria-label={`Typical fall color timing map of ${name}`} data-ft={cfg}>
+  <div class="ft-bar">
+    <div class="ft-date">
+      <label for="ft-slider" class="ft-label">Date: <strong class="ft-day">October 10</strong></label>
+      <input id="ft-slider" class="ft-slider" type="range" min="0" max="90" step="1" value="40" aria-describedby="ft-note" />
+      <div class="ft-ends small muted" aria-hidden="true"><span>Sep 1</span><span>Oct 1</span><span>Nov 1</span><span>Nov 30</span></div>
+    </div>
+    <div class="ft-actions">
+      <button type="button" class="btn btn-outline ft-play" hidden>Play season</button>
+      <button type="button" class="btn btn-outline ft-today" hidden>Today</button>
+      <button type="button" class="btn btn-outline ft-loc" hidden>Use my location</button>
+      <button type="button" class="btn btn-outline ft-home" hidden>{scope === 'us' ? 'Show the whole U.S.' : `Show all of ${name}`}</button>
+    </div>
+  </div>
+  <p class="ft-status" role="status" aria-live="polite"></p>
+  <div class="ft-map" aria-label={`Map of typical fall color in ${name}`}></div>
+  <p class="ft-key small" aria-hidden="true"></p>
+  <p id="ft-note" class="ft-note small muted">Typical timing, not a live report. Each state's window is summarized from the state tourism, forestry and Forest Service sources cited on its guide, so it moves with the weather and with elevation inside a state. Where a source gives only one year's forecast, the popup says so.</p>
+  <noscript><p class="small">Turn on JavaScript for the interactive date slider. State guides below list each state's timing and sources.</p></noscript>
+</section>
+
+<style is:global>
+  .ft { width: 100%; max-width: 1480px; margin: 0 auto; padding: 14px 16px 6px; }
+  .ft-bar { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-end; justify-content: space-between; }
+  .ft-date { flex: 1 1 340px; min-width: 0; }
+  .ft-label { display: block; margin-bottom: 4px; font-size: 0.95rem; }
+  .ft-slider { width: 100%; accent-color: var(--forest); }
+  .ft-ends { display: flex; justify-content: space-between; }
+  .ft-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ft-actions .btn { padding: 8px 14px; font-size: 0.88rem; }
+  .ft-status { min-height: 1.5em; margin: 10px 0 8px; font-weight: 500; }
+  .ft-map { height: clamp(420px, 70vh, 740px); border: 1px solid var(--line); border-radius: 12px; background: var(--mist); }
+  .ft-key { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 10px 0 0; }
+  .ft-key span { display: inline-flex; align-items: center; gap: 6px; }
+  .ft-sw { width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(0, 0, 0, 0.25); display: inline-block; }
+  .ft-note { margin: 8px 0 0; max-width: 900px; }
+  .ft-pop { font-size: 0.88rem; line-height: 1.4; }
+  .ft-pop a { font-weight: 700; color: var(--forest); }
+  @media (max-width: 700px) { .ft-map { height: 62vh; } }
+</style>
+
+<script>
+  import { loadMapLibre } from '../scripts/wmap.js';
+  import { onLocation, requestLocation, autoLocate } from '../scripts/location.js';
+  import { STAGES, SEASON_START, mdOf, dayOf, fromDay, prettyDay, stageOn, windowText } from '../scripts/foliage-status.js';
+
+  const root = document.getElementById('foliage-timeline');
+  if (root) {
+    const cfg = JSON.parse(root.dataset.ft);
+    const $ = (s: string) => root.querySelector(s) as HTMLElement;
+    const slider = $('.ft-slider') as HTMLInputElement;
+    const dayEl = $('.ft-day');
+    const statusEl = $('.ft-status');
+    const mapEl = $('.ft-map');
+    const playBtn = $('.ft-play') as HTMLButtonElement;
+    const todayBtn = $('.ft-today') as HTMLButtonElement;
+    const locBtn = $('.ft-loc') as HTMLButtonElement;
+    const homeBtn = $('.ft-home') as HTMLButtonElement;
+    const key = $('.ft-key');
+    key.append(...Object.values(STAGES).map((s: any) => { const e = document.createElement('span'); const sw = document.createElement('i'); sw.className = 'ft-sw'; sw.style.background = s.color; e.append(sw, s.label); return e; }));
+
+    const base = dayOf(SEASON_START);
+    const now = new Date();
+    const todayMd = mdOf(now);
+    const inSeason = dayOf(todayMd) >= base && dayOf(todayMd) <= base + 90;
+    slider.value = String((inSeason ? dayOf(todayMd) : dayOf('10-10')) - base);
+    todayBtn.hidden = !inSeason;
+    playBtn.hidden = false;
+    locBtn.hidden = !('geolocation' in navigator);
+
+    let geo: any = null;
+    let map: any = null;
+    let ml: any = null;
+    let me: { lat: number; lng: number } | null = null;
+    let myState: any = null;
+    let zoomed = false;
+    const md = () => fromDay(base + +slider.value);
+
+    const inRing = (pt: number[], ring: number[][]) => { let c = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j]; if (yi > pt[1] !== yj > pt[1] && pt[0] < ((xj - xi) * (pt[1] - yi)) / (yj - yi) + xi) c = !c; } return c; };
+    const containing = (lng: number, lat: number) => geo?.features.find((f: any) => (f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates).some((poly: any) => inRing([lng, lat], poly[0]) && !poly.slice(1).some((h: any) => inRing([lng, lat], h))));
+
+    function colorize() {
+      const day = md();
+      for (const f of geo.features) f.properties.st = stageOn(f.properties.win, day);
+      map?.getSource('states')?.setData(geo);
+      if (cfg.scope === 'state' && map?.getSource('falls')) {
+        const st = geo.features.find((f: any) => f.properties.slug === cfg.slug)?.properties.st || 'none';
+        map.setPaintProperty('falls-dot', 'circle-color', (STAGES as any)[st].color);
+      }
+    }
+
+    function describe() {
+      const day = md();
+      dayEl.textContent = prettyDay(day);
+      if (!geo) { statusEl.textContent = ''; return; }
+      const f = cfg.scope === 'state' ? geo?.features.find((x: any) => x.properties.slug === cfg.slug) : myState;
+      const st = f ? stageOn(f.properties.win, day) : null;
+      if (cfg.scope === 'state') {
+        statusEl.textContent = f?.properties.win ? `${cfg.name} on ${prettyDay(day)}: ${(STAGES as any)[st].label.toLowerCase()}. Typical peak ${windowText(f.properties.win)}.` : `No published peak window for ${cfg.name}.`;
+      } else if (me && myState) {
+        statusEl.textContent = myState.properties.win ? `Where you are (${myState.properties.name}) on ${prettyDay(day)}: ${(STAGES as any)[st].label.toLowerCase()}. Typical peak ${windowText(myState.properties.win)}.` : `Where you are (${myState.properties.name}): no published peak window.`;
+      } else statusEl.textContent = `Typical fall color across the U.S. on ${prettyDay(day)}. Slide the date, or tap a state.`;
+    }
+
+    function popup(props: any, lngLat: number[]) {
+      const box = document.createElement('div');
+      box.className = 'ft-pop';
+      const day = md();
+      const st = stageOn(props.win, day);
+      const h = document.createElement('div'); const b = document.createElement('strong'); b.textContent = props.name; h.append(b);
+      const s = document.createElement('div'); s.textContent = `${prettyDay(day)}: ${(STAGES as any)[st].label}`;
+      box.append(h, s);
+      if (props.win) {
+        const w = document.createElement('div'); w.textContent = `Typical peak: ${windowText(props.win)}${props.win.kind === 'year' ? ' (one year’s forecast)' : ''}.`;
+        const n = document.createElement('div'); n.className = 'muted'; n.textContent = props.win.note;
+        box.append(w, n);
+      }
+      if (props.guide) { const g = document.createElement('div'); const a = document.createElement('a'); a.href = props.guide; a.textContent = `${props.name} fall foliage guide`; g.append(a); box.append(g); }
+      new ml.Popup({ offset: 6, maxWidth: '280px' }).setLngLat(lngLat).setDOMContent(box).addTo(map);
+    }
+
+    function fitState() {
+      const b = cfg.bounds;
+      if (b) map.fitBounds([[b.west, b.south], [b.east, b.north]], { padding: 40, duration: 0 });
+    }
+    function fitUs() { map.fitBounds([[-125, 24.4], [-66.9, 49.6]], { padding: 20, duration: 600 }); }
+
+    async function start() {
+      ml = await loadMapLibre();
+      geo = await (await fetch('/data/foliage-states.json')).json();
+      map = new ml.Map({ container: mapEl, style: 'https://tiles.openfreemap.org/styles/positron', bounds: cfg.scope === 'state' && cfg.bounds ? [[cfg.bounds.west, cfg.bounds.south], [cfg.bounds.east, cfg.bounds.north]] : [[-125, 24.4], [-66.9, 49.6]], fitBoundsOptions: { padding: cfg.scope === 'state' ? 40 : 20 }, cooperativeGestures: true, attributionControl: { compact: true } });
+      map.addControl(new ml.NavigationControl({ showCompass: false }), 'top-left');
+      map.addControl(new ml.FullscreenControl(), 'top-right');
+      mapEl.wmap = map;
+      map.on('load', () => {
+        for (const f of geo.features) f.properties.st = stageOn(f.properties.win, md());
+        map.addSource('states', { type: 'geojson', data: geo });
+        const color: any[] = ['match', ['get', 'st']];
+        for (const [k, v] of Object.entries(STAGES) as any) color.push(k, v.color);
+        color.push('#dfe3e1');
+        const dim = cfg.scope === 'state' ? ['case', ['==', ['get', 'slug'], cfg.slug], 0.85, 0.35] : 0.72;
+        map.addLayer({ id: 'states-fill', type: 'fill', source: 'states', paint: { 'fill-color': color, 'fill-opacity': dim } });
+        map.addLayer({ id: 'states-line', type: 'line', source: 'states', paint: { 'line-color': '#ffffff', 'line-width': 1 } });
+        if (cfg.scope === 'state' && cfg.falls.length) {
+          map.addSource('falls', { type: 'geojson', data: { type: 'FeatureCollection', features: cfg.falls.map((p: any) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [p.ln, p.la] }, properties: { n: p.n, u: p.u } })) } });
+          map.addLayer({ id: 'falls-dot', type: 'circle', source: 'falls', paint: { 'circle-radius': 6, 'circle-color': '#7fb069', 'circle-stroke-color': '#1d3d2e', 'circle-stroke-width': 2 } });
+          map.on('click', 'falls-dot', (e: any) => { const p = e.features[0].properties; const box = document.createElement('div'); box.className = 'ft-pop'; const a = document.createElement('a'); a.href = p.u; a.textContent = p.n; box.append(a); new ml.Popup({ offset: 8 }).setLngLat(e.features[0].geometry.coordinates).setDOMContent(box).addTo(map); e.originalEvent.stopPropagation(); });
+        }
+        map.addSource('me', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+        map.addLayer({ id: 'me', type: 'circle', source: 'me', paint: { 'circle-radius': 7, 'circle-color': '#1d6fe0', 'circle-stroke-color': '#fff', 'circle-stroke-width': 2.5 } });
+        map.on('click', 'states-fill', (e: any) => { if (map.queryRenderedFeatures(e.point, { layers: ['falls-dot'].filter((l) => map.getLayer(l)) }).length) return; popup(e.features[0].properties.win ? { ...e.features[0].properties, win: JSON.parse(e.features[0].properties.win) } : e.features[0].properties, [e.lngLat.lng, e.lngLat.lat]); });
+        map.on('mouseenter', 'states-fill', () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', 'states-fill', () => { map.getCanvas().style.cursor = ''; });
+        describe();
+        applyLocation();
+      });
+    }
+
+    function applyLocation() {
+      if (!map || !geo) return;
+      const src = map.getSource('me');
+      src?.setData({ type: 'FeatureCollection', features: me ? [{ type: 'Feature', geometry: { type: 'Point', coordinates: [me.lng, me.lat] }, properties: {} }] : [] });
+      myState = me ? containing(me.lng, me.lat) || null : null;
+      describe();
+    }
+
+    slider.addEventListener('input', () => { if (geo) colorize(); describe(); });
+    todayBtn.addEventListener('click', () => { slider.value = String(dayOf(todayMd) - base); if (geo) colorize(); describe(); });
+    let timer: any = null;
+    playBtn.addEventListener('click', () => {
+      if (timer) { clearInterval(timer); timer = null; playBtn.textContent = 'Play season'; return; }
+      if (+slider.value >= 90) slider.value = '0';
+      playBtn.textContent = 'Pause';
+      timer = setInterval(() => { slider.value = String(+slider.value + 1); if (geo) colorize(); describe(); if (+slider.value >= 90) { clearInterval(timer); timer = null; playBtn.textContent = 'Play season'; } }, 120);
+    });
+    locBtn.addEventListener('click', async () => { statusEl.textContent = 'Finding your location...'; const p = await requestLocation(); if (p) zoomToMe(true); });
+    homeBtn.addEventListener('click', () => { if (cfg.scope === 'state') fitState(); else fitUs(); homeBtn.hidden = true; zoomed = false; });
+
+    function zoomToMe(force: boolean) {
+      if (!map || !me) return;
+      const f = containing(me.lng, me.lat);
+      // Re-center on the visitor on the national map; on a state page only when they are in that state.
+      if (cfg.scope === 'state' && !force && f?.properties.slug !== cfg.slug) return;
+      if (cfg.scope === 'state' && f?.properties.slug !== cfg.slug) return;
+      map.flyTo({ center: [me.lng, me.lat], zoom: cfg.scope === 'us' ? 5.5 : 8, duration: 800 });
+      zoomed = true;
+      homeBtn.hidden = false;
+    }
+
+    onLocation(({ loc, status }: any) => {
+      const first = !me && !!loc;
+      me = loc ? { lat: loc.lat, lng: loc.lng } : null;
+      if (!loc && status === 'denied') statusEl.textContent = 'Location is blocked for this site in your browser settings. The map shows the whole country.';
+      applyLocation();
+      if (first && !zoomed) zoomToMe(false);
+    });
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); start(); } }, { rootMargin: '300px' });
+      io.observe(mapEl);
+    } else start();
+    describe();
+    autoLocate();
+  }
+</script>

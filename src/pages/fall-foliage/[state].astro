@@ -4,6 +4,8 @@ import PageBand from '../../components/PageBand.astro';
 import Faq from '../../components/Faq.astro';
 import FoliageMap from '../../components/FoliageMap.astro';
 import FoliageViewer from '../../components/FoliageViewer.astro';
+import FoliageTimelineMap from '../../components/FoliageTimelineMap.astro';
+import { stateOutline } from '../../lib/state-outline.mjs';
 import { foliageEmbed } from '../../lib/foliage-map.mjs';
 import { getFoliagePages } from '../../lib/foliage.mjs';
 import { fmtNum } from '../../lib/format.mjs';
@@ -66,7 +68,7 @@ if (page.stops.length) {
   <PageBand title={title} crumbs={crumbs}>
     <p>{page.dek}</p>
   </PageBand>
-  <FoliageViewer embed={embed} name={page.name} scope="state" />
+  <FoliageTimelineMap scope="state" slug={page.slug} name={page.name} bounds={stateOutline(page.slug).bounds} falls={page.stops.map((f) => ({ n: f.name, u: f.url, la: f.lat, ln: f.lng }))} />
   <article class="wrap narrow section-sm prose">
     {hero && (
       <figure class="park-photo">
@@ -181,4 +183,9 @@ if (page.stops.length) {
     </ul>
     <p><a href="/fall-foliage">All fall foliage guides</a>{page.directoryUrl ? <> · <a href={page.directoryUrl}>Waterfalls in {page.name}</a></> : ''}</p>
   </article>
+  <section class="wrap section-sm" aria-labelledby="live-h">
+    <h2 id="live-h">Live Supplement: Esri Fall Foliage Viewing</h2>
+    <p class="muted">The map above shows typical timing. This public Esri map is a separate, live-style supplement. Its colored forecast layer covers Massachusetts only, so use it for that state and treat the rest as a base map.</p>
+  </section>
+  <FoliageViewer embed={embed} name={page.name} scope="state" />
 </Base>

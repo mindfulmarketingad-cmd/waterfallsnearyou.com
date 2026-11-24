@@ -1,0 +1,312 @@
+{
+ "alabama": {
+  "begin": "10-01",
+  "peakStart": "10-25",
+  "peakEnd": "11-10",
+  "kind": "typical",
+  "note": "Tourism puts peak from late October to early November; the mountains start in early October."
+ },
+ "alaska": {
+  "begin": "08-15",
+  "peakStart": "09-01",
+  "peakEnd": "09-20",
+  "kind": "typical",
+  "note": "Interior color starts in mid-August; Southcentral peaks in September."
+ },
+ "arizona": {
+  "begin": "09-15",
+  "peakStart": "10-01",
+  "peakEnd": "10-20",
+  "kind": "typical",
+  "note": "Highest elevations begin mid-September; Flagstaff is prime in early October and the show ends in late October."
+ },
+ "arkansas": {
+  "begin": "10-01",
+  "peakStart": "10-20",
+  "peakEnd": "11-10",
+  "kind": "typical",
+  "note": "Ozarks peak in late October; south and east Arkansas follow into mid-November."
+ },
+ "california": {
+  "begin": "09-15",
+  "peakStart": "10-05",
+  "peakEnd": "11-05",
+  "kind": "typical",
+  "note": "Eastern Sierra starts mid-September; coast and valleys run through November."
+ },
+ "colorado": {
+  "begin": "09-10",
+  "peakStart": "09-20",
+  "peakEnd": "10-10",
+  "kind": "typical",
+  "note": "Aspens peak from late September into early October, later in the San Juans."
+ },
+ "connecticut": {
+  "begin": "10-01",
+  "peakStart": "10-10",
+  "peakEnd": "11-05",
+  "kind": "year",
+  "note": "Based on 2026 DEEP estimates, from northwest and northeast first to the shore and southwest last."
+ },
+ "georgia": {
+  "begin": "10-15",
+  "peakStart": "10-28",
+  "peakEnd": "11-10",
+  "kind": "year",
+  "note": "Based on the 2026 Forestry Commission forecast and reports, from the mountains down to the foothills."
+ },
+ "idaho": {
+  "begin": "09-25",
+  "peakStart": "10-01",
+  "peakEnd": "10-20",
+  "kind": "typical",
+  "note": "Historically most vibrant in early October; the south runs into early November."
+ },
+ "illinois": {
+  "begin": "09-20",
+  "peakStart": "10-10",
+  "peakEnd": "11-02",
+  "kind": "typical",
+  "note": "North peaks by mid-October, central mid to late October, south late October to early November."
+ },
+ "indiana": {
+  "begin": "10-01",
+  "peakStart": "10-12",
+  "peakEnd": "10-31",
+  "kind": "typical",
+  "note": "Mid to late October for most of the state; the far southwest is late October."
+ },
+ "iowa": {
+  "begin": "09-28",
+  "peakStart": "10-08",
+  "peakEnd": "10-28",
+  "kind": "typical",
+  "note": "Average peak is the weekend closest to October 10 in the north; the south runs into late October."
+ },
+ "kansas": {
+  "begin": "10-13",
+  "peakStart": "10-20",
+  "peakEnd": "11-03",
+  "kind": "year",
+  "note": "Based on the 2026 Kansas Tourism note, not a long-term average."
+ },
+ "kentucky": {
+  "begin": "09-15",
+  "peakStart": "10-15",
+  "peakEnd": "11-02",
+  "kind": "typical",
+  "note": "Color starts at high elevations in the east and moves west through October into early November. Sources give no exact peak week."
+ },
+ "maine": {
+  "begin": "09-20",
+  "peakStart": "10-01",
+  "peakEnd": "10-25",
+  "kind": "typical",
+  "note": "Zones 6 and 7 peak around the last week of September; the coast peaks October 21 to 27."
+ },
+ "maryland": {
+  "begin": "09-25",
+  "peakStart": "10-11",
+  "peakEnd": "11-08",
+  "kind": "year",
+  "note": "Based on the 2025 Maryland Forest Service forecast, from Garrett County to the Eastern Shore."
+ },
+ "massachusetts": {
+  "begin": "09-28",
+  "peakStart": "10-08",
+  "peakEnd": "10-22",
+  "kind": "year",
+  "note": "Based on the 2025 DCR forecast of mid-October peak for most of the state."
+ },
+ "michigan": {
+  "begin": "09-15",
+  "peakStart": "10-01",
+  "peakEnd": "10-28",
+  "kind": "typical",
+  "note": "Western U.P. turns first; the southern Lower Peninsula peaks in late October."
+ },
+ "minnesota": {
+  "begin": "09-12",
+  "peakStart": "09-20",
+  "peakEnd": "10-15",
+  "kind": "typical",
+  "note": "The DNR runs the season from late September through mid-October, starting in the northwest."
+ },
+ "mississippi": {
+  "begin": "10-20",
+  "peakStart": "10-28",
+  "peakEnd": "11-20",
+  "kind": "typical",
+  "note": "Tourism puts the statewide peak from late October through mid-November."
+ },
+ "missouri": {
+  "begin": "09-15",
+  "peakStart": "10-10",
+  "peakEnd": "10-31",
+  "kind": "typical",
+  "note": "MDC says peak is usually around mid-October, starting in the north and west."
+ },
+ "montana": {
+  "begin": "09-25",
+  "peakStart": "10-01",
+  "peakEnd": "10-25",
+  "kind": "typical",
+  "note": "Western larch peak mid to late October; alpine larch turns in October at elevation."
+ },
+ "nebraska": {
+  "begin": "09-28",
+  "peakStart": "10-12",
+  "peakEnd": "10-31",
+  "kind": "typical",
+  "note": "Color begins around the first of October in the northwest; the southeast peaks just before Halloween."
+ },
+ "nevada": {
+  "begin": "09-15",
+  "peakStart": "09-20",
+  "peakEnd": "10-10",
+  "kind": "typical",
+  "note": "Great Basin color is September or early October, before the snow."
+ },
+ "new-hampshire": {
+  "begin": "09-20",
+  "peakStart": "10-01",
+  "peakEnd": "10-25",
+  "kind": "typical",
+  "note": "Great North Woods turn in the last week of September; the south and coast peak in the second half of October."
+ },
+ "new-mexico": {
+  "begin": "09-15",
+  "peakStart": "09-28",
+  "peakEnd": "10-25",
+  "kind": "typical",
+  "note": "Mountain forests peak late September to early October; lower river cottonwoods later in October."
+ },
+ "new-york": {
+  "begin": "09-15",
+  "peakStart": "10-01",
+  "peakEnd": "10-30",
+  "kind": "typical",
+  "note": "Adirondacks start first; the Hudson Valley and Finger Lakes run into early November."
+ },
+ "north-carolina": {
+  "begin": "09-25",
+  "peakStart": "10-10",
+  "peakEnd": "11-05",
+  "kind": "typical",
+  "note": "High Country starts late September and color moves downhill toward early November."
+ },
+ "ohio": {
+  "begin": "10-01",
+  "peakStart": "10-12",
+  "peakEnd": "11-03",
+  "kind": "year",
+  "note": "Based on the 2026 forecast, from the far north in mid-October to southern Ohio at the start of November."
+ },
+ "oklahoma": {
+  "begin": "10-15",
+  "peakStart": "10-25",
+  "peakEnd": "11-10",
+  "kind": "typical",
+  "note": "TravelOK puts peak in late October and the first week of November."
+ },
+ "oregon": {
+  "begin": "10-01",
+  "peakStart": "10-12",
+  "peakEnd": "11-05",
+  "kind": "typical",
+  "note": "Central Oregon and the Willamette Valley peak mid-October; the Gorge and southern Oregon in late October."
+ },
+ "pennsylvania": {
+  "begin": "09-28",
+  "peakStart": "10-05",
+  "peakEnd": "10-31",
+  "kind": "typical",
+  "note": "DCNR runs from October 1 in the north to October 20 to 31 in the south-central and southeast."
+ },
+ "rhode-island": {
+  "begin": "10-01",
+  "peakStart": "10-12",
+  "peakEnd": "10-28",
+  "kind": "typical",
+  "note": "The change starts in the north in early October; mid to late October is the usual peak."
+ },
+ "south-carolina": {
+  "begin": "10-12",
+  "peakStart": "10-25",
+  "peakEnd": "11-10",
+  "kind": "typical",
+  "note": "Mountains begin mid-to-late October; the coast follows in November."
+ },
+ "south-dakota": {
+  "begin": "09-15",
+  "peakStart": "09-25",
+  "peakEnd": "10-15",
+  "kind": "typical",
+  "note": "The Black Hills prime season is mid-September through mid-October; lower country runs a week or two later."
+ },
+ "tennessee": {
+  "begin": "10-01",
+  "peakStart": "10-12",
+  "peakEnd": "11-05",
+  "kind": "typical",
+  "note": "East Tennessee peaks around the third week of October; middle and west Tennessee around Halloween into November."
+ },
+ "texas": {
+  "begin": "10-18",
+  "peakStart": "10-25",
+  "peakEnd": "11-15",
+  "kind": "typical",
+  "note": "Lost Maples runs the last two weeks of October through mid-November; other regions are not published."
+ },
+ "utah": {
+  "begin": "09-15",
+  "peakStart": "09-25",
+  "peakEnd": "10-08",
+  "kind": "typical",
+  "note": "Best viewing begins mid-September at the highest elevations and wraps in early October in most places."
+ },
+ "vermont": {
+  "begin": "09-15",
+  "peakStart": "09-27",
+  "peakEnd": "10-12",
+  "kind": "typical",
+  "note": "Peak stage is the last week of September and the first week of October, with late stage in mid to late October."
+ },
+ "virginia": {
+  "begin": "10-01",
+  "peakStart": "10-12",
+  "peakEnd": "11-05",
+  "kind": "typical",
+  "note": "Mountain parks mid to late October; central parks early November."
+ },
+ "washington": {
+  "begin": "09-15",
+  "peakStart": "10-05",
+  "peakEnd": "10-25",
+  "kind": "typical",
+  "note": "Mid-September to early November overall, with mid-October the best chance."
+ },
+ "west-virginia": {
+  "begin": "09-22",
+  "peakStart": "10-05",
+  "peakEnd": "10-30",
+  "kind": "typical",
+  "note": "Potomac Highlands start in late September; southern West Virginia and the Eastern Panhandle in late October."
+ },
+ "wisconsin": {
+  "begin": "09-22",
+  "peakStart": "09-28",
+  "peakEnd": "10-28",
+  "kind": "typical",
+  "note": "The north peaks the last week of September, central mid-October, the south late October."
+ },
+ "wyoming": {
+  "begin": "09-01",
+  "peakStart": "09-15",
+  "peakEnd": "10-05",
+  "kind": "typical",
+  "note": "Early September to mid-October, with Aspen Alley peaking in late September."
+ },
+ "delaware": null,
+ "north-dakota": null
+}

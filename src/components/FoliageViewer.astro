@@ -21,7 +21,7 @@ const cfg = JSON.stringify({ base: FOLIAGE_BASE, widgets: FOLIAGE_WIDGETS, scope
     <span class="fv-status small muted" role="status" aria-live="polite"></span>
   </div>
   <div class="fv-frame">
-    <iframe src={embed.src} title={embed.title} loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <iframe src={embed.src} title={embed.title} loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
   <p class="fv-cap small muted">{embed.caption} <a href={embed.src} rel="noopener" target="_blank">Open it full screen</a>.</p>
 </section>
