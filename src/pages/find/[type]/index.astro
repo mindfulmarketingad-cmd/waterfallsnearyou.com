@@ -8,6 +8,8 @@ import { getFind, FIND_YEAR } from '../../../lib/find.mjs';
 import { pagePhoto } from '../../../lib/photos.mjs';
 import { displayName, fmtNum } from '../../../lib/format.mjs';
 import { listingHref } from '../../../lib/publish.mjs';
+import StateCard from '../../../components/StateCard.astro';
+import { features, FEATURES } from '../../../lib/cards.mjs';
 import { SITE } from '../../../config.mjs';
 
 export function getStaticPaths() {
@@ -19,6 +21,13 @@ const pages = [...type.pages].sort((a, b) => a.state.name.localeCompare(b.state.
 const lower = type.short.toLowerCase();
 // Nationwide top picks: the first-ranked item from each state page, best states first.
 const top = type.built ? type.pages.map((p) => ({ p, i: p.items[0] })).slice(0, 10) : [];
+// Every waterfall on this type's state lists (plus the national list), one card each.
+const seen = new Set();
+const entries = [...type.pages.flatMap((p) => p.items), ...(type.national?.items || [])].filter((i) => i.listing && !seen.has(i.listing.id ?? i.listing.url) && seen.add(i.listing.id ?? i.listing.url));
+const listed = [...entries].sort((a, b) => b.listing.score - a.listing.score).map((i) => i.listing);
+const stateOptions = [...new Map(listed.map((l) => [l.stateSlug, l.state])).entries()].sort((a, b) => a[1].localeCompare(b[1]));
+const featOptions = Object.keys(FEATURES).map((k) => ({ k, label: FEATURES[k], count: listed.filter((l) => features(l).includes(k)).length })).filter((f) => f.count > 0);
+const hasHeights = ['tall-waterfalls', 'small-waterfalls'].includes(type.slug);
 const title = pages.length ? `${type.name} by State (${FIND_YEAR})` : `${type.name} in the US (${FIND_YEAR})`;
 const description = (type.built
   ? `${type.name} in ${pages.length} state${pages.length === 1 ? '' : 's'}, ranked. ${type.blurb}`
@@ -37,10 +46,37 @@ const schema = [
 ];
 ---
 <Base title={title} description={description} image={photo.src} imageAlt={photo.alt} breadcrumbs={crumbs} bandCrumbs schema={schema}>
-  <PageBand title={title} crumbs={crumbs} narrow />
+  <PageBand title={title} crumbs={crumbs} narrow>
+    <p>{type.blurb}</p>
+  </PageBand>
+
+  {listed.length > 0 && (
+    <section class="wrap section-sm" id="waterfalls" aria-labelledby="list-h">
+      <h2 id="list-h" class="list-count"><span data-count>{fmtNum(listed.length)}</span> {type.short.toLowerCase()} across {stateOptions.length} {stateOptions.length === 1 ? 'state' : 'states'}</h2>
+      <form class="filters" role="search" hidden onsubmit="return false">
+        <label class="sr-only" for="f-q">Search by name or town</label>
+        <input id="f-q" class="f-q" type="search" placeholder="Search by name or town..." autocomplete="off" />
+        <div class="f-row">
+          <label><span>State</span><select id="f-state"><option value="">All states</option>{stateOptions.map(([slug, n]) => <option value={slug}>{n}</option>)}</select></label>
+          <label><span>Feature</span><select id="f-feature"><option value="">All</option>{featOptions.map((f) => <option value={f.k}>{f.label} ({f.count})</option>)}</select></label>
+          <label><span>Sort</span><select id="f-sort"><option value="top">Top rated</option><option value="reviews">Most reviewed</option><option value="rating">Highest rating</option>{hasHeights && <option value="tall">Tallest first</option>}{hasHeights && <option value="short">Shortest first</option>}<option value="name">Name A to Z</option><option value="near" disabled>Nearest to me</option></select></label>
+          <button type="button" class="btn btn-outline f-reset">Reset</button>
+        </div>
+        <div class="f-row f-row2">
+          <button type="button" class="btn btn-outline f-near">Show distance from me</button>
+          <span class="f-status muted small" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+      <ol class="sc-list">
+        {listed.map((l, i) => <StateCard listing={l} rank={i + 1} />)}
+      </ol>
+      <p class="no-results muted" hidden>No waterfalls match those filters. <button type="button" class="linkish f-reset">Reset filters</button></p>
+      <p class="more-wrap" hidden><button type="button" class="btn btn-outline f-more">Show more</button></p>
+    </section>
+  )}
+
   <div class="wrap narrow section-sm">
     <div class="prose">
-      <p class="lead">{type.blurb}</p>
       {type.built
         ? <p>We publish a ranked page for each state where at least 5 waterfalls qualify. {pages.length === 1 ? 'One state meets that bar so far.' : `${pages.length} states meet that bar.`}</p>
         : <p>Each state list below ranks real visitor data for that state.</p>}
@@ -84,8 +120,130 @@ const schema = [
 </Base>
 
 <style>
+  .list-count { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--slate); margin: 0 0 12px; letter-spacing: 0; }
+  .filters { background: var(--mist); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .f-q { width: 100%; font: inherit; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+  .f-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+  .f-row label { display: flex; flex-direction: column; gap: 3px; font-size: 0.78rem; color: var(--slate-soft); flex: 1 1 150px; min-width: 0; }
+  .f-row select { font: inherit; font-size: 0.92rem; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); width: 100%; min-width: 0; }
+  .f-row .btn { padding: 8px 14px; font-size: 0.88rem; }
+  .f-row2 { align-items: center; justify-content: space-between; }
+  .no-results { padding: 20px 0; }
+  .more-wrap { text-align: center; margin: 18px 0 0; }
+  .linkish { background: none; border: 0; color: var(--forest); text-decoration: underline; cursor: pointer; font: inherit; padding: 0; }
   .find-states { list-style: none; padding: 0; margin: 12px 0 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 10px; }
   .find-states a { display: flex; flex-direction: column; gap: 2px; height: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--ink); background: #fff; }
   .find-states a:hover { border-color: var(--slate); }
   .find-states span { font-size: 0.86rem; color: var(--slate-soft); }
 </style>
+
+<script>
+  import { onLocation, requestLocation, autoLocate, miles } from '../../../scripts/location.js';
+  const root = document.getElementById('waterfalls');
+  if (root) {
+    const PAGE = 30;
+    const list = root.querySelector('.sc-list') as HTMLElement;
+    const cards = [...list.querySelectorAll<HTMLElement>('.sc')];
+    const form = root.querySelector('.filters') as HTMLFormElement;
+    const noResults = root.querySelector('.no-results') as HTMLElement;
+    const moreWrap = root.querySelector('.more-wrap') as HTMLElement;
+    const q = document.getElementById('f-q') as HTMLInputElement;
+    const stateSel = document.getElementById('f-state') as HTMLSelectElement;
+    const feature = document.getElementById('f-feature') as HTMLSelectElement;
+    const sort = document.getElementById('f-sort') as HTMLSelectElement;
+    const nearBtn = root.querySelector('.f-near') as HTMLButtonElement;
+    form.hidden = false;
+    let limit = PAGE;
+    let sortedByNear = false;
+    const norm = (s: string) => s.normalize('NFKD').replace(/[̀-ͯʻ']/g, '').toLowerCase();
+    const setIfOption = (sel: HTMLSelectElement, v: string | null) => { if (v && [...sel.options].some((o) => o.value === v)) sel.value = v; };
+    const params = new URLSearchParams(location.search);
+    q.value = (params.get('q') || '').slice(0, 60);
+    setIfOption(stateSel, params.get('state'));
+    setIfOption(feature, params.get('feature'));
+    setIfOption(sort, params.get('sort'));
+
+    function apply(resetLimit = true) {
+      if (resetLimit) limit = PAGE;
+      const term = norm(q.value.trim());
+      const visible = cards.filter((c) => {
+        const d = c.dataset;
+        if (term && !norm(`${d.name} ${d.town} ${d.county}`).includes(term)) return false;
+        if (stateSel.value && !d.url.includes(`/${stateSel.value}/`)) return false;
+        if (feature.value && !d.features.split(' ').includes(feature.value)) return false;
+        return true;
+      });
+      const by = {
+        top: (a, b) => +b.dataset.score - +a.dataset.score,
+        reviews: (a, b) => +b.dataset.reviews - +a.dataset.reviews,
+        rating: (a, b) => (+b.dataset.reviews >= 10 ? +b.dataset.rating : 0) - (+a.dataset.reviews >= 10 ? +a.dataset.rating : 0) || +b.dataset.reviews - +a.dataset.reviews,
+        tall: (a, b) => +b.dataset.height - +a.dataset.height,
+        short: (a, b) => (+a.dataset.height || 1e9) - (+b.dataset.height || 1e9),
+        name: (a, b) => a.dataset.name.localeCompare(b.dataset.name),
+        near: (a, b) => +a.dataset.dist - +b.dataset.dist,
+      }[sort.value] || (() => 0);
+      const ordered = [...visible].sort(by);
+      const rest = cards.filter((c) => !visible.includes(c));
+      list.replaceChildren(...ordered, ...rest);
+      ordered.forEach((c, i) => { c.hidden = i >= limit; c.querySelector('.sc-num').textContent = String(i + 1); });
+      rest.forEach((c) => { c.hidden = true; });
+      root.querySelector('[data-count]').textContent = ordered.length.toLocaleString('en-US');
+      noResults.hidden = ordered.length > 0;
+      moreWrap.hidden = ordered.length <= limit;
+      (root.querySelector('.f-more') as HTMLElement).textContent = `Show more (${Math.min(PAGE, ordered.length - limit)} of ${ordered.length - limit} remaining)`;
+      const p = new URLSearchParams();
+      if (q.value.trim()) p.set('q', q.value.trim());
+      if (stateSel.value) p.set('state', stateSel.value);
+      if (feature.value) p.set('feature', feature.value);
+      if (sort.value !== 'top' && sort.value !== 'near') p.set('sort', sort.value);
+      const qs = p.toString();
+      history.replaceState(null, '', `${location.pathname}${qs ? `?${qs}` : ''}#waterfalls`);
+    }
+    let t: any;
+    q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => apply(), 150); });
+    [stateSel, feature, sort].forEach((s) => s.addEventListener('change', () => apply()));
+    root.querySelectorAll('.f-reset').forEach((b) => b.addEventListener('click', () => { q.value = ''; stateSel.value = ''; feature.value = ''; sort.value = sortedByNear ? 'near' : 'top'; apply(); }));
+    root.querySelector('.f-more').addEventListener('click', () => { limit += PAGE; apply(false); });
+    document.addEventListener('click', (e) => {
+      const a = (e.target as HTMLElement).closest('a');
+      if (!a || !a.getAttribute('href')) return;
+      const url = new URL(a.href, location.href);
+      if (url.pathname !== location.pathname || url.hash !== '#waterfalls' || !url.search) return;
+      e.preventDefault();
+      q.value = ''; stateSel.value = ''; feature.value = '';
+      setIfOption(feature, url.searchParams.get('feature'));
+      setIfOption(stateSel, url.searchParams.get('state'));
+      apply();
+      root.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Distances follow the shared location, like every other filtered page.
+    nearBtn.addEventListener('click', () => { nearBtn.textContent = 'Finding your location...'; requestLocation(); });
+    onLocation(({ loc, status }) => {
+      const opt = [...sort.options].find((o) => o.value === 'near');
+      if (!loc) {
+        for (const c of cards) { delete c.dataset.dist; (c.querySelector('.sc-dist') as HTMLElement).hidden = true; }
+        opt.disabled = true;
+        if (sort.value === 'near') sort.value = 'top';
+        sortedByNear = false;
+        nearBtn.textContent = status === 'denied' ? 'Location blocked in browser settings' : status === 'unsupported' ? 'Location not supported' : status === 'error' ? 'Location unavailable. Try again' : 'Show distance from me';
+        apply(false);
+        return;
+      }
+      for (const c of cards) {
+        const d = miles(loc, { lat: +c.dataset.lat, lng: +c.dataset.lng });
+        c.dataset.dist = String(d);
+        const out = c.querySelector('.sc-dist') as HTMLElement;
+        out.textContent = `· ${d < 10 ? d.toFixed(1) : Math.round(d)} mi away`;
+        out.hidden = false;
+      }
+      opt.disabled = false;
+      if (!sortedByNear && !params.get('sort')) sort.value = 'near';
+      sortedByNear = true;
+      nearBtn.textContent = 'Distances shown from your location';
+      apply();
+    });
+    autoLocate();
+    apply();
+  }
+</script>

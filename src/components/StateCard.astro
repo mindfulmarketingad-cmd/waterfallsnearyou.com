@@ -30,6 +30,7 @@ const onerror = photo.fallback ? `this.onerror=null;this.src='${photo.fallback}'
   data-lng={l.lng.toFixed(5)}
   data-features={feats.join(' ')}
   data-url={href}
+  data-height={height ? Math.round(height.feet) : 0}
 >
   <span class="sc-num" aria-hidden="true">{rank}</span>
   <a class="sc-thumb" href={href} tabindex="-1" aria-hidden="true">

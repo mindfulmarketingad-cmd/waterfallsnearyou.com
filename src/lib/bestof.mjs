@@ -8,6 +8,7 @@
 import { loadData, miles, bearing } from './core.mjs';
 import { stateContent, regionForCounty } from './insights.mjs';
 import { fmtMiles, listJoin } from './format.mjs';
+import { trailFor } from './trails.mjs';
 
 export const BEST_YEAR = 2026;
 // Date the programmatic list posts were first published (their content refreshes on every build).
@@ -228,7 +229,9 @@ const EASY = /easy|short|flat|paved|accessible|kids|family/i;
 const HARD = /steep|elevation|strenuous|rocky|climb|difficult|incline|scramble/i;
 function buildHiking(state, ctx) {
   const evidence = (l) => [...(l.os?.reviewTags || []), l.os?.description || ''].filter((t) => HIKE.test(t));
-  const cands = ctx.rated.filter((l) => evidence(l).length);
+  // A listing also counts when a hand-checked trip note or OpenStreetMap gives it a named trail or a distance.
+  const trailOf = (l) => trailFor(l.url);
+  const cands = ctx.rated.filter((l) => evidence(l).length || trailOf(l));
   if (cands.length < 5) return null;
   const M = 15;
   const bayes = (l) => (l.os.reviews / (l.os.reviews + M)) * l.os.rating + (M / (l.os.reviews + M)) * ctx.C;
@@ -243,6 +246,7 @@ function buildHiking(state, ctx) {
       easy.length && !hard.length ? `Reviewers describe the hike with words like ${listJoin(easy.slice(0, 3).map((t) => `"${t}"`))}, so it suits most hikers.` : null,
       hard.length && !easy.length ? `Expect effort: reviewers mention ${listJoin(hard.slice(0, 3).map((t) => `"${t}"`))}.` : null,
       hard.length && easy.length ? `Reviews are mixed on difficulty, mentioning both ${listJoin(easy.slice(0, 2).map((t) => `"${t}"`))} and ${listJoin(hard.slice(0, 2).map((t) => `"${t}"`))}.` : null,
+      (() => { const t = trailOf(l); return t && (t.name || t.distance) ? `Trail: ${[t.name, t.distance?.text].filter(Boolean).join(', ')}.` : null; })(),
       `It is rated ${l.os.rating.toFixed(1)} stars by ${fmt(l.os.reviews)} Google reviewers.`,
       cluster.length ? `${cluster.length} more named waterfall${cluster.length === 1 ? ' is' : 's are'} within 5 miles (${listJoin(cluster.slice(0, 2).map((n) => n.listing.name))}), so there is more to explore nearby.` : null,
       summit ? `${summit.name}, a summit ${fmtMiles(summit.miles)} away, rises above the area.` : null,
@@ -254,7 +258,7 @@ function buildHiking(state, ctx) {
     short: 'Best Waterfall Hikes',
     title: `${items.length} Best Waterfall Hiking Locations in ${state.name} (${BEST_YEAR} Updated)`,
     description: `The ${items.length} best waterfall hikes in ${state.name}, from ${items[0].listing.name} to ${items[items.length - 1].listing.name}, with trail notes from reviews.`.slice(0, 160),
-    method: `We started with the ${cands.length} publicly accessible ${state.name} waterfalls whose reviews or listing mention hiking, trails or walks, then ranked them by a weighted Google rating. Difficulty notes quote what reviewers say; always check current trail conditions with the land manager.`,
+    method: `We started with the ${cands.length} publicly accessible ${state.name} waterfalls whose reviews or listing mention hiking, trails or walks, or that have a documented trail, then ranked them by a weighted Google rating. Difficulty notes quote what reviewers say; always check current trail conditions with the land manager.`,
     whyHeading: 'Why hike it',
   });
 }
