@@ -52,7 +52,13 @@ const schema = [
 
   {listed.length > 0 && (
     <section class="wrap section-sm" id="waterfalls" aria-labelledby="list-h">
-      <h2 id="list-h" class="list-count"><span data-count>{fmtNum(listed.length)}</span> {type.short.toLowerCase()} across {stateOptions.length} {stateOptions.length === 1 ? 'state' : 'states'}</h2>
+      <div class="list-head">
+        <h2 id="list-h" class="list-count"><span data-count>{fmtNum(listed.length)}</span> {type.short.toLowerCase()} across {stateOptions.length} {stateOptions.length === 1 ? 'state' : 'states'}</h2>
+        <div class="view-toggle" role="group" aria-label="View" hidden>
+          <button type="button" class="vt-btn" data-view="list" aria-pressed="true">List</button>
+          <button type="button" class="vt-btn" data-view="map" aria-pressed="false">Map</button>
+        </div>
+      </div>
       <form class="filters" role="search" hidden onsubmit="return false">
         <label class="sr-only" for="f-q">Search by name or town</label>
         <input id="f-q" class="f-q" type="search" placeholder="Search by name or town..." autocomplete="off" />
@@ -67,6 +73,7 @@ const schema = [
           <span class="f-status muted small" role="status" aria-live="polite"></span>
         </div>
       </form>
+      <div class="state-map" hidden aria-label={`Map of ${type.short.toLowerCase()}`}></div>
       <ol class="sc-list">
         {listed.map((l, i) => <StateCard listing={l} rank={i + 1} />)}
       </ol>
@@ -120,6 +127,13 @@ const schema = [
 </Base>
 
 <style>
+  .list-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .list-head .list-count { margin: 0; }
+  .view-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .vt-btn { border: 0; background: #fff; padding: 7px 16px; font: inherit; font-size: 0.88rem; font-weight: 600; color: var(--slate); cursor: pointer; }
+  .vt-btn[aria-pressed='true'] { background: var(--forest); color: #fff; }
+  .state-map { height: 600px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 16px; background: var(--mist); }
+  @media (max-width: 700px) { .state-map { height: 440px; } }
   .list-count { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--slate); margin: 0 0 12px; letter-spacing: 0; }
   .filters { background: var(--mist); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 10px; }
   .f-q { width: 100%; font: inherit; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
@@ -153,6 +167,12 @@ const schema = [
     const sort = document.getElementById('f-sort') as HTMLSelectElement;
     const nearBtn = root.querySelector('.f-near') as HTMLButtonElement;
     form.hidden = false;
+    const toggle = root.querySelector('.view-toggle') as HTMLElement;
+    const mapEl = root.querySelector('.state-map') as HTMLElement;
+    toggle.hidden = false;
+    let mapApi: any = null;
+    let mapOpen = false;
+    let lastOrdered: HTMLElement[] = cards;
     let limit = PAGE;
     let sortedByNear = false;
     const norm = (s: string) => s.normalize('NFKD').replace(/[̀-ͯʻ']/g, '').toLowerCase();
@@ -198,7 +218,38 @@ const schema = [
       if (sort.value !== 'top' && sort.value !== 'near') p.set('sort', sort.value);
       const qs = p.toString();
       history.replaceState(null, '', `${location.pathname}${qs ? `?${qs}` : ''}#waterfalls`);
+      lastOrdered = ordered;
+      if (mapOpen && mapApi) mapApi.setPoints(ordered.map(toPoint));
     }
+    // Map view (MapLibre + OpenFreeMap), loaded the first time it is opened. It plots every match,
+    // not just the cards on screen, and follows the filters and the visitor's location.
+    const toPoint = (c: HTMLElement) => ({ n: c.querySelector('.sc-name a').textContent, u: c.dataset.url, la: +c.dataset.lat, ln: +c.dataset.lng, t: c.dataset.town, k: 'page', r: +c.dataset.rating || 0, c: +c.dataset.reviews || 0 });
+    async function setView(view: string) {
+      toggle.querySelectorAll('.vt-btn').forEach((b: HTMLElement) => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
+      mapOpen = view === 'map';
+      mapEl.hidden = !mapOpen;
+      list.hidden = mapOpen;
+      moreWrap.hidden = mapOpen || lastOrdered.length <= limit;
+      if (!mapOpen) return;
+      const pts = lastOrdered.map(toPoint);
+      if (!mapApi) {
+        const { createWaterfallMap } = await import('../../../scripts/wmap.js');
+        mapApi = await createWaterfallMap(mapEl, pts, { padding: 40, byKind: true, fullscreen: true, scale: true }).catch(() => null);
+        if (!mapApi) { mapEl.textContent = 'The map could not load. The list still works.'; return; }
+        await mapApi.ready;
+        const m = mapApi.map;
+        m.addSource('me', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+        m.addLayer({ id: 'me-halo', type: 'circle', source: 'me', paint: { 'circle-radius': 16, 'circle-color': '#1d6fe0', 'circle-opacity': 0.18 } });
+        m.addLayer({ id: 'me', type: 'circle', source: 'me', paint: { 'circle-radius': 7, 'circle-color': '#1d6fe0', 'circle-stroke-color': '#fff', 'circle-stroke-width': 2.5 } });
+        drawMe();
+      } else { mapApi.map.resize(); mapApi.setPoints(pts); }
+    }
+    let here: { lat: number; lng: number } | null = null;
+    function drawMe() {
+      const src = mapApi?.map.getSource('me');
+      if (src) src.setData({ type: 'FeatureCollection', features: here ? [{ type: 'Feature', geometry: { type: 'Point', coordinates: [here.lng, here.lat] }, properties: {} }] : [] });
+    }
+    toggle.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('.vt-btn') as HTMLElement; if (b) setView(b.dataset.view); });
     let t: any;
     q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => apply(), 150); });
     [stateSel, feature, sort].forEach((s) => s.addEventListener('change', () => apply()));
@@ -220,6 +271,8 @@ const schema = [
     // Distances follow the shared location, like every other filtered page.
     nearBtn.addEventListener('click', () => { nearBtn.textContent = 'Finding your location...'; requestLocation(); });
     onLocation(({ loc, status }) => {
+      here = loc ? { lat: loc.lat, lng: loc.lng } : null;
+      drawMe();
       const opt = [...sort.options].find((o) => o.value === 'near');
       if (!loc) {
         for (const c of cards) { delete c.dataset.dist; (c.querySelector('.sc-dist') as HTMLElement).hidden = true; }
