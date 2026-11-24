@@ -1,0 +1,102 @@
+---
+// Wide fall foliage map at the top of /fall-foliage and every state foliage page. It is the public
+// Esri "Fall Foliage Viewing" experience. A script re-centers it on the visitor using the shared
+// location module (browser location only, never sent to a server).
+import { FOLIAGE_WIDGETS, FOLIAGE_BASE, US_BOUNDS } from '../lib/foliage-map.mjs';
+
+interface Props {
+  embed: { src: string; title: string; caption: string; bounds: any; center: any; scale: number };
+  name: string;                   // "the United States" or a state name
+  scope: 'us' | 'state';
+  nearest?: { name: string; url: string; lat: number; lng: number }[];
+}
+const { embed, name, scope, nearest = [] } = Astro.props;
+const bounds = scope === 'us' ? US_BOUNDS : embed.bounds;
+const cfg = JSON.stringify({ base: FOLIAGE_BASE, widgets: FOLIAGE_WIDGETS, scope, name, bounds, home: embed.src, nearest }).replace(/</g, '\\u003c');
+---
+<section class="fv" id="fall-foliage-map" aria-label={`Fall foliage map of ${name}`} data-fv={cfg}>
+  <div class="fv-bar">
+    <button type="button" class="btn btn-outline fv-loc" hidden>Center on my location</button>
+    <button type="button" class="btn btn-outline fv-home" hidden>{scope === 'us' ? 'Show the whole U.S.' : `Show all of ${name}`}</button>
+    <span class="fv-status small muted" role="status" aria-live="polite"></span>
+  </div>
+  <div class="fv-frame">
+    <iframe src={embed.src} title={embed.title} loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+  <p class="fv-cap small muted">{embed.caption} <a href={embed.src} rel="noopener" target="_blank">Open it full screen</a>.</p>
+</section>
+
+<style is:global>
+  .fv { width: 100%; max-width: 1480px; margin: 0 auto; padding: 14px 16px 6px; }
+  .fv-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 8px; min-height: 40px; }
+  .fv-bar .btn { padding: 8px 14px; font-size: 0.88rem; }
+  .fv-frame { position: relative; width: 100%; height: clamp(420px, 72vh, 760px); background: var(--mist); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .fv-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; border: 0; }
+  .fv-cap { margin: 8px 0 0; }
+  @media (max-width: 700px) { .fv-frame { height: 70vh; } }
+</style>
+
+<script>
+  import { onLocation, requestLocation, autoLocate, miles, fmtMiles } from '../scripts/location.js';
+
+  const root = document.getElementById('fall-foliage-map');
+  if (root) {
+    const cfg = JSON.parse(root.dataset.fv);
+    const frame = root.querySelector('.fv-frame') as HTMLElement;
+    const status = root.querySelector('.fv-status') as HTMLElement;
+    const locBtn = root.querySelector('.fv-loc') as HTMLButtonElement;
+    const homeBtn = root.querySelector('.fv-home') as HTMLButtonElement;
+    locBtn.hidden = !('geolocation' in navigator);
+    let me: { lat: number; lng: number } | null = null;
+    let shown = 'home';
+
+    const within = (b, p, pad = 0) => p.lng >= b.west - pad && p.lng <= b.east + pad && p.lat >= b.south - pad && p.lat <= b.north + pad;
+    // Rebuild the iframe: the experience only reads the viewpoint when it loads.
+    function view(src: string, which: string) {
+      const f = document.createElement('iframe');
+      const old = frame.querySelector('iframe');
+      f.src = src; f.title = old.title; f.referrerPolicy = 'strict-origin-when-cross-origin';
+      old.replaceWith(f);
+      shown = which;
+      homeBtn.hidden = which === 'home';
+    }
+    function centeredOn(p, scale) {
+      const vp = encodeURIComponent(JSON.stringify({ rotation: 0, scale, targetGeometry: { spatialReference: { wkid: 4326, latestWkid: 4326 }, x: +p.lng.toFixed(4), y: +p.lat.toFixed(4) } }));
+      return `${cfg.base}#${cfg.widgets.map((id) => `${id}=viewpoint:${vp}`).join('&')}`;
+    }
+    const closest = () => cfg.nearest.map((s) => ({ ...s, d: miles(me, s) })).sort((a, b) => a.d - b.d)[0];
+
+    function describe(centered: boolean) {
+      if (!me) return;
+      if (cfg.scope === 'us') {
+        const n = closest();
+        const inUs = within(cfg.bounds, me, 1);
+        status.replaceChildren(document.createTextNode(inUs ? (centered ? 'Centered on your location. ' : 'Your location is on the map. ') : 'Your location is outside the contiguous U.S., so the national view stays. '));
+        if (n && inUs) { const a = document.createElement('a'); a.href = n.url; a.textContent = `Closest state guide: ${n.name}`; status.append(a, document.createTextNode(` (${fmtMiles(n.d)} from its center)`)); }
+      } else status.textContent = within(cfg.bounds, me, 0.3) ? `Centered on your location in ${cfg.name}.` : `You are outside ${cfg.name}. The map stays on the state.`;
+    }
+
+    onLocation(({ loc, status: st }) => {
+      if (!loc) {
+        me = null;
+        if (st === 'denied') status.textContent = 'Location is blocked for this site in your browser settings. The map shows the default view.';
+        else if (st === 'unsupported') status.textContent = '';
+        if (shown !== 'home') view(cfg.home, 'home');
+        return;
+      }
+      me = { lat: loc.lat, lng: loc.lng };
+      // Automatic re-center: the national page zooms to you anywhere in the U.S.; a state page
+      // only when you are in or next to that state, so it never leaves the state it is about.
+      const auto = cfg.scope === 'us' ? within(cfg.bounds, me, 1) : within(cfg.bounds, me, 0.3);
+      if (auto && shown !== 'me') view(centeredOn(me, cfg.scope === 'us' ? 3000000 : 1500000), 'me');
+      describe(auto);
+    });
+    locBtn.addEventListener('click', async () => {
+      status.textContent = 'Finding your location...';
+      const p = await requestLocation();
+      if (p) { me = { lat: p.lat, lng: p.lng }; view(centeredOn(me, cfg.scope === 'us' ? 3000000 : 1500000), 'me'); describe(true); }
+    });
+    homeBtn.addEventListener('click', () => { view(cfg.home, 'home'); status.textContent = ''; });
+    autoLocate();
+  }
+</script>

@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import PageBand from '../../components/PageBand.astro';
 import Faq from '../../components/Faq.astro';
 import FoliageMap from '../../components/FoliageMap.astro';
+import FoliageViewer from '../../components/FoliageViewer.astro';
+import { foliageEmbed } from '../../lib/foliage-map.mjs';
 import { getFoliagePages } from '../../lib/foliage.mjs';
 import { fmtNum } from '../../lib/format.mjs';
 import { SITE } from '../../config.mjs';
@@ -19,7 +21,8 @@ const crumbs = [
   { name: 'Fall Foliage', url: '/fall-foliage' },
   { name: page.name, url: page.url },
 ];
-const title = `Fall foliage in ${page.name}`;
+const title = `${page.name} Fall Foliage Map`;
+const embed = foliageEmbed(page.slug, page.name);
 const description = page.dek.length <= 160 ? page.dek : `${page.dek.slice(0, 157).replace(/\s+\S*$/, '')}...`;
 const sources = [];
 const add = (titleText, url) => {
@@ -63,6 +66,7 @@ if (page.stops.length) {
   <PageBand title={title} crumbs={crumbs}>
     <p>{page.dek}</p>
   </PageBand>
+  <FoliageViewer embed={embed} name={page.name} scope="state" />
   <article class="wrap narrow section-sm prose">
     {hero && (
       <figure class="park-photo">

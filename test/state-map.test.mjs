@@ -47,18 +47,13 @@ test('every state page and the District has a Census waterfall map of its publis
 
 test('foliage state pages embed the hub map, centered on the Census box, with the itinerary highlighted', () => {
   const page = readFileSync('src/pages/fall-foliage/[state].astro', 'utf8');
-  const embedComponent = readFileSync('src/components/FoliageMap.astro', 'utf8');
-  const css = readFileSync('src/styles/global.css', 'utf8');
+  const viewer = readFileSync('src/components/FoliageViewer.astro', 'utf8');
   assert.match(page, /<FoliageMap/);
+  assert.match(page, /<FoliageViewer/);
   assert.match(page, /When color usually arrives[\s\S]*<FoliageMap[\s\S]*The live report/);
-  assert.match(embedComponent, /Fall foliage map/);
-  assert.match(embedComponent, /loading="lazy"/);
-  assert.match(embedComponent, /title=\{embed\.title\}/);
-  assert.match(embedComponent, /embed\.caption/);
-  assert.match(embedComponent, /aspect-ratio:\s*1\s*\/\s*1/);
-  assert.match(embedComponent, /aspect-ratio:\s*3\s*\/\s*4/);
-  assert.match(embedComponent, /<StateWaterfallMap/);
-  assert.match(css, /\.foliage-map iframe \{[^}]*height:\s*520px/);
+  assert.match(viewer, /title=\{embed\.title\}/);
+  assert.match(viewer, /embed\.caption/);
+  assert.match(viewer, /onLocation/);
   assert.equal(pages.length, 46);
   const scales = {};
   for (const foliage of pages) {

@@ -31,10 +31,10 @@ function mercY(lat) {
   return EARTH * Math.log(Math.tan(Math.PI / 4 + phi / 2));
 }
 
-export function foliageMapScale(bounds) {
+export function foliageMapScale(bounds, paneW = PANE_WIDTH, paneH = PANE_HEIGHT) {
   const width = Math.abs(mercX(bounds.east) - mercX(bounds.west));
   const height = Math.abs(mercY(bounds.north) - mercY(bounds.south));
-  const resolution = Math.max((width * PANE_PAD) / PANE_WIDTH, (height * PANE_PAD) / PANE_HEIGHT);
+  const resolution = Math.max((width * PANE_PAD) / paneW, (height * PANE_PAD) / paneH);
   return Math.max(1000, Math.round(resolution * DPI * INCHES_PER_METER));
 }
 
@@ -60,6 +60,28 @@ export function foliageEmbed(slug, name) {
     lead: `${hubCopy.esri.lead} For ${name}, it opens centered on the state. The center is the middle of the state's bounding box in the U.S. Census Bureau cartographic boundary, 2017 edition. The colored prediction layer in the experience is the Massachusetts Department of Conservation and Recreation forecast published in that app. It is not a forecast for any other state.`,
     attribution: hubCopy.esri.caption,
     bounds,
+    center: { lon, lat },
+    scale,
+  };
+}
+
+export const FOLIAGE_WIDGETS = MAP_WIDGETS;
+export const FOLIAGE_BASE = hubCopy.esri.url;
+// Contiguous U.S. box used for the national view and for deciding whether a visitor is inside it.
+export const US_BOUNDS = { west: -125, south: 24.4, east: -66.9, north: 49.6 };
+
+// Wide national embed: the same Esri experience centered on the contiguous United States.
+export function foliageUsEmbed() {
+  const lon = Math.round(((US_BOUNDS.west + US_BOUNDS.east) / 2) * 10000) / 10000;
+  const lat = Math.round(((US_BOUNDS.south + US_BOUNDS.north) / 2) * 10000) / 10000;
+  const scale = foliageMapScale(US_BOUNDS, 1000, 480);
+  const viewpoint = encodeURIComponent(JSON.stringify({ rotation: 0, scale, targetGeometry: { spatialReference: { wkid: 4326, latestWkid: 4326 }, x: lon, y: lat } }));
+  const hash = MAP_WIDGETS.map((id) => `${id}=viewpoint:${viewpoint}`).join('&');
+  return {
+    src: `${hubCopy.esri.url}#${hash}`,
+    title: hubCopy.esri.title,
+    caption: hubCopy.esri.caption,
+    bounds: US_BOUNDS,
     center: { lon, lat },
     scale,
   };

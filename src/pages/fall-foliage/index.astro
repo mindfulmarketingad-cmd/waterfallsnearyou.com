@@ -2,13 +2,18 @@
 import Base from '../../layouts/Base.astro';
 import PageBand from '../../components/PageBand.astro';
 import { getFoliageHub } from '../../lib/foliage.mjs';
+import FoliageViewer from '../../components/FoliageViewer.astro';
+import { foliageUsEmbed } from '../../lib/foliage-map.mjs';
+import { stateOutline } from '../../lib/state-outline.mjs';
 import { SITE } from '../../config.mjs';
 
 const hub = getFoliageHub();
 const hero = hub.images[0];
 const rest = hub.images.slice(1);
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Fall Foliage', url: '/fall-foliage' }];
-const title = 'Fall foliage by state';
+const title = 'United States Fall Foliage Map';
+const usEmbed = foliageUsEmbed();
+const nearest = hub.states.map((st) => { const b = stateOutline(st.slug).bounds; return { name: st.name, url: st.url, lat: (b.south + b.north) / 2, lng: (b.west + b.east) / 2 }; });
 const description = hub.dek.length <= 160 ? hub.dek : `${hub.dek.slice(0, 157).replace(/\s+\S*$/, '')}...`;
 const schema = [{
   '@type': 'CollectionPage',
@@ -22,6 +27,7 @@ const schema = [{
   <PageBand title={title} crumbs={crumbs}>
     <p>{hub.dek}</p>
   </PageBand>
+  <FoliageViewer embed={usEmbed} name="the United States" scope="us" nearest={nearest} />
   <article class="wrap narrow section-sm prose">
     {hero && (
       <figure class="park-photo">
@@ -54,20 +60,7 @@ const schema = [{
       </section>
     ))}
 
-    <h2>A public foliage map</h2>
-    <p>{hub.esri.lead}</p>
-    <figure class="foliage-map">
-      <iframe
-        src={hub.esri.url}
-        title={hub.esri.title}
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        height="520"
-      ></iframe>
-      <figcaption>{hub.esri.caption} <a href={hub.esri.url} rel="noopener" target="_blank">Open the Esri experience</a>.</figcaption>
-    </figure>
-
-    <h2>State guides</h2>
+    <h2>Fall Foliage Guides by State</h2>
     <p>{hub.indexLead}</p>
     <ul class="park-index">
       {hub.states.map((s) => (
