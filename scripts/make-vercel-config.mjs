@@ -25,6 +25,7 @@ const config = {
   framework: 'astro',
   buildCommand: 'npm run build',
   outputDirectory: 'dist',
+  ignoreCommand: 'sh scripts/vercel-ignore.sh',
   cleanUrls: true,
   trailingSlash: false,
   headers: [
