@@ -103,7 +103,7 @@ const json = JSON.stringify(pts).replace(/</g, '\\u003c');
     const norm = (s: string) => s.normalize('NFKD').replace(/[̀-ͯʻ']/g, '').toLowerCase();
 
     root.hidden = false;
-    document.getElementById('state-static')?.setAttribute('hidden', '');
+    document.getElementById('state-waterfall-map')?.setAttribute('hidden', '');
 
     let me: { lat: number; lng: number } | null = null;
     let status = 'unknown';
