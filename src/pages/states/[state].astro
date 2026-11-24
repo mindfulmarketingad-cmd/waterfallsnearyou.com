@@ -98,34 +98,6 @@ const schema = [
     <p>{fmtNum(n)} named waterfall{n === 1 ? '' : 's'} in {state.name}. {pages.length ? `${fmtNum(pages.length)} have a full page, with ratings, directions and conditions. ` : ''}The rest are listed by name and coordinates further down. Confirm access before you go. Trails and roads can close after storms.</p>
   </PageBand>
 
-  {content && (
-    <section class="wrap section-sm prose" aria-labelledby="overview">
-      <h2 id="overview">{n > 20 ? `Why ${state.name} Has So Many Waterfalls` : n > 3 ? `Where ${state.name}'s Waterfalls Are` : `Why ${state.name} Has So Few Waterfalls`}</h2>
-      {content.overview.map((p) => <p>{p}</p>)}
-    </section>
-  )}
-
-  {content && (
-    <section class="wrap section-sm prose" aria-labelledby="plan-h">
-      <h2 id="plan-h">Planning a {state.name} waterfall trip</h2>
-      <p>{content.bestTime}</p>
-      <p>{content.planning}</p>
-      {pages.length > 0 && <p><a class="btn btn-outline" href="#waterfalls" data-open-map>Search the {state.name} map</a></p>}
-    </section>
-  )}
-
-  {all.length > 0 && (
-    <section class="wrap section-sm" id="state-explorer-section" aria-labelledby="sx-h">
-      <StateMapExplorer name={state.name} slug={state.slug} listings={all} />
-    </section>
-  )}
-
-  <section class="wrap section-sm" id="state-waterfall-map" aria-labelledby="state-waterfall-map-h">
-    <StateWaterfallMap slug={state.slug} name={state.name} mapHref={`/map/${state.slug}`} headingId="state-waterfall-map-h" />
-  </section>
-
-  {mapBook?.available && <MapBookOffer book={mapBook} />}
-
   {pages.length > 0 && (
   <section class="wrap section-sm" id="waterfalls" aria-labelledby="list-h">
     <div class="list-head">
@@ -161,6 +133,34 @@ const schema = [
     <TripCta place={state.name} />
   </section>
   )}
+
+  {all.length > 0 && (
+    <section class="wrap section-sm" id="state-explorer-section" aria-labelledby="sx-h">
+      <StateMapExplorer name={state.name} slug={state.slug} listings={all} />
+    </section>
+  )}
+
+  {content && (
+    <section class="wrap section-sm prose" aria-labelledby="overview">
+      <h2 id="overview">{n > 20 ? `Why ${state.name} Has So Many Waterfalls` : n > 3 ? `Where ${state.name}'s Waterfalls Are` : `Why ${state.name} Has So Few Waterfalls`}</h2>
+      {content.overview.map((p) => <p>{p}</p>)}
+    </section>
+  )}
+
+  {content && (
+    <section class="wrap section-sm prose" aria-labelledby="plan-h">
+      <h2 id="plan-h">Planning a {state.name} waterfall trip</h2>
+      <p>{content.bestTime}</p>
+      <p>{content.planning}</p>
+      {pages.length > 0 && <p><a class="btn btn-outline" href="#waterfalls" data-open-map>Search the {state.name} map</a></p>}
+    </section>
+  )}
+
+  <section class="wrap section-sm" id="state-waterfall-map" aria-labelledby="state-waterfall-map-h">
+    <StateWaterfallMap slug={state.slug} name={state.name} mapHref={`/map/${state.slug}`} headingId="state-waterfall-map-h" />
+  </section>
+
+  {mapBook?.available && <MapBookOffer book={mapBook} />}
 
   {guideTowns.length > 0 && (
   <section class="wrap section-sm" aria-labelledby="towns-h">
